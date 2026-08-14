@@ -37,6 +37,27 @@
         "https://venturebeat.com/technology/meta-returns-to-open-source-with-muse-glimmer-an-apache-2-0-licensed-30b-parameter-ai-model-optimized-for-agents-available-now"
       ],
       "layout": "numeral"
+    },
+    {
+      "date": "2026-08-14-c",
+      "topic": "سامسونج وموستيريان توقّعان عقداً لبناء مراكز بيانات عائمة بقدرة 50 ميغاواط قبالة تكساس",
+      "keywords": [
+        "Samsung",
+        "مراكز بيانات",
+        "عائمة",
+        "تبريد",
+        "طاقة",
+        "بنية تحتية"
+      ],
+      "theme": "amber",
+      "layout": "stencil",
+      "permalink": "https://www.instagram.com/p/DcBSnfbHwSf/",
+      "media_id": "18221683507335209",
+      "sources": [
+        "https://www.datacenterknowledge.com/next-gen-data-centers/samsung-takes-floating-data-center-plans-into-engineering-phase",
+        "https://www.theregister.com/on-prem/2026/08/05/samsung-and-mousterian-move_ahead_with_floating_datacenter_for_texas/5283505",
+        "https://www.prnewswire.com/news-releases/mousterian-corporation-and-samsung-heavy-industries-sign-engineering-contract-for-the-partnerships-first-floating-data-center-deployment-in-the-united-states-302841432.html"
+      ]
     }
   ]
 }
