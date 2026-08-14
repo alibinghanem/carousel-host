@@ -1,0 +1,17 @@
+{
+  "_description": "سجل المنشورات اليومية — تقرأه المهمة المجدولة لتفادي تكرار المواضيع، وتضيف إليه سطراً بعد كل نشر ناجح.",
+  "posts": [
+    {
+      "date": "2026-08-14",
+      "topic": "تطبيق جيميناي من جوجل يتجاوز مليار مستخدم نشط شهرياً",
+      "keywords": ["Gemini", "Google", "مستخدمين", "منافسة المساعدات الذكية"],
+      "theme": "indigo",
+      "permalink": "https://www.instagram.com/p/DcA-APgkkzR/",
+      "media_id": "18101022704339869",
+      "sources": [
+        "https://blog.google/innovation-and-ai/products/gemini-app/one-billion-monthly-users/",
+        "https://techcrunch.com/2026/08/11/googles-gemini-app-surges-to-one-billion-users/"
+      ]
+    }
+  ]
+}
