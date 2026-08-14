@@ -10,6 +10,7 @@
 
 آمن للتكرار: يفحص أولاً ولا يعدّل شيئاً إن كان سليماً.
 """
+import json
 import pathlib
 import subprocess
 import sys
@@ -94,7 +95,53 @@ def main():
     avatar = SKILL / "assets" / "avatar.png"
     print(f"{'✓' if avatar.exists() else '⚠'} الصورة الشخصية لشريحة cta")
 
+    design_brief()
     print("\nPREFLIGHT_OK")
+
+
+ALL_LAYOUTS = ["numeral", "manchette", "stencil", "band", "ledger"]
+ALL_THEMES = ["indigo", "emerald", "crimson", "amber", "violet", "steel", "paper"]
+
+
+def design_brief():
+    """يطبع توجيه التصميم وما استُخدم مؤخراً حتى لا تتكرر التصاميم.
+
+    التشغيل المجدول يقرأ هذه المخرجات، فهي القناة التي تصل بها قواعد
+    التنويع إليه حتى لو لم يُحدَّث نص المهمة نفسه.
+    """
+    root = pathlib.Path(__file__).resolve().parent.parent
+    used_layouts, used_themes, recent = [], [], []
+    pj = root / "posts.json"
+    if pj.exists():
+        try:
+            posts = json.loads(pj.read_text(encoding="utf-8")).get("posts", [])
+            recent = posts[-3:]
+            used_layouts = [p.get("layout") for p in recent if p.get("layout")]
+            used_themes = [p.get("theme") for p in recent if p.get("theme")]
+        except (ValueError, OSError):
+            pass
+
+    free_l = [x for x in ALL_LAYOUTS if x not in used_layouts]
+    free_t = [x for x in ALL_THEMES if x not in used_themes]
+
+    print("\n" + "═" * 62)
+    print("توجيه التصميم — إلزامي")
+    print("═" * 62)
+    print("استخدم المولّد متعدد التخطيطات، لا render.py الخاص بالمهارة:")
+    print("    python3 tools/render_v2.py slides.json ./out")
+    print("المولّد الأصلي يمرّر كل غلاف عبر قالب واحد، فتبدو المنشورات")
+    print("متطابقة في شبكة الحساب. التفاصيل الكاملة في DAILY_TASK.md.")
+    print()
+    if recent:
+        print("آخر المنشورات استخدمت:")
+        for p in recent:
+            print(f"  · {p.get('date','?')} — تخطيط {p.get('layout','?')}"
+                  f" / ثيم {p.get('theme','?')}")
+    print(f"\nتخطيطات متاحة لم تُستخدم مؤخراً: {' · '.join(free_l) or 'لا شيء — دوّر يدوياً'}")
+    print(f"ثيمات متاحة لم تُستخدم مؤخراً: {' · '.join(free_t) or 'لا شيء — دوّر يدوياً'}")
+    if "paper" in free_t:
+        print("اقتراح: paper أرضية فاتحة — أقوى كاسر للرتابة وسط منشورات داكنة.")
+    print("═" * 62)
 
 
 if __name__ == "__main__":
