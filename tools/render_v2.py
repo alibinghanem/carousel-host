@@ -105,12 +105,17 @@ def esc(s):
     return str(s).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
+
+def ar_cls(text):
+    """الحقول الرقمية تُجبَر على اتجاه لاتيني؛ العربية فيها تحتاج استثناءً."""
+    return " ar" if any("\u0600" <= ch <= "\u06FF" for ch in str(text)) else ""
+
 def _rows_html(rows, cls="ledrow"):
     out = []
     for r in rows or []:
         out.append(
             f'<div class="{cls}">'
-            f'<span class="ledval">{esc(r.get("value", ""))}</span>'
+            f'<span class="ledval{ar_cls(r.get("value", ""))}">{esc(r.get("value", ""))}</span>'
             f'<span class="ledlab">{esc(r.get("label", ""))}</span>'
             f'</div>'
         )
@@ -123,7 +128,7 @@ def cover_numeral(s):
     """رقم ضخم متدرّج في الوسط — للأخبار التي يكون الرقم فيها هو القصة."""
     kicker = s.get("kicker") or s.get("badge")
     k = f'<div class="chip">{esc(kicker)}</div>' if kicker else ""
-    big = f'<div class="mega">{esc(s["big"])}</div>' if s.get("big") else ""
+    big = f'<div class="mega{ar_cls(s["big"])}">{esc(s["big"])}</div>' if s.get("big") else ""
     sub = f'<div class="sub">{esc(s["sub"])}</div>' if s.get("sub") else ""
     return f'''<div class="wrap center">
         {k}{big}
@@ -136,7 +141,7 @@ def cover_manchette(s):
     """مانشيت: العنوان نفسه هو الصورة — بلا رقم، على خط عريض."""
     kicker = s.get("kicker") or s.get("badge")
     k = f'<div class="eyebrow">{esc(kicker)}</div>' if kicker else ""
-    tag = f'<div class="mantag">{esc(s["big"])}</div>' if s.get("big") else ""
+    tag = f'<div class="mantag{ar_cls(s["big"])}">{esc(s["big"])}</div>' if s.get("big") else ""
     sub = f'<div class="sub man">{esc(s["sub"])}</div>' if s.get("sub") else ""
     return f'''<div class="wrap man">
         {k}
@@ -150,7 +155,7 @@ def cover_stencil(s):
     """رقم مفرّغ عملاق ينزف خارج الكادر، والعنوان صلب فوقه."""
     kicker = s.get("kicker") or s.get("badge")
     k = f'<div class="chip">{esc(kicker)}</div>' if kicker else ""
-    ghost = f'<div class="ghost">{esc(s["big"])}</div>' if s.get("big") else ""
+    ghost = f'<div class="ghost{ar_cls(s["big"])}">{esc(s["big"])}</div>' if s.get("big") else ""
     sub = f'<div class="sub">{esc(s["sub"])}</div>' if s.get("sub") else ""
     return f'''{ghost}
     <div class="wrap sten">
@@ -164,7 +169,7 @@ def cover_band(s):
     """شريط لوني صريح يقطع الكادر — أعلى تباين في الشبكة المصغّرة."""
     kicker = s.get("kicker") or s.get("badge")
     k = f'<div class="eyebrow">{esc(kicker)}</div>' if kicker else ""
-    big = f'<div class="bandnum">{esc(s["big"])}</div>' if s.get("big") else ""
+    big = f'<div class="bandnum{ar_cls(s["big"])}">{esc(s["big"])}</div>' if s.get("big") else ""
     sub = f'<div class="sub band">{esc(s["sub"])}</div>' if s.get("sub") else ""
     return f'''<div class="wrap bandwrap">
         <div class="bandtop">{k}{big}</div>
@@ -215,7 +220,7 @@ def slide_body(s, handle):
                 <p class="body">{esc(s.get("body", ""))}</p>
             </div>''', "ledger"
         return f'''<div class="wrap center">
-            <div class="mega">{esc(s.get("big", ""))}</div>
+            <div class="mega{ar_cls(s.get("big", ""))}">{esc(s.get("big", ""))}</div>
             <h1 class="h2">{esc(s.get("title", ""))}</h1>
             <p class="body">{esc(s.get("body", ""))}</p>
         </div>''', "numeral"
@@ -250,6 +255,105 @@ def slide_body(s, handle):
 
 
 # ─────────────────────────── الخلفيات ───────────────────────────
+
+
+# ─────────────────────────── الرسوم الدلالية ───────────────────────────
+# رسوم متجهة تُولَّد بلون الثيم — حادّة عند أي مقاس، بلا ملفات أو إنترنت.
+# تُستدعى بحقل "art" في الشريحة، مثل: "art": "network"
+
+def _svg(inner, a, g):
+    return (f'<svg class="artsvg" viewBox="0 0 200 200" fill="none" '
+            f'stroke="{a}" stroke-width="2.4" stroke-linecap="round" '
+            f'stroke-linejoin="round">{inner}</svg>')
+
+
+def art_network(a, g):
+    """عقد متصلة — النماذج والشبكات والوكلاء."""
+    return _svg(
+        '<path d="M40 60 L100 100 L160 60 M40 60 L40 140 M160 60 L160 140'
+        ' M40 140 L100 100 L160 140 M100 100 L100 30"/>'
+        f'<circle cx="100" cy="100" r="13" fill="{a}" stroke="none" opacity=".9"/>'
+        '<circle cx="40" cy="60" r="9"/><circle cx="160" cy="60" r="9"/>'
+        '<circle cx="40" cy="140" r="9"/><circle cx="160" cy="140" r="9"/>'
+        '<circle cx="100" cy="30" r="9"/>', a, g)
+
+
+def art_waves(a, g):
+    """موج — البحر والتبريد والبنية التحتية المائية."""
+    return _svg(
+        '<path d="M10 80 q25 -18 50 0 t50 0 t50 0 t30 0" opacity=".9"/>'
+        '<path d="M10 110 q25 -18 50 0 t50 0 t50 0 t30 0" opacity=".65"/>'
+        '<path d="M10 140 q25 -18 50 0 t50 0 t50 0 t30 0" opacity=".4"/>'
+        '<rect x="72" y="34" width="56" height="30" rx="5"/>'
+        '<path d="M84 49h32M84 42h20"/>', a, g)
+
+
+def art_document(a, g):
+    """مستند بعلامة — النصوص والكتابة والتوثيق."""
+    return _svg(
+        '<path d="M56 24h60l30 30v122H56z"/><path d="M116 24v30h30"/>'
+        '<path d="M74 82h60M74 102h60M74 122h38"/>'
+        f'<circle cx="132" cy="140" r="21" fill="{g}" stroke="none" opacity=".18"/>'
+        '<circle cx="132" cy="140" r="21"/><path d="M123 140l7 7 13-15"/>', a, g)
+
+
+def art_chart(a, g):
+    """منحنى صاعد — النمو والأرقام والمقارنات."""
+    return _svg(
+        '<path d="M32 32v136h136" opacity=".55"/>'
+        '<path d="M52 136l34-34 28 22 44-58"/>'
+        f'<circle cx="52" cy="136" r="7" fill="{a}" stroke="none"/>'
+        f'<circle cx="86" cy="102" r="7" fill="{a}" stroke="none"/>'
+        f'<circle cx="114" cy="124" r="7" fill="{a}" stroke="none"/>'
+        f'<circle cx="158" cy="66" r="9" fill="{a}" stroke="none"/>'
+        '<path d="M138 60h24v24" opacity=".6"/>', a, g)
+
+
+def art_device(a, g):
+    """جهاز — التشغيل المحلي والتطبيقات."""
+    return _svg(
+        '<rect x="34" y="42" width="132" height="88" rx="9"/>'
+        '<path d="M20 150h160M84 130l-5 20M116 130l5 20"/>'
+        f'<rect x="56" y="64" width="88" height="44" rx="5" fill="{g}" '
+        'stroke="none" opacity=".16"/>'
+        '<path d="M70 86h26M70 74h50M70 98h38"/>', a, g)
+
+
+def art_steps(a, g):
+    """ثلاث خطوات — المحتوى التعليمي والإجراءات."""
+    return _svg(
+        '<rect x="18" y="76" width="46" height="46" rx="10"/>'
+        '<rect x="77" y="76" width="46" height="46" rx="10"/>'
+        f'<rect x="136" y="76" width="46" height="46" rx="10" fill="{g}" '
+        'stroke="none" opacity=".18"/>'
+        '<rect x="136" y="76" width="46" height="46" rx="10"/>'
+        '<path d="M66 99h9M125 99h9" opacity=".7"/>'
+        '<path d="M33 99h16M92 99h16M151 99h16" opacity=".85"/>', a, g)
+
+
+def art_shield(a, g):
+    """درع — الأمان والخصوصية والحوكمة."""
+    return _svg(
+        f'<path d="M100 22l62 24v54c0 44-28 68-62 78-34-10-62-34-62-78V46z" '
+        f'fill="{g}" stroke="none" opacity=".14"/>'
+        '<path d="M100 22l62 24v54c0 44-28 68-62 78-34-10-62-34-62-78V46z"/>'
+        '<path d="M74 100l18 18 34-38"/>', a, g)
+
+
+def art_clock(a, g):
+    """ساعة — توفير الوقت والكفاءة."""
+    return _svg(
+        f'<circle cx="100" cy="100" r="70" fill="{g}" stroke="none" opacity=".12"/>'
+        '<circle cx="100" cy="100" r="70"/>'
+        '<path d="M100 58v44l30 18"/>'
+        '<path d="M100 30v10M170 100h-10M100 170v-10M30 100h10" opacity=".7"/>', a, g)
+
+
+ART = {
+    "network": art_network, "waves": art_waves, "document": art_document,
+    "chart": art_chart, "device": art_device, "steps": art_steps,
+    "shield": art_shield, "clock": art_clock,
+}
 
 def background_css(t, layout):
     """لكل تخطيط معالجة خلفية مختلفة حتى لا تتشابه الشرائح."""
@@ -309,8 +413,21 @@ def page_html(s, t, handle, idx, total):
     ink, ink2, a, g, b1 = t["ink"], t["ink2"], t["accent"], t["glow"], t["bg1"]
     onacc = t["onaccent"]
     noise_op = ".035" if light else ".05"
+    # الأرضية الفاتحة تحتاج شفافية أعلى ليظهر الرسم
+    art_op = ".30" if light else ".38"
+    art_op2 = ".22" if light else ".28"
     # الإطار يظهر في بعض التخطيطات فقط — اختلاف إضافي في الشبكة
     frame = "" if layout in ("manchette", "band") else '<div class="frame"></div>'
+
+    # الرسم الدلالي — يوضع في المساحة الفارغة أسفل يسار الكادر
+    name = s.get("art")
+    art_el = ""
+    if name:
+        fn = ART.get(name)
+        if fn:
+            art_el = f'<div class="art art-{layout}">{fn(a, g)}</div>'
+        else:
+            print(f"⚠ رسم غير معروف: {name} — المتاح: {' · '.join(sorted(ART))}")
     footc = f"{ink}80" if not light else f"{ink}73"
 
     return f'''<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="utf-8">
@@ -331,6 +448,16 @@ body::after{{
 }}
 {background_css(t, layout)}
 .frame{{position:absolute;inset:34px;border:1px solid {a}26;border-radius:34px;}}
+.art{{
+  position:absolute;left:74px;bottom:120px;z-index:2;
+  width:300px;height:300px;opacity:{art_op};pointer-events:none;
+}}
+.art .artsvg{{width:100%;height:100%;display:block;}}
+/* مانشيت والشريط يملآن الكادر نصّاً — أصغر وأبعد */
+.art.art-manchette{{width:200px;height:200px;left:64px;bottom:150px;opacity:{art_op2};}}
+.art.art-band{{width:190px;height:190px;left:78px;bottom:96px;opacity:{art_op2};}}
+/* الستنسل فيه رقم مفرّغ يسار — انقل الرسم يميناً أسفل */
+.art.art-stencil{{width:180px;height:180px;left:auto;right:80px;bottom:112px;opacity:{art_op2};}}
 .wrap{{position:relative;z-index:3;width:850px;padding:0 10px;}}
 .wrap.center{{text-align:center;}}
 .wrap.point{{text-align:right;}}
@@ -480,8 +607,10 @@ body::after{{
   direction:ltr;unicode-bidi:isolate;
 }}
 .handle{{direction:ltr;unicode-bidi:isolate;}}
+.ar{{direction:rtl;unicode-bidi:isolate;}}
 </style></head><body>
 {frame}
+{art_el}
 {body}
 <div class="foot">
   <span class="pager">{idx}/{total}</span>
