@@ -42,6 +42,7 @@ HERE = pathlib.Path(__file__).parent
 sys.path.insert(0, str(HERE))
 
 from render_v2 import THEMES, ART, all_faces, esc, _find, ASSET_DIRS  # noqa: E402
+from reel_audio import write_bed  # noqa: E402
 
 W, H = 1080, 1920
 WIPE = 0.42          # نصف مدة لوح الانتقال بالثواني
@@ -516,14 +517,26 @@ async def run(spec_path, out_path, stills=None):
             return
 
         n = int(total * fps)
+
+        # فراش موسيقي مركّب برمجياً، مضبوط على لحظات الانتقال.
+        # البذرة من الملف نفسه، فنفس المحتوى يعطي نفس الموسيقى
+        # ومحتوى مختلف يعطي مفتاحاً وإيقاعاً مختلفين.
+        bed = out.parent / "_bed.wav"
+        cuts = [m["start"] for m in
+                json.loads(await page.evaluate("JSON.stringify(META)"))][1:]
+        seed = spec.get("audio_seed") or json.dumps(
+            [s.get("title", "") for s in spec.get("scenes", [])], ensure_ascii=False)
+        info = write_bed(bed, total, cuts=cuts, seed=seed)
+        print(f"موسيقى: {info['scale']} · {info['bpm']} نبضة/د · "
+              f"جذر {info['root']:.0f}هرتز")
+
         cmd = [
             _ffmpeg(), "-y", "-loglevel", "error",
             "-f", "image2pipe", "-framerate", str(fps), "-i", "-",
-            # تيار صوت صامت — بعض المنصات ترفض فيديو بلا صوت
-            "-f", "lavfi", "-i", "anullsrc=channel_layout=stereo:sample_rate=44100",
+            "-i", str(bed),
             "-c:v", "libx264", "-preset", "medium", "-crf", "20",
             "-pix_fmt", "yuv420p", "-r", str(fps),
-            "-c:a", "aac", "-b:a", "96k", "-shortest",
+            "-c:a", "aac", "-b:a", "128k", "-shortest",
             "-movflags", "+faststart", str(out),
         ]
         proc = subprocess.Popen(cmd, stdin=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -538,6 +551,7 @@ async def run(spec_path, out_path, stills=None):
         proc.wait()
         await browser.close()
         tmp.unlink()
+        bed.unlink(missing_ok=True)
         if proc.returncode != 0:
             print(err)
             sys.exit(1)
