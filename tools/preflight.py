@@ -144,6 +144,9 @@ def design_brief():
         print("  بنية المشاهد: hook ← step 1 ← prompt ← step 2 ← step 3 ← cta")
         print("  مشهد prompt إلزامي — موجّه جاهز للنسخ، وهو أكثر ما يُحفظ ويُشارَك.")
         print("  خطوات ملموسة لا نظريات، واذكر الأدوات بالاسم.")
+        print("  الموسيقى تُركَّب تلقائياً — هادئة ومختلفة في كل ريلز.")
+        print("  ⚠ النشر قد يرجع «Video is still processing» مرتين — هذا ليس")
+        print("    رفضاً. تحقّق من /media أنه لم يُنشر، ثم أعد المحاولة.")
         used_styles = [p.get("style") for p in recent if p.get("style")]
         free_s = [x for x in ALL_STYLES if x not in used_styles]
         print(f"\n  أساليب حركة متاحة: {' · '.join(free_s) or 'دوّر يدوياً'}")

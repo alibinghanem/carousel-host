@@ -522,13 +522,11 @@ async def run(spec_path, out_path, stills=None):
         # البذرة من الملف نفسه، فنفس المحتوى يعطي نفس الموسيقى
         # ومحتوى مختلف يعطي مفتاحاً وإيقاعاً مختلفين.
         bed = out.parent / "_bed.wav"
-        cuts = [m["start"] for m in
-                json.loads(await page.evaluate("JSON.stringify(META)"))][1:]
         seed = spec.get("audio_seed") or json.dumps(
             [s.get("title", "") for s in spec.get("scenes", [])], ensure_ascii=False)
-        info = write_bed(bed, total, cuts=cuts, seed=seed)
-        print(f"موسيقى: {info['scale']} · {info['bpm']} نبضة/د · "
-              f"جذر {info['root']:.0f}هرتز")
+        info = write_bed(bed, total, seed=seed)
+        print(f"موسيقى هادئة: {info['scale']} · {info['bpm']} نبضة/د · "
+              f"جذر {info['root']}")
 
         cmd = [
             _ffmpeg(), "-y", "-loglevel", "error",
