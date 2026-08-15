@@ -58,6 +58,26 @@
         "https://www.theregister.com/on-prem/2026/08/05/samsung-and-mousterian-move_ahead_with_floating_datacenter_for_texas/5283505",
         "https://www.prnewswire.com/news-releases/mousterian-corporation-and-samsung-heavy-industries-sign-engineering-contract-for-the-partnerships-first-floating-data-center-deployment-in-the-united-states-302841432.html"
       ]
+    },
+    {
+      "date": "2026-08-15",
+      "topic": "أنثروبيك تدمج علامة مائية غير مرئية في النصوص التي تنتجها نماذج كلود",
+      "keywords": [
+        "Anthropic",
+        "Claude",
+        "علامة مائية",
+        "شفافية",
+        "قانون الذكاء الاصطناعي الأوروبي"
+      ],
+      "theme": "paper",
+      "layout": "manchette",
+      "permalink": "https://www.instagram.com/p/DcC_xjmnFou/",
+      "media_id": "18003083705985904",
+      "sources": [
+        "https://www.forbes.com/sites/anishasircar/2026/08/13/claude-will-now-leave-a-watermark-on-everything-it-writes-what-does-that-mean/",
+        "https://gizmodo.com/anthropics-claude-will-start-adding-invisible-watermarks-to-ai-generated-text-2000797759",
+        "https://fortune.com/2026/08/11/anthropic-claude-watermark-ai-text-police-ai-slop/"
+      ]
     }
   ]
 }
