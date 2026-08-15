@@ -208,7 +208,8 @@ def slide_body(s, handle):
 
     if typ == "stat":
         if layout == "ledger" and s.get("rows"):
-            return f'''<div class="wrap led">
+            tight = " tight" if (len(s["rows"]) >= 3 and s.get("body")) else ""
+            return f'''<div class="wrap led{tight}">
                 <h1 class="ledhead">{esc(s.get("title", ""))}</h1>
                 <div class="ledtable">{_rows_html(s["rows"])}</div>
                 <p class="body">{esc(s.get("body", ""))}</p>
@@ -431,7 +432,14 @@ body::after{{
   direction:ltr;unicode-bidi:isolate;
 }}
 .ledlab{{font-size:35px;font-weight:600;color:{ink2};}}
-.wrap.led .body{{margin-top:40px;}}
+.wrap.led .body{{margin-top:34px;}}
+/* جدول بثلاثة صفوف مع حاشية يتجاوز ارتفاع الكادر — شدّ المقاسات */
+.wrap.led.tight .ledhead{{font-size:62px;}}
+.wrap.led.tight .ledtable{{margin-top:32px;}}
+.wrap.led.tight .ledrow{{padding:17px 4px;}}
+.wrap.led.tight .ledval{{font-size:52px;}}
+.wrap.led.tight .ledlab{{font-size:30px;}}
+.wrap.led.tight .body{{margin-top:24px;font-size:34px;line-height:1.58;}}
 
 /* ── اقتباس ── */
 .wrap.quotewrap{{text-align:right;width:880px;}}
