@@ -101,6 +101,7 @@ def main():
 
 ALL_LAYOUTS = ["numeral", "manchette", "stencil", "band", "ledger"]
 ALL_THEMES = ["indigo", "emerald", "crimson", "amber", "violet", "steel", "paper"]
+ALL_STYLES = ["spine", "panel", "poster", "frame"]
 
 
 def design_brief():
@@ -131,16 +132,27 @@ def design_brief():
     print("نوع منشور اليوم — إلزامي")
     print("═" * 62)
     if kind == "news":
-        print("  ▸ خبر  (آخر منشور كان تعليمياً)")
+        print("  ▸ خبر → كاروسيل صور  (آخر منشور كان تعليمياً)")
         print("  ابحث عن أهم خبر تقنية أو ذكاء اصطناعي خلال ٢٤–٤٨ ساعة.")
+        print("  المولّد: python3 tools/render_v2.py slides.json ./out")
         print("  بنية الشرائح: cover ← point ← stat ← point ← cta")
     else:
-        print("  ▸ تعليمي  (آخر منشور كان خبراً)")
-        print("  اشرح كيف يستفيد شخص أو مؤسسة من الذكاء الاصطناعي عملياً.")
-        print("  بنية الشرائح: cover ← point 1 ← point 2 ← point 3 ← cta")
-        print("  ثلاث خطوات أو استخدامات ملموسة — لا نظريات. اذكر أدوات بالاسم")
-        print("  حين يفيد، وابدأ بألم حقيقي يعرفه القارئ.")
-    print("  سجّل \"kind\": \"" + kind + "\" في posts.json بعد النشر.")
+        print("  ▸ تعليمي → ريلز فيديو  (آخر منشور كان خبراً)")
+        print("  اشرح كيف يستفيد شخص أو مؤسسة من أدوات الذكاء الاصطناعي عملياً.")
+        print("  المولّد: python3 tools/render_reel.py reel.json out.mp4")
+        print("  اضبط التصميم أولاً بـ --stills 2,8,14,20 قبل الترميز الكامل.")
+        print("  بنية المشاهد: hook ← step 1 ← prompt ← step 2 ← step 3 ← cta")
+        print("  مشهد prompt إلزامي — موجّه جاهز للنسخ، وهو أكثر ما يُحفظ ويُشارَك.")
+        print("  خطوات ملموسة لا نظريات، واذكر الأدوات بالاسم.")
+        used_styles = [p.get("style") for p in recent if p.get("style")]
+        free_s = [x for x in ALL_STYLES if x not in used_styles]
+        print(f"\n  أساليب حركة متاحة: {' · '.join(free_s) or 'دوّر يدوياً'}")
+        print("    spine  عمود جانبي · انتقال بلوح يمسح الكادر")
+        print("    panel  عدّاد علوي وشبكة نقطية · انتقال بدفع أفقي")
+        print("    poster كتل لونية تتناوب · قطع خاطف")
+        print("    frame  إطار بزوايا وأقواس · انتقال بدائرة تتّسع")
+    print("\n  سجّل \"kind\": \"" + kind + "\" في posts.json بعد النشر"
+          + (" مع \"style\"." if kind == "guide" else "."))
     print("  تفاصيل النوعين في DAILY_TASK.md.")
 
     print("\n" + "═" * 62)
