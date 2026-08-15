@@ -124,6 +124,25 @@ def design_brief():
     free_l = [x for x in ALL_LAYOUTS if x not in used_layouts]
     free_t = [x for x in ALL_THEMES if x not in used_themes]
 
+    last_kind = recent[-1].get("kind", "news") if recent else "guide"
+    kind = "guide" if last_kind == "news" else "news"
+
+    print("\n" + "═" * 62)
+    print("نوع منشور اليوم — إلزامي")
+    print("═" * 62)
+    if kind == "news":
+        print("  ▸ خبر  (آخر منشور كان تعليمياً)")
+        print("  ابحث عن أهم خبر تقنية أو ذكاء اصطناعي خلال ٢٤–٤٨ ساعة.")
+        print("  بنية الشرائح: cover ← point ← stat ← point ← cta")
+    else:
+        print("  ▸ تعليمي  (آخر منشور كان خبراً)")
+        print("  اشرح كيف يستفيد شخص أو مؤسسة من الذكاء الاصطناعي عملياً.")
+        print("  بنية الشرائح: cover ← point 1 ← point 2 ← point 3 ← cta")
+        print("  ثلاث خطوات أو استخدامات ملموسة — لا نظريات. اذكر أدوات بالاسم")
+        print("  حين يفيد، وابدأ بألم حقيقي يعرفه القارئ.")
+    print("  سجّل \"kind\": \"" + kind + "\" في posts.json بعد النشر.")
+    print("  تفاصيل النوعين في DAILY_TASK.md.")
+
     print("\n" + "═" * 62)
     print("توجيه التصميم — إلزامي")
     print("═" * 62)
