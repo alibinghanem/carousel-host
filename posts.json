@@ -101,6 +101,29 @@
       "permalink": "https://www.instagram.com/reel/DcEDXUSDIIi/",
       "media_id": "18113000644961269",
       "sources": []
+    },
+    {
+      "date": "2026-08-16",
+      "kind": "news",
+      "format": "carousel",
+      "topic": "جوجل تطلق HEIR مفتوح المصدر لتشغيل نماذج الذكاء الاصطناعي على بيانات مشفّرة",
+      "keywords": [
+        "Google",
+        "HEIR",
+        "تشفير متماثل",
+        "FHE",
+        "خصوصية",
+        "استدلال مشفّر"
+      ],
+      "theme": "steel",
+      "layout": "band",
+      "permalink": "https://www.instagram.com/p/DcFkewEESHy/",
+      "media_id": "18109252196016713",
+      "sources": [
+        "https://blog.google/security/how-google-is-making-private-ai-practical-with-homomorphic-encryption/",
+        "https://arxiv.org/pdf/2508.11095",
+        "https://github.com/google/heir"
+      ]
     }
   ],
   "_kinds": {
