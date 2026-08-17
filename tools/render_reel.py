@@ -248,7 +248,8 @@ def build_html(spec, t, avatar_b64):
         if kind == "cta":
             cls += " middle"
         blocks.append(f'<section class="{cls}" data-i="{i}">{inner}</section>')
-        meta.append({"start": round(start, 3), "dur": dur, "kind": kind})
+        meta.append({"start": round(start, 3), "dur": dur, "kind": kind,
+                     "inv": "inverted" in cls})
         start += dur
 
     total = round(start, 3)
@@ -281,6 +282,21 @@ body{{font-family:'Cairo','Tajawal',sans-serif;color:{ink};position:relative;}}
 {style_chrome_css(chrome, t)}
 .hdl{{position:absolute;top:118px;right:150px;z-index:6;
   font-size:34px;font-weight:700;color:{ink}9e;direction:ltr;unicode-bidi:isolate;}}
+
+/* الواجهة تعلو المشهد؛ فوق الأرضية المعكوسة تصير بلون الثيم فتختفي */
+body.inv .hdl{{color:{onacc}ad;}}
+body.inv .counter{{color:{onacc}66;}}
+body.inv .counter b{{color:{onacc};}}
+body.inv .topbar{{background:{onacc}33;}}
+body.inv .topbar i{{background:{onacc};}}
+body.inv .spine{{background:{onacc}33;}}
+body.inv .spine i{{background:{onacc};}}
+body.inv .mark{{background:transparent;border-color:{onacc}66;}}
+body.inv .mark.on{{background:{onacc};border-color:{onacc};}}
+body.inv .fr{{border-color:{onacc}59;}}
+body.inv .fr::before,body.inv .fr::after{{border-color:{onacc};}}
+body.inv .fdot{{background:{onacc}4d;}}
+body.inv .fdot.on{{background:{onacc};}}
 
 /* طبقة الانتقال */
 .wipe{{position:absolute;inset:0;z-index:20;background:{a};transform:translateY(100%);}}
@@ -464,6 +480,7 @@ window.setT = function (t) {{
 
   marks.forEach((m, i) => m.classList.toggle('on', i <= active));
   if (cnum) cnum.textContent = String(active + 1).padStart(2, '0');
+  document.body.classList.toggle('inv', !!META[active].inv);
 }};
 window.setT(0);
 window.REEL_TOTAL = TOTAL;
