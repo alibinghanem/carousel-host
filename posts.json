@@ -143,6 +143,29 @@
       "permalink": "https://www.instagram.com/reel/DcIJ9hbFHKk/",
       "media_id": "18089766809170803",
       "sources": []
+    },
+    {
+      "date": "2026-08-18",
+      "kind": "news",
+      "format": "carousel",
+      "topic": "اكتتاب Unitree للروبوتات في بورصة شنغهاي يتجاوز حجم الطرح 8288 مرة",
+      "keywords": [
+        "Unitree",
+        "روبوتات بشرية",
+        "اكتتاب",
+        "الصين",
+        "بورصة شنغهاي",
+        "STAR Market"
+      ],
+      "theme": "amber",
+      "layout": "ledger",
+      "permalink": "https://www.instagram.com/p/DcKuA2OFS2k/",
+      "media_id": "17936571735099798",
+      "sources": [
+        "https://finance.yahoo.com/markets/stocks/articles/unitree-robotics-ipo-oversubscribed-8-175125684.html",
+        "https://www.cnbc.com/2026/08/14/china-humanoid-robots-unitree-ipo-tesla-optimus.html",
+        "https://hwbusters.com/news/the-unitree-ipo-was-oversubscribed-8000-times-its-own-prospectus-says-the-hands-arent-ready/"
+      ]
     }
   ],
   "_kinds": {
