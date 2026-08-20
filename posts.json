@@ -185,6 +185,29 @@
       "permalink": "https://www.instagram.com/reel/DcNTRxxiJwT/",
       "media_id": "17969219991130355",
       "sources": []
+    },
+    {
+      "date": "2026-08-20",
+      "kind": "news",
+      "format": "carousel",
+      "topic": "سامسونج ترفع أسعار التصنيع التعاقدي المتقدم حتى 15% مع امتلاء طاقة الرقائق",
+      "keywords": [
+        "Samsung",
+        "TSMC",
+        "رقائق",
+        "أشباه موصلات",
+        "أسعار",
+        "نانومتر"
+      ],
+      "theme": "crimson",
+      "layout": "stencil",
+      "permalink": "https://www.instagram.com/p/DcP3-S4oP2G/",
+      "media_id": "18016154411876072",
+      "sources": [
+        "https://www.tomshardware.com/tech-industry/samsung-raises-advanced-foundry-prices-by-up-to-15-percent-as-ai-demand-fills-its-4nm-lines",
+        "https://finance.yahoo.com/technology/ai/articles/samsung-raises-advanced-chipmaking-prices-101830976.html",
+        "https://www.freemalaysiatoday.com/category/business/2026/08/19/samsung-hikes-chipmaking-prices-by-up-to-15-on-demand-spike"
+      ]
     }
   ],
   "_kinds": {
