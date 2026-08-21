@@ -233,6 +233,32 @@
     "url": "https://chatgpt.com",
     "free": true
    }
+  },
+  {
+   "date": "2026-08-21-reel-b",
+   "kind": "guide",
+   "format": "reel",
+   "topic": "ثلاث خطوات لترميم الصور العائلية القديمة من الهاتف بالذكاء الاصطناعي",
+   "keywords": [
+    "ترميم الصور",
+    "صور قديمة",
+    "Gemini",
+    "صور العائلة",
+    "تحرير الصور"
+   ],
+   "theme": "paper",
+   "style": "flight",
+   "permalink": "https://www.instagram.com/reel/DcTMwfJCTTi/",
+   "media_id": "18117654056486599",
+   "sources": [],
+   "keyword": "أداة",
+   "tool": {
+    "name": "تطبيق Gemini",
+    "url": "https://gemini.google.com",
+    "free": true,
+    "phone_only": true
+   },
+   "reply": "الأداة: تطبيق Gemini المجاني — gemini.google.com أو حمّله من متجر التطبيقات.\n١) افتحه وأرفق صورة جدّك.\n٢) اكتب هذا حرفياً: «رمّم هذه الصورة القديمة. أصلح التمزق والبهتان فقط. لا تغيّر ملامح الوجوه إطلاقاً.»\n٣) قارن الوجوه بالأصل قبل أن تعتمد النتيجة، واحتفظ بالصورة الأصلية دائماً."
   }
  ],
  "_kinds": {
