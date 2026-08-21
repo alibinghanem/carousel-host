@@ -243,7 +243,7 @@ def build_html(spec, t, avatar_b64):
         dur = float(s.get("dur", 5.0))
         cls = "scene"
         # مشهد الموجّه معكوس دائماً؛ وفي أسلوب الملصق تتناوب الكتل اللونية
-        if kind == "prompt" or (style == "poster" and i % 2 == 1):
+        if kind == "prompt" or (style == "poster" and i % 2 == 0):
             cls += " inverted"
         if kind == "cta":
             cls += " middle"
