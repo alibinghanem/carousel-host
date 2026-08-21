@@ -145,8 +145,10 @@ def design_brief():
         print("  مشهد prompt إلزامي — موجّه جاهز للنسخ، وهو أكثر ما يُحفظ ويُشارَك.")
         print("  خطوات ملموسة لا نظريات، واذكر الأدوات بالاسم.")
         print("  الموسيقى تُركَّب تلقائياً — هادئة ومختلفة في كل ريلز.")
-        print("  ⚠ النشر قد يرجع «Video is still processing» مرتين — هذا ليس")
-        print("    رفضاً. تحقّق من /media أنه لم يُنشر، ثم أعد المحاولة.")
+        print("  ⚠ النشر قد يرجع «Video is still processing» — هذا ليس رفضاً.")
+        print("    تحقّق من /media أنه لم يُنشر، ثم أعد المحاولة.")
+        print("    إن تكرر ثلاث مرات، افحص معدل البت: أقل من ~1 ميغابت/ث")
+        print("    يجعل إنستقرام لا ينهي التحويل. المولّد يفرض 6 ميغابت/ث.")
         used_styles = [p.get("style") for p in recent if p.get("style")]
         free_s = [x for x in ALL_STYLES if x not in used_styles]
         print(f"\n  أساليب حركة متاحة: {' · '.join(free_s) or 'دوّر يدوياً'}")
