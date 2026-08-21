@@ -549,7 +549,10 @@ async def run(spec_path, out_path, stills=None):
             _ffmpeg(), "-y", "-loglevel", "error",
             "-f", "image2pipe", "-framerate", str(fps), "-i", "-",
             "-i", str(bed),
-            "-c:v", "libx264", "-preset", "medium", "-crf", "20",
+            # معدل بت مضمون: التصاميم المسطّحة تُضغط لأقل من 400 كيلوبت/ث
+            # فيطيل إنستقرام تحويلها أو يرفضها. الحد الأدنى يمنع ذلك.
+            "-c:v", "libx264", "-preset", "medium",
+            "-b:v", "6M", "-minrate", "4M", "-maxrate", "8M", "-bufsize", "12M",
             "-pix_fmt", "yuv420p", "-r", str(fps),
             "-c:a", "aac", "-b:a", "128k", "-shortest",
             "-movflags", "+faststart", str(out),
