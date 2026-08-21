@@ -124,9 +124,14 @@ def scene_cta(s, t, avatar_b64, handle):
             f'<img src="data:image/png;base64,{avatar_b64}"></div>'
             f'<div class="aname" data-anim="up" data-delay=".28">{esc(name)}</div>'
             if avatar_b64 else "")
+    kw = s.get("keyword")
+    key = (f'<div class="keyword" data-anim="pop" data-delay=".95">'
+           f'<span class="kwlab">اكتب في التعليقات</span>'
+           f'<span class="kwword">{esc(kw)}</span></div>' if kw else "")
     return f'''{head}
         <h2 class="title mid" data-anim="words" data-delay=".42">{words(s.get("title",""))}</h2>
-        <p class="body mid" data-anim="up" data-delay=".8">{esc(s.get("body",""))}</p>'''
+        <p class="body mid" data-anim="up" data-delay=".8">{esc(s.get("body",""))}</p>
+        {key}'''
 
 # ─────────────────────────── أساليب الحركة ───────────────────────────
 # كل أسلوب يغيّر البنية لا اللون: الأرضية، عنصر الواجهة، وطريقة الانتقال.
@@ -333,12 +338,23 @@ body.inv .fdot.on{{background:{onacc};}}
   vertical-align:-.12em;margin-right:6px;}}
 .phint{{margin-top:38px;font-size:34px;font-weight:600;color:{onacc}c7;}}
 
-.avatar{{width:300px;height:300px;border-radius:50%;overflow:hidden;
+.avatar{{width:300px;height:300px;border-radius:50%;overflow:hidden;flex:none;
   border:6px solid {a};box-shadow:0 0 0 16px {a}17,0 30px 80px {g}59;}}
 .avatar img{{width:100%;height:100%;object-fit:cover;object-position:50% 34%;}}
 .aname{{margin-top:26px;font-size:44px;font-weight:700;color:{a};
   direction:ltr;unicode-bidi:isolate;}}
 .title.mid{{margin-top:44px;}}
+/* الكلمة المفتاحية هي الفعل المطلوب — اجعلها أبرز عنصر في المشهد */
+.keyword{{
+  margin-top:52px;display:inline-flex;flex-direction:column;align-items:center;flex:none;
+  gap:16px;padding:34px 62px;border-radius:34px;
+  background:{a};box-shadow:0 26px 70px {g}59;
+}}
+.kwlab{{font-size:34px;font-weight:700;color:{onacc}c7;letter-spacing:1px;}}
+.kwword{{font-size:96px;font-weight:900;color:{onacc};line-height:1;letter-spacing:-2px;}}
+.scene.inverted .keyword{{background:{onacc};box-shadow:none;}}
+.scene.inverted .kwlab{{color:{a}c7;}}
+.scene.inverted .kwword{{color:{a};}}
 .body.mid{{max-width:760px;}}
 </style></head><body>
 <div class="ground"></div><div class="field" id="field"></div>
