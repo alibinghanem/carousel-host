@@ -95,13 +95,21 @@ def main():
     avatar = SKILL / "assets" / "avatar.png"
     print(f"{'✓' if avatar.exists() else '⚠'} الصورة الشخصية لشريحة cta")
 
+    # خطوط الريلز تعيش في المستودع لا في المهارة، لأن المهارة تُعاد مزامنتها
+    # مع كل حاوية جديدة فيضيع ما يُضاف إليها.
+    rf = pathlib.Path(__file__).resolve().parent.parent / "fonts"
+    reel_fonts = list(rf.glob("readex-pro-*.woff2")) + \
+        list(rf.glob("ibm-plex-sans-arabic-*.woff2"))
+    print(f"{'✓' if len(reel_fonts) >= 10 else '⚠'} خطوط الريلز "
+          f"(Readex Pro · IBM Plex Sans Arabic): {len(reel_fonts)} ملف")
+
     design_brief()
     print("\nPREFLIGHT_OK")
 
 
 ALL_LAYOUTS = ["numeral", "manchette", "stencil", "band", "ledger"]
 ALL_THEMES = ["indigo", "emerald", "crimson", "amber", "violet", "steel", "paper"]
-ALL_STYLES = ["spine", "panel", "poster", "frame"]
+ALL_STYLES = ["flight", "column", "tilt"]
 
 
 def design_brief():
@@ -139,8 +147,9 @@ def design_brief():
     else:
         print("  ▸ تعليمي → ريلز فيديو  (آخر منشور كان خبراً)")
         print("  اشرح كيف يستفيد شخص أو مؤسسة من أدوات الذكاء الاصطناعي عملياً.")
-        print("  المولّد: python3 tools/render_reel.py reel.json out.mp4")
-        print("  اضبط التصميم أولاً بـ --stills 2,8,14,20 قبل الترميز الكامل.")
+        print("  المولّد: python3 tools/render_reel2.py reel.json out.mp4")
+        print("  ⚠ render_reel.py القديم متروك للرجوع فقط — لا تستعمله.")
+        print("  اضبط التصميم أولاً بـ --stills 2,6,11,16,21,28 قبل الترميز.")
         print("  بنية المشاهد: hook ← step 1 ← prompt ← step 2 ← step 3 ← cta")
         print("  مشهد prompt إلزامي — موجّه جاهز للنسخ، وهو أكثر ما يُحفظ ويُشارَك.")
         print("  خطوات ملموسة لا نظريات، واذكر الأدوات بالاسم.")
@@ -151,18 +160,23 @@ def design_brief():
         print("  ▸ سجّل في posts.json حقل \"reply\": نص الرد العلني الذي يصل")
         print("    للمعلّقين — اسم الأداة ورابطها وخطوة الاستخدام. مكتفٍ بذاته،")
         print("    فرسالة ManyChat ثابتة ولا تحمل أداة اليوم.")
-        print("  الموسيقى تُركَّب تلقائياً — هادئة ومختلفة في كل ريلز.")
+        print("  الموسيقى تُركَّب تلقائياً: كوردات وباص وأربيجيو — ممتعة")
+        print("    وبلا مؤثرات انتقال، ومختلفة في كل ريلز. لا إعداد لها.")
+        print("  الخطوط: Readex Pro للعناوين وIBM Plex Sans Arabic للمتن،")
+        print("    وهما في fonts/ ولا يستعملهما الكاروسيل.")
+        print("  الثيم الافتراضي للريلز: paper (أرضية فاتحة) — يفصله عن")
+        print("    الكاروسيل الداكن. داكن كل ثالث ريلز.")
         print("  ⚠ النشر قد يرجع «Video is still processing» — هذا ليس رفضاً.")
         print("    تحقّق من /media أنه لم يُنشر، ثم أعد المحاولة.")
         print("    إن تكرر ثلاث مرات، افحص معدل البت: أقل من ~1 ميغابت/ث")
         print("    يجعل إنستقرام لا ينهي التحويل. المولّد يفرض 6 ميغابت/ث.")
         used_styles = [p.get("style") for p in recent if p.get("style")]
         free_s = [x for x in ALL_STYLES if x not in used_styles]
-        print(f"\n  أساليب حركة متاحة: {' · '.join(free_s) or 'دوّر يدوياً'}")
-        print("    spine  عمود جانبي · انتقال بلوح يمسح الكادر")
-        print("    panel  عدّاد علوي وشبكة نقطية · انتقال بدفع أفقي")
-        print("    poster كتل لونية تتناوب · قطع خاطف")
-        print("    frame  إطار بزوايا وأقواس · انتقال بدائرة تتّسع")
+        print(f"\n  أساليب الرحلة المتاحة: {' · '.join(free_s) or 'دوّر يدوياً'}")
+        print("    flight تعرّج قُطري فوق شبكة نقاط · مسار مرسوم")
+        print("    column هبوط عمودي مستقيم فوق مسطرة · بلا مسار")
+        print("    tilt   تعرّج واسع مع ميل خفيف للوحة · مسار مرسوم")
+        print("  لا توجد مؤثرات انتقال: حركة الكاميرا هي الانتقال.")
     print("\n  سجّل \"kind\": \"" + kind + "\" في posts.json بعد النشر"
           + (" مع \"style\"." if kind == "guide" else "."))
     print("  تفاصيل النوعين في DAILY_TASK.md.")
