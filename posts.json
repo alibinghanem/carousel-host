@@ -259,6 +259,29 @@
     "phone_only": true
    },
    "reply": "الأداة: تطبيق Gemini المجاني — gemini.google.com أو حمّله من متجر التطبيقات.\n١) افتحه وأرفق صورة جدّك.\n٢) اكتب هذا حرفياً: «رمّم هذه الصورة القديمة. أصلح التمزق والبهتان فقط. لا تغيّر ملامح الوجوه إطلاقاً.»\n٣) قارن الوجوه بالأصل قبل أن تعتمد النتيجة، واحتفظ بالصورة الأصلية دائماً."
+  },
+  {
+   "date": "2026-08-22",
+   "kind": "news",
+   "format": "carousel",
+   "topic": "OpenAI تطلق إعلانات ChatGPT في 31 سوقاً أوروبية يوم 24 أغسطس ليصل الإجمالي إلى 40",
+   "keywords": [
+    "OpenAI",
+    "ChatGPT",
+    "إعلانات",
+    "أوروبا",
+    "GDPR",
+    "نموذج الأعمال"
+   ],
+   "theme": "steel",
+   "layout": "numeral",
+   "permalink": "https://www.instagram.com/p/DcVBQ1mlLQ3/",
+   "media_id": "18178698235422616",
+   "sources": [
+    "https://openai.com/index/chatgpt-ads-expands-across-europe/",
+    "https://www.adweek.com/media/openai-is-taking-its-ad-business-to-31-new-european-markets/",
+    "https://www.euronews.com/next/2026/08/21/chatgpt-to-start-showing-ads-across-europe-next-week"
+   ]
   }
  ],
  "_kinds": {
