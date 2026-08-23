@@ -282,6 +282,32 @@
     "https://www.adweek.com/media/openai-is-taking-its-ad-business-to-31-new-european-markets/",
     "https://www.euronews.com/next/2026/08/21/chatgpt-to-start-showing-ads-across-europe-next-week"
    ]
+  },
+  {
+   "date": "2026-08-23-reel",
+   "kind": "guide",
+   "format": "reel",
+   "topic": "ثلاث خطوات لفهم بنود عقد الإيجار من صورة بالهاتف قبل التوقيع",
+   "keywords": [
+    "عقود",
+    "إيجار",
+    "حقوق المستأجر",
+    "مراجعة مستندات",
+    "ChatGPT",
+    "خصوصية البيانات"
+   ],
+   "theme": "emerald",
+   "style": "column",
+   "permalink": "https://www.instagram.com/reel/DcXmWq_lMbF/",
+   "media_id": "17917854252220946",
+   "sources": [],
+   "keyword": "أداة",
+   "tool": {
+    "name": "ChatGPT",
+    "url": "https://chatgpt.com",
+    "free": true
+   },
+   "reply": "الأداة: ChatGPT المجاني — chatgpt.com أو تطبيقه على هاتفك.\n١) غطِّ رقم هويتك وحسابك البنكي بورقة، ثم صوّر كل صفحة من العقد.\n٢) ارفع الصور واكتب: «اقرأ هذا العقد كاملاً. اذكر البنود التي قد تضرّني كمستأجر. اشرح كل بند بجملة واحدة بسيطة.»\n٣) اسأله عن بند الصيانة وشرط الإخلاء المبكر تحديداً.\n⚠️ ليس محامياً — استخدمه لتعرف ماذا تسأل، وللعقود الكبيرة راجع مختصاً قبل التوقيع."
   }
  ],
  "_kinds": {
