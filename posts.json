@@ -308,6 +308,29 @@
     "free": true
    },
    "reply": "الأداة: ChatGPT المجاني — chatgpt.com أو تطبيقه على هاتفك.\n١) غطِّ رقم هويتك وحسابك البنكي بورقة، ثم صوّر كل صفحة من العقد.\n٢) ارفع الصور واكتب: «اقرأ هذا العقد كاملاً. اذكر البنود التي قد تضرّني كمستأجر. اشرح كل بند بجملة واحدة بسيطة.»\n٣) اسأله عن بند الصيانة وشرط الإخلاء المبكر تحديداً.\n⚠️ ليس محامياً — استخدمه لتعرف ماذا تسأل، وللعقود الكبيرة راجع مختصاً قبل التوقيع."
+  },
+  {
+   "date": "2026-08-24",
+   "kind": "news",
+   "format": "carousel",
+   "topic": "كلود يصمّم بروتينات مرتبطة نجحت مخبرياً في 14 هدفاً من 15 بتحقّق مستقل",
+   "keywords": [
+    "أنثروبيك",
+    "بروتينات",
+    "تصميم الأدوية",
+    "Adaptyv Bio",
+    "Twist Bioscience",
+    "بيولوجيا"
+   ],
+   "theme": "violet",
+   "layout": "stencil",
+   "permalink": "https://www.instagram.com/p/DcaK-cvHDg1/",
+   "media_id": "18442101952131598",
+   "sources": [
+    "https://www.anthropic.com/research/Claude-accelerates-protein-design",
+    "https://dataconomy.com/2026/08/20/claude-ai-protein-binders-14-of-15-targets/",
+    "https://thenextweb.com/news/anthropic-claude-protein-design-chemistry"
+   ]
   }
  ],
  "_kinds": {
