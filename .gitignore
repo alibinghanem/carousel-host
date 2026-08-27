@@ -1,3 +1,6 @@
 out/
 __pycache__/
 *.pyc
+reel.json
+caption.txt
+slides.json
