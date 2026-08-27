@@ -1,340 +1,368 @@
 {
- "_description": "سجل المنشورات اليومية — تقرأه المهمة المجدولة لتفادي تكرار المواضيع، وتضيف إليه سطراً بعد كل نشر ناجح.",
- "posts": [
-  {
-   "date": "2026-08-14",
-   "topic": "تطبيق جيميناي من جوجل يتجاوز مليار مستخدم نشط شهرياً",
-   "keywords": [
-    "Gemini",
-    "Google",
-    "مستخدمين",
-    "منافسة المساعدات الذكية"
-   ],
-   "theme": "indigo",
-   "permalink": "https://www.instagram.com/p/DcA-APgkkzR/",
-   "media_id": "18101022704339869",
-   "sources": [
-    "https://blog.google/innovation-and-ai/products/gemini-app/one-billion-monthly-users/",
-    "https://techcrunch.com/2026/08/11/googles-gemini-app-surges-to-one-billion-users/"
-   ],
-   "layout": "numeral",
-   "kind": "news"
-  },
-  {
-   "date": "2026-08-14-b",
-   "topic": "ميتا تطلق نموذج Muse Glimmer مفتوح المصدر بحجم 30 مليار معامل يعمل محلياً",
-   "keywords": [
-    "Meta",
-    "Muse Glimmer",
-    "مفتوح المصدر",
-    "نماذج محلية",
-    "Apache 2.0"
-   ],
-   "theme": "violet",
-   "permalink": "https://www.instagram.com/p/DcBIeeIoKsr/",
-   "media_id": "18151116538514275",
-   "sources": [
-    "https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model",
-    "https://venturebeat.com/technology/meta-returns-to-open-source-with-muse-glimmer-an-apache-2-0-licensed-30b-parameter-ai-model-optimized-for-agents-available-now"
-   ],
-   "layout": "numeral",
-   "kind": "news"
-  },
-  {
-   "date": "2026-08-14-c",
-   "topic": "سامسونج وموستيريان توقّعان عقداً لبناء مراكز بيانات عائمة بقدرة 50 ميغاواط قبالة تكساس",
-   "keywords": [
-    "Samsung",
-    "مراكز بيانات",
-    "عائمة",
-    "تبريد",
-    "طاقة",
-    "بنية تحتية"
-   ],
-   "theme": "amber",
-   "layout": "stencil",
-   "permalink": "https://www.instagram.com/p/DcBSnfbHwSf/",
-   "media_id": "18221683507335209",
-   "sources": [
-    "https://www.datacenterknowledge.com/next-gen-data-centers/samsung-takes-floating-data-center-plans-into-engineering-phase",
-    "https://www.theregister.com/on-prem/2026/08/05/samsung-and-mousterian-move_ahead_with_floating_datacenter_for_texas/5283505",
-    "https://www.prnewswire.com/news-releases/mousterian-corporation-and-samsung-heavy-industries-sign-engineering-contract-for-the-partnerships-first-floating-data-center-deployment-in-the-united-states-302841432.html"
-   ],
-   "kind": "news"
-  },
-  {
-   "date": "2026-08-15",
-   "topic": "أنثروبيك تدمج علامة مائية غير مرئية في النصوص التي تنتجها نماذج كلود",
-   "keywords": [
-    "Anthropic",
-    "Claude",
-    "علامة مائية",
-    "شفافية",
-    "قانون الذكاء الاصطناعي الأوروبي"
-   ],
-   "theme": "paper",
-   "layout": "manchette",
-   "permalink": "https://www.instagram.com/p/DcC_xjmnFou/",
-   "media_id": "18003083705985904",
-   "sources": [
-    "https://www.forbes.com/sites/anishasircar/2026/08/13/claude-will-now-leave-a-watermark-on-everything-it-writes-what-does-that-mean/",
-    "https://gizmodo.com/anthropics-claude-will-start-adding-invisible-watermarks-to-ai-generated-text-2000797759",
-    "https://fortune.com/2026/08/11/anthropic-claude-watermark-ai-text-police-ai-slop/"
-   ],
-   "kind": "news"
-  },
-  {
-   "date": "2026-08-15-reel",
-   "kind": "guide",
-   "format": "reel",
-   "topic": "ثلاث خطوات لتلخيص ملف PDF طويل بأدوات الذكاء الاصطناعي مع موجّه جاهز",
-   "keywords": [
-    "تلخيص",
-    "PDF",
-    "موجّهات",
-    "إنتاجية",
-    "ChatGPT",
-    "Claude"
-   ],
-   "theme": "emerald",
-   "style": "spine",
-   "permalink": "https://www.instagram.com/reel/DcEDXUSDIIi/",
-   "media_id": "18113000644961269",
-   "sources": []
-  },
-  {
-   "date": "2026-08-16",
-   "kind": "news",
-   "format": "carousel",
-   "topic": "جوجل تطلق HEIR مفتوح المصدر لتشغيل نماذج الذكاء الاصطناعي على بيانات مشفّرة",
-   "keywords": [
-    "Google",
-    "HEIR",
-    "تشفير متماثل",
-    "FHE",
-    "خصوصية",
-    "استدلال مشفّر"
-   ],
-   "theme": "steel",
-   "layout": "band",
-   "permalink": "https://www.instagram.com/p/DcFkewEESHy/",
-   "media_id": "18109252196016713",
-   "sources": [
-    "https://blog.google/security/how-google-is-making-private-ai-practical-with-homomorphic-encryption/",
-    "https://arxiv.org/pdf/2508.11095",
-    "https://github.com/google/heir"
-   ]
-  },
-  {
-   "date": "2026-08-17-reel",
-   "kind": "guide",
-   "format": "reel",
-   "topic": "ثلاث خطوات لتحويل تفريغ الاجتماع إلى جدول مهام بمسؤول وموعد",
-   "keywords": [
-    "اجتماعات",
-    "مهام",
-    "تفريغ صوتي",
-    "NotebookLM",
-    "إنتاجية",
-    "موجّهات"
-   ],
-   "theme": "indigo",
-   "style": "panel",
-   "permalink": "https://www.instagram.com/reel/DcIJ9hbFHKk/",
-   "media_id": "18089766809170803",
-   "sources": []
-  },
-  {
-   "date": "2026-08-18",
-   "kind": "news",
-   "format": "carousel",
-   "topic": "اكتتاب Unitree للروبوتات في بورصة شنغهاي يتجاوز حجم الطرح 8288 مرة",
-   "keywords": [
-    "Unitree",
-    "روبوتات بشرية",
-    "اكتتاب",
-    "الصين",
-    "بورصة شنغهاي",
-    "STAR Market"
-   ],
-   "theme": "amber",
-   "layout": "ledger",
-   "permalink": "https://www.instagram.com/p/DcKuA2OFS2k/",
-   "media_id": "17936571735099798",
-   "sources": [
-    "https://finance.yahoo.com/markets/stocks/articles/unitree-robotics-ipo-oversubscribed-8-175125684.html",
-    "https://www.cnbc.com/2026/08/14/china-humanoid-robots-unitree-ipo-tesla-optimus.html",
-    "https://hwbusters.com/news/the-unitree-ipo-was-oversubscribed-8000-times-its-own-prospectus-says-the-hands-arent-ready/"
-   ]
-  },
-  {
-   "date": "2026-08-19-reel",
-   "kind": "guide",
-   "format": "reel",
-   "topic": "ثلاث خطوات لتخصيص السيرة الذاتية لكل وظيفة بأدوات الذكاء الاصطناعي",
-   "keywords": [
-    "السيرة الذاتية",
-    "توظيف",
-    "أنظمة الفرز",
-    "موجّهات",
-    "ChatGPT",
-    "مقابلات"
-   ],
-   "theme": "violet",
-   "style": "frame",
-   "permalink": "https://www.instagram.com/reel/DcNTRxxiJwT/",
-   "media_id": "17969219991130355",
-   "sources": []
-  },
-  {
-   "date": "2026-08-20",
-   "kind": "news",
-   "format": "carousel",
-   "topic": "سامسونج ترفع أسعار التصنيع التعاقدي المتقدم حتى 15% مع امتلاء طاقة الرقائق",
-   "keywords": [
-    "Samsung",
-    "TSMC",
-    "رقائق",
-    "أشباه موصلات",
-    "أسعار",
-    "نانومتر"
-   ],
-   "theme": "crimson",
-   "layout": "stencil",
-   "permalink": "https://www.instagram.com/p/DcP3-S4oP2G/",
-   "media_id": "18016154411876072",
-   "sources": [
-    "https://www.tomshardware.com/tech-industry/samsung-raises-advanced-foundry-prices-by-up-to-15-percent-as-ai-demand-fills-its-4nm-lines",
-    "https://finance.yahoo.com/technology/ai/articles/samsung-raises-advanced-chipmaking-prices-101830976.html",
-    "https://www.freemalaysiatoday.com/category/business/2026/08/19/samsung-hikes-chipmaking-prices-by-up-to-15-on-demand-spike"
-   ]
-  },
-  {
-   "date": "2026-08-21-reel",
-   "kind": "guide",
-   "format": "reel",
-   "topic": "ثلاث خطوات لتعليم الذكاء الاصطناعي نبرتك في الرد على رسائل العملاء",
-   "keywords": [
-    "خدمة العملاء",
-    "نبرة الكتابة",
-    "موجّهات",
-    "متاجر صغيرة",
-    "أتمتة الردود"
-   ],
-   "theme": "paper",
-   "style": "poster",
-   "permalink": "https://www.instagram.com/reel/DcSc_XQjDRi/",
-   "media_id": "17958314055197831",
-   "sources": [],
-   "keyword": "نبرة",
-   "reply": "الأداة: ChatGPT المجاني — chatgpt.com أو تطبيقه على هاتفك.\n١) الصق عشرة من ردودك القديمة على العملاء.\n٢) اكتب: «هذه ردودي السابقة. تعلّم نبرتي: طول الجملة، درجة الرسمية، والكلمات التي أكررها. ثم اكتب رداً على هذه الرسالة بالنبرة نفسها.»\n٣) اقرأ كل رد قبل إرساله — لا ترسل شيئاً لم تراجعه.",
-   "tool": {
-    "name": "ChatGPT",
-    "url": "https://chatgpt.com",
-    "free": true
-   }
-  },
-  {
-   "date": "2026-08-21-reel-b",
-   "kind": "guide",
-   "format": "reel",
-   "topic": "ثلاث خطوات لترميم الصور العائلية القديمة من الهاتف بالذكاء الاصطناعي",
-   "keywords": [
-    "ترميم الصور",
-    "صور قديمة",
-    "Gemini",
-    "صور العائلة",
-    "تحرير الصور"
-   ],
-   "theme": "paper",
-   "style": "flight",
-   "permalink": "https://www.instagram.com/reel/DcTMwfJCTTi/",
-   "media_id": "18117654056486599",
-   "sources": [],
-   "keyword": "أداة",
-   "tool": {
-    "name": "تطبيق Gemini",
-    "url": "https://gemini.google.com",
-    "free": true,
-    "phone_only": true
-   },
-   "reply": "الأداة: تطبيق Gemini المجاني — gemini.google.com أو حمّله من متجر التطبيقات.\n١) افتحه وأرفق صورة جدّك.\n٢) اكتب هذا حرفياً: «رمّم هذه الصورة القديمة. أصلح التمزق والبهتان فقط. لا تغيّر ملامح الوجوه إطلاقاً.»\n٣) قارن الوجوه بالأصل قبل أن تعتمد النتيجة، واحتفظ بالصورة الأصلية دائماً."
-  },
-  {
-   "date": "2026-08-22",
-   "kind": "news",
-   "format": "carousel",
-   "topic": "OpenAI تطلق إعلانات ChatGPT في 31 سوقاً أوروبية يوم 24 أغسطس ليصل الإجمالي إلى 40",
-   "keywords": [
-    "OpenAI",
-    "ChatGPT",
-    "إعلانات",
-    "أوروبا",
-    "GDPR",
-    "نموذج الأعمال"
-   ],
-   "theme": "steel",
-   "layout": "numeral",
-   "permalink": "https://www.instagram.com/p/DcVBQ1mlLQ3/",
-   "media_id": "18178698235422616",
-   "sources": [
-    "https://openai.com/index/chatgpt-ads-expands-across-europe/",
-    "https://www.adweek.com/media/openai-is-taking-its-ad-business-to-31-new-european-markets/",
-    "https://www.euronews.com/next/2026/08/21/chatgpt-to-start-showing-ads-across-europe-next-week"
-   ]
-  },
-  {
-   "date": "2026-08-23-reel",
-   "kind": "guide",
-   "format": "reel",
-   "topic": "ثلاث خطوات لفهم بنود عقد الإيجار من صورة بالهاتف قبل التوقيع",
-   "keywords": [
-    "عقود",
-    "إيجار",
-    "حقوق المستأجر",
-    "مراجعة مستندات",
-    "ChatGPT",
-    "خصوصية البيانات"
-   ],
-   "theme": "emerald",
-   "style": "column",
-   "permalink": "https://www.instagram.com/reel/DcXmWq_lMbF/",
-   "media_id": "17917854252220946",
-   "sources": [],
-   "keyword": "أداة",
-   "tool": {
-    "name": "ChatGPT",
-    "url": "https://chatgpt.com",
-    "free": true
-   },
-   "reply": "الأداة: ChatGPT المجاني — chatgpt.com أو تطبيقه على هاتفك.\n١) غطِّ رقم هويتك وحسابك البنكي بورقة، ثم صوّر كل صفحة من العقد.\n٢) ارفع الصور واكتب: «اقرأ هذا العقد كاملاً. اذكر البنود التي قد تضرّني كمستأجر. اشرح كل بند بجملة واحدة بسيطة.»\n٣) اسأله عن بند الصيانة وشرط الإخلاء المبكر تحديداً.\n⚠️ ليس محامياً — استخدمه لتعرف ماذا تسأل، وللعقود الكبيرة راجع مختصاً قبل التوقيع."
-  },
-  {
-   "date": "2026-08-24",
-   "kind": "news",
-   "format": "carousel",
-   "topic": "كلود يصمّم بروتينات مرتبطة نجحت مخبرياً في 14 هدفاً من 15 بتحقّق مستقل",
-   "keywords": [
-    "أنثروبيك",
-    "بروتينات",
-    "تصميم الأدوية",
-    "Adaptyv Bio",
-    "Twist Bioscience",
-    "بيولوجيا"
-   ],
-   "theme": "violet",
-   "layout": "stencil",
-   "permalink": "https://www.instagram.com/p/DcaK-cvHDg1/",
-   "media_id": "18442101952131598",
-   "sources": [
-    "https://www.anthropic.com/research/Claude-accelerates-protein-design",
-    "https://dataconomy.com/2026/08/20/claude-ai-protein-binders-14-of-15-targets/",
-    "https://thenextweb.com/news/anthropic-claude-protein-design-chemistry"
-   ]
+  "_description": "سجل المنشورات اليومية — تقرأه المهمة المجدولة لتفادي تكرار المواضيع، وتضيف إليه سطراً بعد كل نشر ناجح.",
+  "posts": [
+    {
+      "date": "2026-08-14",
+      "topic": "تطبيق جيميناي من جوجل يتجاوز مليار مستخدم نشط شهرياً",
+      "keywords": [
+        "Gemini",
+        "Google",
+        "مستخدمين",
+        "منافسة المساعدات الذكية"
+      ],
+      "theme": "indigo",
+      "permalink": "https://www.instagram.com/p/DcA-APgkkzR/",
+      "media_id": "18101022704339869",
+      "sources": [
+        "https://blog.google/innovation-and-ai/products/gemini-app/one-billion-monthly-users/",
+        "https://techcrunch.com/2026/08/11/googles-gemini-app-surges-to-one-billion-users/"
+      ],
+      "layout": "numeral",
+      "kind": "news"
+    },
+    {
+      "date": "2026-08-14-b",
+      "topic": "ميتا تطلق نموذج Muse Glimmer مفتوح المصدر بحجم 30 مليار معامل يعمل محلياً",
+      "keywords": [
+        "Meta",
+        "Muse Glimmer",
+        "مفتوح المصدر",
+        "نماذج محلية",
+        "Apache 2.0"
+      ],
+      "theme": "violet",
+      "permalink": "https://www.instagram.com/p/DcBIeeIoKsr/",
+      "media_id": "18151116538514275",
+      "sources": [
+        "https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model",
+        "https://venturebeat.com/technology/meta-returns-to-open-source-with-muse-glimmer-an-apache-2-0-licensed-30b-parameter-ai-model-optimized-for-agents-available-now"
+      ],
+      "layout": "numeral",
+      "kind": "news"
+    },
+    {
+      "date": "2026-08-14-c",
+      "topic": "سامسونج وموستيريان توقّعان عقداً لبناء مراكز بيانات عائمة بقدرة 50 ميغاواط قبالة تكساس",
+      "keywords": [
+        "Samsung",
+        "مراكز بيانات",
+        "عائمة",
+        "تبريد",
+        "طاقة",
+        "بنية تحتية"
+      ],
+      "theme": "amber",
+      "layout": "stencil",
+      "permalink": "https://www.instagram.com/p/DcBSnfbHwSf/",
+      "media_id": "18221683507335209",
+      "sources": [
+        "https://www.datacenterknowledge.com/next-gen-data-centers/samsung-takes-floating-data-center-plans-into-engineering-phase",
+        "https://www.theregister.com/on-prem/2026/08/05/samsung-and-mousterian-move_ahead_with_floating_datacenter_for_texas/5283505",
+        "https://www.prnewswire.com/news-releases/mousterian-corporation-and-samsung-heavy-industries-sign-engineering-contract-for-the-partnerships-first-floating-data-center-deployment-in-the-united-states-302841432.html"
+      ],
+      "kind": "news"
+    },
+    {
+      "date": "2026-08-15",
+      "topic": "أنثروبيك تدمج علامة مائية غير مرئية في النصوص التي تنتجها نماذج كلود",
+      "keywords": [
+        "Anthropic",
+        "Claude",
+        "علامة مائية",
+        "شفافية",
+        "قانون الذكاء الاصطناعي الأوروبي"
+      ],
+      "theme": "paper",
+      "layout": "manchette",
+      "permalink": "https://www.instagram.com/p/DcC_xjmnFou/",
+      "media_id": "18003083705985904",
+      "sources": [
+        "https://www.forbes.com/sites/anishasircar/2026/08/13/claude-will-now-leave-a-watermark-on-everything-it-writes-what-does-that-mean/",
+        "https://gizmodo.com/anthropics-claude-will-start-adding-invisible-watermarks-to-ai-generated-text-2000797759",
+        "https://fortune.com/2026/08/11/anthropic-claude-watermark-ai-text-police-ai-slop/"
+      ],
+      "kind": "news"
+    },
+    {
+      "date": "2026-08-15-reel",
+      "kind": "guide",
+      "format": "reel",
+      "topic": "ثلاث خطوات لتلخيص ملف PDF طويل بأدوات الذكاء الاصطناعي مع موجّه جاهز",
+      "keywords": [
+        "تلخيص",
+        "PDF",
+        "موجّهات",
+        "إنتاجية",
+        "ChatGPT",
+        "Claude"
+      ],
+      "theme": "emerald",
+      "style": "spine",
+      "permalink": "https://www.instagram.com/reel/DcEDXUSDIIi/",
+      "media_id": "18113000644961269",
+      "sources": []
+    },
+    {
+      "date": "2026-08-16",
+      "kind": "news",
+      "format": "carousel",
+      "topic": "جوجل تطلق HEIR مفتوح المصدر لتشغيل نماذج الذكاء الاصطناعي على بيانات مشفّرة",
+      "keywords": [
+        "Google",
+        "HEIR",
+        "تشفير متماثل",
+        "FHE",
+        "خصوصية",
+        "استدلال مشفّر"
+      ],
+      "theme": "steel",
+      "layout": "band",
+      "permalink": "https://www.instagram.com/p/DcFkewEESHy/",
+      "media_id": "18109252196016713",
+      "sources": [
+        "https://blog.google/security/how-google-is-making-private-ai-practical-with-homomorphic-encryption/",
+        "https://arxiv.org/pdf/2508.11095",
+        "https://github.com/google/heir"
+      ]
+    },
+    {
+      "date": "2026-08-17-reel",
+      "kind": "guide",
+      "format": "reel",
+      "topic": "ثلاث خطوات لتحويل تفريغ الاجتماع إلى جدول مهام بمسؤول وموعد",
+      "keywords": [
+        "اجتماعات",
+        "مهام",
+        "تفريغ صوتي",
+        "NotebookLM",
+        "إنتاجية",
+        "موجّهات"
+      ],
+      "theme": "indigo",
+      "style": "panel",
+      "permalink": "https://www.instagram.com/reel/DcIJ9hbFHKk/",
+      "media_id": "18089766809170803",
+      "sources": []
+    },
+    {
+      "date": "2026-08-18",
+      "kind": "news",
+      "format": "carousel",
+      "topic": "اكتتاب Unitree للروبوتات في بورصة شنغهاي يتجاوز حجم الطرح 8288 مرة",
+      "keywords": [
+        "Unitree",
+        "روبوتات بشرية",
+        "اكتتاب",
+        "الصين",
+        "بورصة شنغهاي",
+        "STAR Market"
+      ],
+      "theme": "amber",
+      "layout": "ledger",
+      "permalink": "https://www.instagram.com/p/DcKuA2OFS2k/",
+      "media_id": "17936571735099798",
+      "sources": [
+        "https://finance.yahoo.com/markets/stocks/articles/unitree-robotics-ipo-oversubscribed-8-175125684.html",
+        "https://www.cnbc.com/2026/08/14/china-humanoid-robots-unitree-ipo-tesla-optimus.html",
+        "https://hwbusters.com/news/the-unitree-ipo-was-oversubscribed-8000-times-its-own-prospectus-says-the-hands-arent-ready/"
+      ]
+    },
+    {
+      "date": "2026-08-19-reel",
+      "kind": "guide",
+      "format": "reel",
+      "topic": "ثلاث خطوات لتخصيص السيرة الذاتية لكل وظيفة بأدوات الذكاء الاصطناعي",
+      "keywords": [
+        "السيرة الذاتية",
+        "توظيف",
+        "أنظمة الفرز",
+        "موجّهات",
+        "ChatGPT",
+        "مقابلات"
+      ],
+      "theme": "violet",
+      "style": "frame",
+      "permalink": "https://www.instagram.com/reel/DcNTRxxiJwT/",
+      "media_id": "17969219991130355",
+      "sources": []
+    },
+    {
+      "date": "2026-08-20",
+      "kind": "news",
+      "format": "carousel",
+      "topic": "سامسونج ترفع أسعار التصنيع التعاقدي المتقدم حتى 15% مع امتلاء طاقة الرقائق",
+      "keywords": [
+        "Samsung",
+        "TSMC",
+        "رقائق",
+        "أشباه موصلات",
+        "أسعار",
+        "نانومتر"
+      ],
+      "theme": "crimson",
+      "layout": "stencil",
+      "permalink": "https://www.instagram.com/p/DcP3-S4oP2G/",
+      "media_id": "18016154411876072",
+      "sources": [
+        "https://www.tomshardware.com/tech-industry/samsung-raises-advanced-foundry-prices-by-up-to-15-percent-as-ai-demand-fills-its-4nm-lines",
+        "https://finance.yahoo.com/technology/ai/articles/samsung-raises-advanced-chipmaking-prices-101830976.html",
+        "https://www.freemalaysiatoday.com/category/business/2026/08/19/samsung-hikes-chipmaking-prices-by-up-to-15-on-demand-spike"
+      ]
+    },
+    {
+      "date": "2026-08-21-reel",
+      "kind": "guide",
+      "format": "reel",
+      "topic": "ثلاث خطوات لتعليم الذكاء الاصطناعي نبرتك في الرد على رسائل العملاء",
+      "keywords": [
+        "خدمة العملاء",
+        "نبرة الكتابة",
+        "موجّهات",
+        "متاجر صغيرة",
+        "أتمتة الردود"
+      ],
+      "theme": "paper",
+      "style": "poster",
+      "permalink": "https://www.instagram.com/reel/DcSc_XQjDRi/",
+      "media_id": "17958314055197831",
+      "sources": [],
+      "keyword": "نبرة",
+      "reply": "الأداة: ChatGPT المجاني — chatgpt.com أو تطبيقه على هاتفك.\n١) الصق عشرة من ردودك القديمة على العملاء.\n٢) اكتب: «هذه ردودي السابقة. تعلّم نبرتي: طول الجملة، درجة الرسمية، والكلمات التي أكررها. ثم اكتب رداً على هذه الرسالة بالنبرة نفسها.»\n٣) اقرأ كل رد قبل إرساله — لا ترسل شيئاً لم تراجعه.",
+      "tool": {
+        "name": "ChatGPT",
+        "url": "https://chatgpt.com",
+        "free": true
+      }
+    },
+    {
+      "date": "2026-08-21-reel-b",
+      "kind": "guide",
+      "format": "reel",
+      "topic": "ثلاث خطوات لترميم الصور العائلية القديمة من الهاتف بالذكاء الاصطناعي",
+      "keywords": [
+        "ترميم الصور",
+        "صور قديمة",
+        "Gemini",
+        "صور العائلة",
+        "تحرير الصور"
+      ],
+      "theme": "paper",
+      "style": "flight",
+      "permalink": "https://www.instagram.com/reel/DcTMwfJCTTi/",
+      "media_id": "18117654056486599",
+      "sources": [],
+      "keyword": "أداة",
+      "tool": {
+        "name": "تطبيق Gemini",
+        "url": "https://gemini.google.com",
+        "free": true,
+        "phone_only": true
+      },
+      "reply": "الأداة: تطبيق Gemini المجاني — gemini.google.com أو حمّله من متجر التطبيقات.\n١) افتحه وأرفق صورة جدّك.\n٢) اكتب هذا حرفياً: «رمّم هذه الصورة القديمة. أصلح التمزق والبهتان فقط. لا تغيّر ملامح الوجوه إطلاقاً.»\n٣) قارن الوجوه بالأصل قبل أن تعتمد النتيجة، واحتفظ بالصورة الأصلية دائماً."
+    },
+    {
+      "date": "2026-08-22",
+      "kind": "news",
+      "format": "carousel",
+      "topic": "OpenAI تطلق إعلانات ChatGPT في 31 سوقاً أوروبية يوم 24 أغسطس ليصل الإجمالي إلى 40",
+      "keywords": [
+        "OpenAI",
+        "ChatGPT",
+        "إعلانات",
+        "أوروبا",
+        "GDPR",
+        "نموذج الأعمال"
+      ],
+      "theme": "steel",
+      "layout": "numeral",
+      "permalink": "https://www.instagram.com/p/DcVBQ1mlLQ3/",
+      "media_id": "18178698235422616",
+      "sources": [
+        "https://openai.com/index/chatgpt-ads-expands-across-europe/",
+        "https://www.adweek.com/media/openai-is-taking-its-ad-business-to-31-new-european-markets/",
+        "https://www.euronews.com/next/2026/08/21/chatgpt-to-start-showing-ads-across-europe-next-week"
+      ]
+    },
+    {
+      "date": "2026-08-23-reel",
+      "kind": "guide",
+      "format": "reel",
+      "topic": "ثلاث خطوات لفهم بنود عقد الإيجار من صورة بالهاتف قبل التوقيع",
+      "keywords": [
+        "عقود",
+        "إيجار",
+        "حقوق المستأجر",
+        "مراجعة مستندات",
+        "ChatGPT",
+        "خصوصية البيانات"
+      ],
+      "theme": "emerald",
+      "style": "column",
+      "permalink": "https://www.instagram.com/reel/DcXmWq_lMbF/",
+      "media_id": "17917854252220946",
+      "sources": [],
+      "keyword": "أداة",
+      "tool": {
+        "name": "ChatGPT",
+        "url": "https://chatgpt.com",
+        "free": true
+      },
+      "reply": "الأداة: ChatGPT المجاني — chatgpt.com أو تطبيقه على هاتفك.\n١) غطِّ رقم هويتك وحسابك البنكي بورقة، ثم صوّر كل صفحة من العقد.\n٢) ارفع الصور واكتب: «اقرأ هذا العقد كاملاً. اذكر البنود التي قد تضرّني كمستأجر. اشرح كل بند بجملة واحدة بسيطة.»\n٣) اسأله عن بند الصيانة وشرط الإخلاء المبكر تحديداً.\n⚠️ ليس محامياً — استخدمه لتعرف ماذا تسأل، وللعقود الكبيرة راجع مختصاً قبل التوقيع."
+    },
+    {
+      "date": "2026-08-24",
+      "kind": "news",
+      "format": "carousel",
+      "topic": "كلود يصمّم بروتينات مرتبطة نجحت مخبرياً في 14 هدفاً من 15 بتحقّق مستقل",
+      "keywords": [
+        "أنثروبيك",
+        "بروتينات",
+        "تصميم الأدوية",
+        "Adaptyv Bio",
+        "Twist Bioscience",
+        "بيولوجيا"
+      ],
+      "theme": "violet",
+      "layout": "stencil",
+      "permalink": "https://www.instagram.com/p/DcaK-cvHDg1/",
+      "media_id": "18442101952131598",
+      "sources": [
+        "https://www.anthropic.com/research/Claude-accelerates-protein-design",
+        "https://dataconomy.com/2026/08/20/claude-ai-protein-binders-14-of-15-targets/",
+        "https://thenextweb.com/news/anthropic-claude-protein-design-chemistry"
+      ]
+    },
+    {
+      "date": "2026-08-27-reel",
+      "kind": "guide",
+      "format": "reel",
+      "topic": "أربع خطوات لتحويل كيس فواتير المحل إلى جدول مصروفات بالتصوير",
+      "keywords": [
+        "محلات صغيرة",
+        "فواتير",
+        "مصروفات",
+        "محاسبة",
+        "ChatGPT",
+        "Excel",
+        "تفريغ مستندات"
+      ],
+      "theme": "paper",
+      "style": "tilt",
+      "permalink": "https://www.instagram.com/reel/DcjjsBNnw5Z/",
+      "media_id": "18104821442614398",
+      "sources": [],
+      "keyword": "أداة",
+      "tool": {
+        "name": "ChatGPT",
+        "url": "https://chatgpt.com",
+        "free": true,
+        "phone_ok": true
+      },
+      "reply": "الأداة: ChatGPT — النسخة المجانية تكفي، وتعمل من تطبيق الهاتف.\nالرابط: https://chatgpt.com\n\n١) افتح محادثة جديدة واضغط زر الصورة، وارفع صور الفواتير دفعة واحدة (حتى عشر صور).\n٢) الصق هذا الموجّه: «استخرج من كل فاتورة: التاريخ، اسم المورّد، المبلغ. رتّبها في جدول واحد مرتّب بالتاريخ. اجمع المبالغ في آخر سطر، واذكر ما لم تقرأه.»\n٣) بعد ظهور الجدول اطلب: «صدّر الجدول بصيغة Excel».\n⚠️ راجع بنفسك المبالغ التي ذكرت الأداة أنها لم تقرأها بوضوح قبل اعتمادها — الأرقام مسؤوليتك."
+    }
+  ],
+  "_kinds": {
+    "news": "خبر تقني/ذكاء اصطناعي من آخر ٢٤–٤٨ ساعة",
+    "guide": "محتوى تعليمي عملي: كيف يستفيد شخص أو مؤسسة من الذكاء الاصطناعي"
   }
- ],
- "_kinds": {
-  "news": "خبر تقني/ذكاء اصطناعي من آخر ٢٤–٤٨ ساعة",
-  "guide": "محتوى تعليمي عملي: كيف يستفيد شخص أو مؤسسة من الذكاء الاصطناعي"
- }
 }
