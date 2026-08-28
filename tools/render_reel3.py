@@ -51,9 +51,11 @@ W, H = 1080, 1920
 # المنطقة الآمنة: واجهة إنستقرام تغطّي الأسفل واليمين
 PAD_X, TOP, BOTTOM = 92, 210, 1580
 
-# طول كل مشهد بالنبضات. المجموع ٢٢ نبضة ⇒ ١٢٫٧–١٤٫٣ ثانية حسب الإيقاع.
-BEATS = {"cover": 3, "demo": 9, "prompt": 6, "cta": 4}
-ORDER = ["cover", "demo", "prompt", "cta"]
+# طول كل مشهد بالنبضات. المجموع ٣٢ نبضة ⇒ ١٨٫٥–٢٠٫٩ ثانية حسب الإيقاع.
+# مشهد `value` أُضيف بعد العرض: الفائدة لا تُترك ضمنيةً في العرض، بل تُقال
+# صريحةً في ثلاثة أسطر تهبط على النبضة — وهو ما يقرّر المشاهد عليه المتابعة.
+BEATS = {"cover": 3, "demo": 11, "value": 7, "prompt": 6, "cta": 5}
+ORDER = ["cover", "demo", "value", "prompt", "cta"]
 
 
 def words(text, cls="w"):
@@ -177,13 +179,36 @@ def prompt_html(p):
             '</div>')
 
 
-def cta_html(c, keyword):
+def value_html(v):
+    rows = []
+    for i, r in enumerate(v.get("rows", [])):
+        if isinstance(r, str):
+            r = {"title": r}
+        big = r.get("big", "")
+        rows.append(
+            f'<div class="vr" data-i="{i}">'
+            f'<div class="vn">{esc(big) if big else "◆"}</div>'
+            f'<div class="vt"><b>{esc(r.get("title", ""))}</b>'
+            + (f'<span>{esc(r["sub"])}</span>' if r.get("sub") else "")
+            + '</div></div>')
+    return ('<div class="wrap val">'
+            f'<div class="kick" id="vkick">{esc(v.get("label", "لماذا يهمّك"))}</div>'
+            f'<div class="vlist">{"".join(rows)}</div></div>')
+
+
+def cta_html(c, keyword, av):
+    # صورة صاحب الحساب مقصوصة الخلفية: حضور شخصي في آخر مشهد يرفع التذكّر
+    # ويربط الأداة بوجه. تجلس يساراً لأن النص عربي يصطفّ يميناً.
+    face = (f'<div class="fring" id="face">'
+            f'<img src="data:image/png;base64,{av}"></div>' if av else "")
     return ('<div class="wrap cta">'
-            f'<div class="kick" id="xkick">{esc(c.get("kicker", "الأداة والرابط"))}</div>'
+            f'{face}'
+            f'<div class="xname" id="xname">{esc(c.get("name", ""))}</div>'
             f'<h1 class="big" id="xtitle">{words(c.get("title", ""))}</h1>'
             f'<div class="chip" id="chip"><em>اكتب في التعليقات</em>'
             f'<b>{esc(keyword)}</b></div>'
-            f'<div class="xsub" id="xsub">{esc(c.get("sub", ""))}</div></div>')
+            f'<div class="xsub" id="xsub">{esc(c.get("sub", ""))}</div>'
+            '</div>')
 
 
 # ═══════════════════════════ الصفحة ═══════════════════════════
@@ -203,15 +228,15 @@ def build_html(spec, beat):
         acc += d
     total = round(acc, 5)
 
+    av = avatar_b64()
     layers = "".join(
         f'<div class="layer" id="L{i}">{h}</div>' for i, h in enumerate([
             cover_html(spec.get("cover", {})),
             demo_html(spec.get("demo", {})),
+            value_html(spec.get("value", {})),
             prompt_html(spec.get("prompt", {})),
-            cta_html(spec.get("cta", {}), spec.get("keyword", "أداة")),
+            cta_html(spec.get("cta", {}), spec.get("keyword", "أداة"), av),
         ]))
-
-    av = avatar_b64()
     badge = (f'<img class="av" src="data:image/png;base64,{av}">' if av else "")
 
     return f"""<!doctype html><html lang="ar" dir="rtl"><meta charset="utf-8">
@@ -241,6 +266,18 @@ body{{font-family:'Readex Pro','Cairo',sans-serif;color:{ink};
 .wrap{{position:absolute;left:{PAD_X}px;right:{PAD_X}px;
   top:{TOP}px;bottom:{H - BOTTOM}px;display:flex;flex-direction:column;
   justify-content:center}}
+
+/* ── قائمة الفائدة ── */
+.vlist{{display:flex;flex-direction:column;gap:26px}}
+.vr{{display:flex;align-items:center;gap:28px;background:{ink}0c;
+  border:2px solid {line};border-radius:24px;padding:30px 34px;
+  will-change:transform,opacity}}
+.vn{{flex:0 0 128px;height:112px;display:flex;align-items:center;
+  justify-content:center;background:{a};color:{on};border-radius:20px;
+  font-size:46px;font-weight:700;letter-spacing:-1px;direction:ltr}}
+.vt b{{display:block;font-size:47px;font-weight:600;line-height:1.28}}
+.vt span{{display:block;margin-top:8px;font-family:'Plex Arabic',sans-serif;
+  font-size:33px;line-height:1.5;color:{ink2}}}
 
 .kick{{font-size:32px;font-weight:600;letter-spacing:3.5px;color:{a};
   margin-bottom:28px}}
@@ -330,14 +367,35 @@ body{{font-family:'Readex Pro','Cairo',sans-serif;color:{ink};
   font-family:'Plex Arabic',sans-serif}}
 
 /* ── الدعوة ── */
-.chip{{margin-top:46px;align-self:flex-start;background:{a};color:{on};
-  border-radius:28px;padding:26px 54px 34px;text-align:center;
+/* مشهد الدعوة تركيبه مركزيّ لا يمينيّ: الصورة الكبيرة في الوسط والمعرّف
+   تحتها ثم العنوان — هذا ما يصنع «توقيعاً» يُتذكّر، والوجه في المنتصف
+   يوقف الإبهام أكثر من أي صندوق نص. */
+.cta{{align-items:center;text-align:center}}
+.chip{{margin-top:38px;align-self:center;background:{a};color:{on};
+  border-radius:26px;padding:22px 52px 28px;text-align:center;
   box-shadow:0 0 0 0 {glow}66;will-change:transform,box-shadow}}
-.chip em{{display:block;font-style:normal;font-size:29px;opacity:.82;
-  margin-bottom:8px}}
-.chip b{{display:block;font-size:88px;font-weight:700;line-height:1.16}}
-.xsub{{margin-top:36px;font-family:'Plex Arabic',sans-serif;font-size:43px;
-  line-height:1.66;color:{ink2}}}
+.chip em{{display:block;font-style:normal;font-size:27px;opacity:.82;
+  margin-bottom:6px}}
+.chip b{{display:block;font-size:74px;font-weight:700;line-height:1.16}}
+.xsub{{margin-top:30px;font-family:'Plex Arabic',sans-serif;font-size:37px;
+  line-height:1.58;color:{ink2};max-width:820px}}
+.xname{{margin-top:24px;font-size:56px;font-weight:600;color:{a};direction:ltr;
+  letter-spacing:1px}}
+.cta .big{{font-size:88px;margin-top:26px;letter-spacing:-2px}}
+
+/* الصورة الأصلية مقطوعة بحدّ حادّ من الأسفل واليمين (الجذع والذراع يصلان
+   حافة الملف)، فوضعها كقصاصة يُظهر خطاً مستقيماً في الكتف. القرص يلغي
+   المشكلة من أصلها. */
+.fring{{position:relative;width:430px;height:430px;border-radius:50%;
+  overflow:hidden;border:7px solid {a};
+  background:linear-gradient(158deg,{glow}3d,{ink}2e);
+  box-shadow:0 26px 60px rgba(0,0,0,.46);flex:0 0 auto;
+  will-change:transform,opacity;pointer-events:none}}
+/* الوضع المطلق مقصود: داخل حاوية RTL يبدأ الموضع الساكن للصورة من الحافة
+   اليمنى، فتنزلق خارج القرص. الإزاحتان محسوبتان من قناع الشفافية:
+   مركز الوجه في الملف عند (370,300) من 760، والقرص 430 بإطار 7. */
+.fring img{{position:absolute;width:645px;height:645px;object-fit:contain;
+  left:-106px;top:-47px;display:block}}
 
 /* ── الثابت ── */
 #chrome{{position:absolute;inset:0;pointer-events:none}}
@@ -356,7 +414,7 @@ body{{font-family:'Readex Pro','Cairo',sans-serif;color:{ink};
 const SCENES = {json.dumps(scenes)};
 const TOTAL = {total};
 const BEAT = {beat};
-const L = [0,1,2,3].map(i => document.getElementById('L'+i));
+const L = [0,1,2,3,4].map(i => document.getElementById('L'+i));
 const cl = (v,a,b) => Math.max(a, Math.min(b, v));
 
 // منحنيات التخفيف: الحركة الخطية هي ما يفضح القوالب
@@ -467,12 +525,12 @@ function scenePrompt(lt) {{
       pn.style.transform = `scale(${{0.99+0.01*p}})`;
     }}
   }}
-  stagger([...Q('#L2 .pl')], lt, 0.34, 0.085, 0.40, (el,p) => {{
+  stagger([...Q('#L3 .pl')], lt, 0.34, 0.085, 0.40, (el,p) => {{
     el.style.opacity = p;
     el.style.transform = `translateY(${{(1-outQ(p))*22}}px)`;
   }});
   // أسطر الطرفية تظهر سطراً سطراً على نصف نبضة، والمؤشّر يومض بعد آخرها
-  const tls = [...Q('#L2 .tl')];
+  const tls = [...Q('#L3 .tl')];
   stagger(tls, lt, 0.42, BEAT*0.5, 0.26, (el,p) => {{
     el.style.opacity = p; el.style.transform = `translateX(${{(1-outQ(p))*-16}}px)`;
   }});
@@ -489,11 +547,20 @@ function scenePrompt(lt) {{
     h.style.transformOrigin = '100% 50%'; }}
 }}
 
-function sceneCta(lt) {{
-  const k = G('xkick');
+// كل سطر فائدة يهبط على نصف نبضة، فتقع الأسطر مع الموسيقى لا بجوارها
+function sceneValue(lt) {{
+  const k = G('vkick');
   if (k) {{ const p = cl(lt/0.30,0,1);
     k.style.opacity = p; k.style.transform = `translateX(${{(1-outC(p))*26}}px)`; }}
-  stagger([...Q('#xtitle .w>i')], lt, 0.04, 0.05, 0.46,
+  stagger([...Q('#L2 .vr')], lt, 0.26, BEAT*0.62, 0.44, (el,p) => {{
+    el.style.opacity = p;
+    el.style.transform =
+      `translateX(${{(1-back(p))*46}}px) scale(${{0.985+0.015*outQ(p)}})`;
+  }});
+}}
+
+function sceneCta(lt) {{
+  stagger([...Q('#xtitle .w>i')], lt, 0.30, 0.05, 0.46,
     (el,p) => {{ el.style.transform = `translateY(${{(1-back(p))*105}}%)`; }});
   const c = G('chip');
   if (c) {{
@@ -508,9 +575,22 @@ function sceneCta(lt) {{
   const s = G('xsub');
   if (s) {{ const p = cl((lt-0.62)/0.42,0,1);
     s.style.opacity = p; s.style.transform = `translateY(${{(1-outC(p))*20}}px)`; }}
+  const nm = G('xname');
+  if (nm) {{ const p = cl((lt-0.26)/0.34,0,1);
+    nm.style.opacity = p; nm.style.transform = `translateY(${{(1-outC(p))*16}}px)`; }}
+  // الصورة أول ما يظهر: تكبر من ٨٨٪ مع تجاوز خفيف، وهالتها تتنفّس على النبضة
+  const f = G('face');
+  if (f) {{
+    const p = cl(lt/0.52,0,1);
+    const b = Math.max(0, Math.sin(lt/BEAT*Math.PI*2));
+    f.style.opacity = cl(p*1.6,0,1);
+    f.style.transform = `scale(${{0.88+0.12*back(p)}})`;
+    f.style.boxShadow =
+      `0 26px 60px rgba(0,0,0,.46), 0 0 ${{18+30*b}}px ${{4+9*b}}px {glow}4d`;
+  }}
 }}
 
-const RUN = [sceneCover, sceneDemo, scenePrompt, sceneCta];
+const RUN = [sceneCover, sceneDemo, sceneValue, scenePrompt, sceneCta];
 
 window.setT = function (t) {{
   t = cl(t, 0, TOTAL);

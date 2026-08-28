@@ -120,6 +120,24 @@ def write_bed(path, duration, seed="reel", cuts=()):
         add(left, start, sig, gain * (1 - pan))
         add(right, start, sig, gain * pan)
 
+    # ══ بناء الطاقة ══
+    # المقطع لا يبدأ كامل الطبقات: كل قسم يضيف طبقة، فيُحسّ المستمع أن
+    # الشيء «يكبر» ويبقى إلى النهاية. البداية بالوسادة والباص فقط، ثم
+    # الأربيجيو، ثم الطبلة، ثم الهاي هات، ثم اللمعة العليا.
+    bounds = [0.0] + sorted(float(c) for c in cuts if 0 < c < duration)
+
+    def section(t):
+        s = 0
+        for i, b0 in enumerate(bounds):
+            if t >= b0 - 1e-6:
+                s = i
+        return s
+
+    # الطبلة تُجمَّع في مخزن منفصل: لو دخلت المزيج قبل الكبح الجانبي لخفضت
+    # نفسها بنفسها وضاع أثرها. تُضاف بعد الكبح.
+    kick_times = []
+    kbuf = np.zeros(n, dtype=np.float64)
+
     # ══ الطبقة الموسيقية ══
     nbars = int(duration / bar) + 2
     for b in range(nbars):
@@ -128,33 +146,82 @@ def write_bed(path, duration, seed="reel", cuts=()):
             break
         croot, quality = prog[b % len(prog)]
         tones = VOICING[quality]
+        sec = section(t0)
 
-        fb = root * semis(croot) / 2
-        bass = note(fb, bar * 0.92, 0.03, 0.55, 0.55, 0.5, [(1, 1.0), (2, 0.22)])
-        add(left, t0, bass, 0.25)
-        add(right, t0, bass, 0.25)
-
+        # ── الوسادة الهارمونية: حاضرة من أول لحظة ──
         for j, deg in enumerate(tones):
             f = root * 2 * semis(croot + deg)
             sig = note(f, bar * 0.98, 0.55, 1.8, 0.82, 0.9,
                        [(1, 1.0), (2, 0.30), (3, 0.12)], vib=0.02)
             stereo(t0, sig, 0.115, 0.5 + (0.22 if j % 2 else -0.22))
 
-        for s in range(8):
-            ts = t0 + s * (beat / 2)
-            if ts > duration:
-                break
-            deg = tones[arp[s % len(arp)] % len(tones)]
-            f = root * (8 if s % 4 == 0 else 4) * semis(croot + deg)
-            sig = note(f, 0.30, 0.006, 0.14, 0.0, 0.45,
-                       [(1, 1.0), (2, 0.28), (3, 0.10)])
-            pan = 0.5 + 0.34 * float(np.sin((b * 8 + s) * 0.7))
-            stereo(ts, sig, 0.10 * (1.0 if s % 4 == 0 else 0.64), pan)
+        # ── الباص: نغمة واحدة في القسم الأول، ثم يمشي بأثمان ──
+        fb = root * semis(croot) / 2
+        if sec == 0:
+            bass = note(fb, bar * 0.92, 0.03, 0.55, 0.55, 0.5,
+                        [(1, 1.0), (2, 0.22)])
+            add(left, t0, bass, 0.26)
+            add(right, t0, bass, 0.26)
+        else:
+            walk = [0, 0, 7, 0, 0, 12, 7, 0]      # جذر · خامسة · أوكتاف
+            for s in range(8):
+                ts = t0 + s * (beat / 2)
+                if ts > duration:
+                    break
+                sig = note(fb * semis(walk[s]), beat * 0.42, 0.012, 0.20,
+                           0.30, 0.20, [(1, 1.0), (2, 0.26), (3, 0.08)])
+                g = 0.24 * (1.0 if s % 2 == 0 else 0.62)
+                add(left, ts, sig, g)
+                add(right, ts, sig, g)
 
-        if b % 2 == 0:
+        # ── الطبلة: من القسم الأول فصاعداً، على النبضة الأولى والثالثة ──
+        if sec >= 1:
+            for kb in (0, 2):
+                ts = t0 + kb * beat
+                if ts > duration:
+                    break
+                m = int(0.13 * SR)
+                x = np.arange(m) / SR
+                # هبوط في النبرة من ٥٦ إلى ٣٨ هرتز: هذا ما يعطي «الضربة» جسداً
+                fk = 38 + 78 * np.exp(-x * 34)
+                ph = 2 * np.pi * np.cumsum(fk) / SR
+                kick = np.sin(ph) * np.exp(-x * 15)
+                add(kbuf, ts, kick, 0.34)
+                kick_times.append(ts)
+
+        # ── الهاي هات: من القسم الثاني، على الأثمان الضعيفة ──
+        if sec >= 2:
+            for s in range(8):
+                if s % 2 == 0:
+                    continue
+                ts = t0 + s * (beat / 2)
+                if ts > duration:
+                    break
+                m = int(0.035 * SR)
+                nz = rng.standard_normal(m)
+                nz = np.concatenate([[0.0], np.diff(nz)])   # تمرير عالٍ
+                hat = nz * np.exp(-np.arange(m) / (m * 0.20))
+                pan = 0.5 + (0.16 if s % 4 == 1 else -0.16)
+                stereo(ts, hat, 0.055, pan)
+
+        # ── الأربيجيو الجرسي: من القسم الأول ──
+        if sec >= 1:
+            for s in range(8):
+                ts = t0 + s * (beat / 2)
+                if ts > duration:
+                    break
+                deg = tones[arp[s % len(arp)] % len(tones)]
+                f = root * (8 if s % 4 == 0 else 4) * semis(croot + deg)
+                sig = note(f, 0.30, 0.006, 0.14, 0.0, 0.45,
+                           [(1, 1.0), (2, 0.28), (3, 0.10)])
+                pan = 0.5 + 0.34 * float(np.sin((b * 8 + s) * 0.7))
+                stereo(ts, sig, 0.10 * (1.0 if s % 4 == 0 else 0.64), pan)
+
+        # ── اللمعة العليا: في الأقسام الأخيرة فقط، فتُحسّ النهاية أوسع ──
+        if sec >= 3 and b % 2 == 0:
             f = root * 16 * semis(croot + tones[-1])
             stereo(t0, note(f, bar * 1.2, 0.9, 2.2, 0.5, 1.4, [(1, 1.0)]),
-                   0.022, 0.5)
+                   0.030, 0.5)
 
     # ══ التصميم الصوتي عند القطعات ══
     # ثلاث طبقات لكل قطعة: صعود يمهّد، نقرة تحدّد اللحظة، ضربة تعطيها وزناً.
@@ -192,10 +259,24 @@ def write_bed(path, duration, seed="reel", cuts=()):
         add(right, ct, thump, 0.20)
 
     # ══ المعالجة ══
+    # كبح جانبي: كل ضربة طبلة تخفض بقية المزيج لحظياً ثم تعود. هذا «النبض»
+    # هو ما يميّز مزيجاً منتَجاً عن طبقات مركومة فوق بعضها.
     x = np.arange(n) / SR
-    pulse = 0.90 + 0.10 * (0.5 + 0.5 * np.cos(2 * np.pi * x / beat))
-    left *= pulse
-    right *= pulse
+    duck = np.ones(n)
+    for kt in kick_times:
+        i0 = int(kt * SR)
+        m = int(0.26 * SR)
+        if i0 >= n:
+            continue
+        m = min(m, n - i0)
+        env = 1.0 - 0.34 * np.exp(-np.arange(m) / (0.055 * SR))
+        duck[i0:i0 + m] = np.minimum(duck[i0:i0 + m], env)
+    if not kick_times:
+        duck = 0.90 + 0.10 * (0.5 + 0.5 * np.cos(2 * np.pi * x / beat))
+    left *= duck
+    right *= duck
+    left += kbuf
+    right += kbuf
 
     for delay, fb_g in ((0.22, 0.26), (0.35, 0.16)):
         d = int(delay * SR)
@@ -203,7 +284,7 @@ def write_bed(path, duration, seed="reel", cuts=()):
             left[d:] += right[:n - d] * fb_g * 0.5
             right[d:] += left[:n - d] * fb_g * 0.45
 
-    a = 0.52          # أقل ترشيحاً من نسخة الثلاثين ثانية: نريد نقرات حاضرة
+    a = 0.62          # مفتوح أكثر: الهاي هات والنقرات تحتاج مدى عالياً
     for buf in (left, right):
         acc = 0.0
         out = np.empty_like(buf)
@@ -212,11 +293,12 @@ def write_bed(path, duration, seed="reel", cuts=()):
             out[i] = acc
         buf[:] = out
 
+    # قطع ما تحت ~٣٠ هرتز فقط: القطع عند ٤٥ كان يبتلع ذيل الطبلة (٣٨ هرتز)
     for buf in (left, right):
         prev = 0.0
         out = np.empty_like(buf)
         for i in range(n):
-            prev += 0.0064 * (buf[i] - prev)
+            prev += 0.0043 * (buf[i] - prev)
             out[i] = buf[i] - prev
         buf[:] = out
 
