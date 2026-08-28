@@ -35,6 +35,7 @@
 """
 import asyncio
 import base64
+import hashlib
 import json
 import pathlib
 import subprocess
@@ -45,6 +46,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from render_v2 import THEMES, esc, ASSET_DIRS, _find          # noqa: E402
 from render_reel2 import reel_faces, _chromium, _ffmpeg       # noqa: E402
 from reel_audio3 import grid, write_bed                       # noqa: E402
+from reel_art import icon, brand_chip, decor, DECOR_KINDS     # noqa: E402
 
 W, H = 1080, 1920
 
@@ -75,19 +77,25 @@ def avatar_b64():
 
 # ═══════════════════════════ المشاهد ═══════════════════════════
 
-def cover_html(c):
+def cover_html(c, tool, accent, on_accent):
     result = c.get("result", "")
     card = ""
     if result:
         lines = "".join(f'<div class="rl">{esc(x)}</div>'
                         for x in (result if isinstance(result, list) else [result]))
         card = f'<div class="rcard" id="rcard">{lines}</div>'
+    # شارة الأداة على الغلاف: المشاهد يعرف عن أي أداة نتكلّم قبل أن يقرأ،
+    # واللون هو لون العلامة لا لون الثيم — فيُتعرَّف عليها فوراً.
+    chip = brand_chip(tool.get("brand") or tool.get("name", ""),
+                      tool.get("name", ""), accent, on_accent)
     return (
         '<div class="wrap cov">'
         f'<div class="kick" id="ckick">{esc(c.get("kicker", ""))}</div>'
         f'<h1 class="big" id="ctitle">{words(c.get("title", ""))}</h1>'
         '<div class="rule" id="crule"></div>'
-        f'{card}</div>')
+        f'{card}'
+        + (f'<div class="brandrow" id="cbrand">{chip}</div>' if chip else "")
+        + '</div>')
 
 
 def demo_table(d):
@@ -179,15 +187,18 @@ def prompt_html(p):
             '</div>')
 
 
-def value_html(v):
+def value_html(v, accent):
     rows = []
     for i, r in enumerate(v.get("rows", [])):
         if isinstance(r, str):
             r = {"title": r}
-        big = r.get("big", "")
+        # `icon` أولوية على `big`: الأيقونة تُرسَم أمام العين وتقول المعنى
+        # قبل أن يُقرأ السطر؛ الرقم يبقى خياراً حين يكون هو الرسالة.
+        ic = icon(r["icon"], accent, 2.2) if r.get("icon") else ""
+        cell = ic or (esc(r.get("big", "")) or "◆")
         rows.append(
             f'<div class="vr" data-i="{i}">'
-            f'<div class="vn">{esc(big) if big else "◆"}</div>'
+            f'<div class="vn{" ico" if ic else ""}">{cell}</div>'
             f'<div class="vt"><b>{esc(r.get("title", ""))}</b>'
             + (f'<span>{esc(r["sub"])}</span>' if r.get("sub") else "")
             + '</div></div>')
@@ -229,15 +240,25 @@ def build_html(spec, beat):
     total = round(acc, 5)
 
     av = avatar_b64()
+    tool = spec.get("tool", {}) or {}
     layers = "".join(
         f'<div class="layer" id="L{i}">{h}</div>' for i, h in enumerate([
-            cover_html(spec.get("cover", {})),
+            cover_html(spec.get("cover", {}), tool, a, on),
             demo_html(spec.get("demo", {})),
-            value_html(spec.get("value", {})),
+            value_html(spec.get("value", {}), a),
             prompt_html(spec.get("prompt", {})),
             cta_html(spec.get("cta", {}), spec.get("keyword", "أداة"), av),
         ]))
     badge = (f'<img class="av" src="data:image/png;base64,{av}">' if av else "")
+
+    # الزخرفة تُختار من بذرة المحتوى لا يدوياً، فيختلف الشكل بين منشور وآخر
+    dk = spec.get("decor")
+    if dk not in DECOR_KINDS:
+        h = hashlib.sha256(json.dumps(
+            spec.get("cover", {}), ensure_ascii=False, sort_keys=True
+        ).encode()).digest()
+        dk = DECOR_KINDS[h[0] % len(DECOR_KINDS)]
+    dec = decor(dk, a, glow)
 
     return f"""<!doctype html><html lang="ar" dir="rtl"><meta charset="utf-8">
 <style>
@@ -261,6 +282,28 @@ body{{font-family:'Readex Pro','Cairo',sans-serif;color:{ink};
 <filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/></filter>\
 <rect width='180' height='180' filter='url(%23n)'/></svg>")}}
 
+/* طبقة الزخرفة بين الخلفية والمحتوى: تتنفّس مع الإيقاع فيبقى الكادر حيّاً
+   حتى في اللحظات التي لا يتحرّك فيها نص. */
+#dec{{position:absolute;inset:0;pointer-events:none;
+  will-change:transform,opacity}}
+#dec svg{{position:absolute;inset:0;width:100%;height:100%}}
+.dec .d1,.dec .d2,.dec .d3{{will-change:transform,opacity}}
+
+/* شارة الأداة: لونها لون العلامة لا لون الثيم، فتُعرَف من نظرة */
+.brandrow{{margin-top:34px}}
+.brand{{display:inline-flex;align-items:center;gap:16px;
+  border:2.5px solid var(--bc);border-radius:999px;padding:14px 30px 14px 22px;
+  background:color-mix(in srgb, var(--bc) 14%, transparent);
+  will-change:transform,opacity}}
+.brand svg{{width:44px;height:44px;flex:0 0 auto}}
+.brand span{{font-size:36px;font-weight:600;color:var(--bc);direction:ltr;
+  letter-spacing:-.5px}}
+
+.ic{{width:62px;height:62px}}
+/* الأيقونة تُرسَم أمام العين بدل أن تظهر دفعة واحدة */
+.ic path,.ic circle,.ic rect,.ic ellipse{{stroke-dasharray:var(--len,200);
+  stroke-dashoffset:var(--off,0)}}
+
 .layer{{position:absolute;inset:0;opacity:0;visibility:hidden;
   transform-origin:50% 46%;will-change:transform,opacity,filter}}
 .wrap{{position:absolute;left:{PAD_X}px;right:{PAD_X}px;
@@ -275,6 +318,7 @@ body{{font-family:'Readex Pro','Cairo',sans-serif;color:{ink};
 .vn{{flex:0 0 128px;height:112px;display:flex;align-items:center;
   justify-content:center;background:{a};color:{on};border-radius:20px;
   font-size:46px;font-weight:700;letter-spacing:-1px;direction:ltr}}
+.vn.ico{{background:{a}22;border:2.5px solid {a}}}
 .vt b{{display:block;font-size:47px;font-weight:600;line-height:1.28}}
 .vt span{{display:block;margin-top:8px;font-family:'Plex Arabic',sans-serif;
   font-size:33px;line-height:1.5;color:{ink2}}}
@@ -408,7 +452,7 @@ body{{font-family:'Readex Pro','Cairo',sans-serif;color:{ink};
 #prog{{position:absolute;top:0;left:0;height:5px;background:{a};width:0}}
 </style>
 <div id="stage">
-  <div id="bg"></div><div id="grain"></div>
+  <div id="bg"></div><div id="dec">{dec}</div><div id="grain"></div>
   {layers}
   <div id="chrome"><div id="prog"></div>
     <div class="hd">{badge}<span>{esc(spec.get('handle', ''))}</span></div></div>
@@ -436,6 +480,22 @@ function stagger(nodes, lt, delay, step, dur, fn) {{
 
 const Q = s => document.querySelectorAll(s);
 const G = id => document.getElementById(id);
+
+// طول كل مسار أيقونة يُقاس مرّة واحدة، ليُرسَم بعدها بتحريك dashoffset
+const ICP = [...Q('.ic')].map(sv => {{
+  const ps = [...sv.querySelectorAll('path,circle,rect,ellipse')];
+  ps.forEach(p => {{ let L = 200;
+    try {{ L = p.getTotalLength() || 200; }} catch (e) {{}}
+    p.style.setProperty('--len', L); p.dataset.len = L; }});
+  return ps;
+}});
+function drawIcon(i, p) {{
+  const ps = ICP[i]; if (!ps) return;
+  ps.forEach((el, k) => {{
+    const q = cl((p - k*0.08) / 0.72, 0, 1);
+    el.style.setProperty('--off', (1 - outQ(q)) * (+el.dataset.len));
+  }});
+}}
 const CHAT_SRC = (document.querySelector('.src')||{{dataset:{{raw:''}}}}).dataset.raw||'';
 
 // الغلاف لا «يُبنى من العدم»: إنستقرام يلتقط غلاف الريلز من الفيديو، وأي
@@ -454,6 +514,13 @@ function sceneCover(lt) {{
   if (c) {{ const p = cl(lt/0.72,0,1);
     c.style.transform =
       `translateY(${{(1-outQ(p))*26}}px) rotate(${{(1-outQ(p))*-1.1}}deg)`; }}
+  // شارة الأداة تدخل متأخّرة قليلاً وتنبض على الضربة
+  const bd = G('cbrand');
+  if (bd) {{ const p = cl((lt-0.34)/0.52,0,1);
+    const b = Math.max(0, Math.sin(lt/BEAT*Math.PI*2));
+    bd.style.opacity = p;
+    bd.style.transform =
+      `translateY(${{(1-back(p))*22}}px) scale(${{(0.94+0.06*back(p))*(1+0.016*b)}})`; }}
 }}
 
 function sceneDemo(lt, dur) {{
@@ -555,10 +622,12 @@ function sceneValue(lt) {{
   const k = G('vkick');
   if (k) {{ const p = cl(lt/0.30,0,1);
     k.style.opacity = p; k.style.transform = `translateX(${{(1-outC(p))*26}}px)`; }}
-  stagger([...Q('#L2 .vr')], lt, 0.26, BEAT*0.62, 0.44, (el,p) => {{
+  stagger([...Q('#L2 .vr')], lt, 0.26, BEAT*0.62, 0.44, (el,p,i) => {{
     el.style.opacity = p;
     el.style.transform =
       `translateX(${{(1-back(p))*46}}px) scale(${{0.985+0.015*outQ(p)}})`;
+    // الأيقونة تُرسَم بعد هبوط السطر بقليل: الحركة تتتابع ولا تتزاحم
+    drawIcon(i, cl((p - 0.30) / 0.70, 0, 1));
   }});
 }}
 
@@ -626,6 +695,23 @@ window.setT = function (t) {{
   const bg = document.getElementById('bg');
   bg.style.transform =
     `translate(${{Math.sin(t*0.30)*26}}px, ${{-t*7}}px) scale(${{1.04+0.012*Math.sin(t*0.42)}})`;
+
+  // الزخرفة تتنفّس على النبضة وتنجرف عكس الخلفية، فيتولّد عمق بين الطبقتين
+  const dl = document.getElementById('dec');
+  const pb = Math.max(0, Math.sin(t/BEAT*Math.PI*2));
+  dl.style.transform =
+    `translate(${{Math.sin(t*0.22+1.4)*-34}}px, ${{t*4}}px) ` +
+    `rotate(${{Math.sin(t*0.14)*0.9}}deg) scale(${{1.02+0.018*pb}})`;
+  dl.style.opacity = 0.72 + 0.28*pb;
+  // الأشكال الثلاثة تتفاوت في الطور فلا تنبض ككتلة واحدة
+  for (let k = 1; k <= 3; k++) {{
+    const ph = Math.max(0, Math.sin((t/BEAT + k*0.33)*Math.PI*2));
+    Q('.dec .d'+k).forEach(el => {{
+      el.style.transform = `scale(${{1+0.014*ph}})`;
+      el.style.transformOrigin = '540px 960px';
+      el.style.opacity = 0.55 + 0.45*ph;
+    }});
+  }}
   document.getElementById('prog').style.width = (t/TOTAL*100) + '%';
 }};
 window.REEL_TOTAL = TOTAL;
