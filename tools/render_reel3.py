@@ -392,10 +392,13 @@ body{{font-family:'Readex Pro','Cairo',sans-serif;color:{ink};
   box-shadow:0 26px 60px rgba(0,0,0,.46);flex:0 0 auto;
   will-change:transform,opacity;pointer-events:none}}
 /* الوضع المطلق مقصود: داخل حاوية RTL يبدأ الموضع الساكن للصورة من الحافة
-   اليمنى، فتنزلق خارج القرص. الإزاحتان محسوبتان من قناع الشفافية:
-   مركز الوجه في الملف عند (370,300) من 760، والقرص 430 بإطار 7. */
-.fring img{{position:absolute;width:645px;height:645px;object-fit:contain;
-  left:-106px;top:-47px;display:block}}
+   اليمنى، فتنزلق خارج القرص.
+   المقاس محسوب من قناع الشفافية لا بالتجربة: الجسم في الملف يمتد
+   y=130..760، وبمقاس عرض 470 داخل قرص داخليّ 416 يظهر الرأس والكتفان
+   والثوب معاً — لا الوجه وحده — وتقع حافتا الملف الحادّتان (اليمنى
+   والسفلى) خارج القرص فيقصّ القرصُ الصورةَ لا حافةُ الملف. */
+.fring img{{position:absolute;width:470px;height:470px;object-fit:contain;
+  left:-30px;top:-25px;display:block}}
 
 /* ── الثابت ── */
 #chrome{{position:absolute;inset:0;pointer-events:none}}
