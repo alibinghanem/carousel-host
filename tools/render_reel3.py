@@ -47,17 +47,46 @@ from render_v2 import THEMES, esc, ASSET_DIRS, _find          # noqa: E402
 from render_reel2 import reel_faces, _chromium, _ffmpeg       # noqa: E402
 from reel_audio3 import grid, write_bed                       # noqa: E402
 from reel_art import icon, brand_chip, decor, DECOR_KINDS     # noqa: E402
+import reel_music                                             # noqa: E402
+
+MUSIC_DIR = pathlib.Path(__file__).resolve().parent.parent / "music"
 
 W, H = 1080, 1920
 
 # المنطقة الآمنة: واجهة إنستقرام تغطّي الأسفل واليمين
 PAD_X, TOP, BOTTOM = 92, 210, 1580
 
-# طول كل مشهد بالنبضات. المجموع ٣٢ نبضة ⇒ ١٨٫٥–٢٠٫٩ ثانية حسب الإيقاع.
-# مشهد `value` أُضيف بعد العرض: الفائدة لا تُترك ضمنيةً في العرض، بل تُقال
-# صريحةً في ثلاثة أسطر تهبط على النبضة — وهو ما يقرّر المشاهد عليه المتابعة.
-BEATS = {"cover": 3, "demo": 11, "value": 7, "prompt": 6, "cta": 5}
+# أوزان نسبية لا أطوالاً ثابتة: طول النبضة يأتي من الموسيقى، فيتغيّر عدد
+# النبضات لتبقى المدة قرب الهدف. مشهد `value` أُضيف بعد العرض لأن الفائدة
+# لا تُترك ضمنيةً — عندها يقرّر المشاهد أن الأمر يستحق وقته.
+WEIGHTS = {"cover": 3, "demo": 11, "value": 7, "prompt": 6, "cta": 5}
 ORDER = ["cover", "demo", "value", "prompt", "cta"]
+TARGET_SEC = 20.0
+
+
+def plan_beats(beat, target=TARGET_SEC):
+    """يوزّع نبضات المشاهد بحيث تقارب المدة الهدف، والمجموع مضاعف لأربعة.
+
+    المجموع مضاعف لأربعة كي تنتهي الحلقة على بداية مازورة، فتُعاد بلا
+    خياطة مسموعة. ولا يقلّ أي مشهد عن نبضتين مهما ضاق التوزيع.
+    """
+    total = max(16, int(round(target / beat / 4.0)) * 4)
+    wsum = sum(WEIGHTS.values())
+    out = {k: max(2, int(round(total * WEIGHTS[k] / wsum))) for k in ORDER}
+    # تسوية الفارق الناتج عن التقريب على أكبر المشاهد
+    diff = total - sum(out.values())
+    order = sorted(ORDER, key=lambda k: -out[k])
+    i = 0
+    while diff != 0:
+        k = order[i % len(order)]
+        if diff > 0:
+            out[k] += 1
+            diff -= 1
+        elif out[k] > 2:
+            out[k] -= 1
+            diff += 1
+        i += 1
+    return out, total
 
 
 def words(text, cls="w"):
@@ -224,7 +253,7 @@ def cta_html(c, keyword, av):
 
 # ═══════════════════════════ الصفحة ═══════════════════════════
 
-def build_html(spec, beat):
+def build_html(spec, beat, BEATS):
     t = THEMES[spec.get("theme", "indigo")]
     a, ink, ink2 = t["accent"], t["ink"], t["ink2"]
     glow, on = t["glow"], t["onaccent"]
@@ -733,9 +762,20 @@ async def run(spec_path, out_path, stills=None):
     seed = spec.get("audio_seed") or json.dumps(
         [spec.get("cover", {}).get("title", ""),
          spec.get("cta", {}).get("title", "")], ensure_ascii=False)
-    bpm, beat = grid(seed)
 
-    html = build_html(spec, beat)
+    # الموسيقى تحكم الإيقاع لا العكس: نستخرج نبض المقطع أولاً ثم نبني عليه
+    # مدد المشاهد، فتقع كل قطعة على ضربة حقيقية في الأغنية لا قريباً منها.
+    track = None if spec.get("music") is False else \
+        reel_music.pick_track(spec.get("music_dir") or MUSIC_DIR, seed)
+    if track:
+        bpm, beat, mstart = reel_music.analyse(track, seed)
+        src = f"{track.name} @ {mstart:.1f}ث"
+    else:
+        bpm, beat = grid(seed)
+        mstart, src = 0.0, "مركّبة"
+    BEATS, nbeats = plan_beats(beat)
+
+    html = build_html(spec, beat, BEATS)
     tmp = out.parent / "_reel3.html"
     tmp.write_text(html, encoding="utf-8")
 
@@ -768,9 +808,16 @@ async def run(spec_path, out_path, stills=None):
             return
 
         bed = out.parent / "_bed3.wav"
-        info = write_bed(bed, total, seed=seed, cuts=cuts)
-        print(f"موسيقى {info['scale']} · {info['bpm']} نبضة/د · جذر {info['root']} "
-              f"· {info['cuts']} قطعات مُصوَّتة")
+        if track:
+            info = reel_music.build_bed(track, bed, total, cuts=cuts,
+                                        start=mstart, seed=seed)
+            print(f"موسيقى {info['track']} · من {info['start']}ث · "
+                  f"{bpm:.1f} نبضة/د · {info['cuts']} قطعات مُصوَّتة · "
+                  f"ذروة {info['peak_db']} ديسيبل")
+        else:
+            info = write_bed(bed, total, seed=seed, cuts=cuts)
+            print(f"موسيقى مركّبة {info['scale']} · {info['bpm']} نبضة/د · "
+                  f"جذر {info['root']} · {info['cuts']} قطعات مُصوَّتة")
 
         n = int(total * fps)
         cmd = [
@@ -800,9 +847,11 @@ async def run(spec_path, out_path, stills=None):
             print(err)
             sys.exit(1)
         cutstr = " · ".join(f"{c:.2f}" for c in cuts)
-        print(f"\n✓ {out} — {total:.2f}ث ({sum(BEATS.values())} نبضة) · "
+        beats = " · ".join(f"{k}:{BEATS[k]}" for k in ORDER)
+        print(f"\n✓ {out} — {total:.2f}ث ({nbeats} نبضة · {beats}) · "
               f"{out.stat().st_size / 1e6:.1f} ميغابايت · ثيم "
-              f"{spec.get('theme', 'indigo')}\n  قطعات عند: {cutstr}")
+              f"{spec.get('theme', 'indigo')} · صوت {src}"
+              f"\n  قطعات عند: {cutstr}")
 
 
 def main():
