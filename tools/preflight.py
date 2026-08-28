@@ -15,7 +15,24 @@ import pathlib
 import subprocess
 import sys
 
-SKILL = pathlib.Path("/root/.claude/skills/synced/arabic-instagram-carousel")
+SKILL_ROOT = pathlib.Path("/root/.claude/skills")
+
+
+def find_skill():
+    """المهارة تُزامَن أحياناً مباشرة تحت synced/ وأحياناً داخل مجلد بمعرّف UUID."""
+    for depth in ("synced/arabic-instagram-carousel",
+                  "synced/*/arabic-instagram-carousel",
+                  "*/arabic-instagram-carousel",
+                  "**/arabic-instagram-carousel"):
+        for cand in sorted(SKILL_ROOT.glob(depth)):
+            if ".trash" in cand.parts:
+                continue
+            if (cand / "render.py").exists():
+                return cand
+    return SKILL_ROOT / "synced" / "arabic-instagram-carousel"
+
+
+SKILL = find_skill()
 RENDER = SKILL / "render.py"
 
 OLD_LAUNCH = (
