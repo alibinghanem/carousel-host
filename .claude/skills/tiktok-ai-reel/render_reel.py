@@ -214,6 +214,7 @@ body{font-family:'Cairo','Tajawal',sans-serif;color:var(--ink);
 .cmp .lab{font-weight:900;font-size:34px;letter-spacing:.4px}
 .cmp .bad .lab{color:#FF7A8A}
 .cmp .good .lab{color:var(--a1)}
+.stage[data-light="1"] .cmp .bad .lab{color:#C81E43}
 .cmp .tx{font-weight:600;font-size:40px;line-height:1.5;color:var(--muted)}
 
 /* ————— اقتباس ————— */
