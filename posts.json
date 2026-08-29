@@ -389,6 +389,30 @@
         "https://ollama.com"
       ],
       "notes": "أول منشور بمحرّك المونتاج render_reel3: قطع على النبضة، موسيقى CC0، أيقونات وعلامة الأداة، وصورة الحساب في مشهد الدعوة. نُشر عبر Graph API بـ thumb_offset=0 فالغلاف هو الإطار الأول."
+    },
+    {
+      "date": "2026-08-29",
+      "kind": "news",
+      "format": "carousel",
+      "topic": "OpenAI تكشف تفاصيل رقاقة Jalapeño مع Broadcom بكفاءة أعلى لكل واط من إنفيديا",
+      "keywords": [
+        "OpenAI",
+        "Broadcom",
+        "Jalapeño",
+        "رقائق",
+        "استدلال",
+        "كفاءة الطاقة",
+        "TSMC"
+      ],
+      "theme": "steel",
+      "layout": "manchette",
+      "permalink": "https://www.instagram.com/p/DcnDGn2H5JL/",
+      "media_id": "17946032292264665",
+      "sources": [
+        "https://openai.com/index/openai-broadcom-jalapeno-inference-chip/",
+        "https://investors.broadcom.com/news-releases/news-release-details/openai-and-broadcom-unveil-llm-optimized-intelligence-processor",
+        "https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia"
+      ]
     }
   ],
   "_kinds": {
