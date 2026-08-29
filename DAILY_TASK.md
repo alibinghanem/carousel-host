@@ -277,7 +277,21 @@ capability»)، وأتمتة ManyChat المجانية لا تغطي كل الم
 
 **الرفع:** ارفع `reel.mp4` إلى مجلد `<التاريخ>-reel` على `claude/posts`.
 
-### النشر — عبر Graph API مباشرة، لا عبر أداة Zapier الجاهزة
+### نشر الكاروسيل — انتبه لمفتاح الإجراء
+
+```
+tool_name: instagram_for_business_publish_photo_s
+action:    publish_media_v2          ← وليس publish_photo_s
+media:     الروابط الخمسة بالترتيب
+instagramPageId: 17841402194299475
+```
+
+**`publish_photo_s` هو `tool_name` لا `action`.** تمريره في حقل `action`
+يرجع `Action 'publish_photo_s' not found`. حدث هذا فعلاً في نشر
+2026-08-29. عند أي شكّ استدعِ `inspect_zapier_actions` بـ `tool_name`
+واقرأ `key` من الاستجابة.
+
+### نشر الريلز — عبر Graph API مباشرة، لا عبر أداة Zapier الجاهزة
 
 **لا تستعمل `instagram_for_business_publish_video`.** فحصنا مخطّطها: حقولها
 `video · caption · location · tagged_users · instagramPageId` — **لا حقل
