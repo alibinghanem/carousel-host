@@ -168,14 +168,62 @@ def demo_bars(d):
     return f'<div class="bars">{"".join(bars)}</div>'
 
 
-DEMOS = {"table": demo_table, "chat": demo_chat, "bars": demo_bars}
+def _img_b64(path):
+    """الصورة تُضمَّن في الصفحة: لا تحميل ولا اعتماد على الشبكة وقت الترميز."""
+    p = pathlib.Path(path)
+    if not p.is_absolute():
+        p = pathlib.Path.cwd() / p
+    if not p.exists():
+        raise FileNotFoundError(f"صورة غير موجودة: {path}")
+    ext = p.suffix.lower().lstrip(".")
+    mime = {"jpg": "jpeg", "jpeg": "jpeg", "png": "png",
+            "webp": "webp", "gif": "gif", "svg": "svg+xml"}.get(ext, "png")
+    return f"data:image/{mime};base64,{base64.b64encode(p.read_bytes()).decode()}"
+
+
+def demo_shots(d):
+    """لقطات حقيقية من التجربة — أقوى ما يمكن عرضه: دليل لا وصف.
+
+    كل لقطة تدخل على ضربة، وتتحرّك ببطء وهي معروضة (كين بيرنز) فلا يجمد
+    الكادر، ويمكن وضع علامة على نقطة فيها (`focus`) بإحداثيات نسبية
+    فيظهر خاتم يشير إليها مع سطر شرح — هذا ما يحوّل لقطة شاشة إلى مونتاج.
+    """
+    frame = d.get("frame", "browser")
+    shots = []
+    for i, s in enumerate(d.get("shots", [])):
+        if isinstance(s, str):
+            s = {"src": s}
+        fx, fy = (s.get("focus") or [None, None])[:2] if s.get("focus") else (None, None)
+        mark = ""
+        if fx is not None:
+            mark = (f'<div class="mk" style="left:{float(fx)*100:.2f}%;'
+                    f'top:{float(fy)*100:.2f}%"><i></i>'
+                    + (f'<b>{esc(s["note"])}</b>' if s.get("note") else "")
+                    + '</div>')
+        cap = (f'<div class="shotcap">{esc(s["note"])}</div>'
+               if s.get("note") and fx is None else "")
+        shots.append(f'<div class="shot" data-i="{i}">'
+                     f'<img src="{_img_b64(s["src"])}">{mark}</div>{cap}')
+
+    chrome = ""
+    if frame == "browser":
+        chrome = ('<div class="tbar"><i></i><i></i><i></i>'
+                  f'<span>{esc(d.get("url", ""))}</span></div>')
+    return (f'<div class="shots {frame}">{chrome}'
+            f'<div class="shotwrap">{"".join(shots)}</div></div>')
+
+
+DEMOS = {"table": demo_table, "chat": demo_chat, "bars": demo_bars,
+         "shots": demo_shots}
 
 
 def demo_html(d):
     body = DEMOS.get(d.get("type", "table"), demo_table)(d)
+    # لقطات التجربة تملأ إطارها بنفسها فلا تحتاج بطاقة حولها
+    cls = "dev bare" if d.get("type") == "shots" else "dev"
     return ('<div class="wrap dem">'
             f'<div class="kick" id="dkick">{esc(d.get("label", ""))}</div>'
-            f'<div class="dev" id="dev">{body}</div></div>')
+            f'<div class="{cls}" id="dev">{body}</div></div>')
 
 
 def _has_arabic(s):
@@ -402,6 +450,31 @@ body{{font-family:'Readex Pro','Cairo',sans-serif;color:{ink};
 .al{{margin:2px 0}}
 .src{{display:none}}
 
+/* ── لقطات التجربة الحقيقية ── */
+.dev.bare{{background:transparent;border:0;padding:0;overflow:visible}}
+.shots{{border-radius:26px;overflow:hidden;border:2px solid {line};
+  background:{"#0E1117" if light else "#070B14"};
+  box-shadow:0 24px 60px rgba(0,0,0,.42)}}
+.shots.phone{{border-radius:44px;border-width:10px;max-width:660px;
+  margin-inline:auto}}
+.shots.none{{border:0;box-shadow:none;background:transparent}}
+.shotwrap{{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden}}
+.shots.phone .shotwrap{{aspect-ratio:9/16}}
+.shot{{position:absolute;inset:0;opacity:0;will-change:opacity}}
+.shot img{{width:100%;height:100%;object-fit:cover;object-position:50% 0;
+  will-change:transform;display:block}}
+/* علامة تشير إلى نقطة في اللقطة: خاتم ينبض وسطر شرح بجانبه */
+.mk{{position:absolute;transform:translate(-50%,-50%);
+  display:flex;align-items:center;gap:14px;direction:rtl;
+  will-change:transform,opacity}}
+.mk i{{width:38px;height:38px;border-radius:50%;flex:0 0 auto;
+  border:5px solid {a};background:{a}26;box-shadow:0 0 0 8px {glow}30}}
+.mk b{{background:{a};color:{on};font-size:29px;font-weight:600;
+  padding:12px 22px;border-radius:14px;white-space:nowrap;
+  font-family:'Plex Arabic',sans-serif}}
+.shotcap{{margin-top:22px;font-family:'Plex Arabic',sans-serif;font-size:33px;
+  color:{ink2};text-align:center}}
+
 /* ── أعمدة المقارنة ── */
 .bars{{display:flex;flex-direction:column;gap:34px}}
 .blab{{font-size:31px;color:{ink2};margin-bottom:12px}}
@@ -594,6 +667,36 @@ function sceneDemo(lt, dur) {{
       stagger([...Q('#atext .aw>i')], lt, tw+0.84, 0.035, 0.30,
         (el,p2) => {{ el.style.transform = `translateY(${{(1-outQ(p2))*100}}%)`; }});
     }}
+  }}
+
+  // لقطات التجربة: كل لقطة تُعرض عدداً صحيحاً من النبضات، وتتحرّك ببطء
+  // وهي معروضة (كين بيرنز) فلا يجمد الكادر، والانتقال قطعٌ على الضربة.
+  const shots = [...Q('#L1 .shot')];
+  if (shots.length) {{
+    const lead = 0.34;
+    const each = Math.max(BEAT*2, (dur - lead) / shots.length);
+    shots.forEach((el, i) => {{
+      const t0 = lead + i*each;
+      const on = (lt >= t0 - 0.001) && (lt < t0 + each || i === shots.length-1);
+      el.style.opacity = on ? 1 : 0;
+      if (!on) return;
+      const k = cl((lt - t0) / each, 0, 1);           // تقدّم داخل اللقطة
+      const img = el.querySelector('img');
+      if (img) {{
+        // تكبير بطيء مع انجراف: اتجاه الانجراف يتبادل بين لقطة وأخرى
+        const dir = i % 2 ? -1 : 1;
+        img.style.transform =
+          `scale(${{1.06 + 0.05*k}}) translate(${{dir*k*2.0}}%, ${{-k*1.6}}%)`;
+      }}
+      const mk = el.querySelector('.mk');
+      if (mk) {{
+        const p = cl((lt - t0 - 0.30) / 0.42, 0, 1);
+        const b = Math.max(0, Math.sin((lt-t0)/BEAT*Math.PI*2));
+        mk.style.opacity = p;
+        mk.style.transform =
+          `translate(-50%,-50%) scale(${{(0.82+0.18*back(p))*(1+0.03*b)}})`;
+      }}
+    }});
   }}
 
   // أعمدة: تنمو بترتيب، وقيمها تظهر بعد اكتمال العمود

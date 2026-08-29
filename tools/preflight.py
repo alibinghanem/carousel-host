@@ -10,6 +10,7 @@
 
 آمن للتكرار: يفحص أولاً ولا يعدّل شيئاً إن كان سليماً.
 """
+import datetime
 import json
 import pathlib
 import subprocess
@@ -150,20 +151,40 @@ def design_brief():
     free_l = [x for x in ALL_LAYOUTS if x not in used_layouts]
     free_t = [x for x in ALL_THEMES if x not in used_themes]
 
-    last_kind = recent[-1].get("kind", "news") if recent else "guide"
-    kind = "guide" if last_kind == "news" else "news"
+    # ألغي التناوب خبر/تعليمي بطلب صاحب الحساب في 2026-08-29: الكاروسيل
+    # الإخباري كان يجني ١–٣ إعجابات ويشتّت هوية الحساب. المسار الآن ريلز
+    # تعليمي فقط، عن تجارب وكلاء الذكاء الاصطناعي وأدواته، كل يومين.
+    kind = "guide"
+
+    last = recent[-1] if recent else {}
+    last_date = str(last.get("date", ""))[:10]
+    gap = None
+    if last_date:
+        try:
+            gap = (datetime.date.today()
+                   - datetime.date.fromisoformat(last_date)).days
+        except ValueError:
+            gap = None
 
     print("\n" + "═" * 62)
     print("نوع منشور اليوم — إلزامي")
     print("═" * 62)
-    if kind == "news":
+    print("  ▸ ريلز تعليمي — ولا شيء غيره. الأخبار والكاروسيل ملغيان.")
+    if gap is not None:
+        print(f"  ▸ آخر منشور قبل {gap} يوم ({last_date}).")
+        if gap < 2:
+            print("  ⚠ الإيقاع المطلوب كل يومين — لم يمرّ يومان بعد.")
+            print("    لا تنشر اليوم. أنهِ بسطر واحد وتوقّف.")
+        else:
+            print("  ✓ مضى يومان أو أكثر — انشر اليوم.")
+    print("  ▸ الموضوع: تجربة عملية مع وكيل ذكاء اصطناعي أو أداة —")
+    print("    ما طلبتَه منه، وما فعله، وما خرج فعلاً. تجربة لا وصف.")
+    if False:
         print("  ▸ خبر → كاروسيل صور  (آخر منشور كان تعليمياً)")
         print("  ابحث عن أهم خبر تقنية أو ذكاء اصطناعي خلال ٢٤–٤٨ ساعة.")
         print("  المولّد: python3 tools/render_v2.py slides.json ./out")
         print("  بنية الشرائح: cover ← point ← stat ← point ← cta")
     else:
-        print("  ▸ تعليمي → ريلز فيديو  (آخر منشور كان خبراً)")
-        print("  اشرح كيف يستفيد شخص أو مؤسسة من أدوات الذكاء الاصطناعي عملياً.")
         print("  المولّد: python3 tools/render_reel3.py reel.json out.mp4")
         print("  ⚠ render_reel.py و render_reel2.py متروكان للرجوع فقط.")
         print("    الثاني كان كاميرا تنزلق فوق نصّ ثلاثين ثانية: بلا قطع ولا")
@@ -174,7 +195,11 @@ def design_brief():
         print("    لا تكتب مدداً بالثواني: reel_music يستخرج نبض المقطع،")
         print("    وplan_beats يوزّع النبضات، فتقع كل قطعة على ضربة حقيقية.")
         print("  ▸ demo هو المحرّك — يُري التحوّل يحدث لا يصفه:")
+        print("    shots لقطات حقيقية من التجربة ← فضّلها دائماً")
         print("    chat محادثة تُكتب · table جدول يُبنى · bars أعمدة تنمو.")
+        print("  ▸ اللقطة الحقيقية دليل، وما عداها إعادة تمثيل. اطلب من")
+        print("    صاحب الحساب لقطات تجربته، أو التقط مخرجات حقيقية.")
+        print("    ضع focus بإحداثيات نسبية [x,y] فيظهر خاتم يشير للنقطة.")
         print("  ▸ value يقول الفائدة صريحةً في ثلاثة أسطر، لكلٍّ icon.")
         print("    أسماء الأيقونات في tools/reel_art.py.")
         print("  ▸ prompt إلزامي. أمر بلا عربية ⇒ نافذة طرفية تلقائياً.")
