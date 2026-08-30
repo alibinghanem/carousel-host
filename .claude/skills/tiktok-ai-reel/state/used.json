@@ -3,7 +3,8 @@
  "used": [
   "t001",
   "t002",
-  "t003"
+  "t003",
+  "t004"
  ],
  "log": [
   {
@@ -26,6 +27,13 @@
    "cycle": 0,
    "style": "editorial",
    "accent": "emerald"
+  },
+  {
+   "date": "2026-08-30",
+   "id": "t004",
+   "cycle": 0,
+   "style": "terminal",
+   "accent": "amber"
   }
  ]
 }
