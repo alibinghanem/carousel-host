@@ -413,6 +413,38 @@
         "https://investors.broadcom.com/news-releases/news-release-details/openai-and-broadcom-unveil-llm-optimized-intelligence-processor",
         "https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia"
       ]
+    },
+    {
+      "date": "2026-08-31-reel",
+      "kind": "guide",
+      "format": "reel",
+      "topic": "تجربة على حاجز تنفيذ الكود في وكلاء smolagents: ما الذي يُمنع وما الذي يُسمح",
+      "keywords": [
+        "smolagents",
+        "وكلاء",
+        "تنفيذ الكود",
+        "مفسّر مقيّد",
+        "Hugging Face",
+        "أمان",
+        "بايثون"
+      ],
+      "theme": "emerald",
+      "style": "montage-v3",
+      "permalink": "https://www.instagram.com/reel/DcrxpdqifX0/",
+      "media_id": "18112062635107101",
+      "keyword": "أداة",
+      "reply": "الأداة: smolagents من Hugging Face — مفتوحة المصدر ومجانية: https://github.com/huggingface/smolagents\n\nجرّب الحاجز بنفسك في ثلاث خطوات:\n١) ثبّتها: pip install smolagents\n٢) شغّل هذا:\nfrom smolagents.local_python_executor import LocalPythonExecutor\nex = LocalPythonExecutor(additional_authorized_imports=[\"math\"])\nex(\"import os\")\n٣) سيرفض التنفيذ برسالة: Import of os is not allowed\n\nالفكرة أن الوكيل لا يشغّل الكود على بايثون العادي، بل على مفسّر مقيّد يسمح بما صرّحت به فقط. غيّر القائمة في additional_authorized_imports وسترى الحاجز يتحرك معك.\n\nتنبيه صادق: هذا الحاجز يحمي من الخطأ لا من مهاجم مصمّم. للتشغيل الجاد استعمل حاوية معزولة (Docker أو E2B) كما توصي الأداة نفسها.",
+      "tool": {
+        "name": "smolagents",
+        "brand": "smolagents",
+        "url": "https://github.com/huggingface/smolagents",
+        "free": true
+      },
+      "sources": [
+        "https://github.com/huggingface/smolagents",
+        "تجربة منفَّذة محلياً على smolagents 1.26.0"
+      ],
+      "notes": "أول منشور بعد إلغاء الأخبار. النتائج مخرجات فعلية من LocalPythonExecutor: حساب سُمح، وimport os و shutil.rmtree مُنعا، والحلقة أُوقفت عند مليون دورة."
     }
   ],
   "_kinds": {
