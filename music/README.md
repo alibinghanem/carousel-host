@@ -3,9 +3,19 @@
 مقاطع بترخيص **CC0-1.0 Universal** (تنازل عن الحقوق إلى الملك العام):
 الاستعمال التجاري مسموح، ولا تُشترط نسبة ولا إذن.
 
-| الملف | المصدر | الترخيص |
-|---|---|---|
-| `komiku-chill-out-theme.mp3` | Komiku — «Chill Out Theme»، عبر chosic.com ومجموعة [SoundSafari/CC0-1.0-Music](https://github.com/SoundSafari/CC0-1.0-Music) | CC0-1.0 |
+كلها للفنان **Komiku** عبر chosic.com ومجموعة
+[SoundSafari/CC0-1.0-Music](https://github.com/SoundSafari/CC0-1.0-Music).
+فنانٌ واحد يعطي الحساب هويةً صوتية متماسكة، وإيقاعاتٌ مختلفة تمنع التكرار.
+
+| الملف | الأصل | الإيقاع | مدة الريلز |
+|---|---|---|---|
+| `komiku-home.mp3` | Home | ٧٩٫٥ | ٢١٫١٣ث · ٢٨ نبضة |
+| `komiku-suburb.mp3` | Suburb | ٨٤٫٧ | ١٩٫٨٣ث · ٢٨ نبضة |
+| `komiku-chill-out-theme.mp3` | Chill Out Theme | ١١٧٫٥ | ٢٠٫٤٣ث · ٤٠ نبضة |
+| `komiku-mushrooms.mp3` | Mushrooms | ١٣٩٫٧ | ٢٠٫٦٢ث · ٤٨ نبضة |
+
+الإيقاع يُقاس آلياً ولا يُكتب يدوياً — الجدول للاطلاع فقط. وبما أن المدة
+مشتقّة منه، يخرج كل ريلز بطول ومواضع قطع مختلفة عن سابقه.
 
 ## كيف تُستعمل
 
