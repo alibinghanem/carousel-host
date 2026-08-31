@@ -4,7 +4,8 @@
   "t001",
   "t002",
   "t003",
-  "t004"
+  "t004",
+  "t005"
  ],
  "log": [
   {
@@ -34,6 +35,13 @@
    "cycle": 0,
    "style": "terminal",
    "accent": "amber"
+  },
+  {
+   "date": "2026-08-31",
+   "id": "t005",
+   "cycle": 0,
+   "style": "blocks",
+   "accent": "violet"
   }
  ]
 }
