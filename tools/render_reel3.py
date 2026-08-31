@@ -247,9 +247,14 @@ def prompt_html(p):
             f'<div class="tl out{" ar" if _has_arabic(x) else ""}" '
             f'data-i="{len(src) + i}">{esc(x)}</div>'
             for i, x in enumerate(p.get("out", [])))
+        # الأسطر لا تلتفّ في الطرفية (white-space:nowrap)، فالسطر الطويل
+        # يُقصّ صامتاً. نقيس أطول سطر ونصغّر الخط ليتّسع بدل أن يضيع نصّه.
+        longest = max((len(x) for x in list(src) + list(p.get("out", []))),
+                      default=1) + 2          # +2 لبادئة «$ »
+        fs = max(26, min(46, int(820 / (0.60 * longest))))
         body = ('<div class="term" id="panel">'
                 '<div class="tbar"><i></i><i></i><i></i><span>Terminal</span></div>'
-                f'<div class="tbody">{cmd}{out}'
+                f'<div class="tbody" style="font-size:{fs}px">{cmd}{out}'
                 '<span class="tcar" id="tcar"></span></div></div>')
     else:
         body = ('<div class="panel" id="panel">'
@@ -503,7 +508,7 @@ body{{font-family:'Readex Pro','Cairo',sans-serif;color:{ink};
   font-size:47px;line-height:1.62;color:#E9EEF8;letter-spacing:-1px}}
 .tl{{will-change:transform,opacity;white-space:nowrap}}
 .tl b{{color:#28C840;font-weight:400}}
-.tl.out{{color:#9FB2CE;font-size:41px}}
+.tl.out{{color:#9FB2CE;font-size:.89em}}
 .tl.out.ar{{font-family:'Plex Arabic',sans-serif;direction:rtl;text-align:right;
   letter-spacing:0;font-size:38px}}
 .tcar{{display:inline-block;width:20px;height:44px;background:#E9EEF8;
