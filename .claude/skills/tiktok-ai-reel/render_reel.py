@@ -49,33 +49,40 @@ ACCENTS = {
 STYLES = ("neon", "mesh", "editorial", "terminal", "blocks", "aurora")
 
 
-def style_vars(style, a1, a2):
+WARM_ACCENTS = {"rose", "orange", "amber"}
+
+
+def style_vars(style, a1, a2, accent="blue"):
     """متغيرات CSS الأساسية لكل ستايل."""
     soft, dim = a1 + "2B", a1 + "12"
+    # لا يصح أن تشبه تسمية «الخطأ» لون التمييز — تُبدَّل لرمادي بارد مع الألوان الدافئة
+    warm = accent in WARM_ACCENTS
+    bad = "#94A3B8" if warm else "#FF6B6B"
+    bad_light = "#5B6675" if warm else "#C81E43"
     if style == "neon":
         return dict(bg="#05070F", ink="#FFFFFF", muted="rgba(255,255,255,.62)",
                     panel="rgba(255,255,255,.055)", line="rgba(255,255,255,.10)",
-                    a1=a1, a2=a2, soft=soft, dim=dim, dark="1")
+                    a1=a1, a2=a2, soft=soft, dim=dim, bad=bad, dark="1")
     if style == "mesh":
         return dict(bg="#0A0714", ink="#FFFFFF", muted="rgba(255,255,255,.70)",
                     panel="rgba(255,255,255,.10)", line="rgba(255,255,255,.16)",
-                    a1=a1, a2=a2, soft=soft, dim=dim, dark="1")
+                    a1=a1, a2=a2, soft=soft, dim=dim, bad=bad, dark="1")
     if style == "editorial":
         return dict(bg="#F4F1EA", ink="#12100C", muted="rgba(18,16,12,.58)",
                     panel="rgba(18,16,12,.045)", line="rgba(18,16,12,.14)",
-                    a1=a1, a2=a1, soft=soft, dim=dim, dark="0")
+                    a1=a1, a2=a1, soft=soft, dim=dim, bad=bad_light, dark="0")
     if style == "terminal":
         return dict(bg="#040A08", ink="#E8FFF6", muted="rgba(232,255,246,.55)",
                     panel="rgba(255,255,255,.04)", line="rgba(255,255,255,.09)",
-                    a1=a1, a2=a2, soft=soft, dim=dim, dark="1")
+                    a1=a1, a2=a2, soft=soft, dim=dim, bad=bad, dark="1")
     if style == "blocks":
         return dict(bg="#111111", ink="#FFFFFF", muted="rgba(255,255,255,.70)",
                     panel="#1C1C1C", line="rgba(255,255,255,.18)",
-                    a1=a1, a2=a2, soft=soft, dim=dim, dark="1")
+                    a1=a1, a2=a2, soft=soft, dim=dim, bad=bad, dark="1")
     # aurora
     return dict(bg="#060612", ink="#FFFFFF", muted="rgba(255,255,255,.66)",
                 panel="rgba(255,255,255,.07)", line="rgba(255,255,255,.12)",
-                a1=a1, a2=a2, soft=soft, dim=dim, dark="1")
+                a1=a1, a2=a2, soft=soft, dim=dim, bad=bad, dark="1")
 
 
 def bg_layer(style):
@@ -212,9 +219,8 @@ body{font-family:'Cairo','Tajawal',sans-serif;color:var(--ink);
 .cmp .col{border-radius:36px;padding:42px 46px;border:2px solid var(--line);
   background:var(--panel);display:flex;flex-direction:column;gap:14px}
 .cmp .lab{font-weight:900;font-size:34px;letter-spacing:.4px}
-.cmp .bad .lab{color:#FF7A8A}
+.cmp .bad .lab{color:var(--bad)}
 .cmp .good .lab{color:var(--a1)}
-.stage[data-light="1"] .cmp .bad .lab{color:#C81E43}
 .cmp .tx{font-weight:600;font-size:40px;line-height:1.5;color:var(--muted)}
 
 /* ————— اقتباس ————— */
@@ -662,7 +668,7 @@ async def render(spec, outdir):
         style = "neon"
     accent = spec.get("accent", "blue")
     a1, a2 = ACCENTS.get(accent, ACCENTS["blue"])
-    vars_ = style_vars(style, a1, a2)
+    vars_ = style_vars(style, a1, a2, accent)
     handle = spec.get("handle", "")
     faces = all_faces()
     globals()["AVATAR"] = "" if spec.get("avatar") is False else avatar_uri()
@@ -752,8 +758,9 @@ async def stills(spec, outdir):
     style = spec.get("style", "neon")
     if style not in STYLES:
         style = "neon"
-    a1, a2 = ACCENTS.get(spec.get("accent", "blue"), ACCENTS["blue"])
-    vars_ = style_vars(style, a1, a2)
+    accent = spec.get("accent", "blue")
+    a1, a2 = ACCENTS.get(accent, ACCENTS["blue"])
+    vars_ = style_vars(style, a1, a2, accent)
     faces = all_faces()
     globals()["AVATAR"] = "" if spec.get("avatar") is False else avatar_uri()
     outdir = pathlib.Path(outdir)
