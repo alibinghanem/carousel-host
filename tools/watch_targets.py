@@ -9,9 +9,15 @@
 بحد أقصى `--limit` منشوراً، الأحدث أولاً. المنشورات الخبرية (بلا `keyword`)
 تُستبعد لأنها لا تطلب تعليقاً بكلمة.
 
+النافذة الافتراضية ١٤ يوماً لا ٣٠: كل منشور هنا يكلّف نداء Zapier واحداً
+في كل تشغيل متابعة، وحساب Zapier نفد فعلياً من المهام في ٢٠٢٦-٠٩-٠١ بسبب
+تراكم منشورات قديمة في نافذة واسعة مع تشغيلين يومياً. بمعدّل نشر كل يومين
+تغطّي ١٤ يوماً آخر سبعة منشورات تقريباً — أكثر مما يحتاجه التفاعل الفعلي
+عادة.
+
 الاستخدام:
-    python3 tools/watch_targets.py               # آخر 30 يوماً، 10 منشورات
-    python3 tools/watch_targets.py --days 45 --limit 12
+    python3 tools/watch_targets.py               # آخر 14 يوماً، 6 منشورات
+    python3 tools/watch_targets.py --days 30 --limit 10
 """
 import argparse
 import datetime
@@ -32,8 +38,8 @@ def post_date(value):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--days", type=int, default=30)
-    ap.add_argument("--limit", type=int, default=10)
+    ap.add_argument("--days", type=int, default=14)
+    ap.add_argument("--limit", type=int, default=6)
     args = ap.parse_args()
 
     posts = json.loads((ROOT / "posts.json").read_text(encoding="utf-8"))["posts"]
