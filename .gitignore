@@ -1,0 +1,9 @@
+# مخرجات الفيديو — كبيرة الحجم، تُسلَّم للمستخدم مباشرة
+output/**/*.mp4
+output/**/_frames/
+output/**/stills/
+
+# مؤقتات
+__pycache__/
+*.pyc
+output/**/render.log
