@@ -106,6 +106,15 @@ def avatar_b64():
 
 # ═══════════════════════════ المشاهد ═══════════════════════════
 
+def _cell(x):
+    """خلية جدول أو قيمة داخل حاوية RTL: تُلفّ بـ<bdi> فتُعزَل بيدياً عن
+    جاراتها. بلا هذا، أرقام متعددة المجموعات مثل بطاقة ائتمان أو رقم
+    جوال في خلية بجوار نص عربي تُعاد ترتيب مجموعاتها بصرياً — شوهد فعلاً:
+    «4111 1111 1111 1111» يخرج «1111 1111 1111 4111». bdi يحلّ اتجاهها
+    من محتواها هي وحدها لا من الفقرة المحيطة."""
+    return f'<bdi>{esc(x)}</bdi>'
+
+
 def cover_html(c, tool, accent, on_accent):
     result = c.get("result", "")
     card = ""
@@ -128,15 +137,15 @@ def cover_html(c, tool, accent, on_accent):
 
 
 def demo_table(d):
-    head = "".join(f'<span>{esc(x)}</span>' for x in d.get("head", []))
+    head = "".join(f'<span>{_cell(x)}</span>' for x in d.get("head", []))
     rows = []
     for i, r in enumerate(d.get("rows", [])):
-        cells = "".join(f'<span>{esc(x)}</span>' for x in r)
+        cells = "".join(f'<span>{_cell(x)}</span>' for x in r)
         rows.append(f'<div class="tr" data-i="{i}">{cells}</div>')
     tot = d.get("total")
     totrow = ""
     if tot:
-        cells = "".join(f'<span>{esc(x)}</span>' for x in tot)
+        cells = "".join(f'<span>{_cell(x)}</span>' for x in tot)
         totrow = f'<div class="tr tot" id="totrow">{cells}</div>'
     return (f'<div class="tbl" style="--cols:{len(d.get("head", [])) or 3}">'
             f'<div class="tr th">{head}</div>{"".join(rows)}{totrow}</div>')
@@ -164,7 +173,7 @@ def demo_bars(d):
             f'<div class="bar" data-i="{i}" data-p="{b.get("pct", 50)}">'
             f'<div class="blab">{esc(b.get("label", ""))}</div>'
             f'<div class="btrk"><div class="bfil"></div></div>'
-            f'<div class="bval">{esc(b.get("value", ""))}</div></div>')
+            f'<div class="bval">{_cell(b.get("value", ""))}</div></div>')
     return f'<div class="bars">{"".join(bars)}</div>'
 
 
