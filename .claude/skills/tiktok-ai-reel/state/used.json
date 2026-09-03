@@ -7,7 +7,8 @@
   "t004",
   "t005",
   "t006",
-  "t007"
+  "t007",
+  "t008"
  ],
  "log": [
   {
@@ -58,6 +59,13 @@
    "cycle": 0,
    "style": "neon",
    "accent": "orange"
+  },
+  {
+   "date": "2026-09-03",
+   "id": "t008",
+   "cycle": 0,
+   "style": "mesh",
+   "accent": "lime"
   }
  ]
 }
