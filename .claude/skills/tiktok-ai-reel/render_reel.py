@@ -321,8 +321,18 @@ svg [data-a],.icard,.ic{transform-box:fill-box;transform-origin:50% 50%}
   background:linear-gradient(90deg,var(--a2),var(--a1))}
 .handle{position:absolute;bottom:352px;left:0;right:0;text-align:center;
   font-weight:700;font-size:34px;letter-spacing:.6px;color:var(--muted);direction:ltr}
-.idx{position:absolute;top:140px;right:96px;font-weight:800;font-size:30px;
-  color:var(--muted);direction:ltr;display:none}
+/* كروم الكاروسيل — شرائح ثابتة يتحكم القارئ بإيقاعها */
+.count{position:absolute;top:146px;left:96px;right:96px;display:flex;
+  align-items:center;justify-content:space-between}
+.count .n{font-weight:800;font-size:32px;color:var(--muted);direction:ltr;
+  letter-spacing:1px}
+.dots{display:flex;gap:11px}
+.dots i{width:13px;height:13px;border-radius:50%;background:var(--line);display:block}
+.dots i.on{background:var(--a1);box-shadow:0 0 16px var(--a1)}
+.swipe{position:absolute;bottom:452px;left:0;right:0;display:flex;
+  align-items:center;justify-content:center;gap:13px;font-weight:800;
+  font-size:33px;color:var(--a1);opacity:.92}
+.swipe svg{display:block}
 
 /* ————— خلفيات ————— */
 .blob{position:absolute;border-radius:50%;filter:blur(120px);will-change:transform}
@@ -627,10 +637,26 @@ DEFAULT_DUR = {"hook": 3.6, "point": 4.6, "stat": 4.4, "steps": 6.6,
                "compare": 5.8, "quote": 4.4, "tip": 5.0, "cta": 4.2}
 
 
-def page_html(scene, style, vars_, handle, faces):
+SWIPE_ICON = ('<svg width="34" height="34" viewBox="0 0 24 24" fill="none" '
+              'stroke="currentColor" stroke-width="2.4" stroke-linecap="round" '
+              'stroke-linejoin="round"><path d="M19 12H5M11.5 5.5 5 12l6.5 6.5"/></svg>')
+
+
+def chrome_html(mode, handle, idx, total):
+    hd = f'<div class="handle">{esc(handle)}</div>' if handle else ""
+    if mode != "carousel":
+        return f'<div class="pbar"><i></i></div>{hd}'
+    dots = "".join(f'<i class="{"on" if i == idx else ""}"></i>' for i in range(total))
+    swipe = (f'<div class="swipe">{SWIPE_ICON}<span>اسحب</span></div>'
+             if idx == 0 and total > 1 else "")
+    return (f'<div class="count"><div class="dots">{dots}</div>'
+            f'<div class="n">{idx+1}/{total}</div></div>{swipe}{hd}')
+
+
+def page_html(scene, style, vars_, handle, faces, mode="reel", idx=0, total=1):
     css_vars = ";".join(f"--{k}:{v}" for k, v in vars_.items() if k != "dark")
     light = "0" if vars_["dark"] == "1" else "1"
-    hd = (f'<div class="handle">{esc(handle)}</div>') if handle else ""
+    hd = chrome_html(mode, handle, idx, total)
     return f"""<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8">
 <style>{faces}
 :root{{{css_vars}}}
@@ -639,7 +665,7 @@ def page_html(scene, style, vars_, handle, faces):
   <div class="bglayer">{bg_layer(style)}</div>
   <div class="vig"></div><div class="grain"></div>
   <div class="content">{scene_html(scene)}</div>
-  <div class="chrome"><div class="pbar"><i></i></div>{hd}</div>
+  <div class="chrome">{hd}</div>
 </div>
 <script>{ENGINE_JS}</script></body></html>"""
 
