@@ -98,6 +98,15 @@ D=output/$(date +%F) && mkdir -p $D
 | `icons` | `title` `items[{icon,label,note}]` `body` — ٤–٦ عناصر متوازية |
 | `cta` | `kicker` `title` `body` `name` `handle` — **يضيف صورة علي تلقائياً** |
 
+**البطاقات التوضيحية — استخدم واحدة على الأقل في كل كاروسيل:**
+
+| النوع | الحقول |
+|---|---|
+| `chat` | `title` `turns[{who:"me"\|"ai", label, text, bad, good}]` — محادثة مصوّرة تُري المثال بدل ما تصفه |
+| `prompt` | `title` `file` `lines[]` — بطاقة قالب؛ ما بين `[أقواس]` يتلوّن كمتغيّر |
+| `checklist` | `title` `items[{text, ok}]` — قائمة تحقق بعلامات ✓/✕ |
+| `scene` | `title` `kind` `body` — مشهد مرسوم. `funnel` (تضييق: `top` `mid` `bot`) · `split` (عشوائية: `src` `outs[]`) · `gauge` (نسبة: `pct` `label`) |
+
 حقل `dur` غير مستخدم في الكاروسيل — احذفه.
 
 **الأيقونات المتاحة:** `bolt gear bot doc mail calendar chart chip cloud clock check

@@ -49,7 +49,7 @@ def icon(name, size=52, cls="", extra=""):
             f'stroke-linejoin="round" {extra}>{p}</svg>')
 
 
-import math
+import math, re
 
 
 def esc(s):
@@ -199,3 +199,145 @@ def icongrid(items, d0=0.35):
                    + '</div>')
     out.append("</div>")
     return "".join(out)
+
+
+# ————————————————————————— ٧ · بطاقة محادثة —————————————————————————
+
+def chat(turns, d0=0.32):
+    """محادثة مصوّرة — تحوّل نصيحة مجرّدة إلى مثال يُرى.
+
+    turns: [{"who":"me"|"ai", "label":"أنت", "text":"...", "bad":true}]
+    """
+    out = ['<div class="chat">']
+    for i, t in enumerate(turns[:4]):
+        who = "me" if t.get("who", "me") == "me" else "ai"
+        tone = " bad" if t.get("bad") else (" good" if t.get("good") else "")
+        lab = t.get("label") or ("أنت" if who == "me" else "الذكاء الاصطناعي")
+        out.append(
+            f'<div class="bub {who}{tone}" {_a("rise", d0 + i * 0.22, 0.6)}>'
+            f'<span class="who">{esc(lab)}</span>'
+            f'<p>{esc(t.get("text",""))}</p></div>')
+    out.append("</div>")
+    return "".join(out)
+
+
+# ————————————————————————— ٨ · بطاقة برومبت —————————————————————————
+
+def prompt_card(lines, title="", d0=0.32):
+    """بطاقة تشبه محرّر النصوص — المتغيّرات بين [أقواس] تتلوّن تلقائياً."""
+    head = (f'<div class="pcard-bar"><i></i><i></i><i></i>'
+            f'<span>{esc(title)}</span></div>') if title is not None else ""
+    body = []
+    for i, ln in enumerate(lines[:6]):
+        txt = re.sub(r"\[([^\]]+)\]", r'<em>[\1]</em>', esc(ln))
+        body.append(f'<div class="pline" {_a("rise", d0 + i * 0.13, 0.5)}>{txt}</div>')
+    return (f'<div class="pcard" {_a("pop", d0 - 0.1, 0.6)}>{head}'
+            f'<div class="pbody">{"".join(body)}</div></div>')
+
+
+# ————————————————————————— ٩ · قائمة تحقق —————————————————————————
+
+TICK = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" '
+        'stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7"/></svg>')
+CROSS = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" '
+         'stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>')
+
+
+def checklist(items, d0=0.34):
+    """قائمة تحقق: {"text":"...", "ok":true|false}"""
+    out = ['<div class="chk">']
+    for i, it in enumerate(items[:5]):
+        ok = it.get("ok", True)
+        out.append(
+            f'<div class="crow {"y" if ok else "n"}" {_a("slide", d0 + i * 0.16, 0.55)}>'
+            f'<span class="mark">{TICK if ok else CROSS}</span>'
+            f'<span class="ctx">{esc(it.get("text",""))}</span></div>')
+    out.append("</div>")
+    return "".join(out)
+
+
+# ————————————————————————— ١٠ · مشاهد توضيحية —————————————————————————
+
+def _funnel(top, mid, bot, d0):
+    """قمع: كثير يدخل، واحد يخرج — لتوضيح التضييق."""
+    return f'''<svg class="scn" viewBox="0 0 880 560" fill="none" direction="rtl">
+  <path d="M110 70 H770 L520 320 V450 H360 V320 Z" fill="var(--soft)"
+        stroke="var(--a1)" stroke-width="5" stroke-linejoin="round"
+        {_a("pop", d0, 0.75)}/>
+  <text x="440" y="42" text-anchor="middle" fill="var(--muted)" font-size="30"
+        font-weight="700" font-family="Cairo,sans-serif"
+        {_a("fade", d0 + 0.3, 0.5)}>{esc(top)}</text>
+  <text x="440" y="215" text-anchor="middle" fill="var(--ink)" font-size="38"
+        font-weight="800" font-family="Cairo,sans-serif"
+        {_a("fade", d0 + 0.45, 0.5)}>{esc(mid)}</text>
+  <path d="M440 470 v46" stroke="var(--a1)" stroke-width="5" stroke-linecap="round"
+        {_a("fade", d0 + 0.55, 0.4)}/>
+  <circle cx="440" cy="530" r="26" fill="var(--a1)" {_a("pop", d0 + 0.62, 0.5)}/>
+  <text x="440" y="542" text-anchor="middle" fill="var(--bg)" font-size="26"
+        font-weight="900" font-family="Cairo,sans-serif">1</text>
+  <text x="600" y="540" text-anchor="middle" fill="var(--muted)" font-size="29"
+        font-weight="700" font-family="Cairo,sans-serif"
+        {_a("fade", d0 + 0.7, 0.5)}>{esc(bot)}</text>
+</svg>'''
+
+
+def _split(src, outs, d0):
+    """مصدر واحد ← نتائج متفرقة — لتوضيح العشوائية."""
+    n = max(2, min(len(outs), 4))
+    W, y0, y1 = 880, 110, 430
+    xs = [W * (i + 1) / (n + 1) for i in range(n)]
+    p = [f'<svg class="scn" viewBox="0 0 {W} 520" fill="none" direction="rtl">']
+    p.append(f'<rect x="320" y="40" width="240" height="86" rx="26" fill="var(--soft)" '
+             f'stroke="var(--a1)" stroke-width="5" {_a("pop", d0, 0.6)}/>')
+    p.append(f'<text x="440" y="95" text-anchor="middle" fill="var(--ink)" font-size="34" '
+             f'font-weight="800" font-family="Cairo,sans-serif" '
+             f'{_a("fade", d0 + 0.2, 0.5)}>{esc(src)}</text>')
+    for i, x in enumerate(xs):
+        d = d0 + 0.34 + i * 0.13
+        p.append(f'<path d="M440 {y0+20} C440 250 {x:.0f} 250 {x:.0f} {y1-56}" '
+                 f'stroke="var(--line)" stroke-width="4" stroke-dasharray="10 10" '
+                 f'{_a("fade", d, 0.4)}/>')
+        p.append(f'<rect x="{x-96:.0f}" y="{y1-46}" width="192" height="82" rx="22" '
+                 f'fill="var(--panel)" stroke="var(--line)" stroke-width="3" '
+                 f'{_a("pop", d + 0.06, 0.5)}/>')
+        p.append(f'<text x="{x:.0f}" y="{y1+4}" text-anchor="middle" fill="var(--muted)" '
+                 f'font-size="28" font-weight="700" font-family="Cairo,sans-serif">'
+                 f'{esc(outs[i])}</text>')
+    p.append("</svg>")
+    return "".join(p)
+
+
+def _gauge(pct, label, d0):
+    """مؤشّر نصف دائري — لتوضيح درجة أو نسبة."""
+    import math as _m
+    cx, cy, r = 440, 400, 260
+    L = _m.pi * r
+    ang = _m.pi * (1 - min(max(pct, 0), 100) / 100)
+    nx, ny = cx + _m.cos(ang) * (r - 36), cy - _m.sin(ang) * (r - 36)
+    return f'''<svg class="scn" viewBox="0 0 880 470" fill="none" direction="rtl">
+  <path d="M{cx-r} {cy} A{r} {r} 0 0 1 {cx+r} {cy}" stroke="var(--line)"
+        stroke-width="46" stroke-linecap="round"/>
+  <path d="M{cx-r} {cy} A{r} {r} 0 0 1 {cx+r} {cy}" stroke="var(--a1)"
+        stroke-width="46" stroke-linecap="round"
+        style="stroke-dasharray:{L:.1f};stroke-dashoffset:{L:.1f}"
+        {_a("ring", d0, 1.2, f'data-len="{L:.1f}" data-pct="{pct}"')}/>
+  <line x1="{cx}" y1="{cy}" x2="{nx:.1f}" y2="{ny:.1f}" stroke="var(--ink)"
+        stroke-width="9" stroke-linecap="round" {_a("fade", d0 + 0.75, 0.5)}/>
+  <circle cx="{cx}" cy="{cy}" r="22" fill="var(--ink)" {_a("pop", d0 + 0.8, 0.4)}/>
+  <text x="{cx}" y="{cy-56}" text-anchor="middle" fill="var(--ink)" font-size="92"
+        font-weight="900" font-family="Tajawal,Cairo,sans-serif" direction="ltr"
+        {_a("count", d0, 1.2, f'data-v="{pct}%"')}>{pct}%</text>
+  <text x="{cx}" y="{cy+62}" text-anchor="middle" fill="var(--muted)" font-size="31"
+        font-weight="700" font-family="Cairo,sans-serif"
+        {_a("fade", d0 + 0.6, 0.5)}>{esc(label)}</text>
+</svg>'''
+
+
+def scene(spec, d0=0.3):
+    """مشهد توضيحي مرسوم — يشرح الفكرة بشكل بدل نص."""
+    kind = spec.get("kind", "funnel")
+    if kind == "split":
+        return _split(spec.get("src", ""), spec.get("outs", []), d0)
+    if kind == "gauge":
+        return _gauge(spec.get("pct", 50), spec.get("label", ""), d0)
+    return _funnel(spec.get("top", ""), spec.get("mid", ""), spec.get("bot", ""), d0)

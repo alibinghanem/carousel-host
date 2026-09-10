@@ -289,6 +289,48 @@ svg [data-a],.icard,.ic{transform-box:fill-box;transform-origin:50% 50%}
 .prow{display:flex;align-items:center;gap:20px;align-self:flex-start}
 .prow .kicker,.prow .iconchip{align-self:auto}
 
+/* ————— بطاقة محادثة ————— */
+.chat{display:flex;flex-direction:column;gap:22px}
+.bub{max-width:86%;padding:30px 34px;border-radius:34px;display:flex;
+  flex-direction:column;gap:10px;border:2px solid var(--line);background:var(--panel)}
+.bub .who{font-weight:800;font-size:26px;color:var(--muted);letter-spacing:.3px}
+.bub p{font-weight:600;font-size:38px;line-height:1.5;color:var(--ink)}
+.bub.me{align-self:flex-start;border-bottom-right-radius:10px;
+  background:var(--soft);border-color:var(--a1)}
+.bub.ai{align-self:flex-end;border-bottom-left-radius:10px}
+.bub.bad{border-color:var(--bad)}
+.bub.bad .who{color:var(--bad)}
+.bub.good{border-color:var(--a1)}
+.bub.good .who{color:var(--a1)}
+
+/* ————— بطاقة برومبت ————— */
+.pcard{border-radius:32px;overflow:hidden;border:2px solid var(--line);
+  background:var(--panel)}
+.pcard-bar{display:flex;align-items:center;gap:12px;padding:20px 28px;
+  background:var(--dim);border-bottom:2px solid var(--line)}
+.pcard-bar i{width:15px;height:15px;border-radius:50%;background:var(--line);display:block}
+.pcard-bar i:first-child{background:var(--a1)}
+.pcard-bar span{margin-inline-start:12px;font-weight:800;font-size:27px;color:var(--muted)}
+.pbody{padding:32px 34px;display:flex;flex-direction:column;gap:16px}
+.pline{font-weight:600;font-size:36px;line-height:1.46;color:var(--ink)}
+.pline em{font-style:normal;font-weight:900;color:var(--a1);
+  background:var(--soft);padding:2px 12px;border-radius:10px}
+
+/* ————— قائمة تحقق ————— */
+.chk{display:flex;flex-direction:column;gap:20px}
+.crow{display:flex;align-items:center;gap:24px;padding:26px 32px;border-radius:28px;
+  background:var(--panel);border:2px solid var(--line)}
+.crow .mark{flex:0 0 auto;width:60px;height:60px;border-radius:50%;display:grid;
+  place-items:center}
+.crow .mark svg{width:32px;height:32px}
+.crow.y .mark{background:var(--soft);color:var(--a1)}
+.crow.n .mark{background:rgba(148,163,184,.16);color:var(--bad)}
+.crow .ctx{font-weight:700;font-size:39px;line-height:1.4}
+.crow.n .ctx{color:var(--muted)}
+
+/* ————— مشهد توضيحي ————— */
+.scn{width:100%;height:auto;align-self:center;overflow:visible}
+
 /* أيقونة داخل بطاقة/نقطة */
 .iconchip{width:104px;height:104px;border-radius:30px;display:grid;place-items:center;
   background:var(--soft);color:var(--a1);align-self:flex-start}
@@ -450,6 +492,27 @@ def scene_html(s):
         it = s.get("items", [])
         return (f'<div class="dgm">{head(s)}{G.icongrid(it, 0.38)}</div>'
                 + foot(s, 0.38 + 0.14 * len(it[:6]) + 0.3))
+
+    # ————— بطاقات توضيحية مرسومة —————
+    if t == "chat":
+        tn = s.get("turns", [])
+        return (f'<div class="dgm">{head(s)}{G.chat(tn, 0.36)}</div>'
+                + foot(s, 0.36 + 0.22 * len(tn[:4]) + 0.25))
+
+    if t == "prompt":
+        ln = s.get("lines", [])
+        return (f'<div class="dgm">{head(s)}'
+                f'{G.prompt_card(ln, s.get("file", "البرومبت"), 0.36)}</div>'
+                + foot(s, 0.36 + 0.13 * len(ln[:6]) + 0.3))
+
+    if t == "checklist":
+        it = s.get("items", [])
+        return (f'<div class="dgm">{head(s)}{G.checklist(it, 0.36)}</div>'
+                + foot(s, 0.36 + 0.16 * len(it[:5]) + 0.3))
+
+    if t == "scene":
+        return (f'<div class="dgm">{head(s)}{G.scene(s, 0.34)}</div>'
+                + foot(s, 1.35))
 
     if t == "hook":
         p = []
