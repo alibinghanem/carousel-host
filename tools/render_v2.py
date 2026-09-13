@@ -63,7 +63,22 @@ THEMES = {
     "paper":   {"bg1": "#F1EFEA", "bg2": "#DCD7CD", "glow": "#2E4BFF",
                 "accent": "#1B3BEF", "ink": "#101318", "ink2": "#101318A6",
                 "onaccent": "#FFFFFF", "light": True},
+    # ثيمات فاتحة هادئة — الافتراضي الجديد لريلز التعليم: لا تصرخ بالنيون،
+    # وتقرأ كتصميم بشري مطبعي لا مونتاج آلي. أضيفت بطلب صاحب الحساب صراحةً
+    # في ٢٠٢٦-٠٩-١٣ ("الوان فاتحه... مونتاج لا يوحي انه من الذكاء الاصطناعي").
+    "sky":     {"bg1": "#EEF3FB", "bg2": "#DCE7F7", "glow": "#3E6FD9",
+                "accent": "#2F5FC4", "ink": "#131A2B", "ink2": "#131A2BA6",
+                "onaccent": "#FFFFFF", "light": True},
+    "sage":    {"bg1": "#EEF3EC", "bg2": "#DCE8D8", "glow": "#3F8F5C",
+                "accent": "#2E7A4B", "ink": "#151C15", "ink2": "#151C15A6",
+                "onaccent": "#FFFFFF", "light": True},
+    "sand":    {"bg1": "#F6F0E7", "bg2": "#EBDFC9", "glow": "#C17A3B",
+                "accent": "#A9622A", "ink": "#231C12", "ink2": "#231C12A6",
+                "onaccent": "#FFFFFF", "light": True},
 }
+
+# ثيمات هادئة فاتحة — هذه أُعطيت الأولوية لريلز التعليمي الجديد
+CALM_THEMES = ("paper", "sky", "sage", "sand")
 
 COVER_LAYOUTS = ("numeral", "manchette", "stencil", "band", "ledger")
 

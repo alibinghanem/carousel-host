@@ -1,20 +1,26 @@
 #!/usr/bin/env python3
-"""محرّك مونتاج الريلز — ١٢–١٤ ثانية، قطع على النبضة، حركة داخل الكادر.
+"""محرّك مونتاج الريلز — ١٢–١٤ ثانية، تصميم هادئ خفيف الحركة، لا موسيقى.
 
 لماذا محرّك ثالث؟ `render_reel2.py` كان كاميرا واحدة تنزلق فوق بطاقات نصية
 لثلاثين ثانية: لا قطع، ولا حركة داخل الكادر، ولا إيقاع. العين تفهم الكادر
 في ثانية ثم لا يبقى ما يُنتظر، فينهار زمن المشاهدة وينهار معه التوزيع.
 
-هذا المحرّك يقلب البنية:
+هذا المحرّك يقلب البنية — وأُعيد ضبطه في ٢٠٢٦-٠٩-١٣ بطلب صاحب الحساب
+صراحةً نحو الهدوء بعد أن شعر أن النسخة السابقة (قطع على ضربة موسيقى مع
+نبض متكرر في الخلفية) «توحي بأنها من الذكاء الاصطناعي»:
 
   ١) **النتيجة أولاً.** المشهد الثاني يُري التحوّل يحدث — جدول يُبنى صفاً
      صفاً، محادثة تُكتب، أعمدة تنمو — بدل أن يصف خطوات بالكلام. الناس
      تشاهد النتائج لا التعليمات.
-  ٢) **القطع على النبضة.** المدد تُحسب من إيقاع الموسيقى التي نؤلّفها،
-     فكل قطعة تقع على ضربة، ويقع عندها صوت يسندها (نقرة وضربة باص وصعود
-     يمهّد). هذا وحده يصنع أغلب إحساس «الاحترافية».
-  ٣) **المدة مضاعف صحيح للنبضة**، فتُعاد الحلقة على الإيقاع بلا خياطة
-     مسموعة. والمشهد الأخير يُشبه الأول تركيبياً فتُعاد بصرياً كذلك.
+  ٢) **بلا موسيقى وبلا نبض متكرر.** لا فراش موسيقي ولا صوت قطعات ولا
+     خلفية تتنفّس كل ضربة — تلك التفاصيل هي ما يخون المونتاج الآلي.
+     الانتقال بين المشاهد مزجٌ هادئ بطيء (`CF` أدناه) لا قطعٌ حادّ، وكل
+     حركة تدخل مرّة واحدة ثم تسكن، لا تتكرر إلى الأبد.
+  ٣) **تصميم يتكيّف مع الموضوع لا قالباً واحداً بألوان متبدّلة**: الثيم
+     ولون الزخرفة وتخطيط الغلاف وقائمة الفائدة تُختار من محتوى المنشور
+     نفسه (`_seed_pick`)، ورمز المفهوم المذكور في النص (سيارة، منزل،
+     هاتف…) يُستدعى تلقائياً من `reel_art.guess_icon` فيظهر رسماً
+     احترافياً لا رقماً مجرّداً — انظر `COVER_LAYOUTS` و`VALUE_LAYOUTS`.
   ٤) **الإطار صفر غلافٌ مكتمل.** لا بناء من العدم في البداية: التركيب
      كامل منذ أول إطار ثم يستقر. إنستقرام يلتقط الغلاف من الفيديو، فأي
      إطار افتتاحي فارغ يعني مستطيلاً فارغاً في الشبكة.
@@ -32,6 +38,9 @@
      "prompt":{"label":"…","lines":[…]},
      "cta":{"title":"…","sub":"…"},
      "tool":{"name":"…","url":"…"},"reply":"…"}
+
+`theme` اختياري: إن غاب يُختار ثيمٌ فاتحٌ هادئ تلقائياً من بذرة المحتوى
+(`render_v2.CALM_THEMES`) — انظر الطلب الصريح بألوان فاتحة في التوثيق.
 """
 import asyncio
 import base64
@@ -43,21 +52,21 @@ import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
-from render_v2 import THEMES, esc, ASSET_DIRS, _find          # noqa: E402
-from render_reel2 import reel_faces, _chromium, _ffmpeg       # noqa: E402
-from reel_audio3 import grid, write_bed                       # noqa: E402
-from reel_art import icon, brand_chip, decor, DECOR_KINDS     # noqa: E402
-import reel_music                                             # noqa: E402
-
-MUSIC_DIR = pathlib.Path(__file__).resolve().parent.parent / "music"
+from render_v2 import THEMES, CALM_THEMES, esc, ASSET_DIRS, _find   # noqa: E402
+from render_reel2 import reel_faces, _chromium, _ffmpeg             # noqa: E402
+from reel_art import (icon, icon_plain, brand_chip, decor,          # noqa: E402
+                       DECOR_KINDS, guess_icon)
 
 W, H = 1080, 1920
 
 # المنطقة الآمنة: واجهة إنستقرام تغطّي الأسفل واليمين
 PAD_X, TOP, BOTTOM = 92, 210, 1580
 
-# أوزان نسبية لا أطوالاً ثابتة: طول النبضة يأتي من الموسيقى، فيتغيّر عدد
-# النبضات لتبقى المدة قرب الهدف. مشهد `value` أُضيف بعد العرض لأن الفائدة
+# لا موسيقى تملي الإيقاع بعد الآن — «نبضة» هنا وحدة توقيت ثابتة هادئة
+# لتوزيع ظهور العناصر تباعاً (نصف ثانية تقريباً)، لا شيء يُسمع عندها.
+CALM_BEAT = 0.62
+
+# أوزان نسبية لا أطوالاً ثابتة. مشهد `value` أُضيف بعد العرض لأن الفائدة
 # لا تُترك ضمنيةً — عندها يقرّر المشاهد أن الأمر يستحق وقته.
 WEIGHTS = {"cover": 3, "demo": 11, "value": 7, "prompt": 6, "cta": 5}
 ORDER = ["cover", "demo", "value", "prompt", "cta"]
@@ -65,10 +74,8 @@ TARGET_SEC = 20.0
 
 
 def plan_beats(beat, target=TARGET_SEC):
-    """يوزّع نبضات المشاهد بحيث تقارب المدة الهدف، والمجموع مضاعف لأربعة.
-
-    المجموع مضاعف لأربعة كي تنتهي الحلقة على بداية مازورة، فتُعاد بلا
-    خياطة مسموعة. ولا يقلّ أي مشهد عن نبضتين مهما ضاق التوزيع.
+    """يوزّع نبضات المشاهد بحيث تقارب المدة الهدف، والمجموع مضاعف لأربعة
+    (إيقاع داخلي متّسق فقط، لا علاقة له بصوت — لا صوت هنا أصلاً).
     """
     total = max(16, int(round(target / beat / 4.0)) * 4)
     wsum = sum(WEIGHTS.values())
@@ -104,6 +111,30 @@ def avatar_b64():
     return base64.b64encode(p.read_bytes()).decode()
 
 
+# التصميم يتكيّف مع محتوى المنشور لا يتكرّر بقالب واحد: كل عنصر متغيّر
+# (الثيم، تخطيط الغلاف، تخطيط قائمة الفائدة، الزخرفة) يُختار من بذرة
+# مبنيّة على نص المنشور نفسه، فيختلف الشكل تلقائياً بين موضوع وآخر بلا
+# أي إعداد يدوي، ويبقى ثابتاً لنفس المنشور إن أُعيد توليده.
+COVER_LAYOUTS = ("classic", "spotlight")
+VALUE_LAYOUTS = ("list", "grid")
+
+
+def _seed_pick(seed, options, salt=""):
+    h = hashlib.sha256(f"{salt}:{seed}".encode()).digest()
+    return options[h[0] % len(options)]
+
+
+def content_seed(spec):
+    """بذرة مشتقّة من محتوى المنشور نفسه — لا من الوقت ولا عشوائياً — كي
+    يخرج نفس المنشور بنفس الشكل دوماً، وموضوعٌ مختلف بشكل مختلف تلقائياً."""
+    return json.dumps([spec.get("cover", {}), spec.get("value", {})],
+                       ensure_ascii=False, sort_keys=True)
+
+
+def pick_theme(spec):
+    return spec.get("theme") or _seed_pick(content_seed(spec), CALM_THEMES, "theme")
+
+
 # ═══════════════════════════ المشاهد ═══════════════════════════
 
 def _cell(x):
@@ -115,7 +146,7 @@ def _cell(x):
     return f'<bdi>{esc(x)}</bdi>'
 
 
-def cover_html(c, tool, accent, on_accent):
+def cover_html(c, tool, accent, on_accent, layout):
     result = c.get("result", "")
     card = ""
     if result:
@@ -126,14 +157,38 @@ def cover_html(c, tool, accent, on_accent):
     # واللون هو لون العلامة لا لون الثيم — فيُتعرَّف عليها فوراً.
     chip = brand_chip(tool.get("brand") or tool.get("name", ""),
                       tool.get("name", ""), accent, on_accent)
+    brandrow = f'<div class="brandrow" id="cbrand">{chip}</div>' if chip else ""
+
+    # رمز المفهوم المذكور في العنوان (سيارة، منزل، هاتف…) إن وُجد — رسمٌ
+    # يشرح الموضوع بصرياً بدل نصٍّ فقط. ساكن منذ الإطار الأول، بلا نبض.
+    concept = c.get("icon") or guess_icon(c.get("kicker", ""), c.get("title", ""))
+
+    if layout == "spotlight" and concept:
+        # تخطيط ثانٍ: بطاقة رسومية كبيرة أعلى العنوان بدل بطاقة النتيجة —
+        # الرسم نفسه هو الدليل البصري الأول، لا سطر نتيجة نصّي.
+        art = (f'<div class="cart" id="cart"><div class="cartic">'
+               f'{icon_plain(concept, accent, 1.15)}</div></div>')
+        return (
+            '<div class="wrap cov spot">'
+            f'{art}'
+            f'<div class="kick" id="ckick">{esc(c.get("kicker", ""))}</div>'
+            f'<h1 class="big" id="ctitle">{words(c.get("title", ""))}</h1>'
+            + (f'<div class="rcard" id="rcard">'
+               + "".join(f'<div class="rl">{esc(x)}</div>'
+                         for x in (result if isinstance(result, list) else [result]))
+               + '</div>' if result else "")
+            + brandrow + '</div>')
+
+    water = (f'<div class="cwater">{icon_plain(concept, accent, 1.3)}</div>'
+             if concept else "")
     return (
         '<div class="wrap cov">'
+        f'{water}'
         f'<div class="kick" id="ckick">{esc(c.get("kicker", ""))}</div>'
         f'<h1 class="big" id="ctitle">{words(c.get("title", ""))}</h1>'
         '<div class="rule" id="crule"></div>'
         f'{card}'
-        + (f'<div class="brandrow" id="cbrand">{chip}</div>' if chip else "")
-        + '</div>')
+        + brandrow + '</div>')
 
 
 def demo_table(d):
@@ -278,24 +333,37 @@ def prompt_html(p):
             '</div>')
 
 
-def value_html(v, accent):
-    rows = []
-    for i, r in enumerate(v.get("rows", [])):
+def value_html(v, accent, layout="list"):
+    items = []
+    src = v.get("rows", [])
+    for i, r in enumerate(src):
         if isinstance(r, str):
             r = {"title": r}
-        # `icon` أولوية على `big`: الأيقونة تُرسَم أمام العين وتقول المعنى
-        # قبل أن يُقرأ السطر؛ الرقم يبقى خياراً حين يكون هو الرسالة.
-        ic = icon(r["icon"], accent, 2.2) if r.get("icon") else ""
+        # `icon` أولوية على `big`؛ وإن غاب الاثنان يُخمَّن رمزٌ من نص
+        # السطر نفسه — سيارة في العنوان تستدعي رسم سيارة لا رقماً مجرّداً.
+        ic_name = r.get("icon") or guess_icon(r.get("title", ""), r.get("sub", ""))
+        ic = icon(ic_name, accent, 2.2) if ic_name else ""
         cell = ic or (esc(r.get("big", "")) or "◆")
-        rows.append(
-            f'<div class="vr" data-i="{i}">'
-            f'<div class="vn{" ico" if ic else ""}">{cell}</div>'
-            f'<div class="vt"><b>{esc(r.get("title", ""))}</b>'
-            + (f'<span>{esc(r["sub"])}</span>' if r.get("sub") else "")
-            + '</div></div>')
+        if layout == "grid":
+            items.append(
+                f'<div class="vc" data-i="{i}">'
+                f'<div class="vn{" ico" if ic else ""}">{cell}</div>'
+                f'<b>{esc(r.get("title", ""))}</b>'
+                + (f'<span>{esc(r["sub"])}</span>' if r.get("sub") else "")
+                + '</div>')
+        else:
+            items.append(
+                f'<div class="vr" data-i="{i}">'
+                f'<div class="vn{" ico" if ic else ""}">{cell}</div>'
+                f'<div class="vt"><b>{esc(r.get("title", ""))}</b>'
+                + (f'<span>{esc(r["sub"])}</span>' if r.get("sub") else "")
+                + '</div></div>')
+    cls = "vgrid" if layout == "grid" else "vlist"
+    if layout == "grid" and len(items) % 2:
+        cls += " odd"
     return ('<div class="wrap val">'
             f'<div class="kick" id="vkick">{esc(v.get("label", "لماذا يهمّك"))}</div>'
-            f'<div class="vlist">{"".join(rows)}</div></div>')
+            f'<div class="{cls}">{"".join(items)}</div></div>')
 
 
 def cta_html(c, keyword, av):
@@ -316,12 +384,24 @@ def cta_html(c, keyword, av):
 # ═══════════════════════════ الصفحة ═══════════════════════════
 
 def build_html(spec, beat, BEATS):
-    t = THEMES[spec.get("theme", "indigo")]
+    # بذرة المحتوى: كل ما يتغيّر تلقائياً (الثيم، تخطيط الغلاف، تخطيط
+    # الفائدة، الزخرفة) يُشتقّ منها، فالمنشور نفسه يُعاد بنفس الشكل دوماً
+    # لكن موضوعاً مختلفاً يخرج بشكل مختلف بلا أي إعداد يدوي — هذا ما
+    # يحقّق «تصميم متغيّر لا قالباً ثابتاً».
+    seed = content_seed(spec)
+
+    theme_name = pick_theme(spec)
+    t = THEMES[theme_name]
     a, ink, ink2 = t["accent"], t["ink"], t["ink2"]
     glow, on = t["glow"], t["onaccent"]
     light = t.get("light")
     panel_bg = a
     line = f"{ink}1f" if light else f"{ink}24"
+
+    cover_layout = spec.get("cover", {}).get("layout") \
+        or _seed_pick(seed, COVER_LAYOUTS, "cover")
+    value_layout = spec.get("value", {}).get("layout") \
+        or _seed_pick(seed, VALUE_LAYOUTS, "value")
 
     scenes, acc = [], 0.0
     for k in ORDER:
@@ -334,9 +414,9 @@ def build_html(spec, beat, BEATS):
     tool = spec.get("tool", {}) or {}
     layers = "".join(
         f'<div class="layer" id="L{i}">{h}</div>' for i, h in enumerate([
-            cover_html(spec.get("cover", {}), tool, a, on),
+            cover_html(spec.get("cover", {}), tool, a, on, cover_layout),
             demo_html(spec.get("demo", {})),
-            value_html(spec.get("value", {}), a),
+            value_html(spec.get("value", {}), a, value_layout),
             prompt_html(spec.get("prompt", {})),
             cta_html(spec.get("cta", {}), spec.get("keyword", "أداة"), av),
         ]))
@@ -345,10 +425,7 @@ def build_html(spec, beat, BEATS):
     # الزخرفة تُختار من بذرة المحتوى لا يدوياً، فيختلف الشكل بين منشور وآخر
     dk = spec.get("decor")
     if dk not in DECOR_KINDS:
-        h = hashlib.sha256(json.dumps(
-            spec.get("cover", {}), ensure_ascii=False, sort_keys=True
-        ).encode()).digest()
-        dk = DECOR_KINDS[h[0] % len(DECOR_KINDS)]
+        dk = _seed_pick(seed, DECOR_KINDS, "decor")
     dec = decor(dk, a, glow)
 
     return f"""<!doctype html><html lang="ar" dir="rtl"><meta charset="utf-8">
@@ -373,12 +450,10 @@ body{{font-family:'Readex Pro','Cairo',sans-serif;color:{ink};
 <filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/></filter>\
 <rect width='180' height='180' filter='url(%23n)'/></svg>")}}
 
-/* طبقة الزخرفة بين الخلفية والمحتوى: تتنفّس مع الإيقاع فيبقى الكادر حيّاً
-   حتى في اللحظات التي لا يتحرّك فيها نص. */
-#dec{{position:absolute;inset:0;pointer-events:none;
-  will-change:transform,opacity}}
+/* طبقة الزخرفة بين الخلفية والمحتوى: ساكنة بعد ظهورها — لا تنبض ولا
+   تتكرّر حركتها، فقط تكسر فراغ الخلفية بشكل هادئ ثابت. */
+#dec{{position:absolute;inset:0;pointer-events:none;opacity:.5}}
 #dec svg{{position:absolute;inset:0;width:100%;height:100%}}
-.dec .d1,.dec .d2,.dec .d3{{will-change:transform,opacity}}
 
 /* شارة الأداة: لونها لون العلامة لا لون الثيم، فتُعرَف من نظرة */
 .brandrow{{margin-top:34px}}
@@ -395,40 +470,62 @@ body{{font-family:'Readex Pro','Cairo',sans-serif;color:{ink};
 .ic path,.ic circle,.ic rect,.ic ellipse{{stroke-dasharray:var(--len,200);
   stroke-dashoffset:var(--off,0)}}
 
-.layer{{position:absolute;inset:0;opacity:0;visibility:hidden;
-  transform-origin:50% 46%;will-change:transform,opacity,filter}}
+.layer{{position:absolute;inset:0;opacity:0;visibility:hidden}}
 .wrap{{position:absolute;left:{PAD_X}px;right:{PAD_X}px;
   top:{TOP}px;bottom:{H - BOTTOM}px;display:flex;flex-direction:column;
   justify-content:center}}
 
-/* ── قائمة الفائدة ── */
+/* ── قائمة الفائدة: تخطيطان — قائمة رأسية، أو بطاقات في شبكة ── */
 .vlist{{display:flex;flex-direction:column;gap:26px}}
 .vr{{display:flex;align-items:center;gap:28px;background:{ink}0c;
   border:2px solid {line};border-radius:24px;padding:30px 34px;
   will-change:transform,opacity}}
 .vn{{flex:0 0 128px;height:112px;display:flex;align-items:center;
   justify-content:center;background:{a};color:{on};border-radius:20px;
-  font-size:46px;font-weight:700;letter-spacing:-1px;direction:ltr}}
-.vn.ico{{background:{a}22;border:2.5px solid {a}}}
-.vt b{{display:block;font-size:47px;font-weight:600;line-height:1.28}}
+  font-size:46px;font-weight:600;letter-spacing:-1px;direction:ltr}}
+.vn.ico{{background:{a}1e;border:2.5px solid {a}}}
+.vt b{{display:block;font-size:45px;font-weight:600;line-height:1.3}}
 .vt span{{display:block;margin-top:8px;font-family:'Plex Arabic',sans-serif;
-  font-size:33px;line-height:1.5;color:{ink2}}}
+  font-size:32px;line-height:1.5;color:{ink2}}}
 
-.kick{{font-size:32px;font-weight:600;letter-spacing:3.5px;color:{a};
+.vgrid{{display:grid;grid-template-columns:1fr 1fr;gap:24px}}
+.vgrid.odd .vc:last-child{{grid-column:1 / -1}}
+.vc{{display:flex;flex-direction:column;align-items:center;text-align:center;
+  gap:14px;background:{ink}0c;border:2px solid {line};border-radius:24px;
+  padding:38px 24px;will-change:transform,opacity}}
+.vc .vn{{flex:none;width:104px;height:104px}}
+.vc b{{display:block;font-size:38px;font-weight:600;line-height:1.32}}
+.vc span{{display:block;font-family:'Plex Arabic',sans-serif;font-size:28px;
+  line-height:1.5;color:{ink2}}}
+
+.kick{{font-size:31px;font-weight:600;letter-spacing:2.5px;color:{a};
   margin-bottom:28px}}
 .kick.alt{{color:{a}}}
-.big{{font-size:108px;font-weight:700;line-height:1.13;letter-spacing:-2.8px}}
+.big{{font-size:104px;font-weight:600;line-height:1.2;letter-spacing:-1.2px}}
 .w,.aw{{display:inline-block;overflow:hidden;vertical-align:top}}
 .w>i,.aw>i{{display:inline-block;font-style:normal;will-change:transform}}
-.rule{{height:9px;width:210px;background:{a};border-radius:9px;margin-top:34px}}
+.rule{{height:8px;width:190px;background:{a};border-radius:8px;margin-top:34px}}
 
-/* بطاقة النتيجة: تطلّ من الأسفل مائلة، فيبدأ الكادر بعمق لا بسطح */
+/* بطاقة النتيجة: تطلّ من الأسفل، هدوءاً لا ميلاً حاداً */
 .rcard{{margin-top:54px;background:{ink}0d;border:2px solid {line};
-  border-radius:26px;padding:30px 34px;backdrop-filter:blur(2px);
-  transform-origin:50% 0}}
-.rl{{font-family:'Plex Arabic',sans-serif;font-size:42px;line-height:1.72;
+  border-radius:26px;padding:30px 34px}}
+.rl{{font-family:'Plex Arabic',sans-serif;font-size:41px;line-height:1.74;
   color:{ink2}}}
 .rl+.rl{{border-top:1px solid {line};margin-top:12px;padding-top:12px}}
+
+/* رسم توضيحي ساكن خلف نص الغلاف — يشرح الموضوع بلا حركة تلفت عنه */
+.icplain{{width:100%;height:100%;display:block}}
+.cwater{{position:absolute;top:20px;left:-70px;width:300px;height:300px;
+  opacity:.09;pointer-events:none}}
+
+/* تخطيط الغلاف الثاني: بطاقة رسومية أعلى العنوان بدل بطاقة نتيجة نصية */
+.cov.spot{{justify-content:flex-start;padding-top:8px}}
+.cart{{align-self:center;margin-bottom:40px}}
+.cartic{{width:220px;height:220px;border-radius:50%;background:{a}16;
+  border:2.5px solid {a}40;display:flex;align-items:center;
+  justify-content:center;padding:52px}}
+.cov.spot .kick,.cov.spot .big{{text-align:center}}
+.cov.spot .rcard{{align-self:stretch}}
 
 /* ── إطار الجهاز ── */
 .dev{{background:{ink}0a;border:2px solid {line};border-radius:34px;
@@ -630,13 +727,17 @@ function sceneCover(lt) {{
   if (c) {{ const p = cl(lt/0.72,0,1);
     c.style.transform =
       `translateY(${{(1-outQ(p))*26}}px) rotate(${{(1-outQ(p))*-1.1}}deg)`; }}
-  // شارة الأداة تدخل متأخّرة قليلاً وتنبض على الضربة
+  // شارة الأداة تدخل متأخّرة قليلاً، ثم تسكن — بلا نبض متكرر
   const bd = G('cbrand');
   if (bd) {{ const p = cl((lt-0.34)/0.52,0,1);
-    const b = Math.max(0, Math.sin(lt/BEAT*Math.PI*2));
     bd.style.opacity = p;
-    bd.style.transform =
-      `translateY(${{(1-back(p))*22}}px) scale(${{(0.94+0.06*back(p))*(1+0.016*b)}})`; }}
+    bd.style.transform = `translateY(${{(1-back(p))*22}}px) scale(${{0.94+0.06*back(p)}})`; }}
+  // تخطيط "spotlight": بطاقة الرسم الدائرية ظاهرة كاملةً منذ الإطار صفر
+  // (كما يلزم لغلاف إنستقرام) وتستقرّ بتمدّد خفيف لا بظهور من عدم. والرسم
+  // التوضيحي الساكن (.cwater) شفافيته ثابتة من CSS مباشرة للسبب نفسه.
+  const ca = G('cart');
+  if (ca) {{ const p = cl(lt/0.5,0,1);
+    ca.style.transform = `scale(${{0.94+0.06*outQ(p)}})`; }}
 }}
 
 function sceneDemo(lt, dur) {{
@@ -705,10 +806,8 @@ function sceneDemo(lt, dur) {{
       const mk = el.querySelector('.mk');
       if (mk) {{
         const p = cl((lt - t0 - 0.30) / 0.42, 0, 1);
-        const b = Math.max(0, Math.sin((lt-t0)/BEAT*Math.PI*2));
         mk.style.opacity = p;
-        mk.style.transform =
-          `translate(-50%,-50%) scale(${{(0.82+0.18*back(p))*(1+0.03*b)}})`;
+        mk.style.transform = `translate(-50%,-50%) scale(${{0.82+0.18*back(p)}})`;
       }}
     }});
   }}
@@ -757,22 +856,19 @@ function scenePrompt(lt) {{
   }}
   const h = G('phint');
   if (h) {{ const p = cl((lt-0.85)/0.35,0,1);
-    // نبض على النبضة يلفت للفعل المطلوب
-    const b = 1 + 0.045*Math.max(0, Math.sin(lt/BEAT*Math.PI*2));
-    h.style.opacity = p*0.95; h.style.transform = `scale(${{b}})`;
-    h.style.transformOrigin = '100% 50%'; }}
+    h.style.opacity = p*0.95; }}
 }}
 
-// كل سطر فائدة يهبط على نصف نبضة، فتقع الأسطر مع الموسيقى لا بجوارها
+// كل سطر فائدة يظهر تباعاً بمهلة هادئة — قائمة أو بطاقات شبكة
 function sceneValue(lt) {{
   const k = G('vkick');
   if (k) {{ const p = cl(lt/0.30,0,1);
     k.style.opacity = p; k.style.transform = `translateX(${{(1-outC(p))*26}}px)`; }}
-  stagger([...Q('#L2 .vr')], lt, 0.26, BEAT*0.62, 0.44, (el,p,i) => {{
+  stagger([...Q('#L2 .vr,#L2 .vc')], lt, 0.26, BEAT*0.62, 0.5, (el,p,i) => {{
     el.style.opacity = p;
     el.style.transform =
-      `translateX(${{(1-back(p))*46}}px) scale(${{0.985+0.015*outQ(p)}})`;
-    // الأيقونة تُرسَم بعد هبوط السطر بقليل: الحركة تتتابع ولا تتزاحم
+      `translateY(${{(1-back(p))*30}}px) scale(${{0.985+0.015*outQ(p)}})`;
+    // الأيقونة تُرسَم بعد ظهور البطاقة بقليل: الحركة تتتابع ولا تتزاحم
     drawIcon(i, cl((p - 0.30) / 0.70, 0, 1));
   }});
 }}
@@ -783,12 +879,9 @@ function sceneCta(lt) {{
   const c = G('chip');
   if (c) {{
     const p = cl((lt-0.34)/0.46,0,1);
-    // هالة تتنفّس على النبضة: العين تعود للطلب كل ضربة
-    const b = Math.max(0, Math.sin((lt-0.34)/BEAT*Math.PI*2));
     c.style.opacity = p;
-    c.style.transform = `translateY(${{(1-back(p))*36}}px) scale(${{1+0.022*b}})`;
-    c.style.boxShadow = `0 0 0 ${{6+22*b}}px rgba(0,0,0,0)`;
-    c.style.filter = `drop-shadow(0 10px ${{18+26*b}}px rgba(0,0,0,.18))`;
+    c.style.transform = `translateY(${{(1-back(p))*36}}px)`;
+    c.style.filter = 'drop-shadow(0 10px 24px rgba(0,0,0,.18))';
   }}
   const s = G('xsub');
   if (s) {{ const p = cl((lt-0.62)/0.42,0,1);
@@ -796,19 +889,21 @@ function sceneCta(lt) {{
   const nm = G('xname');
   if (nm) {{ const p = cl((lt-0.26)/0.34,0,1);
     nm.style.opacity = p; nm.style.transform = `translateY(${{(1-outC(p))*16}}px)`; }}
-  // الصورة أول ما يظهر: تكبر من ٨٨٪ مع تجاوز خفيف، وهالتها تتنفّس على النبضة
+  // الصورة أول ما يظهر: تكبر من ٨٨٪ مع تجاوز خفيف، ثم تسكن — بلا نبض
   const f = G('face');
   if (f) {{
     const p = cl(lt/0.52,0,1);
-    const b = Math.max(0, Math.sin(lt/BEAT*Math.PI*2));
     f.style.opacity = cl(p*1.6,0,1);
     f.style.transform = `scale(${{0.88+0.12*back(p)}})`;
-    f.style.boxShadow =
-      `0 26px 60px rgba(0,0,0,.46), 0 0 ${{18+30*b}}px ${{4+9*b}}px {glow}4d`;
+    f.style.boxShadow = `0 26px 60px rgba(0,0,0,.46), 0 0 26px 6px {glow}4d`;
   }}
 }}
 
 const RUN = [sceneCover, sceneDemo, sceneValue, scenePrompt, sceneCta];
+
+// مدة المزج بين مشهدين: انتقال هادئ بلا قطع حادّ ولا تكبير مفاجئ —
+// هذا ما يستبدل «القطع على الضربة» في النسخة السابقة.
+const CF = 0.62;
 
 window.setT = function (t) {{
   t = cl(t, 0, TOTAL);
@@ -817,47 +912,26 @@ window.setT = function (t) {{
     if (t >= SCENES[i].start - 1e-6) cur = i;
   const sc = SCENES[cur];
   const lt = t - sc.start;
+  const prev = cur > 0 ? cur - 1 : -1;
+  const fading = prev >= 0 && lt < CF;
+  const mix = fading ? outC(lt / CF) : 1;   // 0 → مشهد سابق فقط، 1 → مشهد حالي فقط
 
   for (let i = 0; i < L.length; i++) {{
-    const on = (i === cur);
-    L[i].style.opacity = on ? 1 : 0;
-    L[i].style.visibility = on ? 'visible' : 'hidden';
-  }}
-
-  // نبضة القطع: دخول بمقياس أكبر قليلاً وضبابة تنحسر خلال ٠٫٢٦ث.
-  // تُستثنى منها لقطة الغلاف: أول إطار يجب أن يكون حاداً ومقروءاً تماماً.
-  if (cur === 0) {{
-    L[0].style.transform = `scale(${{1 + 0.020 * outQ(cl(lt/sc.dur,0,1))}})`;
-    L[0].style.filter = 'none';
-  }} else {{
-    const e = cl(lt / 0.26, 0, 1);
-    L[cur].style.transform = `scale(${{1 + 0.030 * (1 - outQ(e))}})`;
-    L[cur].style.filter = e < 1 ? `blur(${{(1 - e) * 5}}px)` : 'none';
+    let op = 0;
+    if (i === cur) op = mix;
+    else if (i === prev && fading) op = 1 - mix;
+    L[i].style.opacity = op;
+    L[i].style.visibility = op > 0.002 ? 'visible' : 'hidden';
+    L[i].style.transform = 'none';
+    L[i].style.filter = 'none';
   }}
 
   RUN[cur](lt, sc.dur);
 
-  // انجراف الخلفية: بطيء ومستمر، يمنع سكون الكادر بين الحركات
+  // انجراف خلفية بطيء جداً واحد الاتجاه — يمنع سكون الكادر التام بلا أن
+  // يتكرّر بنمط ملحوظ يشي بأنه آلي.
   const bg = document.getElementById('bg');
-  bg.style.transform =
-    `translate(${{Math.sin(t*0.30)*26}}px, ${{-t*7}}px) scale(${{1.04+0.012*Math.sin(t*0.42)}})`;
-
-  // الزخرفة تتنفّس على النبضة وتنجرف عكس الخلفية، فيتولّد عمق بين الطبقتين
-  const dl = document.getElementById('dec');
-  const pb = Math.max(0, Math.sin(t/BEAT*Math.PI*2));
-  dl.style.transform =
-    `translate(${{Math.sin(t*0.22+1.4)*-34}}px, ${{t*4}}px) ` +
-    `rotate(${{Math.sin(t*0.14)*0.9}}deg) scale(${{1.02+0.018*pb}})`;
-  dl.style.opacity = 0.72 + 0.28*pb;
-  // الأشكال الثلاثة تتفاوت في الطور فلا تنبض ككتلة واحدة
-  for (let k = 1; k <= 3; k++) {{
-    const ph = Math.max(0, Math.sin((t/BEAT + k*0.33)*Math.PI*2));
-    Q('.dec .d'+k).forEach(el => {{
-      el.style.transform = `scale(${{1+0.014*ph}})`;
-      el.style.transformOrigin = '540px 960px';
-      el.style.opacity = 0.55 + 0.45*ph;
-    }});
-  }}
+  bg.style.transform = `translate(${{Math.sin(t*0.045)*10}}px, ${{-t*2.6}}px) scale(1.03)`;
   document.getElementById('prog').style.width = (t/TOTAL*100) + '%';
 }};
 window.REEL_TOTAL = TOTAL;
@@ -876,20 +950,10 @@ async def run(spec_path, out_path, stills=None):
     out.parent.mkdir(parents=True, exist_ok=True)
     fps = int(spec.get("fps", 30))
 
-    seed = spec.get("audio_seed") or json.dumps(
-        [spec.get("cover", {}).get("title", ""),
-         spec.get("cta", {}).get("title", "")], ensure_ascii=False)
-
-    # الموسيقى تحكم الإيقاع لا العكس: نستخرج نبض المقطع أولاً ثم نبني عليه
-    # مدد المشاهد، فتقع كل قطعة على ضربة حقيقية في الأغنية لا قريباً منها.
-    track = None if spec.get("music") is False else \
-        reel_music.pick_track(spec.get("music_dir") or MUSIC_DIR, seed)
-    if track:
-        bpm, beat, mstart = reel_music.analyse(track, seed)
-        src = f"{track.name} @ {mstart:.1f}ث"
-    else:
-        bpm, beat = grid(seed)
-        mstart, src = 0.0, "مركّبة"
+    # بلا موسيقى بطلب صريح من صاحب الحساب (٢٠٢٦-٠٩-١٣): «نبضة» توقيت
+    # ثابتة هادئة توزّع ظهور العناصر تباعاً، لا صلة لها بصوت — الفيديو
+    # يُصدَّر بصوت صامت (انظر أسفله) لتوافقه مع منصّات تتوقّع مسار صوت.
+    beat = CALM_BEAT
     BEATS, nbeats = plan_beats(beat)
 
     html = build_html(spec, beat, BEATS)
@@ -924,27 +988,17 @@ async def run(spec_path, out_path, stills=None):
             tmp.unlink()
             return
 
-        bed = out.parent / "_bed3.wav"
-        if track:
-            info = reel_music.build_bed(track, bed, total, cuts=cuts,
-                                        start=mstart, seed=seed)
-            print(f"موسيقى {info['track']} · من {info['start']}ث · "
-                  f"{bpm:.1f} نبضة/د · {info['cuts']} قطعات مُصوَّتة · "
-                  f"ذروة {info['peak_db']} ديسيبل")
-        else:
-            info = write_bed(bed, total, seed=seed, cuts=cuts)
-            print(f"موسيقى مركّبة {info['scale']} · {info['bpm']} نبضة/د · "
-                  f"جذر {info['root']} · {info['cuts']} قطعات مُصوَّتة")
-
         n = int(total * fps)
+        # صوت صامت لا موسيقى: مسار صوت فارغ فقط لتوافق الحاوية مع منصّات
+        # تتوقّع مساراً صوتياً في كل فيديو (بعضها يرفض ملفاً بلا صوت إطلاقاً).
         cmd = [
             _ffmpeg(), "-y", "-loglevel", "error",
             "-f", "image2pipe", "-framerate", str(fps), "-i", "-",
-            "-i", str(bed),
+            "-f", "lavfi", "-i", f"anullsrc=r=44100:cl=stereo",
             "-c:v", "libx264", "-preset", "medium",
             "-b:v", "7M", "-minrate", "5M", "-maxrate", "9M", "-bufsize", "14M",
             "-pix_fmt", "yuv420p", "-r", str(fps),
-            "-c:a", "aac", "-b:a", "160k", "-shortest",
+            "-c:a", "aac", "-b:a", "48k", "-shortest",
             "-movflags", "+faststart", str(out),
         ]
         proc = subprocess.Popen(cmd, stdin=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -959,7 +1013,6 @@ async def run(spec_path, out_path, stills=None):
         proc.wait()
         await browser.close()
         tmp.unlink()
-        bed.unlink(missing_ok=True)
         if proc.returncode != 0:
             print(err)
             sys.exit(1)
@@ -967,8 +1020,8 @@ async def run(spec_path, out_path, stills=None):
         beats = " · ".join(f"{k}:{BEATS[k]}" for k in ORDER)
         print(f"\n✓ {out} — {total:.2f}ث ({nbeats} نبضة · {beats}) · "
               f"{out.stat().st_size / 1e6:.1f} ميغابايت · ثيم "
-              f"{spec.get('theme', 'indigo')} · صوت {src}"
-              f"\n  قطعات عند: {cutstr}")
+              f"{pick_theme(spec)} (بلا موسيقى)"
+              f"\n  انتقالات عند: {cutstr}")
 
 
 def main():
