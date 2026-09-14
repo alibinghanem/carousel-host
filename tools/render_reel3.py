@@ -100,6 +100,36 @@ def plan_beats(beat, target=TARGET_SEC):
     return out, total
 
 
+def scene_windows(beat, BEATS):
+    """بداية كل مشهد ومدته بالثواني — يستعملها HTML/JS وأيضاً `run()` عند
+    حساب نافذة لقطة فيديو حقيقي (`shot_windows`) لأن المزج النهائي بـffmpeg
+    يحتاج أرقاماً حرفية لا حالة متصفّح حيّة."""
+    scenes, acc = [], 0.0
+    for k in ORDER:
+        d = BEATS[k] * beat
+        scenes.append({"k": k, "start": round(acc, 5), "dur": round(d, 5)})
+        acc += d
+    return scenes, round(acc, 5)
+
+
+def shot_windows(demo_spec, demo_start, demo_dur, beat):
+    """نافذة كل لقطة (بدايتها ونهايتها المطلقتان بالثواني) — نسخة بايثون
+    من نفس حساب التوقيت في `sceneDemo` بجافاسكربت (`lead`/`each`)، لازمة
+    لتحديد متى يظهر فيديو حقيقي فوق الإطار عبر ffmpeg overlay."""
+    shots = demo_spec.get("shots", [])
+    n = len(shots)
+    if not n:
+        return []
+    lead = 0.34
+    each = max(beat * 2, (demo_dur - lead) / n)
+    out = []
+    for i in range(n):
+        t0 = demo_start + lead + i * each
+        t1 = (demo_start + demo_dur) if i == n - 1 else (t0 + each)
+        out.append((t0, t1))
+    return out
+
+
 def words(text, cls="w"):
     """كل كلمة في غلاف مقصوص، ليُكشف النص بمسح لا بتلاشٍ."""
     out = []
@@ -255,7 +285,11 @@ def demo_shots(d):
     كل لقطة تدخل على ضربة، وتتحرّك ببطء وهي معروضة (كين بيرنز) فلا يجمد
     الكادر، ويمكن وضع علامة على نقطة فيها (`focus`) بإحداثيات نسبية
     فيظهر خاتم يشير إليها مع سطر شرح — هذا ما يحوّل لقطة شاشة إلى مونتاج.
-    """
+
+    لقطة بمفتاح `video` بدل `src`: مقطع فيديو حقيقي (تسجيل شاشة) يُركَّب
+    فوق هذا المكان تحديداً في المرحلة النهائية بـffmpeg (انظر `run()` —
+    `shot_windows` يحسب متى، و`bounding_box` يحسب أين). هنا لا نضع سوى
+    حاوية فارغة بنفس القياس؛ الفيديو نفسه ليس جزءاً من صفحة Playwright."""
     frame = d.get("frame", "browser")
     shots = []
     for i, s in enumerate(d.get("shots", [])):
@@ -270,8 +304,11 @@ def demo_shots(d):
                     + '</div>')
         cap = (f'<div class="shotcap">{esc(s["note"])}</div>'
                if s.get("note") and fx is None else "")
-        shots.append(f'<div class="shot" data-i="{i}">'
-                     f'<img src="{_img_b64(s["src"])}">{mark}</div>{cap}')
+        if s.get("video"):
+            body = f'<div class="vidph"></div>{mark}'
+        else:
+            body = f'<img src="{_img_b64(s["src"])}">{mark}'
+        shots.append(f'<div class="shot" data-i="{i}">{body}</div>{cap}')
 
     chrome = ""
     if frame == "browser":
@@ -407,12 +444,7 @@ def build_html(spec, beat, BEATS):
     value_layout = spec.get("value", {}).get("layout") \
         or _seed_pick(seed, VALUE_LAYOUTS, "value")
 
-    scenes, acc = [], 0.0
-    for k in ORDER:
-        d = BEATS[k] * beat
-        scenes.append({"k": k, "start": round(acc, 5), "dur": round(d, 5)})
-        acc += d
-    total = round(acc, 5)
+    scenes, total = scene_windows(beat, BEATS)
 
     av = avatar_b64()
     tool = spec.get("tool", {}) or {}
@@ -578,6 +610,8 @@ body{{font-family:'Readex Pro','Cairo',sans-serif;color:{ink};
 .shot{{position:absolute;inset:0;opacity:0;will-change:opacity}}
 .shot img{{width:100%;height:100%;object-fit:cover;object-position:50% 0;
   will-change:transform;display:block}}
+/* مكان فيديو حقيقي — يُركَّب فوقه لاحقاً بـffmpeg، فلونه هنا لا يظهر أبداً */
+.vidph{{width:100%;height:100%;background:#0A0D13}}
 /* علامة تشير إلى نقطة في اللقطة: خاتم ينبض وسطر شرح بجانبه */
 .mk{{position:absolute;transform:translate(-50%,-50%);
   display:flex;align-items:center;gap:14px;direction:rtl;
@@ -994,12 +1028,69 @@ async def run(spec_path, out_path, stills=None):
             return
 
         n = int(total * fps)
+
+        # لقطات فيديو حقيقي (`shots[].video`): تُركَّب فوق مكان اللقطة في
+        # مرحلة التركيب النهائي بـffmpeg، لا داخل صفحة Playwright — أدق
+        # وأسرع من محاولة تشغيل <video> وتصويره إطاراً إطاراً. المكان
+        # (نفس المربّع لكل اللقطات، تتبادل الظهور بالشفافية فقط) يُقاس من
+        # الصفحة الحيّة لا يُحسب يدوياً، والزمن من `shot_windows` بايثون
+        # نسخةً طبق الأصل عن حساب التوقيت في JS.
+        demo = spec.get("demo", {}) or {}
+        vshots = [(i, s) for i, s in enumerate(demo.get("shots", []))
+                  if isinstance(s, dict) and s.get("video")]
+        overlay_inputs, filter_parts = [], []
+        if vshots and demo.get("type", "table") == "shots":
+            scenes, _ = scene_windows(beat, BEATS)
+            demo_scene = next(sc for sc in scenes if sc["k"] == "demo")
+            windows = shot_windows(demo, demo_scene["start"], demo_scene["dur"], beat)
+            box = await page.evaluate(
+                "() => { const el = document.querySelector('.shotwrap');"
+                " if (!el) return null; const r = el.getBoundingClientRect();"
+                " return {x:r.x, y:r.y, w:r.width, h:r.height}; }")
+            if not box:
+                print("⚠ لا يوجد .shotwrap — تُتجاهَل لقطات الفيديو.")
+            else:
+                bx, by = int(round(box["x"])), int(round(box["y"]))
+                bw = int(round(box["w"])) // 2 * 2
+                bh = int(round(box["h"])) // 2 * 2
+                for i, s in vshots:
+                    vp = pathlib.Path(s["video"])
+                    if not vp.is_absolute():
+                        vp = pathlib.Path.cwd() / vp
+                    if not vp.exists():
+                        print(f"⚠ فيديو غير موجود، تُتجاهَل هذه اللقطة: {vp}")
+                        continue
+                    t0, t1 = windows[i]
+                    dur = max(0.1, t1 - t0)
+                    idx = 2 + len(overlay_inputs)   # 0=الإطارات 1=anullsrc
+                    overlay_inputs += ["-stream_loop", "-1", "-t", f"{dur:.3f}",
+                                        "-i", str(vp)]
+                    filter_parts.append(
+                        (idx, bw, bh, bx, by, t0, t1))
+                    print(f"  لقطة فيديو {i}: {vp.name} عند {t0:.2f}–{t1:.2f}ث "
+                          f"في {bw}x{bh}+{bx}+{by}")
+
         # صوت صامت لا موسيقى: مسار صوت فارغ فقط لتوافق الحاوية مع منصّات
         # تتوقّع مساراً صوتياً في كل فيديو (بعضها يرفض ملفاً بلا صوت إطلاقاً).
         cmd = [
             _ffmpeg(), "-y", "-loglevel", "error",
             "-f", "image2pipe", "-framerate", str(fps), "-i", "-",
             "-f", "lavfi", "-i", f"anullsrc=r=44100:cl=stereo",
+            *overlay_inputs,
+        ]
+        if filter_parts:
+            chain, label = [], "0:v"
+            for n_, (idx, bw, bh, bx, by, t0, t1) in enumerate(filter_parts):
+                chain.append(
+                    f"[{idx}:v]scale={bw}:{bh}:force_original_aspect_ratio=increase,"
+                    f"crop={bw}:{bh},setpts=PTS-STARTPTS+{t0:.3f}/TB[ov{n_}]")
+                nxt = f"vout{n_}"
+                chain.append(
+                    f"[{label}][ov{n_}]overlay=x={bx}:y={by}:"
+                    f"enable='between(t,{t0:.3f},{t1:.3f})'[{nxt}]")
+                label = nxt
+            cmd += ["-filter_complex", ";".join(chain), "-map", f"[{label}]", "-map", "1:a"]
+        cmd += [
             "-c:v", "libx264", "-preset", "medium",
             "-b:v", "7M", "-minrate", "5M", "-maxrate", "9M", "-bufsize", "14M",
             "-pix_fmt", "yuv420p", "-r", str(fps),
