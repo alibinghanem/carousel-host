@@ -1062,13 +1062,15 @@ async def run(spec_path, out_path, stills=None):
                         continue
                     t0, t1 = windows[i]
                     dur = max(0.1, t1 - t0)
-                    idx = 2 + len(overlay_inputs)   # 0=الإطارات 1=anullsrc
-                    overlay_inputs += ["-stream_loop", "-1", "-t", f"{dur:.3f}",
-                                        "-i", str(vp)]
+                    # 0=الإطارات 1=anullsrc، وبعدها مدخل لكل لقطة فيديو بالترتيب
+                    idx = 2 + sum(1 for p in filter_parts)
+                    src_start = float(s.get("start", 0) or 0)
+                    overlay_inputs += ["-ss", f"{src_start:.3f}", "-stream_loop", "-1",
+                                        "-t", f"{dur:.3f}", "-i", str(vp)]
                     filter_parts.append(
                         (idx, bw, bh, bx, by, t0, t1))
-                    print(f"  لقطة فيديو {i}: {vp.name} عند {t0:.2f}–{t1:.2f}ث "
-                          f"في {bw}x{bh}+{bx}+{by}")
+                    print(f"  لقطة فيديو {i}: {vp.name} من {src_start:.1f}ث في "
+                          f"المصدر، تُعرض {t0:.2f}–{t1:.2f}ث في {bw}x{bh}+{bx}+{by}")
 
         # صوت صامت لا موسيقى: مسار صوت فارغ فقط لتوافق الحاوية مع منصّات
         # تتوقّع مساراً صوتياً في كل فيديو (بعضها يرفض ملفاً بلا صوت إطلاقاً).
