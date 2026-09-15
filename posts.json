@@ -462,7 +462,7 @@
    "theme": "sage",
    "value_layout": "grid",
    "cover_layout": "spotlight",
-   "published": false,
+   "published": true,
    "keyword": "أداة",
    "tool": {
     "name": "NotebookLM",
@@ -475,6 +475,37 @@
     "لقطة demo: مقطع رسمي من قناة Google Labs على يوتيوب (أرسله صاحب الحساب)، مركّب داخل الريلز عبر ميزة shots[].video الجديدة"
    ],
    "notes": "أول ريلز بالمحرّك المعاد تصميمه بالكامل بطلب صاحب الحساب ٢٠٢٦-٠٩-١٣ إلى ١٥: بلا موسيقى، انتقالات مزج بطيئة (~1ث)، مقدمة أطول، تصميم متكيّف تلقائياً (ثيم/تخطيط/زخرفة من بذرة المحتوى)، ورمز مفهوم تلقائي من reel_art.guess_icon. أول استخدام فعلي لدعم فيديو حقيقي (shots[].video) بمقطع NotebookLM الرسمي. لم يُنشر تلقائياً — بانتظار نشر صاحب الحساب اليدوي."
+  },
+  {
+   "date": "2026-09-15-reel-2",
+   "kind": "guide",
+   "format": "reel",
+   "topic": "ChatGPT Atlas ووضع الوكيل: متصفح يفتح المواقع وينفّذ مهام بدالك",
+   "keywords": [
+    "ChatGPT Atlas",
+    "OpenAI",
+    "Agent Mode",
+    "وكيل ذكاء اصطناعي",
+    "متصفح",
+    "أتمتة"
+   ],
+   "theme": "sand",
+   "value_layout": "grid",
+   "cover_layout": "classic",
+   "published": false,
+   "keyword": "أداة",
+   "tool": {
+    "name": "ChatGPT Atlas",
+    "brand": "chatgpt",
+    "url": "https://openai.com/atlas",
+    "free": true
+   },
+   "reply": "الأداة: ChatGPT Atlas من OpenAI — متصفح كامل فيه وضع وكيل يتصفح وينفّذ المهام بدالك: openai.com/atlas\n١) نزّله وسجّل الدخول بحساب ChatGPT (نسخة مجانية متاحة).\n٢) فعّل \"Agent Mode\" من الإعدادات.\n٣) اكتب مهمتك بجملة واضحة (مثل: قارن سعر منتج في عدة مواقع)، وراقبه يفتح المواقع وينفّذ خطوة خطوة.\nتنبيه صادق: نسبة نجاحه في المهام المعقّدة لا تزال أقل من الإنسان (٤٤٪ فقط في اختبار OSWorld المعياري) — راجع أي خطوة فيها دفع أو بيانات حسّاسة بنفسك قبل التأكيد.",
+   "sources": [
+    "https://af.net/realtime/ai-agents-2026-autonomous-ai-guide-highlights-openai-operator-and-claude-computer-use/",
+    "إحصائية OSWorld من بحث ويب بتاريخ الإنتاج"
+   ],
+   "notes": "demo.type=chat إعادة تمثيل صريحة (محادثة متخيَّلة واقعية) لا لقطة حقيقية — لا وصول لمتصفح Atlas من هذه البيئة. ثاني ريلز بالمحرّك الجديد، أُعدّ بطلب مباشر من صاحب الحساب في نفس يوم نشر NotebookLM. لم يُنشر — بانتظار نشر صاحب الحساب اليدوي."
   }
  ],
  "_kinds": {
