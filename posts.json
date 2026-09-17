@@ -506,6 +506,37 @@
     "إحصائية OSWorld من بحث ويب بتاريخ الإنتاج"
    ],
    "notes": "demo.type=chat إعادة تمثيل صريحة (محادثة متخيَّلة واقعية) لا لقطة حقيقية — لا وصول لمتصفح Atlas من هذه البيئة. ثاني ريلز بالمحرّك الجديد، أُعدّ بطلب مباشر من صاحب الحساب في نفس يوم نشر NotebookLM. لم يُنشر — بانتظار نشر صاحب الحساب اليدوي."
+  },
+  {
+   "date": "2026-09-17-reel",
+   "kind": "guide",
+   "format": "reel",
+   "topic": "Deep Research من Gemini: يتصفّح ١٠٠+ صفحة ويكتب تقريراً كاملاً موثّقاً من سؤال واحد",
+   "keywords": [
+    "Gemini",
+    "Deep Research",
+    "Google",
+    "بحث",
+    "تقرير",
+    "وكيل ذكاء اصطناعي"
+   ],
+   "theme": "sand",
+   "value_layout": "grid",
+   "cover_layout": "spotlight",
+   "published": false,
+   "keyword": "أداة",
+   "tool": {
+    "name": "Gemini Deep Research",
+    "brand": "gemini",
+    "url": "https://gemini.google.com",
+    "free": true
+   },
+   "reply": "الأداة: Deep Research من Gemini (جوجل) — gemini.google.com\n١) افتح Gemini من الموقع أو التطبيق، واختر أداة \"Deep Research\" من قائمة الأدوات.\n٢) اكتب سؤال بحثك بوضوح، وستظهر لك خطة بحث مقترحة — عدّلها إن أردت قبل الموافقة.\n٣) انتظر بضع دقائق، وستحصل على تقرير منظّم بأقسام ومراجع، قابل للتصدير إلى Google Docs مباشرة.\nتنبيه صادق: قد يفوته سياق حديث جداً أو مصادر خلف اشتراكات مغلقة — راجع أهم الأرقام والادّعاءات من مصدر أساسي قبل الاعتماد الكامل عليها.",
+   "sources": [
+    "https://presenc.ai/research/deep-research-mode-comparison-2026",
+    "https://www.tminusai.com/blog/deep-research-ai-showdown-2026"
+   ],
+   "notes": "demo.type=table إعادة تمثيل صريحة مبنية على بحث فعلي عن قدرات الأداة (لا لقطة حقيقية). ثالث ريلز بالمحرّك الجديد، أُعدّ تلقائياً عبر الروتين اليومي بعد مرور يومين على آخر تسجيل. لم يُنشر — بانتظار نشر صاحب الحساب اليدوي."
   }
  ],
  "_kinds": {
