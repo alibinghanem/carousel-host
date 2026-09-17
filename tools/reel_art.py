@@ -203,6 +203,9 @@ BRANDS = {
     "whisper":  {"label": "Whisper",  "color": "#8B5CF6",
                  "mark": '<rect x="9.5" y="2.6" width="5" height="10.4" rx="2.5"/>'
                          '<path d="M5.6 11.6a6.4 6.4 0 0 0 12.8 0"/><path d="M12 18v3.4"/>'},
+    "nordvpn":  {"label": "NordVPN",  "color": "#4687C6",
+                 "mark": '<path d="M12 3 5 6v5.5c0 4.3 2.9 7.9 7 9.5 4.1-1.6 7-5.2 7-9.5V6z"/>'
+                         '<path d="M9.2 12 11.4 14.2 15 10"/>'},
 }
 
 GENERIC_BRAND = {"label": "", "color": "", "mark": _I["sparkle"]}
@@ -266,7 +269,19 @@ def decor(kind, accent, glow):
                 '<path class="d1" d="M-200 0 L420 0 L120 1920 L-500 1920z" fill="url(#bm)"/>'
                 '<path class="d2" d="M700 0 L1180 0 L1480 1920 L1000 1920z" fill="url(#bm)"/>'
                 '</svg>')
+    if kind == "blocks":
+        # ألواح هندسية متراكبة بعمق حقيقي (لا خطوط زخرفية فقط) — واحد
+        # ممتلئ خافت، وآخر بحدّ فقط، فيتولّد إحساس طبقات لا رسم مسطّح.
+        return ('<svg class="dec" viewBox="0 0 1080 1920" fill="none">'
+                f'<rect class="d1" x="640" y="90" width="440" height="440" rx="72" '
+                f'fill="{accent}" opacity=".10" transform="rotate(-13 860 310)"/>'
+                f'<rect class="d2" x="726" y="176" width="300" height="300" rx="54" '
+                f'stroke="{accent}" stroke-width="2.4" opacity=".24" '
+                f'transform="rotate(9 876 326)"/>'
+                f'<rect class="d3" x="-160" y="1290" width="480" height="480" rx="84" '
+                f'fill="{glow}" opacity=".13" transform="rotate(16 80 1530)"/>'
+                '</svg>')
     return ""
 
 
-DECOR_KINDS = ("rings", "grid", "arcs", "dots", "beams")
+DECOR_KINDS = ("rings", "grid", "arcs", "dots", "beams", "blocks")

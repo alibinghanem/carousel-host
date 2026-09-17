@@ -149,7 +149,7 @@ def avatar_b64():
 # (الثيم، تخطيط الغلاف، تخطيط قائمة الفائدة، الزخرفة) يُختار من بذرة
 # مبنيّة على نص المنشور نفسه، فيختلف الشكل تلقائياً بين موضوع وآخر بلا
 # أي إعداد يدوي، ويبقى ثابتاً لنفس المنشور إن أُعيد توليده.
-COVER_LAYOUTS = ("classic", "spotlight")
+COVER_LAYOUTS = ("classic", "spotlight", "geo")
 VALUE_LAYOUTS = ("list", "grid")
 
 
@@ -211,6 +211,21 @@ def cover_html(c, tool, accent, on_accent, layout):
                + "".join(f'<div class="rl">{esc(x)}</div>'
                          for x in (result if isinstance(result, list) else [result]))
                + '</div>' if result else "")
+            + brandrow + '</div>')
+
+    if layout == "geo":
+        # تخطيط ثالث: شريط ملوّن ممتلئ (بطاقة عنوان) يحمل الكلمة الدالّة
+        # ورمز المفهوم بلون مضاد، ثم العنوان الكبير تحته — تركيب "لافتة"
+        # لا عمودان نصّيان، وهو ما يكسر تكرار الشكل بين الغلافين الآخرين.
+        band_icon = (f'<div class="gicon">{icon_plain(concept, on_accent, 1.3)}</div>'
+                     if concept else "")
+        return (
+            '<div class="wrap cov geo">'
+            '<div class="gband" id="gband">'
+            f'<div class="gkick">{esc(c.get("kicker", ""))}</div>'
+            f'{band_icon}</div>'
+            f'<h1 class="big" id="ctitle">{words(c.get("title", ""))}</h1>'
+            f'{card}'
             + brandrow + '</div>')
 
     water = (f'<div class="cwater">{icon_plain(concept, accent, 1.3)}</div>'
@@ -407,17 +422,25 @@ def value_html(v, accent, layout="list"):
             f'<div class="{cls}">{"".join(items)}</div></div>')
 
 
-def cta_html(c, keyword, av):
+def cta_html(c, keyword, av, tool, accent, on_accent):
     # صورة صاحب الحساب مقصوصة الخلفية: حضور شخصي في آخر مشهد يرفع التذكّر
     # ويربط الأداة بوجه. تجلس يساراً لأن النص عربي يصطفّ يميناً.
     face = (f'<div class="fring" id="face">'
             f'<img src="data:image/png;base64,{av}"></div>' if av else "")
+    if keyword:
+        chip = (f'<div class="chip" id="chip"><em>اكتب في التعليقات</em>'
+                f'<b>{esc(keyword)}</b></div>')
+    else:
+        # بلا وعد رد تلقائي على تعليق (النظام لا يملك هذه القدرة حالياً):
+        # الشارة الختامية تُري اسم الأداة وعلامتها بدل طلب كتابة كلمة.
+        b = brand_chip((tool or {}).get("brand") or (tool or {}).get("name", ""),
+                       (tool or {}).get("name", ""), accent, on_accent)
+        chip = f'<div class="chip toolchip" id="chip">{b}</div>' if b else ""
     return ('<div class="wrap cta">'
             f'{face}'
             f'<div class="xname" id="xname">{esc(c.get("name", ""))}</div>'
             f'<h1 class="big" id="xtitle">{words(c.get("title", ""))}</h1>'
-            f'<div class="chip" id="chip"><em>اكتب في التعليقات</em>'
-            f'<b>{esc(keyword)}</b></div>'
+            f'{chip}'
             f'<div class="xsub" id="xsub">{esc(c.get("sub", ""))}</div>'
             '</div>')
 
@@ -454,7 +477,7 @@ def build_html(spec, beat, BEATS):
             demo_html(spec.get("demo", {})),
             value_html(spec.get("value", {}), a, value_layout),
             prompt_html(spec.get("prompt", {})),
-            cta_html(spec.get("cta", {}), spec.get("keyword", "أداة"), av),
+            cta_html(spec.get("cta", {}), spec.get("keyword"), av, tool, a, on),
         ]))
     badge = (f'<img class="av" src="data:image/png;base64,{av}">' if av else "")
 
@@ -562,6 +585,16 @@ body{{font-family:'Readex Pro','Cairo',sans-serif;color:{ink};
   justify-content:center;padding:52px}}
 .cov.spot .kick,.cov.spot .big{{text-align:center}}
 .cov.spot .rcard{{align-self:stretch}}
+
+/* تخطيط الغلاف الثالث: شريط ملوّن ممتلئ كلافتة، لا عمود نصّي بحت */
+.cov.geo{{justify-content:flex-start}}
+.gband{{background:{a};border-radius:34px;padding:32px 38px;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:24px;margin-bottom:44px;box-shadow:0 20px 46px {glow}30}}
+.gkick{{color:{on};font-size:31px;font-weight:600;letter-spacing:1.5px;
+  line-height:1.4}}
+.gicon{{width:84px;height:84px;flex:0 0 auto}}
+.cov.geo .rcard{{background:{ink}0d;margin-top:8px}}
 
 /* ── إطار الجهاز ── */
 .dev{{background:{ink}0a;border:2px solid {line};border-radius:34px;
@@ -672,6 +705,11 @@ body{{font-family:'Readex Pro','Cairo',sans-serif;color:{ink};
 .chip em{{display:block;font-style:normal;font-size:27px;opacity:.82;
   margin-bottom:6px}}
 .chip b{{display:block;font-size:74px;font-weight:700;line-height:1.16}}
+/* بديل الشارة حين لا وعد رد تلقائي: اسم الأداة وعلامتها بدل طلب تعليق */
+.chip.toolchip{{background:transparent;padding:0;box-shadow:none}}
+.chip.toolchip .brand{{padding:24px 46px;border-width:3px}}
+.chip.toolchip .brand svg{{width:58px;height:58px}}
+.chip.toolchip .brand span{{font-size:46px}}
 .xsub{{margin-top:30px;font-family:'Plex Arabic',sans-serif;font-size:37px;
   line-height:1.58;color:{ink2};max-width:820px}}
 .xname{{margin-top:24px;font-size:56px;font-weight:600;color:{a};direction:ltr;
@@ -776,6 +814,10 @@ function sceneCover(lt) {{
   const ca = G('cart');
   if (ca) {{ const p = cl(lt/0.5,0,1);
     ca.style.transform = `scale(${{0.94+0.06*outQ(p)}})`; }}
+  // تخطيط "geo": الشريط الملوّن كامل منذ الإطار صفر أيضاً، يستقرّ بتمدّد فقط
+  const gb = G('gband');
+  if (gb) {{ const p = cl(lt/0.48,0,1);
+    gb.style.transform = `scale(${{0.96+0.04*outQ(p)}})`; }}
 }}
 
 function sceneDemo(lt, dur) {{
