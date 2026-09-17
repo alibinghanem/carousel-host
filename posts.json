@@ -537,6 +537,38 @@
     "https://www.tminusai.com/blog/deep-research-ai-showdown-2026"
    ],
    "notes": "demo.type=table إعادة تمثيل صريحة مبنية على بحث فعلي عن قدرات الأداة (لا لقطة حقيقية). ثالث ريلز بالمحرّك الجديد، أُعدّ تلقائياً عبر الروتين اليومي بعد مرور يومين على آخر تسجيل. لم يُنشر — بانتظار نشر صاحب الحساب اليدوي."
+  },
+  {
+   "date": "2026-09-17-reel-2",
+   "kind": "guide",
+   "format": "reel",
+   "topic": "AI Voice Detector من NordVPN: امتداد مجاني يكشف الأصوات المستنسخة اصطناعياً في المتصفح",
+   "keywords": [
+    "NordVPN",
+    "AI Voice Detector",
+    "كشف تزييف",
+    "احتيال صوتي",
+    "خصوصية",
+    "أمان"
+   ],
+   "theme": "sky",
+   "value_layout": "grid",
+   "cover_layout": "geo",
+   "decor": "blocks",
+   "published": false,
+   "keyword": null,
+   "tool": {
+    "name": "NordVPN AI Voice Detector",
+    "brand": "nordvpn",
+    "url": "https://nordvpn.com/features/ai-voice-detector",
+    "free": true
+   },
+   "reply": "الأداة: AI Voice Detector من NordVPN — امتداد Chrome مجاني بالكامل، بلا حساب: nordvpn.com/features/ai-voice-detector\n١) ثبّت الامتداد من متجر Chrome.\n٢) شغّل أي مقطع صوت أو فيديو في المتصفح.\n٣) راقب المؤشر الملوّن: أخضر بشري على الأرجح، أحمر مصطنع محتمل.\nتنبيه صادق: لا أداة كشف تصل لدقة كاملة، وتقل دقتها على مكالمات مضغوطة الجودة — وهي غالباً صيغة الاحتيال الفعلي. استخدمها دليلاً أول، واتصل برقم موثوق للتأكد قبل أي إجراء مالي.",
+   "sources": [
+    "https://www.eyesift.com/blog/free-ai-voice-detectors-2026/",
+    "https://www.eyesift.com/blog/best-ai-voice-detectors-2026/"
+   ],
+   "notes": "أول ريلز بتخطيط الغلاف الجديد \"geo\" (لافتة ملوّنة) وزخرفة \"blocks\" (أشكال متراكبة) — بطلب صاحب الحساب تصميماً مختلفاً كلياً. بلا كلمة CTA للتعليق (نظام الرد التلقائي معطّل) — الشارة الختامية تعرض اسم الأداة بدل ذلك. demo.type=bars إعادة تمثيل صريحة. لم يُنشر — بانتظار نشر صاحب الحساب اليدوي."
   }
  ],
  "_kinds": {
