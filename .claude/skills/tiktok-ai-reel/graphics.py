@@ -260,7 +260,7 @@ def checklist(items, d0=0.34):
 
 def _funnel(top, mid, bot, d0):
     """قمع: كثير يدخل، واحد يخرج — لتوضيح التضييق."""
-    return f'''<svg class="scn" viewBox="0 0 880 560" fill="none" direction="rtl">
+    return f'''<svg class="scn" viewBox="0 0 880 630" fill="none" direction="rtl">
   <path d="M110 70 H770 L520 320 V450 H360 V320 Z" fill="var(--soft)"
         stroke="var(--a1)" stroke-width="5" stroke-linejoin="round"
         {_a("pop", d0, 0.75)}/>
@@ -275,7 +275,7 @@ def _funnel(top, mid, bot, d0):
   <circle cx="440" cy="530" r="26" fill="var(--a1)" {_a("pop", d0 + 0.62, 0.5)}/>
   <text x="440" y="542" text-anchor="middle" fill="var(--bg)" font-size="26"
         font-weight="900" font-family="Cairo,sans-serif">1</text>
-  <text x="600" y="540" text-anchor="middle" fill="var(--muted)" font-size="29"
+  <text x="440" y="600" text-anchor="middle" fill="var(--muted)" font-size="29"
         font-weight="700" font-family="Cairo,sans-serif"
         {_a("fade", d0 + 0.7, 0.5)}>{esc(bot)}</text>
 </svg>'''
