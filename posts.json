@@ -569,6 +569,35 @@
     "https://www.eyesift.com/blog/best-ai-voice-detectors-2026/"
    ],
    "notes": "أول ريلز بتخطيط الغلاف الجديد \"geo\" (لافتة ملوّنة) وزخرفة \"blocks\" (أشكال متراكبة) — بطلب صاحب الحساب تصميماً مختلفاً كلياً. بلا كلمة CTA للتعليق (نظام الرد التلقائي معطّل) — الشارة الختامية تعرض اسم الأداة بدل ذلك. demo.type=bars إعادة تمثيل صريحة. لم يُنشر — بانتظار نشر صاحب الحساب اليدوي."
+  },
+  {
+   "date": "2026-09-19-reel",
+   "kind": "guide",
+   "format": "reel",
+   "topic": "Bing Video Creator: توليد فيديو مجاني بجملة واحدة عبر تقنية Sora من OpenAI",
+   "keywords": [
+    "Bing Video Creator",
+    "Sora",
+    "Microsoft",
+    "توليد فيديو",
+    "ذكاء اصطناعي توليدي"
+   ],
+   "theme": "paper",
+   "value_layout": "grid",
+   "cover_layout": "spotlight",
+   "published": false,
+   "keyword": null,
+   "tool": {
+    "name": "Bing Video Creator",
+    "brand": "bing",
+    "url": "https://www.bing.com/videos/create",
+    "free": true
+   },
+   "reply": "الأداة: Bing Video Creator من مايكروسوفت (مبنية على Sora من OpenAI) — مجانية بالكامل: bing.com/videos/create\n١) سجّل الدخول بحساب مايكروسوفت (مجاني).\n٢) اكتب وصف المشهد الذي تريده بجملة واضحة.\n٣) انتظر أقل من دقيقة، ثم نزّل المقطع بدقة 1080p أو شاركه مباشرة.\nتنبيه صادق: قد يخطئ في تفاصيل دقيقة أو أي نص/أرقام تظهر داخل المشهد — راجع المقطع كاملاً قبل نشره أو استخدامه لأي غرض رسمي.",
+   "sources": [
+    "https://www.techbloat.com/microsoft-bing-gets-a-free-sora-powered-ai-video-generator.html"
+   ],
+   "notes": "demo.type=table إعادة تمثيل صريحة. بلا كلمة CTA (نظام الرد التلقائي معطّل). أضيفت علامة bing إلى reel_art.BRANDS لهذا المنشور. لم يُنشر — بانتظار نشر صاحب الحساب اليدوي."
   }
  ],
  "_kinds": {
