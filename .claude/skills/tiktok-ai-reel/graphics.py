@@ -92,10 +92,12 @@ def ring(pct, label="", d0=0.3):
     return f'''<div class="ringwrap">
   <svg class="ringsvg" width="440" height="440" viewBox="0 0 440 440" fill="none">
     <circle cx="{cx}" cy="{cy}" r="{r}" stroke="var(--line)" stroke-width="34"/>
+    <g transform="rotate(-90 {cx} {cy})">
     <circle cx="{cx}" cy="{cy}" r="{r}" stroke="var(--a1)" stroke-width="34"
-      stroke-linecap="round" transform="rotate(-90 {cx} {cy})"
+      stroke-linecap="round"
       style="stroke-dasharray:{L:.1f};stroke-dashoffset:{L:.1f}"
       {_a("ring", d0, 1.25, f'data-len="{L:.1f}" data-pct="{pct}"')}/>
+    </g>
   </svg>
   <div class="ringmid">
     <div class="ringnum" {_a("count", d0, 1.25, f'data-v="{pct}%"')} dir="ltr">{pct}%</div>

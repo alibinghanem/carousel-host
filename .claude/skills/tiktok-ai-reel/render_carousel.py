@@ -54,9 +54,12 @@ async def build(spec, outdir):
         if exe:
             launch["executable_path"] = exe
         browser = await pw.chromium.launch(**launch)
-        page = await browser.new_page(viewport={"width": R.W, "height": R.H},
-                                      device_scale_factor=1)
+        # صفحة جديدة لكل شريحة: إعادة استخدام صفحة واحدة عبر عدة
+        # set_content متتالية أنتجت أحياناً رسم SVG تالف (حلقة النسبة
+        # تختفي بلا سبب ظاهر) — على الأرجح خلل تخزين مؤقت في Chromium.
         for i, sc in enumerate(slides):
+            page = await browser.new_page(viewport={"width": R.W, "height": R.H},
+                                          device_scale_factor=1)
             html = R.page_html(sc, style, vars_, handle, faces,
                                mode="carousel", idx=i, total=total)
             await page.set_content(html, wait_until="load")
@@ -69,6 +72,7 @@ async def build(spec, outdir):
             await page.screenshot(path=str(f), type="jpeg", quality=94)
             kb = f.stat().st_size / 1024
             print(f"  ✓ {f.name}  ({sc.get('type','?')} · {kb:.0f} KB)")
+            await page.close()
         await browser.close()
 
     shutil.copy(outdir / "slide_01.jpg", outdir / "cover.jpg")
