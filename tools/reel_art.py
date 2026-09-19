@@ -206,6 +206,9 @@ BRANDS = {
     "nordvpn":  {"label": "NordVPN",  "color": "#4687C6",
                  "mark": '<path d="M12 3 5 6v5.5c0 4.3 2.9 7.9 7 9.5 4.1-1.6 7-5.2 7-9.5V6z"/>'
                          '<path d="M9.2 12 11.4 14.2 15 10"/>'},
+    "bing":     {"label": "Bing Video Creator", "color": "#008373",
+                 "mark": '<rect x="4" y="4" width="16" height="16" rx="5"/>'
+                         '<path d="M10 8.4 15.6 12 10 15.6z"/>'},
 }
 
 GENERIC_BRAND = {"label": "", "color": "", "mark": _I["sparkle"]}
