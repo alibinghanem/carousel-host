@@ -598,6 +598,33 @@
     "https://www.techbloat.com/microsoft-bing-gets-a-free-sora-powered-ai-video-generator.html"
    ],
    "notes": "demo.type=table إعادة تمثيل صريحة. بلا كلمة CTA (نظام الرد التلقائي معطّل). أضيفت علامة bing إلى reel_art.BRANDS لهذا المنشور. لم يُنشر — بانتظار نشر صاحب الحساب اليدوي."
+  },
+  {
+   "date": "2026-09-21-reel",
+   "kind": "guide",
+   "format": "reel",
+   "topic": "Suno: توليد أغنية كاملة (لحن وكلمات وغناء) من وصف نصي",
+   "keywords": [
+    "Suno",
+    "توليد موسيقى",
+    "ذكاء اصطناعي توليدي",
+    "أغاني بالذكاء الاصطناعي"
+   ],
+   "theme": "sage",
+   "value_layout": "list",
+   "cover_layout": "classic",
+   "published": false,
+   "keyword": null,
+   "tool": {
+    "name": "Suno",
+    "url": "https://suno.com",
+    "free": true
+   },
+   "reply": "الأداة: Suno — تحوّل وصفاً نصياً إلى أغنية كاملة بلحن وكلمات وغناء: suno.com\n١) سجّل حساباً مجانياً على الموقع.\n٢) اكتب وصف الأغنية (المزاج والموضوع)، أو الصق كلماتها الجاهزة إن كانت عندك.\n٣) اختر نمطاً موسيقياً، وانتظر أقل من دقيقة لسماع النتيجة الكاملة.\nتنبيه صادق: النسخة المجانية محدودة العدد يومياً، والاستخدام التجاري يحتاج غالباً اشتراكاً مدفوعاً — راجع شروط الاستخدام قبل أي نشر تجاري.",
+   "sources": [
+    "https://mubert.com/blog/5-best-text-to-music-generator-tools-in-2026"
+   ],
+   "notes": "demo.type=table إعادة تمثيل صريحة. بلا كلمة CTA (نظام الرد التلقائي معطّل). لم يُنشر — بانتظار نشر صاحب الحساب اليدوي."
   }
  ],
  "_kinds": {
