@@ -625,6 +625,33 @@
     "https://mubert.com/blog/5-best-text-to-music-generator-tools-in-2026"
    ],
    "notes": "demo.type=table إعادة تمثيل صريحة. بلا كلمة CTA (نظام الرد التلقائي معطّل). لم يُنشر — بانتظار نشر صاحب الحساب اليدوي."
+  },
+  {
+   "date": "2026-09-23-reel",
+   "kind": "guide",
+   "format": "reel",
+   "topic": "وضع المحادثة في Google Translate: ترجمة كلام فورية بصوت مسموع بين لغتين",
+   "keywords": [
+    "Google Translate",
+    "ترجمة فورية",
+    "وضع المحادثة",
+    "حاجز اللغة"
+   ],
+   "theme": "sky",
+   "value_layout": "grid",
+   "cover_layout": "classic",
+   "published": false,
+   "keyword": null,
+   "tool": {
+    "name": "Google Translate",
+    "url": "https://translate.google.com",
+    "free": true
+   },
+   "reply": "الأداة: وضع المحادثة في تطبيق Google Translate — translate.google.com\n١) افتح التطبيق (مثبّت مسبقاً على أغلب الهواتف أو نزّله مجاناً).\n٢) اختر لغتك ولغة محدّثك.\n٣) اضغط أيقونة \"محادثة\"، وتحدّث بلغتك — سيسمع كلٌّ منكما الترجمة بصوت مسموع.\nتنبيه صادق: الدقة تقل مع اللهجات المحلية أو الضوضاء العالية — تحدّث بوضوح وبلغة قريبة من الفصحى لأفضل نتيجة.",
+   "sources": [
+    "https://1aicall.com/blog/best-real-time-translation-apps/"
+   ],
+   "notes": "demo.type=table إعادة تمثيل صريحة. بلا كلمة CTA (نظام الرد التلقائي معطّل). لم يُنشر — بانتظار نشر صاحب الحساب اليدوي."
   }
  ],
  "_kinds": {
