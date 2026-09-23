@@ -27,7 +27,8 @@
   "t025",
   "t053",
   "t058",
-  "t026"
+  "t026",
+  "t027"
  ],
  "log": [
   {
@@ -218,6 +219,13 @@
    "cycle": 0,
    "style": "mesh",
    "accent": "cyan"
+  },
+  {
+   "date": "2026-09-23",
+   "id": "t027",
+   "cycle": 0,
+   "style": "editorial",
+   "accent": "emerald"
   }
  ]
 }
