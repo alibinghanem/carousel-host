@@ -65,6 +65,7 @@ D=output/$(date +%F) && mkdir -p $D
   "style": "<من pick_topic>",
   "accent": "<من pick_topic>",
   "handle": "@ali_altamimy_tech",
+  "insta": "@al_t506",
   "slides": [ ... ]
 }
 ```

@@ -353,7 +353,8 @@ svg [data-a],.icard,.ic{transform-box:fill-box;transform-origin:50% 50%}
 .avspark{position:absolute;border-radius:50%;background:var(--a1);
   box-shadow:0 0 18px var(--a1)}
 .sig .nm{font-weight:800;font-size:40px;color:var(--ink)}
-.sig .hd{font-weight:800;font-size:36px;color:var(--a1);direction:ltr}
+.sig .hd{font-weight:800;font-size:36px;color:var(--a1);direction:ltr;
+  display:flex;justify-content:center;flex-wrap:wrap;gap:12px 30px}
 
 /* ————— كروم ثابت ————— */
 .chrome{position:absolute;inset:0;pointer-events:none}
@@ -361,8 +362,11 @@ svg [data-a],.icard,.ic{transform-box:fill-box;transform-origin:50% 50%}
   border-radius:99px;background:var(--line);overflow:hidden}
 .pbar i{display:block;height:100%;width:0;border-radius:99px;
   background:linear-gradient(90deg,var(--a2),var(--a1))}
-.handle{position:absolute;bottom:352px;left:0;right:0;text-align:center;
-  font-weight:700;font-size:34px;letter-spacing:.6px;color:var(--muted);direction:ltr}
+.handle{position:absolute;bottom:352px;left:0;right:0;display:flex;justify-content:center;
+  align-items:center;gap:34px;font-weight:700;font-size:34px;letter-spacing:.6px;color:var(--muted);direction:ltr}
+.so{display:inline-flex;align-items:center;gap:10px;white-space:nowrap}
+.so svg{width:1em;height:1em;flex:none}
+.so b{font-weight:inherit}
 /* كروم الكاروسيل — شرائح ثابتة يتحكم القارئ بإيقاعها */
 .count{position:absolute;top:146px;left:96px;right:96px;display:flex;
   align-items:center;justify-content:space-between}
@@ -601,11 +605,12 @@ def scene_html(s):
         if s.get("name"):
             sig.append(f'<div class="nm" {A("rise",0.80,0.6)}>{esc(s["name"])}</div>')
         if s.get("handle"):
-            sig.append(f'<div class="hd" {A("rise",0.90,0.6)} dir="ltr">{esc(s["handle"])}</div>')
+            sig.append(f'<div class="hd" {A("rise",0.90,0.6)} dir="ltr">{socials(s["handle"])}</div>')
         p.append('<div class="sig">' + "".join(sig) + "</div>")
     elif s.get("handle"):
         p.append(f'<div class="h3" {A("pop",0.68)} dir="ltr" '
-                 f'style="color:var(--a1);align-self:flex-start">{esc(s["handle"])}</div>')
+                 f'style="color:var(--a1);align-self:flex-start;display:flex;gap:30px">'
+                 f'{socials(s["handle"])}</div>')
     return "".join(p)
 
 
@@ -705,8 +710,29 @@ SWIPE_ICON = ('<svg width="34" height="34" viewBox="0 0 24 24" fill="none" '
               'stroke-linejoin="round"><path d="M19 12H5M11.5 5.5 5 12l6.5 6.5"/></svg>')
 
 
+INSTA = "@al_t506"   # حساب انستقرام — يظهر بجانب حساب تيك توك (يُغيَّر من spec عبر "insta")
+
+TT_ICON = ('<svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.2 2.5c.35 2.3 1.75 3.8 4.05 '
+           '4.05v3.1a7.4 7.4 0 0 1-4-1.25v6.1a5.95 5.95 0 1 1-5.95-5.95c.3 0 .6.02.9.07v3.2a2.8 2.8 0 1 0 '
+           '1.95 2.68V2.5z"/></svg>')
+IG_ICON = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">'
+           '<rect x="3" y="3" width="18" height="18" rx="5.2"/><circle cx="12" cy="12" r="4.1"/>'
+           '<circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>')
+
+
+def socials(handle, insta=None):
+    """الحسابين جنب بعض بأيقوناتهم: تيك توك ثم انستقرام."""
+    insta = INSTA if insta is None else insta
+    out = []
+    if handle:
+        out.append(f'<span class="so">{TT_ICON}<b>{esc(handle)}</b></span>')
+    if insta:
+        out.append(f'<span class="so">{IG_ICON}<b>{esc(insta)}</b></span>')
+    return "".join(out)
+
+
 def chrome_html(mode, handle, idx, total):
-    hd = f'<div class="handle">{esc(handle)}</div>' if handle else ""
+    hd = f'<div class="handle">{socials(handle)}</div>' if handle else ""
     if mode != "carousel":
         return f'<div class="pbar"><i></i></div>{hd}'
     dots = "".join(f'<i class="{"on" if i == idx else ""}"></i>' for i in range(total))

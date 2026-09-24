@@ -30,6 +30,7 @@ async def build(spec, outdir):
     a1, a2 = R.ACCENTS.get(accent, R.ACCENTS["blue"])
     vars_ = R.style_vars(style, a1, a2, accent)
     handle = spec.get("handle", "")
+    R.INSTA = spec.get("insta", R.INSTA)
     faces = R.all_faces()
     R.AVATAR = "" if spec.get("avatar") is False else R.avatar_uri()
 

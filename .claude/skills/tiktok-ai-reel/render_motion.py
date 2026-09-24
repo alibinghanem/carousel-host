@@ -179,7 +179,7 @@ def sc_outro(s, T):
     img = f'<img src="{av}">' if av else ""
     avatar = (f'<div class="avw"><div class="avc" {attr("pop", T(0.15), 0.55)}>{img}</div></div>')
     name, _ = kinetic([s.get("name", "علي التميمي")], T(0.55), 1000, 76, [], pop_hl=False)
-    handle = f'<div class="ohandle" {attr("rise", T(0.9), 0.45)}>{esc(s.get("handle", ""))}</div>'
+    handle = f'<div class="ohandle" {attr("rise", T(0.9), 0.45)}>{R.socials(s.get("handle", ""), s.get("insta"))}</div>'
     sfx(T(1.25), "pop", 0.5)
     tag = f'<div class="otagw"><div class="otag" {attr("pop", T(1.25), 0.45)}>{esc(s["tag"])}</div></div>'
     return avatar + name + handle + tag
@@ -268,8 +268,10 @@ body{font-family:'Cairo',sans-serif;color:var(--ink);direction:rtl;-webkit-font-
   background:radial-gradient(circle at 35% 30%,#FFB38A,var(--a) 60%,#C2410C);
   box-shadow:0 30px 70px rgba(255,90,31,.35)}
 .avc img{width:100%;height:100%;object-fit:cover;object-position:50% 12%}
-.ohandle{position:absolute;left:0;right:0;top:1115px;text-align:center;font-size:46px;font-weight:900;
-  color:var(--a);direction:ltr;opacity:0}
+.ohandle{position:absolute;left:0;right:0;top:1115px;display:flex;justify-content:center;gap:36px;
+  font-size:40px;font-weight:900;color:var(--a);direction:ltr;opacity:0}
+.so{display:inline-flex;align-items:center;gap:10px;white-space:nowrap}
+.so svg{width:1em;height:1em;flex:none}
 .otagw{position:absolute;left:0;right:0;top:1225px;display:flex;justify-content:center}
 .otag{padding:14px 44px 20px;border-radius:999px;background:var(--ink);color:#fff;font-size:40px;font-weight:800;opacity:0}
 """
@@ -374,7 +376,8 @@ def build(spec):
         elif typ == "checklist":
             body = sc_checklist(s, T)
         elif typ == "outro":
-            body = sc_outro(dict(s, handle=spec.get("handle", ""), name=spec.get("name", "")), T)
+            body = sc_outro(dict(s, handle=spec.get("handle", ""), name=spec.get("name", ""),
+                                insta=spec.get("insta")), T)
         else:
             raise SystemExit(f"نوع مشهد غير معروف: {typ}")
         last = i == len(timed) - 1
