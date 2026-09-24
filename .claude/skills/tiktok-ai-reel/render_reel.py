@@ -353,8 +353,11 @@ svg [data-a],.icard,.ic{transform-box:fill-box;transform-origin:50% 50%}
 .avspark{position:absolute;border-radius:50%;background:var(--a1);
   box-shadow:0 0 18px var(--a1)}
 .sig .nm{font-weight:800;font-size:40px;color:var(--ink)}
-.sig .hd{font-weight:800;font-size:36px;color:var(--a1);direction:ltr;
-  display:flex;justify-content:center;flex-wrap:wrap;gap:12px 30px}
+.sig .hd{font-weight:800;font-size:34px;color:var(--a1);direction:ltr;margin-top:6px;
+  display:inline-flex;align-items:center;gap:26px;padding:16px 36px;border-radius:999px;
+  background:color-mix(in srgb,var(--a1) 12%,transparent);
+  border:2px solid color-mix(in srgb,var(--a1) 40%,transparent)}
+.sig .hd .sep{background:color-mix(in srgb,var(--a1) 45%,transparent)}
 
 /* ————— كروم ثابت ————— */
 .chrome{position:absolute;inset:0;pointer-events:none}
@@ -362,8 +365,12 @@ svg [data-a],.icard,.ic{transform-box:fill-box;transform-origin:50% 50%}
   border-radius:99px;background:var(--line);overflow:hidden}
 .pbar i{display:block;height:100%;width:0;border-radius:99px;
   background:linear-gradient(90deg,var(--a2),var(--a1))}
-.handle{position:absolute;bottom:352px;left:0;right:0;display:flex;justify-content:center;
-  align-items:center;gap:34px;font-weight:700;font-size:34px;letter-spacing:.6px;color:var(--muted);direction:ltr}
+.handle{position:absolute;bottom:340px;left:0;right:0;display:flex;justify-content:center;
+  font-weight:700;font-size:32px;letter-spacing:.4px;color:var(--muted);direction:ltr}
+/* شريط الحسابات الأفقي */
+.sbar{display:inline-flex;align-items:center;gap:26px;padding:14px 34px;border-radius:999px;
+  background:color-mix(in srgb,var(--ink) 6%,transparent);border:2px solid var(--line)}
+.sep{display:block;width:2px;height:1.15em;border-radius:2px;background:var(--line);flex:none}
 .so{display:inline-flex;align-items:center;gap:10px;white-space:nowrap}
 .so svg{width:1em;height:1em;flex:none}
 .so b{font-weight:inherit}
@@ -728,11 +735,11 @@ def socials(handle, insta=None):
         out.append(f'<span class="so">{TT_ICON}<b>{esc(handle)}</b></span>')
     if insta:
         out.append(f'<span class="so">{IG_ICON}<b>{esc(insta)}</b></span>')
-    return "".join(out)
+    return '<i class="sep"></i>'.join(out)
 
 
 def chrome_html(mode, handle, idx, total):
-    hd = f'<div class="handle">{socials(handle)}</div>' if handle else ""
+    hd = f'<div class="handle"><div class="sbar">{socials(handle)}</div></div>' if handle else ""
     if mode != "carousel":
         return f'<div class="pbar"><i></i></div>{hd}'
     dots = "".join(f'<i class="{"on" if i == idx else ""}"></i>' for i in range(total))
@@ -745,6 +752,9 @@ def chrome_html(mode, handle, idx, total):
 def page_html(scene, style, vars_, handle, faces, mode="reel", idx=0, total=1):
     css_vars = ";".join(f"--{k}:{v}" for k, v in vars_.items() if k != "dark")
     light = "0" if vars_["dark"] == "1" else "1"
+    # شريحة المتابعة تعرض الحسابين تحت الاسم — لا نكررهم في التذييل
+    if scene.get("type") == "cta" and scene.get("handle"):
+        handle = ""
     hd = chrome_html(mode, handle, idx, total)
     return f"""<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8">
 <style>{faces}
