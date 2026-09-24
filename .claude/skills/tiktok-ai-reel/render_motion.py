@@ -4,6 +4,12 @@
 (محادثة، إشعار، قائمة تُنصَّح، شريط تقدّم)، هوية ثابتة، ومؤثرات صوتية.
 
     python3 render_motion.py spec.json ./out
+    python3 render_motion.py spec.json ./out --voice voice.m4a   # مع تعليق صوتي
+    python3 render_motion.py spec.json ./out --voice-dir clips/   # مقطع لكل مشهد: 1.mp3 … 7.mp3
+    python3 render_motion.py spec.json --script                   # نص التسجيل
+
+مع --voice: ينظّف التسجيل، يقسّمه على الوقفات (جملة لكل مشهد)، يمدّد
+توقيت كل مشهد ليطابق كلامه، ثم يدمج الصوت مع المؤثرات (منخفضة تحته).
 
 منفصل عن الكاروسيل اليومي — لا يلمس أي ملف تستخدمه المهمة المجدولة.
 """
@@ -67,32 +73,40 @@ def centered_top(n_lines, size, cy=900):
 
 # ————————————————————————— المشاهد —————————————————————————
 
-def sc_kinetic(s, t0, t1, first):
+LEAD, TAIL = 0.15, 0.45   # هامش قبل وبعد صوت كل مشهد
+
+
+def sc_kinetic(s, t0, first, vo):
     lines, size = s["lines"], s.get("size", 108)
-    start = t0 - 0.28 if first else t0 + 0.05
-    html, _ = kinetic(lines, start, centered_top(len(lines), size), size, s.get("hl", []))
+    n = sum(len(l.split(" ")) for l in lines)
+    if vo:   # الكلمات تتوزّع على مدة الجملة المنطوقة
+        start, stag = t0 + LEAD, max(.08, min(.4, vo * .75 / n))
+    else:
+        start, stag = (t0 - 0.28 if first else t0 + 0.05), 0.11
+    html, _ = kinetic(lines, start, centered_top(len(lines), size), size, s.get("hl", []), stagger=stag)
     return html
 
 
-def sc_poll(s, t0, t1):
-    title, _ = kinetic(s["title"], t0 + 0.05, 300, 84, s.get("hl", []))
+def sc_poll(s, T, vo, t0):
+    title, _ = kinetic(s["title"], T(0.05), 300, 84, s.get("hl", []))
     rounds = s.get("rounds", 3)
-    card_at = t0 + 0.45
+    card_at = T(0.45)
     sfx(card_at, "pop", 0.8)
     msgs, times, vals = [], [], []
     for i in range(rounds):
-        a = t0 + 1.0 + i * 0.95
+        a = t0 + LEAD + vo * (0.42 + i * 0.16) if vo else T(1.0 + i * 0.95)
         msgs.append(f'<div class="b me" {attr("rise", a, 0.38)}>{esc(s["ask"])}</div>')
         msgs.append(f'<div class="b them" {attr("rise", a + 0.42, 0.38)}>{esc(s["reply"])}</div>')
         sfx(a, "blip_hi", 0.7)
         sfx(a + 0.42, "blip_lo", 0.6)
         times.append(f"{a:.3f}")
         vals.append(f"×{i+1}")
-    stamp_at = t0 + 1.0 + rounds * 0.95 + 0.05
+    last = float(times[-1])
+    stamp_at = max(t0 + LEAD + vo * .92, last + .7) if vo else T(1.0 + rounds * 0.95 + 0.05)
     sfx(stamp_at + 0.12, "thud", 1.0)
     card = (f'<div class="card" {attr("pop", card_at, 0.5)}>'
-            f'<div class="badge" {attr("pop", t0 + 1.0, 0.35)}>'
-            f'<span {attr("steps", t0 + 1.0, 0.3, times="|".join(times), vals="|".join(vals))}>×1</span></div>'
+            f'<div class="badge" {attr("pop", float(times[0]), 0.35)}>'
+            f'<span {attr("steps", float(times[0]), 0.3, times="|".join(times), vals="|".join(vals))}>×1</span></div>'
             f'<div class="chead"><div class="cav">{esc(s.get("initial") or s["name"].removeprefix("ال")[:1])}</div>'
             f'<div><div class="cname">{esc(s["name"])}</div><div class="cstat">متصل الآن</div></div></div>'
             f'<div class="msgs">{"".join(msgs)}</div></div>')
@@ -106,9 +120,9 @@ BELL = ('<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" '
         '<path d="M10 20.5a2 2 0 0 0 4 0"/></svg>')
 
 
-def sc_notify(s, t0, t1):
-    title, _ = kinetic(s["title"], t0 + 0.12, 360, 96, s.get("hl", []), color="#fff")
-    drop = t0 + 1.05
+def sc_notify(s, T):
+    title, _ = kinetic(s["title"], T(0.12), 360, 96, s.get("hl", []), color="#fff")
+    drop = T(1.05)
     sfx(drop + 0.1, "ding", 0.9)
     rings = "".join(f'<i class="ring" {attr("ripple", drop + 0.12 + k * 0.28, 1.0)}></i>' for k in range(3))
     note = (f'<div class="notw"><div class="note" {attr("drop", drop, 0.85)}>'
@@ -116,21 +130,21 @@ def sc_notify(s, t0, t1):
             f'<div class="ntext"><div class="nrow"><span class="nttl">{esc(s["app"])}</span>'
             f'<span class="ntime">الآن</span></div>'
             f'<div class="nbody">{esc(s["body"])}</div></div></div></div>')
-    chip_at = t0 + 1.9
+    chip_at = T(1.9)
     sfx(chip_at, "pop", 0.6)
     chip = f'<div class="chipw"><div class="chip" {attr("pop", chip_at, 0.45)}>{esc(s["chip"])}</div></div>'
     return title + note + chip
 
 
-def sc_bigword(s, t0, t1):
-    pre, _ = kinetic([s["pre"]], t0 + 0.05, 540, 66, [], color=THEME["muted"], pop_hl=False)
+def sc_bigword(s, T):
+    pre, _ = kinetic([s["pre"]], T(0.05), 540, 66, [], color=THEME["muted"], pop_hl=False)
     letters = []
     for i, ch in enumerate(s["word"]):
-        at = t0 + 0.55 + i * 0.065
+        at = T(0.55) + i * 0.065
         letters.append(f'<span class="L" {attr("letter", at, 0.5)}>{esc(ch)}</span>')
         sfx(at, "tick", 0.3)
     big = f'<div class="bigw">{"".join(letters)}</div>'
-    ul_at = t0 + 0.55 + len(s["word"]) * 0.065 + 0.1
+    ul_at = T(0.55) + len(s["word"]) * 0.065 + 0.1
     sfx(ul_at, "whoosh", 0.35)
     ul = f'<div class="ul" {attr("wipe", ul_at, 0.45)}></div>'
     sub, _ = kinetic([s["sub"]], ul_at + 0.15, 1000, 70, s.get("hl", []))
@@ -140,34 +154,34 @@ def sc_bigword(s, t0, t1):
 CHECK = '<svg viewBox="0 0 24 24"><path d="M6 12.5l4 4 8-9"/></svg>'
 
 
-def sc_checklist(s, t0, t1):
-    title, _ = kinetic(s["title"], t0 + 0.05, 280, 92, s.get("hl", []))
+def sc_checklist(s, T):
+    title, _ = kinetic(s["title"], T(0.05), 280, 92, s.get("hl", []))
     rows = []
     for i, txt in enumerate(s["rows"]):
-        a = t0 + 0.7 + i * 0.7
+        a = T(0.7 + i * 0.7)
         sfx(a, "pop", 0.45)
         sfx(a + 0.38, "tick", 0.8)
         rows.append(f'<div class="row" {attr("slide", a, 0.45, dx=-80)}>'
                     f'<div class="box" {attr("tick", a + 0.38, 0.35)}><i class="fill"></i>{CHECK}</div>'
                     f'<div class="rtxt">{esc(txt)}</div></div>')
-    b0, b1 = t0 + 0.6, t0 + 0.7 + len(s["rows"]) * 0.7
-    prog = (f'<div class="prog" {attr("fade", t0 + 0.5, 0.3)}><div class="prow">'
+    b0, b1 = T(0.6), T(0.7 + len(s["rows"]) * 0.7)
+    prog = (f'<div class="prog" {attr("fade", T(0.5), 0.3)}><div class="prow">'
             f'<span class="plab">{esc(s["bar"])}</span>'
             f'<span class="pct" {attr("count", b0, b1 - b0, **{"from": 0, "to": 100, "suf": "%"})}>0%</span></div>'
             f'<div class="track"><div class="fillbar" {attr("bar", b0, b1 - b0)}></div></div></div>')
     return title + f'<div class="rows">{"".join(rows)}</div>' + prog
 
 
-def sc_outro(s, t0, t1):
+def sc_outro(s, T):
     av = R.avatar_uri()
-    sfx(t0 + 0.15, "pop", 0.9)
-    sfx(t0 + 0.2, "ding", 0.45)
+    sfx(T(0.15), "pop", 0.9)
+    sfx(T(0.2), "ding", 0.45)
     img = f'<img src="{av}">' if av else ""
-    avatar = (f'<div class="avw"><div class="avc" {attr("pop", t0 + 0.15, 0.55)}>{img}</div></div>')
-    name, _ = kinetic([s.get("name", "علي التميمي")], t0 + 0.55, 1000, 76, [], pop_hl=False)
-    handle = f'<div class="ohandle" {attr("rise", t0 + 0.9, 0.45)}>{esc(s.get("handle", ""))}</div>'
-    sfx(t0 + 1.25, "pop", 0.5)
-    tag = f'<div class="otagw"><div class="otag" {attr("pop", t0 + 1.25, 0.45)}>{esc(s["tag"])}</div></div>'
+    avatar = (f'<div class="avw"><div class="avc" {attr("pop", T(0.15), 0.55)}>{img}</div></div>')
+    name, _ = kinetic([s.get("name", "علي التميمي")], T(0.55), 1000, 76, [], pop_hl=False)
+    handle = f'<div class="ohandle" {attr("rise", T(0.9), 0.45)}>{esc(s.get("handle", ""))}</div>'
+    sfx(T(1.25), "pop", 0.5)
+    tag = f'<div class="otagw"><div class="otag" {attr("pop", T(1.25), 0.45)}>{esc(s["tag"])}</div></div>'
     return avatar + name + handle + tag
 
 
@@ -336,6 +350,7 @@ def build(spec):
     for i, s in enumerate(scenes):
         t0 = 0.0 if i == 0 else t - OVERLAP
         t1 = t0 + float(s["dur"])
+        s["_t0"] = t0
         timed.append((s, t0, t1))
         t = t1
     total = t
@@ -343,21 +358,23 @@ def build(spec):
     parts, dark, orbk = [], [], []
     for i, (s, t0, t1) in enumerate(timed):
         typ, shakes = s["type"], []
+        vo, k = s.get("_vo", 0.0), s.get("_k", 1.0)
+        T = lambda x, t0=t0, k=k: t0 + x * k   # توقيت المشهد ممدّد على طول الكلام
         if i > 0:
             sfx(t0 - 0.05, "whoosh", 0.45)
         if typ == "kinetic":
-            body = sc_kinetic(s, t0, t1, i == 0)
+            body = sc_kinetic(s, t0, i == 0, vo)
         elif typ == "poll":
-            body, shakes = sc_poll(s, t0, t1)
+            body, shakes = sc_poll(s, T, vo, t0)
         elif typ == "notify":
-            body = sc_notify(s, t0, t1)
+            body = sc_notify(s, T)
             dark.append([t0, t1])
         elif typ == "bigword":
-            body = sc_bigword(s, t0, t1)
+            body = sc_bigword(s, T)
         elif typ == "checklist":
-            body = sc_checklist(s, t0, t1)
+            body = sc_checklist(s, T)
         elif typ == "outro":
-            body = sc_outro(dict(s, handle=spec.get("handle", ""), name=spec.get("name", "")), t0, t1)
+            body = sc_outro(dict(s, handle=spec.get("handle", ""), name=spec.get("name", "")), T)
         else:
             raise SystemExit(f"نوع مشهد غير معروف: {typ}")
         last = i == len(timed) - 1
@@ -455,6 +472,130 @@ def write_sfx(path, total):
         w.writeframes(b"".join(struct.pack("<h", int(math.tanh(v * scale) * 32767)) for v in buf))
 
 
+# ————————————————————————— التعليق الصوتي —————————————————————————
+
+def prep_voice(src, dst):
+    """تنظيف التسجيل: إزالة الهمهمة والضجيج، ضغط خفيف، وتوحيد الارتفاع."""
+    af = ("highpass=f=80,lowpass=f=12000,afftdn=nf=-25,"
+          "acompressor=threshold=-18dB:ratio=3:attack=5:release=80,loudnorm=I=-16:TP=-1.5:LRA=11")
+    subprocess.run([R.ffmpeg_bin(), "-y", "-loglevel", "error", "-i", str(src), "-vn", "-af", af,
+                    "-ac", "1", "-ar", str(SR), str(dst)], check=True)
+
+
+def _dur(wav):
+    with wave.open(str(wav)) as w:
+        return w.getnframes() / w.getframerate()
+
+
+def _speech(wav, d):
+    r = subprocess.run([R.ffmpeg_bin(), "-hide_banner", "-i", str(wav), "-af",
+                        f"silencedetect=noise=-38dB:d={d}", "-f", "null", "-"],
+                       capture_output=True, text=True)
+    sil, st = [], None
+    for ln in r.stderr.splitlines():
+        if "silence_start:" in ln:
+            st = float(ln.split("silence_start:")[1].split()[0])
+        elif "silence_end:" in ln:
+            sil.append((max(0.0, st or 0.0), float(ln.split("silence_end:")[1].split()[0])))
+            st = None
+    end = _dur(wav)
+    if st is not None:
+        sil.append((st, end))
+    segs, cur = [], 0.0
+    for a, b in sil:
+        if a - cur > 0.25:
+            segs.append([cur, a])
+        cur = b
+    if end - cur > 0.25:
+        segs.append([cur, end])
+    return segs
+
+
+def speech_segments(wav, n):
+    """جملة لكل مشهد: يبحث عن وقفات أطول فأقصر حتى يجد n مقاطع على الأقل."""
+    for d in (0.9, 0.7, 0.5, 0.35):
+        segs = _speech(wav, d)
+        if len(segs) >= n:
+            break
+    if len(segs) < n:
+        raise SystemExit(f"✗ لقيت {len(segs)} جمل فقط والمشاهد {n} — أعد التسجيل مع وقفة ثانية تقريبًا بين كل سطر.")
+    while len(segs) > n:   # ادمج عبر أقصر فجوة
+        j = min(range(len(segs) - 1), key=lambda i: segs[i + 1][0] - segs[i][1])
+        segs[j] = [segs[j][0], segs[j + 1][1]]
+        del segs[j + 1]
+    end = _dur(wav)
+    return [(max(0.0, a - .08), min(end, b + .08)) for a, b in segs]
+
+
+def voice_from_clips(d, n, dst, tempo=1.2, gap=1.0):
+    """مقطع لكل مشهد (مثل ElevenLabs): يقصّر الوقفات الداخلية، يسرّع قليلًا، ويجمعها في ملف واحد."""
+    ff, parts, segs, t = R.ffmpeg_bin(), [], [], 0.0
+    af = ("silenceremove=start_periods=1:start_threshold=-40dB:stop_periods=-1:stop_duration=0.22:"
+          f"stop_threshold=-40dB:stop_silence=0.12,atempo={tempo},loudnorm=I=-16:TP=-1.5:LRA=11")
+    for i in range(1, n + 1):
+        src = next(iter(sorted(pathlib.Path(d).glob(f"{i}.*"))), None)
+        if not src:
+            raise SystemExit(f"✗ ناقص مقطع المشهد {i} في {d}")
+        wav = pathlib.Path(dst).with_name(f"_clip{i}.wav")
+        subprocess.run([ff, "-y", "-loglevel", "error", "-i", str(src), "-af", af,
+                        "-ac", "1", "-ar", str(SR), str(wav)], check=True)
+        parts.append(wav)
+        L = _dur(wav)
+        segs.append((t, t + L))
+        t += L + gap
+    frames = b""
+    for wav in parts:
+        with wave.open(str(wav)) as w:
+            frames += w.readframes(w.getnframes()) + b"\0\0" * int(gap * SR)
+    with wave.open(str(dst), "wb") as w:
+        w.setnchannels(1)
+        w.setsampwidth(2)
+        w.setframerate(SR)
+        w.writeframes(frames)
+    return segs
+
+
+def fit_scenes(spec, segs):
+    for s, (a, b) in zip(spec["scenes"], segs):
+        vo = b - a
+        base = float(s["dur"])
+        dur = max(base, LEAD + vo + TAIL)
+        s.update(_vo=vo, _seg=(a, b), _k=dur / base, dur=dur)
+
+
+def write_voice_track(src, spec, path, total):
+    """يقصّ كل جملة ويضعها عند بداية مشهدها + LEAD."""
+    with wave.open(str(src)) as w:
+        raw = w.readframes(w.getnframes())
+    pcm = struct.unpack(f"<{len(raw)//2}h", raw)
+    n = int((total + 0.5) * SR)
+    buf = [0.0] * n
+    for s in spec["scenes"]:
+        a, b = s["_seg"]
+        o = int((s["_t0"] + LEAD) * SR)
+        seg = pcm[int(a * SR):int(b * SR)]
+        fade = int(.02 * SR)
+        for i, v in enumerate(seg):
+            if o + i >= n:
+                break
+            g = min(1.0, i / fade, (len(seg) - i) / fade)
+            buf[o + i] += v / 32768 * g
+    with wave.open(str(path), "wb") as w:
+        w.setnchannels(1)
+        w.setsampwidth(2)
+        w.setframerate(SR)
+        w.writeframes(b"".join(struct.pack("<h", int(max(-1, min(1, v)) * 32767)) for v in buf))
+
+
+def mix(voice, fx, out):
+    """الصوت بمستواه، والمؤثرات أخفض وتنخفض أكثر وقت الكلام (ducking)."""
+    fc = ("[1:a]volume=0.4[fx];[0:a]asplit=2[v][sc];"
+          "[fx][sc]sidechaincompress=threshold=0.03:ratio=6:attack=15:release=250[fxd];"
+          "[v][fxd]amix=inputs=2:normalize=0,alimiter=limit=0.95")
+    subprocess.run([R.ffmpeg_bin(), "-y", "-loglevel", "error", "-i", str(voice), "-i", str(fx),
+                    "-filter_complex", fc, "-ar", str(SR), str(out)], check=True)
+
+
 # ————————————————————————— التصيير —————————————————————————
 
 async def capture(html, total, frames):
@@ -491,13 +632,36 @@ def encode(frames, audio, out, total):
 
 
 def main():
-    args = [a for a in sys.argv[1:] if not a.startswith("--")]
-    if len(args) < 2:
+    argv = sys.argv[1:]
+    voice = clips = None
+    for flag in ("--voice", "--voice-dir"):
+        if flag in argv:
+            i = argv.index(flag)
+            voice = pathlib.Path(argv[i + 1])
+            clips = flag == "--voice-dir"
+            del argv[i:i + 2]
+    args = [a for a in argv if not a.startswith("--")]
+    if not args:
         print(__doc__)
         sys.exit(1)
     spec = json.loads(pathlib.Path(args[0]).read_text(encoding="utf-8"))
+    if "--script" in argv:
+        for i, s in enumerate(spec["scenes"], 1):
+            print(f"{i}. {s.get('say', '—')}")
+        return
+    if len(args) < 2:
+        print(__doc__)
+        sys.exit(1)
     out = pathlib.Path(args[1])
     out.mkdir(parents=True, exist_ok=True)
+    if voice:
+        if clips:
+            segs = voice_from_clips(voice, len(spec["scenes"]), out / "_voice.wav")
+        else:
+            prep_voice(voice, out / "_voice.wav")
+            segs = speech_segments(out / "_voice.wav", len(spec["scenes"]))
+        fit_scenes(spec, segs)
+        print("🎙 مقاطع الصوت: " + " · ".join(f"{b-a:.1f}ث" for a, b in segs))
     html, total = build(spec)
     (out / "_preview.html").write_text(html, encoding="utf-8")
     frames = out / "_frames"
@@ -507,8 +671,13 @@ def main():
     asyncio.run(capture(html, total, frames))
     shutil.copy(frames / f"{int(1.6*FPS):05d}.jpg", out / "cover.jpg")
     write_sfx(out / "_sfx.wav", total)
-    encode(frames, out / "_sfx.wav", out / "motion.mp4", total)
-    encode(frames, None, out / "motion_silent.mp4", total)
+    if voice:
+        write_voice_track(out / "_voice.wav", spec, out / "_vo_track.wav", total)
+        mix(out / "_vo_track.wav", out / "_sfx.wav", out / "_mix.wav")
+        encode(frames, out / "_mix.wav", out / "motion_vo.mp4", total)
+    else:
+        encode(frames, out / "_sfx.wav", out / "motion.mp4", total)
+        encode(frames, None, out / "motion_silent.mp4", total)
     shutil.rmtree(frames, ignore_errors=True)
 
 
