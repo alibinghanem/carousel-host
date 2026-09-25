@@ -369,7 +369,7 @@ svg [data-a],.icard,.ic{transform-box:fill-box;transform-origin:50% 50%}
   font-weight:700;font-size:32px;letter-spacing:.4px;color:var(--muted);direction:ltr}
 /* شريط الحسابات الأفقي */
 .sbar{display:inline-flex;align-items:center;gap:26px;padding:14px 34px;border-radius:999px;
-  background:color-mix(in srgb,var(--ink) 6%,transparent);border:2px solid var(--line)}
+  background:color-mix(in srgb,var(--bg) 92%,var(--ink));border:2px solid var(--line)}
 .sep{display:block;width:2px;height:1.15em;border-radius:2px;background:var(--line);flex:none}
 .so{display:inline-flex;align-items:center;gap:10px;white-space:nowrap}
 .so svg{width:1em;height:1em;flex:none}
