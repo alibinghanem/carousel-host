@@ -141,7 +141,8 @@ def sc_bigword(s, T):
     letters = []
     for i, ch in enumerate(s["word"]):
         at = T(0.55) + i * 0.065
-        letters.append(f'<span class="L" {attr("letter", at, 0.5)}>{esc(ch)}</span>')
+        glyph = "&nbsp;" if ch == " " else esc(ch)   # المسافة تنطوي داخل span فارغ
+        letters.append(f'<span class="L" {attr("letter", at, 0.5)}>{glyph}</span>')
         sfx(at, "tick", 0.3)
     big = f'<div class="bigw">{"".join(letters)}</div>'
     ul_at = T(0.55) + len(s["word"]) * 0.065 + 0.1
