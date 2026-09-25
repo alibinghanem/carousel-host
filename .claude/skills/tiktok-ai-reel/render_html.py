@@ -7,8 +7,11 @@
 - كل شريحة عنصر <section class="slide"> بمقاس 1080×1920، مرصوصة تحت بعض.
 - الخطوط تُحقن تلقائياً (Cairo · Tajawal · Lalezar · IBM Plex Sans Arabic ·
   Readex Pro · JetBrains Mono · Space Grotesk) — تعمل بدون إنترنت.
-- {{AVATAR}} داخل الـ HTML يُستبدل بصورة علي المقصوصة.
-- المنطقة الآمنة لتيك توك: اترك أعلى 240px وأسفل 450px بلا نص مهم.
+- {{AVATAR}} ← صورة علي المقصوصة (data URI يوضع في src).
+- {{HANDLES}} ← حسابي تيك توك وانستقرام بأيقوناتهما (تنسّقهما أنت بحاوية).
+- المنطقة الآمنة لتيك توك: لا نص في أعلى 240px ولا أسفل آخر 450px.
+  المولّد يفحص كل نص ويطبع تحذيراً لأي نص يتجاوزها أو يطلع خارج الإطار.
+  عنصر زخرفي مقصود خارجها؟ أضف له data-safe="ignore".
 """
 import asyncio, base64, pathlib, re, sys
 
@@ -39,11 +42,46 @@ def extra_faces():
     return "\n".join(out)
 
 
+SAFE_TOP, SAFE_BOTTOM = 240, H - 450
+
+CHECK_JS = """([top, bottom]) => {
+  const out = [];
+  document.querySelectorAll('section.slide').forEach((sl, i) => {
+    const r0 = sl.getBoundingClientRect();
+    const w = document.createTreeWalker(sl, NodeFilter.SHOW_TEXT);
+    let n;
+    while ((n = w.nextNode())) {
+      const t = n.textContent.trim();
+      if (!t || n.parentElement.closest('[data-safe="ignore"]')) continue;
+      const st = getComputedStyle(n.parentElement);
+      if (st.visibility === 'hidden' || +st.opacity === 0) continue;
+      const rg = document.createRange(); rg.selectNodeContents(n);
+      for (const b of rg.getClientRects()) {
+        const y0 = b.top - r0.top, y1 = b.bottom - r0.top, x0 = b.left - r0.left, x1 = b.right - r0.left;
+        let why = '';
+        if (x0 < -1 || x1 > 1081) why = 'خارج الإطار أفقياً';
+        else if (y0 < top) why = 'داخل أعلى ' + top + 'px';
+        else if (y1 > bottom) why = 'تحت ' + bottom + 'px (واجهة تيك توك)';
+        if (why) { out.push({slide: i + 1, text: t.slice(0, 40), why}); break; }
+      }
+    }
+  });
+  return out;
+}"""
+
+
+def handles_html():
+    return "".join(f'<span class="hf-so">{ic}<b>{h}</b></span>'
+                   for ic, h in ((R.TT_ICON, "@ali_altamimy_tech"), (R.IG_ICON, R.INSTA)))
+
+
 async def main(src, outdir):
     from playwright.async_api import async_playwright
     html = pathlib.Path(src).read_text(encoding="utf-8")
-    html = html.replace("{{AVATAR}}", R.avatar_uri() or "")
-    faces = f"<style>{R.all_faces()}\n{extra_faces()}</style>"
+    html = html.replace("{{AVATAR}}", R.avatar_uri() or "").replace("{{HANDLES}}", handles_html())
+    base = (".hf-so{display:inline-flex;align-items:center;gap:.4em;direction:ltr;unicode-bidi:isolate;"
+            "white-space:nowrap}.hf-so svg{width:1em;height:1em;flex:none}.hf-so b{font-weight:inherit}")
+    faces = f"<style>{R.all_faces()}\n{extra_faces()}\n{base}</style>"
     html = html.replace("</head>", faces + "</head>", 1)
     outdir = pathlib.Path(outdir)
     outdir.mkdir(parents=True, exist_ok=True)
@@ -58,6 +96,7 @@ async def main(src, outdir):
         await page.set_content(html, wait_until="load")
         await page.evaluate("document.fonts.ready")
         n = await page.evaluate("document.querySelectorAll('section.slide').length")
+        warns = await page.evaluate(CHECK_JS, [SAFE_TOP, SAFE_BOTTOM])
         for i in range(n):
             el = page.locator("section.slide").nth(i)
             p = outdir / f"slide_{i+1:02d}.jpg"
@@ -67,6 +106,10 @@ async def main(src, outdir):
     if n:
         (outdir / "cover.jpg").write_bytes((outdir / "slide_01.jpg").read_bytes())
     print(f"✓ {n} شريحة في {outdir}")
+    for w in warns:
+        print(f"  ⚠ شريحة {w['slide']}: «{w['text']}» — {w['why']}")
+    if not warns:
+        print("  ✓ فحص المنطقة الآمنة: سليم")
 
 
 if __name__ == "__main__":
