@@ -10,8 +10,14 @@
 import json, sys, pathlib, datetime
 
 HERE = pathlib.Path(__file__).parent
-BANK = HERE / "topics.json"
-STATE = HERE / "state" / "used.json"
+# البنك الحالي: شرح مميزات الأدوات (Claude · ChatGPT · Gemini …) — طلب المستخدم.
+# البنك القديم (topics.json) يبقى احتياطاً: python3 pick_topic.py --classic
+if "--classic" in sys.argv or not (HERE / "topics_tools.json").exists():
+    BANK = HERE / "topics.json"
+    STATE = HERE / "state" / "used.json"
+else:
+    BANK = HERE / "topics_tools.json"
+    STATE = HERE / "state" / "used_tools.json"
 
 STYLES = ["neon", "mesh", "editorial", "terminal", "blocks", "aurora"]
 ACCENTS = ["blue", "cyan", "emerald", "amber", "violet", "rose", "orange", "lime"]
