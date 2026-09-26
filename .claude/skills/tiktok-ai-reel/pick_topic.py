@@ -10,14 +10,23 @@
 import json, sys, pathlib, datetime
 
 HERE = pathlib.Path(__file__).parent
-# البنك الحالي: شرح مميزات الأدوات (Claude · ChatGPT · Gemini …) — طلب المستخدم.
-# البنك القديم (topics.json) يبقى احتياطاً: python3 pick_topic.py --classic
-if "--classic" in sys.argv or not (HERE / "topics_tools.json").exists():
-    BANK = HERE / "topics.json"
-    STATE = HERE / "state" / "used.json"
-else:
+# التناوب (طلب المستخدم): يوم «أدوات» (شرح مميزات Claude · ChatGPT …) ويوم
+# «أتمتة» (البنك الأصلي topics.json). التناوب محسوب من التاريخ، فتشغيل المهمة
+# مرتين بنفس اليوم يرجّع نفس البنك. للإجبار: --tools أو --classic
+_TODAY = datetime.date.today()
+if "--classic" in sys.argv:
+    KIND = "classic"
+elif "--tools" in sys.argv:
+    KIND = "tools"
+else:  # 2026-09-26 كان أدوات، 2026-09-27 أتمتة، وهكذا
+    KIND = "tools" if _TODAY.toordinal() % 2 == datetime.date(2026, 9, 26).toordinal() % 2 else "classic"
+if KIND == "tools" and (HERE / "topics_tools.json").exists():
     BANK = HERE / "topics_tools.json"
     STATE = HERE / "state" / "used_tools.json"
+else:
+    KIND = "classic"
+    BANK = HERE / "topics.json"
+    STATE = HERE / "state" / "used.json"
 
 STYLES = ["neon", "mesh", "editorial", "terminal", "blocks", "aurora"]
 ACCENTS = ["blue", "cyan", "emerald", "amber", "violet", "rose", "orange", "lime"]
@@ -61,6 +70,7 @@ def main():
         t = dict(t)
         t["style"], t["accent"] = design_for(t, idx, same[-1].get("cycle", 0))
         t["repeat"] = True
+        t["bank"] = KIND
         print(json.dumps(t, ensure_ascii=False, indent=1))
         return
 
@@ -76,7 +86,7 @@ def main():
     topic = dict(topic)
     topic["style"], topic["accent"] = design_for(topic, idx, st["cycle"])
     topic["cycle"] = st["cycle"]
-    topic["day"] = len(st["used"]) + 1
+    topic["bank"] = KIND   # لا ترقيم يوم في التصميم (طلب المستخدم)
 
     if "--peek" not in sys.argv:
         st["used"].append(topic["id"])
