@@ -9,6 +9,8 @@
   Readex Pro · JetBrains Mono · Space Grotesk) — تعمل بدون إنترنت.
 - {{AVATAR}} ← صورة علي المقصوصة (data URI يوضع في src).
 - {{HANDLES}} ← حسابي تيك توك وانستقرام بأيقوناتهما (تنسّقهما أنت بحاوية).
+- صور محلية: <img src="assets/x.jpg"> أو url('assets/x.jpg') بمسار نسبي لملف
+  الـ HTML — تُضمَّن تلقائياً. نزّل الصور أولاً إلى $D/assets/ (Unsplash/Pexels).
 - المنطقة الآمنة لتيك توك: لا نص في أعلى 240px ولا أسفل آخر 450px.
   المولّد يفحص كل نص ويطبع تحذيراً لأي نص يتجاوزها أو يطلع خارج الإطار.
   عنصر زخرفي مقصود خارجها؟ أضف له data-safe="ignore".
@@ -70,6 +72,24 @@ CHECK_JS = """([top, bottom]) => {
 }"""
 
 
+MIME = {".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".png": "image/png",
+        ".webp": "image/webp", ".svg": "image/svg+xml", ".gif": "image/gif"}
+
+
+def inline_local(html, base):
+    """يحوّل مسارات الصور النسبية إلى data URI (الصفحة تُحمَّل بدون مسار ملف)."""
+    def sub(m):
+        ref = m.group(2)
+        f = (base / ref).resolve()
+        if ref.startswith(("data:", "http:", "https:", "{{")) or not f.is_file():
+            return m.group(0)
+        uri = f"data:{MIME.get(f.suffix.lower(), 'application/octet-stream')};base64," \
+              + base64.b64encode(f.read_bytes()).decode()
+        return m.group(1) + uri + m.group(3)
+    html = re.sub(r'(src=")([^"]+)(")', sub, html)
+    return re.sub(r"""(url\(['"]?)([^'")]+)(['"]?\))""", sub, html)
+
+
 def handles_html():
     return "".join(f'<span class="hf-so">{ic}<b>{h}</b></span>'
                    for ic, h in ((R.TT_ICON, "@ali_altamimy_tech"), (R.IG_ICON, R.INSTA)))
@@ -78,6 +98,7 @@ def handles_html():
 async def main(src, outdir):
     from playwright.async_api import async_playwright
     html = pathlib.Path(src).read_text(encoding="utf-8")
+    html = inline_local(html, pathlib.Path(src).parent)
     html = html.replace("{{AVATAR}}", R.avatar_uri() or "").replace("{{HANDLES}}", handles_html())
     base = (".hf-so{display:inline-flex;align-items:center;gap:.4em;direction:ltr;unicode-bidi:isolate;"
             "white-space:nowrap}.hf-so svg{width:1em;height:1em;flex:none}.hf-so b{font-weight:inherit}")
