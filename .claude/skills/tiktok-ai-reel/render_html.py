@@ -9,6 +9,10 @@
   Readex Pro · JetBrains Mono · Space Grotesk) — تعمل بدون إنترنت.
 - {{AVATAR}} ← صورة علي المقصوصة (data URI يوضع في src).
 - {{HANDLES}} ← حسابي تيك توك وانستقرام بأيقوناتهما (تنسّقهما أنت بحاوية).
+- الحسابان في **كل شريحة**: أي شريحة ما فيها {{HANDLES}} يُضاف لها شريط صغير تلقائياً
+  عند y=1412 (آخر المنطقة الآمنة). خلّ محتوى الشرائح ينتهي قبل 1400.
+  data-hpos="1300" على الـ section يغيّر مكانه · data-handles="light" شريط فاتح للخلفيات الداكنة جداً
+  · data-handles="off" يلغيه. المولّد يحذّر لو الشريط غطّى أي نص.
 - صور محلية: <img src="assets/x.jpg"> أو url('assets/x.jpg') بمسار نسبي لملف
   الـ HTML — تُضمَّن تلقائياً. نزّل الصور أولاً إلى $D/assets/ (Unsplash/Pexels).
 - المنطقة الآمنة لتيك توك: لا نص في أعلى 240px ولا أسفل آخر 450px.
@@ -90,6 +94,30 @@ def inline_local(html, base):
     return re.sub(r"""(url\(['"]?)([^'")]+)(['"]?\))""", sub, html)
 
 
+AUTO_JS = """([hh]) => {
+  const out = [];
+  document.querySelectorAll('section.slide').forEach((sl, i) => {
+    if (sl.querySelector('.hf-so') || sl.dataset.handles === 'off') return;
+    const d = document.createElement('div');
+    d.className = 'hf-auto' + (sl.dataset.handles === 'light' ? ' hf-light' : '');
+    d.style.top = (sl.dataset.hpos || 1412) + 'px';
+    d.setAttribute('data-safe', 'ignore');
+    d.innerHTML = hh; sl.appendChild(d);
+    const r = d.getBoundingClientRect();
+    const w = document.createTreeWalker(sl, NodeFilter.SHOW_TEXT); let n;
+    while ((n = w.nextNode())) {
+      if (!n.textContent.trim() || d.contains(n)) continue;
+      const rg = document.createRange(); rg.selectNodeContents(n);
+      for (const b of rg.getClientRects()) {
+        if (b.right > r.left && b.left < r.right && b.bottom > r.top && b.top < r.bottom) {
+          out.push({slide: i + 1, text: n.textContent.trim().slice(0, 40)}); break; }
+      }
+    }
+  });
+  return out;
+}"""
+
+
 def handles_html():
     return "".join(f'<span class="hf-so">{ic}<b>{h}</b></span>'
                    for ic, h in ((R.TT_ICON, "@ali_altamimy_tech"), (R.IG_ICON, R.INSTA)))
@@ -101,7 +129,11 @@ async def main(src, outdir):
     html = inline_local(html, pathlib.Path(src).parent)
     html = html.replace("{{AVATAR}}", R.avatar_uri() or "").replace("{{HANDLES}}", handles_html())
     base = (".hf-so{display:inline-flex;align-items:center;gap:.4em;direction:ltr;unicode-bidi:isolate;"
-            "white-space:nowrap}.hf-so svg{width:1em;height:1em;flex:none}.hf-so b{font-weight:inherit}")
+            "white-space:nowrap}.hf-so svg{width:1em;height:1em;flex:none}.hf-so b{font-weight:inherit}"
+            ".hf-auto{position:absolute;left:50%;transform:translateX(-50%);display:flex;gap:22px;align-items:center;"
+            "padding:10px 24px;border-radius:999px;background:rgba(18,19,22,.8);color:#fff;z-index:50;"
+            "font:700 24px 'IBM Plex Sans Arabic',sans-serif;white-space:nowrap}"
+            ".hf-auto.hf-light{background:rgba(255,255,255,.92);color:#121316}")
     faces = f"<style>{R.all_faces()}\n{extra_faces()}\n{base}</style>"
     html = html.replace("</head>", faces + "</head>", 1)
     outdir = pathlib.Path(outdir)
@@ -117,7 +149,10 @@ async def main(src, outdir):
         await page.set_content(html, wait_until="load")
         await page.evaluate("document.fonts.ready")
         n = await page.evaluate("document.querySelectorAll('section.slide').length")
+        cover = await page.evaluate(AUTO_JS, [handles_html()])
         warns = await page.evaluate(CHECK_JS, [SAFE_TOP, SAFE_BOTTOM])
+        warns += [dict(slide=c["slide"], text=c["text"], why="شريط الحسابات يغطيه — حرّك النص أو data-hpos")
+                  for c in cover]
         for i in range(n):
             el = page.locator("section.slide").nth(i)
             p = outdir / f"slide_{i+1:02d}.jpg"
