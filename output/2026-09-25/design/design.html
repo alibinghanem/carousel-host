@@ -169,6 +169,17 @@ body{background:#000;font-family:'IBM Plex Sans Arabic','Cairo',sans-serif;-webk
   background:rgba(10,15,44,.75);border:2px solid rgba(255,255,255,.22);color:#fff;font:700 28px 'IBM Plex Sans Arabic'}
 .s6 .bgph{object-position:50% 50%;filter:saturate(.95) brightness(.8)}
 .s6 .tint{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,15,44,.92) 0%,rgba(10,15,44,.62) 30%,rgba(10,15,44,.5) 55%,rgba(10,15,44,.7) 75%,rgba(10,15,44,.95) 92%)}
+
+.polaroid{position:absolute;top:610px;left:80px;width:330px;background:#F7F3EA;padding:18px 18px 0;border-radius:6px;transform:rotate(-7deg);
+  box-shadow:0 30px 60px rgba(0,0,0,.55);z-index:3}
+.polaroid .phw{height:280px;overflow:hidden}
+.polaroid img{display:block;width:100%;height:100%;object-fit:cover;object-position:42% 45%;transform:scale(1.45);transform-origin:40% 22%;filter:saturate(1.05) contrast(1.05)}
+.polaroid span{display:block;text-align:center;padding:14px 0 18px;font:400 38px 'Lalezar';color:#2A2A33}
+.polaroid .pin{position:absolute;top:-18px;left:50%;transform:translateX(-50%);width:40px;height:40px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#FF9A85,var(--coral) 55%,#B23A22);box-shadow:0 6px 10px rgba(0,0,0,.45)}
+.s6 .c1{left:450px;right:90px}
+.s6 .c2{top:1050px}
+.s6 .formula{top:1372px}
 </style>
 </head>
 <body>
@@ -288,10 +299,10 @@ body{background:#000;font-family:'IBM Plex Sans Arabic','Cairo',sans-serif;-webk
 
 <!-- ٦ الخطأ الشائع -->
 <section class="slide s6">
-  <img class="bgph" src="assets/mail.jpg"><div class="tint"></div>
   <div class="kick" style="color:var(--coral)"><i></i>الخطأ الشائع</div>
   <div class="pg" style="color:#fff">06</div>
   <h2 class="disp">الهدف الغامض <em>يخرّب الوكيل</em></h2>
+  <div class="polaroid"><i class="pin"></i><div class="phw"><img src="assets/mail.jpg"></div><span>إيميلك الحين!</span></div>
   <div class="card c1"><div class="stamp">غامض</div><div class="tag">اللي يكتبه أغلب الناس</div><div class="q">«رتّب إيميلي»</div></div>
   <div class="card c2"><div class="stamp">واضح</div><div class="tag">اللي يخلّيه يخلص الشغل</div>
     <div class="q">«انقل كل الفواتير لمجلد (فواتير)، وأرسل لي قائمتها مع المبالغ»</div></div>
