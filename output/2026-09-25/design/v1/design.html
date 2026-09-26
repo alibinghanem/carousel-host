@@ -38,7 +38,7 @@ body{background:#000;font-family:'IBM Plex Sans Arabic','Cairo',sans-serif;-webk
 /* ————— ١ الغلاف ————— */
 .s1{background:radial-gradient(1200px 900px at 80% 10%,#1E2A6E 0,var(--night) 60%)}
 .s1 .stars{position:absolute;inset:0;background-image:radial-gradient(#fff 1.5px,transparent 2px);background-size:90px 90px;opacity:.12}
-.s1 h1{position:absolute;top:340px;right:90px;left:90px;color:#fff;font-size:150px;text-shadow:0 6px 40px rgba(10,15,44,.7)}
+.s1 h1{position:absolute;top:340px;right:90px;left:90px;color:#fff;font-size:150px}
 .s1 h1 em{font-style:normal;color:var(--yellow);display:block}
 .s1 .arc{position:absolute;top:800px;left:0;width:1080px}
 .swipe{position:absolute;top:1400px;left:90px;font:700 32px 'IBM Plex Sans Arabic';color:var(--yellow);display:flex;gap:12px;align-items:center}
@@ -118,7 +118,7 @@ body{background:#000;font-family:'IBM Plex Sans Arabic','Cairo',sans-serif;-webk
 
 /* ————— ٦ الخطأ ————— */
 .s6{background:var(--night);color:#fff}
-.s6 h2{position:absolute;top:320px;right:90px;left:90px;font-size:112px;text-shadow:0 6px 40px rgba(10,15,44,.8)}
+.s6 h2{position:absolute;top:320px;right:90px;left:90px;font-size:112px}
 .s6 h2 em{font-style:normal;color:var(--coral)}
 .card{position:absolute;right:110px;left:110px;border-radius:28px;padding:40px 44px}
 .card .tag{font:700 26px 'IBM Plex Sans Arabic';opacity:.7;margin-bottom:10px}
@@ -129,9 +129,9 @@ body{background:#000;font-family:'IBM Plex Sans Arabic','Cairo',sans-serif;-webk
 .stamp{position:absolute;left:40px;top:-30px;font-family:'Lalezar';font-size:52px;padding:4px 26px;border:6px solid;border-radius:14px;transform:rotate(-8deg);background:inherit}
 .c1 .stamp{color:var(--coral);border-color:var(--coral);background:#262D55}
 .c2 .stamp{color:#0E7A4E;border-color:#0E7A4E;background:var(--yellow)}
-.formula{position:absolute;top:1330px;text-shadow:0 2px 12px rgba(0,0,0,.6);right:90px;left:90px;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;
+.formula{position:absolute;top:1330px;right:90px;left:90px;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;
   font:700 34px 'IBM Plex Sans Arabic'}
-.formula b{background:rgba(10,15,44,.85);border:2px solid rgba(255,255,255,.25);padding:10px 22px;border-radius:999px;font-weight:700}
+.formula b{background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.25);padding:10px 22px;border-radius:999px;font-weight:700}
 .formula .eq{color:var(--yellow);font-family:'JetBrains Mono';font-weight:800}
 .formula .res{background:var(--mint);color:var(--ink);border-color:var(--mint)}
 
@@ -159,24 +159,13 @@ body{background:#000;font-family:'IBM Plex Sans Arabic','Cairo',sans-serif;-webk
 .pass .bc{height:90px;margin:0 40px 36px;background:repeating-linear-gradient(90deg,var(--ink) 0 5px,transparent 5px 9px,var(--ink) 9px 11px,transparent 11px 17px,var(--ink) 17px 24px,transparent 24px 28px)}
 .s7 .cta{position:absolute;top:1395px;right:90px;left:90px;text-align:center;color:#fff;font:700 36px 'IBM Plex Sans Arabic'}
 .s7 .cta em{font-style:normal;color:var(--yellow)}
-
-/* ————— صور حقيقية ————— */
-.bgph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.s1 .bgph{object-position:62% 50%;filter:saturate(.85) brightness(.95) contrast(1.05)}
-.s1 .tint{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,15,44,.9) 0%,rgba(10,15,44,.62) 24%,rgba(10,15,44,.28) 44%,rgba(10,15,44,.08) 58%,rgba(10,15,44,.25) 74%,rgba(10,15,44,.92) 90%)}
-.s1 .tone{position:absolute;inset:0;background:#1E2A6E;mix-blend-mode:color;opacity:.3}
-.hbar{position:absolute;top:1392px;right:90px;display:flex;gap:26px;align-items:center;padding:14px 28px;border-radius:999px;
-  background:rgba(10,15,44,.75);border:2px solid rgba(255,255,255,.22);color:#fff;font:700 28px 'IBM Plex Sans Arabic'}
-.s6 .bgph{object-position:50% 50%;filter:saturate(.95) brightness(.8)}
-.s6 .tint{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,15,44,.92) 0%,rgba(10,15,44,.62) 30%,rgba(10,15,44,.5) 55%,rgba(10,15,44,.7) 75%,rgba(10,15,44,.95) 92%)}
 </style>
 </head>
 <body>
 
 <!-- ١ الغلاف: التذكرة -->
 <section class="slide s1">
-  <img class="bgph" src="assets/sky.jpg"><div class="tone"></div><div class="tint"></div>
-  <div class="stars" style="opacity:.06"></div>
+  <div class="stars"></div>
   <div class="kick" style="color:var(--yellow)"><i></i>وكلاء الذكاء الاصطناعي</div>
   <div class="pg" style="color:#fff">30 / DAY</div>
   <h1 class="disp">الشات يعطيك الخريطة<em>الوكيل يوصّلك</em></h1>
@@ -200,7 +189,6 @@ body{background:#000;font-family:'IBM Plex Sans Arabic','Cairo',sans-serif;-webk
     <div class="stub"><span class="lbl">المقعد</span><div class="val mono" style="font-size:54px">1A</div><div class="bar" style="width:120px;height:170px"></div></div>
   </div>
   <div class="swipe">اسحب <span style="font-size:40px">←</span></div>
-  <div class="hbar">{{HANDLES}}</div>
 </section>
 
 <!-- ٢ نفس الطلب: جوالين -->
@@ -288,7 +276,6 @@ body{background:#000;font-family:'IBM Plex Sans Arabic','Cairo',sans-serif;-webk
 
 <!-- ٦ الخطأ الشائع -->
 <section class="slide s6">
-  <img class="bgph" src="assets/mail.jpg"><div class="tint"></div>
   <div class="kick" style="color:var(--coral)"><i></i>الخطأ الشائع</div>
   <div class="pg" style="color:#fff">06</div>
   <h2 class="disp">الهدف الغامض <em>يخرّب الوكيل</em></h2>
