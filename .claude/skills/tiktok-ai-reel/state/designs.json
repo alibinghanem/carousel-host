@@ -1,3 +1,11 @@
 [
-  {"date": "2026-09-25", "topic": "t029", "concept": "بطاقة صعود وطيران (حجز رحلة)", "cover_bg": "#0A0F2C", "display_font": "Lalezar", "cover_layout": "عنوان ضخم + تذكرة مائلة"}
+  {
+    "date": "2026-09-25",
+    "topic": "t029",
+    "concept": "بطاقة صعود وطيران (حجز رحلة)",
+    "cover_bg": "#0A0F2C",
+    "display_font": "Lalezar",
+    "cover_layout": "عنوان ضخم + تذكرة مائلة",
+    "photos": []
+  }
 ]
