@@ -98,11 +98,11 @@ window.render=function(t){
       if(tr==='circle') clip=`circle(${z*150}% at 50% 55%)`;
       else if(tr==='wipe') clip=`inset(0 0 0 ${(1-z)*100}%)`;
       else if(tr==='up') ttf=`translateY(${(1-z)*1920}px)`;
-      else if(tr==='slide') ttf=`translateX(${(z-1)*1080}px)`;
+      else if(tr==='slide'){clip=`inset(0 ${(1-z)*100}% 0 0)`;ttf=`scale(${1.06-0.06*oE(pin)})`;}   // تنبيه: أي translateX سالب لمشهد كامل يزيح الصفحة كلها في RTL
       else if(tr==='zoom'){op=oC(pin);ttf=`scale(${1.25-0.25*oE(pin)})`;}}
     const cm=s.dataset.cam, cq=clamp(local/(s._t1-s._t0),0,1);
     if(cm==='push') ttf+=` scale(${1+0.06*cq})`; else if(cm==='pull') ttf+=` scale(${1.07-0.06*cq})`;
-    else if(cm==='drift') ttf+=` translateX(${(cq-.5)*-40}px) scale(1.04)`;
+    else if(cm==='drift') ttf+=` translateX(${cq*40}px) scale(1.06)`;
     s.style.clipPath=clip; s.style.transform=ttf; s.style.opacity=op;
     s.style.zIndex=i+1;
     s.querySelectorAll('.kb').forEach(im=>{
@@ -123,7 +123,7 @@ def build(src):
     html = html.replace("{{AVATAR}}", R.avatar_uri() or "").replace("{{HANDLES}}", H.handles_html())
     base = (".hf-so{display:inline-flex;align-items:center;gap:.4em;direction:ltr;unicode-bidi:isolate;"
             "white-space:nowrap}.hf-so svg{width:1em;height:1em;flex:none}.hf-so b{font-weight:inherit}"
-            "html,body{margin:0;width:1080px;height:1920px;overflow:hidden}"
+            "html,body{margin:0;width:1080px;height:1920px;overflow:clip}"
             "section.scene{position:absolute;inset:0;width:1080px;height:1920px;overflow:hidden;visibility:hidden}"
             ".kb{will-change:transform}")
     html = html.replace("</head>", f"<style>{R.all_faces()}\n{H.extra_faces()}\n{base}</style></head>", 1)
