@@ -47,14 +47,15 @@
   },
   {
    "id": "x005",
-   "tool": "NotebookLM",
+   "tool": "Gemini Notebook",
    "feature": "Audio Overview",
    "cat": "أدوات",
-   "title": "NotebookLM: Audio Overview",
+   "title": "Gemini Notebook: Audio Overview",
    "angle": "حوّل ملفاتك لبودكاست صوتي تسمعه وأنت في السيارة",
    "source": "https://support.google.com/notebooklm/answer/15731776",
    "style": "—",
-   "accent": "—"
+   "accent": "—",
+   "note": "الاسم تغيّر من NotebookLM إلى Gemini Notebook (يوليو 2026). اذكر «NotebookLM سابقاً»."
   },
   {
    "id": "x006",
@@ -245,14 +246,15 @@
   },
   {
    "id": "x023",
-   "tool": "NotebookLM",
+   "tool": "Gemini Notebook",
    "feature": "اسأل مستنداتك",
    "cat": "أدوات",
-   "title": "NotebookLM: اسأل مستنداتك",
+   "title": "Gemini Notebook: اسأل مستنداتك",
    "angle": "جواب من ملفاتك أنت فقط، ومعه مكان المعلومة",
    "source": "https://support.google.com/notebooklm/answer/16164461",
    "style": "—",
-   "accent": "—"
+   "accent": "—",
+   "note": "الاسم تغيّر من NotebookLM إلى Gemini Notebook (يوليو 2026). اذكر «NotebookLM سابقاً»."
   },
   {
    "id": "x024",

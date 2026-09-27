@@ -450,6 +450,24 @@ def _synth(name):
             a = min(1, x / .005) * math.exp(-x * 4.2)
             out.append(a * (.5 * math.sin(2 * math.pi * 1318.5 * x) + .26 * math.sin(2 * math.pi * 1975.5 * x)
                             + .1 * math.sin(2 * math.pi * 2637 * x)))
+    elif name == "swell":            # صعود يبني ترقّب قبل الكشف
+        d, lp = .9, 0.0
+        for i in range(int(d * SR)):
+            x = i / SR
+            q = x / d
+            lp += (.01 + .2 * q * q) * (rnd.uniform(-1, 1) - lp)
+            f = 180 + 700 * q * q
+            out.append((q ** 2.2) * (lp * 1.3 + .22 * math.sin(2 * math.pi * f * x)) * (1 if q < .96 else (1 - q) / .04))
+    elif name == "sub":              # ضربة باص عميقة للحظة الكشف
+        ph = 0.0
+        for i in range(int(.7 * SR)):
+            x = i / SR
+            ph += 2 * math.pi * (38 + 42 * math.exp(-x * 9)) / SR
+            out.append(min(1, x / .003) * math.exp(-x * 5.5) * math.sin(ph) * 1.1)
+    elif name == "click":            # نقرة كيبورد
+        for i in range(int(.018 * SR)):
+            x = i / SR
+            out.append(math.exp(-x * 420) * (rnd.uniform(-1, 1) * .7 + .3 * math.sin(2 * math.pi * 4200 * x)))
     elif name == "whoosh":
         d, lp = .34, 0.0
         for i in range(int(d * SR)):
