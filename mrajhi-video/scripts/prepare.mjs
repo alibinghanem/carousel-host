@@ -1,7 +1,7 @@
 import sharp from "sharp"; import fs from "fs";
 const idx = JSON.parse(fs.readFileSync("research/projects-index.json", "utf8"));
 // curated set (real photos only; no portal watermark, no AI-generated, see research/open-questions.md)
-const PICK = [1,2,4,5,6,7,12,13,16,18,19,20,29,35,75,77,78,85,90,92,95,96,100,102,103,104,109,110,111,123,129,153,157,158,184,188];
+const PICK = [1,2,4,5,6,7,12,13,16,18,19,20,29,35,75,77,78,85,88,90,92,95,96,100,102,103,104,109,110,111,123,129,153,157,158,184,188];
 fs.mkdirSync("public/photos", { recursive: true });
 const out = {};
 for (const k of PICK) {

@@ -5,7 +5,7 @@ import { GradientBackground } from "../components/GradientBackground";
 import { ImageReveal } from "../components/ImageReveal";
 import { KineticText, Rule } from "../components/KineticText";
 import { LogoReveal } from "../components/LogoReveal";
-import { BRAND as PHOTOS } from "../generated/photos";
+import { BRAND as PHOTOS, P } from "../generated/photos";
 import { BRAND } from "../content";
 
 const Pill: React.FC<{ start: number; children: React.ReactNode; size: number; gold?: boolean }> = ({ start, children, size, gold }) => {
@@ -35,12 +35,13 @@ export const EndCard: React.FC = () => {
   const logoH = portrait ? 600 : 640;
   const logoW = (logoH * 920) / 1150 + logoH * 0.18;
   const textW = portrait ? width - margin.x * 2 : width - margin.x * 2 - logoW - 110;
-  const fade = interpolate(frame, [212, 224], [0, 1], clampOpts);
+  const fadeAt = portrait ? 243 : 212; // fade to ink only over the last ~12 frames of the scene
+  const fade = interpolate(frame, [fadeAt, fadeAt + 11], [0, 1], clampOpts);
   return (
     <AbsoluteFill>
       <GradientBackground variant="deep" seed={7} />
-      <ImageReveal photo={PHOTOS.hq} reveal="none" box={{ left: 0, top: 0, width, height }} blur={14} brightness={0.5} kb={{ from: 1.08, to: 1.16, dur: 240, dx: 3 }} duotone={0.35} />
-      <AbsoluteFill style={{ background: "radial-gradient(80% 80% at 50% 45%, rgba(13,27,62,0.55), rgba(7,15,38,0.92))" }} />
+      <ImageReveal photo={portrait ? P[75] : PHOTOS.hq} reveal="none" box={{ left: 0, top: 0, width, height }} blur={portrait ? 7 : 14} brightness={portrait ? 0.62 : 0.5} focal={portrait ? [0.62, 0.5] : [0.5, 0.5]} kb={{ from: 1.1, to: 1.24, dur: 260, dx: 3 }} duotone={portrait ? 0 : 0.35} />
+      <AbsoluteFill style={{ background: portrait ? "linear-gradient(to bottom, rgba(7,15,38,0.25) 0%, rgba(7,15,38,0.55) 40%, rgba(7,15,38,0.92) 78%)" : "radial-gradient(80% 80% at 50% 45%, rgba(13,27,62,0.55), rgba(7,15,38,0.92))" }} />
       <div style={portrait ? { position: "absolute", left: 0, right: 0, top: margin.top + 50, display: "flex", justifyContent: "center" } : { position: "absolute", right: margin.x, top: (height - (logoH + logoH * 0.18)) / 2 }}>
         <LogoReveal start={4} height={logoH} />
       </div>

@@ -16,3 +16,5 @@
 14. **Music.** `public/audio/music-placeholder.wav` is a synthesized 120 BPM placeholder made only to test sync/fades; replace with a licensed track (brief in README).
 15. **Music (9:16).** `public/audio/music-portrait-A.mp3` is an AI-generated instrumental (ElevenLabs Music v2.5, 120 BPM, 29.5 s, hit at 21 s = logo). `music-portrait-B.mp3` is an alternate take. Confirm licensing/usage terms of the generated track for your distribution before paid media. The 16:9 film still uses the synthesized placeholder.
 16. **Voice-over.** Dropped at the client's request (music only).
+17. **Projects in the 9:16 "dive" cut.** Uses Nada (p6→p88), Andalus (p13→p104) and Mama Noura building (p29→p184). Confirm you are happy featuring these three; swap in `src/PromoDive.tsx` (`PROJECTS`).
+18. **Photo softness.** Listing photos are ≤1920 px and are shown ~1.5× larger in the portrait frame (film grain hides most of it). For a hero release, request the originals from the photographer.

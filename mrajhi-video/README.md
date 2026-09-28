@@ -1,6 +1,8 @@
 # الراجحي للتنمية والاستثمارات — Promo film (Remotion)
 
-Two deliverables, rendered H.264 CRF 18, 30 fps, AAC audio:
+**Current deliverable (client focus): the 9:16 «الغوص» (dive) film — `out/mrajhi-promo-9x16.mp4` (29.5 s, music-driven, continuous portal-dive transitions). Composition id `Promo-9x16` (`src/PromoDive.tsx`, `src/dive/*`); the earlier card-based cut is kept as `Promo-9x16-v1-cards`.**
+
+Two deliverables originally planned, rendered H.264 CRF 18, 30 fps, AAC audio:
 
 | File | Format | Length |
 |---|---|---|

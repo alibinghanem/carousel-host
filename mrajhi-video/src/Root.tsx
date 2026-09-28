@@ -9,6 +9,8 @@ import { Services } from "./scenes/Services";
 import { Proof } from "./scenes/Proof";
 import { PromiseScene } from "./scenes/Promise";
 import { EndCard } from "./scenes/EndCard";
+import { DIVE, DIVE_FRAMES, PromoDive } from "./PromoDive";
+import { DiveHook, DiveProject, DiveProof, DivePromise } from "./dive/DiveScenes";
 
 const L = { width: 1920, height: 1080, fps: FPS } as const;
 const V = { width: 1080, height: 1920, fps: FPS } as const;
@@ -16,7 +18,14 @@ const V = { width: 1080, height: 1920, fps: FPS } as const;
 export const RemotionRoot: React.FC = () => (
   <>
     <Composition id="Promo-16x9" component={PromoLandscape} durationInFrames={LANDSCAPE_FRAMES} {...L} />
-    <Composition id="Promo-9x16" component={PromoPortrait} durationInFrames={PORTRAIT_FRAMES} {...V} />
+    <Composition id="Promo-9x16" component={PromoDive} durationInFrames={DIVE_FRAMES} {...V} />
+    <Composition id="Promo-9x16-v1-cards" component={PromoPortrait} durationInFrames={PORTRAIT_FRAMES} {...V} />
+    <Folder name="Dive-9x16">
+      <Composition id="D-01-Hook" component={DiveHook} durationInFrames={DIVE.hook} {...V} />
+      <Composition id="D-02-Nada" component={DiveProject} durationInFrames={DIVE.p1} {...V} defaultProps={{ project: { name: "مشروع الندى", district: "الرياض · حي العليا", ext: 6, int: 88 }, index: 0, total: 3 }} />
+      <Composition id="D-05-Proof" component={DiveProof} durationInFrames={DIVE.proof} {...V} />
+      <Composition id="D-06-Promise" component={DivePromise} durationInFrames={DIVE.promise} {...V} />
+    </Folder>
     <Folder name="Scenes-16x9">
       <Composition id="L-01-Hook" component={Hook} durationInFrames={LANDSCAPE_SCENES.hook} {...L} />
       <Composition id="L-02-Aspiration" component={Aspiration} durationInFrames={LANDSCAPE_SCENES.aspiration} {...L} />
