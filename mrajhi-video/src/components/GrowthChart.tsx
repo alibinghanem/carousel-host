@@ -55,7 +55,7 @@ export const GrowthChart: React.FC<Props> = ({ data, width, height, start = 0, d
         <g>
           <circle cx={head.x} cy={head.y} r={22} fill={colors.gold} opacity={0.22} />
           <circle cx={head.x} cy={head.y} r={11} fill={colors.gold} />
-          <text x={head.x} y={head.y - 34} textAnchor="middle" fontFamily={DISPLAY} fontSize={labelSize * 1.15} fontWeight={800} fill={colors.cream}>{year}</text>
+          <text x={head.x} y={head.y - 34} textAnchor="middle" fontFamily={DISPLAY} fontSize={labelSize * 1.15} fontWeight={620} fill={colors.cream}>{year}</text>
         </g>
       )}
     </svg>

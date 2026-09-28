@@ -74,7 +74,7 @@ export const ServiceCard: React.FC<Props> = ({ iconKey, title, text, photo, star
         </svg>
       </div>
       <div dir="rtl" style={{ position: "absolute", right: box.width * 0.08, left: box.width * 0.08, top: photoH + badge / 2 + 18, fontFamily: FONT }}>
-        <div style={{ fontFamily: DISPLAY, fontSize: titleSize, fontWeight: 800, color: colors.cream, lineHeight: 1.15, opacity: interpolate(local, [24, 44], [0, 1], clampOpts), translate: `0 ${interpolate(local, [24, 44], [24, 0], { ...clampOpts, easing: ease.expoOut })}px` }}>{title}</div>
+        <div style={{ fontFamily: DISPLAY, fontSize: titleSize, fontWeight: 620, color: colors.cream, lineHeight: 1.15, opacity: interpolate(local, [24, 44], [0, 1], clampOpts), translate: `0 ${interpolate(local, [24, 44], [24, 0], { ...clampOpts, easing: ease.expoOut })}px` }}>{title}</div>
         <div style={{ fontSize: textSize, fontWeight: 500, color: colors.muted, lineHeight: 1.35, marginTop: 10, opacity: interpolate(local, [32, 54], [0, 1], clampOpts), translate: `0 ${interpolate(local, [32, 54], [24, 0], { ...clampOpts, easing: ease.expoOut })}px` }}>{text}</div>
       </div>
     </div>

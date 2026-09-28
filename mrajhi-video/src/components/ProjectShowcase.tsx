@@ -33,7 +33,7 @@ export const ProjectPanel: React.FC<{ project: Project; index: number; total: nu
           kb={{ from: 1.02, to: 1.16, dur: 130, dx: 3 * dir, dy: 2 }} scrim="bottom" scrimOpacity={0.35} />
         <ImageReveal photo={P[project.second]} reveal="up" start={12} revealDur={26} box={{ left: margin.x + photoW - 170, top: top + photoH - 270, width: 470, height: 330 }} radius={22} shadow border
           kb={{ from: 1.05, to: 1.22, dur: 130, dx: -4 * dir }} />
-        <div dir="rtl" style={{ position: "absolute", right: margin.x - 10, top: top - 30, fontFamily: DISPLAY, fontSize: 430, fontWeight: 900, lineHeight: 1, color: "transparent", WebkitTextStroke: "2px rgba(220,165,13,0.22)", opacity: interpolate(frame, [0, 26], [0, 1], clampOpts), translate: `${ghost}px 0` }}>
+        <div dir="rtl" style={{ position: "absolute", right: margin.x - 10, top: top - 30, fontFamily: DISPLAY, fontSize: 430, fontWeight: 680, lineHeight: 1, color: "transparent", WebkitTextStroke: "2px rgba(220,165,13,0.22)", opacity: interpolate(frame, [0, 26], [0, 1], clampOpts), translate: `${ghost}px 0` }}>
           <span dir="ltr">{two(index + 1)}</span>
         </div>
         <div dir="rtl" style={{ position: "absolute", right: margin.x, top: top + 120, width: colW, fontFamily: FONT }}>

@@ -42,10 +42,10 @@ export const PromiseScene: React.FC<{ short?: boolean }> = ({ short = false }) =
           const inP = interpolate(frame - s, [0, 22], [0, 1], { ...clampOpts, easing: ease.expoOut });
           return (
             <div key={pl.title} style={{ display: "flex", alignItems: "center", gap: 28, fontFamily: FONT, opacity: inP * (1 - out), translate: `${(1 - inP) * 120 - out * 100}px 0` }}>
-              <div dir="ltr" style={{ fontFamily: DISPLAY, fontSize: 40, fontWeight: 800, color: colors.gold, width: 72, textAlign: "center", flex: "none" }}>{"0" + (i + 1)}</div>
+              <div dir="ltr" style={{ fontFamily: DISPLAY, fontSize: 40, fontWeight: 620, color: colors.gold, width: 72, textAlign: "center", flex: "none" }}>{"0" + (i + 1)}</div>
               <div style={{ width: 4, alignSelf: "stretch", background: colors.gold, borderRadius: 4, scale: `1 ${inP}` }} />
               <div>
-                <div style={{ fontFamily: DISPLAY, fontSize: portrait ? 58 : 68, fontWeight: 800, color: colors.cream, lineHeight: 1.1 }}>{pl.title}</div>
+                <div style={{ fontFamily: DISPLAY, fontSize: portrait ? 58 : 68, fontWeight: 620, color: colors.cream, lineHeight: 1.1 }}>{pl.title}</div>
                 {!short && <div style={{ fontSize: 34, fontWeight: 500, color: colors.muted, marginTop: 8 }}>{pl.text}</div>}
               </div>
             </div>

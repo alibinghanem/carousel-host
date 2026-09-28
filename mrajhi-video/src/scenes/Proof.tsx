@@ -16,7 +16,7 @@ const Badge: React.FC<{ start: number; size: number }> = ({ start, size }) => {
   const p = interpolate(frame - start, [0, 20], [0, 1], { ...clampOpts, easing: ease.expoOut });
   return (
     <div dir="rtl" style={{ display: "inline-flex", alignItems: "baseline", gap: 12, padding: `${size * 0.35}px ${size * 0.7}px`, borderRadius: 999, background: "rgba(220,165,13,0.14)", outline: `1.5px solid rgba(220,165,13,0.6)`, outlineOffset: -1.5, fontFamily: FONT, opacity: p, scale: String(0.9 + p * 0.1) }}>
-      <span dir="ltr" style={{ fontFamily: DISPLAY, fontSize: size * 1.5, fontWeight: 800, color: colors.gold }}>+{GROWTH_BADGE.value}%</span>
+      <span dir="ltr" style={{ fontFamily: DISPLAY, fontSize: size * 1.5, fontWeight: 620, color: colors.gold }}>+{GROWTH_BADGE.value}%</span>
       <span style={{ fontSize: size, fontWeight: 700, color: colors.cream }}>{GROWTH_BADGE.label}</span>
     </div>
   );
@@ -88,7 +88,7 @@ export const Proof: React.FC<{ short?: boolean }> = ({ short = false }) => {
             box={cityBox(i)} radius={24} shadow border duotone={i === 0 ? 0.0 : 0.5}
             scrim="bottom" scrimOpacity={0.88} kb={{ from: 1.04, to: 1.14, dur: 130, dx: i % 2 ? -3 : 3 }} />
           <div dir="rtl" style={{ position: "absolute", right: (width - (cityBox(i).left + cityBox(i).width)) + 26, top: cityBox(i).top + cityBox(i).height - (i === 0 ? 150 : 108), fontFamily: FONT, opacity: interpolate(frame - CITY_AT - 20 - i * 7, [0, 16], [0, 1], clampOpts), translate: `0 ${interpolate(frame - CITY_AT - 20 - i * 7, [0, 16], [16, 0], { ...clampOpts, easing: ease.expoOut })}px` }}>
-            <div style={{ fontFamily: DISPLAY, fontSize: i === 0 ? 70 : 46, fontWeight: 800, color: colors.cream, lineHeight: 1.1 }}>{c.name}</div>
+            <div style={{ fontFamily: DISPLAY, fontSize: i === 0 ? 70 : 46, fontWeight: 620, color: colors.cream, lineHeight: 1.1 }}>{c.name}</div>
             <div style={{ fontSize: i === 0 ? 32 : 24, fontWeight: 500, color: i === 0 ? colors.gold : colors.muted, marginTop: 6 }}>{c.note}</div>
           </div>
         </React.Fragment>

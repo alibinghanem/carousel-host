@@ -9,7 +9,7 @@ import { BRAND, GROWTH, GROWTH_BADGE, HOOK, PILLARS, STATS } from "../content";
 import { INK, InnerPortal, Plate } from "./Plate";
 
 const TEXT_RIGHT = 96; // leaves room for the spine
-const ghostStyle: React.CSSProperties = { fontFamily: DISPLAY, fontWeight: 800, lineHeight: 1, color: "transparent", WebkitTextStroke: "2px rgba(247,243,232,0.28)" };
+const ghostStyle: React.CSSProperties = { fontFamily: DISPLAY, fontWeight: 620, lineHeight: 1, color: "transparent", WebkitTextStroke: "2px rgba(247,243,232,0.28)" };
 
 /** Chapter 1 — a gold line rises, the frame opens around it onto the golden-hour facade, headline lands. */
 export const DiveHook: React.FC = () => {
@@ -84,7 +84,7 @@ export const DiveProof: React.FC = () => {
       </div>
       <div style={{ position: "absolute", right: TEXT_RIGHT, top: 1070, width: gridW }}>
         <div dir="rtl" style={{ display: "inline-flex", alignItems: "baseline", gap: 12, padding: "12px 28px", borderRadius: 999, background: "rgba(7,15,38,0.55)", outline: "1.5px solid rgba(220,165,13,0.7)", outlineOffset: -1.5, fontFamily: DISPLAY, opacity: badge, scale: String(0.9 + 0.1 * badge) }}>
-          <span dir="ltr" style={{ fontSize: 46, fontWeight: 800, color: colors.gold }}>+{GROWTH_BADGE.value}%</span>
+          <span dir="ltr" style={{ fontSize: 46, fontWeight: 620, color: colors.gold }}>+{GROWTH_BADGE.value}%</span>
           <span style={{ fontFamily: FONT, fontSize: 32, fontWeight: 600, color: colors.cream }}>{GROWTH_BADGE.label}</span>
         </div>
         <div style={{ height: 8 }} />
@@ -113,9 +113,9 @@ export const DivePromise: React.FC = () => {
           const o = interpolate(frame - (sloganAt - 14) - i * 3, [0, 12], [0, 1], { ...clampOpts, easing: ease.inOutQuart });
           return (
             <div key={pl.title} style={{ display: "flex", alignItems: "center", gap: 26, opacity: inP * (1 - o), translate: `${(1 - inP) * 140 - o * 90}px 0` }}>
-              <div dir="ltr" style={{ fontFamily: DISPLAY, fontWeight: 800, fontSize: 38, color: colors.gold, width: 70, textAlign: "center", flex: "none" }}>{"0" + (i + 1)}</div>
+              <div dir="ltr" style={{ fontFamily: DISPLAY, fontWeight: 620, fontSize: 38, color: colors.gold, width: 70, textAlign: "center", flex: "none" }}>{"0" + (i + 1)}</div>
               <div style={{ width: 4, height: 84, background: colors.gold, borderRadius: 4, scale: `1 ${inP}` }} />
-              <div style={{ fontFamily: DISPLAY, fontWeight: 800, fontSize: 70, color: colors.cream, lineHeight: 1.3, textShadow: "0 4px 30px rgba(3,6,15,0.6)" }}>{pl.title}</div>
+              <div style={{ fontFamily: DISPLAY, fontWeight: 620, fontSize: 70, color: colors.cream, lineHeight: 1.3, textShadow: "0 4px 30px rgba(3,6,15,0.6)" }}>{pl.title}</div>
             </div>
           );
         })}

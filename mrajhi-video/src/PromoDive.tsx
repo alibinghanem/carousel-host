@@ -5,6 +5,7 @@ import { Audio } from "@remotion/media";
 import { ease } from "./theme";
 import { portalDive } from "./dive/PortalDive";
 import { Spine } from "./dive/Spine";
+import { LogoBadge } from "./dive/LogoBadge";
 import { GrainOverlay } from "./components/GrainOverlay";
 import { DiveHook, DiveProject, DiveProof, DivePromise } from "./dive/DiveScenes";
 import { EndCard } from "./scenes/EndCard";
@@ -46,6 +47,7 @@ export const PromoDive: React.FC = () => (
     <LightLeakBurst at={618} dur={44} />
     <Spine marks={MARKS} total={DIVE_FRAMES} />
     <GrainOverlay opacity={0.1} />
+    <LogoBadge />
     <Audio src={staticFile("audio/music-portrait-A.mp3")} volume={(f) => Math.min(1, f / 15) * Math.min(1, Math.max(0, (DIVE_FRAMES - f) / 30)) * 0.9} />
   </AbsoluteFill>
 );

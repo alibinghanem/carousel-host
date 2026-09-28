@@ -53,7 +53,7 @@ export const KineticText: React.FC<Props> = ({
         maxWidth,
         fontFamily: familyFor(weight),
         fontSize: size,
-        fontWeight: weight,
+        fontWeight: weight >= 900 ? 680 : weight >= 800 ? 620 : weight >= 700 ? 600 : weight,
         lineHeight: lh,
         color,
         textShadow: shadow ? "0 4px 30px rgba(3,6,15,0.45)" : undefined,

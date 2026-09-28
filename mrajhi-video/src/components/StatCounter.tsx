@@ -25,7 +25,7 @@ export const StatCounter: React.FC<Props> = ({ value, suffix = "", label, start 
   const alignItems = align === "center" ? "center" : "flex-start";
   return (
     <div dir="rtl" style={{ display: "flex", flexDirection: "column", alignItems, gap: labelSize * 0.35, fontFamily: FONT, opacity: inP, translate: `0 ${(1 - inP) * 30}px` }}>
-      <div style={{ position: "relative", fontFamily: DISPLAY, fontSize: size, fontWeight: 800, lineHeight: 1.05, color: colors.gold, scale: String(interpolate(pop, [0, 1], [0.92, 1])), transformOrigin: align === "center" ? "center" : "right center" }}>
+      <div style={{ position: "relative", fontFamily: DISPLAY, fontSize: size, fontWeight: 620, lineHeight: 1.05, color: colors.gold, scale: String(interpolate(pop, [0, 1], [0.92, 1])), transformOrigin: align === "center" ? "center" : "right center" }}>
         <span dir="ltr" style={{ opacity: 0, whiteSpace: "nowrap", display: "block" }}>{final}</span>
         <span dir="ltr" style={{ position: "absolute", inset: 0, whiteSpace: "nowrap", textAlign: align === "center" ? "center" : "right", fontVariantNumeric: "tabular-nums" }}>
           {formatNum(count)}{suffix}

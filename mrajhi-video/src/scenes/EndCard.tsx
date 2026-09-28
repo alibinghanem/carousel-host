@@ -12,7 +12,7 @@ const Pill: React.FC<{ start: number; children: React.ReactNode; size: number; g
   const frame = useCurrentFrame();
   const p = interpolate(frame - start, [0, 22], [0, 1], { ...clampOpts, easing: ease.expoOut });
   return (
-    <div style={{ display: "inline-flex", alignItems: "center", gap: 18, padding: `${size * 0.42}px ${size * 0.9}px`, borderRadius: 999, fontFamily: FONT, fontSize: size, fontWeight: 700,
+    <div style={{ display: "inline-flex", alignItems: "center", gap: 18, padding: `${size * 0.42}px ${size * 0.9}px`, borderRadius: 999, fontFamily: FONT, fontSize: size, fontWeight: 600,
       color: gold ? colors.navyDeep : colors.cream, background: gold ? `linear-gradient(90deg, ${colors.goldSoft}, ${colors.gold})` : "rgba(247,243,232,0.08)",
       outline: gold ? undefined : `1.5px solid rgba(247,243,232,0.35)`, outlineOffset: -1.5, opacity: p, translate: `0 ${(1 - p) * 30}px`, clipPath: `inset(0 ${(1 - p) * 100}% 0 0 round 999px)`,
       boxShadow: gold ? "0 20px 50px rgba(220,165,13,0.28)" : undefined }}>
