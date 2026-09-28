@@ -6,12 +6,13 @@ import { clampOpts, colors, ease } from "../theme";
  * Persistent HUD over the whole dive: a gold spine on the right edge that travels with the film
  * (ticks = chapters) and a tiny brand line. It never cuts, which is what makes the chapters read as one move.
  */
-export const Spine: React.FC<{ marks: number[]; total: number }> = ({ marks, total }) => {
+export const Spine: React.FC<{ marks: number[]; total: number; hideFrom?: number }> = ({ marks, total, hideFrom = total }) => {
   const frame = useCurrentFrame();
   const { width, height } = useVideoConfig();
   const top = 300, bottom = height - 300, len = bottom - top;
   const prog = interpolate(frame, [0, total - 1], [0, 1], { ...clampOpts, easing: ease.softOut });
-  const on = interpolate(frame, [20, 44], [0, 1], clampOpts) * interpolate(frame, [total - 40, total - 20], [1, 0], clampOpts);
+  // hidden on the end card (from `hideFrom`), where the full-size logo takes over
+  const on = interpolate(frame, [20, 44], [0, 1], clampOpts) * interpolate(frame, [hideFrom, hideFrom + 12], [1, 0], clampOpts);
   const x = width - 46;
   return (
     <div style={{ position: "absolute", inset: 0, pointerEvents: "none", opacity: on }}>

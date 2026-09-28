@@ -45,7 +45,7 @@ export const PromoDive: React.FC = () => (
       <TransitionSeries.Sequence name="07 End" durationInFrames={DIVE.end}><EndCard /></TransitionSeries.Sequence>
     </TransitionSeries>
     <LightLeakBurst at={618} dur={44} />
-    <Spine marks={MARKS} total={DIVE_FRAMES} />
+    <Spine marks={MARKS} total={DIVE_FRAMES} hideFrom={626} />
     <GrainOverlay opacity={0.1} />
     <LogoBadge hideFrom={626} />
     <Audio src={staticFile("audio/music-portrait-A.mp3")} volume={(f) => Math.min(1, f / 15) * Math.min(1, Math.max(0, (DIVE_FRAMES - f) / 30)) * 0.9} />
