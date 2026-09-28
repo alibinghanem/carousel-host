@@ -1,0 +1,60 @@
+{
+  "url": "https://mrajhi.com.sa/customer/login",
+  "status": 200,
+  "title": "الراجحي للتنمية والاستثمارات",
+  "links": [
+    {
+      "href": "https://mrajhi.com.sa/",
+      "text": "الراجحي للتنمية والاستثمارات\n\nبوابة العملاء"
+    },
+    {
+      "href": "https://mrajhi.com.sa/",
+      "text": ""
+    },
+    {
+      "href": "https://mrajhi.com.sa/units",
+      "text": "تصفح العقارات المتاحة"
+    },
+    {
+      "href": "https://mrajhi.com.sa/login",
+      "text": "دخول الإدارة"
+    }
+  ],
+  "imgs": [
+    {
+      "src": "https://mrajhi.com.sa/_next/image?url=%2Flogo.jpg&w=48&q=75",
+      "srcset": "/_next/image?url=%2Flogo.jpg&w=48&q=75 1x, /_next/image?url=%2Flogo.jpg&w=96&q=75 2x",
+      "alt": "الراجحي للتنمية والاستثمارات",
+      "w": 48,
+      "h": 68
+    },
+    {
+      "src": "https://mrajhi.com.sa/_next/image?url=%2Flogo.jpg&w=128&q=75",
+      "srcset": "/_next/image?url=%2Flogo.jpg&w=64&q=75 1x, /_next/image?url=%2Flogo.jpg&w=128&q=75 2x",
+      "alt": "الراجحي للتنمية والاستثمارات",
+      "w": 0,
+      "h": 0
+    }
+  ],
+  "text": "الراجحي للتنمية والاستثمارات\n\nبوابة العملاء\n\nمنزلك القادم يبدأ من هنا.\nتصفح وحدات حصرية بصور حقيقية\nتوصيات مطابقة لتفضيلاتك\nتواصل مباشر مع فريق المبيعات\n\n© 2026 الراجحي للتنمية والاستثمارات\n\nEN\nتسجيل الدخول\nحساب جديد\nالبريد الإلكتروني *\nكلمة المرور *\nنسيت كلمة المرور؟\nتسجيل الدخول\nأو\nتصفح العقارات المتاحة\n\nموظف؟ دخول الإدارة",
+  "meta": {
+    "viewport": "width=device-width, initial-scale=1",
+    "description": "ابحث عن عقارك المثالي مع الراجحي للتنمية والاستثمارات. شقق، فلل، أدوار، مكاتب ومحلات للإيجار والبيع في الرياض والمملكة العربية السعودية. تواصل معنا الآن!",
+    "keywords": "عقارات الرياض,شقق للإيجار الرياض,فلل للبيع الرياض,عقارات السعودية,الراجحي للتنمية,تطوير عقاري,استثمار عقاري",
+    "robots": "index, follow",
+    "og:title": "الراجحي للتنمية والاستثمارات",
+    "og:description": "ابحث عن عقارك المثالي مع الراجحي للتنمية والاستثمارات. شقق، فلل، أدوار، مكاتب ومحلات للإيجار والبيع في الرياض والمملكة العربية السعودية. تواصل معنا الآن!",
+    "og:site_name": "الراجحي للتنمية والاستثمارات",
+    "og:locale": "ar_SA",
+    "og:type": "website",
+    "twitter:card": "summary",
+    "twitter:title": "الراجحي للتنمية والاستثمارات",
+    "twitter:description": "ابحث عن عقارك المثالي مع الراجحي للتنمية والاستثمارات. شقق، فلل، أدوار، مكاتب ومحلات للإيجار والبيع في الرياض والمملكة العربية السعودية. تواصل معنا الآن!"
+  },
+  "svgs": 9,
+  "icons": [
+    "https://mrajhi.com.sa/favicon.ico",
+    "https://mrajhi.com.sa/icon.png?d258936db6f8aed5",
+    "https://mrajhi.com.sa/apple-icon.png?de4a1c5ccfa7f2cf"
+  ]
+}

@@ -1,0 +1,1954 @@
+[
+ {
+  "url": "https://mrajhi.com.sa/why-us/transparency.png",
+  "file": "public/assets/services/transparency.png",
+  "w": 1024,
+  "h": 1024,
+  "fmt": "jpeg",
+  "kb": 850
+ },
+ {
+  "url": "https://mrajhi.com.sa/why-us/verified.png",
+  "file": "public/assets/services/verified.png",
+  "w": 1024,
+  "h": 1024,
+  "fmt": "jpeg",
+  "kb": 656
+ },
+ {
+  "url": "https://mrajhi.com.sa/why-us/support.png",
+  "file": "public/assets/services/support.png",
+  "w": 1024,
+  "h": 1024,
+  "fmt": "jpeg",
+  "kb": 701
+ },
+ {
+  "url": "https://mrajhi.com.sa/why-us/speed.png",
+  "file": "public/assets/services/speed.png",
+  "w": 1024,
+  "h": 1024,
+  "fmt": "jpeg",
+  "kb": 1038
+ },
+ {
+  "url": "https://mrajhi.com.sa/logo.jpg",
+  "file": "public/assets/logo/logo.jpg",
+  "w": 1241,
+  "h": 1772,
+  "fmt": "jpeg",
+  "kb": 234
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/be216d57-8486-425b-bc8a-83b32544d8e7/gallery/1790419497349-17-AHLI_57.jpg",
+  "file": "public/assets/projects/be216d57_1790419497349-17-AHLI_57.jpg",
+  "w": 1920,
+  "h": 600,
+  "fmt": "jpeg",
+  "kb": 995
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/25ad5221-23ee-4ad5-9f54-6bf64c5e5f4d/gallery/1789375370962-14-QAZAZ.jpg",
+  "file": "public/assets/projects/25ad5221_1789375370962-14-QAZAZ.jpg",
+  "w": 1824,
+  "h": 1024,
+  "fmt": "jpeg",
+  "kb": 560
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/ffa5ad84-6104-4127-b10c-20925601b335/gallery/1789372497175-14-SAMSUNG_2.jpg",
+  "file": "public/assets/projects/ffa5ad84_1789372497175-14-SAMSUNG_2.jpg",
+  "w": 1824,
+  "h": 1368,
+  "fmt": "jpeg",
+  "kb": 614
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/939f0863-4eec-49c1-8253-ab650633e980/gallery/1789208450890-0-3_-_Copy.jpg",
+  "file": "public/assets/projects/939f0863_1789208450890-0-3_-_Copy.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 421
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/eb2f1877-9417-49e8-b538-f567f6671fe8/gallery/1789040562189-1785239200712-1782215288234-3-_.jpg",
+  "file": "public/assets/projects/eb2f1877_1789040562189-1785239200712-1782215288234-3-_.jpg",
+  "w": 1824,
+  "h": 820,
+  "fmt": "jpeg",
+  "kb": 279
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/f8023e7c-ae76-4938-89d0-6714394c68f3/gallery/1789028142861-1-DSC02943.jpg",
+  "file": "public/assets/projects/f8023e7c_1789028142861-1-DSC02943.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 489
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/4df038b4-2987-4f84-84b3-e7f0b37208bd/gallery/1786957607309-0-DSC01953.jpg",
+  "file": "public/assets/projects/4df038b4_1786957607309-0-DSC01953.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 534
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/f2df38ec-8cd9-49ad-9f93-d5247e74c185/gallery/1786957214099-5-DSC01944.jpg",
+  "file": "public/assets/projects/f2df38ec_1786957214099-5-DSC01944.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 349
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/c574ef0f-7716-4dbc-adce-477760e34148/gallery/1786956770280-0-DSC01950.jpg",
+  "file": "public/assets/projects/c574ef0f_1786956770280-0-DSC01950.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 475
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/88d3987d-ec7e-4914-a2f2-9681bed04615/gallery/1786956216990-0-DSC01952.jpg",
+  "file": "public/assets/projects/88d3987d_1786956216990-0-DSC01952.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 489
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/401ee4f6-a1b1-47b8-a61b-cade9b0f7c00/gallery/1786956510122-0-DSC01943.jpg",
+  "file": "public/assets/projects/401ee4f6_1786956510122-0-DSC01943.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 532
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/1611a6e3-23c6-43ca-b29a-c625f4ce80fc/gallery/1782215288234-3-_.jpg",
+  "file": "public/assets/projects/1611a6e3_1782215288234-3-_.jpg",
+  "w": 1824,
+  "h": 820,
+  "fmt": "jpeg",
+  "kb": 279
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/f2f77846-1084-42a1-9c22-6e316f568196/gallery/1786955820364-1-DSC01940.jpg",
+  "file": "public/assets/projects/f2f77846_1786955820364-1-DSC01940.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 492
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/5a97decc-67e3-42a1-9c6c-d3032e7e7d96/gallery/1779092264421-1-Andlus2.jpg",
+  "file": "public/assets/projects/5a97decc_1779092264421-1-Andlus2.jpg",
+  "w": 1375,
+  "h": 1031,
+  "fmt": "jpeg",
+  "kb": 257
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/864df31f-1aa0-4693-a08b-114e5ab83a85/gallery/1779091937755-1-Andlus2.jpg",
+  "file": "public/assets/projects/864df31f_1779091937755-1-Andlus2.jpg",
+  "w": 1375,
+  "h": 1031,
+  "fmt": "jpeg",
+  "kb": 257
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/24ef23ed-89e1-493d-9883-8c1b9cfa3c81/gallery/1777537410841-10-COVER.jpg",
+  "file": "public/assets/projects/24ef23ed_1777537410841-10-COVER.jpg",
+  "w": 1920,
+  "h": 1079,
+  "fmt": "jpeg",
+  "kb": 254
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/d76a3c0a-c212-4b01-aa9f-b53e61ae8714/gallery/1781430279862-0-_.jpg",
+  "file": "public/assets/projects/d76a3c0a_1781430279862-0-_.jpg",
+  "w": 1824,
+  "h": 1017,
+  "fmt": "jpeg",
+  "kb": 275
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/5bdf3c22-593f-4d29-8def-12b27b9976f3/gallery/1772705866211-0-NOARA_(1).JPG",
+  "file": "public/assets/projects/5bdf3c22_1772705866211-0-NOARA_(1).JPG",
+  "w": 1920,
+  "h": 1079,
+  "fmt": "jpeg",
+  "kb": 187
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/5d09cb4b-6724-4a35-bf48-2c4ca82bb819/gallery/1783584962756-0-_.jpg",
+  "file": "public/assets/projects/5d09cb4b_1783584962756-0-_.jpg",
+  "w": 1588,
+  "h": 893,
+  "fmt": "jpeg",
+  "kb": 192
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/1fac2a19-67d0-456a-838e-04fd40344c88/gallery/1768120345716-25-DSC02260.jpg",
+  "file": "public/assets/projects/1fac2a19_1768120345716-25-DSC02260.jpg",
+  "w": 1752,
+  "h": 986,
+  "fmt": "jpeg",
+  "kb": 723
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/9f4fdfbc-67d8-4903-9b87-99947537d2d8/primary/DSC02259.jpg",
+  "file": "public/assets/projects/9f4fdfbc_DSC02259.jpg",
+  "w": 1752,
+  "h": 986,
+  "fmt": "jpeg",
+  "kb": 660
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/bad4c2d3-1ffa-4681-b869-ac6c38b91603/gallery/1789037587831-0-85_.jpg",
+  "file": "public/assets/projects/bad4c2d3_1789037587831-0-85_.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 457
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/9738f81a-8a51-47f5-912d-e23abfe846f4/gallery/1789037624976-0-79_.jpg",
+  "file": "public/assets/projects/9738f81a_1789037624976-0-79_.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 435
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/9dc5f226-2fdf-4ee6-ad95-c8914ce921e8/gallery/1789037699887-0-73_.jpg",
+  "file": "public/assets/projects/9dc5f226_1789037699887-0-73_.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 541
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/bcc1b9dc-e3a8-40c9-aabd-c58199e38529/gallery/1789037743253-0-66.jpg",
+  "file": "public/assets/projects/bcc1b9dc_1789037743253-0-66.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 439
+ },
+ {
+  "url": "https://mrajhi.com.sa/favicon.ico",
+  "file": "public/assets/logo/favicon.ico",
+  "w": 48,
+  "h": 48,
+  "fmt": "jpeg",
+  "kb": 1
+ },
+ {
+  "url": "https://mrajhi.com.sa/icon.png?d258936db6f8aed5",
+  "file": "public/assets/logo/icon.png",
+  "w": 192,
+  "h": 192,
+  "fmt": "png",
+  "kb": 10
+ },
+ {
+  "url": "https://mrajhi.com.sa/apple-icon.png?de4a1c5ccfa7f2cf",
+  "file": "public/assets/logo/apple-icon.png",
+  "w": 180,
+  "h": 180,
+  "fmt": "png",
+  "kb": 9
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/c9d3e20c-5a7f-46a0-aa85-fb52feb87fd6/gallery/1789037961064-0-55_.jpg",
+  "file": "public/assets/projects/c9d3e20c_1789037961064-0-55_.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 438
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/8e53edd7-0a8e-4d8d-b308-6a9add6a06f3/gallery/1782730189347-1779273805536-10-TAHLIAH-_2_(51).jpg",
+  "file": "public/assets/projects/8e53edd7_1782730189347-1779273805536-10-TAHLIAH-_2_(51).jpg",
+  "w": 1824,
+  "h": 1024,
+  "fmt": "jpeg",
+  "kb": 158
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/77de07e6-f2ee-4c6f-b8b0-c514afcc6578/gallery/1789038027443-0-36_.jpg",
+  "file": "public/assets/projects/77de07e6_1789038027443-0-36_.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 547
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/186e661c-3f99-438e-b533-8ba6ca331375/gallery/1779523283621-21-_.jpg",
+  "file": "public/assets/projects/186e661c_1779523283621-21-_.jpg",
+  "w": 1824,
+  "h": 820,
+  "fmt": "jpeg",
+  "kb": 194
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/fbf660f0-7f91-439b-8d4b-31551b8dfe31/gallery/1781428858906-0-_24_3.jpg",
+  "file": "public/assets/projects/fbf660f0_1781428858906-0-_24_3.jpg",
+  "w": 1824,
+  "h": 1017,
+  "fmt": "jpeg",
+  "kb": 243
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/f52570f8-db73-4013-99a0-bdf8503f5148/gallery/1775131239960-0-SULYMANIAH.JPG",
+  "file": "public/assets/projects/f52570f8_1775131239960-0-SULYMANIAH.JPG",
+  "w": 1920,
+  "h": 1440,
+  "fmt": "jpeg",
+  "kb": 360
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/dff25e78-eccb-4567-99ad-e9446273c8b5/gallery/1783325518087-0-ChatGPT_Image_6__2026_11_09_56_.jpg",
+  "file": "public/assets/projects/dff25e78_1783325518087-0-ChatGPT_Image_6__2026_11_09_56_.jpg",
+  "w": 1589,
+  "h": 893,
+  "fmt": "jpeg",
+  "kb": 262
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/cce8e3fd-6e92-4588-9d70-45098ad820b9/gallery/1773827693845-1768989608134-0-SAMSUNG_(2).jpg",
+  "file": "public/assets/projects/cce8e3fd_1773827693845-1768989608134-0-SAMSUNG_(2).jpg",
+  "w": 1920,
+  "h": 1440,
+  "fmt": "jpeg",
+  "kb": 315
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/73f66953-c094-4517-b769-cb6ce432a4d3/gallery/1790160373650-0-2.jpg",
+  "file": "public/assets/projects/73f66953_1790160373650-0-2.jpg",
+  "w": 1296,
+  "h": 728,
+  "fmt": "jpeg",
+  "kb": 78
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/cb09378e-ec2b-4dd1-ac65-eb56f23dfc1f/gallery/1768989608134-0-SAMSUNG_(2).jpg",
+  "file": "public/assets/projects/cb09378e_1768989608134-0-SAMSUNG_(2).jpg",
+  "w": 1920,
+  "h": 1440,
+  "fmt": "jpeg",
+  "kb": 315
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/9435ed98-a13e-4f75-a52e-78711b8b80ce/gallery/1781430361880-0-_24_3.jpg",
+  "file": "public/assets/projects/9435ed98_1781430361880-0-_24_3.jpg",
+  "w": 1824,
+  "h": 1017,
+  "fmt": "jpeg",
+  "kb": 243
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/ced9d186-8cf1-4a8b-8d2e-156a5434dbb5/gallery/1768217502343-0-1.jpg",
+  "file": "public/assets/projects/ced9d186_1768217502343-0-1.jpg",
+  "w": 1920,
+  "h": 933,
+  "fmt": "jpeg",
+  "kb": 186
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/3537d7d5-b32c-4e45-8c5b-3c20aa0bf3af/gallery/1768216509965-12-QAZAZ.JPG",
+  "file": "public/assets/projects/3537d7d5_1768216509965-12-QAZAZ.JPG",
+  "w": 1920,
+  "h": 1079,
+  "fmt": "jpeg",
+  "kb": 282
+ },
+ {
+  "url": "https://mrajhi.com.sa/images/services/hero.jpg",
+  "file": "public/assets/misc/hero.jpg",
+  "w": 1106,
+  "h": 606,
+  "fmt": "jpeg",
+  "kb": 167
+ },
+ {
+  "url": "https://mrajhi.com.sa/images/services/development.jpg",
+  "file": "public/assets/misc/development.jpg",
+  "w": 1024,
+  "h": 785,
+  "fmt": "jpeg",
+  "kb": 112
+ },
+ {
+  "url": "https://mrajhi.com.sa/images/services/management.jpg",
+  "file": "public/assets/misc/management.jpg",
+  "w": 1024,
+  "h": 559,
+  "fmt": "jpeg",
+  "kb": 79
+ },
+ {
+  "url": "https://mrajhi.com.sa/images/services/rental.jpg",
+  "file": "public/assets/misc/rental.jpg",
+  "w": 1024,
+  "h": 559,
+  "fmt": "jpeg",
+  "kb": 62
+ },
+ {
+  "url": "https://mrajhi.com.sa/images/contracting/hero.jpg",
+  "file": "public/assets/misc/hero.jpg",
+  "w": 1106,
+  "h": 606,
+  "fmt": "jpeg",
+  "kb": 167
+ },
+ {
+  "url": "https://mrajhi.com.sa/images/contracting/general.jpg",
+  "file": "public/assets/misc/general.jpg",
+  "w": 1748,
+  "h": 1051,
+  "fmt": "jpeg",
+  "kb": 238
+ },
+ {
+  "url": "https://mrajhi.com.sa/images/contracting/consulting.jpg",
+  "file": "public/assets/misc/consulting.jpg",
+  "w": 626,
+  "h": 417,
+  "fmt": "jpeg",
+  "kb": 44
+ },
+ {
+  "url": "https://mrajhi.com.sa/images/contracting/maintenance.jpg",
+  "file": "public/assets/misc/maintenance.jpg",
+  "w": 1200,
+  "h": 800,
+  "fmt": "jpeg",
+  "kb": 262
+ },
+ {
+  "url": "https://mrajhi.com.sa/images/cities/khobar.jpg",
+  "file": "public/assets/misc/khobar.jpg",
+  "w": 400,
+  "h": 400,
+  "fmt": "jpeg",
+  "kb": 20
+ },
+ {
+  "url": "https://mrajhi.com.sa/images/cities/riyadh.jpg",
+  "file": "public/assets/misc/riyadh.jpg",
+  "w": 820,
+  "h": 1024,
+  "fmt": "jpeg",
+  "kb": 182
+ },
+ {
+  "url": "https://mrajhi.com.sa/images/landing/company-building.png",
+  "file": "public/assets/misc/company-building.png",
+  "w": 1066,
+  "h": 592,
+  "fmt": "png",
+  "kb": 1146
+ },
+ {
+  "url": "https://mrajhi.com.sa/images/cities/hafr.jpg",
+  "file": "public/assets/misc/hafr.jpg",
+  "w": 630,
+  "h": 300,
+  "fmt": "jpeg",
+  "kb": 30
+ },
+ {
+  "url": "https://mrajhi.com.sa/images/cities/cairo.jpg",
+  "file": "public/assets/misc/cairo.jpg",
+  "w": 900,
+  "h": 598,
+  "fmt": "jpeg",
+  "kb": 59
+ },
+ {
+  "url": "https://mrajhi.com.sa/images/cities/flag-sa.jpg",
+  "file": "public/assets/misc/flag-sa.jpg",
+  "w": 1200,
+  "h": 563,
+  "fmt": "png",
+  "kb": 144
+ },
+ {
+  "url": "https://mrajhi.com.sa/images/cities/dubai.jpg",
+  "file": "public/assets/misc/dubai.jpg",
+  "w": 550,
+  "h": 412,
+  "fmt": "jpeg",
+  "kb": 44
+ },
+ {
+  "url": "https://mrajhi.com.sa/images/cities/flag-eg.jpg",
+  "file": "public/assets/misc/flag-eg.jpg",
+  "w": 1000,
+  "h": 622,
+  "fmt": "jpeg",
+  "kb": 33
+ },
+ {
+  "url": "https://mrajhi.com.sa/images/cities/flag-ae.jpeg",
+  "file": "public/assets/misc/flag-ae.jpeg",
+  "w": 630,
+  "h": 300,
+  "fmt": "jpeg",
+  "kb": 21
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/800e9ed6-0e0d-484d-b5b7-3b1f5c620f41/cover_1776765511041.JPG",
+  "file": "public/assets/projects/_cover_1776765511041.JPG",
+  "w": 1200,
+  "h": 675,
+  "fmt": "jpeg",
+  "kb": 105
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/c03b022d-7ad0-45d2-9766-feecfa324cb2/cover_1766401666466.jpg",
+  "file": "public/assets/projects/_cover_1766401666466.jpg",
+  "w": 1200,
+  "h": 675,
+  "fmt": "jpeg",
+  "kb": 113
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/218bdd2c-ae44-4613-b197-120b0aab4059/cover_1766302887925.JPG",
+  "file": "public/assets/projects/_cover_1766302887925.JPG",
+  "w": 1200,
+  "h": 857,
+  "fmt": "jpeg",
+  "kb": 210
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/a6805888-2196-473f-8d85-691bc0bd324b/cover_1765623308724.jpg",
+  "file": "public/assets/projects/_cover_1765623308724.jpg",
+  "w": 1200,
+  "h": 675,
+  "fmt": "jpeg",
+  "kb": 131
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/71148c2b-4cf8-4d26-bc88-cb7ff755c24a/cover_1766922563429.JPG",
+  "file": "public/assets/projects/_cover_1766922563429.JPG",
+  "w": 1200,
+  "h": 674,
+  "fmt": "jpeg",
+  "kb": 89
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/b4c7f995-12dc-4ec6-8b8e-edf2bab59de0/cover_1766302762144.jpg",
+  "file": "public/assets/projects/_cover_1766302762144.jpg",
+  "w": 1200,
+  "h": 675,
+  "fmt": "jpeg",
+  "kb": 92
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/5da98439-4eb9-4e3e-9e29-5375f4ff208f/cover_1766403834513.jpg",
+  "file": "public/assets/projects/_cover_1766403834513.jpg",
+  "w": 1441,
+  "h": 810,
+  "fmt": "jpeg",
+  "kb": 148
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/36db1270-d3fb-4915-9de9-4a47c141b2a9/cover_1782033306923.jpg",
+  "file": "public/assets/projects/_cover_1782033306923.jpg",
+  "w": 1140,
+  "h": 662,
+  "fmt": "jpeg",
+  "kb": 128
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/e50452d2-efaa-4747-8cad-4ff4ef1eb83d/cover_1766918430836.JPG",
+  "file": "public/assets/projects/_cover_1766918430836.JPG",
+  "w": 1200,
+  "h": 674,
+  "fmt": "jpeg",
+  "kb": 116
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/23ecac5a-5e1c-4d8b-8c55-597fd6ae1073/cover_1766318164578.JPG",
+  "file": "public/assets/projects/_cover_1766318164578.JPG",
+  "w": 1200,
+  "h": 800,
+  "fmt": "jpeg",
+  "kb": 61
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/fa822c73-1d6a-4ade-bdda-bd86fc5bfa7c/cover_1766994264481.jpg",
+  "file": "public/assets/projects/_cover_1766994264481.jpg",
+  "w": 1000,
+  "h": 562,
+  "fmt": "jpeg",
+  "kb": 69
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/fc560071-36e1-4f5a-ac99-18b499d2d055/cover_1766404154609.JPG",
+  "file": "public/assets/projects/_cover_1766404154609.JPG",
+  "w": 1200,
+  "h": 674,
+  "fmt": "jpeg",
+  "kb": 87
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/019c7d1d-dd96-43c6-b790-8fc35ecf8cd4/cover_1766923300066.jpg",
+  "file": "public/assets/projects/_cover_1766923300066.jpg",
+  "w": 1000,
+  "h": 561,
+  "fmt": "jpeg",
+  "kb": 103
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/a1a788b5-ede7-48ec-a66e-e1f7b251e596/cover_1766304317493.jpg",
+  "file": "public/assets/projects/_cover_1766304317493.jpg",
+  "w": 1200,
+  "h": 674,
+  "fmt": "jpeg",
+  "kb": 118
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/ba4c69f6-c820-42ce-bd9f-dbdffbce3b2a/cover_1766907910754.JPG",
+  "file": "public/assets/projects/_cover_1766907910754.JPG",
+  "w": 1200,
+  "h": 800,
+  "fmt": "jpeg",
+  "kb": 149
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/f2f8d41c-db53-44bd-b018-9b0319e1126e/cover_1766997813583.jpeg",
+  "file": "public/assets/projects/_cover_1766997813583.jpeg",
+  "w": 1024,
+  "h": 704,
+  "fmt": "jpeg",
+  "kb": 68
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/b176a622-ca62-4d80-8d65-36c57248a1dc/cover_1766996982639.jpg",
+  "file": "public/assets/projects/_cover_1766996982639.jpg",
+  "w": 750,
+  "h": 421,
+  "fmt": "jpeg",
+  "kb": 69
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/444225a1-b5c8-403b-a42b-98ad5539002f/cover_1766302554098.jpg",
+  "file": "public/assets/projects/_cover_1766302554098.jpg",
+  "w": 1200,
+  "h": 540,
+  "fmt": "jpeg",
+  "kb": 105
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/f23ee1ea-e451-466f-b15e-abf102f992ad/cover_1766908478156.jpg",
+  "file": "public/assets/projects/_cover_1766908478156.jpg",
+  "w": 1200,
+  "h": 540,
+  "fmt": "jpeg",
+  "kb": 121
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/2dadb322-9b96-42ad-b797-2770131cd0fe/cover_1766302675144.JPG",
+  "file": "public/assets/projects/_cover_1766302675144.JPG",
+  "w": 1200,
+  "h": 900,
+  "fmt": "jpeg",
+  "kb": 154
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/03115e92-cb62-46ae-8422-e98d5afa68cb/cover_1766403436446.JPG",
+  "file": "public/assets/projects/_cover_1766403436446.JPG",
+  "w": 1200,
+  "h": 674,
+  "fmt": "jpeg",
+  "kb": 66
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/1f2aabb9-f5ee-40bd-92da-ddc9c297cb8f/cover_1766920636043.jpg",
+  "file": "public/assets/projects/_cover_1766920636043.jpg",
+  "w": 1200,
+  "h": 675,
+  "fmt": "jpeg",
+  "kb": 92
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/7e7d0098-457d-4cff-ae7c-91f4da2c25ba/cover_1766921124045.jpg",
+  "file": "public/assets/projects/_cover_1766921124045.jpg",
+  "w": 1296,
+  "h": 728,
+  "fmt": "jpeg",
+  "kb": 78
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/51dc9e91-24f7-4388-8578-bab8e6748520/cover_1766919831006.jpg",
+  "file": "public/assets/projects/_cover_1766919831006.jpg",
+  "w": 1200,
+  "h": 583,
+  "fmt": "jpeg",
+  "kb": 78
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/fcdd13f1-5c82-4d84-a6a6-f19521f4b99e/cover_1766922436150.jpg",
+  "file": "public/assets/projects/_cover_1766922436150.jpg",
+  "w": 1200,
+  "h": 900,
+  "fmt": "jpeg",
+  "kb": 148
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/84b9a346-49ff-4bc6-a831-15b50df8e739/cover_1766921360425.jpg",
+  "file": "public/assets/projects/_cover_1766921360425.jpg",
+  "w": 1200,
+  "h": 675,
+  "fmt": "jpeg",
+  "kb": 123
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/0e04ad1e-8160-4738-927e-8bf8b30043a9/cover_1766921997370.JPG",
+  "file": "public/assets/projects/_cover_1766921997370.JPG",
+  "w": 1200,
+  "h": 674,
+  "fmt": "jpeg",
+  "kb": 95
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/09ea5a3b-c6b2-4480-9d42-fc42550f8314/cover_1766304149606.jpg",
+  "file": "public/assets/projects/_cover_1766304149606.jpg",
+  "w": 1200,
+  "h": 675,
+  "fmt": "jpeg",
+  "kb": 92
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/f8ef24f9-a220-49c1-8dfc-e0e51549b1d4/cover_1766402530086.JPG",
+  "file": "public/assets/projects/_cover_1766402530086.JPG",
+  "w": 1200,
+  "h": 674,
+  "fmt": "jpeg",
+  "kb": 66
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/09f4a1cb-eded-400d-ba65-f3a4b7009cf2/cover_1766561208919.jpg",
+  "file": "public/assets/projects/_cover_1766561208919.jpg",
+  "w": 1200,
+  "h": 540,
+  "fmt": "jpeg",
+  "kb": 82
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/55cbff60-966b-4b57-a901-623ece7b2068/cover_1780993496806.jpg",
+  "file": "public/assets/projects/_cover_1780993496806.jpg",
+  "w": 1140,
+  "h": 640,
+  "fmt": "jpeg",
+  "kb": 73
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/87be18d0-9a04-4c4e-8e1b-423e3f8e2535/cover_1766997278250.jpg",
+  "file": "public/assets/projects/_cover_1766997278250.jpg",
+  "w": 1000,
+  "h": 1777,
+  "fmt": "jpeg",
+  "kb": 202
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/f8023e7c-ae76-4938-89d0-6714394c68f3/gallery/1788973349558-3-DSC02812-1.jpg",
+  "file": "public/assets/projects/f8023e7c_1788973349558-3-DSC02812-1.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 311
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/f8023e7c-ae76-4938-89d0-6714394c68f3/gallery/1788973350585-4-DSC02813.jpg",
+  "file": "public/assets/projects/f8023e7c_1788973350585-4-DSC02813.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 351
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/f8023e7c-ae76-4938-89d0-6714394c68f3/gallery/1788973348450-2-DSC02811.jpg",
+  "file": "public/assets/projects/f8023e7c_1788973348450-2-DSC02811.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 486
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/f8023e7c-ae76-4938-89d0-6714394c68f3/gallery/1788973351887-5-DSC02814.jpg",
+  "file": "public/assets/projects/f8023e7c_1788973351887-5-DSC02814.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 324
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/4df038b4-2987-4f84-84b3-e7f0b37208bd/gallery/1782386822387-1782385963772-1782384876287-1782301538900-1782300085779-1782032740013-1-2.jpg",
+  "file": "public/assets/projects/4df038b4_1782386822387-1782385963772-1782384876287-1782301538900-1782300085779-1782032740013-1-2.jpg",
+  "w": 1357,
+  "h": 789,
+  "fmt": "jpeg",
+  "kb": 178
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/4df038b4-2987-4f84-84b3-e7f0b37208bd/gallery/1782386821127-1782385962055-1782384875269-1782301537550-1782300084579-1782032737700-0-1.jpg",
+  "file": "public/assets/projects/4df038b4_1782386821127-1782385962055-1782384875269-1782301537550-1782300084579-1782032737700-0-1.jpg",
+  "w": 1588,
+  "h": 893,
+  "fmt": "jpeg",
+  "kb": 281
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/4df038b4-2987-4f84-84b3-e7f0b37208bd/gallery/1782386823249-1782385965588-1782384877017-1782301539838-1782300086860-1782032740797-2-3.jpg",
+  "file": "public/assets/projects/4df038b4_1782386823249-1782385965588-1782384877017-1782301539838-1782300086860-1782032740797-2-3.jpg",
+  "w": 1588,
+  "h": 893,
+  "fmt": "jpeg",
+  "kb": 279
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/4df038b4-2987-4f84-84b3-e7f0b37208bd/gallery/1782720495045-0-DSC01333.jpg",
+  "file": "public/assets/projects/4df038b4_1782720495045-0-DSC01333.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 342
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/f2df38ec-8cd9-49ad-9f93-d5247e74c185/gallery/1782385962055-1782384875269-1782301537550-1782300084579-1782032737700-0-1.jpg",
+  "file": "public/assets/projects/f2df38ec_1782385962055-1782384875269-1782301537550-1782300084579-1782032737700-0-1.jpg",
+  "w": 1588,
+  "h": 893,
+  "fmt": "jpeg",
+  "kb": 281
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/f2df38ec-8cd9-49ad-9f93-d5247e74c185/gallery/1782385963772-1782384876287-1782301538900-1782300085779-1782032740013-1-2.jpg",
+  "file": "public/assets/projects/f2df38ec_1782385963772-1782384876287-1782301538900-1782300085779-1782032740013-1-2.jpg",
+  "w": 1357,
+  "h": 789,
+  "fmt": "jpeg",
+  "kb": 178
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/f2df38ec-8cd9-49ad-9f93-d5247e74c185/gallery/1782756463014-0-205-90K_2.jpg",
+  "file": "public/assets/projects/f2df38ec_1782756463014-0-205-90K_2.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 197
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/f2df38ec-8cd9-49ad-9f93-d5247e74c185/gallery/1782385965588-1782384877017-1782301539838-1782300086860-1782032740797-2-3.jpg",
+  "file": "public/assets/projects/f2df38ec_1782385965588-1782384877017-1782301539838-1782300086860-1782032740797-2-3.jpg",
+  "w": 1588,
+  "h": 893,
+  "fmt": "jpeg",
+  "kb": 279
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/c574ef0f-7716-4dbc-adce-477760e34148/gallery/1782384875269-1782301537550-1782300084579-1782032737700-0-1.jpg",
+  "file": "public/assets/projects/c574ef0f_1782384875269-1782301537550-1782300084579-1782032737700-0-1.jpg",
+  "w": 1588,
+  "h": 893,
+  "fmt": "jpeg",
+  "kb": 281
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/c574ef0f-7716-4dbc-adce-477760e34148/gallery/1782384876287-1782301538900-1782300085779-1782032740013-1-2.jpg",
+  "file": "public/assets/projects/c574ef0f_1782384876287-1782301538900-1782300085779-1782032740013-1-2.jpg",
+  "w": 1357,
+  "h": 789,
+  "fmt": "jpeg",
+  "kb": 178
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/c574ef0f-7716-4dbc-adce-477760e34148/gallery/1782384877017-1782301539838-1782300086860-1782032740797-2-3.jpg",
+  "file": "public/assets/projects/c574ef0f_1782384877017-1782301539838-1782300086860-1782032740797-2-3.jpg",
+  "w": 1588,
+  "h": 893,
+  "fmt": "jpeg",
+  "kb": 279
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/c574ef0f-7716-4dbc-adce-477760e34148/gallery/1782756526516-0-DSC01339.jpg",
+  "file": "public/assets/projects/c574ef0f_1782756526516-0-DSC01339.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 324
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/401ee4f6-a1b1-47b8-a61b-cade9b0f7c00/gallery/1782301537550-1782300084579-1782032737700-0-1.jpg",
+  "file": "public/assets/projects/401ee4f6_1782301537550-1782300084579-1782032737700-0-1.jpg",
+  "w": 1588,
+  "h": 893,
+  "fmt": "jpeg",
+  "kb": 281
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/401ee4f6-a1b1-47b8-a61b-cade9b0f7c00/gallery/1782301538900-1782300085779-1782032740013-1-2.jpg",
+  "file": "public/assets/projects/401ee4f6_1782301538900-1782300085779-1782032740013-1-2.jpg",
+  "w": 1357,
+  "h": 789,
+  "fmt": "jpeg",
+  "kb": 178
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/401ee4f6-a1b1-47b8-a61b-cade9b0f7c00/gallery/1782720385967-0-408-110K_2.jpg",
+  "file": "public/assets/projects/401ee4f6_1782720385967-0-408-110K_2.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 255
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/401ee4f6-a1b1-47b8-a61b-cade9b0f7c00/gallery/1782301539838-1782300086860-1782032740797-2-3.jpg",
+  "file": "public/assets/projects/401ee4f6_1782301539838-1782300086860-1782032740797-2-3.jpg",
+  "w": 1588,
+  "h": 893,
+  "fmt": "jpeg",
+  "kb": 279
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/88d3987d-ec7e-4914-a2f2-9681bed04615/gallery/1782300085779-1782032740013-1-2.jpg",
+  "file": "public/assets/projects/88d3987d_1782300085779-1782032740013-1-2.jpg",
+  "w": 1357,
+  "h": 789,
+  "fmt": "jpeg",
+  "kb": 178
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/88d3987d-ec7e-4914-a2f2-9681bed04615/gallery/1782300084579-1782032737700-0-1.jpg",
+  "file": "public/assets/projects/88d3987d_1782300084579-1782032737700-0-1.jpg",
+  "w": 1588,
+  "h": 893,
+  "fmt": "jpeg",
+  "kb": 281
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/88d3987d-ec7e-4914-a2f2-9681bed04615/gallery/1782300086860-1782032740797-2-3.jpg",
+  "file": "public/assets/projects/88d3987d_1782300086860-1782032740797-2-3.jpg",
+  "w": 1588,
+  "h": 893,
+  "fmt": "jpeg",
+  "kb": 279
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/88d3987d-ec7e-4914-a2f2-9681bed04615/gallery/1782719834848-0-408-110K_2.jpg",
+  "file": "public/assets/projects/88d3987d_1782719834848-0-408-110K_2.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 255
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/1611a6e3-23c6-43ca-b29a-c625f4ce80fc/gallery/1782215205752-2-ROOFGARDEN_3.jpg",
+  "file": "public/assets/projects/1611a6e3_1782215205752-2-ROOFGARDEN_3.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 315
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/1611a6e3-23c6-43ca-b29a-c625f4ce80fc/gallery/1782215202197-0-ROOFGARDEN_1.jpg",
+  "file": "public/assets/projects/1611a6e3_1782215202197-0-ROOFGARDEN_1.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 289
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/1611a6e3-23c6-43ca-b29a-c625f4ce80fc/gallery/1782215204264-1-ROOFGARDEN_2.jpg",
+  "file": "public/assets/projects/1611a6e3_1782215204264-1-ROOFGARDEN_2.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 478
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/1611a6e3-23c6-43ca-b29a-c625f4ce80fc/gallery/1782215206920-3-ROOFGARDEN_4.jpg",
+  "file": "public/assets/projects/1611a6e3_1782215206920-3-ROOFGARDEN_4.jpg",
+  "w": 1920,
+  "h": 1080,
+  "fmt": "jpeg",
+  "kb": 149
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/f2f77846-1084-42a1-9c22-6e316f568196/gallery/1782032740797-2-3.jpg",
+  "file": "public/assets/projects/f2f77846_1782032740797-2-3.jpg",
+  "w": 1588,
+  "h": 893,
+  "fmt": "jpeg",
+  "kb": 279
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/f2f77846-1084-42a1-9c22-6e316f568196/gallery/1782032740013-1-2.jpg",
+  "file": "public/assets/projects/f2f77846_1782032740013-1-2.jpg",
+  "w": 1357,
+  "h": 789,
+  "fmt": "jpeg",
+  "kb": 178
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/f2f77846-1084-42a1-9c22-6e316f568196/gallery/1782718853643-0-DSC01339.jpg",
+  "file": "public/assets/projects/f2f77846_1782718853643-0-DSC01339.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 324
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/f2f77846-1084-42a1-9c22-6e316f568196/gallery/1782032737700-0-1.jpg",
+  "file": "public/assets/projects/f2f77846_1782032737700-0-1.jpg",
+  "w": 1588,
+  "h": 893,
+  "fmt": "jpeg",
+  "kb": 281
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/5a97decc-67e3-42a1-9c6c-d3032e7e7d96/gallery/1777546002198-5-DSC00233.JPG",
+  "file": "public/assets/projects/5a97decc_1777546002198-5-DSC00233.JPG",
+  "w": 1920,
+  "h": 1081,
+  "fmt": "jpeg",
+  "kb": 136
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/5a97decc-67e3-42a1-9c6c-d3032e7e7d96/gallery/1777546006698-8-DSC00236.JPG",
+  "file": "public/assets/projects/5a97decc_1777546006698-8-DSC00236.JPG",
+  "w": 1920,
+  "h": 1081,
+  "fmt": "jpeg",
+  "kb": 209
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/5a97decc-67e3-42a1-9c6c-d3032e7e7d96/gallery/1777545994663-2-DSC00226.JPG",
+  "file": "public/assets/projects/5a97decc_1777545994663-2-DSC00226.JPG",
+  "w": 1920,
+  "h": 1081,
+  "fmt": "jpeg",
+  "kb": 131
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/5a97decc-67e3-42a1-9c6c-d3032e7e7d96/gallery/1777546013732-12-DSC00245.JPG",
+  "file": "public/assets/projects/5a97decc_1777546013732-12-DSC00245.JPG",
+  "w": 1920,
+  "h": 1081,
+  "fmt": "jpeg",
+  "kb": 100
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/864df31f-1aa0-4693-a08b-114e5ab83a85/gallery/1777544932816-11-DSC00234.JPG",
+  "file": "public/assets/projects/864df31f_1777544932816-11-DSC00234.JPG",
+  "w": 1920,
+  "h": 1081,
+  "fmt": "jpeg",
+  "kb": 145
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/864df31f-1aa0-4693-a08b-114e5ab83a85/gallery/1777544923932-5-DSC00227.JPG",
+  "file": "public/assets/projects/864df31f_1777544923932-5-DSC00227.JPG",
+  "w": 1920,
+  "h": 1081,
+  "fmt": "jpeg",
+  "kb": 142
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/864df31f-1aa0-4693-a08b-114e5ab83a85/gallery/1777544914922-0-DSC00219.JPG",
+  "file": "public/assets/projects/864df31f_1777544914922-0-DSC00219.JPG",
+  "w": 1920,
+  "h": 1081,
+  "fmt": "jpeg",
+  "kb": 257
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/864df31f-1aa0-4693-a08b-114e5ab83a85/gallery/1777544941582-17-DSC00247.JPG",
+  "file": "public/assets/projects/864df31f_1777544941582-17-DSC00247.JPG",
+  "w": 1920,
+  "h": 1081,
+  "fmt": "jpeg",
+  "kb": 123
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/24ef23ed-89e1-493d-9883-8c1b9cfa3c81/gallery/1777537413367-15-OASIS-APART_(6)_-_Copy.jpg",
+  "file": "public/assets/projects/24ef23ed_1777537413367-15-OASIS-APART_(6)_-_Copy.jpg",
+  "w": 1920,
+  "h": 1079,
+  "fmt": "jpeg",
+  "kb": 184
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/24ef23ed-89e1-493d-9883-8c1b9cfa3c81/gallery/1777537415185-18-OASIS-APART_(15)_-_Copy.jpg",
+  "file": "public/assets/projects/24ef23ed_1777537415185-18-OASIS-APART_(15)_-_Copy.jpg",
+  "w": 1920,
+  "h": 1079,
+  "fmt": "jpeg",
+  "kb": 192
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/24ef23ed-89e1-493d-9883-8c1b9cfa3c81/gallery/1777537415681-19-OASIS-APART_(21).jpg",
+  "file": "public/assets/projects/24ef23ed_1777537415681-19-OASIS-APART_(21).jpg",
+  "w": 1920,
+  "h": 1079,
+  "fmt": "jpeg",
+  "kb": 128
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/24ef23ed-89e1-493d-9883-8c1b9cfa3c81/gallery/1777537411364-11-OASIS-APART_(1).jpg",
+  "file": "public/assets/projects/24ef23ed_1777537411364-11-OASIS-APART_(1).jpg",
+  "w": 1920,
+  "h": 1079,
+  "fmt": "jpeg",
+  "kb": 195
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/d76a3c0a-c212-4b01-aa9f-b53e61ae8714/gallery/1775638268543-1-ISKAN_(3).JPG",
+  "file": "public/assets/projects/d76a3c0a_1775638268543-1-ISKAN_(3).JPG",
+  "w": 1920,
+  "h": 1280,
+  "fmt": "jpeg",
+  "kb": 255
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/d76a3c0a-c212-4b01-aa9f-b53e61ae8714/gallery/1775638272321-5-ISKAN_(7).JPG",
+  "file": "public/assets/projects/d76a3c0a_1775638272321-5-ISKAN_(7).JPG",
+  "w": 1920,
+  "h": 1280,
+  "fmt": "jpeg",
+  "kb": 178
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/d76a3c0a-c212-4b01-aa9f-b53e61ae8714/gallery/1775638271574-4-ISKAN_(6).JPG",
+  "file": "public/assets/projects/d76a3c0a_1775638271574-4-ISKAN_(6).JPG",
+  "w": 1920,
+  "h": 1280,
+  "fmt": "jpeg",
+  "kb": 214
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/d76a3c0a-c212-4b01-aa9f-b53e61ae8714/gallery/1775638274676-8-ISKAN_(10).JPG",
+  "file": "public/assets/projects/d76a3c0a_1775638274676-8-ISKAN_(10).JPG",
+  "w": 1920,
+  "h": 1280,
+  "fmt": "jpeg",
+  "kb": 76
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/5bdf3c22-593f-4d29-8def-12b27b9976f3/gallery/1772705869654-3-NOARA_(5).JPG",
+  "file": "public/assets/projects/5bdf3c22_1772705869654-3-NOARA_(5).JPG",
+  "w": 1920,
+  "h": 1079,
+  "fmt": "jpeg",
+  "kb": 189
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/5bdf3c22-593f-4d29-8def-12b27b9976f3/gallery/1772705868671-2-NOARA_(4).JPG",
+  "file": "public/assets/projects/5bdf3c22_1772705868671-2-NOARA_(4).JPG",
+  "w": 1920,
+  "h": 1079,
+  "fmt": "jpeg",
+  "kb": 212
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/5bdf3c22-593f-4d29-8def-12b27b9976f3/gallery/1772705867900-1-NOARA_(3).JPG",
+  "file": "public/assets/projects/5bdf3c22_1772705867900-1-NOARA_(3).JPG",
+  "w": 1920,
+  "h": 1079,
+  "fmt": "jpeg",
+  "kb": 119
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/5d09cb4b-6724-4a35-bf48-2c4ca82bb819/gallery/1768281082222-3-MALAZ-VILLA_(5).JPG",
+  "file": "public/assets/projects/5d09cb4b_1768281082222-3-MALAZ-VILLA_(5).JPG",
+  "w": 1920,
+  "h": 1440,
+  "fmt": "jpeg",
+  "kb": 147
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/5d09cb4b-6724-4a35-bf48-2c4ca82bb819/gallery/1768281084688-8-MALAZ-VILLA_(11).JPG",
+  "file": "public/assets/projects/5d09cb4b_1768281084688-8-MALAZ-VILLA_(11).JPG",
+  "w": 640,
+  "h": 480,
+  "fmt": "jpeg",
+  "kb": 104
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/5d09cb4b-6724-4a35-bf48-2c4ca82bb819/gallery/1783583238189-0-DSC01861.jpg",
+  "file": "public/assets/projects/5d09cb4b_1783583238189-0-DSC01861.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 179
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/5d09cb4b-6724-4a35-bf48-2c4ca82bb819/gallery/1783583239588-1-DSC01862.jpg",
+  "file": "public/assets/projects/5d09cb4b_1783583239588-1-DSC01862.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 163
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/1fac2a19-67d0-456a-838e-04fd40344c88/gallery/1768120335947-13-DSC02097.jpg",
+  "file": "public/assets/projects/1fac2a19_1768120335947-13-DSC02097.jpg",
+  "w": 1920,
+  "h": 1080,
+  "fmt": "jpeg",
+  "kb": 130
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/1fac2a19-67d0-456a-838e-04fd40344c88/gallery/1768120332270-9-DSC02090.jpg",
+  "file": "public/assets/projects/1fac2a19_1768120332270-9-DSC02090.jpg",
+  "w": 1920,
+  "h": 1080,
+  "fmt": "jpeg",
+  "kb": 131
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/1fac2a19-67d0-456a-838e-04fd40344c88/gallery/1768120344280-23-DSC02255.jpg",
+  "file": "public/assets/projects/1fac2a19_1768120344280-23-DSC02255.jpg",
+  "w": 1752,
+  "h": 986,
+  "fmt": "jpeg",
+  "kb": 680
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/1fac2a19-67d0-456a-838e-04fd40344c88/gallery/1768120327344-4-DSC02078.jpg",
+  "file": "public/assets/projects/1fac2a19_1768120327344-4-DSC02078.jpg",
+  "w": 1920,
+  "h": 1080,
+  "fmt": "jpeg",
+  "kb": 149
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/9f4fdfbc-67d8-4903-9b87-99947537d2d8/gallery/DSC02022.jpg",
+  "file": "public/assets/projects/9f4fdfbc_DSC02022.jpg",
+  "w": 1920,
+  "h": 1080,
+  "fmt": "jpeg",
+  "kb": 143
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/9f4fdfbc-67d8-4903-9b87-99947537d2d8/gallery/DSC02034.jpg",
+  "file": "public/assets/projects/9f4fdfbc_DSC02034.jpg",
+  "w": 1920,
+  "h": 1080,
+  "fmt": "jpeg",
+  "kb": 177
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/9f4fdfbc-67d8-4903-9b87-99947537d2d8/gallery/DSC02032.jpg",
+  "file": "public/assets/projects/9f4fdfbc_DSC02032.jpg",
+  "w": 1920,
+  "h": 1080,
+  "fmt": "jpeg",
+  "kb": 171
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/9f4fdfbc-67d8-4903-9b87-99947537d2d8/gallery/DSC02020.jpg",
+  "file": "public/assets/projects/9f4fdfbc_DSC02020.jpg",
+  "w": 1920,
+  "h": 1080,
+  "fmt": "jpeg",
+  "kb": 120
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/be216d57-8486-425b-bc8a-83b32544d8e7/gallery/1790419480927-1-AHLI_16.jpg",
+  "file": "public/assets/projects/be216d57_1790419480927-1-AHLI_16.jpg",
+  "w": 1824,
+  "h": 886,
+  "fmt": "jpeg",
+  "kb": 403
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/be216d57-8486-425b-bc8a-83b32544d8e7/gallery/1790419481997-2-AHLI_26.jpg",
+  "file": "public/assets/projects/be216d57_1790419481997-2-AHLI_26.jpg",
+  "w": 1824,
+  "h": 886,
+  "fmt": "jpeg",
+  "kb": 375
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/be216d57-8486-425b-bc8a-83b32544d8e7/gallery/1790419479331-0-AHLI_13.jpg",
+  "file": "public/assets/projects/be216d57_1790419479331-0-AHLI_13.jpg",
+  "w": 1824,
+  "h": 886,
+  "fmt": "jpeg",
+  "kb": 330
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/be216d57-8486-425b-bc8a-83b32544d8e7/gallery/1790419483097-3-AHLI_28.jpg",
+  "file": "public/assets/projects/be216d57_1790419483097-3-AHLI_28.jpg",
+  "w": 1824,
+  "h": 886,
+  "fmt": "jpeg",
+  "kb": 311
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/25ad5221-23ee-4ad5-9f54-6bf64c5e5f4d/gallery/1789375359473-1-QAZAZ_2.jpg",
+  "file": "public/assets/projects/25ad5221_1789375359473-1-QAZAZ_2.jpg",
+  "w": 1824,
+  "h": 1024,
+  "fmt": "jpeg",
+  "kb": 402
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/25ad5221-23ee-4ad5-9f54-6bf64c5e5f4d/gallery/1789375360363-2-QAZAZ_3.jpg",
+  "file": "public/assets/projects/25ad5221_1789375360363-2-QAZAZ_3.jpg",
+  "w": 1824,
+  "h": 1024,
+  "fmt": "jpeg",
+  "kb": 385
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/25ad5221-23ee-4ad5-9f54-6bf64c5e5f4d/gallery/1789375358176-0-QAZAZ_1.jpg",
+  "file": "public/assets/projects/25ad5221_1789375358176-0-QAZAZ_1.jpg",
+  "w": 1824,
+  "h": 1024,
+  "fmt": "jpeg",
+  "kb": 345
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/25ad5221-23ee-4ad5-9f54-6bf64c5e5f4d/gallery/1789375361274-3-QAZAZ_4.jpg",
+  "file": "public/assets/projects/25ad5221_1789375361274-3-QAZAZ_4.jpg",
+  "w": 1824,
+  "h": 1024,
+  "fmt": "jpeg",
+  "kb": 326
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/ffa5ad84-6104-4127-b10c-20925601b335/gallery/1789372486306-0-SAMSUNG-APART_1.jpg",
+  "file": "public/assets/projects/ffa5ad84_1789372486306-0-SAMSUNG-APART_1.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 413
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/ffa5ad84-6104-4127-b10c-20925601b335/gallery/1789372487441-1-SAMSUNG-APART_2.jpg",
+  "file": "public/assets/projects/ffa5ad84_1789372487441-1-SAMSUNG-APART_2.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 342
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/ffa5ad84-6104-4127-b10c-20925601b335/gallery/1789372488189-2-SAMSUNG-APART_3.jpg",
+  "file": "public/assets/projects/ffa5ad84_1789372488189-2-SAMSUNG-APART_3.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 465
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/ffa5ad84-6104-4127-b10c-20925601b335/gallery/1789372488956-3-SAMSUNG-APART_4.jpg",
+  "file": "public/assets/projects/ffa5ad84_1789372488956-3-SAMSUNG-APART_4.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 373
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/939f0863-4eec-49c1-8253-ab650633e980/gallery/1789208452360-1-DHABAB_2_-_Copy.jpg",
+  "file": "public/assets/projects/939f0863_1789208452360-1-DHABAB_2_-_Copy.jpg",
+  "w": 1824,
+  "h": 1024,
+  "fmt": "jpeg",
+  "kb": 364
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/939f0863-4eec-49c1-8253-ab650633e980/gallery/1789208453207-2-DHABAB_4_-_Copy.jpg",
+  "file": "public/assets/projects/939f0863_1789208453207-2-DHABAB_4_-_Copy.jpg",
+  "w": 1824,
+  "h": 1024,
+  "fmt": "jpeg",
+  "kb": 347
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/939f0863-4eec-49c1-8253-ab650633e980/gallery/1789208454012-3-DHABAB_5_-_Copy.jpg",
+  "file": "public/assets/projects/939f0863_1789208454012-3-DHABAB_5_-_Copy.jpg",
+  "w": 1824,
+  "h": 1024,
+  "fmt": "jpeg",
+  "kb": 326
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/939f0863-4eec-49c1-8253-ab650633e980/gallery/1789208454812-4-DHABAB_6_-_Copy.jpg",
+  "file": "public/assets/projects/939f0863_1789208454812-4-DHABAB_6_-_Copy.jpg",
+  "w": 1824,
+  "h": 1024,
+  "fmt": "jpeg",
+  "kb": 359
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/eb2f1877-9417-49e8-b538-f567f6671fe8/gallery/1789040565442-1785239207610-1782215206920-3-ROOFGARDEN_4.jpg",
+  "file": "public/assets/projects/eb2f1877_1789040565442-1785239207610-1782215206920-3-ROOFGARDEN_4.jpg",
+  "w": 1920,
+  "h": 1080,
+  "fmt": "jpeg",
+  "kb": 149
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/eb2f1877-9417-49e8-b538-f567f6671fe8/gallery/1789040563185-1785239202120-1782215204264-1-ROOFGARDEN_2.jpg",
+  "file": "public/assets/projects/eb2f1877_1789040563185-1785239202120-1782215204264-1-ROOFGARDEN_2.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 478
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/eb2f1877-9417-49e8-b538-f567f6671fe8/gallery/1789040564660-1785239204265-1782215205752-2-ROOFGARDEN_3.jpg",
+  "file": "public/assets/projects/eb2f1877_1789040564660-1785239204265-1782215205752-2-ROOFGARDEN_3.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 315
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/eb2f1877-9417-49e8-b538-f567f6671fe8/gallery/1789040563875-1785239203460-1782215202197-0-ROOFGARDEN_1.jpg",
+  "file": "public/assets/projects/eb2f1877_1789040563875-1785239203460-1782215202197-0-ROOFGARDEN_1.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 289
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/bad4c2d3-1ffa-4681-b869-ac6c38b91603/gallery/1788972335272-3-DSC02901.jpg",
+  "file": "public/assets/projects/bad4c2d3_1788972335272-3-DSC02901.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 363
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/bad4c2d3-1ffa-4681-b869-ac6c38b91603/gallery/1788972334124-2-DSC02900.jpg",
+  "file": "public/assets/projects/bad4c2d3_1788972334124-2-DSC02900.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 364
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/bad4c2d3-1ffa-4681-b869-ac6c38b91603/gallery/1788972336308-4-DSC02902.jpg",
+  "file": "public/assets/projects/bad4c2d3_1788972336308-4-DSC02902.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 319
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/bad4c2d3-1ffa-4681-b869-ac6c38b91603/gallery/1788972337490-5-DSC02903.jpg",
+  "file": "public/assets/projects/bad4c2d3_1788972337490-5-DSC02903.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 238
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/9738f81a-8a51-47f5-912d-e23abfe846f4/gallery/1788971541148-2-DSC02773.jpg",
+  "file": "public/assets/projects/9738f81a_1788971541148-2-DSC02773.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 336
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/9738f81a-8a51-47f5-912d-e23abfe846f4/gallery/1788971545165-5-DSC02776.jpg",
+  "file": "public/assets/projects/9738f81a_1788971545165-5-DSC02776.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 356
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/9738f81a-8a51-47f5-912d-e23abfe846f4/gallery/1788971543970-4-DSC02775.jpg",
+  "file": "public/assets/projects/9738f81a_1788971543970-4-DSC02775.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 355
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/9738f81a-8a51-47f5-912d-e23abfe846f4/gallery/1788971542490-3-DSC02774.jpg",
+  "file": "public/assets/projects/9738f81a_1788971542490-3-DSC02774.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 355
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/9dc5f226-2fdf-4ee6-ad95-c8914ce921e8/gallery/1788969907645-4-DSC02791.jpg",
+  "file": "public/assets/projects/9dc5f226_1788969907645-4-DSC02791.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 449
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/9dc5f226-2fdf-4ee6-ad95-c8914ce921e8/gallery/1788969905125-2-DSC02789.jpg",
+  "file": "public/assets/projects/9dc5f226_1788969905125-2-DSC02789.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 347
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/9dc5f226-2fdf-4ee6-ad95-c8914ce921e8/gallery/1788969906409-3-DSC02790.jpg",
+  "file": "public/assets/projects/9dc5f226_1788969906409-3-DSC02790.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 354
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/9dc5f226-2fdf-4ee6-ad95-c8914ce921e8/gallery/1788969910716-5-DSC02792.jpg",
+  "file": "public/assets/projects/9dc5f226_1788969910716-5-DSC02792.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 479
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/bcc1b9dc-e3a8-40c9-aabd-c58199e38529/gallery/1788952628739-2-DSC02918.jpg",
+  "file": "public/assets/projects/bcc1b9dc_1788952628739-2-DSC02918.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 327
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/bcc1b9dc-e3a8-40c9-aabd-c58199e38529/gallery/1788952629860-3-DSC02919.jpg",
+  "file": "public/assets/projects/bcc1b9dc_1788952629860-3-DSC02919.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 333
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/bcc1b9dc-e3a8-40c9-aabd-c58199e38529/gallery/1788952632056-5-DSC02921.jpg",
+  "file": "public/assets/projects/bcc1b9dc_1788952632056-5-DSC02921.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 327
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/bcc1b9dc-e3a8-40c9-aabd-c58199e38529/gallery/1788952630947-4-DSC02920.jpg",
+  "file": "public/assets/projects/bcc1b9dc_1788952630947-4-DSC02920.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 321
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/c9d3e20c-5a7f-46a0-aa85-fb52feb87fd6/gallery/1788693893302-2-DSC02760.jpg",
+  "file": "public/assets/projects/c9d3e20c_1788693893302-2-DSC02760.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 326
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/c9d3e20c-5a7f-46a0-aa85-fb52feb87fd6/gallery/1788693890138-0-DSC02752.jpg",
+  "file": "public/assets/projects/c9d3e20c_1788693890138-0-DSC02752.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 401
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/c9d3e20c-5a7f-46a0-aa85-fb52feb87fd6/gallery/1788693892027-1-DSC02756.jpg",
+  "file": "public/assets/projects/c9d3e20c_1788693892027-1-DSC02756.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 325
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/c9d3e20c-5a7f-46a0-aa85-fb52feb87fd6/gallery/1788693895121-3-DSC02761.jpg",
+  "file": "public/assets/projects/c9d3e20c_1788693895121-3-DSC02761.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 406
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/77de07e6-f2ee-4c6f-b8b0-c514afcc6578/gallery/1788942674894-2-DSC02761.jpg",
+  "file": "public/assets/projects/77de07e6_1788942674894-2-DSC02761.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 406
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/77de07e6-f2ee-4c6f-b8b0-c514afcc6578/gallery/1788942671731-1-DSC02757.jpg",
+  "file": "public/assets/projects/77de07e6_1788942671731-1-DSC02757.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 383
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/77de07e6-f2ee-4c6f-b8b0-c514afcc6578/gallery/1788942676061-3-DSC02916.jpg",
+  "file": "public/assets/projects/77de07e6_1788942676061-3-DSC02916.jpg",
+  "w": 1824,
+  "h": 1026,
+  "fmt": "jpeg",
+  "kb": 433
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/8e53edd7-0a8e-4d8d-b308-6a9add6a06f3/gallery/1782730190621-1779273790650-0-TAHLIAH-_2_(4).jpg",
+  "file": "public/assets/projects/8e53edd7_1782730190621-1779273790650-0-TAHLIAH-_2_(4).jpg",
+  "w": 1824,
+  "h": 1024,
+  "fmt": "jpeg",
+  "kb": 156
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/8e53edd7-0a8e-4d8d-b308-6a9add6a06f3/gallery/1782730193093-1779273794529-2-TAHLIAH-_2_(15).jpg",
+  "file": "public/assets/projects/8e53edd7_1782730193093-1779273794529-2-TAHLIAH-_2_(15).jpg",
+  "w": 1824,
+  "h": 1024,
+  "fmt": "jpeg",
+  "kb": 190
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/8e53edd7-0a8e-4d8d-b308-6a9add6a06f3/gallery/1782730194125-1779273795880-3-TAHLIAH-_2_(33).jpg",
+  "file": "public/assets/projects/8e53edd7_1782730194125-1779273795880-3-TAHLIAH-_2_(33).jpg",
+  "w": 1920,
+  "h": 1078,
+  "fmt": "jpeg",
+  "kb": 122
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/8e53edd7-0a8e-4d8d-b308-6a9add6a06f3/gallery/1782730191753-1779273792944-1-TAHLIAH-_2_(6).jpg",
+  "file": "public/assets/projects/8e53edd7_1782730191753-1779273792944-1-TAHLIAH-_2_(6).jpg",
+  "w": 1824,
+  "h": 1024,
+  "fmt": "jpeg",
+  "kb": 145
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/186e661c-3f99-438e-b533-8ba6ca331375/gallery/1779523257424-1-_.jpg",
+  "file": "public/assets/projects/186e661c_1779523257424-1-_.jpg",
+  "w": 1824,
+  "h": 820,
+  "fmt": "jpeg",
+  "kb": 108
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/186e661c-3f99-438e-b533-8ba6ca331375/gallery/1779523258766-2-_.jpg",
+  "file": "public/assets/projects/186e661c_1779523258766-2-_.jpg",
+  "w": 1920,
+  "h": 864,
+  "fmt": "jpeg",
+  "kb": 115
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/186e661c-3f99-438e-b533-8ba6ca331375/gallery/1779523255525-0-_.jpg",
+  "file": "public/assets/projects/186e661c_1779523255525-0-_.jpg",
+  "w": 1920,
+  "h": 864,
+  "fmt": "jpeg",
+  "kb": 93
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/186e661c-3f99-438e-b533-8ba6ca331375/gallery/1779523260192-3-_.jpg",
+  "file": "public/assets/projects/186e661c_1779523260192-3-_.jpg",
+  "w": 1824,
+  "h": 820,
+  "fmt": "jpeg",
+  "kb": 177
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/fbf660f0-7f91-439b-8d4b-31551b8dfe31/gallery/1775642830910-1768283607105-27-DHABAB-NORA_(34).jpg",
+  "file": "public/assets/projects/fbf660f0_1775642830910-1768283607105-27-DHABAB-NORA_(34).jpg",
+  "w": 1920,
+  "h": 1079,
+  "fmt": "jpeg",
+  "kb": 350
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/fbf660f0-7f91-439b-8d4b-31551b8dfe31/gallery/1775642803587-1768283588167-8-DHABAB-NORA_(9).jpg",
+  "file": "public/assets/projects/fbf660f0_1775642803587-1768283588167-8-DHABAB-NORA_(9).jpg",
+  "w": 1920,
+  "h": 1079,
+  "fmt": "jpeg",
+  "kb": 122
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/fbf660f0-7f91-439b-8d4b-31551b8dfe31/gallery/1775642800607-1768283586634-6-DHABAB-NORA_(6).jpg",
+  "file": "public/assets/projects/fbf660f0_1775642800607-1768283586634-6-DHABAB-NORA_(6).jpg",
+  "w": 1920,
+  "h": 1079,
+  "fmt": "jpeg",
+  "kb": 160
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/fbf660f0-7f91-439b-8d4b-31551b8dfe31/gallery/1775642808041-1768283590529-11-DHABAB-NORA_(12).jpg",
+  "file": "public/assets/projects/fbf660f0_1775642808041-1768283590529-11-DHABAB-NORA_(12).jpg",
+  "w": 1920,
+  "h": 1079,
+  "fmt": "jpeg",
+  "kb": 236
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/f52570f8-db73-4013-99a0-bdf8503f5148/gallery/1775131244605-7-SULYMANIAH_(7).jpg",
+  "file": "public/assets/projects/f52570f8_1775131244605-7-SULYMANIAH_(7).jpg",
+  "w": 1920,
+  "h": 864,
+  "fmt": "jpeg",
+  "kb": 114
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/f52570f8-db73-4013-99a0-bdf8503f5148/gallery/1775131243997-6-SULYMANIAH_(6).jpg",
+  "file": "public/assets/projects/f52570f8_1775131243997-6-SULYMANIAH_(6).jpg",
+  "w": 1920,
+  "h": 864,
+  "fmt": "jpeg",
+  "kb": 108
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/f52570f8-db73-4013-99a0-bdf8503f5148/gallery/1775131249213-12-SULYMANIAH_(12).jpg",
+  "file": "public/assets/projects/f52570f8_1775131249213-12-SULYMANIAH_(12).jpg",
+  "w": 1920,
+  "h": 864,
+  "fmt": "jpeg",
+  "kb": 131
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/f52570f8-db73-4013-99a0-bdf8503f5148/gallery/1775131245580-9-SULYMANIAH_(9).jpg",
+  "file": "public/assets/projects/f52570f8_1775131245580-9-SULYMANIAH_(9).jpg",
+  "w": 1920,
+  "h": 1081,
+  "fmt": "jpeg",
+  "kb": 138
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/dff25e78-eccb-4567-99ad-e9446273c8b5/gallery/1774350622072-4-04.jpeg",
+  "file": "public/assets/projects/dff25e78_1774350622072-4-04.jpeg",
+  "w": 1296,
+  "h": 728,
+  "fmt": "jpeg",
+  "kb": 95
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/dff25e78-eccb-4567-99ad-e9446273c8b5/gallery/1774350622804-6-07..jpeg",
+  "file": "public/assets/projects/dff25e78_1774350622804-6-07..jpeg",
+  "w": 1296,
+  "h": 728,
+  "fmt": "jpeg",
+  "kb": 109
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/dff25e78-eccb-4567-99ad-e9446273c8b5/gallery/1774350622455-5-06..jpeg",
+  "file": "public/assets/projects/dff25e78_1774350622455-5-06..jpeg",
+  "w": 1296,
+  "h": 728,
+  "fmt": "jpeg",
+  "kb": 100
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/cce8e3fd-6e92-4588-9d70-45098ad820b9/gallery/1773827726659-1768989431316-20-SAMSUNG-APART_(49).JPG",
+  "file": "public/assets/projects/cce8e3fd_1773827726659-1768989431316-20-SAMSUNG-APART_(49).JPG",
+  "w": 1920,
+  "h": 1080,
+  "fmt": "jpeg",
+  "kb": 153
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/cce8e3fd-6e92-4588-9d70-45098ad820b9/gallery/1773827727921-1768989431880-21-SAMSUNG-APART_(50).JPG",
+  "file": "public/assets/projects/cce8e3fd_1773827727921-1768989431880-21-SAMSUNG-APART_(50).JPG",
+  "w": 1920,
+  "h": 1080,
+  "fmt": "jpeg",
+  "kb": 148
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/cce8e3fd-6e92-4588-9d70-45098ad820b9/gallery/1773827699173-1768989418880-2-SAMSUNG-APART_(3).JPG",
+  "file": "public/assets/projects/cce8e3fd_1773827699173-1768989418880-2-SAMSUNG-APART_(3).JPG",
+  "w": 1920,
+  "h": 1080,
+  "fmt": "jpeg",
+  "kb": 218
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/cce8e3fd-6e92-4588-9d70-45098ad820b9/gallery/1773827715464-1768989426707-13-SAMSUNG-APART_(14).JPG",
+  "file": "public/assets/projects/cce8e3fd_1773827715464-1768989426707-13-SAMSUNG-APART_(14).JPG",
+  "w": 1920,
+  "h": 1080,
+  "fmt": "jpeg",
+  "kb": 192
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/73f66953-c094-4517-b769-cb6ce432a4d3/gallery/1773826209226-1768390543503-12-DHABAB-NORA_(32).jpg",
+  "file": "public/assets/projects/73f66953_1773826209226-1768390543503-12-DHABAB-NORA_(32).jpg",
+  "w": 1920,
+  "h": 1079,
+  "fmt": "jpeg",
+  "kb": 146
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/73f66953-c094-4517-b769-cb6ce432a4d3/gallery/1773826202154-1768390538256-7-DHABAB-NORA_(14).jpg",
+  "file": "public/assets/projects/73f66953_1773826202154-1768390538256-7-DHABAB-NORA_(14).jpg",
+  "w": 1920,
+  "h": 1079,
+  "fmt": "jpeg",
+  "kb": 168
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/73f66953-c094-4517-b769-cb6ce432a4d3/gallery/1773826200940-1768390537288-6-DHABAB-NORA_(11).jpg",
+  "file": "public/assets/projects/73f66953_1773826200940-1768390537288-6-DHABAB-NORA_(11).jpg",
+  "w": 1920,
+  "h": 1079,
+  "fmt": "jpeg",
+  "kb": 169
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/73f66953-c094-4517-b769-cb6ce432a4d3/gallery/1773826205416-1768390540108-9-DHABAB-NORA_(16).jpg",
+  "file": "public/assets/projects/73f66953_1773826205416-1768390540108-9-DHABAB-NORA_(16).jpg",
+  "w": 1920,
+  "h": 1079,
+  "fmt": "jpeg",
+  "kb": 125
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/cb09378e-ec2b-4dd1-ac65-eb56f23dfc1f/gallery/1768989428825-16-SAMSUNG-APART_(17).JPG",
+  "file": "public/assets/projects/cb09378e_1768989428825-16-SAMSUNG-APART_(17).JPG",
+  "w": 1920,
+  "h": 1080,
+  "fmt": "jpeg",
+  "kb": 159
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/cb09378e-ec2b-4dd1-ac65-eb56f23dfc1f/gallery/1768989609731-1-IMG_5190.JPG",
+  "file": "public/assets/projects/cb09378e_1768989609731-1-IMG_5190.JPG",
+  "w": 1920,
+  "h": 1080,
+  "fmt": "jpeg",
+  "kb": 193
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/cb09378e-ec2b-4dd1-ac65-eb56f23dfc1f/gallery/1768989430611-19-SAMSUNG-APART_(24).JPG",
+  "file": "public/assets/projects/cb09378e_1768989430611-19-SAMSUNG-APART_(24).JPG",
+  "w": 1920,
+  "h": 1080,
+  "fmt": "jpeg",
+  "kb": 225
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/cb09378e-ec2b-4dd1-ac65-eb56f23dfc1f/gallery/1768989422823-7-SAMSUNG-APART_(8).JPG",
+  "file": "public/assets/projects/cb09378e_1768989422823-7-SAMSUNG-APART_(8).JPG",
+  "w": 1920,
+  "h": 1080,
+  "fmt": "jpeg",
+  "kb": 195
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/9435ed98-a13e-4f75-a52e-78711b8b80ce/gallery/1768283607105-27-DHABAB-NORA_(34).jpg",
+  "file": "public/assets/projects/9435ed98_1768283607105-27-DHABAB-NORA_(34).jpg",
+  "w": 1920,
+  "h": 1079,
+  "fmt": "jpeg",
+  "kb": 350
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/9435ed98-a13e-4f75-a52e-78711b8b80ce/gallery/1768283602217-22-DHABAB-NORA_(26).jpg",
+  "file": "public/assets/projects/9435ed98_1768283602217-22-DHABAB-NORA_(26).jpg",
+  "w": 1920,
+  "h": 1079,
+  "fmt": "jpeg",
+  "kb": 138
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/9435ed98-a13e-4f75-a52e-78711b8b80ce/gallery/1768283587434-7-DHABAB-NORA_(7).jpg",
+  "file": "public/assets/projects/9435ed98_1768283587434-7-DHABAB-NORA_(7).jpg",
+  "w": 1920,
+  "h": 1079,
+  "fmt": "jpeg",
+  "kb": 165
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/9435ed98-a13e-4f75-a52e-78711b8b80ce/gallery/1768283588880-9-DHABAB-NORA_(10).jpg",
+  "file": "public/assets/projects/9435ed98_1768283588880-9-DHABAB-NORA_(10).jpg",
+  "w": 1920,
+  "h": 1079,
+  "fmt": "jpeg",
+  "kb": 118
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/ced9d186-8cf1-4a8b-8d2e-156a5434dbb5/gallery/1768217510457-12-AHLI_(22).jpg",
+  "file": "public/assets/projects/ced9d186_1768217510457-12-AHLI_(22).jpg",
+  "w": 1920,
+  "h": 933,
+  "fmt": "jpeg",
+  "kb": 157
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/ced9d186-8cf1-4a8b-8d2e-156a5434dbb5/gallery/1768217514834-20-AHLI_(32).jpg",
+  "file": "public/assets/projects/ced9d186_1768217514834-20-AHLI_(32).jpg",
+  "w": 1920,
+  "h": 933,
+  "fmt": "jpeg",
+  "kb": 126
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/ced9d186-8cf1-4a8b-8d2e-156a5434dbb5/gallery/1768217508684-9-AHLI_(19).jpg",
+  "file": "public/assets/projects/ced9d186_1768217508684-9-AHLI_(19).jpg",
+  "w": 1920,
+  "h": 933,
+  "fmt": "jpeg",
+  "kb": 140
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/ced9d186-8cf1-4a8b-8d2e-156a5434dbb5/gallery/1768217512168-15-AHLI_(25).jpg",
+  "file": "public/assets/projects/ced9d186_1768217512168-15-AHLI_(25).jpg",
+  "w": 1920,
+  "h": 933,
+  "fmt": "jpeg",
+  "kb": 172
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/3537d7d5-b32c-4e45-8c5b-3c20aa0bf3af/gallery/1768216499904-1-QAZAZ_(8).JPG",
+  "file": "public/assets/projects/3537d7d5_1768216499904-1-QAZAZ_(8).JPG",
+  "w": 1920,
+  "h": 1079,
+  "fmt": "jpeg",
+  "kb": 175
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/3537d7d5-b32c-4e45-8c5b-3c20aa0bf3af/gallery/1768216505839-7-QAZAZ_(14).JPG",
+  "file": "public/assets/projects/3537d7d5_1768216505839-7-QAZAZ_(14).JPG",
+  "w": 1920,
+  "h": 1079,
+  "fmt": "jpeg",
+  "kb": 114
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/3537d7d5-b32c-4e45-8c5b-3c20aa0bf3af/gallery/1768216507638-9-QAZAZ_(16).JPG",
+  "file": "public/assets/projects/3537d7d5_1768216507638-9-QAZAZ_(16).JPG",
+  "w": 1920,
+  "h": 1079,
+  "fmt": "jpeg",
+  "kb": 158
+ },
+ {
+  "url": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/3537d7d5-b32c-4e45-8c5b-3c20aa0bf3af/gallery/1768216508423-10-QAZAZ_(17).JPG",
+  "file": "public/assets/projects/3537d7d5_1768216508423-10-QAZAZ_(17).JPG",
+  "w": 1920,
+  "h": 1079,
+  "fmt": "jpeg",
+  "kb": 184
+ }
+]

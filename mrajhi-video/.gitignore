@@ -1,0 +1,12 @@
+node_modules
+dist
+.DS_Store
+.env
+# working files (final MP4s in out/ ARE tracked)
+out/stills/
+out/final/
+out/sheet*.jpg
+out/*.log
+research/pages/*.html
+research/pages/*.png
+research/home.html

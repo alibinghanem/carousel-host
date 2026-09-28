@@ -1,0 +1,474 @@
+{
+  "url": "https://mrajhi.com.sa/about",
+  "status": 200,
+  "title": "من نحن | الراجحي للتنمية والاستثمارات | الراجحي للتنمية والاستثمارات",
+  "links": [
+    {
+      "href": "https://mrajhi.com.sa/",
+      "text": "الراجحي للتنمية والاستثمارات\n\nتطوير عقاري واستثمارات"
+    },
+    {
+      "href": "https://mrajhi.com.sa/",
+      "text": "الرئيسية"
+    },
+    {
+      "href": "https://mrajhi.com.sa/units",
+      "text": "تصفح الإعلانات"
+    },
+    {
+      "href": "https://mrajhi.com.sa/services",
+      "text": "الخدمات العقارية"
+    },
+    {
+      "href": "https://mrajhi.com.sa/contracting",
+      "text": "المقاولات"
+    },
+    {
+      "href": "https://mrajhi.com.sa/about",
+      "text": "من نحن"
+    },
+    {
+      "href": "https://mrajhi.com.sa/customer/login",
+      "text": "بوابة العملاء"
+    },
+    {
+      "href": "mailto:info@mrajhi.com.sa",
+      "text": "info@mrajhi.com.sa"
+    },
+    {
+      "href": "tel:+966920033876",
+      "text": ""
+    },
+    {
+      "href": "https://wa.me/966920033876",
+      "text": ""
+    },
+    {
+      "href": "tel:+966112912405",
+      "text": ""
+    },
+    {
+      "href": "https://wa.me/966112912405",
+      "text": ""
+    },
+    {
+      "href": "tel:+966558297700",
+      "text": ""
+    },
+    {
+      "href": "https://wa.me/966558297700",
+      "text": ""
+    },
+    {
+      "href": "https://maps.app.goo.gl/1oGkgaWhhqDJQrCJ8?g_st=ipc",
+      "text": "موقع الشركة على الخريطة"
+    },
+    {
+      "href": "https://twitter.com/rajhi_real",
+      "text": ""
+    },
+    {
+      "href": "https://www.instagram.com/rajhinvsts/",
+      "text": ""
+    },
+    {
+      "href": "https://www.facebook.com/rajhinvsts",
+      "text": ""
+    },
+    {
+      "href": "https://www.youtube.com/@rajhiinvests4448",
+      "text": ""
+    },
+    {
+      "href": "https://mrajhi.com.sa/",
+      "text": "الرئيسية"
+    },
+    {
+      "href": "https://mrajhi.com.sa/services",
+      "text": "الخدمات العقارية"
+    },
+    {
+      "href": "https://mrajhi.com.sa/contracting",
+      "text": "المقاولات والإنشاءات"
+    },
+    {
+      "href": "https://mrajhi.com.sa/units",
+      "text": "تصفح الإعلانات"
+    },
+    {
+      "href": "https://mrajhi.com.sa/about",
+      "text": "من نحن"
+    },
+    {
+      "href": "https://mrajhi.com.sa/about#contact",
+      "text": "تواصل معنا"
+    },
+    {
+      "href": "https://mrajhi.com.sa/login",
+      "text": "تسجيل الدخول"
+    },
+    {
+      "href": "tel:+966920033876",
+      "text": "+966920033876"
+    },
+    {
+      "href": "tel:+966112912405",
+      "text": "+966112912405"
+    },
+    {
+      "href": "https://wa.me/966558297700",
+      "text": "+966558297700"
+    },
+    {
+      "href": "mailto:info@mrajhi.com.sa",
+      "text": "info@mrajhi.com.sa"
+    },
+    {
+      "href": "https://mrajhi.com.sa/units",
+      "text": "تصفح الإعلانات"
+    },
+    {
+      "href": "https://mrajhi.com.sa/customer/login",
+      "text": "بوابة العملاء"
+    }
+  ],
+  "imgs": [
+    {
+      "src": "https://mrajhi.com.sa/_next/image?url=%2Flogo.jpg&w=48&q=75",
+      "srcset": "/_next/image?url=%2Flogo.jpg&w=48&q=75 1x, /_next/image?url=%2Flogo.jpg&w=96&q=75 2x",
+      "alt": "الراجحي للتنمية والاستثمارات",
+      "w": 48,
+      "h": 68
+    },
+    {
+      "src": "https://mrajhi.com.sa/images/landing/company-building.png",
+      "srcset": "",
+      "alt": "Hero Background",
+      "w": 1066,
+      "h": 592
+    },
+    {
+      "src": "https://mrajhi.com.sa/images/landing/company-building.png",
+      "srcset": "",
+      "alt": "Intro Project",
+      "w": 1066,
+      "h": 592
+    },
+    {
+      "src": "https://mrajhi.com.sa/images/cities/riyadh.jpg",
+      "srcset": "",
+      "alt": "الرياض",
+      "w": 820,
+      "h": 1024
+    },
+    {
+      "src": "https://mrajhi.com.sa/images/cities/khobar.jpg",
+      "srcset": "",
+      "alt": "الخبر",
+      "w": 400,
+      "h": 400
+    },
+    {
+      "src": "https://mrajhi.com.sa/images/cities/hafr.jpg",
+      "srcset": "",
+      "alt": "حفر الباطن",
+      "w": 630,
+      "h": 300
+    },
+    {
+      "src": "https://mrajhi.com.sa/images/cities/cairo.jpg",
+      "srcset": "",
+      "alt": "القاهرة",
+      "w": 900,
+      "h": 598
+    },
+    {
+      "src": "https://mrajhi.com.sa/images/cities/dubai.jpg",
+      "srcset": "",
+      "alt": "دبي",
+      "w": 550,
+      "h": 412
+    },
+    {
+      "src": "https://mrajhi.com.sa/images/cities/flag-sa.jpg",
+      "srcset": "",
+      "alt": "المملكة العربية السعودية",
+      "w": 1200,
+      "h": 563
+    },
+    {
+      "src": "https://mrajhi.com.sa/images/cities/flag-eg.jpg",
+      "srcset": "",
+      "alt": "جمهورية مصر العربية",
+      "w": 1000,
+      "h": 622
+    },
+    {
+      "src": "https://mrajhi.com.sa/images/cities/flag-ae.jpeg",
+      "srcset": "",
+      "alt": "الإمارات العربية المتحدة",
+      "w": 630,
+      "h": 300
+    },
+    {
+      "src": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/800e9ed6-0e0d-484d-b5b7-3b1f5c620f41/cover_1776765511041.JPG",
+      "srcset": "",
+      "alt": "مشروع الاندلس",
+      "w": 1200,
+      "h": 675
+    },
+    {
+      "src": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/c03b022d-7ad0-45d2-9766-feecfa324cb2/cover_1766401666466.jpg",
+      "srcset": "",
+      "alt": "فلل التحلية",
+      "w": 1200,
+      "h": 675
+    },
+    {
+      "src": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/units/bad4c2d3-1ffa-4681-b869-ac6c38b91603/gallery/1789037587831-0-85_.jpg",
+      "srcset": "",
+      "alt": "مشروع المنال",
+      "w": 1824,
+      "h": 1026
+    },
+    {
+      "src": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/71148c2b-4cf8-4d26-bc88-cb7ff755c24a/cover_1766922563429.JPG",
+      "srcset": "",
+      "alt": "قصر نيارة للاحتفالات و المناسبات",
+      "w": 1200,
+      "h": 674
+    },
+    {
+      "src": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/218bdd2c-ae44-4613-b197-120b0aab4059/cover_1766302887925.JPG",
+      "srcset": "",
+      "alt": "شقة زمزم",
+      "w": 1200,
+      "h": 857
+    },
+    {
+      "src": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/a6805888-2196-473f-8d85-691bc0bd324b/cover_1765623308724.jpg",
+      "srcset": "",
+      "alt": "أجمكان الرياض",
+      "w": 1200,
+      "h": 675
+    },
+    {
+      "src": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/b4c7f995-12dc-4ec6-8b8e-edf2bab59de0/cover_1766302762144.jpg",
+      "srcset": "",
+      "alt": "مبنى العزيزية",
+      "w": 1200,
+      "h": 675
+    },
+    {
+      "src": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/36db1270-d3fb-4915-9de9-4a47c141b2a9/cover_1782033306923.jpg",
+      "srcset": "",
+      "alt": "مشروع الندى",
+      "w": 1140,
+      "h": 662
+    },
+    {
+      "src": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/5da98439-4eb9-4e3e-9e29-5375f4ff208f/cover_1766403834513.jpg",
+      "srcset": "",
+      "alt": "فلل الملز",
+      "w": 1441,
+      "h": 810
+    },
+    {
+      "src": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/fc560071-36e1-4f5a-ac99-18b499d2d055/cover_1766404154609.JPG",
+      "srcset": "",
+      "alt": "عمارة نوارة",
+      "w": 1200,
+      "h": 674
+    },
+    {
+      "src": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/e50452d2-efaa-4747-8cad-4ff4ef1eb83d/cover_1766918430836.JPG",
+      "srcset": "",
+      "alt": "عمارة قزاز",
+      "w": 1200,
+      "h": 674
+    },
+    {
+      "src": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/23ecac5a-5e1c-4d8b-8c55-597fd6ae1073/cover_1766318164578.JPG",
+      "srcset": "",
+      "alt": "عمارة الحديقة",
+      "w": 1200,
+      "h": 800
+    },
+    {
+      "src": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/fa822c73-1d6a-4ade-bdda-bd86fc5bfa7c/cover_1766994264481.jpg",
+      "srcset": "",
+      "alt": "مشروع الضباب",
+      "w": 1000,
+      "h": 562
+    },
+    {
+      "src": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/019c7d1d-dd96-43c6-b790-8fc35ecf8cd4/cover_1766923300066.jpg",
+      "srcset": "",
+      "alt": "مشروع السلامة",
+      "w": 1000,
+      "h": 561
+    },
+    {
+      "src": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/ba4c69f6-c820-42ce-bd9f-dbdffbce3b2a/cover_1766907910754.JPG",
+      "srcset": "",
+      "alt": "مجمع الاسكان",
+      "w": 1200,
+      "h": 800
+    },
+    {
+      "src": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/a1a788b5-ede7-48ec-a66e-e1f7b251e596/cover_1766304317493.jpg",
+      "srcset": "",
+      "alt": "مشروع الواحة",
+      "w": 1200,
+      "h": 674
+    },
+    {
+      "src": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/b176a622-ca62-4d80-8d65-36c57248a1dc/cover_1766996982639.jpg",
+      "srcset": "",
+      "alt": "القصر",
+      "w": 750,
+      "h": 421
+    },
+    {
+      "src": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/f2f8d41c-db53-44bd-b018-9b0319e1126e/cover_1766997813583.jpeg",
+      "srcset": "",
+      "alt": "عمارة الزيتون",
+      "w": 1024,
+      "h": 704
+    },
+    {
+      "src": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/444225a1-b5c8-403b-a42b-98ad5539002f/cover_1766302554098.jpg",
+      "srcset": "",
+      "alt": "عمارة المروج",
+      "w": 1200,
+      "h": 540
+    },
+    {
+      "src": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/2dadb322-9b96-42ad-b797-2770131cd0fe/cover_1766302675144.JPG",
+      "srcset": "",
+      "alt": "عمارة السليمانية",
+      "w": 1200,
+      "h": 900
+    },
+    {
+      "src": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/03115e92-cb62-46ae-8422-e98d5afa68cb/cover_1766403436446.JPG",
+      "srcset": "",
+      "alt": "فلل  الثلاثين",
+      "w": 1200,
+      "h": 674
+    },
+    {
+      "src": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/51dc9e91-24f7-4388-8578-bab8e6748520/cover_1766919831006.jpg",
+      "srcset": "",
+      "alt": "عمارة الاهلي",
+      "w": 1200,
+      "h": 583
+    },
+    {
+      "src": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/f23ee1ea-e451-466f-b15e-abf102f992ad/cover_1766908478156.jpg",
+      "srcset": "",
+      "alt": "مجمع روف قاردن",
+      "w": 1200,
+      "h": 540
+    },
+    {
+      "src": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/1f2aabb9-f5ee-40bd-92da-ddc9c297cb8f/cover_1766920636043.jpg",
+      "srcset": "",
+      "alt": "عمارة برجركنج",
+      "w": 1200,
+      "h": 675
+    },
+    {
+      "src": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/7e7d0098-457d-4cff-ae7c-91f4da2c25ba/cover_1766921124045.jpg",
+      "srcset": "",
+      "alt": "عمارة ماما نورة",
+      "w": 1296,
+      "h": 728
+    },
+    {
+      "src": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/84b9a346-49ff-4bc6-a831-15b50df8e739/cover_1766921360425.jpg",
+      "srcset": "",
+      "alt": "عمارة السرايا",
+      "w": 1200,
+      "h": 675
+    },
+    {
+      "src": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/0e04ad1e-8160-4738-927e-8bf8b30043a9/cover_1766921997370.JPG",
+      "srcset": "",
+      "alt": "عمارة المدارس",
+      "w": 1200,
+      "h": 674
+    },
+    {
+      "src": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/fcdd13f1-5c82-4d84-a6a6-f19521f4b99e/cover_1766922436150.jpg",
+      "srcset": "",
+      "alt": "عمارة سامسونج",
+      "w": 1200,
+      "h": 900
+    },
+    {
+      "src": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/09ea5a3b-c6b2-4480-9d42-fc42550f8314/cover_1766304149606.jpg",
+      "srcset": "",
+      "alt": "عمارة الملز",
+      "w": 1200,
+      "h": 675
+    },
+    {
+      "src": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/09f4a1cb-eded-400d-ba65-f3a4b7009cf2/cover_1766561208919.jpg",
+      "srcset": "",
+      "alt": "فلل النموذجية",
+      "w": 1200,
+      "h": 540
+    },
+    {
+      "src": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/f8ef24f9-a220-49c1-8dfc-e0e51549b1d4/cover_1766402530086.JPG",
+      "srcset": "",
+      "alt": "فلل العلياء",
+      "w": 1200,
+      "h": 674
+    },
+    {
+      "src": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/55cbff60-966b-4b57-a901-623ece7b2068/cover_1780993496806.jpg",
+      "srcset": "",
+      "alt": "عمارة شقق التحلية ( المستوصف )",
+      "w": 1140,
+      "h": 640
+    },
+    {
+      "src": "https://vxbkhlziwsmagrnlmenw.supabase.co/storage/v1/object/public/projects/project-covers/87be18d0-9a04-4c4e-8e1b-423e3f8e2535/cover_1766997278250.jpg",
+      "srcset": "",
+      "alt": "عمارة جافاتايم",
+      "w": 1000,
+      "h": 1777
+    },
+    {
+      "src": "https://mrajhi.com.sa/_next/image?url=%2Flogo.jpg&w=48&q=75",
+      "srcset": "/_next/image?url=%2Flogo.jpg&w=48&q=75 1x, /_next/image?url=%2Flogo.jpg&w=96&q=75 2x",
+      "alt": "الراجحي للتنمية والاستثمارات",
+      "w": 48,
+      "h": 68
+    }
+  ],
+  "text": "الراجحي للتنمية والاستثمارات\n\nتطوير عقاري واستثمارات\n\nالرئيسية\nتصفح الإعلانات\nالخدمات العقارية\nالمقاولات\nمن نحن\nEN\nبوابة العملاء\nمن نحن\n\nالراجحي للتنمية والاستثمارات العقارية\n\nالراجحي للتنمية والاستثمارات العقارية\n\nتأسست شركة الراجحي للتنمية والاستثمارات العقارية عام 2000، وقد أعطت الأولوية دائمًا لتقديم منتجات سكنية وخدمات عقارية عالية الجودة في كل من الأسواق السعودية والإقليمية. التركيز الاستراتيجي لإدارة الراجحي على مصالح العملاء يدفعنا إلى وضع معايير صارمة للجودة والرضا، و بالتالي ضمان عروض من الدرجة الأولى بأسعار تنافسية. ويتجلى هذا الالتزام في تقديمنا لتصميمات معمارية متطورة تتوافق بدقة مع تفضيلات العملاء للمنازل الفاخرة وبأسعار معقولة.\n\nقيمنا\n1\nالتفاني\n\nالراجحي تقدم أرقى التصميمات الفريدة من نوعها في السوق العقاري.\n\n2\nالمصداقية\n\nنقدم لمستثمرينا الأولوية القصوى ونأخذهم بعين الاعتبار في كل خطوة.\n\n3\nالاتقان\n\nوبالإضافة إلى المصداقية، فإننا نتميز أيضاً بالدقة في التفاصيل، والجودة في الاختيار، والابتكار في صناعة العقارات.\n\n4\nقيمة مضافة\n\nالالتزام بتعزيز السوق العقاري بكل الوسائل المتاحة.\n\n5\nالابتكار\n\nالتزام حقيقي ودائم بالابتكار في جميع مشاريعنا.\n\n6\nالتركيز على العملاء\n\nفي الراجحي نضع عملائنا في مركز اهتمامنا وعملياتنا.\n\nإنجازاتنا بالأرقام\nأرقام تتحدث عن نفسها\n\nأكثر من 26 عاماً من التميز في التطوير العقاري\n\n40\n+\n\nمشروع منجز\n\n1,000\n+\n\nوحدة سكنية وتجارية\n\n6,000\n+\n\nعميل تم خدمتهم\n\n30\n%\n\nمعدل النمو السنوي\n\nمسيرة النمو\n\nنمو المشاريع من 2000 إلى 2026\n\n30%+ نمو سنوي\n41\n21\n0\n2000\n1 مشروع\n00\n2001\n1 مشروع\n01\n2002\n2 مشروع\n02\n2003\n3 مشروع\n03\n2004\n4 مشروع\n04\n2005\n5 مشروع\n05\n2006\n6 مشروع\n06\n2007\n7 مشروع\n07\n2008\n9 مشروع\n08\n2009\n10 مشروع\n09\n2010\n11 مشروع\n10\n2011\n13 مشروع\n11\n2012\n15 مشروع\n12\n2013\n16 مشروع\n13\n2014\n18 مشروع\n14\n2015\n20 مشروع\n15\n2016\n21 مشروع\n16\n2017\n23 مشروع\n17\n2018\n25 مشروع\n18\n2019\n27 مشروع\n19\n2020\n29 مشروع\n20\n2021\n31 مشروع\n21\n2022\n33 مشروع\n22\n2023\n35 مشروع\n23\n2024\n37 مشروع\n24\n2025\n39 مشروع\n25\n2026\n41 مشروع\n26\nأينما كنت، نحن هناك\nالانتشار الجغرافي\n\nنتوسع عبر المدن الرئيسية في المنطقة بمشاريع عقارية متميزة\n\nالمقر الرئيسي\nالرياض\n\nمقرنا الرئيسي وقلب عملياتنا، مع أكبر محفظة مشاريع سكنية في العاصمة.\n\n30+\nمشروع\nالمنطقة الشرقية\nالخبر\nالمنطقة الشمالية\nحفر الباطن\nجمهورية مصر العربية\nالقاهرة\n\nتوسع دولي في سوق العقارات المصري بمشاريع متميزة.\n\n🌍 سوق دولي\nالإمارات العربية المتحدة\nدبي\n\nموطئ قدم في أكثر أسواق العقارات ديناميكية في العالم.\n\n🌍 سوق دولي\n\nالمملكة العربية السعودية\n\nالرياض · الخبر · حفر الباطن\n\n3 مدن\n\nجمهورية مصر العربية\n\nالقاهرة\n\n1 مدينة\n\nالإمارات العربية المتحدة\n\nدبي\n\n1 مدينة\nمعرض المشاريع العقارية\n\nمشروع\n\nمشروع الاندلس\n\nالرياض - حي العليا\n\nمشروع\n\nفلل التحلية\n\nالرياض - العليا\n\nمشروع\n\nمشروع المنال\n\nالرياض\n\nمشروع\n\nقصر نيارة للاحتفالات و المناسبات\n\nحفر الباطن - العزيزية\n\nمشروع\n\nشقة زمزم\n\nالقاهرة - الشيخ زايد\n\nمشروع\n\nأجمكان الرياض\n\nالرياض - السليمانية\n\nمشروع\n\nمبنى العزيزية\n\nالرياض - العزيزية\n\nمشروع\n\nمشروع الندى\n\nالرياض - حي العليا\n\nمشروع\n\nفلل الملز\n\nالرياض - الملز\n\nمشروع\n\nعمارة نوارة\n\nالرياض - السليمانية\n\nمشروع\n\nعمارة قزاز\n\nالرياض - العليا\n\nمشروع\n\nعمارة الحديقة\n\nالرياض - السليمانية\n\nمشروع\n\nمشروع الضباب\n\nالرياض - حي العليا\n\nمشروع\n\nمشروع السلامة\n\nالرياض - حي السليمانية\n\nمشروع\n\nمجمع الاسكان\n\nالرياض - حي العليا\n\nمشروع\n\nمشروع الواحة\n\nالرياض - العليا\n\nمشروع\n\nالقصر\n\nالرياض - حي السليمانية\n\nمشروع\n\nعمارة الزيتون\n\nالرياض - السليمانية\n\nمشروع\n\nعمارة المروج\n\nالرياض - المروج\n\nمشروع\n\nعمارة السليمانية\n\nالرياض - السليمانية\n\nمشروع\n\nفلل الثلاثين\n\nالرياض - العليا\n\nمشروع\n\nعمارة الاهلي\n\nالرياض - حي العليا\n\nمشروع\n\nمجمع روف قاردن\n\nالرياض - السليمانية\n\nمشروع\n\nعمارة برجركنج\n\nالرياض - حي المربع\n\nمشروع\n\nعمارة ماما نورة\n\nالرياض - حي العليا\n\nمشروع\n\nعمارة السرايا\n\nالرياض - العليا\n\nمشروع\n\nعمارة المدارس\n\nالرياض - السليمانية\n\nمشروع\n\nعمارة سامسونج\n\nالرياض - العليا\n\nمشروع\n\nعمارة الملز\n\nالرياض - الملز\n\nمشروع\n\nفلل النموذجية\n\nالرياض - النموذجية\n\nمشروع\n\nفلل العلياء\n\nالرياض - العليا\n\nمشروع\n\nعمارة شقق التحلية ( المستوصف )\n\nالرياض - العليا\n\nمشروع\n\nعمارة جافاتايم\n\nالرياض - العليا\n\nتواصل معنا\nتواصل معنا\n\nأرسل لنا طلبك وسنتواصل معك في أسرع وقت\n\nمعلومات التواصل\n\nطريق الأمير سلطان بن عبد العزيز، السليمانية، الرياض 12234\n\nالدوام: 10 صباحاً - 3 عصراً\n\ninfo@mrajhi.com.sa\n+966920033876\n+966112912405\n+966558297700\nموقع الشركة على الخريطة\nالاسم الكامل *\nرقم الجوال *\nالبريد الإلكتروني (اختياري)\nنوع العقار المطلوب\nاختر\nشقة\nفيلا\nدور\nمكتب\nمحل\nأخرى\nرسالتك\nإرسال الطلب\nالراجحي للتنمية والاستثمارات\n\nشريكك الموثوق في التطوير العقاري والاستثمار في المملكة العربية السعودية.\n\nرقم الترخيص: 1200012936\n\nروابط سريعة\nالرئيسية\nالخدمات العقارية\nالمقاولات والإنشاءات\nتصفح الإعلانات\nمن نحن\nتواصل معنا\nتسجيل الدخول\nتواصل معنا\nطريق الأمير سلطان بن عبد العزيز، السليمانية، الرياض 12234، المملكة العربية السعودية\n+966920033876\n+966112912405\n+966558297700\ninfo@mrajhi.com.sa\n\n© 2026 الراجحي للتنمية والاستثمارات. جميع الحقوق محفوظة.\n\n|\n\nترخيص رقم:\n1200012936\n\nتصفح الإعلانات\nبوابة العملاء",
+  "meta": {
+    "viewport": "width=device-width, initial-scale=1",
+    "description": "تعرّف على شركة الراجحي للتنمية والاستثمارات العقارية — خبرة تمتد لأكثر من 40 عاماً في التطوير العقاري وإدارة الأملاك في المملكة العربية السعودية.",
+    "keywords": "عقارات الرياض,شقق للإيجار الرياض,فلل للبيع الرياض,عقارات السعودية,الراجحي للتنمية,تطوير عقاري,استثمار عقاري",
+    "robots": "index, follow",
+    "og:title": "من نحن | الراجحي للتنمية والاستثمارات",
+    "og:description": "تعرّف على شركة الراجحي للتنمية والاستثمارات العقارية — خبرة تمتد لأكثر من 40 عاماً في التطوير العقاري وإدارة الأملاك.",
+    "og:url": "https://mrajhi.com.sa/about",
+    "og:site_name": "الراجحي للتنمية والاستثمارات",
+    "og:locale": "ar_SA",
+    "og:type": "website",
+    "twitter:card": "summary",
+    "twitter:title": "من نحن | الراجحي للتنمية والاستثمارات",
+    "twitter:description": "تعرّف على شركة الراجحي للتنمية والاستثمارات العقارية — خبرة تمتد لأكثر من 40 عاماً في التطوير العقاري وإدارة الأملاك."
+  },
+  "svgs": 85,
+  "icons": [
+    "https://mrajhi.com.sa/favicon.ico",
+    "https://mrajhi.com.sa/icon.png?d258936db6f8aed5",
+    "https://mrajhi.com.sa/apple-icon.png?de4a1c5ccfa7f2cf"
+  ]
+}

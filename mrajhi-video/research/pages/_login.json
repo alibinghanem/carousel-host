@@ -1,0 +1,51 @@
+{
+  "url": "https://mrajhi.com.sa/login",
+  "status": 200,
+  "title": "تسجيل الدخول | الراجحي للتنمية والاستثمارات | الراجحي للتنمية والاستثمارات",
+  "links": [
+    {
+      "href": "https://mrajhi.com.sa/units",
+      "text": "تصفح الوحدات المتاحة"
+    },
+    {
+      "href": "https://mrajhi.com.sa/login#",
+      "text": "تواصل معنا"
+    }
+  ],
+  "imgs": [
+    {
+      "src": "https://mrajhi.com.sa/_next/image?url=%2Flogo.jpg&w=96&q=75",
+      "srcset": "/_next/image?url=%2Flogo.jpg&w=96&q=75 1x, /_next/image?url=%2Flogo.jpg&w=256&q=75 2x",
+      "alt": "شعار الراجحي للتنمية والاستثمارات",
+      "w": 96,
+      "h": 137
+    },
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMSI+PHBhdGggZD0iTTM2IDE2YzAtMS4xMDQuOS0yIDItMnMyIC44OTYgMiAyLS45IDItMiAyLTItLjg5Ni0yLTJ6bS0yMCAwYzAtMS4xMDQuOS0yIDItMnMyIC44OTYgMiAyLS45IDItMiAyLTItLjg5Ni0yLTJ6Ii8+PC9nPjwvZz48L3N2Zz4=",
+      "alt": "bg",
+      "w": 0,
+      "h": 0
+    }
+  ],
+  "text": "الراجحي للتنمية والاستثمارات\n\nنظام إدارة العقارات\n\nحول بياناتك إلى قرارات ذكية\n\nسرعة فائقة\n\nواجهات سريعة وسلسة لتجربة مستخدم استثنائية\n\nأمان عالي\n\nحماية متقدمة لبيانات عملائك ومعلوماتك الحساسة\n\nنمو مستمر\n\nأدوات تحليل متطورة لتنمية أعمالك بذكاء\n\nانضم إلينا واستمتع بتجربة إدارة عملاء لا مثيل لها\n\nتسجيل الدخول\n\nادخل بياناتك للوصول إلى حسابك\n\nالبريد الإلكتروني\nكلمة المرور\nنسيت كلمة المرور؟\nتسجيل الدخول\nأو\nتصفح الوحدات المتاحة\n\nليس لديك حساب؟ تواصل معنا\n\n© 2026 الراجحي للتنمية والاستثمارات - جميع الحقوق محفوظة",
+  "meta": {
+    "viewport": "width=device-width, initial-scale=1",
+    "description": "سجّل الدخول لإدارة العملاء والمواعيد والوحدات.",
+    "keywords": "عقارات الرياض,شقق للإيجار الرياض,فلل للبيع الرياض,عقارات السعودية,الراجحي للتنمية,تطوير عقاري,استثمار عقاري",
+    "robots": "noindex, nofollow",
+    "og:title": "تسجيل الدخول | الراجحي للتنمية والاستثمارات | الراجحي للتنمية والاستثمارات",
+    "og:description": "سجّل الدخول لإدارة العملاء والمواعيد والوحدات.",
+    "og:site_name": "الراجحي للتنمية والاستثمارات",
+    "og:locale": "ar_SA",
+    "og:type": "website",
+    "twitter:card": "summary",
+    "twitter:title": "تسجيل الدخول | الراجحي للتنمية والاستثمارات | الراجحي للتنمية والاستثمارات",
+    "twitter:description": "سجّل الدخول لإدارة العملاء والمواعيد والوحدات."
+  },
+  "svgs": 7,
+  "icons": [
+    "https://mrajhi.com.sa/favicon.ico",
+    "https://mrajhi.com.sa/icon.png?d258936db6f8aed5",
+    "https://mrajhi.com.sa/apple-icon.png?de4a1c5ccfa7f2cf"
+  ]
+}

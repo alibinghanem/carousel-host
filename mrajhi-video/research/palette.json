@@ -1,0 +1,20 @@
+{
+  "_note": "Logo colors sampled from the real logo.jpg pixels; UI colors extracted from the site's compiled CSS (Tailwind) and hero screenshot. Roles are the video's mapping.",
+  "logo": { "gold": "#DCA50D", "charcoal": "#38393D" },
+  "site": {
+    "navy": "#0D1B3E", "navyDeep": "#16294F", "navyMid": "#223A6B", "blue": "#2E4C88", "blueLight": "#3F61A3",
+    "gold": "#C9A84C", "goldDark": "#B08F3D", "paleBlue": "#EEF2F9", "paleBlue2": "#D9E2F1", "grey": "#9CA3AF", "greyLight": "#E5E7EB"
+  },
+  "video": {
+    "background": "#0D1B3E",
+    "backgroundDeep": "#070F26",
+    "primary": "#0D1B3E",
+    "accent": "#DCA50D",
+    "accentSoft": "#C9A84C",
+    "text": "#F7F3E8",
+    "textMuted": "#B9C2D6",
+    "surface": "#16294F",
+    "lightBackground": "#EEF2F9",
+    "charcoal": "#38393D"
+  }
+}
