@@ -152,6 +152,8 @@ python3 .claude/skills/tiktok-ai-reel/render_html.py $D/design.html $D
   - `Readex Pro` 400/700.
   - `JetBrains Mono` 500/800: أرقام وأكواد وأوقات.
   - `Space Grotesk` 500/700: لاتيني عصري.
+  - `Reem Kufi` 400/700: كوفي هندسي. تنبيه: الهاء الأخيرة تشبه التاء المربوطة والمسافات ضيقة، فاستخدمه لكلمات قصيرة فقط.
+  - `El Messiri` 400/700: عناوين أنيقة بطابع دافئ (مطاعم، ضيافة، أسلوب حياة).
 - **خطوط إضافية:** `npm pack @fontsource/<name>`. ضع ملفات woff2 في `fonts/extra/`
   باسم `<family>-<arabic|latin>-<weight>-normal.woff2`، وأضف اسم العائلة في
   `FAMILIES` داخل `render_html.py`.
