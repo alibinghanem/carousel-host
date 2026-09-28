@@ -14,3 +14,5 @@
 12. **Spelling normalised.** On screen we write «الأندلس» (site: «الاندلس») and keep «الأهلي» spelled as the site does not appear on screen. Confirm project-name spellings.
 13. **Fonts.** Film uses Noto Kufi Arabic + IBM Plex Sans Arabic (not the site's Tajawal) per client request — confirm you are happy for the ad to differ from the website type.
 14. **Music.** `public/audio/music-placeholder.wav` is a synthesized 120 BPM placeholder made only to test sync/fades; replace with a licensed track (brief in README).
+15. **Music (9:16).** `public/audio/music-portrait-A.mp3` is an AI-generated instrumental (ElevenLabs Music v2.5, 120 BPM, 29.5 s, hit at 21 s = logo). `music-portrait-B.mp3` is an alternate take. Confirm licensing/usage terms of the generated track for your distribution before paid media. The 16:9 film still uses the synthesized placeholder.
+16. **Voice-over.** Dropped at the client's request (music only).

@@ -54,7 +54,7 @@ export const PromiseScene: React.FC<{ short?: boolean }> = ({ short = false }) =
       </div>
       {/* slogan */}
       <div style={{ position: "absolute", left: 0, right: 0, top: 0, bottom: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-        <KineticText text={BRAND.slogan} size={portrait ? 118 : 138} weight={900} start={sloganAt + 4} align="center" goldWords={[2, 3]} maxWidth={portrait ? width - 140 : 1400} lineHeight={1.18} />
+        <KineticText text={BRAND.slogan} size={portrait ? 98 : 132} weight={900} start={sloganAt + 4} align="center" goldWords={[2, 3]} maxWidth={portrait ? width - 140 : 1400} lineHeight={1.18} />
         <div style={{ height: 40 }} />
         <Rule start={sloganAt + 26} dur={24} width={340} thickness={6} style={{ transformOrigin: "center" }} />
       </div>

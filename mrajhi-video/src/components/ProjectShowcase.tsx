@@ -36,10 +36,10 @@ export const ProjectPanel: React.FC<{ project: Project; index: number; total: nu
         <div dir="rtl" style={{ position: "absolute", right: margin.x - 10, top: top - 30, fontFamily: DISPLAY, fontSize: 430, fontWeight: 900, lineHeight: 1, color: "transparent", WebkitTextStroke: "2px rgba(220,165,13,0.22)", opacity: interpolate(frame, [0, 26], [0, 1], clampOpts), translate: `${ghost}px 0` }}>
           <span dir="ltr">{two(index + 1)}</span>
         </div>
-        <div dir="rtl" style={{ position: "absolute", right: margin.x, top: top + 150, width: colW, fontFamily: FONT }}>
+        <div dir="rtl" style={{ position: "absolute", right: margin.x, top: top + 120, width: colW, fontFamily: FONT }}>
           <div style={{ fontSize: size.caption + 2, fontWeight: 700, color: colors.gold, opacity: interpolate(frame, [6, 22], [0, 1], clampOpts) }}>{label}</div>
           <div style={{ height: 24 }} />
-          <KineticText text={project.name} size={116} start={10} weight={900} maxWidth={colW} lineHeight={1.1} />
+          <KineticText text={project.name} size={100} start={10} weight={900} maxWidth={colW} lineHeight={1.1} />
           <div style={{ height: 34 }} />
           <Rule start={26} dur={22} width={220} thickness={6} />
           <div style={{ height: 34 }} />

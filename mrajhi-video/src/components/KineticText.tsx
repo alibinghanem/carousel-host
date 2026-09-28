@@ -39,6 +39,8 @@ export const KineticText: React.FC<Props> = ({
 }) => {
   const frame = useCurrentFrame();
   const words = text.split(" ");
+  // Noto Kufi has tall dots/marks: never set headline lines tighter than 1.42 or they collide across lines
+  const lh = weight >= 700 ? Math.max(lineHeight, 1.42) : Math.max(lineHeight, 1.3);
   const justify = align === "right" ? "flex-start" : align === "center" ? "center" : "flex-end";
   return (
     <div
@@ -52,7 +54,7 @@ export const KineticText: React.FC<Props> = ({
         fontFamily: familyFor(weight),
         fontSize: size,
         fontWeight: weight,
-        lineHeight,
+        lineHeight: lh,
         color,
         textShadow: shadow ? "0 4px 30px rgba(3,6,15,0.45)" : undefined,
         ...style,
@@ -70,7 +72,7 @@ export const KineticText: React.FC<Props> = ({
         return (
           <span
             key={i}
-            style={{ display: "inline-block", overflow: "hidden", paddingBlock: "0.28em", marginBlock: "-0.28em" }}
+            style={{ display: "inline-block", overflow: "hidden", paddingBlock: "0.4em", marginBlock: "-0.4em" }}
           >
             <span
               style={{
