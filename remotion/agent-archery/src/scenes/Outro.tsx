@@ -42,14 +42,14 @@ export const Outro: React.FC = () => {
           <Img src={staticFile("avatar.png")} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "50% 15%" }} />
         </div>
       </div>
-      <Words text="علي التميمي" at={12} style={{ position: "absolute", top: 1010, left: 0, right: 0, textAlign: "center", fontFamily: F.head, fontWeight: 800, fontSize: 92, color: "#fff" }} />
-      <div style={{ position: "absolute", top: 1195, left: 0, right: 0, display: "flex", justifyContent: "center", opacity: lerp(f, [22, 32], [0, 1]) }}>
+      <Words text="علي التميمي" at={18} stagger={6} style={{ position: "absolute", top: 1010, left: 0, right: 0, textAlign: "center", fontFamily: F.head, fontWeight: 800, fontSize: 92, color: "#fff" }} />
+      <div style={{ position: "absolute", top: 1195, left: 0, right: 0, display: "flex", justifyContent: "center", opacity: lerp(f, [36, 48], [0, 1]) }}>
         <Handles light />
       </div>
       <Words
         text="وش أغرب شي سواه لك وكيل ذكاء اصطناعي؟"
-        at={34}
-        stagger={2}
+        at={56}
+        stagger={4}
         style={{ position: "absolute", top: 1300, left: 70, right: 70, textAlign: "center", fontFamily: F.body, fontWeight: 700, fontSize: 42, color: C.y }}
       />
       <Audio from={2} src={staticFile("sfx/pop.wav")} volume={0.5} />

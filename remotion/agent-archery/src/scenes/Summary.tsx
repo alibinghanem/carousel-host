@@ -7,22 +7,22 @@ import { C, F, lerp, shake } from "../theme";
 
 /** 32–36ث: بطاقة ٣ أسئلة… ثم السهم في الهدف */
 const CHECKS = [
-  { t: "الهدف مكتوب بوضوح؟", at: 14 },
-  { t: "الأدوات مربوطة؟", at: 26 },
-  { t: "معيار النجاح واضح؟", at: 38 },
+  { t: "الهدف مكتوب بوضوح؟", at: 30 },
+  { t: "الأدوات مربوطة؟", at: 56 },
+  { t: "معيار النجاح واضح؟", at: 82 },
 ];
-const HIT = 70;
+const HIT = 120;
 
 export const Summary: React.FC = () => {
   const f = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const fly = lerp(f, [HIT - 8, HIT], [0, 1], (t) => t * t);
+  const fly = lerp(f, [HIT - 10, HIT], [0, 1], (t) => t * t);
   const s = spring({ frame: f - HIT - 2, fps, config: { damping: 10, stiffness: 180 } });
   const sy = shake(f, HIT, 16, 14);
   return (
     <AbsoluteFill style={{ translate: `0px ${sy}px` }}>
       <Background tint={C.ok} />
-      <Words text="قبل ما تطلق أي وكيل" at={2} stagger={3} style={{ position: "absolute", top: 320, left: 60, right: 60, textAlign: "center", fontFamily: F.head, fontWeight: 800, fontSize: 92, color: "#fff" }} />
+      <Words text="قبل ما تطلق أي وكيل" at={4} stagger={6} style={{ position: "absolute", top: 320, left: 60, right: 60, textAlign: "center", fontFamily: F.head, fontWeight: 800, fontSize: 92, color: "#fff" }} />
 
       <Glass style={{ position: "absolute", top: 480, left: 90, right: 90, padding: "12px 30px" }}>
         {CHECKS.map((c, i) => (
@@ -57,7 +57,7 @@ export const Summary: React.FC = () => {
           position: "absolute",
           left: 540 - 30,
           top: lerp(fly, [0, 1], [1900, 1100], (t) => t),
-          opacity: f >= HIT - 8 ? 1 : 0,
+          opacity: f >= HIT - 10 ? 1 : 0,
           scale: `${lerp(fly, [0, 1], [1, 0.55], (t) => t)}`,
           transformOrigin: "30px 0px",
           filter: `drop-shadow(0 0 16px ${C.y})`,
@@ -91,7 +91,7 @@ export const Summary: React.FC = () => {
       {CHECKS.map((c) => (
         <Audio key={c.at} from={c.at} src={staticFile("sfx/tick.wav")} volume={0.55} />
       ))}
-      <Audio from={HIT - 9} src={staticFile("sfx/whoosh.wav")} volume={0.8} />
+      <Audio from={HIT - 11} src={staticFile("sfx/whoosh.wav")} volume={0.8} />
       <Audio from={HIT} src={staticFile("sfx/thud.wav")} volume={0.8} />
       <Audio from={HIT + 2} src={staticFile("sfx/ding.wav")} volume={0.5} />
     </AbsoluteFill>

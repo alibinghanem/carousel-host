@@ -15,15 +15,15 @@ fontsReady.then(() => continueRender(h));
 
 export const RemotionRoot: React.FC = () => (
   <>
-    <Composition id="AgentArchery" component={AgentArchery} width={1080} height={1920} fps={30} durationInFrames={1200} />
+    <Composition id="AgentArchery" component={AgentArchery} width={1080} height={1920} fps={30} durationInFrames={1800} />
     <Folder name="AgentArchery-Scenes">
       <Composition id="Hook" component={Hook} width={1080} height={1920} fps={30} durationInFrames={252} />
-      <Composition id="Problem" component={Problem} width={1080} height={1920} fps={30} durationInFrames={132} />
-      <Composition id="Reason1" component={Reason1} width={1080} height={1920} fps={30} durationInFrames={212} />
-      <Composition id="Reason2" component={Reason2} width={1080} height={1920} fps={30} durationInFrames={212} />
-      <Composition id="Reason3" component={Reason3} width={1080} height={1920} fps={30} durationInFrames={212} />
-      <Composition id="Summary" component={Summary} width={1080} height={1920} fps={30} durationInFrames={132} />
-      <Composition id="Outro" component={Outro} width={1080} height={1920} fps={30} durationInFrames={120} />
+      <Composition id="Problem" component={Problem} width={1080} height={1920} fps={30} durationInFrames={252} />
+      <Composition id="Reason1" component={Reason1} width={1080} height={1920} fps={30} durationInFrames={312} />
+      <Composition id="Reason2" component={Reason2} width={1080} height={1920} fps={30} durationInFrames={312} />
+      <Composition id="Reason3" component={Reason3} width={1080} height={1920} fps={30} durationInFrames={252} />
+      <Composition id="Summary" component={Summary} width={1080} height={1920} fps={30} durationInFrames={252} />
+      <Composition id="Outro" component={Outro} width={1080} height={1920} fps={30} durationInFrames={240} />
     </Folder>
   </>
 );
