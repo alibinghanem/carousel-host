@@ -154,4 +154,5 @@ git add -A && git commit -m "ريلز <التاريخ>: <عنوان الموضو
 | `state/used_tools.json` · `state/used.json` | سجلّ المواضيع المستهلكة (الأدوات · القديم) |
 | `references/content.md` | قواعد الكتابة والهوك والكابشن |
 | `assets/avatar.png` | صورة علي مقصوصة الخلفية |
+| `assets/logos/` | **الشعارات الرسمية لأدوات الذكاء الاصطناعي** (SVG، من `@lobehub/icons-static-svg`، رخصة MIT). إلزامية في منشورات الأدوات (§٤-ب في design.md) |
 | `fonts/` | خطوط Cairo و Tajawal، و `fonts/extra/`: Lalezar و IBM Plex Arabic و Readex Pro و JetBrains Mono و Space Grotesk (تعمل بدون إنترنت) |

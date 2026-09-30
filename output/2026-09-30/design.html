@@ -14,7 +14,13 @@ body{background:#000;font-family:'IBM Plex Sans Arabic','Cairo',sans-serif;-webk
 .dots{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(20,33,61,.08) 1.4px,transparent 2px);background-size:22px 22px}
 .dk .dots{background-image:radial-gradient(rgba(255,255,255,.06) 1.4px,transparent 2px)}
 .kick{position:absolute;top:250px;right:90px;display:flex;align-items:center;gap:14px;font:700 30px 'Space Grotesk';direction:ltr}
-.kick i{width:34px;height:34px;border-radius:9px;background:var(--coral);box-shadow:inset 0 -8px 0 rgba(0,0,0,.18)}
+.kick img{width:40px;height:40px}
+.brand{position:absolute;top:596px;left:50%;transform:translateX(-50%);z-index:3;display:flex;align-items:center;gap:16px;background:#fff;border-radius:999px;padding:14px 34px 14px 30px;box-shadow:0 14px 30px rgba(20,33,61,.18);direction:ltr}
+.brand img.i{width:58px;height:58px}.brand img.t{height:40px}
+.shot{position:absolute;top:470px;left:80px;right:80px;height:360px;border-radius:30px;overflow:hidden;box-shadow:0 20px 40px rgba(20,33,61,.18)}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:50% 58%}
+.shot:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,33,61,.55),transparent 55%)}
+.shot span{position:absolute;bottom:22px;right:26px;z-index:2;color:#fff;font:800 40px 'Rubik'}
 .pg{position:absolute;top:256px;left:90px;font:700 28px 'Space Grotesk';opacity:.5;direction:ltr}
 .hbar{position:absolute;top:1392px;right:90px;display:flex;gap:26px;align-items:center;padding:14px 28px;border-radius:999px;background:var(--navy);color:#fff;font:700 28px 'IBM Plex Sans Arabic'}
 .swipe{position:absolute;top:1400px;left:90px;font:700 34px 'IBM Plex Sans Arabic';color:var(--coral)}
@@ -42,20 +48,20 @@ body{background:#000;font-family:'IBM Plex Sans Arabic','Cairo',sans-serif;-webk
 .s1 h1 .b{display:block;font-size:136px;color:var(--coral)}
 
 /* ٢ المشكلة */
-.s2 h2{position:absolute;top:320px;right:90px;left:60px;font-size:96px;white-space:nowrap}
+.s2 h2{position:absolute;top:320px;right:90px;left:60px;font-size:86px;white-space:nowrap}
 .s2 h2 em{font-style:normal;color:var(--coral)}
-.receipt{position:absolute;top:520px;right:90px;width:420px;height:820px;background:#fff;padding:36px 34px;box-shadow:0 20px 40px rgba(20,33,61,.15);-webkit-mask:radial-gradient(14px 14px at 50% 100%,transparent 98%,#000) 0 0/28px 100% repeat-x}
+.receipt{position:absolute;top:880px;right:90px;width:420px;height:460px;background:#fff;padding:92px 34px 36px;box-shadow:0 20px 40px rgba(20,33,61,.15);-webkit-mask:radial-gradient(14px 14px at 50% 100%,transparent 98%,#000) 0 0/28px 100% repeat-x}
 .receipt .ln{height:14px;border-radius:7px;background:#D9E0E8;margin-bottom:18px}
-.receipt .lb{position:absolute;top:-24px;right:30px;background:var(--coral);color:#fff;font:700 30px 'IBM Plex Sans Arabic';padding:8px 18px;border-radius:12px}
-.want{position:absolute;top:600px;left:90px;width:430px}
+.receipt .lb{position:absolute;top:18px;right:24px;background:var(--coral);color:#fff;font:700 30px 'IBM Plex Sans Arabic';padding:8px 18px;border-radius:12px}
+.want{position:absolute;top:880px;left:90px;width:430px}
 .want .lb{font:800 40px 'Rubik';color:var(--ok);margin-bottom:16px}
 .tbl{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 16px 30px rgba(20,33,61,.15);border:3px solid var(--navy)}
 .tbl .r{display:grid;grid-template-columns:1.3fr 1fr 1fr;border-top:2px solid #E3E8EE}
 .tbl .r:first-child{border-top:none;background:var(--navy);color:#fff}
-.tbl .r div{padding:16px 14px;font:700 28px 'IBM Plex Sans Arabic';text-align:center}
+.tbl .r div{padding:11px 14px;font:700 28px 'IBM Plex Sans Arabic';text-align:center}
 .tbl .r div:first-child{text-align:right}
 .tbl .y{color:var(--ok)} .tbl .n{color:var(--coral)}
-.s2 .foot{position:absolute;top:1060px;left:90px;width:430px;font:700 38px/1.5 'IBM Plex Sans Arabic'}
+.s2 .foot{position:absolute;top:1250px;left:90px;width:440px;font:700 32px/1.5 'IBM Plex Sans Arabic'}
 .s2 .foot b{color:var(--coral)}
 
 /* ٣ وش هي */
@@ -150,9 +156,10 @@ body{background:#000;font-family:'IBM Plex Sans Arabic','Cairo',sans-serif;-webk
 <!-- ١ الغلاف -->
 <section class="slide lt s1">
   <div class="dots"></div>
-  <div class="kick"><i></i>Claude · Artifacts</div>
+  <div class="kick"><img src="assets/claude-color.svg">Claude · Artifacts</div>
   <div class="pg">1/7</div>
   <h1 class="hd"><span class="a">لا تطلب جواب…</span><span class="b">اطلب أداة</span></h1>
+  <div class="brand"><img class="i" src="assets/claude-color.svg"><img class="t" src="assets/claude-text.svg"></div>
   <div class="vm" style="top:650px;left:170px;width:740px;height:700px">
     <div class="win" style="top:30px;right:30px;width:500px;height:500px">
       <div class="grid">
@@ -176,12 +183,13 @@ body{background:#000;font-family:'IBM Plex Sans Arabic','Cairo',sans-serif;-webk
 <!-- ٢ المشكلة -->
 <section class="slide lt s2">
   <div class="dots"></div>
-  <div class="kick"><i></i>Claude · Artifacts</div>
+  <div class="kick"><img src="assets/claude-color.svg">Claude · Artifacts</div>
   <div class="pg">2/7</div>
   <h2 class="hd">طلبت جدول… <em>جاك كلام</em></h2>
+  <div class="shot"><img src="assets/notes.jpg"><span>وجلست تنسخ وترتّب بنفسك؟</span></div>
   <div class="receipt">
     <div class="lb">اللي وصلك</div>
-    <div class="ln"></div><div class="ln" style="width:88%"></div><div class="ln"></div><div class="ln" style="width:70%"></div><div class="ln"></div><div class="ln" style="width:92%"></div><div class="ln"></div><div class="ln" style="width:64%"></div><div class="ln"></div><div class="ln" style="width:84%"></div><div class="ln"></div><div class="ln" style="width:76%"></div><div class="ln"></div><div class="ln" style="width:90%"></div><div class="ln"></div><div class="ln" style="width:60%"></div><div class="ln"></div><div class="ln" style="width:80%"></div><div class="ln"></div><div class="ln" style="width:72%"></div><div class="ln"></div><div class="ln" style="width:50%"></div>
+    <div class="ln"></div><div class="ln" style="width:88%"></div><div class="ln"></div><div class="ln" style="width:70%"></div><div class="ln"></div><div class="ln" style="width:92%"></div><div class="ln"></div><div class="ln" style="width:64%"></div><div class="ln"></div><div class="ln" style="width:84%"></div><div class="ln"></div><div class="ln" style="width:50%"></div>
   </div>
   <div class="want">
     <div class="lb">واللي كنت تبيه ✓</div>
@@ -192,18 +200,18 @@ body{background:#000;font-family:'IBM Plex Sans Arabic','Cairo',sans-serif;-webk
       <div class="r"><div>السرعة</div><div class="y">✓</div><div class="y">✓</div></div>
     </div>
   </div>
-  <div class="foot">المشكلة مو في Claude…<br>أنت طلبت <b>شرح</b>، وأنت تبي <b>شي تستخدمه</b></div>
+  <div class="foot">طلبت <b>شرح</b>… وأنت تبي <b>شي تستخدمه</b></div>
 </section>
 
 <!-- ٣ وش هي -->
 <section class="slide dk s3" data-handles="light">
   <div class="dots"></div>
-  <div class="kick"><i></i>Claude · Artifacts</div>
+  <div class="kick"><img src="assets/claude-color.svg">Claude · Artifacts</div>
   <div class="pg">3/7</div>
   <h2 class="hd">وش هي <span class="en">Artifacts</span>؟</h2>
   <div class="def">أي شي يصنعه Claude لك <b>وتقدر تحطه قدام أحد</b>… ويفتح جنب المحادثة، وتعدّله بالكلام.</div>
   <div class="ui">
-    <div class="bar"><i></i><i></i><i></i></div>
+    <div class="bar"><i></i><i></i><i></i><span style="margin-left:auto;display:flex;align-items:center;gap:10px;font:700 24px 'Space Grotesk';color:#fff"><img src="assets/claude-color.svg" style="width:28px;height:28px">Claude</span></div>
     <div class="chat">
       <div class="me">سوّ لي لوحة لمبيعات الشهر</div>
       <div class="ai">جاهزة ← على اليسار</div>
@@ -222,7 +230,7 @@ body{background:#000;font-family:'IBM Plex Sans Arabic','Cairo',sans-serif;-webk
 <!-- ٤ الخطوات -->
 <section class="slide lt s4">
   <div class="dots"></div>
-  <div class="kick"><i></i>Claude · Artifacts</div>
+  <div class="kick"><img src="assets/claude-color.svg">Claude · Artifacts</div>
   <div class="pg">4/7</div>
   <h2 class="hd">اطلبها في <em>4 أزرار</em></h2>
   <div class="steps">
@@ -236,7 +244,7 @@ body{background:#000;font-family:'IBM Plex Sans Arabic','Cairo',sans-serif;-webk
 <!-- ٥ مثال -->
 <section class="slide lt s5">
   <div class="dots"></div>
-  <div class="kick"><i></i>Claude · Artifacts</div>
+  <div class="kick"><img src="assets/claude-color.svg">Claude · Artifacts</div>
   <div class="pg">5/7</div>
   <h2 class="hd">مثال تنسخه</h2>
   <div class="ask"><small>اكتب لـ Claude:</small>«سوّ لي حاسبة تسعير: أدخل التكلفة ونسبة الربح، ويطلع السعر قبل الضريبة وبعد ضريبة <span dir="ltr" style="unicode-bidi:isolate">15%</span>»</div>
@@ -252,11 +260,11 @@ body{background:#000;font-family:'IBM Plex Sans Arabic','Cairo',sans-serif;-webk
 <!-- ٦ ميزة + الباقات + الخطأ -->
 <section class="slide dk s6" data-handles="light">
   <div class="dots"></div>
-  <div class="kick"><i></i>Claude · Artifacts</div>
+  <div class="kick"><img src="assets/claude-color.svg">Claude · Artifacts</div>
   <div class="pg">6/7</div>
   <h2 class="hd">ميزة <em>ما يعرفها كثير</em></h2>
   <div class="aiapp">
-    <div class="ti"><i></i>أداة فيها Claude نفسه</div>
+    <div class="ti"><img src="assets/claude-color.svg" style="width:40px;height:40px">أداة فيها Claude نفسه</div>
     <div class="q"><div>اسأل عن أي منتج…</div><span>اسأل</span></div>
     <p>الأداة تقدر تستخدم Claude من داخلها. <b>بدون مفتاح API</b>، والاستخدام يُحسب على باقة كل مستخدم.</p>
   </div>
@@ -270,7 +278,7 @@ body{background:#000;font-family:'IBM Plex Sans Arabic','Cairo',sans-serif;-webk
 <!-- ٧ المتابعة -->
 <section class="slide lt s7">
   <div class="dots"></div>
-  <div class="kick"><i></i>Claude · Artifacts</div>
+  <div class="kick"><img src="assets/claude-color.svg">Claude · Artifacts</div>
   <div class="pg">7/7</div>
   <div class="box">
     <div class="top"><b>منتج جديد كل يوم</b><span>A1</span></div>

@@ -85,6 +85,12 @@
     "cover_bg": "#E6F1EC",
     "display_font": "Rubik 800",
     "cover_layout": "عنوان بسطرين فوق آلة بيع مرجانية فيها 4 منتجات",
-    "photos": []
+    "photos": [
+      "1434030216411-0b793f4b4173"
+    ],
+    "real_assets": [
+      "claude-color.svg",
+      "claude-text.svg"
+    ]
   }
 ]
