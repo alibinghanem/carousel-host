@@ -142,6 +142,8 @@ git add -A && git commit -m "ريلز <التاريخ>: <عنوان الموضو
 | `state/designs.json` | سجلّ التصاميم المستخدمة، لمنع التكرار |
 | `render_carousel.py` | مولّد القالب القديم (احتياط) |
 | `render_video_html.py` | **فيديو موشن قرافيك** (عند الطلب): مشاهد HTML بانتقالات متنوعة، رسم خطوط، حركة على مسار، موجات صوت حيّة، كاميرا، ومؤثرات صوتية. `--music=120:4.0` يضيف موسيقى خلفية. مثال: `output/2026-09-27-motion/` |
+| `remotion/` | **فيديو موشن قرافيك احترافي بـ Remotion (React)**: مشروع لكل فيديو (`remotion/<name>/`)، مشاهد في `src/scenes/`، وانتقالات `@remotion/transitions`. الرندر: `npx remotion render <Comp> out.mp4` (Chromium المحلي مضبوط في `remotion.config.ts`). المثال: `remotion/agent-archery/`. اقرأ مهارة `remotion-best-practices` قبل البدء |
+| موسيقى ElevenLabs | `creative_generate_in_flow` بـ `node_type: music` و `eleven_music_v2_5`: اطلب «Instrumental only» وحدد المدة والـ BPM ولحظات الضربات. تأكد إنها بدون غناء (Scribe يرجع نص فاضي)، ثم قِس مواضع الضربات وقطّع المشاهد عليها |
 | `music_bed.py` | موسيقى خلفية أصلية تُولَّد برمجياً (بلا حقوق): مقدمة ← drop عند الكشف ← خاتمة. **بدون تعليق صوتي** (طلب المستخدم) |
 | `find_photo.py` | بحث وتنزيل صورة من Pexels (يحتاج مفتاح) |
 | `render_reel.py` | مولّد الفيديو (احتياطي، غير مستخدم يومياً) |
