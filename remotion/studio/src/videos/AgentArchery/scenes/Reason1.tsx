@@ -1,9 +1,9 @@
 import { AbsoluteFill, staticFile, useCurrentFrame } from "remotion";
 import { Audio } from "@remotion/media";
-import { Background } from "../components/Background";
-import { Target } from "../components/Target";
-import { Chip, Flash, Glass, ReasonHead, Typer } from "../components/ui";
-import { C, F, lerp } from "../theme";
+import { Background } from "../../../lib/Background";
+import { Target } from "../Target";
+import { Chip, Flash, Glass, ReasonHead, Typer } from "../../../lib/ui";
+import { C, F, lerp } from "../../../lib/theme";
 
 /** السبب ١ (على الـ drop): لوحة فاضية «؟» تتحول لهدف واضح */
 export const Reason1: React.FC = () => {
@@ -52,15 +52,15 @@ export const Reason1: React.FC = () => {
         <Chip at={282} bg={C.y} color={C.ink} style={{ fontSize: 32 }}>بأي شكل</Chip>
       </div>
 
-      <Audio from={0} src={staticFile("sfx/sub.wav")} volume={0.9} />
-      <Audio from={85} src={staticFile("sfx/swell.wav")} volume={0.35} />
-      <Audio from={115} src={staticFile("sfx/ding.wav")} volume={0.4} />
-      <Audio from={152} src={staticFile("sfx/blip_lo.wav")} volume={0.5} />
+      <Audio from={0} src={staticFile("sfx-synth/sub.wav")} volume={0.9} />
+      <Audio from={85} src={staticFile("sfx-synth/swell.wav")} volume={0.35} />
+      <Audio from={115} src={staticFile("sfx-synth/ding.wav")} volume={0.4} />
+      <Audio from={152} src={staticFile("sfx-synth/blip_lo.wav")} volume={0.5} />
       {[184, 198, 212, 226, 240].map((t) => (
-        <Audio key={t} from={t} src={staticFile("sfx/click.wav")} volume={0.3} />
+        <Audio key={t} from={t} src={staticFile("sfx-synth/click.wav")} volume={0.3} />
       ))}
       {[262, 272, 282].map((t) => (
-        <Audio key={t} from={t} src={staticFile("sfx/pop.wav")} volume={0.4} />
+        <Audio key={t} from={t} src={staticFile("sfx-synth/pop.wav")} volume={0.4} />
       ))}
     </AbsoluteFill>
   );

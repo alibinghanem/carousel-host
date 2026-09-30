@@ -1,8 +1,8 @@
 import { AbsoluteFill, staticFile, useCurrentFrame } from "remotion";
 import { Audio } from "@remotion/media";
-import { Background } from "../components/Background";
-import { Chip, Glass, Typer, Words } from "../components/ui";
-import { C, F, lerp, shake } from "../theme";
+import { Background } from "../../../lib/Background";
+import { Chip, Glass, Typer, Words } from "../../../lib/ui";
+import { C, F, lerp, shake } from "../../../lib/theme";
 
 /** 8–12ث: المهمة تنكتب… والتقويم يتلخبط */
 const DAYS = ["الأحد", "الاثنين", "الثلاثاء", "الأربعاء", "الخميس"];
@@ -87,12 +87,12 @@ export const Problem: React.FC = () => {
       />
 
       {[50, 58, 66, 74, 82].map((t) => (
-        <Audio key={t} from={t} src={staticFile("sfx/click.wav")} volume={0.35} />
+        <Audio key={t} from={t} src={staticFile("sfx-synth/click.wav")} volume={0.35} />
       ))}
       {[132, 146, 160].map((t) => (
-        <Audio key={t} from={t} src={staticFile("sfx/blip_lo.wav")} volume={0.5} />
+        <Audio key={t} from={t} src={staticFile("sfx-synth/blip_lo.wav")} volume={0.5} />
       ))}
-      <Audio from={212} src={staticFile("sfx/swell.wav")} volume={0.6} />
+      <Audio from={212} src={staticFile("sfx-synth/swell.wav")} volume={0.6} />
     </AbsoluteFill>
   );
 };

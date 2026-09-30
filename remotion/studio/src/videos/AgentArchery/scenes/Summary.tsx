@@ -1,9 +1,9 @@
 import { AbsoluteFill, staticFile, useCurrentFrame, useVideoConfig, spring } from "remotion";
 import { Audio } from "@remotion/media";
-import { Background } from "../components/Background";
-import { Arrow, Target } from "../components/Target";
-import { Burst, Flash, Glass, Words } from "../components/ui";
-import { C, F, lerp, shake } from "../theme";
+import { Background } from "../../../lib/Background";
+import { Arrow, Target } from "../Target";
+import { Burst, Flash, Glass, Words } from "../../../lib/ui";
+import { C, F, lerp, shake } from "../../../lib/theme";
 
 /** 32–36ث: بطاقة ٣ أسئلة… ثم السهم في الهدف */
 const CHECKS = [
@@ -89,11 +89,11 @@ export const Summary: React.FC = () => {
       </div>
 
       {CHECKS.map((c) => (
-        <Audio key={c.at} from={c.at} src={staticFile("sfx/tick.wav")} volume={0.55} />
+        <Audio key={c.at} from={c.at} src={staticFile("sfx-synth/tick.wav")} volume={0.55} />
       ))}
-      <Audio from={HIT - 11} src={staticFile("sfx/whoosh.wav")} volume={0.8} />
-      <Audio from={HIT} src={staticFile("sfx/thud.wav")} volume={0.8} />
-      <Audio from={HIT + 2} src={staticFile("sfx/ding.wav")} volume={0.5} />
+      <Audio from={HIT - 11} src={staticFile("sfx-synth/whoosh.wav")} volume={0.8} />
+      <Audio from={HIT} src={staticFile("sfx-synth/thud.wav")} volume={0.8} />
+      <Audio from={HIT + 2} src={staticFile("sfx-synth/ding.wav")} volume={0.5} />
     </AbsoluteFill>
   );
 };

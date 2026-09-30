@@ -6,20 +6,48 @@
     python3 pick_topic.py             # موضوع اليوم (نفس النتيجة لو تكرر بنفس اليوم)
     python3 pick_topic.py --peek      # اعرض بدون تسجيل
     python3 pick_topic.py --status    # حالة البنك
+    python3 pick_topic.py --schedule  # جدول الأسبوعين القادمين (صيغة + بنك)
+
+المخرجات فيها "format": "video" (موشن قرافيك Remotion — references/video.md)
+أو "carousel" (التصميم المعتاد — references/design.md)، و"bank": tools/classic.
 """
 import json, sys, pathlib, datetime
 
 HERE = pathlib.Path(__file__).parent
-# التناوب (طلب المستخدم): يوم «أدوات» (شرح مميزات Claude · ChatGPT …) ويوم
-# «أتمتة» (البنك الأصلي topics.json). التناوب محسوب من التاريخ، فتشغيل المهمة
-# مرتين بنفس اليوم يرجّع نفس البنك. للإجبار: --tools أو --classic
+# الجدول (طلب المستخدم) — محسوب من التاريخ، فتشغيل المهمة مرتين بنفس اليوم يرجّع نفس النتيجة:
+#  • الصيغة (format): يوم «فيديو» موشن قرافيك احترافي (Remotion + موسيقى/مؤثرات ElevenLabs)
+#    ويوم «كاروسيل» (التصميم اليومي المعتاد) — تناوب صارم يبدأ بفيديو يوم 2026-10-01.
+#  • البنك (bank): يوم «أدوات» (topics_tools.json) ويوم «أتمتة» (topics.json).
+#    لو تناوب البنك يومياً أيضاً لصار كل فيديو «أتمتة» للأبد؛ فنقلب الاقتران كل أسبوع:
+#    البنك = (d + d//7) زوجي → أتمتة، حيث d = الأيام منذ 2026-10-01
+#    (يتكرر البنك مرة بالأسبوع عند الانتقال، والصيغة ما تتكرر أبداً).
+# للإجبار: --tools / --classic · --video / --carousel · --date=YYYY-MM-DD (للتجربة)
+_START = datetime.date(2026, 10, 1)
+
+
+def schedule(day):
+    """(bank, format) لتاريخ معيّن."""
+    d = (day - _START).days
+    if d < 0:  # قبل الجدول الجديد: تناوب البنك اليومي القديم، والكل كاروسيل
+        bank = "tools" if day.toordinal() % 2 == datetime.date(2026, 9, 26).toordinal() % 2 else "classic"
+        return bank, "carousel"
+    bank = "classic" if (d + d // 7) % 2 == 0 else "tools"
+    return bank, ("video" if d % 2 == 0 else "carousel")
+
+
 _TODAY = datetime.date.today()
+for _a in sys.argv:
+    if _a.startswith("--date="):
+        _TODAY = datetime.date.fromisoformat(_a[7:])
+KIND, FORMAT = schedule(_TODAY)
 if "--classic" in sys.argv:
     KIND = "classic"
 elif "--tools" in sys.argv:
     KIND = "tools"
-else:  # 2026-09-26 كان أدوات، 2026-09-27 أتمتة، وهكذا
-    KIND = "tools" if _TODAY.toordinal() % 2 == datetime.date(2026, 9, 26).toordinal() % 2 else "classic"
+if "--video" in sys.argv:
+    FORMAT = "video"
+elif "--carousel" in sys.argv:
+    FORMAT = "carousel"
 if KIND == "tools" and (HERE / "topics_tools.json").exists():
     BANK = HERE / "topics_tools.json"
     STATE = HERE / "state" / "used_tools.json"
@@ -54,7 +82,15 @@ def design_for(topic, idx, cycle):
 def main():
     topics = json.loads(BANK.read_text(encoding="utf-8"))["topics"]
     st = load_state()
-    today = datetime.date.today().isoformat()
+    today = _TODAY.isoformat()
+
+    if "--schedule" in sys.argv:
+        names = {"video": "🎬 فيديو", "carousel": "🖼 كاروسيل", "tools": "أدوات", "classic": "أتمتة"}
+        for i in range(14):
+            day = _TODAY + datetime.timedelta(days=i)
+            b, f = schedule(day)
+            print(day.isoformat(), names[f], "·", names[b])
+        return
 
     if "--status" in sys.argv:
         print(f"الدورة: {st['cycle']+1} · مستهلك: {len(st['used'])}/{len(topics)} "
@@ -71,6 +107,7 @@ def main():
         t["style"], t["accent"] = design_for(t, idx, same[-1].get("cycle", 0))
         t["repeat"] = True
         t["bank"] = KIND
+        t["format"] = FORMAT
         print(json.dumps(t, ensure_ascii=False, indent=1))
         return
 
@@ -87,10 +124,11 @@ def main():
     topic["style"], topic["accent"] = design_for(topic, idx, st["cycle"])
     topic["cycle"] = st["cycle"]
     topic["bank"] = KIND   # لا ترقيم يوم في التصميم (طلب المستخدم)
+    topic["format"] = FORMAT
 
     if "--peek" not in sys.argv:
         st["used"].append(topic["id"])
-        st["log"].append({"date": today, "id": topic["id"], "cycle": st["cycle"],
+        st["log"].append({"date": today, "id": topic["id"], "cycle": st["cycle"], "format": FORMAT,
                           "style": topic["style"], "accent": topic["accent"]})
         save_state(st)
 

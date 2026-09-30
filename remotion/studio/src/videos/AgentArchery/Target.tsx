@@ -1,4 +1,4 @@
-import { C } from "../theme";
+import { C } from "../../lib/theme";
 
 /** لوحة هدف نيون. draw (0..1) يرسم الحلقات، glow شدة التوهج */
 export const Target: React.FC<{

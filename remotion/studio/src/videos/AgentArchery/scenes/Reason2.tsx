@@ -1,8 +1,8 @@
 import { AbsoluteFill, staticFile, useCurrentFrame } from "remotion";
 import { Audio } from "@remotion/media";
-import { Background } from "../components/Background";
-import { Chip, Glass, ReasonHead, Words } from "../components/ui";
-import { C, F, lerp } from "../theme";
+import { Background } from "../../../lib/Background";
+import { Chip, Glass, ReasonHead, Words } from "../../../lib/ui";
+import { C, F, lerp } from "../../../lib/theme";
 
 /** السبب ٢: رف أدوات… أداة مربوطة واثنتين ناقصة */
 const ROWS = [
@@ -91,15 +91,15 @@ export const Reason2: React.FC = () => {
         قبل التشغيل: كل أداة مربوطة وفيها صلاحية؟
       </div>
 
-      <Audio from={0} src={staticFile("sfx/whoosh.wav")} volume={0.5} />
-      <Audio from={96} src={staticFile("sfx/ding.wav")} volume={0.4} />
+      <Audio from={0} src={staticFile("sfx-synth/whoosh.wav")} volume={0.5} />
+      <Audio from={96} src={staticFile("sfx-synth/ding.wav")} volume={0.4} />
       {[124, 138].map((t) => (
-        <Audio key={t} from={t} src={staticFile("sfx/blip_lo.wav")} volume={0.5} />
+        <Audio key={t} from={t} src={staticFile("sfx-synth/blip_lo.wav")} volume={0.5} />
       ))}
       {[186, 202, 218].map((t) => (
-        <Audio key={t} from={t} src={staticFile("sfx/pop.wav")} volume={0.45} />
+        <Audio key={t} from={t} src={staticFile("sfx-synth/pop.wav")} volume={0.45} />
       ))}
-      <Audio from={250} src={staticFile("sfx/tick.wav")} volume={0.5} />
+      <Audio from={250} src={staticFile("sfx-synth/tick.wav")} volume={0.5} />
     </AbsoluteFill>
   );
 };

@@ -1,5 +1,5 @@
 import { spring, useCurrentFrame, useVideoConfig } from "remotion";
-import { C, F, lerp } from "../theme";
+import { C, F, lerp } from "./theme";
 
 /** كلمات تطلع وحدة وحدة بزنبرك + ضبابية */
 export const Words: React.FC<{

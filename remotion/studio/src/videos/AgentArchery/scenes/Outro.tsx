@@ -1,10 +1,10 @@
 import { AbsoluteFill, Img, staticFile, useCurrentFrame, useVideoConfig, spring } from "remotion";
 import { Audio } from "@remotion/media";
-import { Background } from "../components/Background";
-import { Target } from "../components/Target";
-import { Words } from "../components/ui";
-import { Handles } from "../components/Hud";
-import { C, F, lerp } from "../theme";
+import { Background } from "../../../lib/Background";
+import { Target } from "../Target";
+import { Words } from "../../../lib/ui";
+import { Handles } from "../../../lib/Hud";
+import { C, F, lerp } from "../../../lib/theme";
 
 /** 36–40ث: صورة علي في مركز الهدف + الحسابين + سؤال */
 export const Outro: React.FC = () => {
@@ -52,7 +52,7 @@ export const Outro: React.FC = () => {
         stagger={4}
         style={{ position: "absolute", top: 1300, left: 70, right: 70, textAlign: "center", fontFamily: F.body, fontWeight: 700, fontSize: 42, color: C.y }}
       />
-      <Audio from={2} src={staticFile("sfx/pop.wav")} volume={0.5} />
+      <Audio from={2} src={staticFile("sfx-synth/pop.wav")} volume={0.5} />
     </AbsoluteFill>
   );
 };

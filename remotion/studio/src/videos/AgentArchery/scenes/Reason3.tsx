@@ -1,9 +1,9 @@
 import { AbsoluteFill, staticFile, useCurrentFrame } from "remotion";
 import { Audio } from "@remotion/media";
-import { Background } from "../components/Background";
-import { Target } from "../components/Target";
-import { Glass, ReasonHead, Words } from "../components/ui";
-import { C, F, lerp } from "../theme";
+import { Background } from "../../../lib/Background";
+import { Target } from "../Target";
+import { Glass, ReasonHead, Words } from "../../../lib/ui";
+import { C, F, lerp } from "../../../lib/theme";
 
 /** السبب ٣: معيار نجاح مكتوب… يتعلّم عليه بندًا بندًا */
 const ITEMS = [
@@ -57,10 +57,10 @@ export const Reason3: React.FC = () => {
       </Glass>
 
       {ITEMS.map((it) => (
-        <Audio key={it.at} from={it.at} src={staticFile("sfx/tick.wav")} volume={0.55} />
+        <Audio key={it.at} from={it.at} src={staticFile("sfx-synth/tick.wav")} volume={0.55} />
       ))}
-      <Audio from={184} src={staticFile("sfx/blip_hi.wav")} volume={0.4} />
-      <Audio from={0} src={staticFile("sfx/whoosh.wav")} volume={0.5} />
+      <Audio from={184} src={staticFile("sfx-synth/blip_hi.wav")} volume={0.4} />
+      <Audio from={0} src={staticFile("sfx-synth/whoosh.wav")} volume={0.5} />
     </AbsoluteFill>
   );
 };

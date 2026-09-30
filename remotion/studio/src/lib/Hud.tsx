@@ -1,5 +1,5 @@
 import { useCurrentFrame, useVideoConfig } from "remotion";
-import { C, F, lerp } from "../theme";
+import { C, F, lerp } from "./theme";
 
 const TT = (
   <svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.8 5.8 0 1 0 4.9 5.7V9a7.4 7.4 0 0 0 4.3 1.4V7.3a4.3 4.3 0 0 1-3.2-1.5z" /></svg>
@@ -32,7 +32,7 @@ export const Handles: React.FC<{ light?: boolean; size?: number }> = ({ light, s
 );
 
 /** طبقة ثابتة: شريط تقدم + وسم + الحسابين (تختفي في الختام) */
-export const Hud: React.FC<{ hideFrom: number }> = ({ hideFrom }) => {
+export const Hud: React.FC<{ hideFrom: number; kicker: string }> = ({ hideFrom, kicker }) => {
   const f = useCurrentFrame();
   const { durationInFrames } = useVideoConfig();
   const o = lerp(f, [hideFrom, hideFrom + 8], [1, 0]);
@@ -60,7 +60,7 @@ export const Hud: React.FC<{ hideFrom: number }> = ({ hideFrom }) => {
         }}
       >
         <span style={{ width: 30, height: 30, borderRadius: "50%", background: `radial-gradient(circle, ${C.y} 0 22%, ${C.r} 23% 45%, ${C.b} 46% 68%, #fff 69%)` }} />
-        أتمتة · الوكلاء
+        {kicker}
       </div>
       <div style={{ position: "absolute", top: 1412, left: 0, right: 0, display: "flex", justifyContent: "center", opacity: o }}>
         <Handles size={28} />

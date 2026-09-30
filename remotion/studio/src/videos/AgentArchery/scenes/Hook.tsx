@@ -1,9 +1,9 @@
 import { AbsoluteFill, staticFile, useCurrentFrame, useVideoConfig, spring } from "remotion";
 import { Audio } from "@remotion/media";
-import { Background } from "../components/Background";
-import { Arrow, Target } from "../components/Target";
-import { Burst, Chip, Flash, Words } from "../components/ui";
-import { C, F, IN_OUT, lerp, shake } from "../theme";
+import { Background } from "../../../lib/Background";
+import { Arrow, Target } from "../Target";
+import { Burst, Chip, Flash, Words } from "../../../lib/ui";
+import { C, F, IN_OUT, lerp, shake } from "../../../lib/theme";
 
 /** 0–8ث: القوس يُشد، السهم ينطلق على ضربة الموسيقى (ث4) ويطيش، ثم العنوان */
 const HIT = 124; // لحظة ارتطام السهم خارج الهدف
@@ -147,13 +147,13 @@ export const Hook: React.FC = () => {
       </Chip>
 
       {/* مؤثرات */}
-      <Audio from={FIRE - 2} src={staticFile("sfx/whoosh.wav")} volume={0.9} />
-      <Audio from={HIT} src={staticFile("sfx/thud.wav")} volume={0.8} />
+      <Audio from={FIRE - 2} src={staticFile("sfx-synth/whoosh.wav")} volume={0.9} />
+      <Audio from={HIT} src={staticFile("sfx-synth/thud.wav")} volume={0.8} />
       {[168, 182, 196].map((t) => (
-        <Audio key={t} from={t} src={staticFile("sfx/pop.wav")} volume={0.45} />
+        <Audio key={t} from={t} src={staticFile("sfx-synth/pop.wav")} volume={0.45} />
       ))}
       {[8, 36].map((t) => (
-        <Audio key={t} from={t} src={staticFile("sfx/tick.wav")} volume={0.4} />
+        <Audio key={t} from={t} src={staticFile("sfx-synth/tick.wav")} volume={0.4} />
       ))}
     </AbsoluteFill>
   );
