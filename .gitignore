@@ -1,0 +1,9 @@
+# الفيديو (مسار احتياطي) — كبير الحجم. الشرائح تُحفظ كاملة
+output/**/*.mp4
+output/**/_frames/
+output/**/stills/
+
+# مؤقتات
+__pycache__/
+*.pyc
+output/**/render.log
