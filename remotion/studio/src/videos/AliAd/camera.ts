@@ -4,7 +4,9 @@
  * فالسرعة ما تنقطع أبداً — «التوقف» للقراءة = مفتاحين متقاربين بحركة بطيئة.
  *
  * المحاور: x يمين، y تحت، z نحو المشاهد. الكاميرا تنظر باتجاه −z.
- * عنصر على مسافة (cz − z) = PERSPECTIVE يظهر بحجمه الطبيعي.
+ * «المسافة» d = cz − z هي بُعد العنصر عن عين الكاميرا، وحجمه الظاهر = PERSPECTIVE / d
+ * (d = 1200 → حجمه الطبيعي). عين CSS تقع على بعد PERSPECTIVE أمام مستوى الشاشة،
+ * فنزيح العالم بـ (cz − PERSPECTIVE) عشان المعادلة تطلع صح.
  */
 export const PERSPECTIVE = 1200;
 
@@ -52,7 +54,7 @@ export const makePath = (raw: Key[]) => {
 
 /** مصفوفة الرؤية لعنصر «العالم» */
 export const worldTransform = (c: Cam) =>
-  `rotateZ(${-c.roll}deg) rotateX(${-c.pitch}deg) rotateY(${-c.yaw}deg) translate3d(${-c.x}px, ${-c.y}px, ${-c.z}px)`;
+  `rotateZ(${-c.roll}deg) rotateX(${-c.pitch}deg) rotateY(${-c.yaw}deg) translate3d(${-c.x}px, ${-c.y}px, ${PERSPECTIVE - c.z}px)`;
 
 /** مسافة العنصر أمام الكاميرا (تقريبية على محور النظر) */
 export const depth = (c: Cam, z: number) => c.z - z;

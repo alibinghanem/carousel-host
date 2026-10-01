@@ -1,17 +1,18 @@
 import { AbsoluteFill, Img, staticFile, useCurrentFrame } from "remotion";
 import { MusicProvider, Sfx, SFX_RISER_PEAK, useMusic } from "../../lib/music";
 import { Cam, PERSPECTIVE, depth, fade, makePath, smooth, worldTransform } from "./camera";
+import { Board, Gears, Growth, IconBuild, IconChat, IconFlow, Orders, Tasks } from "./illus";
 
 /**
- * إعلان «علي التميمي» — لقطة واحدة متواصلة (26ث · 1080×1920 · 30fps).
+ * إعلان «علي التميمي» — لقطة واحدة متواصلة (30ث · 1080×1920 · 30fps).
  * عالم ثلاثي الأبعاد بـ CSS والكاميرا تسافر فيه بلا قطع:
  * الهوك ← اختراق الضوء (الـ drop عند 90) ← علي ← ألواح الجمهور ← شبكة الوكلاء
  * ← نفق المنشورات الحقيقية ← بطاقة الختام ← سواد + خط ذهبي (يرجع لأول إطار = حلقة).
  * الهوية: سواد منتصف الليل · زمردي · ذهب شامبانيا · Aref Ruqaa للاسم · Amiri للنصوص.
  */
-export const ALI_AD_FRAMES = 780;
+export const ALI_AD_FRAMES = 900;
 const HIT = 90; // الـ drop: الكاميرا تخترق خط الضوء
-const END_HIT = 660; // ضربة الختام
+const END_HIT = 780; // ضربة الختام (على النبض: 90 + 46×15)
 
 const K = {
   ink: "#040706",
@@ -40,26 +41,26 @@ const Z = {
 
 /* ───────── مسار الكاميرا (إطار ← موضع) ───────── */
 const path = makePath([
-  { f: 0, x: 0, y: 0, z: 1900 },
-  { f: 78, z: 1380 }, // دفعة بطيئة للقراءة
+  { f: 0, x: 0, y: 0, z: 1650 },
+  { f: 78, z: 1260 }, // دفعة بطيئة للقراءة
   { f: 96, z: 420 }, // اختراق خط الضوء مع الـ drop
   { f: 112, x: 110, y: -40, z: 120, yaw: 3 },
-  { f: 205, x: -110, y: -10, z: -110, yaw: -3 }, // مدار هادئ حول علي
-  { f: 238, x: -60, y: 0, z: -1250, yaw: 0 }, // عبور النور خلف علي
-  { f: 262, x: -60, z: -1820 },
-  { f: 300, x: -60, z: -1900 }, // لوح 1
-  { f: 322, x: 60, z: -2720 },
-  { f: 360, x: 60, z: -2800 }, // لوح 2
-  { f: 382, x: -60, z: -3620 },
-  { f: 420, x: -60, z: -3700 }, // لوح 3
-  { f: 446, x: 0, y: -380, z: -4780, pitch: -10 },
-  { f: 470, x: 0, y: -40, z: -4980, pitch: -2 },
-  { f: 540, x: 0, y: 0, z: -5090, pitch: 0 }, // الشبكة
-  { f: 570, z: -6000, roll: 0 },
-  { f: 610, z: -7600, roll: -4 }, // نفق المنشورات
-  { f: 648, z: -9000, roll: 2 },
-  { f: 676, x: 0, y: 0, z: -9330, roll: 0 },
-  { f: 780, z: -9470 }, // الختام
+  { f: 215, x: -110, y: -10, z: -110, yaw: -3 }, // مدار هادئ حول علي
+  { f: 243, x: -60, y: 0, z: -1250, yaw: 0 }, // عبور النور خلف علي
+  { f: 265, x: -60, z: -1820 },
+  { f: 315, x: -60, z: -1900 }, // لوح 1
+  { f: 335, x: 60, z: -2720 },
+  { f: 385, x: 60, z: -2800 }, // لوح 2
+  { f: 405, x: -60, z: -3620 },
+  { f: 455, x: -60, z: -3700 }, // لوح 3
+  { f: 485, x: 0, y: -380, z: -4780, pitch: -10 },
+  { f: 510, x: 0, y: -40, z: -4980, pitch: -2 },
+  { f: 660, x: 0, y: 0, z: -5110, pitch: 0 }, // الشبكة ثم الدورات
+  { f: 690, z: -6000, roll: 0 },
+  { f: 725, z: -7600, roll: -4 }, // نفق المنشورات
+  { f: 755, z: -9000, roll: 2 },
+  { f: 785, x: 0, y: 0, z: -9330, roll: 0 },
+  { f: 900, z: -9470 }, // الختام
 ]);
 
 /* ───────── أدوات العالم ───────── */
@@ -101,6 +102,9 @@ const goldText = (f: number, from: number, speed = 1): React.CSSProperties => ({
   WebkitBackgroundClip: "text",
   backgroundClip: "text",
   color: "transparent",
+  // الخلفية ترسم داخل الصندوق فقط — الحروف المكدسة فوق السطر (لتـ) كانت تنقص
+  padding: "0.35em 0.15em",
+  margin: "-0.35em -0.15em",
 });
 
 /* ───────── الغبار الضوئي (ثابت عبر العالم، ينبض مع الكيك) ───────── */
@@ -125,8 +129,8 @@ const Dust: React.FC<{ cam: Cam; f: number }> = ({ cam, f }) => {
     <>
       {DUST.map((d, i) => {
         const dd = depth(cam, d.z);
-        if (dd < 120 || dd > 4200) return null;
-        const o = Math.min(1, (dd - 120) / 300) * Math.min(1, (4200 - dd) / 1200);
+        if (dd < 260 || dd > 4200) return null;
+        const o = Math.min(1, (dd - 260) / 300) * Math.min(1, (4200 - dd) / 1200);
         const tw = 0.45 + 0.35 * Math.sin(f / 9 + d.tw) + kick * 0.5 + high * 0.15;
         return (
           <div
@@ -175,10 +179,13 @@ const Hook: React.FC<{ cam: Cam; f: number }> = ({ cam, f }) => {
   return (
     <Obj cam={cam} z={Z.hook} near={600} opacity={out}>
       <div style={{ direction: "rtl", textAlign: "center", width: 1200 }}>
-        {line("تبي الذكاء الاصطناعي", 0, { fontSize: 112, color: K.white })}
-        {line("يشتغل لك…", 10, { fontSize: 112, color: K.white })}
+        {line("تبي الذكاء الاصطناعي", -12, { fontSize: 124, color: K.white })}
+        {line("يشتغل لك…", 4, { fontSize: 124, color: K.white })}
         <div style={{ height: 26 }} />
-        {line("بدل ما تشتغل له؟", 26, { fontSize: 128, ...goldText(f, 26, 2) })}
+        {line("بدل ما تشتغل له؟", 20, { fontSize: 140, ...goldText(f, 20, 2) })}
+        <div style={{ marginTop: 90, display: "flex", justifyContent: "center", scale: "1.45", opacity: smooth((f + 6) / 8) }}>
+          <Gears f={f} ai={50} />
+        </div>
       </div>
     </Obj>
   );
@@ -235,23 +242,22 @@ const Ali: React.FC<{ cam: Cam; f: number }> = ({ cam, f }) => {
             width: 1180,
             display: "block",
             filter: `drop-shadow(0 0 60px ${K.emerald}55) contrast(1.04) saturate(1.05)`,
-            WebkitMaskImage: "linear-gradient(to bottom, black 70%, transparent 98%)",
-            maskImage: "linear-gradient(to bottom, black 70%, transparent 98%)",
+            WebkitMaskImage: "linear-gradient(to bottom, black 52%, rgba(0,0,0,.35) 74%, transparent 94%)",
+            maskImage: "linear-gradient(to bottom, black 52%, rgba(0,0,0,.35) 74%, transparent 94%)",
           }}
         />
       </Obj>
       {/* الاسم والوعد أمامه */}
-      <Obj cam={cam} z={Z.ali + 380} y={430} near={500} far={9000}>
+      <Obj cam={cam} z={Z.ali + 380} y={250} near={500} far={9000}>
         <div style={{ direction: "rtl", textAlign: "center", width: 1200 }}>
           <div
             style={{
               fontFamily: AREF,
               fontWeight: 700,
-              fontSize: 160,
-              lineHeight: 1.1,
+              fontSize: 138,
+              lineHeight: 1.25,
               opacity: nameP,
               translate: `0px ${(1 - nameP) * 40}px`,
-              letterSpacing: `${(1 - nameP) * 14}px`,
               filter: `drop-shadow(0 8px 30px rgba(0,0,0,.9))`,
               ...goldText(f, 118, 1.6),
             }}
@@ -300,7 +306,7 @@ const ICONS: Record<string, React.ReactNode> = {
   ),
 };
 
-const Panel: React.FC<{ cam: Cam; f: number; z: number; x: number; n: string; who: string; line: string; icon: string; at: number }> = ({
+const Panel: React.FC<{ cam: Cam; f: number; z: number; x: number; n: string; who: string; line: string; icon: string; at: number; art: (lf: number) => React.ReactNode }> = ({
   cam,
   f,
   z,
@@ -310,6 +316,7 @@ const Panel: React.FC<{ cam: Cam; f: number; z: number; x: number; n: string; wh
   line,
   icon,
   at,
+  art,
 }) => {
   const sweep = ((f - at) / 26) * 160 - 30;
   return (
@@ -339,8 +346,8 @@ const Panel: React.FC<{ cam: Cam; f: number; z: number; x: number; n: string; wh
           <div style={{ fontFamily: AMIRI, fontWeight: 700, fontSize: 52, color: K.gold }}>{who}</div>
           <div style={{ marginRight: "auto", fontFamily: LAT, fontWeight: 700, fontSize: 40, color: `${K.gold}88`, direction: "ltr" }}>{n}</div>
         </div>
-        <div style={{ fontFamily: AMIRI, fontWeight: 700, fontSize: 92, lineHeight: 1.3, color: K.white }}>{line}</div>
-        <div style={{ marginTop: 30, height: 3, width: 180, background: `linear-gradient(90deg, transparent, ${K.emerald})`, marginRight: 0 }} />
+        <div style={{ fontFamily: AMIRI, fontWeight: 700, fontSize: 88, lineHeight: 1.3, color: K.white }}>{line}</div>
+        <div style={{ marginTop: 26, display: "flex", justifyContent: "center", direction: "ltr" }}>{art(f - at)}</div>
       </div>
     </Obj>
   );
@@ -367,14 +374,16 @@ const EDGES: [number, number][] = [
 
 const Network: React.FC<{ cam: Cam; f: number }> = ({ cam, f }) => {
   const { kick } = useMusic();
-  const t0 = 440;
+  const t0 = 480;
   const lt = f - t0;
-  const swap = 492; // من «بنيت» إلى «دورات قادمة»
-  const p1 = smooth((f - 448) / 14) * (1 - smooth((f - swap) / 10));
-  const p2 = smooth((f - swap - 6) / 14);
+  const swap = 555; // من «بنيت» إلى «دورات قادمة» (على النبض)
+  const p1 = smooth((f - 488) / 14) * (1 - smooth((f - swap) / 10));
+  const p2 = smooth((f - swap - 4) / 12);
+  const netO = 1 - 0.75 * smooth((f - swap) / 16);
+  const blf = f - swap;
   return (
     <>
-      <Obj cam={cam} z={Z.net - 700} y={-80} far={6000}>
+      <Obj cam={cam} z={Z.net - 700} y={-80} far={6000} opacity={netO}>
         <svg width="1400" height="1400" viewBox="-700 -700 1400 1400" style={{ overflow: "visible" }}>
           <defs>
             <radialGradient id="ng">
@@ -400,6 +409,14 @@ const Network: React.FC<{ cam: Cam; f: number }> = ({ cam, f }) => {
               />
             );
           })}
+          {lt > 22
+            ? EDGES.slice(0, 16).map(([a, b], i) => {
+                const na = NODES[a];
+                const nb = NODES[b];
+                const t = (((lt - 22) * 0.045 + i * 0.137) % 1 + 1) % 1;
+                return <circle key={`d${i}`} cx={na.x + (nb.x - na.x) * t} cy={na.y + (nb.y - na.y) * t} r={7} fill="#FFF8E6" opacity={0.9 * Math.sin(t * Math.PI)} />;
+              })
+            : null}
           {NODES.map((n, i) => {
             const p = Math.min(1, Math.max(0, (lt - n.at) / 6));
             const glow = i === 0 ? 1 : 0.6 + kick * 0.6;
@@ -414,45 +431,74 @@ const Network: React.FC<{ cam: Cam; f: number }> = ({ cam, f }) => {
       </Obj>
       <Obj cam={cam} z={Z.net} y={40} near={300} far={3000}>
         <div style={{ direction: "rtl", textAlign: "center", width: 1000, position: "relative", height: 560 }}>
-          <div style={{ position: "absolute", inset: 0, opacity: p1, translate: `0px ${(1 - smooth((f - 448) / 14)) * 30}px` }}>
+          <div style={{ position: "absolute", inset: 0, opacity: p1, translate: `0px ${(1 - smooth((f - 488) / 14)) * 30}px` }}>
             <div style={{ fontFamily: AMIRI, fontWeight: 700, fontSize: 50, color: K.emerald }}>بنيتها لشركات</div>
             <div style={{ fontFamily: AMIRI, fontWeight: 700, fontSize: 104, lineHeight: 1.25, color: K.white, textShadow: "0 6px 40px #000" }}>
               أنظمة وكلاء
               <br />
-              <span style={goldText(f, 448, 2)}>ذكاء اصطناعي</span>
+              <span style={goldText(f, 488, 2)}>ذكاء اصطناعي</span>
             </div>
             <div style={{ fontFamily: AMIRI, fontWeight: 700, fontSize: 50, color: `${K.white}CC`, marginTop: 16, textShadow: "0 4px 24px #000" }}>
               تلامس احتياجها… وأثبتت كفاءتها في الواقع
             </div>
           </div>
-          <div style={{ position: "absolute", inset: 0, opacity: p2 }}>
-            <div style={{ fontFamily: AMIRI, fontWeight: 700, fontSize: 56, color: K.emerald }}>قريباً</div>
-            <div style={{ fontFamily: AMIRI, fontWeight: 700, fontSize: 116, lineHeight: 1.2, ...goldText(f, swap, 2), filter: "drop-shadow(0 6px 30px #000)" }}>
-              دورات تدريبية
-            </div>
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 18, marginTop: 26 }}>
-              {["التعامل مع الذكاء الاصطناعي", "بناء الوكلاء", "أتمتة الشركات والمؤسسات"].map((c, i) => {
-                const cp = smooth((f - swap - 14 - i * 7) / 10);
-                return (
-                  <div
-                    key={c}
-                    style={{
-                      fontFamily: AMIRI,
-                      fontWeight: 700,
-                      fontSize: 50,
-                      color: K.white,
-                      padding: "10px 40px 16px",
-                      borderRadius: 999,
-                      border: `2px solid ${K.gold}66`,
-                      background: "rgba(6,14,12,.75)",
-                      opacity: cp,
-                      translate: `${(1 - cp) * -60}px 0px`,
-                    }}
-                  >
-                    {c}
-                  </div>
-                );
-              })}
+          <div style={{ position: "absolute", left: 50, top: -40, width: 900, height: 690, opacity: p2 }}>
+            {f >= swap ? <Board lf={blf} capAt={15} w={900} h={690} /> : null}
+            <div style={{ position: "relative", paddingTop: 50, textAlign: "center" }}>
+              <div
+                style={{
+                  display: "inline-block",
+                  fontFamily: AMIRI,
+                  fontWeight: 700,
+                  fontSize: 44,
+                  color: K.ink,
+                  background: K.emerald,
+                  padding: "2px 34px 10px",
+                  borderRadius: 999,
+                  scale: `${1 + kick * 0.06}`,
+                }}
+              >
+                قريباً
+              </div>
+              <div style={{ fontFamily: AMIRI, fontWeight: 700, fontSize: 108, lineHeight: 1.25, marginTop: 8, ...goldText(f, swap, 2) }}>
+                دورات تدريبية
+              </div>
+              <div style={{ display: "flex", justifyContent: "center", gap: 18, marginTop: 30 }}>
+                {[
+                  { t: "التعامل مع الذكاء الاصطناعي", I: IconChat },
+                  { t: "بناء الوكلاء", I: IconBuild },
+                  { t: "أتمتة الشركات والمؤسسات", I: IconFlow },
+                ].map(({ t, I }, i) => {
+                  const at = 22 + i * 12;
+                  const cp = smooth((blf - at) / 10);
+                  const sweep = ((blf - 70) / 20) * 180 - 40;
+                  return (
+                    <div
+                      key={t}
+                      style={{
+                        position: "relative",
+                        overflow: "hidden",
+                        width: 262,
+                        height: 300,
+                        borderRadius: 28,
+                        border: `2px solid ${K.gold}66`,
+                        background: `linear-gradient(160deg, rgba(255,255,255,.10), rgba(255,255,255,.02)), rgba(6,14,12,.9)`,
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        gap: 8,
+                        opacity: cp,
+                        translate: `0px ${(1 - cp) * 60}px`,
+                      }}
+                    >
+                      <I lf={blf - at} />
+                      <div style={{ fontFamily: AMIRI, fontWeight: 700, fontSize: 36, lineHeight: 1.3, color: K.white, padding: "0 14px" }}>{t}</div>
+                      <div style={{ position: "absolute", inset: 0, background: `linear-gradient(105deg, transparent ${sweep - 14}%, rgba(255,246,220,.18) ${sweep}%, transparent ${sweep + 14}%)` }} />
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
@@ -518,7 +564,7 @@ const End: React.FC<{ cam: Cam; f: number }> = ({ cam, f }) => {
       <Obj cam={cam} z={Z.end - 500} y={-320} far={9000}>
         <div style={{ width: 2200, height: 2200, borderRadius: "50%", background: `radial-gradient(circle, ${K.emerald}44 0%, ${K.deep}55 30%, transparent 62%)`, scale: `${1 + kick * 0.05}` }} />
       </Obj>
-      <Obj cam={cam} z={Z.end} y={-520} far={9000} opacity={p(650, 20)}>
+      <Obj cam={cam} z={Z.end} y={-560} far={9000} opacity={p(770, 20)}>
         <div
           style={{
             width: 560,
@@ -533,13 +579,13 @@ const End: React.FC<{ cam: Cam; f: number }> = ({ cam, f }) => {
           <Img src={A("ali.png")} style={{ width: "112%", marginLeft: "-6%", marginTop: "-2%", display: "block" }} />
         </div>
       </Obj>
-      <Obj cam={cam} z={Z.end + 120} y={190} far={9000}>
+      <Obj cam={cam} z={Z.end + 120} y={150} far={9000}>
         <div style={{ direction: "rtl", textAlign: "center", width: 1100 }}>
-          <div style={{ fontFamily: AREF, fontWeight: 700, fontSize: 150, lineHeight: 1.15, opacity: p(664), ...goldText(f, 664, 1.6) }}>علي التميمي</div>
-          <div style={{ fontFamily: AMIRI, fontWeight: 700, fontSize: 56, color: K.white, opacity: p(676), marginTop: 4 }}>
+          <div style={{ fontFamily: AREF, fontWeight: 700, fontSize: 150, lineHeight: 1.15, opacity: p(784), ...goldText(f, 784, 1.6) }}>علي التميمي</div>
+          <div style={{ fontFamily: AMIRI, fontWeight: 700, fontSize: 56, color: K.white, opacity: p(796), marginTop: 4 }}>
             تابعني… وخلّ الذكاء الاصطناعي <span style={{ color: K.emerald }}>يشتغل لك</span>
           </div>
-          <div style={{ marginTop: 34, opacity: p(684) }}>
+          <div style={{ marginTop: 34, opacity: p(804) }}>
             <Handles size={42} />
           </div>
           <div
@@ -554,7 +600,7 @@ const End: React.FC<{ cam: Cam; f: number }> = ({ cam, f }) => {
               fontSize: 46,
               lineHeight: 1.45,
               color: `${K.white}DD`,
-              opacity: p(696),
+              opacity: p(816),
             }}
           >
             <span style={{ color: K.gold }}>للشركات والمؤسسات:</span>
@@ -573,7 +619,7 @@ const LightLine: React.FC<{ f: number }> = ({ f }) => {
   // البداية: خط رفيع يكبر · عند الـ drop ينفجر · النهاية: يرجع (حلقة)
   const intro = f < HIT ? 0.25 + 0.75 * smooth(f / 80) : 0;
   const burst = f >= HIT - 4 && f < HIT + 18 ? 1 - Math.abs(f - HIT) / 18 : 0;
-  const outro = smooth((f - 752) / 20);
+  const outro = smooth((f - 872) / 20);
   const w = Math.max(intro * 820, burst * 2400, outro * 820);
   const o = Math.max(intro * 0.9, burst, outro);
   if (o <= 0.01) return null;
@@ -618,7 +664,7 @@ const FilmLook: React.FC<{ f: number }> = ({ f }) => (
 
 /** الحسابان ثابتان أسفل الشاشة (يختفيان في بطاقة الختام) */
 const Footer: React.FC<{ f: number }> = ({ f }) => {
-  const o = smooth(f / 12) * (1 - smooth((f - 640) / 14));
+  const o = smooth(f / 12) * (1 - smooth((f - 760) / 14));
   if (o <= 0) return null;
   return (
     <div style={{ position: "absolute", top: 1462, left: 0, right: 0, display: "flex", justifyContent: "center", opacity: o * 0.8 }}>
@@ -629,19 +675,19 @@ const Footer: React.FC<{ f: number }> = ({ f }) => {
 
 /** نص «محتوى يومي» أثناء النفق — ثابت على الشاشة للقراءة */
 const TunnelLabel: React.FC<{ f: number }> = ({ f }) => {
-  const o = smooth((f - 566) / 12) * (1 - smooth((f - 640) / 12));
+  const o = smooth((f - 686) / 12) * (1 - smooth((f - 760) / 12));
   if (o <= 0) return null;
   return (
     <div style={{ position: "absolute", top: 820, left: 0, right: 0, textAlign: "center", direction: "rtl", opacity: o }}>
       <div style={{ fontFamily: AMIRI, fontWeight: 700, fontSize: 92, color: K.white, textShadow: "0 8px 50px #000, 0 0 30px #000" }}>محتوى يومي</div>
-      <div style={{ fontFamily: AMIRI, fontWeight: 700, fontSize: 60, textShadow: "0 6px 40px #000", ...goldText(f, 566, 2) }}>يبسّط لك الذكاء الاصطناعي</div>
+      <div style={{ fontFamily: AMIRI, fontWeight: 700, fontSize: 60, textShadow: "0 6px 40px #000", ...goldText(f, 686, 2) }}>يبسّط لك الذكاء الاصطناعي</div>
     </div>
   );
 };
 
 /** سواد في آخر إطارات (يلتقي مع أول إطار) */
 const LoopFade: React.FC<{ f: number }> = ({ f }) => {
-  const o = smooth((f - 740) / 26);
+  const o = smooth((f - 860) / 26);
   if (o <= 0) return null;
   return <AbsoluteFill style={{ background: K.ink, opacity: o }} />;
 };
@@ -657,9 +703,9 @@ const Scene: React.FC = () => {
           <Dust cam={cam} f={f} />
           <Hook cam={cam} f={f} />
           <Ali cam={cam} f={f} />
-          <Panel cam={cam} f={f} z={Z.p1} x={-60} n="01" who="للموظف" line="خلّص شغلك أسرع… وأذكى" icon="job" at={262} />
-          <Panel cam={cam} f={f} z={Z.p2} x={60} n="02" who="لصاحب المشروع" line="شغّل مشروعك بوكيل ذكي" icon="biz" at={322} />
-          <Panel cam={cam} f={f} z={Z.p3} x={-60} n="03" who="للطالب" line="ابدأ مهارة المستقبل من بدري" icon="edu" at={382} />
+          <Panel cam={cam} f={f} z={Z.p1} x={-60} n="01" who="للموظف" line="خلّص شغلك أسرع… وأذكى" icon="job" at={262} art={(lf) => <Tasks lf={lf} />} />
+          <Panel cam={cam} f={f} z={Z.p2} x={60} n="02" who="لصاحب المشروع" line="شغّل مشروعك بوكيل ذكي" icon="biz" at={332} art={(lf) => <Orders lf={lf} />} />
+          <Panel cam={cam} f={f} z={Z.p3} x={-60} n="03" who="للطالب" line="ابدأ مهارة المستقبل من بدري" icon="edu" at={402} art={(lf) => <Growth lf={lf} />} />
           <Network cam={cam} f={f} />
           <Tunnel cam={cam} />
           <End cam={cam} f={f} />
@@ -684,23 +730,27 @@ export const AliAd: React.FC = () => (
     <Sfx name="impact" at={HIT} volume={0.42} />
     <Sfx name="whoosh_fast" at={HIT - 4} volume={0.4} />
     <Sfx name="success" at={122} volume={0.18} />
-    <Sfx name="whoosh_soft" at={212} volume={0.35} />
-    {[255, 315, 375].map((t) => (
+    <Sfx name="click" at={50} volume={0.25} />
+    <Sfx name="whoosh_soft" at={220} volume={0.35} />
+    {[255, 325, 395].map((t) => (
       <Sfx key={t} name="whoosh_fast" at={t} volume={0.28} />
     ))}
-    {[262, 322, 382].map((t) => (
-      <Sfx key={`c${t}`} name="click" at={t} volume={0.2} />
+    {[270, 278, 286, 347, 356, 365, 374].map((t) => (
+      <Sfx key={`c${t}`} name="click" at={t} volume={0.18} />
     ))}
-    <Sfx name="whoosh_soft" at={424} volume={0.35} />
-    {[446, 458, 470, 482].map((t) => (
+    <Sfx name="success" at={432} volume={0.18} />
+    <Sfx name="whoosh_soft" at={462} volume={0.35} />
+    {[486, 494, 502, 510].map((t) => (
       <Sfx key={`p${t}`} name="pop" at={t} volume={0.14} />
     ))}
-    <Sfx name="glitch" at={490} volume={0.12} />
-    {[506, 513, 520].map((t) => (
-      <Sfx key={`q${t}`} name="pop" at={t} volume={0.2} />
+    <Sfx name="whoosh_soft" at={552} volume={0.3} />
+    <Sfx name="impact" at={570} volume={0.3} />
+    {[577, 589, 601].map((t) => (
+      <Sfx key={`q${t}`} name="pop" at={t} volume={0.22} />
     ))}
-    <Sfx name="whoosh_fast" at={548} volume={0.4} />
-    <Sfx name="whoosh_soft" at={600} volume={0.3} />
+    <Sfx name="typing" at={583} volume={0.12} />
+    <Sfx name="whoosh_fast" at={664} volume={0.4} />
+    <Sfx name="whoosh_soft" at={720} volume={0.3} />
     <Sfx name="impact" at={END_HIT} volume={0.4} />
     <Sfx name="success" at={END_HIT + 4} volume={0.22} />
   </MusicProvider>
