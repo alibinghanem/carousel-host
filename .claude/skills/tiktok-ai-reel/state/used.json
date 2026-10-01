@@ -33,7 +33,8 @@
   "t029",
   "t030",
   "t031",
-  "t032"
+  "t032",
+  "t033"
  ],
  "log": [
   {
@@ -266,6 +267,14 @@
    "cycle": 0,
    "style": "mesh",
    "accent": "lime"
+  },
+  {
+   "date": "2026-10-01",
+   "id": "t033",
+   "cycle": 0,
+   "format": "video",
+   "style": "editorial",
+   "accent": "blue"
   }
  ]
 }

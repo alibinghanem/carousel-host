@@ -28,6 +28,9 @@ export const fontsReady = Promise.all([
   loadFont({ family: "IBM Plex Sans Arabic", url: staticFile("ibm-plex-sans-arabic-arabic-700-normal.woff2"), weight: "700" }),
   loadFont({ family: "IBM Plex Sans Arabic", url: staticFile("ibm-plex-sans-arabic-arabic-600-normal.woff2"), weight: "600" }),
   loadFont({ family: "Space Grotesk", url: staticFile("space-grotesk-latin-700-normal.woff2"), weight: "700" }),
+  loadFont({ family: "Alexandria", url: staticFile("alexandria-arabic-800-normal.woff2"), weight: "800" }),
+  loadFont({ family: "Alexandria", url: staticFile("alexandria-latin-800-normal.woff2"), weight: "800" }),
+  loadFont({ family: "Alexandria", url: staticFile("alexandria-arabic-500-normal.woff2"), weight: "500" }),
   loadFont({ family: "JetBrains Mono", url: staticFile("jetbrains-mono-latin-800-normal.woff2"), weight: "800" }),
 ]);
 

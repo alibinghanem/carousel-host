@@ -62,50 +62,60 @@ export const MusicProvider: React.FC<{
     windowInSeconds: 10,
   });
   let e: Energy = { ...ZERO, frame };
+  // ملاحظة: لو الموسيقى أطول من الفيديو بكسر ثانية، نافذة آخر 10ث ممكن ترجع بيانات
+  // ناقصة ويرمي visualizeAudio خطأ — قصّ الموسيقى لـ (مدة الفيديو − 0.5ث). والـ try
+  // يضمن إن الرندر ما يطيح: الطاقة تصير صفر في الفريمات المتأثرة فقط.
   if (audioData) {
-    const fr = visualizeAudio({
-      fps,
-      frame,
-      audioData,
-      numberOfSamples: 256,
-      optimizeFor: "speed",
-      dataOffsetInSeconds,
-      smoothing: true,
-    });
-    // التحويل لديسيبل يوازن سيطرة الترددات المنخفضة
-    const bands = Array.from({ length: 32 }, (_, i) => {
-      // توزيع لوغاريتمي تقريبي: أعمدة أكثر للمنخفض
-      const a = Math.floor(Math.pow(i / 32, 1.8) * 200);
-      const b = Math.max(a + 1, Math.floor(Math.pow((i + 1) / 32, 1.8) * 200));
-      return db(avg(fr.slice(a, b)));
-    });
-    // الضربة = قفزة الطاقة المنخفضة عن متوسط الفريمات السابقة
-    const low = (fq: number) =>
-      avg(
-        visualizeAudio({
-          fps,
-          frame: fq,
-          audioData,
-          numberOfSamples: 256,
-          optimizeFor: "speed",
-          dataOffsetInSeconds,
-        }).slice(0, 6),
+    try {
+      const fr = visualizeAudio({
+        fps,
+        frame,
+        audioData,
+        numberOfSamples: 256,
+        optimizeFor: "speed",
+        dataOffsetInSeconds,
+        smoothing: true,
+      });
+      // التحويل لديسيبل يوازن سيطرة الترددات المنخفضة
+      const bands = Array.from({ length: 32 }, (_, i) => {
+        // توزيع لوغاريتمي تقريبي: أعمدة أكثر للمنخفض
+        const a = Math.floor(Math.pow(i / 32, 1.8) * 200);
+        const b = Math.max(
+          a + 1,
+          Math.floor(Math.pow((i + 1) / 32, 1.8) * 200),
+        );
+        return db(avg(fr.slice(a, b)));
+      });
+      // الضربة = قفزة الطاقة المنخفضة عن متوسط الفريمات السابقة
+      const low = (fq: number) =>
+        avg(
+          visualizeAudio({
+            fps,
+            frame: fq,
+            audioData,
+            numberOfSamples: 256,
+            optimizeFor: "speed",
+            dataOffsetInSeconds,
+          }).slice(0, 6),
+        );
+      const now = avg(fr.slice(0, 6));
+      let base = 0;
+      for (let i = 3; i <= 10; i++) base += low(Math.max(0, frame - i)) / 8;
+      const kick = Math.min(
+        1,
+        Math.max(0, (now / Math.max(base, 1e-6) - 1.15) / 1.3),
       );
-    const now = avg(fr.slice(0, 6));
-    let base = 0;
-    for (let i = 3; i <= 10; i++) base += low(Math.max(0, frame - i)) / 8;
-    const kick = Math.min(
-      1,
-      Math.max(0, (now / Math.max(base, 1e-6) - 1.15) / 1.3),
-    );
-    e = {
-      kick,
-      bass: db(avg(fr.slice(0, 6)), -60, -18),
-      mid: db(avg(fr.slice(12, 60)), -80, -30),
-      high: db(avg(fr.slice(80, 200)), -95, -45),
-      spectrum: bands,
-      frame,
-    };
+      e = {
+        kick,
+        bass: db(avg(fr.slice(0, 6)), -60, -18),
+        mid: db(avg(fr.slice(12, 60)), -80, -30),
+        high: db(avg(fr.slice(80, 200)), -95, -45),
+        spectrum: bands,
+        frame,
+      };
+    } catch {
+      e = { ...ZERO, frame };
+    }
   }
   return (
     <Ctx.Provider value={e}>

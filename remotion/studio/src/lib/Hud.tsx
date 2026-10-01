@@ -32,13 +32,18 @@ export const Handles: React.FC<{ light?: boolean; size?: number }> = ({ light, s
 );
 
 /** طبقة ثابتة: شريط تقدم + وسم + الحسابين (تختفي في الختام) */
-export const Hud: React.FC<{ hideFrom: number; kicker: string }> = ({ hideFrom, kicker }) => {
+export const Hud: React.FC<{
+  hideFrom: number;
+  kicker: string;
+  icon?: React.ReactNode; // أيقونة الوسم (الافتراضي: هدف الرماية)
+  bar?: [string, string]; // تدرّج شريط التقدم
+}> = ({ hideFrom, kicker, icon, bar = [C.cyan, C.y] }) => {
   const f = useCurrentFrame();
   const { durationInFrames } = useVideoConfig();
   const o = lerp(f, [hideFrom, hideFrom + 8], [1, 0]);
   return (
     <>
-      <div style={{ position: "absolute", top: 0, right: 0, height: 10, width: `${(f / durationInFrames) * 100}%`, background: `linear-gradient(90deg, ${C.cyan}, ${C.y})`, boxShadow: `0 0 20px ${C.y}` }} />
+      <div style={{ position: "absolute", top: 0, right: 0, height: 10, width: `${(f / durationInFrames) * 100}%`, background: `linear-gradient(90deg, ${bar[0]}, ${bar[1]})`, boxShadow: `0 0 20px ${bar[1]}` }} />
       <div
         style={{
           position: "absolute",
@@ -59,7 +64,9 @@ export const Hud: React.FC<{ hideFrom: number; kicker: string }> = ({ hideFrom, 
           opacity: o * lerp(f, [4, 14], [0, 1]),
         }}
       >
-        <span style={{ width: 30, height: 30, borderRadius: "50%", background: `radial-gradient(circle, ${C.y} 0 22%, ${C.r} 23% 45%, ${C.b} 46% 68%, #fff 69%)` }} />
+        {icon ?? (
+          <span style={{ width: 30, height: 30, borderRadius: "50%", background: `radial-gradient(circle, ${C.y} 0 22%, ${C.r} 23% 45%, ${C.b} 46% 68%, #fff 69%)` }} />
+        )}
         {kicker}
       </div>
       <div style={{ position: "absolute", top: 1412, left: 0, right: 0, display: "flex", justifyContent: "center", opacity: o }}>
