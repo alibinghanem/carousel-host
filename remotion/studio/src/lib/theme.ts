@@ -31,6 +31,8 @@ export const fontsReady = Promise.all([
   loadFont({ family: "Alexandria", url: staticFile("alexandria-arabic-800-normal.woff2"), weight: "800" }),
   loadFont({ family: "Alexandria", url: staticFile("alexandria-latin-800-normal.woff2"), weight: "800" }),
   loadFont({ family: "Alexandria", url: staticFile("alexandria-arabic-500-normal.woff2"), weight: "500" }),
+  loadFont({ family: "Aref Ruqaa", url: staticFile("aref-ruqaa-arabic-700-normal.woff2"), weight: "700" }),
+  loadFont({ family: "Amiri", url: staticFile("amiri-arabic-700-normal.woff2"), weight: "700" }),
   loadFont({ family: "JetBrains Mono", url: staticFile("jetbrains-mono-latin-800-normal.woff2"), weight: "800" }),
 ]);
 
