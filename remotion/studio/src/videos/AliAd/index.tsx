@@ -1,7 +1,8 @@
 import { AbsoluteFill, Img, staticFile, useCurrentFrame } from "remotion";
 import { MusicProvider, Sfx, SFX_RISER_PEAK, useMusic } from "../../lib/music";
 import { Cam, PERSPECTIVE, depth, fade, makePath, smooth, worldTransform } from "./camera";
-import { Board, Gears, Growth, IconBuild, IconChat, IconFlow, Orders, Tasks } from "./illus";
+import { Board, Gears, IconBuild, IconChat, IconFlow } from "./illus";
+import { EmployeeScene, OwnerScene, StudentScene } from "./chars";
 
 /**
  * إعلان «علي التميمي» — لقطة واحدة متواصلة (30ث · 1080×1920 · 30fps).
@@ -365,13 +366,13 @@ const Panel: React.FC<{ cam: Cam; f: number; z: number; x: number; n: string; wh
             background: `linear-gradient(105deg, transparent ${sweep - 12}%, rgba(255,246,220,.22) ${sweep}%, transparent ${sweep + 12}%)`,
           }}
         />
+        <div style={{ display: "flex", justifyContent: "center", direction: "ltr", marginBottom: 18 }}>{art(f - at)}</div>
         <div style={{ display: "flex", alignItems: "center", gap: 22, marginBottom: 26 }}>
           {ICONS[icon]}
           <div style={{ fontFamily: AMIRI, fontWeight: 700, fontSize: 52, color: K.gold }}>{who}</div>
           <div style={{ marginRight: "auto", fontFamily: LAT, fontWeight: 700, fontSize: 40, color: `${K.gold}88`, direction: "ltr" }}>{n}</div>
         </div>
         <div style={{ fontFamily: AMIRI, fontWeight: 700, fontSize: 88, lineHeight: 1.3, color: K.white }}>{line}</div>
-        <div style={{ marginTop: 26, display: "flex", justifyContent: "center", direction: "ltr" }}>{art(f - at)}</div>
       </div>
     </Obj>
   );
@@ -743,9 +744,9 @@ const Scene: React.FC = () => {
           <Dust cam={cam} f={f} />
           <Hook cam={cam} f={f} />
           <Ali cam={cam} f={f} />
-          <Panel cam={cam} f={f} z={Z.p1} x={-60} n="01" who="للموظف" line="خلّص شغلك أسرع… وأذكى" icon="job" at={262} art={(lf) => <Tasks lf={lf} />} />
-          <Panel cam={cam} f={f} z={Z.p2} x={60} n="02" who="لصاحب المشروع" line="شغّل مشروعك بوكيل ذكي" icon="biz" at={332} art={(lf) => <Orders lf={lf} />} />
-          <Panel cam={cam} f={f} z={Z.p3} x={-60} n="03" who="للطالب" line={<>ابدأ مهارة المستقبل<br />من بدري</>} icon="edu" at={402} art={(lf) => <Growth lf={lf} />} />
+          <Panel cam={cam} f={f} z={Z.p1} x={-60} n="01" who="للموظف" line="خلّص شغلك أسرع… وأذكى" icon="job" at={262} art={(lf) => <EmployeeScene lf={lf} />} />
+          <Panel cam={cam} f={f} z={Z.p2} x={60} n="02" who="لصاحب المشروع" line="شغّل مشروعك بوكيل ذكي" icon="biz" at={332} art={(lf) => <OwnerScene lf={lf} />} />
+          <Panel cam={cam} f={f} z={Z.p3} x={-60} n="03" who="للطالب" line={<>ابدأ مهارة المستقبل<br />من بدري</>} icon="edu" at={402} art={(lf) => <StudentScene lf={lf} />} />
           <Network cam={cam} f={f} />
           <Tunnel cam={cam} f={f} />
           <End cam={cam} f={f} />
@@ -766,9 +767,9 @@ export const AliAd: React.FC = () => (
   <MusicProvider src="videos/ali-ad/music.mp3" volume={0.78}>
     <Scene />
     <Sfx name="whoosh_soft" at={0} volume={0.25} />
-    <Sfx name="riser" at={HIT - SFX_RISER_PEAK} volume={0.35} />
-    <Sfx name="impact" at={HIT} volume={0.42} />
-    <Sfx name="whoosh_fast" at={HIT - 4} volume={0.4} />
+    <Sfx name="riser" at={HIT - SFX_RISER_PEAK} volume={0.26} />
+    <Sfx name="impact" at={HIT} volume={0.3} />
+    <Sfx name="whoosh_fast" at={HIT - 4} volume={0.28} />
     <Sfx name="success" at={122} volume={0.18} />
     <Sfx name="click" at={50} volume={0.25} />
     <Sfx name="whoosh_soft" at={220} volume={0.35} />
