@@ -107,7 +107,7 @@ export const Orders: React.FC<{ lf: number }> = ({ lf }) => {
         const done = t > 0.5;
         const y = 105 + Math.sin(t * Math.PI) * -18 * (i % 2 ? 1 : -1);
         return (
-          <g key={i} transform={`translate(${x} ${y})`} opacity={Math.min(1, t * 6) * Math.min(1, (1.05 - t) * 6)}>
+          <g key={i} transform={`translate(${x} ${y}) scale(1.45)`} opacity={Math.min(1, t * 6) * Math.min(1, (1.05 - t) * 6)}>
             {done ? (
               <>
                 <rect x={-26} y={-22} width={52} height={44} rx={10} fill={C.em} />
@@ -123,7 +123,7 @@ export const Orders: React.FC<{ lf: number }> = ({ lf }) => {
         );
       })}
       {/* الوكيل في المنتصف */}
-      <g transform="translate(360 105)">
+      <g transform="translate(360 105) scale(1.3)">
         <circle r={74 + kick * 6} fill={C.em} opacity={0.16} />
         <circle r={58} fill="#06110E" stroke={C.em} strokeWidth={3} />
         <rect x={-30} y={-22} width={60} height={46} rx={14} fill="none" stroke={C.gold} strokeWidth={3} />

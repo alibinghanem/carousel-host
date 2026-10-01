@@ -107,6 +107,14 @@ const goldText = (f: number, from: number, speed = 1): React.CSSProperties => ({
   margin: "-0.35em -0.15em",
 });
 
+/** «التميمي» بالرقعة يصعد قطرياً فوق السطر: نطفي البدائل السياقية (أكثر إحكاماً)
+ *  ونوسّع الحشوة فوق عشان التدرج الذهبي يغطي الحروف الصاعدة */
+const RUQAA: React.CSSProperties = {
+  fontFeatureSettings: "'calt' 0",
+  padding: "0.9em 0.25em 0.35em",
+  margin: "-0.9em -0.25em -0.35em",
+};
+
 /* ───────── الغبار الضوئي (ثابت عبر العالم، ينبض مع الكيك) ───────── */
 const DUST = Array.from({ length: 170 }, (_, i) => {
   const r = (n: number) => {
@@ -242,14 +250,26 @@ const Ali: React.FC<{ cam: Cam; f: number }> = ({ cam, f }) => {
             width: 1180,
             display: "block",
             filter: `drop-shadow(0 0 60px ${K.emerald}55) contrast(1.04) saturate(1.05)`,
-            WebkitMaskImage: "linear-gradient(to bottom, black 52%, rgba(0,0,0,.35) 74%, transparent 94%)",
-            maskImage: "linear-gradient(to bottom, black 52%, rgba(0,0,0,.35) 74%, transparent 94%)",
+            WebkitMaskImage: "linear-gradient(to bottom, black 44%, rgba(0,0,0,.3) 62%, transparent 82%)",
+            maskImage: "linear-gradient(to bottom, black 44%, rgba(0,0,0,.3) 62%, transparent 82%)",
           }}
         />
       </Obj>
       {/* الاسم والوعد أمامه */}
-      <Obj cam={cam} z={Z.ali + 380} y={250} near={500} far={9000}>
-        <div style={{ direction: "rtl", textAlign: "center", width: 1200 }}>
+      <Obj cam={cam} z={Z.ali + 380} y={250} near={800} far={9000}>
+        <div style={{ direction: "rtl", textAlign: "center", width: 1200, position: "relative" }}>
+          <div
+            style={{
+              position: "absolute",
+              left: 40,
+              right: 40,
+              top: -60,
+              bottom: -70,
+              borderRadius: "50%",
+              background: "radial-gradient(closest-side, rgba(2,6,5,.88), rgba(2,6,5,.55) 60%, transparent)",
+              opacity: nameP,
+            }}
+          />
           <div
             style={{
               fontFamily: AREF,
@@ -260,6 +280,7 @@ const Ali: React.FC<{ cam: Cam; f: number }> = ({ cam, f }) => {
               translate: `0px ${(1 - nameP) * 40}px`,
               filter: `drop-shadow(0 8px 30px rgba(0,0,0,.9))`,
               ...goldText(f, 118, 1.6),
+              ...RUQAA,
             }}
           >
             علي التميمي
@@ -268,7 +289,8 @@ const Ali: React.FC<{ cam: Cam; f: number }> = ({ cam, f }) => {
             style={{
               fontFamily: AMIRI,
               fontWeight: 700,
-              fontSize: 62,
+              fontSize: 56,
+              lineHeight: 1.35,
               color: K.white,
               marginTop: 4,
               opacity: tagP,
@@ -276,7 +298,9 @@ const Ali: React.FC<{ cam: Cam; f: number }> = ({ cam, f }) => {
               textShadow: "0 4px 24px rgba(0,0,0,.95)",
             }}
           >
-            الذكاء الاصطناعي… <span style={{ color: K.emerald }}>بالخليجي</span>
+            حلول الذكاء الاصطناعي
+            <br />
+            <span style={{ color: K.emerald }}>والتقنيات المتقدمة</span>
           </div>
         </div>
       </Obj>
@@ -306,7 +330,7 @@ const ICONS: Record<string, React.ReactNode> = {
   ),
 };
 
-const Panel: React.FC<{ cam: Cam; f: number; z: number; x: number; n: string; who: string; line: string; icon: string; at: number; art: (lf: number) => React.ReactNode }> = ({
+const Panel: React.FC<{ cam: Cam; f: number; z: number; x: number; n: string; who: string; line: React.ReactNode; icon: string; at: number; art: (lf: number) => React.ReactNode }> = ({
   cam,
   f,
   z,
@@ -320,7 +344,7 @@ const Panel: React.FC<{ cam: Cam; f: number; z: number; x: number; n: string; wh
 }) => {
   const sweep = ((f - at) / 26) * 160 - 30;
   return (
-    <Obj cam={cam} z={z} x={x} ry={x > 0 ? -6 : 6} near={420} far={1250} farSoft={650}>
+    <Obj cam={cam} z={z} x={x} ry={x > 0 ? -6 : 6} near={900} far={1250} farSoft={650}>
       <div
         style={{
           position: "relative",
@@ -379,7 +403,7 @@ const Network: React.FC<{ cam: Cam; f: number }> = ({ cam, f }) => {
   const swap = 555; // من «بنيت» إلى «دورات قادمة» (على النبض)
   const p1 = smooth((f - 488) / 14) * (1 - smooth((f - swap) / 10));
   const p2 = smooth((f - swap - 4) / 12);
-  const netO = 1 - 0.75 * smooth((f - swap) / 16);
+  const netO = (1 - 0.45 * smooth((f - 490) / 14)) * (1 - 0.6 * smooth((f - swap) / 16));
   const blf = f - swap;
   return (
     <>
@@ -429,8 +453,20 @@ const Network: React.FC<{ cam: Cam; f: number }> = ({ cam, f }) => {
           })}
         </svg>
       </Obj>
-      <Obj cam={cam} z={Z.net} y={40} near={300} far={3000}>
+      <Obj cam={cam} z={Z.net} y={40} near={900} far={3000}>
         <div style={{ direction: "rtl", textAlign: "center", width: 1000, position: "relative", height: 560 }}>
+          <div
+            style={{
+              position: "absolute",
+              left: -60,
+              right: -60,
+              top: -80,
+              bottom: -60,
+              borderRadius: "50%",
+              background: "radial-gradient(closest-side, rgba(2,6,5,.9), rgba(2,6,5,.6) 65%, transparent)",
+              opacity: p1,
+            }}
+          />
           <div style={{ position: "absolute", inset: 0, opacity: p1, translate: `0px ${(1 - smooth((f - 488) / 14)) * 30}px` }}>
             <div style={{ fontFamily: AMIRI, fontWeight: 700, fontSize: 50, color: K.emerald }}>بنيتها لشركات</div>
             <div style={{ fontFamily: AMIRI, fontWeight: 700, fontSize: 104, lineHeight: 1.25, color: K.white, textShadow: "0 6px 40px #000" }}>
@@ -508,33 +544,37 @@ const Network: React.FC<{ cam: Cam; f: number }> = ({ cam, f }) => {
 };
 
 /* ───────── المحطة 5: نفق المنشورات الحقيقية ───────── */
-const COVERS = ["c1", "c3", "c5", "c2", "c4", "c6"];
-const Tunnel: React.FC<{ cam: Cam }> = ({ cam }) => (
-  <>
-    {COVERS.map((c, i) => {
-      const side = i % 2 === 0 ? 1 : -1;
-      const z = Z.tunnel0 - i * 420;
-      return (
-        <Obj key={c} cam={cam} z={z} x={side * 470} y={(i % 3) * 60 - 60} ry={-side * 34} near={260} far={3600}>
-          <div
-            style={{
-              width: 400,
-              height: 711,
-              borderRadius: 26,
-              overflow: "hidden",
-              border: `2px solid ${K.gold}77`,
-              boxShadow: `0 0 70px ${K.emerald}44, 0 30px 80px rgba(0,0,0,.8)`,
-              position: "relative",
-            }}
-          >
-            <Img src={A(`${c}.jpg`)} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(255,255,255,.22), transparent 35%)" }} />
-          </div>
-        </Obj>
-      );
-    })}
-  </>
-);
+const COVERS = ["c1", "c3", "c5", "c2", "c4", "c6", "c1", "c5", "c3"];
+const Tunnel: React.FC<{ cam: Cam; f: number }> = ({ cam, f }) => {
+  const gate = smooth((f - 648) / 16); // ما يظهر قبل النفق (يحمي الشبكة والدورات من الزحمة)
+  if (gate <= 0) return null;
+  return (
+    <>
+      {COVERS.map((c, i) => {
+        const side = i % 2 === 0 ? 1 : -1;
+        const z = Z.tunnel0 + 200 - i * 300;
+        return (
+          <Obj key={i} cam={cam} z={z} x={side * 380} y={(i % 3) * 70 - 70} ry={-side * 28} near={300} far={2600} farSoft={900} opacity={gate}>
+            <div
+              style={{
+                width: 400,
+                height: 711,
+                borderRadius: 26,
+                overflow: "hidden",
+                border: `2px solid ${K.gold}77`,
+                boxShadow: `0 0 70px ${K.emerald}44, 0 30px 80px rgba(0,0,0,.8)`,
+                position: "relative",
+              }}
+            >
+              <Img src={A(`${c}.jpg`)} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(255,255,255,.22), transparent 35%)" }} />
+            </div>
+          </Obj>
+        );
+      })}
+    </>
+  );
+};
 
 /* ───────── المحطة 6: الختام ───────── */
 const IG = (
@@ -581,7 +621,7 @@ const End: React.FC<{ cam: Cam; f: number }> = ({ cam, f }) => {
       </Obj>
       <Obj cam={cam} z={Z.end + 120} y={150} far={9000}>
         <div style={{ direction: "rtl", textAlign: "center", width: 1100 }}>
-          <div style={{ fontFamily: AREF, fontWeight: 700, fontSize: 150, lineHeight: 1.15, opacity: p(784), ...goldText(f, 784, 1.6) }}>علي التميمي</div>
+          <div style={{ fontFamily: AREF, fontWeight: 700, fontSize: 150, lineHeight: 1.15, opacity: p(784), ...goldText(f, 784, 1.6), ...RUQAA }}>علي التميمي</div>
           <div style={{ fontFamily: AMIRI, fontWeight: 700, fontSize: 56, color: K.white, opacity: p(796), marginTop: 4 }}>
             تابعني… وخلّ الذكاء الاصطناعي <span style={{ color: K.emerald }}>يشتغل لك</span>
           </div>
@@ -678,7 +718,7 @@ const TunnelLabel: React.FC<{ f: number }> = ({ f }) => {
   const o = smooth((f - 686) / 12) * (1 - smooth((f - 760) / 12));
   if (o <= 0) return null;
   return (
-    <div style={{ position: "absolute", top: 820, left: 0, right: 0, textAlign: "center", direction: "rtl", opacity: o }}>
+    <div style={{ position: "absolute", top: 300, left: 0, right: 0, textAlign: "center", direction: "rtl", opacity: o, background: "radial-gradient(50% 60% at 50% 50%, rgba(2,6,5,.85), transparent)", padding: "30px 0 40px" }}>
       <div style={{ fontFamily: AMIRI, fontWeight: 700, fontSize: 92, color: K.white, textShadow: "0 8px 50px #000, 0 0 30px #000" }}>محتوى يومي</div>
       <div style={{ fontFamily: AMIRI, fontWeight: 700, fontSize: 60, textShadow: "0 6px 40px #000", ...goldText(f, 686, 2) }}>يبسّط لك الذكاء الاصطناعي</div>
     </div>
@@ -705,9 +745,9 @@ const Scene: React.FC = () => {
           <Ali cam={cam} f={f} />
           <Panel cam={cam} f={f} z={Z.p1} x={-60} n="01" who="للموظف" line="خلّص شغلك أسرع… وأذكى" icon="job" at={262} art={(lf) => <Tasks lf={lf} />} />
           <Panel cam={cam} f={f} z={Z.p2} x={60} n="02" who="لصاحب المشروع" line="شغّل مشروعك بوكيل ذكي" icon="biz" at={332} art={(lf) => <Orders lf={lf} />} />
-          <Panel cam={cam} f={f} z={Z.p3} x={-60} n="03" who="للطالب" line="ابدأ مهارة المستقبل من بدري" icon="edu" at={402} art={(lf) => <Growth lf={lf} />} />
+          <Panel cam={cam} f={f} z={Z.p3} x={-60} n="03" who="للطالب" line={<>ابدأ مهارة المستقبل<br />من بدري</>} icon="edu" at={402} art={(lf) => <Growth lf={lf} />} />
           <Network cam={cam} f={f} />
-          <Tunnel cam={cam} />
+          <Tunnel cam={cam} f={f} />
           <End cam={cam} f={f} />
         </div>
       </AbsoluteFill>
