@@ -11,6 +11,7 @@ import { Outro } from "./videos/AgentArchery/scenes/Outro";
 import { fontsReady } from "./lib/theme";
 import { MusicMeter } from "./tools/MusicMeter";
 import { AliAd, ALI_AD_FRAMES } from "./videos/AliAd";
+import { ClaudeTrio, CLAUDE_TRIO_FRAMES } from "./videos/ClaudeTrio";
 import { HumanLoop, HUMAN_LOOP_FRAMES } from "./videos/HumanLoop";
 import { Hook as HLHook } from "./videos/HumanLoop/scenes/Hook";
 import { Concept as HLConcept } from "./videos/HumanLoop/scenes/Concept";
@@ -33,6 +34,7 @@ export const RemotionRoot: React.FC = () => (
       <Composition id="Summary" component={Summary} width={1080} height={1920} fps={30} durationInFrames={252} />
       <Composition id="Outro" component={Outro} width={1080} height={1920} fps={30} durationInFrames={240} />
     </Folder>
+    <Composition id="ClaudeTrio" component={ClaudeTrio} width={1080} height={1920} fps={30} durationInFrames={CLAUDE_TRIO_FRAMES} />
     <Composition id="AliAd" component={AliAd} width={1080} height={1920} fps={30} durationInFrames={ALI_AD_FRAMES} />
     <Composition id="HumanLoop" component={HumanLoop} width={1080} height={1920} fps={30} durationInFrames={HUMAN_LOOP_FRAMES} />
     <Folder name="HumanLoop-Scenes">
