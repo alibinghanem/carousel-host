@@ -1,13 +1,13 @@
 import { Img, staticFile } from "remotion";
 import { Cam } from "../../lib/camera3d";
-import { Obj } from "../../lib/world3d";
+import { Obj } from "./art";
 import { useMusic } from "../../lib/music";
-import { ARR, Z } from "./tl";
+import { S, Z } from "./tl";
 import { BODY, Handles, KUFI, SIG, T, ramp } from "./parts";
 
 /** الختام: علي + الحسابان + سؤال يفتح التعليقات */
 export const End: React.FC<{ cam: Cam; f: number }> = ({ cam, f }) => {
-  const lf = f - ARR.end;
+  const lf = f - S.end;
   const { kick } = useMusic();
   return (
     <>
@@ -26,7 +26,7 @@ export const End: React.FC<{ cam: Cam; f: number }> = ({ cam, f }) => {
             background: `radial-gradient(circle at 50% 35%, #1B2547, ${T.bg})`,
           }}
         >
-          <Img src={staticFile("videos/ali-ad/ali.png")} style={{ width: "112%", marginLeft: "-6%", marginTop: "-2%", display: "block" }} />
+          <Img src={staticFile("avatar.png")} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "50% 15%", display: "block" }} />
         </div>
       </Obj>
       <Obj cam={cam} z={Z.end} y={150} far={9000}>

@@ -1,5 +1,5 @@
 import { Cam, smooth } from "../../lib/camera3d";
-import { Obj } from "../../lib/world3d";
+import { Obj } from "./art";
 import { useMusic } from "../../lib/music";
 import { HIT, Z } from "./tl";
 import { BODY, ClaudeMark, IcoChat, IcoFolder, IcoTerm, KUFI, T, ramp } from "./parts";
@@ -43,8 +43,8 @@ export const Hook: React.FC<{ cam: Cam; f: number }> = ({ cam, f }) => {
         <div style={{ display: "flex", justifyContent: "center", marginBottom: 20, opacity: ramp(f, 0, 10), scale: `${1 + kick * 0.05}` }}>
           <ClaudeMark size={150} glow={T.chat} />
         </div>
-        {line("تستخدم Claude", 4, { font: `900 128px/1.2 ${KUFI}`, color: T.ink })}
-        {line("للأسئلة بس؟", 14, { font: `900 128px/1.2 ${KUFI}`, color: T.chat })}
+        {line("تستخدم Claude", 4, { font: `900 116px/1.2 ${KUFI}`, color: T.ink })}
+        {line("للأسئلة بس؟", 14, { font: `900 116px/1.2 ${KUFI}`, color: T.chat })}
         <div style={{ height: 36 }} />
         {line("عنده طريقتين ثانيتين يشتغلون بدالك", 44, { font: `700 56px/1.4 ${BODY}`, color: T.mute })}
         <div style={{ display: "flex", justifyContent: "center", gap: 36, marginTop: 44 }}>

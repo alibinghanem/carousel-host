@@ -1,6 +1,5 @@
 import { Img, staticFile } from "remotion";
 import { smooth } from "../../lib/camera3d";
-import { useMusic } from "../../lib/music";
 
 /** هوية «Claude Trio»: ليل أزرق عميق + لون لكل طريقة (محادثة · Cowork · Code) */
 export const T = {
@@ -29,108 +28,6 @@ export const ramp = (f: number, a: number, d = 10) => smooth((f - a) / d);
 /** نص يُكتب حرفاً حرفاً */
 export const typed = (text: string, lf: number, at: number, dur: number) =>
   text.slice(0, Math.round(clamp((lf - at) / dur) * text.length));
-
-/** اللوح الزجاجي الأساسي لكل محطة */
-export const Panel: React.FC<{ w?: number; h?: number; accent: string; children: React.ReactNode; lf: number }> = ({
-  w = 960,
-  h = 820,
-  accent,
-  children,
-  lf,
-}) => {
-  const { kick } = useMusic();
-  const sweep = ((lf - 8) / 30) * 170 - 35;
-  return (
-    <div
-      style={{
-        position: "relative",
-        width: w,
-        height: h,
-        borderRadius: 44,
-        overflow: "hidden",
-        direction: "rtl",
-        background: `linear-gradient(160deg, rgba(255,255,255,.10), rgba(255,255,255,.02) 50%), radial-gradient(120% 80% at 100% 0%, ${accent}2E, transparent 60%), ${T.panel}F2`,
-        border: `2px solid ${accent}88`,
-        boxShadow: `0 40px 120px rgba(0,0,0,.7), inset 0 1px 0 rgba(255,255,255,.25), 0 0 ${60 + kick * 40}px ${accent}33`,
-      }}
-    >
-      {children}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          pointerEvents: "none",
-          background: `linear-gradient(105deg, transparent ${sweep - 10}%, rgba(255,255,255,.16) ${sweep}%, transparent ${sweep + 10}%)`,
-        }}
-      />
-    </div>
-  );
-};
-
-/** رأس المحطة: رقم + اسم + جملة الوظيفة */
-export const Header: React.FC<{ n: string; title: React.ReactNode; sub: string; accent: string; lf: number; icon?: React.ReactNode }> = ({
-  n,
-  title,
-  sub,
-  accent,
-  lf,
-  icon,
-}) => {
-  const p = ramp(lf, 0, 14);
-  return (
-    <div style={{ width: 960, direction: "rtl", opacity: p, translate: `0px ${(1 - p) * 36}px` }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 22 }}>
-        <div
-          style={{
-            flex: "none",
-            width: 96,
-            height: 96,
-            borderRadius: 28,
-            background: accent,
-            color: T.bg,
-            display: "grid",
-            placeItems: "center",
-            font: `900 62px ${KUFI}`,
-            rotate: `${(1 - p) * -40}deg`,
-            boxShadow: `0 0 50px ${accent}77`,
-          }}
-        >
-          {icon ?? n}
-        </div>
-        <div style={{ font: `900 98px/1.15 ${KUFI}`, color: T.ink, whiteSpace: "nowrap" }}>{title}</div>
-      </div>
-      <div style={{ marginTop: 14, font: `700 46px/1.35 ${BODY}`, color: accent, paddingRight: 118 }}>{sub}</div>
-    </div>
-  );
-};
-
-/** شريحة الفوتر الصغيرة أسفل اللوح */
-export const Foot: React.FC<{ lf: number; at: number; accent: string; children: React.ReactNode; icon?: React.ReactNode }> = ({ lf, at, accent, children, icon }) => {
-  const p = ramp(lf, at, 12);
-  return (
-    <div
-      style={{
-        direction: "rtl",
-        display: "inline-flex",
-        alignItems: "center",
-        gap: 16,
-        padding: "16px 34px 20px",
-        borderRadius: 999,
-        background: "rgba(10,15,29,.92)",
-        border: `2px solid ${accent}99`,
-        font: `700 40px/1.2 ${BODY}`,
-        color: T.ink,
-        whiteSpace: "nowrap",
-        opacity: p,
-        translate: `0px ${(1 - p) * 30}px`,
-        boxShadow: `0 0 40px ${accent}22`,
-      }}
-    >
-      {icon}
-      {children}
-    </div>
-  );
-};
 
 export const ClaudeMark: React.FC<{ size?: number; glow?: string }> = ({ size = 80, glow }) => (
   <Img src={V("claude-color.svg")} style={{ width: size, height: size, filter: glow ? `drop-shadow(0 0 ${size * 0.3}px ${glow})` : undefined }} />
