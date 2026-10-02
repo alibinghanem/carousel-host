@@ -113,5 +113,22 @@
    "n8n-text.svg"
   ],
   "music": "ElevenLabs eleven_music_v2_5, flow 2bg7qk7Jb0o4cBaESYdl"
+ },
+ {
+  "date": "2026-10-02",
+  "topic": "x004",
+  "format": "carousel",
+  "concept": "العزال (إشعار إخلاء، شاحنة نقل بكراتين تنتقل، كراتين على الرصيف لا تنتقل، حافظة قائمة العزال، بطاقة شركة نقل)",
+  "cover_bg": "#FF5A1F",
+  "display_font": "Vazirmatn 900",
+  "cover_layout": "ورقة إشعار إخلاء بيضاء مائلة بشريط لاصق تغطي نص الشاشة + ختم تاريخ أحمر",
+  "photos": [
+   "1522071820081-009f0129c71c"
+  ],
+  "real_assets": [
+   "openai.svg",
+   "openai-text.svg"
+  ],
+  "note": "زاوية الموضوع تغيّرت من «ابنِ GPT» إلى «تقاعد GPTs» بعد التحقق من مصادر OpenAI"
  }
 ]

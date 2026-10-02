@@ -28,7 +28,7 @@ import render_reel as R
 W, H = 1080, 1920
 FAMILIES = {"lalezar": "Lalezar", "ibm-plex-sans-arabic": "IBM Plex Sans Arabic",
             "jetbrains-mono": "JetBrains Mono", "readex-pro": "Readex Pro",
-            "space-grotesk": "Space Grotesk", "reem-kufi": "Reem Kufi", "el-messiri": "El Messiri", "changa": "Changa", "rubik": "Rubik"}
+            "space-grotesk": "Space Grotesk", "reem-kufi": "Reem Kufi", "el-messiri": "El Messiri", "changa": "Changa", "rubik": "Rubik", "vazirmatn": "Vazirmatn"}
 RANGES = {"arabic": "U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0898-08E1,U+08E3-08FF,"
                     "U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC",
           "latin": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,"
