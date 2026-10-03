@@ -58,6 +58,10 @@ export const makePath = (raw: Key[]) => {
 export const worldTransform = (c: Cam) =>
   `rotateZ(${-c.roll}deg) rotateX(${-c.pitch}deg) rotateY(${-c.yaw}deg) translate3d(${-c.x}px, ${-c.y}px, ${PERSPECTIVE - c.z}px)`;
 
+/** نسخة دورانها حول عين الكاميرا نفسها (صحيحة للميل الكبير pitch > ~12°): translateZ(P) خارجي ثم الدوران ثم إزاحة الكاميرا */
+export const worldTransformEye = (c: Cam) =>
+  `translateZ(${PERSPECTIVE}px) rotateZ(${-c.roll}deg) rotateX(${-c.pitch}deg) rotateY(${-c.yaw}deg) translate3d(${-c.x}px, ${-c.y}px, ${-c.z}px)`;
+
 /** مسافة العنصر أمام الكاميرا (تقريبية على محور النظر) */
 export const depth = (c: Cam, z: number) => c.z - z;
 
