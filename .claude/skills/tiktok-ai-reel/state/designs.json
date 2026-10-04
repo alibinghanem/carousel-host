@@ -163,5 +163,21 @@
       "claude-color.svg"
     ],
     "note": "تدريب (وكلاء). لقطة واحدة متواصلة بكاميرا مائلة عبر worldTransformEye"
+  },
+  {
+    "date": "2026-10-04",
+    "topic": "x006",
+    "format": "carousel",
+    "concept": "غوص اللؤلؤ (نافذة غواصة نحاسية، حبل بمستويات عمق، جوال بقائمة الأدوات، حزام معدات، محارات ولؤلؤ، خوذة غوص)",
+    "cover_bg": "#06303D",
+    "display_font": "Lalezar",
+    "cover_layout": "عنوان ضخم بثلاثة أسطر فوق نافذة غواصة فيها لؤلؤة عليها شعار OpenAI",
+    "photos": [
+      "1503676260728-1c00da094a0b"
+    ],
+    "real_assets": [
+      "openai.svg"
+    ],
+    "note": "ChatGPT · Deep Research. صفحات OpenAI محجوبة؛ تحقق عبر WebSearch (إعلان 10 فبراير 2026)"
   }
 ]

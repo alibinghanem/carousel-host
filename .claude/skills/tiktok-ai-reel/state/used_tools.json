@@ -5,7 +5,8 @@
   "x005",
   "x002",
   "x003",
-  "x004"
+  "x004",
+  "x006"
  ],
  "log": [
   {
@@ -40,6 +41,14 @@
   {
    "date": "2026-10-02",
    "id": "x004",
+   "cycle": 0,
+   "format": "carousel",
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-10-04",
+   "id": "x006",
    "cycle": 0,
    "format": "carousel",
    "style": "—",
