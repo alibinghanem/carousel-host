@@ -149,7 +149,7 @@ export const Orb: React.FC<{ f: number; size?: number; color?: string }> = ({ f,
 export const Person: React.FC<{ f: number; arm?: "type" | "phone" | "wave"; flip?: boolean; w?: number }> = ({ f, arm = "type", flip, w = 360 }) => {
   const jx = Math.sin(f * 1.3) * 3;
   const jy = Math.sin(f * 1.3 + 2) * 3;
-  const hand = arm === "phone" ? { x: 238, y: 168 } : arm === "wave" ? { x: 232 + Math.sin(f / 4) * 14, y: 120 } : { x: 262 + jx, y: 240 + jy };
+  const hand = arm === "phone" ? { x: 238, y: 168 } : arm === "wave" ? { x: 232 + Math.sin(f / 4) * 14, y: 120 } : { x: 268 + jx, y: 223 + jy * 0.6 };
   const elbow = arm === "type" ? { x: 205, y: 232 } : { x: 214, y: 214 };
   return (
     <svg width={w} height={(w * 400) / 360} viewBox="0 0 360 400" style={{ overflow: "visible", scale: flip ? "-1 1" : "1 1" }}>
@@ -165,25 +165,52 @@ export const Person: React.FC<{ f: number; arm?: "type" | "phone" | "wave"; flip
       <rect x={96} y={282} width={178} height={18} rx={9} fill={THOBE2} opacity={0.8} />
       <rect x={252} y={284} width={34} height={92} rx={14} fill={THOBE2} />
       <ellipse cx={288} cy={382} rx={32} ry={12} fill="#10141F" />
-      {/* الرقبة والرأس */}
-      <rect x={140} y={116} width={34} height={36} fill="#B98560" />
-      <ellipse cx={126} cy={98} rx={9} ry={14} fill="#B98560" />
-      <ellipse cx={158} cy={92} rx={38} ry={44} fill={SKIN} />
-      {/* اللحية */}
-      <path d="M121 100 C 122 142, 192 146, 197 98 C 190 118, 170 124, 158 124 C 146 124, 128 118, 121 100 Z" fill="#2A211D" />
-      <path d="M146 112 Q 160 118 174 110" stroke="#2A211D" strokeWidth={5} strokeLinecap="round" fill="none" />
-      {/* الكاب */}
-      <path d="M116 74 C 116 26, 196 22, 200 70 Z" fill="#1F2533" />
-      <path d="M192 66 L 244 76 C 246 84, 206 86, 192 78 Z" fill="#2E3750" />
-      <path d="M130 62 C 140 44, 176 40, 192 54" stroke="#3B455F" strokeWidth={3} fill="none" strokeLinecap="round" />
-      {/* النظارة */}
-      <rect x={172} y={92} width={36} height={24} rx={6} fill="rgba(170,205,255,.5)" stroke="#0B0E14" strokeWidth={4.5} />
-      <line x1={172} y1={100} x2={128} y2={96} stroke="#0B0E14" strokeWidth={4.5} strokeLinecap="round" />
-      <circle cx={192} cy={105} r={3.4} fill="#0B0E14" />
+      {/* ياقة الثوب والأزرار */}
+      <path d="M136 150 L158 182 L184 152 L172 146 L158 160 L146 146 Z" fill="#E2DED2" stroke="#C9C4B6" strokeWidth={2} strokeLinejoin="round" />
+      <line x1={158} y1={182} x2={156} y2={262} stroke="#CFCABB" strokeWidth={2.5} />
+      <circle cx={157} cy={198} r={2.6} fill="#BDB8A8" />
+      <circle cx={157} cy={222} r={2.6} fill="#BDB8A8" />
+      {/* الرقبة */}
+      <path d="M142 124 L174 124 L176 158 C168 166 150 166 142 158 Z" fill="#B67E55" />
+      {/* الرأس (مجموعة مكبّرة قليلاً) */}
+      <g transform="translate(160 100) scale(1.14) translate(-160 -96)">
+        <ellipse cx={128} cy={104} rx={9} ry={14} fill="#C48F67" />
+        <path d="M126 98 q5 4 1 12" stroke="#A9714B" strokeWidth={2.5} fill="none" strokeLinecap="round" />
+        <ellipse cx={160} cy={96} rx={40} ry={48} fill={SKIN} />
+        <path d="M198 100 Q224 114 203 125 Z" fill={SKIN} />
+        <path d="M200 120 q7 -1 5 -9" stroke="#C48F67" strokeWidth={2.5} fill="none" strokeLinecap="round" />
+        <path d="M124 108 C124 138 146 154 170 150 C194 147 205 136 204 128 C196 134 184 132 172 130 C158 128 146 124 138 112 Z" fill="#2A211D" />
+        <path d="M172 123 Q190 117 206 125 Q190 131 172 130 Z" fill="#2A211D" />
+        <path d="M184 141 Q192 144 199 139" stroke="#B67E55" strokeWidth={3} fill="none" strokeLinecap="round" />
+        <path d="M118 78 C114 40 148 28 180 34 C203 39 208 60 206 76 Z" fill="#1B2740" />
+        <path d="M140 44 C158 31 188 34 200 55" stroke="#2C3B5E" strokeWidth={3} fill="none" strokeLinecap="round" />
+        <circle cx={161} cy={33} r={4} fill="#2C3B5E" />
+        <path d="M150 58 l22 -5" stroke="#EDEDF2" strokeWidth={4} strokeLinecap="round" />
+        <path d="M198 66 L250 76 C256 82 252 90 244 90 L194 86 Z" fill="#101A2D" />
+        <path d="M150 78 L200 82 L200 90 L150 86 Z" fill="rgba(0,0,0,.16)" />
+        <line x1={176} y1={104} x2={133} y2={100} stroke="#0B0E14" strokeWidth={3.2} strokeLinecap="round" />
+        <rect x={176} y={97} width={36} height={23} rx={6} fill="#9DB8CC" />
+        <rect x={176} y={97} width={34} height={23} rx={6} fill="rgba(210,235,255,.28)" stroke="#0B0E14" strokeWidth={3.6} />
+        <path d="M182 103 l9 -1.5" stroke="#fff" strokeWidth={2.6} strokeLinecap="round" opacity={0.75} />
+        <ellipse cx={195} cy={110} rx={3} ry={3.8} fill="#0B0E14" />
+        <path d="M181 90 Q194 86 208 90" stroke="#2A211D" strokeWidth={4} fill="none" strokeLinecap="round" />
+      </g>
+      {/* المكتب واللابتوب (وضع الكتابة) */}
+      {arm === "type" ? (
+        <g>
+          <rect x={344} y={248} width={12} height={132} rx={5} fill="#1E2744" />
+          <rect x={206} y={238} width={170} height={13} rx={6} fill="#34406A" />
+          <rect x={206} y={247} width={170} height={4} rx={2} fill="#232C4D" />
+          <rect x={238} y={227} width={96} height={12} rx={4} fill="#9AA6C4" />
+          <polygon points="322,228 336,228 346,148 332,148" fill="#2A3150" />
+          <polygon points="318,226 322,226 332,150 328,150" fill="#7DE3D4" opacity={0.6} />
+          <circle cx={337} cy={188} r={5} fill="#E9C46A" opacity={0.9} />
+        </g>
+      ) : null}
       {/* الذراع */}
-      <path d={`M170 168 L ${elbow.x} ${elbow.y} L ${hand.x} ${hand.y}`} stroke={THOBE} strokeWidth={28} strokeLinecap="round" strokeLinejoin="round" fill="none" />
-      <path d={`M170 168 L ${elbow.x} ${elbow.y} L ${hand.x} ${hand.y}`} stroke={THOBE2} strokeWidth={4} strokeLinecap="round" strokeLinejoin="round" fill="none" opacity={0.7} />
-      <circle cx={hand.x} cy={hand.y} r={13} fill={SKIN} />
+      <path d={`M152 190 L ${elbow.x} ${elbow.y} L ${hand.x} ${hand.y}`} stroke={THOBE} strokeWidth={28} strokeLinecap="round" strokeLinejoin="round" fill="none" />
+      <path d={`M152 190 L ${elbow.x} ${elbow.y} L ${hand.x} ${hand.y}`} stroke={THOBE2} strokeWidth={4} strokeLinecap="round" strokeLinejoin="round" fill="none" opacity={0.7} />
+      <ellipse cx={hand.x} cy={hand.y} rx={16} ry={11} fill={SKIN} />
       {arm === "phone" ? <rect x={hand.x - 6} y={hand.y - 34} width={30} height={50} rx={7} fill="#10141F" stroke="#3B455F" strokeWidth={3} transform={`rotate(14 ${hand.x} ${hand.y})`} /> : null}
     </svg>
   );

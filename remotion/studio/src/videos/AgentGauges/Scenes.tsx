@@ -121,34 +121,32 @@ export const G2: React.FC<Pr> = ({ cam, f }) => {
   const flight = (t0: number, toHuman: boolean) => {
     const p = clamp((lf - t0) / 26);
     const sx = -250;
-    const ex = toHuman ? 230 : -250;
-    const ey = toHuman ? 285 : 200;
-    return { x: sx + (ex - sx) * smooth(p), y: 285 + (ey - 285) * smooth(p) - Math.sin(p * Math.PI) * (toHuman ? 110 : 60), p };
+    const ex = toHuman ? 275 : -250;
+    const ey = toHuman ? 232 : 190;
+    return { x: sx + (ex - sx) * smooth(p), y: 270 + (ey - 270) * smooth(p) - Math.sin(p * Math.PI) * (toHuman ? 110 : 60), p };
   };
   const tk = [flight(40, false), flight(70, false), flight(100, true)];
   return (
     <>
       <Title cam={cam} x={x} lf={lf} n="2" title="معدّل التصعيد" sub="كم مرة سلّمها لإنسان؟" color={P.amber} />
       <Pod cam={cam} x={x} lf={lf} v={v} zones={ZONES_LOW} value={`${n}%`} unit="سلّمها لإنسان" f={f} tag="مثال" />
-      <Obj cam={cam} x={x - 250} y={285} z={40} opacity={ramp(lf, 6, 12)}>
+      <Obj cam={cam} x={x - 250} y={270} z={40} opacity={ramp(lf, 6, 12)}>
         <div style={{ scale: "1" }}>
           <div style={{ width: 150, height: 150, borderRadius: "50%", background: P.panel2, border: `5px solid ${P.em}`, display: "grid", placeItems: "center", boxShadow: `0 0 40px ${P.em}55` }}>
             <ClaudeMark size={84} />
           </div>
         </div>
       </Obj>
-      <Obj cam={cam} x={x + 250} y={275} z={40} opacity={ramp(lf, 10, 12)}>
-        <Person f={lf} arm="type" w={200} />
+      <Obj cam={cam} x={x + 190} y={262} z={40} opacity={ramp(lf, 10, 12)}>
+        <Person f={lf} arm="type" w={240} />
       </Obj>
       {tk.map((t, i) => (
         <Obj key={i} cam={cam} x={x + t.x} y={t.y} z={60} opacity={t.p > 0 ? 1 : 0}>
           <Chip s={64} state={t.p >= 1 ? (i === 2 ? 2 : 1) : 0} p={1} />
         </Obj>
       ))}
-      <Cap cam={cam} x={x} y={420} p={ramp(lf, 114, 14)} size={40}>
-        التصعيد الصح: <span style={{ color: P.amber }}>يسلّم الصعب للإنسان</span>
-        <br />
-        ويخلّص البسيط بنفسه
+      <Cap cam={cam} x={x} y={410} p={ramp(lf, 114, 14)} size={38}>
+        التصعيد الصح: <span style={{ color: P.amber }}>يسلّم الصعب للإنسان</span> ويخلّص البسيط
       </Cap>
     </>
   );
