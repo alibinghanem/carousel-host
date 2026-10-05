@@ -37,6 +37,10 @@ export const fontsReady = Promise.all([
   loadFont({ family: "Noto Kufi Arabic", url: staticFile("noto-kufi-arabic-latin-900-normal.woff2"), weight: "900" }),
   loadFont({ family: "Noto Kufi Arabic", url: staticFile("noto-kufi-arabic-arabic-700-normal.woff2"), weight: "700" }),
   loadFont({ family: "Noto Kufi Arabic", url: staticFile("noto-kufi-arabic-latin-700-normal.woff2"), weight: "700" }),
+  loadFont({ family: "Cairo", url: staticFile("cairo-arabic-900-normal.woff2"), weight: "900" }),
+  loadFont({ family: "Cairo", url: staticFile("cairo-latin-900-normal.woff2"), weight: "900" }),
+  loadFont({ family: "Cairo", url: staticFile("cairo-arabic-700-normal.woff2"), weight: "700" }),
+  loadFont({ family: "Cairo", url: staticFile("cairo-latin-700-normal.woff2"), weight: "700" }),
   loadFont({ family: "JetBrains Mono", url: staticFile("jetbrains-mono-latin-800-normal.woff2"), weight: "800" }),
 ]);
 
