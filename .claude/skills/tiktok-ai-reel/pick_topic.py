@@ -113,11 +113,14 @@ def main():
 
     used = set(st["used"])
     remaining = [(i, t) for i, t in enumerate(topics) if t["id"] not in used]
+    # الأهم أولاً (طلب المستخدم: مواضيع تجذب الاهتمام): الأولوية 4 ثم 3 ثم 2 ثم 1، وداخل كل أولوية بترتيب البنك
+    remaining.sort(key=lambda it: (-it[1].get("priority", 2), it[0]))
     if not remaining:                      # انتهى البنك — دورة جديدة بتصاميم جديدة
         st["cycle"] += 1
         st["used"] = []
         used = set()
         remaining = list(enumerate(topics))
+        remaining.sort(key=lambda it: (-it[1].get("priority", 2), it[0]))
 
     idx, topic = remaining[0]
     topic = dict(topic)
