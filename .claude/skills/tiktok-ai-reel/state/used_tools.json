@@ -1,0 +1,67 @@
+{
+ "cycle": 0,
+ "used": [
+  "x001",
+  "x005",
+  "x002",
+  "x003",
+  "x004",
+  "x006",
+  "x007"
+ ],
+ "log": [
+  {
+   "date": "2026-09-26",
+   "id": "x001",
+   "cycle": 0,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-09-27",
+   "id": "x005",
+   "cycle": 0,
+   "style": "—",
+   "accent": "—",
+   "note": "فيديو موشن قرافيك بطلب المستخدم"
+  },
+  {
+   "date": "2026-09-28",
+   "id": "x002",
+   "cycle": 0,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-09-30",
+   "id": "x003",
+   "cycle": 0,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-10-02",
+   "id": "x004",
+   "cycle": 0,
+   "format": "carousel",
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-10-04",
+   "id": "x006",
+   "cycle": 0,
+   "format": "carousel",
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-10-06",
+   "id": "x007",
+   "cycle": 0,
+   "format": "carousel",
+   "style": "—",
+   "accent": "—"
+  }
+ ]
+}

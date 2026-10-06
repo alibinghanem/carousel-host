@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<style>
+:root{--paper:#F4F2EC;--ink:#121316;--red:#E5352B;--yellow:#FFC400;--green:#1FA96B;--coal:#16181D;--mute:#7A7870;--line:#DDD8CC}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;font-family:'IBM Plex Sans Arabic','Cairo',sans-serif;-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1920px;position:relative;overflow:hidden;direction:rtl;background:var(--paper);color:var(--ink)}
+.mono{font-family:'JetBrains Mono',monospace;direction:ltr;unicode-bidi:isolate}
+.hd{font-family:'Cairo';font-weight:900;line-height:1.12;letter-spacing:-.5px}
+.kick{position:absolute;top:250px;right:90px;font:700 30px 'IBM Plex Sans Arabic';display:flex;align-items:center;gap:14px}
+.kick i{width:16px;height:16px;border-radius:3px;background:currentColor;display:block}
+.pg{position:absolute;top:252px;left:90px;font:800 28px 'JetBrains Mono';opacity:.5}
+.hazard{position:absolute;left:0;right:0;height:34px;background:repeating-linear-gradient(-45deg,var(--yellow) 0 34px,var(--ink) 34px 68px)}
+
+/* ١ الغلاف: جدول الأصفار */
+.s1 h1{position:absolute;top:320px;right:90px;left:90px;font-size:86px;white-space:nowrap}
+.s1 h1 em{font-style:normal;color:var(--red);display:block;font-size:138px;line-height:1.05}
+.sheet{position:absolute;top:700px;right:80px;left:80px;background:#fff;border:2px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 30px 60px rgba(40,30,10,.12)}
+.sheet .bar{height:70px;background:#1E7B4B;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 28px;font:700 28px 'IBM Plex Sans Arabic'}
+.sheet .bar .mono{font-size:24px;opacity:.85}
+.sheet table{width:100%;border-collapse:collapse;font:600 32px 'IBM Plex Sans Arabic'}
+.sheet th{background:#F1EFE8;color:var(--mute);font-weight:700;font-size:26px;height:58px;text-align:right;padding:0 28px;border-bottom:2px solid var(--line)}
+.sheet td{height:66px;padding:0 28px;border-bottom:1px solid #ECE8DE}
+.sheet td.z{font:800 36px 'JetBrains Mono';color:var(--red);background:#FDECEA;text-align:left;direction:ltr}
+.sheet td.src{font:500 24px 'JetBrains Mono';color:#9B988F;direction:ltr;text-align:right}
+.toast{position:absolute;top:640px;left:60px;background:var(--green);color:#fff;border-radius:22px;padding:22px 30px;transform:rotate(-3deg);
+  box-shadow:0 24px 50px rgba(31,169,107,.35);display:flex;align-items:center;gap:18px;z-index:2}
+.toast b{font:800 36px 'IBM Plex Sans Arabic';display:block}
+.toast span{font:600 24px 'JetBrains Mono';opacity:.9}
+.toast .ck{width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,.22);display:grid;place-items:center}
+.s1 .sub{position:absolute;top:1262px;right:90px;left:90px;font:700 42px 'IBM Plex Sans Arabic'}
+.s1 .sub em{font-style:normal;color:var(--red)}
+.hbar{position:absolute;top:1392px;right:90px;display:flex;gap:26px;align-items:center;padding:14px 28px;border-radius:999px;background:var(--ink);color:#fff;font:700 28px 'IBM Plex Sans Arabic'}
+.swipe{position:absolute;top:1402px;left:90px;font:700 32px 'IBM Plex Sans Arabic';color:var(--red)}
+
+/* ٢ القصة: نصف صورة */
+.s2 .ph{position:absolute;top:0;left:0;width:1080px;height:900px;object-fit:cover;object-position:60% 40%;filter:saturate(.75) contrast(1.05)}
+.s2 .fade{position:absolute;top:560px;left:0;right:0;height:360px;background:linear-gradient(180deg,rgba(244,242,236,0),var(--paper) 92%)}
+.s2 .topshade{position:absolute;top:0;left:0;right:0;height:360px;background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,0))}
+.s2 .kick{color:#fff}
+.s2 .pill{position:absolute;top:760px;right:90px;background:var(--ink);color:#fff;border-radius:999px;padding:12px 26px;font:700 30px 'IBM Plex Sans Arabic'}
+.s2 h2{position:absolute;top:880px;right:90px;left:90px;font-size:70px}
+.s2 h2 em{font-style:normal;color:var(--red)}
+.week{position:absolute;top:1115px;right:80px;left:80px;display:flex;gap:12px}
+.day{flex:1;background:#fff;border:2px solid var(--line);border-radius:18px;height:196px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:16px 0}
+.day .ok{width:46px;height:46px;border-radius:50%;background:var(--green);display:grid;place-items:center}
+.day .dn{font:700 26px 'IBM Plex Sans Arabic';color:var(--mute)}
+.day .v{font:800 44px 'JetBrains Mono';color:var(--red)}
+.s2 .foot{position:absolute;top:1345px;right:90px;left:90px;font:700 38px 'IBM Plex Sans Arabic'}
+.s2 .foot em{font-style:normal;color:var(--green)}
+
+/* ٣ لافتات التحذير */
+.s3{background:var(--coal);color:#fff}
+.s3 h2{position:absolute;top:320px;right:90px;left:90px;font-size:108px}
+.s3 h2 em{font-style:normal;color:var(--yellow)}
+.sign{position:absolute;right:90px;left:90px;display:flex;align-items:center;gap:40px}
+.sign svg{flex:none}
+.sign .t{font:900 58px 'Cairo';line-height:1.2}
+.sign .d{font:600 32px/1.5 'IBM Plex Sans Arabic';color:#B9BCC6;margin-top:6px}
+
+/* ٤ الحدود المنطقية */
+.s4 h2{position:absolute;top:320px;right:90px;left:90px;font-size:108px;white-space:nowrap}
+.s4 h2 em{font-style:normal;color:var(--green)}
+.s4 .lead{position:absolute;top:480px;right:90px;left:90px;font:600 36px/1.5 'IBM Plex Sans Arabic';color:#4A4944}
+.ruler{position:absolute;top:760px;left:90px;right:90px;height:210px;direction:ltr}
+.ruler .track{position:absolute;top:92px;left:0;right:0;height:34px;border-radius:17px;overflow:hidden;display:flex}
+.ruler .track i{display:block;height:100%}
+.ruler .tk{position:absolute;top:140px;font:700 24px 'JetBrains Mono';color:var(--mute);transform:translateX(-50%)}
+.pinm{position:absolute;top:0;transform:translateX(-50%);text-align:center}
+.pinm b{display:block;padding:8px 18px;border-radius:12px;color:#fff;font:800 30px 'JetBrains Mono';white-space:nowrap}
+.pinm i{display:block;width:4px;height:52px;margin:0 auto;background:currentColor}
+.rule{position:absolute;top:1045px;right:90px;left:90px;background:var(--ink);color:#fff;border-radius:26px;padding:34px 38px}
+.rule .k{font:800 26px 'JetBrains Mono';color:var(--yellow);direction:ltr;text-align:right;letter-spacing:2px}
+.rule .r{font:700 42px/1.55 'IBM Plex Sans Arabic';margin-top:10px}
+.rule .r em{font-style:normal;color:#FF7A6E}
+.s4 .note{position:absolute;top:1330px;right:90px;left:90px;font:600 32px 'IBM Plex Sans Arabic';color:#4A4944}
+
+/* ٥ قارن مع أمس: صورة داخل شاشة */
+.s5{background:var(--coal);color:#fff}
+.s5 h2{position:absolute;top:320px;right:90px;left:90px;font-size:112px}
+.s5 h2 em{font-style:normal;color:var(--yellow)}
+.mon{position:absolute;top:560px;left:90px;right:90px;height:560px;background:#08090B;border-radius:28px;padding:22px;box-shadow:0 40px 80px rgba(0,0,0,.6);border:2px solid #2A2D35}
+.mon .scr{position:relative;width:100%;height:100%;border-radius:12px;overflow:hidden}
+.mon .scr img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;filter:saturate(.9) brightness(.85)}
+.stand{position:absolute;top:1120px;left:470px;width:140px;height:60px;background:#2A2D35;clip-path:polygon(15% 0,85% 0,100% 100%,0 100%)}
+.ring{position:absolute;border:7px solid var(--red);border-radius:50%;box-shadow:0 0 30px rgba(229,53,43,.6)}
+.sticky{position:absolute;top:1030px;right:130px;background:var(--yellow);color:var(--ink);padding:20px 28px;border-radius:6px;transform:rotate(3deg);
+  font:800 36px 'IBM Plex Sans Arabic';box-shadow:0 20px 40px rgba(0,0,0,.5);z-index:3}
+.s5 .d{position:absolute;top:1230px;right:90px;left:90px;font:600 36px/1.55 'IBM Plex Sans Arabic';color:#C9CCD4}
+.s5 .d b{color:#fff}
+
+/* ٦ الجوال والخطأ الشائع */
+.s6 h2{position:absolute;top:320px;right:90px;left:90px;font-size:84px}
+.s6 h2 em{font-style:normal;color:var(--red)}
+.lock{position:absolute;top:580px;left:250px;width:580px;height:700px;border-radius:70px 70px 0 0;background:linear-gradient(160deg,#2B2F3A,#111318);
+  border:14px solid #0B0C0F;border-bottom:none;overflow:hidden}
+.lock .tm{text-align:center;color:#fff;font:700 120px 'Space Grotesk';margin-top:70px;letter-spacing:-2px}
+.lock .dt{text-align:center;color:#AEB3BF;font:600 28px 'IBM Plex Sans Arabic'}
+.notif{margin:50px 30px 0;background:rgba(255,255,255,.93);border-radius:30px;padding:24px 26px;display:flex;gap:18px;align-items:flex-start}
+.notif .ic{width:62px;height:62px;border-radius:16px;background:var(--red);display:grid;place-items:center;flex:none}
+.notif b{display:block;font:800 30px 'IBM Plex Sans Arabic';color:var(--ink)}
+.notif span{font:600 27px/1.45 'IBM Plex Sans Arabic';color:#3D3F46}
+.s6 .foot{position:absolute;top:1318px;right:90px;left:90px;text-align:center;font:800 44px 'IBM Plex Sans Arabic'}
+.s6 .foot em{font-style:normal;color:var(--green)}
+
+/* ٧ تقرير الحادثة */
+.s7{background:var(--yellow)}
+.rep{position:absolute;top:300px;left:100px;right:100px;background:#FFFDF7;border-radius:18px;padding:44px 48px;box-shadow:0 40px 80px rgba(80,60,0,.28)}
+.rep .top{display:flex;justify-content:space-between;align-items:center;border-bottom:4px solid var(--ink);padding-bottom:18px}
+.rep .top b{font:900 56px 'Cairo'}
+.rep .top span{font:800 36px 'JetBrains Mono'}
+.rep .f{display:flex;gap:16px;padding:20px 0;border-bottom:2px dashed #D9D3C3;font:600 32px/1.45 'IBM Plex Sans Arabic'}
+.rep .f .l{color:var(--mute);min-width:120px;font-weight:700}
+.rep .stamp{position:absolute;top:250px;left:40px;border:8px solid var(--green);color:var(--green);border-radius:16px;padding:0 28px 8px;font:900 58px 'Cairo';
+  transform:rotate(-12deg);background:rgba(255,253,247,.85)}
+.rep .who{display:flex;align-items:center;gap:28px;margin-top:30px}
+.rep .av{width:150px;height:150px;border-radius:50%;overflow:hidden;border:6px solid var(--ink);background:var(--coal);flex:none}
+.rep .av img{width:100%;height:100%;object-fit:cover;object-position:50% 15%}
+.rep .nm{font:900 58px 'Cairo';line-height:1.1}
+.rep .rl{font:600 28px 'IBM Plex Sans Arabic';color:var(--mute);margin-top:10px}
+.rep .soc{margin-top:30px;background:var(--ink);color:#fff;border-radius:16px;padding:20px;display:flex;justify-content:center;gap:34px;font:700 30px 'IBM Plex Sans Arabic'}
+.bigstamp{position:absolute;top:1020px;left:50%;transform:translateX(-50%) rotate(-7deg);border:12px solid var(--green);color:var(--green);
+  border-radius:24px;padding:0 50px 14px;font:900 104px 'Cairo';background:#FFFDF7;box-shadow:0 20px 40px rgba(80,60,0,.25);white-space:nowrap}
+.s7 .cta{position:absolute;top:1365px;right:90px;left:90px;text-align:center;font:800 44px 'IBM Plex Sans Arabic';color:var(--ink)}
+</style>
+</head>
+<body>
+
+<!-- ١ الغلاف -->
+<section class="slide s1">
+  <div class="kick" style="color:var(--red)"><i></i>أتمتة · اليوم ٢٥</div>
+  <div class="pg">DAY / 25</div>
+  <h1 class="hd">أتمتتك تقول «نجحت»<em>وهي خربانة</em></h1>
+  <div class="toast"><div class="ck"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4"><path d="M4 12l5 5L20 6"/></svg></div>
+    <div><b>تمّت الأتمتة بنجاح</b><span>07:00 · DAY 7</span></div></div>
+  <div class="sheet">
+    <div class="bar"><span>أسعار المنافسين</span><span class="mono">prices.xlsx</span></div>
+    <table>
+      <tr><th>المنتج</th><th style="text-align:left">السعر</th><th style="text-align:right">المصدر</th></tr>
+      <tr><td>شاحن سريع</td><td class="z">0</td><td class="src">site-a.com</td></tr>
+      <tr><td>سماعة لاسلكية</td><td class="z">0</td><td class="src">site-a.com</td></tr>
+      <tr><td>ساعة ذكية</td><td class="z">0</td><td class="src">site-b.com</td></tr>
+      <tr><td>كيبورد</td><td class="z">0</td><td class="src">site-b.com</td></tr>
+      <tr><td>ماوس لاسلكي</td><td class="z">0</td><td class="src">site-c.com</td></tr>
+    </table>
+  </div>
+  <div class="sub">3 أسباب تكسرها <em>بصمت</em>… وكيف تحميها</div>
+  <div class="swipe">اسحب ←</div>
+  <div class="hbar">{{HANDLES}}</div>
+</section>
+
+<!-- ٢ القصة -->
+<section class="slide s2">
+  <img class="ph" src="assets/office.jpg"><div class="topshade"></div><div class="fade"></div>
+  <div class="kick"><i></i>قصة حقيقية تتكرر</div>
+  <div class="pill">الفريق مطمئن… الأتمتة «شغالة»</div>
+  <h2 class="hd">المنافس غيّر تصميم صفحته… <em>والأتمتة كمّلت</em></h2>
+  <div class="week">
+    <div class="day"><div class="ok"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.6"><path d="M4 12l5 5L20 6"/></svg></div><div class="dn">أحد</div><div class="v">0</div></div>
+    <div class="day"><div class="ok"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.6"><path d="M4 12l5 5L20 6"/></svg></div><div class="dn">اثنين</div><div class="v">0</div></div>
+    <div class="day"><div class="ok"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.6"><path d="M4 12l5 5L20 6"/></svg></div><div class="dn">ثلاثاء</div><div class="v">0</div></div>
+    <div class="day"><div class="ok"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.6"><path d="M4 12l5 5L20 6"/></svg></div><div class="dn">أربعاء</div><div class="v">0</div></div>
+    <div class="day"><div class="ok"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.6"><path d="M4 12l5 5L20 6"/></svg></div><div class="dn">خميس</div><div class="v">0</div></div>
+    <div class="day"><div class="ok"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.6"><path d="M4 12l5 5L20 6"/></svg></div><div class="dn">جمعة</div><div class="v">0</div></div>
+    <div class="day"><div class="ok"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.6"><path d="M4 12l5 5L20 6"/></svg></div><div class="dn">سبت</div><div class="v">0</div></div>
+  </div>
+  <div class="foot">7 أيام «<em>نجحت ✓</em>»… وكل الأسعار صفر، وما انتبه أحد.</div>
+</section>
+
+<!-- ٣ لافتات التحذير -->
+<section class="slide s3">
+  <div class="hazard" style="top:170px" data-safe="ignore"></div>
+  <div class="kick" style="color:var(--yellow)"><i></i>وين تنكسر</div>
+  <div class="pg" style="color:#fff">03</div>
+  <h2 class="hd">3 أشياء <em>تكسر</em> الأتمتة</h2>
+  <div class="sign" style="top:600px">
+    <svg width="190" height="170" viewBox="0 0 190 170"><path d="M95 8 L182 160 H8 Z" fill="#FFC400" stroke="#121316" stroke-width="10" stroke-linejoin="round"/><rect x="87" y="58" width="16" height="58" rx="8" fill="#121316"/><circle cx="95" cy="136" r="10" fill="#121316"/></svg>
+    <div><div class="t">استثناء ما توقعته</div><div class="d">طلب فيه حرف غريب، أو ملف فاضي، أو خانة ناقصة.</div></div>
+  </div>
+  <div class="sign" style="top:840px">
+    <svg width="190" height="170" viewBox="0 0 190 170"><path d="M95 8 L182 160 H8 Z" fill="#FFC400" stroke="#121316" stroke-width="10" stroke-linejoin="round"/>
+      <g fill="none" stroke="#121316" stroke-width="9" stroke-linecap="round"><path d="M68 112 a30 30 0 0 1 48 -36"/><path d="M122 96 a30 30 0 0 1 -48 36"/></g>
+      <path d="M108 66 L122 76 L108 86 Z" fill="#121316"/><path d="M82 142 L68 132 L82 122 Z" fill="#121316"/></svg>
+    <div><div class="t">المصدر تغيّر</div><div class="d">الموقع أو الملف غيّر شكله، والأتمتة تسحب من مكان فاضي.</div></div>
+  </div>
+  <div class="sign" style="top:1080px">
+    <svg width="190" height="170" viewBox="0 0 190 170"><path d="M95 8 L182 160 H8 Z" fill="#FFC400" stroke="#121316" stroke-width="10" stroke-linejoin="round"/>
+      <path d="M50 112 Q95 62 140 112 Q95 158 50 112 Z" fill="none" stroke="#121316" stroke-width="9"/><circle cx="95" cy="112" r="15" fill="#121316"/></svg>
+    <div><div class="t">خطأ صامت</div><div class="d">«تنجح» تقنياً… والنتيجة غلط، وما فيه أي تنبيه.</div></div>
+  </div>
+  <div class="hazard" style="bottom:300px" data-safe="ignore"></div>
+</section>
+
+<!-- ٤ الحدود المنطقية -->
+<section class="slide s4">
+  <div class="kick" style="color:var(--green)"><i></i>خط الدفاع ١</div>
+  <div class="pg">04</div>
+  <h2 class="hd">حط <em>حدود منطقية</em></h2>
+  <div class="lead">أي رقم يطلع برّا المعقول، الأتمتة توقف وتنبّهك بدل ما تكمل.</div>
+  <div class="ruler">
+    <div class="track"><i style="width:4%;background:var(--red)"></i><i style="width:80%;background:var(--green)"></i><i style="width:16%;background:var(--red)"></i></div>
+    <span class="tk" style="left:0">0</span><span class="tk" style="left:4%">5</span><span class="tk" style="left:84%">500</span><span class="tk" style="left:100%;transform:translateX(-100%)">SAR</span>
+    <div class="pinm" style="left:1.5%;color:var(--red);transform:none"><b style="background:var(--red)">0 ✗</b><i style="margin:0 0 0 14px"></i></div>
+    <div class="pinm" style="left:36%;color:var(--green)"><b style="background:var(--green)">189 ✓</b><i></i></div>
+  </div>
+  <div class="rule"><div class="k">RULE</div><div class="r">لو السعر أقل من 5 أو أكثر من 500 ريال ← <em>أوقف الأتمتة وأرسل تنبيه</em></div></div>
+  <div class="note">نفس الفكرة لأي رقم: كمية، تاريخ، عدد طلبات.</div>
+</section>
+
+<!-- ٥ قارن مع أمس -->
+<section class="slide s5">
+  <div class="kick" style="color:var(--yellow)"><i></i>خط الدفاع ٢</div>
+  <div class="pg" style="color:#fff">05</div>
+  <h2 class="hd">قارن اليوم <em>بأمس</em></h2>
+  <div class="mon"><div class="scr"><img src="assets/dash.jpg">
+    <div class="ring" style="top:70px;left:150px;width:260px;height:190px"></div>
+    <div class="ring" style="top:250px;left:520px;width:240px;height:170px"></div></div></div>
+  <div class="stand"></div>
+  <div class="sticky">فرق 100% عن أمس ← تنبيه فوري</div>
+  <div class="d">لو <b>شكل البيانات</b> تغيّر فجأة (أعمدة ناقصة، صفوف أقل، أرقام صفر)، فهذا إنذار. لا تكتفي بـ«نجحت العملية».</div>
+</section>
+
+<!-- ٦ الخطأ الشائع -->
+<section class="slide s6">
+  <div class="kick" style="color:var(--red)"><i></i>الخطأ الشائع</div>
+  <div class="pg">06</div>
+  <h2 class="hd">«تشتغل من نفسها» <em>ما تعني</em> «بلا مراقبة»</h2>
+  <div class="lock">
+    <div class="tm">7:02</div><div class="dt">الأحد، الصبح</div>
+    <div class="notif"><div class="ic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M12 8v5M12 17h.01"/><circle cx="12" cy="12" r="9.5"/></svg></div>
+      <div><b>تنبيه أتمتة الأسعار</b><span>38 سعر طلع = 0. المصدر تغيّر؟ الأتمتة موقوفة لين تراجع.</span></div></div>
+  </div>
+  <div class="foot">الأتمتة <em>تكتشف</em>… وأنت تقرر خلال ساعات، مو أيام.</div>
+</section>
+
+<!-- ٧ تقرير الحادثة -->
+<section class="slide s7">
+  <div class="hazard" style="top:170px" data-safe="ignore"></div>
+  <div class="rep">
+    <div class="top"><b>تقرير حادثة</b><span class="mono">#025</span></div>
+    <div class="f"><span class="l">السبب</span><span>أتمتة بدون تنبيه فشل</span></div>
+    <div class="f"><span class="l">الحل</span><span>تنبيه عند أي نتيجة غير منطقية</span></div>
+    <div class="who"><div class="av"><img src="{{AVATAR}}"></div>
+      <div><div class="nm">علي التميمي</div><div class="rl">الذكاء الاصطناعي والأتمتة ببساطة</div></div></div>
+    <div class="soc">{{HANDLES}}</div>
+  </div>
+  <div class="bigstamp">تمّ الحل ✓</div>
+  <div class="cta">أضف تنبيه واحد لأتمتتك هذا الأسبوع 👇</div>
+  <div class="hazard" style="bottom:300px" data-safe="ignore"></div>
+</section>
+
+</body>
+</html>

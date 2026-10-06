@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<style>
+:root{--cream:#EFE6D6;--paper:#FBF7EE;--kraft:#D9B77E;--kraft2:#C9A266;--kraftd:#A9834A;--ink:#1D1B18;--ink2:#2A2723;--or:#D9653B;--or2:#F08A5D;--blue:#3E6FB0;--green:#4F8A5B;--yel:#F6D86B;--mute:#7A6F60}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;font-family:'IBM Plex Sans Arabic','Cairo',sans-serif;-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1920px;position:relative;overflow:hidden;direction:rtl}
+.hd{font-family:'Tajawal';font-weight:900;line-height:1.12}
+.en{font-family:'Space Grotesk';direction:ltr;unicode-bidi:isolate;font-weight:700}
+.mono{font-family:'JetBrains Mono',monospace;direction:ltr;unicode-bidi:isolate}
+.lt{background:var(--cream);color:var(--ink)}
+.kr{background:#E6D3B0;color:var(--ink)}
+.dk{background:var(--ink);color:var(--paper)}
+.fib{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(90,60,20,.07) 1px,transparent 1.6px);background-size:12px 12px}
+.dk .fib{background-image:radial-gradient(rgba(255,255,255,.04) 1px,transparent 1.6px)}
+.kick{position:absolute;top:250px;right:90px;display:flex;align-items:center;gap:12px;font:700 32px 'Space Grotesk';direction:ltr;unicode-bidi:isolate}
+.kick i{display:inline-block;width:38px;height:28px;border-radius:4px 4px 6px 6px;background:var(--or);position:relative}
+.kick i:before{content:"";position:absolute;top:-8px;left:3px;width:16px;height:10px;border-radius:4px 4px 0 0;background:var(--or)}
+.pg{position:absolute;top:254px;left:90px;font:700 28px 'Space Grotesk';opacity:.5;direction:ltr}
+.clip{position:absolute;width:44px;height:120px;z-index:5}
+.clip svg{width:100%;height:100%}
+
+/* ١ الغلاف */
+.s1 h1{position:absolute;top:330px;right:90px;left:90px;font-size:150px;line-height:1.08}
+.s1 h1 .en{font-size:140px}
+.s1 h1 em{font-style:normal;color:var(--or);display:block;font-size:124px;white-space:nowrap;margin-top:10px}
+.folder{position:absolute;top:860px;left:120px;width:840px;height:470px;transform:rotate(-3deg)}
+.fback{position:absolute;top:70px;left:0;right:0;bottom:0;background:var(--kraft2);border-radius:20px;box-shadow:0 30px 60px rgba(60,40,10,.3)}
+.ftab{position:absolute;top:0;left:50px;width:310px;height:90px;background:var(--kraft2);border-radius:20px 20px 0 0;display:flex;align-items:flex-start;justify-content:center;padding-top:14px;font:700 42px 'Space Grotesk';color:var(--ink)}
+.icard{position:absolute;background:var(--paper);border-radius:10px;box-shadow:0 8px 18px rgba(0,0,0,.18);
+  background-image:linear-gradient(var(--or),var(--or)),repeating-linear-gradient(180deg,transparent 0 47px,#BFD3EA 47px 49px);background-size:100% 3px,100% 100%;background-repeat:no-repeat,repeat;background-position:0 78px,0 30px}
+.icard b{display:block;font:800 40px 'IBM Plex Sans Arabic';padding:18px 28px 0}
+.paperx{position:absolute;background:#fff;border-radius:6px;box-shadow:0 8px 18px rgba(0,0,0,.16)}
+.paperx .ln{height:12px;border-radius:6px;background:#E3DCCF;margin:16px 28px 0}
+.paperx b{display:block;font:800 40px 'IBM Plex Sans Arabic';padding:22px 28px 0}
+.s1 .icard{top:40px;right:70px;width:420px;height:300px;transform:rotate(5deg)}
+.s1 .paperx{top:70px;left:150px;width:380px;height:300px;transform:rotate(-6deg)}
+.ffront{position:absolute;left:-10px;right:-10px;bottom:0;height:300px;background:linear-gradient(180deg,#E4C48C,var(--kraft));border-radius:12px 12px 20px 20px;box-shadow:0 -6px 14px rgba(60,40,10,.18)}
+.label{position:absolute;top:95px;left:50%;transform:translateX(-50%);background:var(--paper);border:3px solid var(--ink);border-radius:10px;padding:16px 36px;font:800 44px 'IBM Plex Sans Arabic';white-space:nowrap}
+.hbar{position:absolute;top:1392px;right:90px;display:flex;gap:26px;align-items:center;padding:14px 28px;border-radius:999px;background:var(--ink);color:var(--paper);font:700 28px 'IBM Plex Sans Arabic'}
+.swipe{position:absolute;top:1400px;left:90px;font:800 34px 'IBM Plex Sans Arabic';color:var(--or)}
+
+/* ٢ المشكلة */
+.s2 h2{position:absolute;top:320px;right:90px;left:90px;font-size:104px}
+.s2 h2 em{font-style:normal;color:var(--or)}
+.pframe{position:absolute;top:600px;left:80px;width:500px;height:600px;background:#fff;padding:18px 18px 70px;transform:rotate(-4deg);box-shadow:0 24px 44px rgba(60,40,10,.3)}
+.pframe .ph{position:relative;width:100%;height:100%;overflow:hidden;background:#333}
+.pframe img{position:absolute;width:1250px;left:-640px;top:-270px;filter:saturate(.8) contrast(1.05)}
+.pframe .cap{position:absolute;bottom:14px;right:22px;font:700 30px 'IBM Plex Sans Arabic';color:var(--mute)}
+.s2 .clip{top:560px;left:280px;transform:rotate(-4deg)}
+.notes{position:absolute;top:610px;right:80px;width:400px;height:580px}
+.sn{position:absolute;width:370px;padding:26px 26px;background:var(--yel);font:700 34px/1.4 'IBM Plex Sans Arabic';box-shadow:0 10px 18px rgba(80,60,0,.25)}
+.sn:nth-child(1){top:0;right:10px;transform:rotate(3deg)}
+.sn:nth-child(2){top:150px;right:30px;transform:rotate(-3deg);background:#F9E28B}
+.sn:nth-child(3){top:300px;right:0;transform:rotate(2deg)}
+.sn:nth-child(4){top:440px;right:24px;transform:rotate(-2deg);background:#F9E28B}
+.cnt{direction:ltr;position:absolute;top:560px;right:360px;width:130px;height:130px;border-radius:50%;background:var(--or);color:#fff;display:grid;place-items:center;font:700 54px 'Space Grotesk';transform:rotate(-10deg);box-shadow:0 10px 20px rgba(0,0,0,.25);z-index:6}
+.s2 .bottom{position:absolute;top:1262px;right:90px;left:90px;font:800 48px 'IBM Plex Sans Arabic';text-align:center}
+
+/* ٣ وش هو */
+.s3 h2{position:absolute;top:330px;right:90px;left:90px;font-size:80px;white-space:nowrap}
+.s3 h2 .en{color:var(--or2);font-size:76px}
+.s3 .sub{position:absolute;top:470px;right:90px;left:90px;font:600 38px/1.5 'IBM Plex Sans Arabic';opacity:.85}
+.open{position:absolute;top:580px;left:60px;right:60px;height:560px;display:flex;gap:10px}
+.open .pan{flex:1;background:var(--kraft);border-radius:18px;position:relative;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+.open .pan:first-child{border-radius:18px 6px 6px 18px}
+.open .pan:last-child{border-radius:6px 18px 18px 6px;background:var(--kraft2)}
+.s3 .icard{top:50px;right:36px;left:36px;height:450px;color:var(--ink);transform:rotate(-1.5deg)}
+.s3 .icard p,.s3 .paperx p{font:600 32px/1.55 'IBM Plex Sans Arabic';padding:34px 28px 0}
+.s3 .en.sm{display:block;font-size:28px;color:var(--mute);padding:6px 28px 0;text-align:right}
+.num{display:inline-grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--or);color:#fff;font:700 30px 'Space Grotesk';margin-left:12px;vertical-align:middle}
+.s3 .paperx{top:40px;right:36px;left:36px;height:460px;color:var(--ink);transform:rotate(1.5deg)}
+.s3 .paperx.b2{top:56px;right:46px;left:26px;transform:rotate(-2deg);box-shadow:none;background:#F1ECE2}
+.s3 .paperx.b3{top:70px;right:20px;left:50px;transform:rotate(3deg);box-shadow:none;background:#E9E3D6}
+.chats{position:absolute;top:1190px;left:90px;right:90px;display:flex;justify-content:space-between}
+.chats .c{width:280px;padding:18px 20px;border-radius:24px 24px 24px 8px;background:var(--ink2);border:2px solid #4A443C;font:700 32px 'IBM Plex Sans Arabic';text-align:center;position:relative}
+.chats .c:before{content:"";position:absolute;top:-44px;left:50%;width:4px;height:36px;background:var(--or2);transform:translateX(-50%)}
+.chats .c:after{content:"";position:absolute;top:-52px;left:50%;transform:translateX(-50%);border:12px solid transparent;border-bottom:14px solid var(--or2);border-top:0}
+.s3 .foot{position:absolute;top:1300px;right:90px;left:90px;text-align:center;font:700 36px 'IBM Plex Sans Arabic';color:var(--yel)}
+
+/* ٤ الخطوات */
+.s4 h2{position:absolute;top:320px;right:90px;left:90px;font-size:100px;white-space:nowrap}
+.s4 h2 em{font-style:normal;color:var(--or)}
+.cab{position:absolute;top:470px;left:90px;right:90px;height:910px;background:linear-gradient(90deg,#3A4640,#4B5A52 50%,#3A4640);border-radius:22px;padding:20px;display:flex;flex-direction:column;gap:14px;box-shadow:0 30px 60px rgba(30,30,20,.35)}
+.dr{flex:1;background:linear-gradient(180deg,#F3EBDD,#E4D8C3);border-radius:12px;position:relative;display:flex;align-items:center;padding:0 26px 0 30px;gap:22px;box-shadow:inset 0 -6px 0 rgba(0,0,0,.08)}
+.dr .n{flex:none;width:78px;height:78px;border-radius:14px;background:var(--ink);color:var(--paper);display:grid;place-items:center;font:700 44px 'Space Grotesk'}
+.dr .t{flex:1;font:700 34px/1.35 'IBM Plex Sans Arabic'}
+.dr .t small{display:block;font:600 26px/1.4 'IBM Plex Sans Arabic';color:#6A5E4E;margin-top:4px}
+.dr .t .en{font-size:32px;background:#fff;border:2px solid #CDBFA6;border-radius:8px;padding:0 10px}
+.dr .h{flex:none;width:120px;height:26px;border-radius:13px;background:linear-gradient(180deg,#C9CED0,#8C9396);box-shadow:0 4px 6px rgba(0,0,0,.25)}
+.dr.open4{transform:translateX(-26px);box-shadow:0 14px 20px rgba(0,0,0,.25)}
+.warn{color:var(--or)!important;font-weight:700!important}
+
+/* ٥ مثال */
+.s5 h2{position:absolute;top:320px;right:90px;left:90px;font-size:112px}
+.s5 .sub{position:absolute;top:452px;right:90px;font:800 40px 'IBM Plex Sans Arabic';color:var(--or)}
+.s5 .icard{top:540px;right:80px;left:80px;height:390px;transform:rotate(-1deg)}
+.s5 .icard p{font:600 33px/49px 'IBM Plex Sans Arabic';padding:32px 30px 0}
+.s5 .clip{top:500px;left:170px;transform:rotate(8deg)}
+.files{position:absolute;top:966px;left:80px;right:80px;display:flex;gap:18px}
+.file{flex:1;background:#fff;border-radius:6px 26px 6px 6px;padding:16px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 8px 14px rgba(60,40,10,.18)}
+.file .ic{flex:none;width:40px;height:50px;border-radius:4px;display:grid;place-items:center;font:700 16px 'Space Grotesk';color:#fff}
+.file span{font:600 26px 'IBM Plex Sans Arabic';white-space:nowrap}
+.ask{position:absolute;top:1085px;right:80px;background:var(--ink);color:var(--paper);padding:18px 30px;border-radius:28px 28px 8px 28px;font:700 36px 'IBM Plex Sans Arabic'}
+.rep{position:absolute;top:1100px;left:80px;width:520px;background:#fff;border-radius:22px 22px 22px 8px;padding:18px 22px;box-shadow:0 12px 24px rgba(60,40,10,.2)}
+.rep table{width:100%;border-collapse:collapse;font:600 26px 'IBM Plex Sans Arabic'}
+.rep th{background:var(--ink);color:var(--paper);padding:6px 10px;font-weight:700}
+.rep td{padding:6px 10px;border-bottom:2px solid #EEE6D8;text-align:center}
+.rep td:first-child{text-align:right}
+.rep .up,.rep .dn{direction:ltr;unicode-bidi:isolate}
+.rep .up{color:var(--green);font-family:'Space Grotesk';font-weight:700}
+.rep .dn{color:var(--or);font-family:'Space Grotesk';font-weight:700}
+.ok{position:absolute;top:1200px;right:80px;width:360px;font:800 34px/1.4 'IBM Plex Sans Arabic';color:var(--green)}
+
+/* ٦ الخطأ + الباقات */
+.s6 h2{position:absolute;top:320px;right:90px;left:90px;font-size:110px}
+.s6 h2 em{font-style:normal;color:var(--or2)}
+.s6 .sub{position:absolute;top:460px;right:90px;left:90px;font:700 40px/1.45 'IBM Plex Sans Arabic'}
+.wallrow{position:absolute;top:580px;left:70px;right:70px;height:260px;display:flex;align-items:stretch;gap:0}
+.wc{flex:1;background:var(--ink2);border:2px solid #4A443C;border-radius:22px;padding:22px 24px;font:600 30px/1.5 'IBM Plex Sans Arabic'}
+.wc b{display:block;font:700 26px 'Space Grotesk';color:var(--or2);margin-bottom:8px;direction:rtl}
+.wc .q{color:#E9B8A5}
+.wall{flex:none;width:90px;margin:0 16px;border-radius:6px;background:
+  repeating-linear-gradient(0deg,transparent 0 34px,#1D1B18 34px 38px),
+  linear-gradient(90deg,#B4533A,#C8684C);position:relative}
+.wall i{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:70px;height:70px;border-radius:50%;background:var(--paper);color:var(--or);display:grid;place-items:center;font:900 44px 'Space Grotesk'}
+.fix{position:absolute;top:870px;left:70px;right:70px;background:var(--green);border-radius:22px;padding:22px 30px;font:700 34px/1.5 'IBM Plex Sans Arabic';color:#fff}
+.plans{position:absolute;top:1050px;left:70px;right:70px;display:flex;gap:18px}
+.pl{flex:1;position:relative;padding-top:52px}
+.pl .tb{position:absolute;top:0;right:18px;height:58px;padding:10px 20px;border-radius:14px 14px 0 0;font:700 26px 'Space Grotesk';color:var(--ink);white-space:nowrap}
+.pl .bd{height:268px;border-radius:0 16px 16px 16px;padding:26px 22px;color:var(--ink)}
+.pl .bd big{display:block;font:900 60px 'Tajawal';line-height:1.05}
+.pl .bd span{display:block;font:600 28px/1.45 'IBM Plex Sans Arabic';margin-top:10px}
+.p1 .tb,.p1 .bd{background:var(--paper)}
+.p2 .tb,.p2 .bd{background:var(--kraft)}
+.p3 .tb,.p3 .bd{background:#9CB8DE}
+.p1 .bd{border-radius:16px 0 16px 16px}
+
+/* ٧ المتابعة */
+.s7 .kick{color:var(--ink)}
+.pf{position:absolute;top:360px;left:90px;right:90px;height:1000px}
+.pf .fback{top:80px;background:var(--kraftd)}
+.pf .ftab{left:auto;right:60px;width:420px;height:100px;background:var(--kraftd);font:800 40px 'IBM Plex Sans Arabic';color:var(--paper);padding-top:18px}
+.pf .sheet{position:absolute;top:130px;left:40px;right:40px;bottom:40px;background:var(--paper);border-radius:10px;box-shadow:0 10px 24px rgba(0,0,0,.2)}
+.av{position:absolute;top:60px;right:60px;width:270px;height:320px;background:#fff;padding:12px 12px 12px;box-shadow:0 12px 24px rgba(0,0,0,.2);transform:rotate(3deg)}
+.av .in{width:100%;height:100%;overflow:hidden;background:linear-gradient(180deg,#F2C9A8,var(--or));}
+.av img{width:100%;height:100%;object-fit:cover;object-position:50% 15%}
+.s7 .clip{top:520px;right:210px;transform:rotate(12deg)}
+.who{position:absolute;top:80px;left:60px;right:370px}
+.who .nm{font:900 72px 'Tajawal';line-height:1.1}
+.who .rl{font:700 32px/1.5 'IBM Plex Sans Arabic';color:var(--mute);margin-top:12px}
+.fields{position:absolute;top:420px;left:60px;right:60px}
+.fld{display:flex;gap:20px;align-items:baseline;border-bottom:3px dotted #CDBFA6;padding:16px 0;white-space:nowrap}
+.fld b{flex:none;width:170px;font:700 30px 'IBM Plex Sans Arabic';color:var(--mute)}
+.fld span{font:800 36px/1.4 'IBM Plex Sans Arabic'}
+.fld .en{font-size:32px}
+.soc{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;gap:26px;align-items:center;padding:14px 28px;border-radius:999px;background:var(--ink);color:var(--paper);font:700 30px 'IBM Plex Sans Arabic';white-space:nowrap}
+.s7 .cta{position:absolute;top:1392px;right:90px;left:90px;text-align:center;font:800 42px 'IBM Plex Sans Arabic'}
+.s7 .cta em{font-style:normal;color:var(--or)}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="pclip" viewBox="0 0 44 120"><path d="M30 20 V92 a10 10 0 0 1 -20 0 V14 a14 14 0 0 1 28 0 V96 a18 18 0 0 1 -36 0 V30" fill="none" stroke="#9AA3A8" stroke-width="5" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
+<!-- ١ الغلاف -->
+<section class="slide lt s1">
+  <div class="fib"></div>
+  <div class="kick"><i></i>Claude · Projects</div>
+  <div class="pg">1/7</div>
+  <h1 class="hd">خلّ <span class="en">Claude</span><br>يعرف شغلك<em>من أول رسالة</em></h1>
+  <div class="folder">
+    <div class="ftab">Projects</div>
+    <div class="fback"></div>
+    <div class="paperx"><b>ملفاتك</b><div class="ln"></div><div class="ln" style="width:70%"></div><div class="ln"></div></div>
+    <div class="icard"><b>التعليمات</b></div>
+    <div class="ffront"><div class="label">مشروع: تقارير المبيعات</div></div>
+  </div>
+  <div class="hbar">{{HANDLES}}</div>
+  <div class="swipe">اسحب ←</div>
+</section>
+
+<!-- ٢ المشكلة -->
+<section class="slide kr s2">
+  <div class="fib"></div>
+  <div class="kick"><i></i>Claude · Projects</div>
+  <div class="pg">2/7</div>
+  <h2 class="hd">كل محادثة جديدة<br><em>تبدأ من الصفر</em></h2>
+  <div class="pframe"><div class="ph"><img src="assets/hands.jpg"></div><div class="cap">نفس الشرح… مرة ثانية</div></div>
+  <div class="clip"><svg><use href="#pclip"/></svg></div>
+  <div class="notes">
+    <div class="sn">«أنا في قسم المبيعات…»</div>
+    <div class="sn">«أرفقت لك الملف مرة ثانية»</div>
+    <div class="sn">«خلّ الرد رسمي وبجدول»</div>
+    <div class="sn">«أنا في قسم المبيعات…»</div>
+  </div>
+  <div class="cnt">×10</div>
+  <div class="bottom">عشر محادثات = عشر مرات نفس الشرح</div>
+</section>
+
+<!-- ٣ وش هو -->
+<section class="slide dk s3" data-handles="light">
+  <div class="fib"></div>
+  <div class="kick"><i></i>Claude · Projects</div>
+  <div class="pg">3/7</div>
+  <h2 class="hd"><span class="en">Projects</span> = ملف لكل شغل</h2>
+  <div class="sub">جوا الملف شيئين ثابتين، وكل محادثة تفتحها داخله تشوفهم تلقائياً.</div>
+  <div class="open">
+    <div class="pan">
+      <div class="icard"><b><span class="num">1</span>التعليمات</b><span class="en sm">Project instructions</span><p>كيف يرد عليك: الأسلوب، الدور (محاسب، مسوّق…)، وشكل الإجابة.</p></div>
+    </div>
+    <div class="pan">
+      <div class="paperx b3"></div><div class="paperx b2"></div>
+      <div class="paperx"><b><span class="num">2</span>المعرفة</b><span class="en sm">Project knowledge</span><p>ملفاتك: مستندات، نصوص، أكواد. يرجع لها في كل محادثة.</p></div>
+    </div>
+  </div>
+  <div class="chats"><div class="c">محادثة 1</div><div class="c">محادثة 2</div><div class="c">محادثة 3</div></div>
+  <div class="foot">كل محادثة تبدأ وهي فاهمة شغلك</div>
+</section>
+
+<!-- ٤ الخطوات -->
+<section class="slide lt s4">
+  <div class="fib"></div>
+  <div class="kick"><i></i>Claude · Projects</div>
+  <div class="pg">4/7</div>
+  <h2 class="hd">شغّله في <em>5 خطوات</em></h2>
+  <div class="cab">
+    <div class="dr"><div class="n">1</div><div class="t">افتح <span class="en">Projects</span> من القائمة الجانبية<small>أو ادخل مباشرة: <span class="mono">claude.ai/projects</span></small></div><div class="h"></div></div>
+    <div class="dr"><div class="n">2</div><div class="t">اضغط <span class="en">+ New Project</span> واكتب اسم ووصف<small class="warn">الاسم والوصف لك أنت… Claude ما يشوفهم</small></div><div class="h"></div></div>
+    <div class="dr"><div class="n">3</div><div class="t">اضغط <span class="en">Set project instructions</span><small>اكتب طريقة الرد، واضغط Save instructions</small></div><div class="h"></div></div>
+    <div class="dr open4"><div class="n">4</div><div class="t">اضغط زر <span class="en">+</span> في صفحة المشروع<small>وارفع ملفاتك: مستندات، نصوص، أكواد</small></div><div class="h"></div></div>
+    <div class="dr"><div class="n">5</div><div class="t">ابدأ محادثة جديدة <u>داخل</u> المشروع<small>وخلاص… ما تعيد الشرح مرة ثانية</small></div><div class="h"></div></div>
+  </div>
+</section>
+
+<!-- ٥ مثال -->
+<section class="slide kr s5">
+  <div class="fib"></div>
+  <div class="kick"><i></i>Claude · Projects</div>
+  <div class="pg">5/7</div>
+  <h2 class="hd">مثال تنسخه</h2>
+  <div class="sub">مشروع: تقارير المبيعات</div>
+  <div class="icard"><b>التعليمات</b><p>أنت مساعد لقسم المبيعات. اكتب بالعربي وبأسلوب رسمي مختصر. اعرض الأرقام بجدول، وقارن دائماً بالشهر السابق، واختم بثلاث توصيات.</p></div>
+  <div class="clip"><svg><use href="#pclip"/></svg></div>
+  <div class="files">
+    <div class="file"><div class="ic" style="background:#C8452D">PDF</div><span>دليل الأسعار</span></div>
+    <div class="file"><div class="ic" style="background:#3E6FB0">DOC</div><span>قالب التقرير</span></div>
+    <div class="file"><div class="ic" style="background:#4F8A5B">TXT</div><span>قائمة المنتجات</span></div>
+  </div>
+  <div class="ask">«لخّص مبيعات مارس»</div>
+  <div class="ok">✓ يطلع بقالبك وأسلوبك من أول مرة، بدون أي شرح</div>
+  <div class="rep"><table>
+    <tr><th>المنتج</th><th>مارس</th><th>مقارنة بفبراير</th></tr>
+    <tr><td>الباقة الأساسية</td><td class="mono">412</td><td class="up">+12%</td></tr>
+    <tr><td>الباقة المتقدمة</td><td class="mono">158</td><td class="dn">−4%</td></tr>
+  </table></div>
+</section>
+
+<!-- ٦ الخطأ الشائع + الباقات -->
+<section class="slide dk s6" data-handles="light">
+  <div class="fib"></div>
+  <div class="kick"><i></i>Claude · Projects</div>
+  <div class="pg">6/7</div>
+  <h2 class="hd">الخطأ <em>الشائع</em></h2>
+  <div class="sub">تحسب إن محادثات المشروع تتذكر بعضها؟ لا.</div>
+  <div class="wallrow">
+    <div class="wc"><b>محادثة 1</b>«العميل سالم أجّل الطلب لشهر مايو»</div>
+    <div class="wall"><i>✕</i></div>
+    <div class="wc"><b>محادثة 2</b><span class="q">«وش صار مع طلب سالم؟»</span><br>… ما يدري</div>
+  </div>
+  <div class="fix">الحل: المعلومة المهمة أضفها لملفات المشروع، عشان كل المحادثات تشوفها.</div>
+  <div class="plans">
+    <div class="pl p1"><div class="tb">مجاني</div><div class="bd"><big>5</big><span>مشاريع كحد أقصى</span></div></div>
+    <div class="pl p2"><div class="tb">Pro · Max · Team</div><div class="bd"><big>×10</big><span>سعة أكبر للملفات حين تكبر</span></div></div>
+    <div class="pl p3"><div class="tb">Team · Enterprise</div><div class="bd"><big>مشاركة</big><span>مع زملائك: عرض أو تعديل</span></div></div>
+  </div>
+</section>
+
+<!-- ٧ المتابعة -->
+<section class="slide lt s7">
+  <div class="fib"></div>
+  <div class="kick"><i></i>Claude · Projects</div>
+  <div class="pg">7/7</div>
+  <div class="pf">
+    <div class="ftab">ملف: علي التميمي</div>
+    <div class="fback"></div>
+    <div class="sheet">
+      <div class="av"><div class="in"><img src="{{AVATAR}}"></div></div>
+      <div class="who"><div class="nm">علي التميمي</div><div class="rl">أشرح لك أدوات الذكاء الاصطناعي… ميزة ميزة، بخطوات تطبّقها</div></div>
+      <div class="fields">
+        <div class="fld"><b>الأدوات</b><span><span class="en">Claude · ChatGPT · Gemini</span> وغيرها</span></div>
+        <div class="fld"><b>المنشور الجاي</b><span>ميزة جديدة تختصر عليك شغل</span></div>
+        <div class="fld"><b>تبي أداة؟</b><span>اكتب اسمها بالتعليقات وأشرحها لك</span></div>
+      </div>
+      <div class="soc">{{HANDLES}}</div>
+    </div>
+  </div>
+  <div class="clip"><svg><use href="#pclip"/></svg></div>
+  <div class="cta">احفظ المنشور… و<em>تابعني</em> عشان ما تفوتك الأداة الجاية</div>
+</section>
+
+</body>
+</html>
