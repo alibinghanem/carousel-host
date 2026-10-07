@@ -41,6 +41,8 @@ export const fontsReady = Promise.all([
   loadFont({ family: "Cairo", url: staticFile("cairo-latin-900-normal.woff2"), weight: "900" }),
   loadFont({ family: "Cairo", url: staticFile("cairo-arabic-700-normal.woff2"), weight: "700" }),
   loadFont({ family: "Cairo", url: staticFile("cairo-latin-700-normal.woff2"), weight: "700" }),
+  loadFont({ family: "El Messiri", url: staticFile("el-messiri-arabic-700-normal.woff2"), weight: "700" }),
+  loadFont({ family: "El Messiri", url: staticFile("el-messiri-latin-700-normal.woff2"), weight: "700" }),
   loadFont({ family: "JetBrains Mono", url: staticFile("jetbrains-mono-latin-800-normal.woff2"), weight: "800" }),
 ]);
 

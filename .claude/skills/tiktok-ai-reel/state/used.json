@@ -36,7 +36,8 @@
   "t032",
   "t033",
   "t034",
-  "t035"
+  "t035",
+  "t061"
  ],
  "log": [
   {
@@ -289,6 +290,14 @@
   {
    "date": "2026-10-05",
    "id": "t035",
+   "cycle": 0,
+   "format": "video",
+   "style": "blocks",
+   "accent": "emerald"
+  },
+  {
+   "date": "2026-10-07",
+   "id": "t061",
    "cycle": 0,
    "format": "video",
    "style": "blocks",
