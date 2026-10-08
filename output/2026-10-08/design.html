@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<style>
+:root{--g:#25D366;--g2:#128C4A;--ink:#0D2B1F;--cream:#F4EFE3;--bub:#D9FDD3;--cor:#FF6B4A;--yel:#FFD84D;--mu:#4F6B5C;--wall:#EDE5D6}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;font-family:'IBM Plex Sans Arabic',sans-serif;-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1920px;position:relative;overflow:hidden;direction:rtl;color:var(--ink);background:var(--cream)}
+.hd{font-family:'Readex Pro';font-weight:700;line-height:1.25}
+.en{font-family:'Space Grotesk';direction:ltr;unicode-bidi:isolate;font-weight:700;display:inline}
+.mono{font-family:'JetBrains Mono';direction:ltr;unicode-bidi:isolate;font-weight:800}
+.kick{position:absolute;top:250px;right:90px;display:flex;align-items:center;gap:14px;padding:10px 26px 10px 22px;border-radius:999px;background:var(--ink);color:var(--cream);font:700 30px 'IBM Plex Sans Arabic'}
+.kick img{width:38px;height:38px}
+.pg{position:absolute;top:262px;left:90px;font:700 28px 'Space Grotesk';opacity:.55;direction:ltr}
+.hbar{position:absolute;top:1392px;right:90px;display:flex;gap:26px;align-items:center;padding:14px 28px;border-radius:999px;background:var(--ink);color:var(--cream);font:700 28px 'IBM Plex Sans Arabic'}
+.dots{position:absolute;inset:0;background-image:radial-gradient(rgba(13,43,31,.09) 3px,transparent 3px);background-size:54px 54px}
+/* chat bubbles */
+.bb{position:relative;max-width:78%;padding:16px 22px 12px;border-radius:22px;font:600 34px/1.45 'IBM Plex Sans Arabic';box-shadow:0 2px 0 rgba(0,0,0,.12);margin-bottom:16px}
+.bb.me{background:#fff;border-top-right-radius:6px;margin-left:auto;margin-right:0}
+.bb.bot{background:var(--bub);border-top-left-radius:6px;margin-right:auto;margin-left:0}
+.bb.wrong{background:#FFD9D2}
+.bb small{display:block;margin-top:2px;font:700 22px 'JetBrains Mono';direction:ltr;text-align:left;opacity:.55}
+
+/* 1 الغلاف */
+.s1{background:linear-gradient(170deg,#2BE070 0%,#1FB85A 55%,#129A4A 100%)}
+.s1 h1{position:absolute;top:270px;right:80px;left:70px;font-size:124px;line-height:1.12;color:var(--ink)}
+.s1 h1 em{font-style:normal;color:#fff;display:block}
+.s1 .ph{position:absolute;top:900px;left:330px;width:600px;height:480px;border-radius:70px 70px 0 0;background:#0A1A13;padding:18px 18px 0;transform:rotate(-5deg);transform-origin:50% 100%;box-shadow:0 30px 60px rgba(0,0,0,.35)}
+.s1 .scr{position:relative;width:100%;height:100%;border-radius:54px 54px 0 0;background:var(--wall);overflow:hidden}
+.s1 .top{height:104px;background:#0F6B3E;display:flex;align-items:center;gap:16px;padding:0 24px;color:#fff;font:700 32px 'IBM Plex Sans Arabic'}
+.s1 .top img{width:54px;height:54px;background:#fff;border-radius:50%;padding:8px}
+.s1 .top small{display:block;font:500 22px 'IBM Plex Sans Arabic';opacity:.8}
+.s1 .msgs{padding:16px 16px}
+.s1 .bb{font-size:30px;padding:12px 20px;margin-bottom:12px}.s1 .bb small{display:none}
+.s1 .tag{position:absolute;top:790px;right:70px;transform:rotate(4deg);background:var(--yel);color:var(--ink);padding:10px 26px 14px;border-radius:16px;font:800 40px 'IBM Plex Sans Arabic';box-shadow:0 10px 0 rgba(0,0,0,.18)}
+.s1 .tag .mono{font-size:38px}
+.s1 .hbar{top:1396px;background:var(--ink)}
+.s1 .swipe{position:absolute;top:1403px;left:90px;font:700 40px 'IBM Plex Sans Arabic';color:var(--ink)}
+
+/* 2 المشكلة */
+.s2 .photo{position:absolute;top:0;left:0;right:0;height:980px}
+.s2 .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 40%;filter:saturate(.75) contrast(1.05)}
+.s2 .photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,43,31,.82) 0%,rgba(18,140,74,.35) 55%,rgba(244,239,227,1) 100%)}
+.s2 .kick{background:var(--g);color:var(--ink)}
+.s2 h2{position:absolute;top:380px;right:80px;left:80px;font-size:104px;color:#fff;z-index:2}
+.s2 h2 em{font-style:normal;color:var(--yel)}
+.s2 .noti{position:absolute;right:90px;left:90px;display:flex;align-items:center;gap:22px;padding:20px 26px;border-radius:30px;background:#fff;box-shadow:0 16px 30px rgba(13,43,31,.25)}
+.s2 .noti img{width:68px;height:68px;flex:none}
+.s2 .noti b{display:block;font:800 34px 'IBM Plex Sans Arabic'}
+.s2 .noti span{display:block;font:600 32px 'IBM Plex Sans Arabic';color:var(--mu)}
+.s2 .noti i{margin-right:auto;font:700 26px 'JetBrains Mono';font-style:normal;direction:ltr;color:var(--cor)}
+.s2 .sub{position:absolute;top:1250px;right:90px;left:90px;font:700 46px/1.5 'IBM Plex Sans Arabic'}
+.s2 .sub b{color:var(--g2)}
+
+/* 3 درجتين */
+.s3 h2{position:absolute;top:340px;right:90px;left:90px;font-size:88px}
+.s3 h2 em{font-style:normal;color:var(--g2)}
+.s3 .stair{position:absolute;top:620px;right:70px;left:70px;height:700px}
+.s3 .stp{position:absolute;right:0;left:0;border-radius:36px;padding:28px 36px}
+.s3 .st1{top:360px;height:340px;background:#fff;border:6px solid var(--ink);right:0;left:140px}
+.s3 .st2{top:0;height:340px;background:var(--ink);color:var(--cream);right:140px;left:0}
+.s3 .stp .lv{font:800 28px 'IBM Plex Sans Arabic';letter-spacing:0;display:inline-block;padding:4px 18px 6px;border-radius:999px;margin-bottom:12px}
+.s3 .st1 .lv{background:var(--yel)}
+.s3 .st2 .lv{background:var(--g);color:var(--ink)}
+.s3 .stp b{display:block;font:900 46px/1.3 'IBM Plex Sans Arabic';margin-bottom:8px}
+.s3 .stp p{font:600 33px/1.5 'IBM Plex Sans Arabic'}
+.s3 .st2 p{color:#D5E8DC}
+.s3 .st1 p{color:var(--mu)}
+.s3 .note{position:absolute;top:1335px;font-size:30px;right:90px;left:90px;font:600 32px/1.5 'IBM Plex Sans Arabic';color:var(--mu)}
+.s3 .note b{color:var(--ink)}
+
+/* 4 السلسلة */
+.s4{background:var(--ink);color:var(--cream)}
+.s4 .kick{background:var(--g);color:var(--ink)}
+.s4 .pg{color:#fff}
+.s4 h2{position:absolute;top:340px;right:90px;left:90px;font-size:100px}
+.s4 h2 em{font-style:normal;color:var(--g)}
+.s4 .chain{position:absolute;top:610px;right:90px;left:90px}
+.s4 .node{position:relative;display:flex;align-items:center;gap:30px;margin-bottom:52px}
+.s4 .node:not(:last-child):after{content:"";position:absolute;right:62px;top:140px;width:10px;height:52px;background:repeating-linear-gradient(180deg,var(--g) 0 14px,transparent 14px 24px)}
+.s4 .ic{flex:none;width:140px;height:140px;border-radius:38px;background:var(--cream);display:grid;place-items:center}
+.s4 .ic img{width:92px;height:92px}
+.s4 .ic.n8{background:#fff}
+.s4 .tx b{display:block;font:900 52px 'IBM Plex Sans Arabic'}
+.s4 .tx>span{display:block;font:600 33px/1.45 'IBM Plex Sans Arabic';color:#B8D3C4;margin-top:4px}
+.s4 .or{font:700 30px 'Space Grotesk';color:var(--yel)}
+
+/* 5 ورقة التعليمات */
+.s5{background:#CFE9D6}
+.s5 h2{position:absolute;top:340px;right:90px;left:90px;font-size:98px}
+.s5 h2 em{font-style:normal;color:#0F6B3E}
+.s5 .sheet{position:absolute;top:640px;right:80px;left:80px;height:620px;background:#FFFDF4;border-radius:18px;padding:40px 44px;box-shadow:0 20px 40px rgba(13,43,31,.25);transform:rotate(-1.2deg);background-image:repeating-linear-gradient(180deg,transparent 0 63px,#E4DCC6 63px 66px)}
+.s5 .sheet:before{content:"";position:absolute;top:-22px;right:50%;width:150px;height:44px;background:rgba(255,216,77,.85);transform:translateX(50%) rotate(2deg)}
+.s5 .sheet .ttl{font:900 36px 'IBM Plex Sans Arabic';color:#0F6B3E;margin-bottom:6px}
+.s5 .sheet p{font:600 37px/66px 'IBM Plex Sans Arabic'}
+.s5 .sheet p b{background:var(--yel);padding:0 8px}
+.s5 .sheet p.x{color:#B3361B}
+.s5 .stamp{position:absolute;bottom:-26px;left:46px;transform:rotate(-8deg);border:6px solid var(--cor);color:var(--cor);padding:4px 24px 8px;border-radius:12px;font:900 44px 'IBM Plex Sans Arabic';background:#FFFDF4}
+
+/* 6 الخطأ */
+.s6 h2{position:absolute;top:340px;right:90px;left:90px;font-size:100px}
+.s6 h2 em{font-style:normal;color:var(--cor)}
+.s6 .col{position:absolute;right:90px;left:90px;border-radius:34px;padding:26px 28px 14px}
+.s6 .bad{top:620px;height:340px;background:#FFE9E3;border:6px solid var(--cor)}
+.s6 .good{top:1000px;background:#E4F7E8;border:6px solid var(--g2)}
+.s6 .lab{display:inline-block;font:800 30px 'IBM Plex Sans Arabic';padding:4px 20px 6px;border-radius:999px;margin-bottom:14px}
+.s6 .bad .lab{background:var(--cor);color:#fff}
+.s6 .good .lab{background:var(--g2);color:#fff}
+.s6 .bb{font-size:33px;max-width:86%;margin-bottom:12px}
+
+/* 7 الختام */
+.s7{background:linear-gradient(170deg,#2BE070 0%,#1FB85A 60%,#129A4A 100%)}
+.s7 .av{position:absolute;top:300px;left:50%;transform:translateX(-50%);width:430px;height:430px;border-radius:50%;border:14px solid #fff;overflow:hidden;box-shadow:0 26px 50px rgba(0,0,0,.3)}
+.s7 .av img{width:100%;height:100%;object-fit:cover}
+.s7 .bell{position:absolute;top:640px;left:calc(50% + 140px);width:120px;height:120px;border-radius:50%;background:var(--yel);display:grid;place-items:center;box-shadow:0 10px 0 rgba(0,0,0,.2);transform:rotate(12deg)}
+.s7 .nm{position:absolute;top:790px;left:0;right:0;text-align:center;font:900 92px 'Readex Pro';color:var(--ink)}
+.s7 .q{position:absolute;top:960px;left:70px;right:70px}
+.s7 .q .bb{font-size:42px;max-width:92%;padding:22px 30px 16px}
+.s7 .soc{position:absolute;top:1330px;left:0;right:0;display:flex;justify-content:center}
+.s7 .soc div{display:flex;gap:26px;align-items:center;padding:16px 32px;border-radius:999px;background:var(--ink);color:var(--cream);font:700 30px 'IBM Plex Sans Arabic'}
+</style>
+</head>
+<body>
+
+<section class="slide s1" data-handles="off">
+  <div class="dots"></div>
+  <h1 class="hd">ردّ واتساب يشتغل لحاله<em>وأنت نايم</em></h1>
+  <div class="tag"><span class="mono">11:48 PM</span> · المحل مسكّر</div>
+  <div class="ph"><div class="scr">
+    <div class="top"><img src="assets/whatsapp.svg" alt=""><div>متجرك<small>يردّ فوراً</small></div></div>
+    <div class="msgs">
+      <div class="bb me">كم سعر التوصيل؟<small>11:48</small></div>
+      <div class="bb bot">التوصيل 15 ريال، ويوصلك خلال يومين ✓✓<small>11:48</small></div>
+      <div class="bb me">وفيه دفع عند الاستلام؟<small>11:49</small></div>
+      <div class="bb bot">أكيد، متوفر ✓✓<small>11:49</small></div>
+    </div>
+  </div></div>
+  <div class="hbar">{{HANDLES}}</div>
+  <div class="swipe">اسحب ←</div>
+</section>
+
+<section class="slide s2">
+  <div class="photo"><img src="assets/b.jpg" alt=""></div>
+  <div class="kick"><img src="assets/whatsapp.svg" alt=""><span>أتمتة · خدمة العملاء</span></div>
+  <div class="pg">2/7</div>
+  <h2 class="hd">أنت مشغول<br>والعميل <em>ما ينتظر</em></h2>
+  <div class="noti" style="top:960px"><img src="assets/whatsapp.svg" alt=""><div><b>عميل جديد</b><span>كم سعر التوصيل؟</span></div><i>2 min</i></div>
+  <div class="noti" style="top:1085px;transform:scale(.96)"><img src="assets/whatsapp.svg" alt=""><div><b>عميل جديد</b><span>متى دوامكم؟</span></div><i>9 min</i></div>
+  <div class="sub">أغلب الأسئلة <b>نفسها كل يوم</b>: السعر، الدوام، الموقع، التوصيل</div>
+</section>
+
+<section class="slide s3">
+  <div class="kick"><img src="assets/whatsapp.svg" alt=""><span>أتمتة · خدمة العملاء</span></div>
+  <div class="pg">3/7</div>
+  <h2 class="hd">ردّ جاهز، <em>أو وكيل يفهم</em></h2>
+  <div class="stair">
+    <div class="stp st2"><span class="lv">الدرجة ٢ · وكيل</span><b>يفهم السؤال ويصيغ الجواب</b><p>يحتاج <span class="en">WhatsApp Business API</span> عبر مزوّد. يقرأ كلام العميل ويردّ من معلوماتك.</p></div>
+    <div class="stp st1"><span class="lv">الدرجة ١ · مجاني</span><b>رسالة ترحيب · رسالة غياب · ردود سريعة</b><p>داخل تطبيق <span class="en">WhatsApp Business</span>. النص ثابت، ما يفهم السؤال.</p></div>
+  </div>
+  <div class="note"><b>تنبيه:</b> بعد <span class="mono">24</span> ساعة من رسالته: قالب معتمد فقط</div>
+</section>
+
+<section class="slide s4">
+  <div class="kick"><img src="assets/whatsapp.svg" alt="" style="background:#fff;border-radius:50%;padding:4px"><span>أتمتة · خدمة العملاء</span></div>
+  <div class="pg">4/7</div>
+  <h2 class="hd">أربع حلقات، <em>ويشتغل الوكيل</em></h2>
+  <div class="chain">
+    <div class="node"><div class="ic"><img src="assets/whatsapp.svg" alt=""></div><div class="tx"><b>١ · رسالة العميل تدخل</b><span>تصل لرقم متجرك عبر مزوّد الـ <span class="en">API</span></span></div></div>
+    <div class="node"><div class="ic n8"><img src="assets/n8n-color.svg" alt=""></div><div class="tx"><b>٢ · أداة الربط تستلمها</b><span><span class="en">n8n</span> أو <span class="en">Make</span> تمرّر الرسالة للوكيل</span></div></div>
+    <div class="node"><div class="ic"><img src="assets/claude-color.svg" alt=""></div><div class="tx"><b>٣ · الوكيل يجاوب من معلوماتك</b><span>أسعارك، دوامك، سياساتك، لا من رأسه</span></div></div>
+    <div class="node"><div class="ic" style="background:var(--yel);font:900 70px 'Readex Pro';color:var(--ink)">!</div><div class="tx"><b>٤ · الصعب يوصلك أنت</b><span>تنبيه لجوالك، والعميل يعرف إنك جاي</span></div></div>
+  </div>
+</section>
+
+<section class="slide s5">
+  <div class="kick"><img src="assets/whatsapp.svg" alt=""><span>أتمتة · خدمة العملاء</span></div>
+  <div class="pg">5/7</div>
+  <h2 class="hd">ورقة تعليمات <em>للموظف الجديد</em></h2>
+  <div class="sheet">
+    <div class="ttl">تعليمات الوكيل (انسخها وعدّل)</div>
+    <p>أنت مساعد متجر «<b>اسم متجرك</b>».</p>
+    <p>جاوب <b>فقط</b> من المعلومات التالية: الأسعار، الدوام، التوصيل.</p>
+    <p>لو المعلومة مو موجودة، قل: «<b>بحوّلك لزميلي</b>».</p>
+    <p class="x">لا تعطي خصم، ولا تعد بموعد.</p>
+    <p class="x">شكوى أو استرجاع؟ حوّل فوراً.</p>
+    <div class="stamp">حدود واضحة</div>
+  </div>
+</section>
+
+<section class="slide s6">
+  <div class="kick"><img src="assets/whatsapp.svg" alt=""><span>أتمتة · خدمة العملاء</span></div>
+  <div class="pg">6/7</div>
+  <h2 class="hd">الخطأ: وكيل <em>بلا حدود</em> يخترع وعد</h2>
+  <div class="col bad"><span class="lab">✗ بدون حدود</span>
+    <div class="bb me">ممكن خصم لأني عميل قديم؟<small>10:12</small></div>
+    <div class="bb bot wrong">أكيد! لك خصم 30% اليوم ✓✓<small>10:12</small></div></div>
+  <div class="col good"><span class="lab">✓ بحدود وتحويل</span>
+    <div class="bb me">ممكن خصم لأني عميل قديم؟<small>10:12</small></div>
+    <div class="bb bot">الخصومات يحدّدها فريق المبيعات، بحوّلك لزميلي الحين ✓✓<small>10:12</small></div></div>
+</section>
+
+<section class="slide s7" data-handles="off">
+  <div class="dots"></div>
+  <div class="av"><img src="{{AVATAR}}" alt=""></div>
+  <div class="nm">علي التميمي</div>
+  <div class="q"><div class="bb me">أي سؤال يتكرر عليك أكثر؟<br>اكتبه بالتعليقات وأرتّب لك وكيله</div></div>
+  <div class="soc"><div>{{HANDLES}}</div></div>
+</section>
+
+</body>
+</html>
