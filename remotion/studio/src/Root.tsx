@@ -12,6 +12,7 @@ import { fontsReady } from "./lib/theme";
 import { MusicMeter } from "./tools/MusicMeter";
 import { AliAd, ALI_AD_FRAMES } from "./videos/AliAd";
 import { ClaudeTrio, CLAUDE_TRIO_FRAMES } from "./videos/ClaudeTrio";
+import { ClaudeVsGpt, CLAUDE_VS_GPT_FRAMES } from "./videos/ClaudeVsGpt";
 import { AgentTeam, AGENT_TEAM_FRAMES } from "./videos/AgentTeam";
 import { Souq, SOUQ_FRAMES } from "./videos/Souq";
 import { AgentGauges, AGENT_GAUGES_FRAMES } from "./videos/AgentGauges";
@@ -41,6 +42,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="AgentGauges" component={AgentGauges} width={1080} height={1920} fps={30} durationInFrames={AGENT_GAUGES_FRAMES} />
     <Composition id="AgentTeam" component={AgentTeam} width={1080} height={1920} fps={30} durationInFrames={AGENT_TEAM_FRAMES} />
     <Composition id="ClaudeTrio" component={ClaudeTrio} width={1080} height={1920} fps={30} durationInFrames={CLAUDE_TRIO_FRAMES} />
+    <Composition id="ClaudeVsGpt" component={ClaudeVsGpt} width={1080} height={1920} fps={30} durationInFrames={CLAUDE_VS_GPT_FRAMES} />
     <Composition id="AliAd" component={AliAd} width={1080} height={1920} fps={30} durationInFrames={ALI_AD_FRAMES} />
     <Composition id="HumanLoop" component={HumanLoop} width={1080} height={1920} fps={30} durationInFrames={HUMAN_LOOP_FRAMES} />
     <Folder name="HumanLoop-Scenes">

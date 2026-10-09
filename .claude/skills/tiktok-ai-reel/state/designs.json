@@ -246,5 +246,22 @@
    "شعار Claude"
   ],
   "format": "carousel"
+ },
+ {
+  "date": "2026-10-09",
+  "topic": "x011",
+  "concept": "مضمار سباق وقت الغروب بلقطة واحدة للأمام: مسار برتقالي لـ Claude وأخضر لـ ChatGPT، بوابات: صور · بحث · ملفات · الاختبار · الخلاصة",
+  "cover_bg": "#4B2A8A→#FF8F6B (سماء غروب)",
+  "display_font": "Noto Kufi Arabic 900",
+  "cover_layout": "شعاران متقابلان مع VS فوق شمس الغروب والعنوان على الطريق",
+  "photos": [
+   "1450101499163-c8848c66ca85"
+  ],
+  "real_assets": [
+   "شعار Claude",
+   "شعار OpenAI",
+   "صورة Unsplash مستند"
+  ],
+  "format": "video"
  }
 ]

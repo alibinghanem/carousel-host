@@ -7,7 +7,8 @@
   "x003",
   "x004",
   "x006",
-  "x007"
+  "x007",
+  "x011"
  ],
  "log": [
   {
@@ -60,6 +61,14 @@
    "id": "x007",
    "cycle": 0,
    "format": "carousel",
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-10-09",
+   "id": "x011",
+   "cycle": 0,
+   "format": "video",
    "style": "—",
    "accent": "—"
   }
