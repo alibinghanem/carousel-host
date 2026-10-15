@@ -16,6 +16,7 @@ import { ClaudeVsGpt, CLAUDE_VS_GPT_FRAMES } from "./videos/ClaudeVsGpt";
 import { ClaudeVsGptPro, CLAUDE_VS_GPT_PRO_FRAMES } from "./videos/ClaudeVsGptPro";
 import { CoworkFilm, COWORK_FILM_FRAMES } from "./videos/CoworkFilm";
 import { CodeBlueprint, CODE_BLUEPRINT_FRAMES } from "./videos/CodeBlueprint";
+import { LevelUp, LEVEL_UP_FRAMES } from "./videos/LevelUp";
 import { AgentTeam, AGENT_TEAM_FRAMES } from "./videos/AgentTeam";
 import { Souq, SOUQ_FRAMES } from "./videos/Souq";
 import { AgentGauges, AGENT_GAUGES_FRAMES } from "./videos/AgentGauges";
@@ -49,6 +50,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="ClaudeVsGptPro" component={ClaudeVsGptPro} width={1080} height={1920} fps={30} durationInFrames={CLAUDE_VS_GPT_PRO_FRAMES} />
     <Composition id="CoworkFilm" component={CoworkFilm} width={1080} height={1920} fps={30} durationInFrames={COWORK_FILM_FRAMES} />
     <Composition id="CodeBlueprint" component={CodeBlueprint} width={1080} height={1920} fps={30} durationInFrames={CODE_BLUEPRINT_FRAMES} />
+    <Composition id="LevelUp" component={LevelUp} width={1080} height={1920} fps={30} durationInFrames={LEVEL_UP_FRAMES} />
     <Composition id="AliAd" component={AliAd} width={1080} height={1920} fps={30} durationInFrames={ALI_AD_FRAMES} />
     <Composition id="HumanLoop" component={HumanLoop} width={1080} height={1920} fps={30} durationInFrames={HUMAN_LOOP_FRAMES} />
     <Folder name="HumanLoop-Scenes">
