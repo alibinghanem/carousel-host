@@ -163,6 +163,9 @@ python3 .claude/skills/tiktok-ai-reel/render_html.py $D/design.html $D
   - `El Messiri` 400/700: عناوين أنيقة بطابع دافئ (مطاعم، ضيافة، أسلوب حياة).
   - `Changa` 700/800: عريض رياضي مضغوط (رياضة، تحدّي، طاقة).
   - `Rubik` 500/800: دائري عصري ودود (منتجات، تطبيقات، ألعاب).
+  - `Marhey` 700: عريض بطابع ضربة فرشاة مرحة (فن، تصميم، إبداع). نقاط الياء سليمة.
+  - `Aref Ruqaa` 700: خط رقعة لتعليقات بخط اليد (ملاحظة على ورقة، عنوان لوحة).
+  - `Vazirmatn` 800/900: عناوين قوية حديثة.
 - **خطوط إضافية:** `npm pack @fontsource/<name>`. ضع ملفات woff2 في `fonts/extra/`
   باسم `<family>-<arabic|latin>-<weight>-normal.woff2`، وأضف اسم العائلة في
   `FAMILIES` داخل `render_html.py`.
