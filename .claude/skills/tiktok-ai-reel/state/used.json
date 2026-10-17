@@ -42,7 +42,8 @@
   "t063",
   "t055",
   "t059",
-  "t060"
+  "t060",
+  "t064"
  ],
  "log": [
   {
@@ -347,6 +348,14 @@
    "format": "video",
    "style": "aurora",
    "accent": "amber"
+  },
+  {
+   "date": "2026-10-17",
+   "id": "t064",
+   "cycle": 0,
+   "format": "video",
+   "style": "terminal",
+   "accent": "orange"
   }
  ]
 }
