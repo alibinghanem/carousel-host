@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<style>
+:root{--yel:#FFD84D;--yel2:#FFC81F;--box:#C99A63;--box2:#A8794A;--box3:#8B5F33;--ink:#141414;--red:#E63B2E;--grn:#1F9D5B;--paper:#FFFFFF;--mu:#6B6B6B;--shelf:#E9E4DA}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;font-family:'IBM Plex Sans Arabic',sans-serif;-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1920px;position:relative;overflow:hidden;direction:rtl;color:var(--ink);background:#FAF7F0}
+.promo{background:radial-gradient(70% 45% at 50% 40%,#FFE680 0%,var(--yel) 55%,var(--yel2) 100%)}
+.store{background:linear-gradient(180deg,#FFFFFF 0%,#F4F1EA 100%)}
+.dots{background:radial-gradient(circle,rgba(20,20,20,.07) 2px,transparent 2.5px) 0 0/36px 36px,#FAF7F0}
+.hd{font-family:'Tajawal';font-weight:900;line-height:1.2}
+.en{font-family:'Space Grotesk';font-weight:700;direction:ltr;unicode-bidi:isolate;display:inline}
+.kick{position:absolute;top:258px;right:90px;padding:8px 24px 12px;border-radius:999px;font:700 30px 'IBM Plex Sans Arabic';background:var(--ink);color:var(--yel)}
+.pg{position:absolute;top:272px;left:90px;font:700 28px 'Space Grotesk';opacity:.55;direction:ltr}
+.tag0{display:inline-flex;align-items:center;gap:8px;padding:6px 18px 10px;border-radius:12px;background:var(--red);color:#fff;font:900 34px 'Tajawal';box-shadow:0 6px 0 rgba(0,0,0,.15)}
+
+/* ١ الغلاف: كرتون الباقة */
+.s1 h1{position:absolute;top:330px;right:40px;left:40px;text-align:center;font-size:88px;white-space:nowrap}
+.s1 h1 span{display:block;font-size:70px;color:#5A4A12}
+.s1 h1 em{display:block;font-size:136px;line-height:1.1}
+.s1 h1 em{font-style:normal;color:var(--red)}
+.s1 .box{position:absolute;top:1010px;left:240px;width:600px;height:360px}
+.s1 .box .back{position:absolute;left:0;right:0;top:0;height:100px;background:var(--box3)}
+.s1 .box .front{position:absolute;left:0;right:0;bottom:0;height:280px;background:linear-gradient(180deg,var(--box),var(--box2));border-radius:0 0 10px 10px;box-shadow:0 30px 50px rgba(120,80,20,.35);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.s1 .box .front b{font:900 54px 'Tajawal';color:#fff;text-shadow:0 3px 0 rgba(0,0,0,.18)}
+.s1 .box .front small{font:700 30px 'Space Grotesk';color:rgba(255,255,255,.85);letter-spacing:6px;direction:ltr}
+.s1 .box .tape{position:absolute;top:80px;left:270px;width:60px;height:280px;background:rgba(240,220,170,.55)}
+.s1 .flap{position:absolute;top:70px;width:300px;height:110px;background:var(--box);border:3px solid var(--box2)}
+.s1 .fl{left:-60px;transform:skewX(30deg) rotate(-12deg);transform-origin:right bottom}
+.s1 .fr{right:-60px;transform:skewX(-30deg) rotate(12deg);transform-origin:left bottom}
+.s1 .st{position:absolute;width:170px;height:170px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 14px 26px rgba(0,0,0,.18);border:6px solid var(--ink)}
+.s1 .st img{width:100px;height:100px}
+.s1 .price{position:absolute;top:1282px;left:618px;transform:rotate(-8deg)}
+.s1 .price div{position:relative;padding:12px 30px 18px 56px;background:var(--red);color:#fff;font:900 50px 'Tajawal';clip-path:polygon(40px 0,100% 0,100% 100%,40px 100%,0 50%);box-shadow:0 10px 0 rgba(0,0,0,.15)}
+.s1 .price i{position:absolute;left:18px;top:50%;width:16px;height:16px;margin-top:-8px;border-radius:50%;background:var(--yel)}
+.s1 .hbar{position:absolute;top:1405px;right:90px;display:flex;gap:26px;align-items:center;padding:14px 28px;border-radius:999px;background:var(--ink);color:#fff;font:700 28px 'IBM Plex Sans Arabic'}
+.s1 .swipe{position:absolute;top:1410px;left:90px;font:900 46px/1 'Tajawal';color:var(--ink)}
+
+/* ٢ المشكلة */
+.s2 h2{position:absolute;top:350px;right:80px;left:80px;font-size:86px}
+.s2 h2 em{font-style:normal;color:var(--red)}
+.s2 .ph{position:absolute;top:660px;right:90px;left:90px;height:520px;border-radius:30px;overflow:hidden;box-shadow:0 24px 50px rgba(0,0,0,.2)}
+.s2 .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 60%;filter:saturate(.8)}
+.s2 .ph:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.35))}
+.s2 .nw{position:absolute;padding:10px 22px 14px;border-radius:18px;background:#fff;font:800 32px 'IBM Plex Sans Arabic';box-shadow:0 10px 20px rgba(0,0,0,.18);white-space:nowrap}
+.s2 .nw b{color:var(--red)}
+.s2 .q{position:absolute;top:1220px;right:90px;left:90px;padding:22px 30px 26px;border-radius:24px;background:var(--ink);color:#fff;text-align:center;font:700 38px/1.5 'IBM Plex Sans Arabic'}
+.s2 .q em{font-style:normal;color:var(--yel)}
+
+/* المنتج */
+.prod{position:relative;background:#fff;border-radius:26px;box-shadow:0 18px 36px rgba(0,0,0,.12);padding:26px 30px 28px}
+.prod .top{display:flex;align-items:center;gap:20px}
+.prod .lg{flex:none;width:110px;height:110px;border-radius:26px;background:#F3F1EC;display:grid;place-items:center}
+.prod .lg img{width:72px;height:72px}
+.prod h3{font:700 54px 'Space Grotesk';direction:ltr;text-align:right}
+.prod .use{font:800 36px/1.4 'Tajawal';margin-top:2px}
+.prod .use b{color:var(--red)}
+.prod ul{list-style:none;margin-top:16px;padding-top:14px;border-top:3px dashed #E3DED3}
+.prod li{display:flex;gap:12px;align-items:flex-start;font:700 31px/1.45 'IBM Plex Sans Arabic';margin-top:6px}
+.prod li:before{content:"✓";flex:none;width:38px;height:38px;border-radius:50%;background:var(--grn);color:#fff;display:grid;place-items:center;font:900 24px 'IBM Plex Sans Arabic';margin-top:4px}
+.prod .free{position:absolute;top:-22px;left:26px;transform:rotate(-6deg)}
+
+/* ٣ الرف */
+.s3 h2,.s4 h2,.s5 h2{position:absolute;top:350px;right:90px;left:90px;font-size:100px}
+.s3 h2 em,.s4 h2 em,.s5 h2 em{font-style:normal;color:var(--red)}
+.s3 .p1{position:absolute;top:540px;right:80px;left:80px}
+.s3 .p2{position:absolute;top:930px;right:80px;left:80px}
+.s3 .board{position:absolute;left:40px;right:40px;height:26px;border-radius:6px;background:linear-gradient(180deg,#D8D0C0,#BDB3A0);box-shadow:0 8px 14px rgba(0,0,0,.12)}
+
+/* ٤ صندوقين */
+.s4 .row{position:absolute;top:560px;right:60px;left:60px;display:flex;gap:26px;align-items:stretch}
+.s4 .row .prod{flex:1;padding:24px 24px 26px;border-top:22px solid var(--box)}
+.s4 .row .prod .top{flex-direction:column;align-items:flex-start;gap:12px}
+.s4 .row .prod h3{font-size:46px;text-align:right;width:100%}
+.s4 .row .prod li{font-size:29px}
+
+/* ٥ كوبايلت + الدليل */
+.s5 .p1{position:absolute;top:510px;right:80px;left:80px}
+.s5 .guide{position:absolute;top:900px;right:80px;left:80px;border-radius:26px;background:var(--ink);color:#fff;padding:22px 30px 24px}
+.s5 .guide b{display:block;font:900 40px 'Tajawal';color:var(--yel);margin-bottom:8px}
+.s5 .gr{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:9px 0;border-top:2px solid rgba(255,255,255,.12);font:700 31px 'IBM Plex Sans Arabic'}
+.s5 .gr span{display:flex;align-items:center;gap:10px;font:700 31px 'Space Grotesk';direction:ltr}
+.s5 .gr img{width:34px;height:34px;background:#fff;border-radius:8px;padding:3px}
+
+/* ٦ الفاتورة */
+.s6 h2{position:absolute;top:350px;right:90px;left:90px;font-size:100px;color:var(--ink)}
+.s6 h2 em{font-style:normal;color:var(--red)}
+.s6 .rc{position:absolute;top:530px;left:190px;right:190px;padding:34px 40px 40px;background:#fff;box-shadow:0 20px 40px rgba(0,0,0,.18);font-family:'JetBrains Mono';
+  -webkit-mask:radial-gradient(circle 12px at 50% 100%,transparent 98%,#000) 0 100%/34px 100% repeat-x}
+.s6 .rc .t{text-align:center;font:900 44px 'Tajawal'}
+.s6 .rc .sub{text-align:center;font:500 22px 'JetBrains Mono';color:var(--mu);direction:ltr;margin-top:2px}
+.s6 .rc hr{border:0;border-top:3px dashed #BBB;margin:18px 0}
+.s6 .ln{display:flex;justify-content:space-between;align-items:center;margin:10px 0;font:700 32px 'Space Grotesk'}
+.s6 .ln span:last-child{font:800 30px 'JetBrains Mono';direction:ltr}
+.s6 .tot{display:flex;justify-content:space-between;align-items:center;font:900 46px 'Tajawal'}
+.s6 .tot span:last-child{font:800 46px 'JetBrains Mono';color:var(--grn);direction:ltr}
+.s6 .stamp{position:absolute;top:1088px;left:130px;transform:rotate(-14deg);padding:6px 22px 10px;border:6px solid var(--grn);border-radius:16px;color:var(--grn);font:900 50px 'Tajawal';background:rgba(255,255,255,.85)}
+.s6 .mis{position:absolute;top:1222px;right:80px;left:80px;display:flex;gap:16px}
+.s6 .mis div{flex:1;padding:16px 22px 20px;border-radius:20px;font:700 30px/1.45 'IBM Plex Sans Arabic'}
+.s6 .mis small{display:block;font:900 30px 'Tajawal';margin-bottom:4px}
+.s6 .no{background:#FBE3E0;color:#7A1C14;border:3px solid var(--red)}
+.s6 .no small{color:var(--red)}
+.s6 .yes{background:#E3F4EA;border:3px solid var(--grn)}
+.s6 .yes small{color:var(--grn)}
+
+/* ٧ بطاقة العضوية */
+.s7 .card{position:absolute;top:330px;left:110px;right:110px;height:1000px;border-radius:44px;background:linear-gradient(160deg,#1E1E1E,#000);color:#fff;box-shadow:0 30px 60px rgba(0,0,0,.35);overflow:hidden;padding:46px 54px}
+.s7 .card:before{content:"";position:absolute;top:-120px;left:-120px;width:420px;height:420px;border-radius:50%;background:var(--yel);opacity:.95}
+.s7 .card .brand{position:relative;font:900 40px 'Tajawal';color:#fff}
+.s7 .card .brand small{display:block;font:700 22px 'Space Grotesk';letter-spacing:4px;direction:ltr;text-align:right;color:var(--yel);opacity:.9}
+.s7 .face{position:relative;width:300px;height:300px;margin:60px auto 0;border-radius:50%;overflow:hidden;border:8px solid var(--yel)}
+.s7 .face img{width:100%;height:100%;object-fit:cover}
+.s7 .nm{position:relative;margin-top:26px;text-align:center;font:900 92px/1.2 'Tajawal'}
+.s7 .lv{position:relative;text-align:center;font:700 28px 'IBM Plex Sans Arabic';color:#BDBDBD}
+.s7 .q{position:relative;margin-top:30px;text-align:center;font:900 52px/1.3 'Tajawal';color:var(--yel)}
+.s7 .q small{display:block;font:700 30px/1.5 'IBM Plex Sans Arabic';color:#fff;margin-top:6px}
+.s7 .chip{position:absolute;top:66px;left:54px;width:90px;height:68px;border-radius:12px;background:linear-gradient(135deg,#F3D27A,#C99A3A);box-shadow:inset 0 0 0 3px rgba(0,0,0,.15)}
+.s7 .soc{position:absolute;top:1370px;left:0;right:0;display:flex;justify-content:center}
+.s7 .soc div{display:flex;gap:26px;align-items:center;padding:16px 32px;border-radius:999px;background:var(--ink);color:#fff;font:700 30px 'IBM Plex Sans Arabic'}
+</style>
+</head>
+<body>
+
+<!-- ١ الغلاف -->
+<section class="slide s1 promo" data-handles="off">
+  <div class="kick">مقارنة · أدوات مجانية للمبتدئ</div>
+  <h1 class="hd"><span>باقة المبتدئ</span>5 أدوات ذكاء اصطناعي<em>مجاناً</em></h1>
+  <div class="st" style="top:740px;left:455px"><img src="assets/openai.svg" alt=""></div>
+  <div class="st" style="top:790px;left:660px;transform:rotate(10deg)"><img src="assets/claude-color.svg" alt=""></div>
+  <div class="st" style="top:790px;left:250px;transform:rotate(-10deg)"><img src="assets/gemini-color.svg" alt=""></div>
+  <div class="st" style="top:880px;left:840px;width:150px;height:150px;transform:rotate(16deg)"><img src="assets/perplexity-color.svg" alt="" style="width:88px;height:88px"></div>
+  <div class="st" style="top:880px;left:90px;width:150px;height:150px;transform:rotate(-16deg)"><img src="assets/copilot-color.svg" alt="" style="width:88px;height:88px"></div>
+  <div class="box">
+    <div class="back"></div>
+    <div class="flap fl"></div><div class="flap fr"></div>
+    <div class="front"><b>تبدأ فيها اليوم</b><small>STARTER KIT</small></div>
+    <div class="tape"></div>
+  </div>
+  <div class="price"><div><i></i>بدون اشتراك</div></div>
+  <div class="hbar">{{HANDLES}}</div>
+  <div class="swipe">اسحب ←</div>
+</section>
+
+<!-- ٢ المشكلة -->
+<section class="slide s2 dots">
+  <div class="kick">مقارنة · أدوات مجانية للمبتدئ</div><div class="pg">2/7</div>
+  <h2 class="hd">كل يوم أداة جديدة<br><em>ومن وين تبدأ؟</em></h2>
+  <div class="ph"><img src="assets/cafe.jpg" alt=""></div>
+  <div class="nw" style="top:630px;left:110px;transform:rotate(-4deg)"><b>جديد!</b> أداة كتابة</div>
+  <div class="nw" style="top:720px;right:120px;transform:rotate(3deg)"><b>جديد!</b> أداة صور</div>
+  <div class="nw" style="top:1060px;left:150px;transform:rotate(2deg)"><b>جديد!</b> أداة بحث</div>
+  <div class="nw" style="top:1110px;right:110px;transform:rotate(-3deg)">وكل وحدة <b>باشتراك</b></div>
+  <div class="q">ما تحتاج تجرب 100 أداة.<br><em>هذي 5 مجانية تكفيك البداية</em></div>
+</section>
+
+<!-- ٣ الرف: ChatGPT + Claude -->
+<section class="slide s3 store">
+  <div class="kick">مقارنة · أدوات مجانية للمبتدئ</div><div class="pg">3/7</div>
+  <h2 class="hd">الكتابة <em>والأفكار</em></h2>
+  <div class="p1"><div class="prod">
+    <div class="free"><span class="tag0">مجاني</span></div>
+    <div class="top"><div class="lg"><img src="assets/openai.svg" alt=""></div><div><h3>ChatGPT</h3><div class="use">استخدمه في: <b>الكتابة والأفكار والصور</b></div></div></div>
+    <ul><li>محادثة، وتوليد صور، ووضع الدراسة <span class="en">Study mode</span></li><li>المجاني بحدود استخدام أقل من المدفوع</li></ul>
+  </div></div>
+  <div class="board" style="top:880px"></div>
+  <div class="p2"><div class="prod">
+    <div class="free"><span class="tag0">مجاني</span></div>
+    <div class="top"><div class="lg"><img src="assets/claude-color.svg" alt=""></div><div><h3>Claude</h3><div class="use">استخدمه في: <b>النصوص الطويلة والتحليل</b></div></div></div>
+    <ul><li><span class="en">Projects</span> لين 5 مشاريع بملفاتك وتعليماتك</li><li>كتابة مرتبة وتلخيص مستندات طويلة</li></ul>
+  </div></div>
+  <div class="board" style="top:1270px"></div>
+</section>
+
+<!-- ٤ صندوقين: Gemini + Perplexity -->
+<section class="slide s4 dots">
+  <div class="kick">مقارنة · أدوات مجانية للمبتدئ</div><div class="pg">4/7</div>
+  <h2 class="hd">قوقل <em>والبحث</em></h2>
+  <div class="row">
+    <div class="prod">
+      <div class="free"><span class="tag0">مجاني</span></div>
+      <div class="top"><div class="lg"><img src="assets/gemini-color.svg" alt=""></div><h3>Gemini</h3><div class="use">لو شغلك على <b>أدوات قوقل</b></div></div>
+      <ul><li>بحساب <span class="en">Google</span> وبس</li><li>صور، وبحث معمّق، ومحادثة صوتية</li><li>الحد يتجدد كل 5 ساعات</li></ul>
+    </div>
+    <div class="prod">
+      <div class="free"><span class="tag0">مجاني</span></div>
+      <div class="top"><div class="lg"><img src="assets/perplexity-color.svg" alt=""></div><h3>Perplexity</h3><div class="use">للبحث <b>مع المصادر</b></div></div>
+      <ul><li>يبحث في الويب ويعطيك الجواب بروابطه</li><li>بحث عادي شبه مفتوح</li><li>3 بحث <span class="en">Pro</span> باليوم</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ٥ Copilot + الدليل -->
+<section class="slide s5 store">
+  <div class="kick">مقارنة · أدوات مجانية للمبتدئ</div><div class="pg">5/7</div>
+  <h2 class="hd">لو جهازك <em>ويندوز</em></h2>
+  <div class="p1"><div class="prod">
+    <div class="free"><span class="tag0">مجاني</span></div>
+    <div class="top"><div class="lg"><img src="assets/copilot-color.svg" alt=""></div><div><h3>Copilot</h3><div class="use">لو تستخدم <b>ويندوز أو متصفح Edge</b></div></div></div>
+    <ul><li>محادثة، وصور، ورفع ملفات</li><li>سجّل دخول بحساب مايكروسوفت عشان يحفظ محادثاتك</li></ul>
+  </div></div>
+  <div class="guide"><b>وش تبي؟ ← افتح…</b>
+    <div class="gr">أكتب وأطلّع صور<span><img src="assets/openai.svg" alt="">ChatGPT</span></div>
+    <div class="gr">ألخّص ملف طويل<span><img src="assets/claude-color.svg" alt="">Claude</span></div>
+    <div class="gr">أشتغل على أدوات قوقل<span><img src="assets/gemini-color.svg" alt="">Gemini</span></div>
+    <div class="gr">أبحث بمصادر<span><img src="assets/perplexity-color.svg" alt="">Perplexity</span></div>
+    <div class="gr">أشتغل من ويندوز<span><img src="assets/copilot-color.svg" alt="">Copilot</span></div>
+  </div>
+</section>
+
+<!-- ٦ الفاتورة + الخطأ الشائع -->
+<section class="slide s6 promo">
+  <div class="kick">مقارنة · أدوات مجانية للمبتدئ</div><div class="pg">6/7</div>
+  <h2 class="hd">الفاتورة: <em>صفر</em></h2>
+  <div class="rc">
+    <div class="t">فاتورة باقة المبتدئ</div>
+    <div class="sub">STARTER KIT · FREE PLANS</div>
+    <hr>
+    <div class="ln"><span>ChatGPT</span><span>0.00</span></div>
+    <div class="ln"><span>Claude</span><span>0.00</span></div>
+    <div class="ln"><span>Gemini</span><span>0.00</span></div>
+    <div class="ln"><span>Perplexity</span><span>0.00</span></div>
+    <div class="ln"><span>Copilot</span><span>0.00</span></div>
+    <hr>
+    <div class="tot"><span>المجموع</span><span>0.00</span></div>
+  </div>
+  <div class="stamp">مدفوع ✓</div>
+  <div class="mis">
+    <div class="no"><small>✗ الخطأ الشائع</small>تشترك في 3 أدوات من أول أسبوع</div>
+    <div class="yes"><small>✓ الأذكى</small>جرّب المجاني أسبوعين، وادفع للي تستخدمه كل يوم</div>
+  </div>
+</section>
+
+<!-- ٧ بطاقة العضوية -->
+<section class="slide s7 dots" data-handles="off">
+  <div class="card">
+    <div class="chip"></div>
+    <div class="brand">بطاقة عضوية<small>STARTER KIT CLUB</small></div>
+    <div class="face"><img src="{{AVATAR}}" alt=""></div>
+    <div class="nm">علي التميمي</div>
+    <div class="lv">أدوات · ذكاء اصطناعي · أتمتة</div>
+    <div class="q">وش أول أداة بتجربها؟<small>اكتبها بالتعليقات، وأعطيك أول طلب تبدأ فيه</small></div>
+  </div>
+  <div class="soc"><div>{{HANDLES}}</div></div>
+</section>
+
+</body>
+</html>
