@@ -166,6 +166,8 @@ python3 .claude/skills/tiktok-ai-reel/render_html.py $D/design.html $D
   - `Marhey` 700: عريض بطابع ضربة فرشاة مرحة (فن، تصميم، إبداع). نقاط الياء سليمة.
   - `Aref Ruqaa` 700: خط رقعة لتعليقات بخط اليد (ملاحظة على ورقة، عنوان لوحة).
   - `Vazirmatn` 800/900: عناوين قوية حديثة.
+  - `Amiri` 400/700: نسخ كلاسيكي (جرائد، كتب، شهادات، وثائق رسمية).
+  - `Noto Naskh Arabic` 400/700: نسخ واضح لنص المقالات الطويل بطابع الصحف.
 - **خطوط إضافية:** `npm pack @fontsource/<name>`. ضع ملفات woff2 في `fonts/extra/`
   باسم `<family>-<arabic|latin>-<weight>-normal.woff2`، وأضف اسم العائلة في
   `FAMILIES` داخل `render_html.py`.
