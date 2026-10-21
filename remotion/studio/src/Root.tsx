@@ -19,6 +19,7 @@ import { CodeBlueprint, CODE_BLUEPRINT_FRAMES } from "./videos/CodeBlueprint";
 import { LevelUp, LEVEL_UP_FRAMES } from "./videos/LevelUp";
 import { Address, ADDRESS_FRAMES } from "./videos/Address";
 import { CampaignHour, CAMPAIGN_HOUR_FRAMES } from "./videos/CampaignHour";
+import { Learn30, LEARN30_FRAMES } from "./videos/Learn30";
 import { AgentTeam, AGENT_TEAM_FRAMES } from "./videos/AgentTeam";
 import { Souq, SOUQ_FRAMES } from "./videos/Souq";
 import { AgentGauges, AGENT_GAUGES_FRAMES } from "./videos/AgentGauges";
@@ -55,6 +56,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="LevelUp" component={LevelUp} width={1080} height={1920} fps={30} durationInFrames={LEVEL_UP_FRAMES} />
     <Composition id="Address" component={Address} width={1080} height={1920} fps={30} durationInFrames={ADDRESS_FRAMES} />
     <Composition id="CampaignHour" component={CampaignHour} width={1080} height={1920} fps={30} durationInFrames={CAMPAIGN_HOUR_FRAMES} />
+    <Composition id="Learn30" component={Learn30} width={1080} height={1920} fps={30} durationInFrames={LEARN30_FRAMES} />
     <Composition id="AliAd" component={AliAd} width={1080} height={1920} fps={30} durationInFrames={ALI_AD_FRAMES} />
     <Composition id="HumanLoop" component={HumanLoop} width={1080} height={1920} fps={30} durationInFrames={HUMAN_LOOP_FRAMES} />
     <Folder name="HumanLoop-Scenes">
