@@ -45,7 +45,8 @@
   "t060",
   "t064",
   "t065",
-  "t066"
+  "t066",
+  "t037"
  ],
  "log": [
   {
@@ -373,6 +374,14 @@
    "cycle": 0,
    "format": "video",
    "style": "mesh",
+   "accent": "violet"
+  },
+  {
+   "date": "2026-10-22",
+   "id": "t037",
+   "cycle": 0,
+   "format": "carousel",
+   "style": "neon",
    "accent": "violet"
   }
  ]
