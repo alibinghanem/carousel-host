@@ -9,7 +9,7 @@
     python3 pick_topic.py --schedule  # جدول الأسبوعين القادمين (صيغة + بنك)
 
 المخرجات فيها "format": "video" (موشن قرافيك Remotion — references/video.md)
-أو "carousel" (التصميم المعتاد — references/design.md)، و"bank": tools/classic.
+أو "carousel" (التصميم المعتاد — references/design.md)، و"bank": tools/classic/tech.
 """
 import json, sys, pathlib, datetime
 
@@ -21,8 +21,13 @@ HERE = pathlib.Path(__file__).parent
 #    لو تناوب البنك يومياً أيضاً لصار كل فيديو «أتمتة» للأبد؛ فنقلب الاقتران كل أسبوع:
 #    البنك = (d + d//7) زوجي → أتمتة، حيث d = الأيام منذ 2026-10-01
 #    (يتكرر البنك مرة بالأسبوع عند الانتقال، والصيغة ما تتكرر أبداً).
-# للإجبار: --tools / --classic · --video / --carousel · --date=YYYY-MM-DD (للتجربة)
+#  • من 2026-10-26 (طلب المستخدم: مواضيع تقنية تهم عامة الناس بموشن 3D احترافي، بالإضافة لشرح الذكاء الاصطناعي):
+#    الأيام كتل من يومين (كاروسيل ثم فيديو): كتلة «تقنية» (topics_tech.json) وكتلة «ذكاء اصطناعي» بالتناوب،
+#    فالتقنية تاخذ نص الأيام وتنزل كاروسيل وفيديو. في كتلة الذكاء الاصطناعي: يوم أدوات ويوم أتمتة،
+#    وينقلب ترتيبهم كل كتلة عشان كل بنك ينزل بالصيغتين.
+# للإجبار: --tools / --classic / --tech · --video / --carousel · --date=YYYY-MM-DD (للتجربة)
 _START = datetime.date(2026, 10, 1)
+_TECH_START = datetime.date(2026, 10, 26)
 
 
 def schedule(day):
@@ -31,8 +36,16 @@ def schedule(day):
     if d < 0:  # قبل الجدول الجديد: تناوب البنك اليومي القديم، والكل كاروسيل
         bank = "tools" if day.toordinal() % 2 == datetime.date(2026, 9, 26).toordinal() % 2 else "classic"
         return bank, "carousel"
-    bank = "classic" if (d + d // 7) % 2 == 0 else "tools"
-    return bank, ("video" if d % 2 == 0 else "carousel")
+    fmt = "video" if d % 2 == 0 else "carousel"
+    e = (day - _TECH_START).days
+    if e < 0:
+        bank = "classic" if (d + d // 7) % 2 == 0 else "tools"
+        return bank, fmt
+    block = e // 2
+    if block % 2 == 1:
+        return "tech", fmt
+    bank = "tools" if (e % 2 + block // 2) % 2 == 0 else "classic"
+    return bank, fmt
 
 
 _TODAY = datetime.date.today()
@@ -44,11 +57,16 @@ if "--classic" in sys.argv:
     KIND = "classic"
 elif "--tools" in sys.argv:
     KIND = "tools"
+elif "--tech" in sys.argv:
+    KIND = "tech"
 if "--video" in sys.argv:
     FORMAT = "video"
 elif "--carousel" in sys.argv:
     FORMAT = "carousel"
-if KIND == "tools" and (HERE / "topics_tools.json").exists():
+if KIND == "tech" and (HERE / "topics_tech.json").exists():
+    BANK = HERE / "topics_tech.json"
+    STATE = HERE / "state" / "used_tech.json"
+elif KIND == "tools" and (HERE / "topics_tools.json").exists():
     BANK = HERE / "topics_tools.json"
     STATE = HERE / "state" / "used_tools.json"
 else:
@@ -85,7 +103,7 @@ def main():
     today = _TODAY.isoformat()
 
     if "--schedule" in sys.argv:
-        names = {"video": "🎬 فيديو", "carousel": "🖼 كاروسيل", "tools": "أدوات", "classic": "أتمتة"}
+        names = {"video": "🎬 فيديو", "carousel": "🖼 كاروسيل", "tools": "أدوات", "classic": "أتمتة", "tech": "تقنية 3D"}
         for i in range(14):
             day = _TODAY + datetime.timedelta(days=i)
             b, f = schedule(day)
