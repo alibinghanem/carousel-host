@@ -24,6 +24,7 @@ import { Sources, SOURCES_FRAMES } from "./videos/Sources";
 import { Darkroom, DARKROOM_FRAMES } from "./videos/Darkroom";
 import { Test3D } from "./videos/Test3D";
 import { Battery3D, BATTERY3D_FRAMES } from "./videos/Battery3D";
+import { Camp30, CAMP30_FRAMES } from "./videos/Camp30";
 import { AgentTeam, AGENT_TEAM_FRAMES } from "./videos/AgentTeam";
 import { Souq, SOUQ_FRAMES } from "./videos/Souq";
 import { AgentGauges, AGENT_GAUGES_FRAMES } from "./videos/AgentGauges";
@@ -65,6 +66,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="Darkroom" component={Darkroom} width={1080} height={1920} fps={30} durationInFrames={DARKROOM_FRAMES} />
     <Composition id="Test3D" component={Test3D} width={1080} height={1920} fps={30} durationInFrames={60} />
     <Composition id="Battery3D" component={Battery3D} width={1080} height={1920} fps={30} durationInFrames={BATTERY3D_FRAMES} />
+    <Composition id="Camp30" component={Camp30} width={1080} height={1920} fps={30} durationInFrames={CAMP30_FRAMES} />
     <Composition id="AliAd" component={AliAd} width={1080} height={1920} fps={30} durationInFrames={ALI_AD_FRAMES} />
     <Composition id="HumanLoop" component={HumanLoop} width={1080} height={1920} fps={30} durationInFrames={HUMAN_LOOP_FRAMES} />
     <Folder name="HumanLoop-Scenes">
