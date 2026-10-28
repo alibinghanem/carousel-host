@@ -301,6 +301,7 @@ npx remotion still <Name> ../../output/$(date +%F)-video/cover.jpg --frame=<أق
 | `Phone.tsx` | `Phone({draw, frame, xray, caseOn, caseColor, glow})`: جوال بحواف معدنية وزجاج وجزيرة وكاميرات وأزرار وكفر ينسحب. الشاشة `CanvasTexture` تنرسم كل فريم بدالة `draw(g, w, h)` (540×1170) · `useImage(src)` لصورة داخل الشاشة · `roundedRectGeo` |
 | `Parts.tsx` | `BatteryCell({level})` خلية زجاجية بسائل مضيء · `Thermometer` · `Cable({pts})` بفيش USB-C · `Heat` جزيئات حرارة · `Shield` درع · `levelColor` |
 | `Sport.tsx` | `Pitch` ملعب بنقشة عشب وخطوط · `Figure` لاعب مجسّم (قطعة تكتيك، `run` للجري، `ring`/`band` للكابتن) · `Cone` · `Ball({lift, spin})` · `Goal({ripple})` بشبكة · `Arrow({pts, t})` سهم يترسم · `along(pts, t)` مكان واتجاه على مسار · `FloodLight` · `Scoreboard({draw})` شاشة canvas · `Blob` ظل |
+| `Safety.tsx` | `FishHook({line})` خطّاف صيد معدني بخيط · `Lifebuoy` طوق نجاة · `Parcel` طرد كرتون بشريط وملصق · `Padlock({open})` قفل بثقب مفتاح |
 
 **أضف عناصر جديدة للمكتبة** (راوتر، قفل، أقمار، كرة أرضية، شريحة…) بدل ما تكتبها داخل الفيديو، عشان تتراكم.
 المعرض: تكوين `Test3D` يعرض العناصر، رندر فريم منه لما تضيف عنصر.
@@ -356,3 +357,12 @@ npx remotion render <Comp> ../../output/<D>/video_raw.mp4 --gl=angle --crf=20 --
 - fog يبدأ بعد أبعد كاميرا (هنا 150) وإلا الملعب كامل يغبّش في لقطة البانوراما.
 - Kufam و Handjet يرسمون «…» صح، بعكس Lalezar (تطلع نقطة وحدة).
 - **الرندر فشل بـ timeout عند فريم 95** (الحاوية فيها 4 أنوية بس، وكل تبويب يجمّع shaders الـ 3D على المعالج). الحل: `--concurrency=2 --timeout=120000` مع `--gl=angle`. شيّك `nproc` قبل الرندر.
+
+### كاروسيل التقنية بعناصر 3D (ScamKit، 2026-10-28)
+- اعمل تكوين لقطات ثابتة (مثل `src/videos/ScamKit/`): مربع 1080، **كل فريم لقطة** (كاميرا وعناصر مختلفة)، والخلفية شفافة.
+- `npx remotion bundle --out-dir=/tmp/rbundle` مرة، ثم لكل فريم:
+  `npx remotion still /tmp/rbundle <Comp> assets/kN.png --frame=N --image-format=png --gl=angle --scale=1.5 --timeout=120000`
+  وقصّها على حدودها (`PIL getbbox`) واستخدمها `<img>` في `design.html` مع `drop-shadow`.
+- شاشة الجوال في canvas: ستاك الخط لازم فيه خط لاتيني (`'IBM Plex Sans Arabic', 'Space Grotesk'`) وإلا الأرقام والروابط تطلع بخط serif افتراضي. ولف النص العربي بدالة تقيس الكلمات وترسم RTL من الحافة اليمنى.
+- `cylinderGeometry` محوره Y: عشان يواجه الكاميرا (ثقب مفتاح، زر) دوّره `[Math.PI/2,0,0]`.
+- رسالة احتيال مثال: مرسل عام ودومين محجوز `.example`، **بدون شعار أي شركة حقيقية** (ما ننتحل جهة).
