@@ -56,6 +56,8 @@ export const fontsReady = Promise.all([
   loadFont({ family: "Rubik", url: staticFile("rubik-arabic-800-normal.woff2"), weight: "800" }),
   loadFont({ family: "Rubik", url: staticFile("rubik-latin-800-normal.woff2"), weight: "800" }),
   loadFont({ family: "Kufam", url: staticFile("kufam-arabic-900-normal.woff2"), weight: "900" }),
+  loadFont({ family: "Tajawal", url: staticFile("tajawal-arabic-900-normal.woff2"), weight: "900" }),
+  loadFont({ family: "Tajawal", url: staticFile("tajawal-latin-900-normal.woff2"), weight: "900" }),
   loadFont({ family: "Kufam", url: staticFile("kufam-latin-900-normal.woff2"), weight: "900" }),
   loadFont({ family: "Kufam", url: staticFile("kufam-arabic-800-normal.woff2"), weight: "800" }),
   loadFont({ family: "Kufam", url: staticFile("kufam-latin-800-normal.woff2"), weight: "800" }),

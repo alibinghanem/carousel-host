@@ -2,7 +2,8 @@
  "cycle": 0,
  "used": [
   "k001",
-  "k002"
+  "k002",
+  "k003"
  ],
  "log": [
   {
@@ -19,6 +20,14 @@
    "id": "k002",
    "cycle": 0,
    "format": "carousel",
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-10-29",
+   "id": "k003",
+   "cycle": 0,
+   "format": "video",
    "style": "—",
    "accent": "—"
   }

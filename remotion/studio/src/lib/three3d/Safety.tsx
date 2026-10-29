@@ -129,3 +129,98 @@ export const Padlock: React.FC<{ color?: string; open?: number } & G> = ({ color
     </group>
   );
 };
+
+/**
+ * باب خزنة دائري: إطار، وجه معدني، مسامير حواليه، ومقبض عجلة بثلاث أذرع وقرص أرقام.
+ * open: 0..1 يفتح الباب على مفصّلة يسار · spin: دوران العجلة (راديان) · r: نصف القطر
+ */
+export const VaultDoor: React.FC<{ r?: number; open?: number; spin?: number; alarm?: number } & G> = ({ r = 3, open = 0, spin = 0, alarm = 0, ...rest }) => {
+  const steel = <meshStandardMaterial color="#A9B2BD" metalness={1} roughness={0.28} />;
+  const dark = <meshStandardMaterial color="#59616C" metalness={1} roughness={0.35} />;
+  return (
+    <group {...rest}>
+      {/* الإطار الثابت في الجدار */}
+      <mesh rotation={[Math.PI / 2, 0, 0]} position={[0, 0, -0.25]}>
+        <cylinderGeometry args={[r + 0.55, r + 0.55, 0.5, 96, 1, true]} />
+        <meshStandardMaterial color="#3E454F" metalness={0.9} roughness={0.4} side={THREE.DoubleSide} />
+      </mesh>
+      <mesh position={[0, 0, -0.02]}>
+        <torusGeometry args={[r + 0.4, 0.2, 24, 96]} />
+        {dark}
+      </mesh>
+      {/* فتحة الخزنة (داخل مضيء أحمر لو فيه إنذار) */}
+      <mesh position={[0, 0, -0.45]}>
+        <circleGeometry args={[r + 0.1, 64]} />
+        <meshBasicMaterial color={alarm > 0 ? new THREE.Color("#1A0506").lerp(new THREE.Color("#FF2E3A"), alarm) : "#0B0F14"} toneMapped={false} />
+      </mesh>
+      {/* الباب: يدور حول مفصّلة على يسار الإطار */}
+      <group position={[-r, 0, 0]} rotation={[0, -open * 1.25, 0]}>
+        <group position={[r, 0, 0]}>
+          <mesh rotation={[Math.PI / 2, 0, 0]} position={[0, 0, 0.2]}>
+            <cylinderGeometry args={[r, r, 0.5, 96]} />
+            {steel}
+          </mesh>
+          <mesh position={[0, 0, 0.46]}>
+            <torusGeometry args={[r * 0.82, 0.07, 16, 96]} />
+            {dark}
+          </mesh>
+          {Array.from({ length: 16 }, (_, i) => {
+            const a = (i / 16) * Math.PI * 2;
+            return (
+              <mesh key={i} position={[Math.cos(a) * r * 0.91, Math.sin(a) * r * 0.91, 0.47]} rotation={[Math.PI / 2, 0, 0]}>
+                <cylinderGeometry args={[0.11, 0.11, 0.08, 20]} />
+                {dark}
+              </mesh>
+            );
+          })}
+          {/* عجلة المقبض */}
+          <group position={[0, 0, 0.6]} rotation={[0, 0, spin]}>
+            <mesh>
+              <torusGeometry args={[r * 0.38, 0.07, 16, 64]} />
+              {steel}
+            </mesh>
+            {[0, 1, 2].map((i) => (
+              <group key={i} rotation={[0, 0, (i * Math.PI * 2) / 3]}>
+                <mesh position={[0, r * 0.25, 0]}>
+                  <cylinderGeometry args={[0.06, 0.06, r * 0.75, 12]} />
+                  {steel}
+                </mesh>
+                <mesh position={[0, r * 0.62, 0]}>
+                  <sphereGeometry args={[0.14, 20, 16]} />
+                  {dark}
+                </mesh>
+              </group>
+            ))}
+            <mesh rotation={[Math.PI / 2, 0, 0]}>
+              <cylinderGeometry args={[0.32, 0.32, 0.2, 40]} />
+              {dark}
+            </mesh>
+          </group>
+        </group>
+      </group>
+    </group>
+  );
+};
+
+/** مفتاح: حلقة وساق وأسنان. glow: توهج (للمفتاح «المسروق» بالأحمر) */
+export const Key: React.FC<{ color?: string; glow?: number } & G> = ({ color = "#E8C15A", glow = 0, ...rest }) => {
+  const mat = <meshStandardMaterial color={color} metalness={0.85} roughness={0.25} emissive={color} emissiveIntensity={glow} />;
+  return (
+    <group {...rest}>
+      <mesh position={[0, 0.75, 0]}>
+        <torusGeometry args={[0.36, 0.11, 16, 40]} />
+        {mat}
+      </mesh>
+      <mesh position={[0, -0.05, 0]}>
+        <cylinderGeometry args={[0.08, 0.08, 1.25, 16]} />
+        {mat}
+      </mesh>
+      {[-0.42, -0.25, -0.62].map((y, i) => (
+        <mesh key={i} position={[0.14, y, 0]}>
+          <boxGeometry args={[0.2, 0.09 + i * 0.03, 0.08]} />
+          {mat}
+        </mesh>
+      ))}
+    </group>
+  );
+};
