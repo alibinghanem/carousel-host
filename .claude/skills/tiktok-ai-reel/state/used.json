@@ -48,7 +48,8 @@
   "t066",
   "t037",
   "t039",
-  "t041"
+  "t041",
+  "t043"
  ],
  "log": [
   {
@@ -401,6 +402,14 @@
    "format": "video",
    "style": "blocks",
    "accent": "blue"
+  },
+  {
+   "date": "2026-10-30",
+   "id": "t043",
+   "cycle": 0,
+   "format": "carousel",
+   "style": "neon",
+   "accent": "emerald"
   }
  ]
 }

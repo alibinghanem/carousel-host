@@ -170,6 +170,7 @@ python3 .claude/skills/tiktok-ai-reel/render_html.py $D/design.html $D
   - `Noto Naskh Arabic` 400/700: نسخ واضح لنص المقالات الطويل بطابع الصحف.
   - `Kufam` 800/900: كوفي رياضي عريض (رياضة، فرق، منافسة، حماس).
   - `Handjet` 700: خط نقطي مثل شاشات الملاعب واللوحات الإلكترونية (أرقام، نتائج، عدّادات).
+  - `Almarai` 700/800: خط لافتات واضح وقوي (لوحات طرق، تعليمات، قوائم أخطاء).
 - **خطوط إضافية:** `npm pack @fontsource/<name>`. ضع ملفات woff2 في `fonts/extra/`
   باسم `<family>-<arabic|latin>-<weight>-normal.woff2`، وأضف اسم العائلة في
   `FAMILIES` داخل `render_html.py`.
