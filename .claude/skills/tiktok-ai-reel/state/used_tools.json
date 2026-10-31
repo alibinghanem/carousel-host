@@ -1,0 +1,157 @@
+{
+ "cycle": 0,
+ "used": [
+  "x001",
+  "x005",
+  "x002",
+  "x003",
+  "x004",
+  "x006",
+  "x007",
+  "x011",
+  "x031",
+  "x032",
+  "x021",
+  "x030",
+  "x033",
+  "x009",
+  "x012",
+  "x014",
+  "x015"
+ ],
+ "log": [
+  {
+   "date": "2026-09-26",
+   "id": "x001",
+   "cycle": 0,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-09-27",
+   "id": "x005",
+   "cycle": 0,
+   "style": "—",
+   "accent": "—",
+   "note": "فيديو موشن قرافيك بطلب المستخدم"
+  },
+  {
+   "date": "2026-09-28",
+   "id": "x002",
+   "cycle": 0,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-09-30",
+   "id": "x003",
+   "cycle": 0,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-10-02",
+   "id": "x004",
+   "cycle": 0,
+   "format": "carousel",
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-10-04",
+   "id": "x006",
+   "cycle": 0,
+   "format": "carousel",
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-10-06",
+   "id": "x007",
+   "cycle": 0,
+   "format": "carousel",
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-10-09",
+   "id": "x011",
+   "cycle": 0,
+   "format": "video",
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-10-11",
+   "id": "x031",
+   "cycle": 0,
+   "format": "video",
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-10-13",
+   "id": "x032",
+   "cycle": 0,
+   "format": "video",
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-10-16",
+   "id": "x021",
+   "cycle": 0,
+   "format": "carousel",
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-10-18",
+   "id": "x030",
+   "cycle": 0,
+   "format": "carousel",
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-10-20",
+   "id": "x033",
+   "cycle": 0,
+   "format": "carousel",
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-10-23",
+   "id": "x009",
+   "cycle": 0,
+   "format": "video",
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-10-25",
+   "id": "x012",
+   "cycle": 0,
+   "format": "video",
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-10-26",
+   "id": "x014",
+   "cycle": 0,
+   "format": "carousel",
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-10-31",
+   "id": "x015",
+   "cycle": 0,
+   "format": "video",
+   "style": "—",
+   "accent": "—"
+  }
+ ]
+}

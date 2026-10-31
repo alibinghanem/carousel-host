@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<style>
+:root{--night:#17122B;--night2:#231B3F;--paper:#F4F1EA;--ink:#17122B;--teal:#14B3A3;--amber:#F2A531;--red:#E5484D;--violet:#8B7CF6;--pink:#F472B6;--grey:#B9B3C9;--mute:#6F6886}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;font-family:'IBM Plex Sans Arabic','Cairo',sans-serif;-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1920px;position:relative;overflow:hidden;direction:rtl}
+.hd{font-family:'IBM Plex Sans Arabic';font-weight:700;line-height:1.18}
+.en{font-family:'Space Grotesk';direction:ltr;unicode-bidi:isolate;font-weight:700}
+.mono{font-family:'JetBrains Mono',monospace;direction:ltr;unicode-bidi:isolate}
+.dk{background:var(--night);color:#fff}
+.lt{background:var(--paper);color:var(--ink)}
+.grid{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.035) 2px,transparent 2px),linear-gradient(90deg,rgba(255,255,255,.035) 2px,transparent 2px);background-size:60px 60px}
+.lt .grid{background-image:linear-gradient(rgba(23,18,43,.045) 2px,transparent 2px),linear-gradient(90deg,rgba(23,18,43,.045) 2px,transparent 2px)}
+.kick{position:absolute;top:250px;right:90px;display:flex;align-items:center;gap:14px;font:700 30px 'IBM Plex Sans Arabic'}
+.kick .m{width:44px;height:44px;border-radius:50%;background:#fff;color:var(--night);display:grid;place-items:center;font:700 26px 'Space Grotesk';box-shadow:0 0 0 5px var(--teal)}
+.lt .kick .m{background:var(--night);color:#fff}
+.pg{position:absolute;top:256px;left:90px;font:700 28px 'Space Grotesk';opacity:.5;direction:ltr}
+.lbl{position:absolute;font:700 32px 'IBM Plex Sans Arabic';white-space:nowrap;text-align:center}
+.hbar{position:absolute;top:1392px;right:90px;display:flex;gap:26px;align-items:center;padding:14px 28px;border-radius:999px;background:#fff;color:var(--night);font:700 28px 'IBM Plex Sans Arabic'}
+.swipe{position:absolute;top:1400px;left:90px;font:700 34px 'IBM Plex Sans Arabic';color:var(--amber)}
+.sthead{position:absolute;top:320px;right:90px;display:flex;align-items:center;gap:18px;font:700 40px 'IBM Plex Sans Arabic'}
+.badge{width:74px;height:74px;border-radius:50%;display:grid;place-items:center;color:#fff;font:700 40px 'Space Grotesk'}
+.slide h2{position:absolute;top:420px;right:90px;left:60px;font-size:92px;white-space:nowrap}
+
+/* ١ الغلاف */
+.s1 h1{position:absolute;top:320px;right:90px;left:60px;font-size:92px;white-space:nowrap}
+.s1 h1 em{font-style:normal;color:var(--amber);display:block}
+.map{position:absolute;top:600px;left:0;width:1080px;height:720px}
+.s1 .lbl{color:#fff}
+.s1 .lbl small{display:block;font:600 24px 'IBM Plex Sans Arabic';color:var(--grey);margin-top:2px}
+
+/* ٢ القصة */
+.s2 h2{top:320px;font-size:108px;line-height:1.1}
+.s2 h2 em{font-style:normal;color:var(--amber)}
+.phone{position:absolute;top:600px;left:90px;right:90px;background:var(--night2);border:2px solid #3A3160;border-radius:36px;padding:28px 32px 34px}
+.phone .top{display:flex;align-items:center;gap:14px;font:700 28px 'IBM Plex Sans Arabic';color:var(--grey);padding-bottom:20px;border-bottom:2px solid #3A3160;margin-bottom:24px}
+.phone .top i{width:18px;height:18px;border-radius:50%;background:#3DDC84}
+.b{max-width:80%;padding:20px 26px;border-radius:28px;font:600 34px/1.5 'IBM Plex Sans Arabic';margin-bottom:18px}
+.b.u{margin-right:0;margin-left:auto;background:#3A3160;border-bottom-right-radius:8px}
+.b.a{margin-right:auto;margin-left:0;background:var(--violet);color:#fff;border-bottom-left-radius:8px}
+.wrong{display:inline-flex;align-items:center;gap:10px;background:var(--red);color:#fff;font:700 28px 'IBM Plex Sans Arabic';padding:8px 18px;border-radius:12px;margin-top:4px}
+.rule{position:absolute;top:1112px;left:110px;right:110px;background:var(--paper);color:var(--ink);border-radius:14px;padding:26px 34px;transform:rotate(-1.5deg);box-shadow:0 20px 40px rgba(0,0,0,.4)}
+.rule .h{font:700 26px 'IBM Plex Sans Arabic';color:var(--mute);display:flex;justify-content:space-between}
+.rule p{font:700 36px/1.5 'IBM Plex Sans Arabic';margin-top:10px}
+.rule p b{color:var(--red)}
+
+/* ٣ النطاق */
+.col{position:absolute;top:580px}
+.col .ch{font:700 38px 'IBM Plex Sans Arabic';margin-bottom:10px}
+.vline{position:absolute;width:22px;border-radius:11px}
+.stn{position:absolute;width:44px;height:44px;border-radius:50%;background:#fff;border:9px solid var(--ink)}
+.stl{position:absolute;font:700 36px 'IBM Plex Sans Arabic';white-space:nowrap}
+.out .stl{color:#8C86A0;font-weight:600}
+.tip{position:absolute;right:90px;left:90px;text-align:center;font:700 38px/1.5 'IBM Plex Sans Arabic'}
+.tip mark{padding:2px 12px;border-radius:8px;color:inherit}
+
+/* ٤ المعرفة */
+.files{position:absolute;top:580px;left:70px;right:70px;display:flex;gap:26px}
+.fl{flex:1;background:#fff;border:3px solid var(--ink);border-radius:16px;padding:18px 14px;display:flex;align-items:center;gap:12px;justify-content:center}
+.fl .ic{flex:none;width:40px;height:50px;border-radius:5px;background:var(--amber);position:relative}
+.fl .ic:after{content:"";position:absolute;top:0;left:0;border:10px solid transparent;border-top-color:var(--paper);border-left-color:var(--paper)}
+.fl span{font:700 30px 'IBM Plex Sans Arabic';white-space:nowrap}
+.merge{position:absolute;top:668px;left:0;width:1080px;height:200px}
+.agent{position:absolute;top:822px;left:590px;font:700 34px 'IBM Plex Sans Arabic'}
+.pcard{position:absolute;top:930px;left:70px;right:70px;background:var(--ink);color:#fff;border-radius:24px;padding:28px 36px 32px;border-top:12px solid var(--amber)}
+.pcard .l{font:700 28px 'IBM Plex Sans Arabic';color:var(--amber);margin-bottom:10px}
+.pcard p{font:600 35px/1.6 'IBM Plex Sans Arabic'}
+
+/* ٥ الحدود */
+.plates{position:absolute;top:560px;left:70px;right:70px;display:flex;flex-direction:column;gap:24px}
+.pl{display:flex;align-items:center;gap:28px;background:var(--ink);color:#fff;border-radius:20px;padding:24px 30px;box-shadow:0 10px 0 rgba(23,18,43,.15)}
+.nx{flex:none;width:88px;height:88px;border-radius:50%;background:var(--red);position:relative;box-shadow:0 0 0 6px rgba(229,72,77,.25)}
+.nx:after{content:"";position:absolute;left:18px;right:18px;top:37px;height:14px;background:#fff;border-radius:4px}
+.pl b{display:block;font:700 36px/1.35 'IBM Plex Sans Arabic'}
+.pl small{display:block;font:600 27px 'IBM Plex Sans Arabic';color:var(--grey);margin-top:4px}
+
+/* ٦ التصعيد */
+.trig{position:absolute;top:560px;right:70px;width:560px}
+.tg{position:relative;display:flex;align-items:center;gap:20px;background:#fff;border:3px solid var(--ink);border-radius:18px;padding:18px 22px;margin-bottom:16px;font:700 33px 'IBM Plex Sans Arabic';white-space:nowrap}
+.tg i{flex:none;width:36px;height:36px;border-radius:50%;background:#fff;border:8px solid var(--violet)}
+.ring{position:absolute;top:580px;left:80px;width:340px;height:340px;border-radius:50%;padding:14px;background:var(--pink);box-shadow:0 0 0 10px var(--paper),0 0 0 18px var(--ink)}
+.ring .in{width:100%;height:100%;border-radius:50%;overflow:hidden;position:relative;background:#ccc}
+.ring img{position:absolute;width:1400px;left:-40px;top:-470px;filter:saturate(.9)}
+.hlbl{position:absolute;top:960px;left:60px;width:380px;text-align:center}
+.hlbl b{display:block;font:700 38px 'IBM Plex Sans Arabic';color:var(--ink)}
+.hlbl span{display:block;font:600 28px/1.45 'IBM Plex Sans Arabic';color:var(--mute);margin-top:6px}
+.dash{position:absolute;top:748px;left:440px;width:30px;height:0;border-top:10px dashed var(--pink)}
+.mist{position:absolute;top:1130px;left:70px;right:70px;background:var(--red);color:#fff;border-radius:22px;padding:24px 32px}
+.mist b{display:block;font:700 36px/1.45 'IBM Plex Sans Arabic'}
+.mist span{display:block;font:600 30px/1.45 'IBM Plex Sans Arabic';opacity:.95;margin-top:4px}
+
+/* ٧ المتابعة */
+.sign{position:absolute;top:340px;left:70px;right:70px;height:420px;background:#0E0B1D;border-radius:28px;border:4px solid #3A3160;overflow:hidden}
+.sign .stripe{position:absolute;top:0;left:0;right:0;height:22px;background:linear-gradient(90deg,var(--violet) 0 25%,var(--red) 25% 50%,var(--amber) 50% 75%,var(--teal) 75%)}
+.sign .av{position:absolute;top:70px;left:50px;width:290px;height:290px;border-radius:50%;padding:10px;background:#fff;box-shadow:0 0 0 12px var(--teal)}
+.sign .av .in{width:100%;height:100%;border-radius:50%;overflow:hidden;background:linear-gradient(180deg,#B7A8FF,var(--violet))}
+.sign .av img{width:100%;height:100%;object-fit:cover;object-position:50% 15%}
+.sign .who{position:absolute;top:90px;right:50px;left:380px}
+.sign .who small{display:block;font:700 28px 'IBM Plex Sans Arabic';color:var(--grey)}
+.sign .who .nm{font:700 80px 'IBM Plex Sans Arabic';line-height:1.2;color:#fff}
+.sign .who p{font:600 30px/1.5 'IBM Plex Sans Arabic';color:#D8D2EA;margin-top:10px}
+.sign .dots{display:flex;gap:12px;margin-top:22px}
+.sign .dots i{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font:700 22px 'Space Grotesk';color:#fff;font-style:normal}
+.board{position:absolute;top:800px;left:70px;right:70px;background:#07060C;border-radius:22px;padding:24px 34px;border:4px solid #26213A}
+.board .bh{display:flex;justify-content:space-between;font:700 26px 'IBM Plex Sans Arabic';color:#8C86A0;border-bottom:2px dashed #2C2640;padding-bottom:14px;margin-bottom:6px}
+.row{display:flex;align-items:center;gap:26px;padding:16px 0;border-bottom:2px dashed #2C2640;color:#FFB547;font:700 34px 'IBM Plex Sans Arabic';text-shadow:0 0 12px rgba(255,181,71,.45);white-space:nowrap}
+.row:last-child{border-bottom:none}
+.row .k{width:140px;color:#FFD591}
+.row .en{font-family:'JetBrains Mono';font-weight:800;font-size:32px}
+.soc{position:absolute;top:1200px;left:50%;transform:translateX(-50%);display:flex;gap:26px;align-items:center;padding:14px 28px;border-radius:999px;background:#fff;color:var(--night);font:700 30px 'IBM Plex Sans Arabic';white-space:nowrap}
+.s7 .ask{position:absolute;top:1300px;right:90px;left:90px;text-align:center;font:700 36px/1.45 'IBM Plex Sans Arabic'}
+.s7 .ask em{font-style:normal;color:var(--amber)}
+</style>
+</head>
+<body>
+
+<!-- ١ الغلاف -->
+<section class="slide dk s1">
+  <div class="grid"></div>
+  <div class="kick"><span class="m">M</span>أتمتة · خدمة العملاء</div>
+  <div class="pg">1/7</div>
+  <h1 class="hd">أخطر وكيل خدمة عملاء<em>اللي يجاوب على كل شي</em></h1>
+  <svg class="map" viewBox="0 0 1080 720" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M960 80 H600" stroke="#14B3A3" stroke-width="26"/>
+    <path d="M600 80 H200 L140 140 V300 L200 360" stroke="#F2A531" stroke-width="26"/>
+    <path d="M200 360 H880" stroke="#E5484D" stroke-width="26"/>
+    <path d="M880 360 L940 420 V640" stroke="#8B7CF6" stroke-width="26"/>
+    <path d="M940 520 H600" stroke="#F472B6" stroke-width="16" stroke-dasharray="4 26"/>
+    <circle cx="960" cy="80" r="26" fill="#17122B" stroke="#fff" stroke-width="10"/>
+    <circle cx="780" cy="80" r="22" fill="#fff" stroke="#17122B" stroke-width="8"/>
+    <circle cx="380" cy="80" r="22" fill="#fff" stroke="#17122B" stroke-width="8"/>
+    <circle cx="540" cy="360" r="22" fill="#fff" stroke="#17122B" stroke-width="8"/>
+    <circle cx="940" cy="520" r="32" fill="#fff" stroke="#17122B" stroke-width="10"/>
+    <circle cx="940" cy="520" r="12" fill="#17122B"/>
+    <circle cx="600" cy="520" r="30" fill="#F472B6" stroke="#fff" stroke-width="8"/>
+    <circle cx="940" cy="640" r="26" fill="#17122B" stroke="#fff" stroke-width="10"/>
+  </svg>
+  <div class="lbl" style="top:610px;right:40px;font-size:28px;color:var(--grey)">سؤال العميل</div>
+  <div class="lbl" style="top:720px;left:680px;width:200px">النطاق<small>وش يجاوب</small></div>
+  <div class="lbl" style="top:720px;left:280px;width:200px">المعرفة<small>من ملفاتك</small></div>
+  <div class="lbl" style="top:1000px;left:440px;width:200px">الحدود<small>خطوط حمراء</small></div>
+  <div class="lbl" style="top:1050px;left:680px;width:200px">التصعيد</div>
+  <div class="lbl" style="top:1160px;left:480px;width:240px;color:var(--pink)">موظف بشري</div>
+  <div class="lbl" style="top:1218px;right:180px;color:#7CF0C8">جواب موثوق ✓</div>
+  <div class="hbar">{{HANDLES}}</div>
+  <div class="swipe">اسحب ←</div>
+</section>
+
+<!-- ٢ القصة -->
+<section class="slide dk s2" data-handles="light">
+  <div class="grid"></div>
+  <div class="kick"><span class="m">M</span>أتمتة · خدمة العملاء</div>
+  <div class="pg">2/7</div>
+  <h2 class="hd">الوكيل وعد.<br><em>والشركة دفعت.</em></h2>
+  <div class="phone">
+    <div class="top"><i></i>مساعد الموقع · <span class="en">Air Canada</span></div>
+    <div class="b u">جدتي توفّت. أقدر أطلب سعر تذكرة العزاء بعد ما أسافر؟</div>
+    <div class="b a">أكيد! تقدر تطلبه بعد السفر 👍</div>
+    <div class="wrong">✕ غلط: السياسة ما تسمح بعد السفر</div>
+  </div>
+  <div class="rule">
+    <div class="h"><span>حكم محكمة · كندا</span><span class="en">Feb 2024</span></div>
+    <p>الشركة حاولت تتبرّأ من كلام الشات بوت. المحكمة قالت: <b>هو جزء من موقعكم، وأنتم مسؤولين عن كلامه</b>، وألزمتها تعوّض العميل.</p>
+  </div>
+</section>
+
+<!-- ٣ النطاق -->
+<section class="slide lt s3">
+  <div class="grid"></div>
+  <div class="kick"><span class="m">M</span>أتمتة · خدمة العملاء</div>
+  <div class="pg">3/7</div>
+  <div class="sthead"><span class="badge" style="background:var(--teal)">1</span>محطة النطاق</div>
+  <h2 class="hd" style="font-size:84px">حدّد وش يجاوب… ووش لا</h2>
+  <div class="col in" style="right:90px;width:460px">
+    <div class="ch" style="color:#0E8C80">داخل الخط ✓</div>
+  </div>
+  <div class="vline" style="top:660px;right:101px;height:520px;background:var(--teal)"></div>
+  <div class="stn" style="top:678px;right:90px"></div><div class="stl" style="top:674px;right:160px">تتبّع الطلب</div>
+  <div class="stn" style="top:798px;right:90px"></div><div class="stl" style="top:794px;right:160px">مواعيد التوصيل</div>
+  <div class="stn" style="top:918px;right:90px"></div><div class="stl" style="top:914px;right:160px">سياسة الإرجاع</div>
+  <div class="stn" style="top:1038px;right:90px"></div><div class="stl" style="top:1034px;right:160px">أوقات الدوام</div>
+  <div class="stn" style="top:1138px;right:90px"></div><div class="stl" style="top:1134px;right:160px">المقاسات والأسعار</div>
+  <div class="out">
+    <div class="col" style="right:570px;width:420px"><div class="ch" style="color:#8C86A0">خارج الخط ✕</div></div>
+    <div class="vline" style="top:660px;right:581px;height:470px;background:repeating-linear-gradient(180deg,#C9C3D8 0 26px,transparent 26px 44px)"></div>
+    <div class="stn" style="top:678px;right:570px;border-color:#C9C3D8"></div><div class="stl" style="top:674px;right:640px">التعويضات</div>
+    <div class="stn" style="top:818px;right:570px;border-color:#C9C3D8"></div><div class="stl" style="top:814px;right:640px">الشكاوى الرسمية</div>
+    <div class="stn" style="top:958px;right:570px;border-color:#C9C3D8"></div><div class="stl" style="top:954px;right:640px">قانوني أو طبي</div>
+    <div class="stn" style="top:1098px;right:570px;border-color:#C9C3D8"></div><div class="stl" style="top:1094px;right:640px">بيانات الدفع</div>
+  </div>
+  <div class="tip" style="top:1250px">ابدأ بـ <mark style="background:#BDEFE9">أكثر 5 أسئلة تتكرر عندك</mark>… مو بكل شي</div>
+</section>
+
+<!-- ٤ المعرفة -->
+<section class="slide lt s4">
+  <div class="grid"></div>
+  <div class="kick"><span class="m">M</span>أتمتة · خدمة العملاء</div>
+  <div class="pg">4/7</div>
+  <div class="sthead"><span class="badge" style="background:var(--amber)">2</span>محطة المعرفة</div>
+  <h2 class="hd">من ملفاتك… مو من خياله</h2>
+  <div class="files">
+    <div class="fl"><div class="ic"></div><span>سياسة الإرجاع</span></div>
+    <div class="fl"><div class="ic"></div><span>الأسئلة الشائعة</span></div>
+    <div class="fl"><div class="ic"></div><span>قائمة الأسعار</span></div>
+  </div>
+  <svg class="merge" viewBox="0 0 1080 200" fill="none" stroke-linecap="round">
+    <path d="M868 0 V30 C868 120 540 90 540 180" stroke="#F2A531" stroke-width="20"/>
+    <path d="M212 0 V30 C212 120 540 90 540 180" stroke="#F2A531" stroke-width="20"/>
+    <path d="M540 0 V180" stroke="#F2A531" stroke-width="20"/>
+    <circle cx="540" cy="180" r="24" fill="#fff" stroke="#17122B" stroke-width="9"/>
+  </svg>
+  <div class="agent">← الوكيل</div>
+  <div class="pcard">
+    <div class="l">انسخها في تعليمات الوكيل:</div>
+    <p>«جاوب فقط من المستندات المرفقة. إذا ما لقيت الجواب فيها، قل: ما عندي معلومة مؤكدة، بحوّلك لزميلي. لا تخمّن أي سعر أو موعد.»</p>
+  </div>
+  <div class="tip" style="top:1290px">وحدّث الملفات <mark style="background:#FBE0B0">أول ما تتغير السياسة</mark></div>
+</section>
+
+<!-- ٥ الحدود -->
+<section class="slide lt s5">
+  <div class="grid"></div>
+  <div class="kick"><span class="m">M</span>أتمتة · خدمة العملاء</div>
+  <div class="pg">5/7</div>
+  <div class="sthead"><span class="badge" style="background:var(--red)">3</span>محطة الحدود</div>
+  <h2 class="hd">خطوط حمراء ما يقطعها</h2>
+  <div class="plates">
+    <div class="pl"><div class="nx"></div><div><b>ما يوعد باسترجاع مبلغ أو خصم</b><small>الوعود المالية قرار موظف</small></div></div>
+    <div class="pl"><div class="nx"></div><div><b>ما يطلب رقم البطاقة أو كلمة المرور</b><small>ولا حتى «عشان نتحقق»</small></div></div>
+    <div class="pl"><div class="nx"></div><div><b>ما يعطي رأي قانوني أو طبي</b><small>يحوّل للمختص</small></div></div>
+    <div class="pl"><div class="nx"></div><div><b>ما يتكلم عن المنافسين</b><small>ولا يقارن أسعارهم</small></div></div>
+  </div>
+  <div class="tip" style="top:1250px;font-size:36px">اكتبها في تعليماته… ثم <mark style="background:#F8C9CB">حاول تكسرها بنفسك</mark> قبل الإطلاق</div>
+</section>
+
+<!-- ٦ التصعيد -->
+<section class="slide lt s6">
+  <div class="grid"></div>
+  <div class="kick"><span class="m">M</span>أتمتة · خدمة العملاء</div>
+  <div class="pg">6/7</div>
+  <div class="sthead"><span class="badge" style="background:var(--violet)">4</span>محطة التصعيد</div>
+  <h2 class="hd">متى يحوّل لإنسان؟</h2>
+  <div class="trig">
+    <div class="tg"><i></i>العميل طلب موظف</div>
+    <div class="tg"><i></i>العميل معصّب</div>
+    <div class="tg"><i></i>محاولتين وما انحلت</div>
+    <div class="tg"><i></i>المبلغ فوق حد تحدده</div>
+    <div class="tg"><i></i>الجواب مو في الملفات</div>
+  </div>
+  <div class="ring"><div class="in"><img src="assets/human.jpg"></div></div>
+  <div class="hlbl"><b>موظف بشري</b><span>يستلم مع ملخص المحادثة… والعميل ما يعيد قصته</span></div>
+  <div class="mist"><b>الخطأ الشائع: تخبّي زر «كلّم موظف» عشان توفّر</b><span>العميل يعلق مع الوكيل، يعصب أكثر… وتخسره</span></div>
+</section>
+
+<!-- ٧ المتابعة -->
+<section class="slide dk s7">
+  <div class="grid"></div>
+  <div class="kick"><span class="m">M</span>أتمتة · خدمة العملاء</div>
+  <div class="pg">7/7</div>
+  <div class="sign">
+    <div class="stripe"></div>
+    <div class="av"><div class="in"><img src="{{AVATAR}}"></div></div>
+    <div class="who">
+      <small>محطة</small>
+      <div class="nm">علي التميمي</div>
+      <p>أدوات الذكاء الاصطناعي والأتمتة… بخطوات تطبّقها</p>
+      <div class="dots"><i style="background:var(--teal)">1</i><i style="background:var(--amber)">2</i><i style="background:var(--red)">3</i><i style="background:var(--violet)">4</i></div>
+    </div>
+  </div>
+  <div class="board">
+    <div class="bh"><span>المغادرات</span><span class="en">NEXT</span></div>
+    <div class="row"><span class="k">التالي</span><span class="en">ChatGPT · Memory</span></div>
+    <div class="row"><span class="k">بعده</span><span>موضوع أتمتة جديد</span></div>
+    <div class="row"><span class="k">كل يوم</span><span>يوم أدوات · يوم أتمتة</span></div>
+  </div>
+  <div class="soc">{{HANDLES}}</div>
+  <div class="ask">وش أول سؤال تبي <em>وكيلك</em> يجاوب عليه؟ اكتبه بالتعليقات</div>
+</section>
+
+</body>
+</html>

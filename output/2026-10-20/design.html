@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<style>
+:root{--n0:#090E26;--n1:#0D1330;--n2:#1A2148;--paper:#F2ECDF;--paper2:#E6DDC9;--ink:#1B1B1B;--mu:#5E584C;--gold:#F2B24C;--red:#B8322A;--clay:#D97757;--sun:#EE9A68;--cream:#F4E7C3}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;font-family:'Noto Naskh Arabic',serif;-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1920px;position:relative;overflow:hidden;direction:rtl;color:var(--ink)}
+.hd{font-family:'Amiri';font-weight:700}
+.en{font-family:'Space Grotesk';font-weight:700;direction:ltr;unicode-bidi:isolate}
+.mono{font-family:'JetBrains Mono';font-weight:800;direction:ltr;unicode-bidi:isolate}
+.k{display:inline-block;padding:0 14px 4px;margin:0 2px;border-radius:10px;background:var(--ink);color:#fff;font:700 .84em/1.5 'Space Grotesk';direction:ltr;unicode-bidi:isolate;vertical-align:.08em;white-space:nowrap}
+.stars{position:absolute;inset:0}
+.stars i{position:absolute;border-radius:50%;background:#fff}
+.clock{position:absolute;top:256px;left:80px;display:flex;align-items:center;gap:12px;padding:8px 22px 10px;border-radius:999px;font:700 30px 'Noto Naskh Arabic';z-index:5}
+.clock svg{width:30px;height:30px}
+.clock.dk{background:rgba(255,255,255,.1);color:var(--gold);border:2px solid rgba(242,178,76,.35)}
+.clock.lt{background:rgba(27,27,27,.88);color:var(--gold)}
+.pg{position:absolute;top:266px;right:80px;font:800 28px 'JetBrains Mono';direction:ltr;z-index:5}
+.paper{background:var(--paper);box-shadow:0 30px 70px rgba(0,0,0,.45)}
+.paper.grain{background:radial-gradient(circle,rgba(90,70,40,.07) 1px,transparent 1.5px) 0 0/7px 7px,var(--paper)}
+.rule2{border-top:7px double var(--ink)}
+.ht{position:relative;overflow:hidden}
+.ht img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) sepia(.18) contrast(1.35) brightness(1.04)}
+.ht:after{content:"";position:absolute;inset:0;background:radial-gradient(circle,rgba(20,15,5,.42) 1.1px,transparent 1.7px) 0 0/6px 6px;mix-blend-mode:multiply}
+
+/* ١ الغلاف: الجريدة في الليل */
+.s1{background:radial-gradient(80% 32% at 50% 102%,#2E3170 0%,transparent 72%),linear-gradient(180deg,var(--n0) 0%,#111838 55%,var(--n2) 100%)}
+.moon{position:absolute;top:108px;left:150px;width:120px;height:120px;border-radius:50%;box-shadow:-30px 16px 0 0 var(--cream);transform:rotate(-18deg);filter:drop-shadow(0 0 24px rgba(244,231,195,.35))}
+.s1 .tag{position:absolute;top:252px;right:80px;display:flex;align-items:center;gap:14px;padding:8px 24px 12px;border-radius:999px;background:rgba(255,255,255,.08);border:2px solid rgba(244,231,195,.3);color:var(--cream);font:700 32px 'Noto Naskh Arabic'}
+.s1 .tag img{width:40px;height:40px}
+.s1 h1{position:absolute;top:352px;right:50px;left:50px;text-align:center;font-size:156px;line-height:1.16;color:var(--cream);text-shadow:0 8px 30px rgba(0,0,0,.4)}
+.s1 h1 em{display:block;font-style:normal;color:var(--gold)}
+.s1 .sub{position:absolute;top:738px;right:60px;left:60px;text-align:center;font:400 40px/1.4 'Noto Naskh Arabic';color:rgba(244,231,195,.86)}
+.s1 .sub b{color:#fff;font-weight:700}
+.s1 .np{position:absolute;top:826px;left:100px;width:880px;height:524px;padding:22px 34px 0;transform:rotate(-4deg)}
+.np .mh{display:flex;align-items:flex-end;justify-content:space-between;padding-bottom:6px}
+.np .mh small{font:700 26px 'Noto Naskh Arabic';color:var(--mu);padding-bottom:16px}
+.np .mh b{font:700 92px/1 'Aref Ruqaa';color:var(--ink)}
+.np .hl{margin-top:10px;text-align:center;font:700 66px/1.25 'Amiri'}
+.np .row{display:flex;gap:26px;margin-top:12px;padding-top:14px;border-top:2px solid var(--ink)}
+.np .ph{flex:none;width:430px}
+.np .ph .ht{height:232px}
+.np .ph p{font:400 26px/1.35 'Noto Naskh Arabic';color:var(--mu);margin-top:6px}
+.np .col{flex:1;font:400 28px/1.5 'Noto Naskh Arabic'}
+.np .col b{font-weight:700}
+.np .ln{height:12px;background:#CFC6B2;border-radius:3px;margin-top:14px}
+.s1 .hbar{position:absolute;top:1408px;right:80px;display:flex;gap:26px;align-items:center;padding:12px 28px;border-radius:999px;background:rgba(255,255,255,.1);color:var(--cream);font:700 28px 'Noto Naskh Arabic'}
+.s1 .swipe{position:absolute;top:1404px;left:80px;font:700 48px/1 'Amiri';color:var(--gold)}
+
+/* ٢ وش هي؟ صورة المطبعة فوق ومقال تحت */
+.s2{background:var(--n2)}
+.s2 .ph{position:absolute;top:0;left:0;right:0;height:840px}
+.s2 .ph img{width:100%;height:100%;object-fit:cover;object-position:62% 50%;transform:scale(1.22);transform-origin:60% 100%;filter:saturate(.55) brightness(.8) contrast(1.1)}
+.s2 .ph{overflow:hidden}
+.s2 .ph:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,19,48,.92) 0%,rgba(13,19,48,.7) 30%,rgba(13,19,48,.2) 50%,rgba(26,33,72,.35) 62%,var(--n2) 100%),rgba(40,55,150,.18)}
+.s2 .pg{color:var(--cream)}
+.s2 .cap{position:absolute;top:560px;right:80px;left:80px;color:#fff}
+.s2 .cap small{display:inline-block;padding:4px 18px 8px;background:var(--gold);color:var(--ink);font:700 28px 'Noto Naskh Arabic';border-radius:8px}
+.s2 .cap p{margin-top:12px;font:700 46px/1.35 'Amiri';text-shadow:0 4px 20px rgba(0,0,0,.6)}
+.s2 .art{position:absolute;top:735px;right:56px;left:56px;height:645px;padding:34px 46px 0}
+.s2 .art .sec{display:flex;align-items:center;gap:16px;padding-bottom:14px;border-bottom:3px solid var(--ink)}
+.s2 .art .sec>span{padding:2px 18px 8px;background:var(--red);color:#fff;font:700 28px 'Noto Naskh Arabic'}
+.s2 .art .sec i{font:400 28px 'Noto Naskh Arabic';font-style:normal;color:var(--mu)}
+.s2 .art h2{margin-top:20px;font-size:80px;line-height:1.2}
+.s2 .art .lead{margin-top:14px;font:400 36px/1.6 'Noto Naskh Arabic';text-wrap:balance}
+.s2 .art .lead b{font-weight:700}
+.s2 .eq{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:28px}
+.s2 .eq div{padding:12px 26px 20px;border:4px solid var(--ink);font:700 44px 'Amiri';background:#fff}
+.s2 .eq div.on{background:var(--ink);color:var(--gold)}
+.s2 .eq span{font:800 40px 'JetBrains Mono'}
+.s2 .note{margin-top:30px;padding:12px 22px 16px;border:3px dashed #9C9282;font:400 30px/1.5 'Noto Naskh Arabic';color:#3E3A33}
+.s2 .note b{font-weight:700;color:var(--red)}
+
+/* ٣ متى تشتغل؟ إعلانات مبوّبة */
+.s3{background:linear-gradient(180deg,#141B40 0%,#232A57 100%)}
+.s3 .sh{position:absolute;top:330px;right:56px;left:56px;height:1050px;padding:26px 40px 0}
+.s3 .band{display:flex;align-items:center;justify-content:space-between;padding:6px 0 12px;border-bottom:7px double var(--ink)}
+.s3 .band b{font:700 66px/1 'Aref Ruqaa'}
+.s3 .band small{font:400 28px 'Noto Naskh Arabic';color:var(--mu)}
+.s3 h2{margin-top:22px;font-size:86px;line-height:1.15}
+.s3 h2 em{font-style:normal;color:var(--red)}
+.ad{border:4px solid var(--ink);background:#fff}
+.ad .hh{display:flex;align-items:center;justify-content:space-between;padding:4px 20px 10px;background:var(--ink);color:var(--paper);font:700 40px 'Amiri'}
+.ad .hh .en{font-size:30px;color:var(--gold)}
+.ad .bd{padding:18px 24px 24px;font:400 34px/1.5 'Noto Naskh Arabic'}
+.ad .bd b{font-weight:700}
+.s3 .a1{margin-top:30px;display:flex;flex-direction:column}
+.s3 .a1 .bd{display:flex;align-items:center;gap:26px}
+.s3 .a1 svg{flex:none;width:130px;height:130px}
+.s3 .a1 .big{font:700 52px/1.3 'Amiri'}
+.s3 .two{display:flex;gap:22px;margin-top:28px}
+.s3 .two svg{display:block;width:74px;height:74px;margin-bottom:10px}
+.s3 .two .ad{flex:1}
+.s3 .mix{margin-top:26px;padding:20px 28px 24px;background:var(--ink);color:var(--paper);font:400 33px/1.5 'Noto Naskh Arabic'}
+.s3 .mix b{color:var(--gold);font-weight:700}
+
+/* ٤ جهّزها: شريط ورق بين بكرات المطبعة */
+.s4{background:linear-gradient(180deg,#232A57 0%,#3A3A72 100%)}
+.s4 h2{position:absolute;top:320px;right:80px;left:80px;font-size:104px;line-height:1.15;color:var(--cream)}
+.s4 .url{position:absolute;top:458px;right:80px;display:inline-block;padding:6px 20px 8px;border-radius:12px;background:rgba(242,178,76,.14);border:2px solid rgba(242,178,76,.5);color:var(--gold);font:800 34px 'JetBrains Mono';direction:ltr}
+.s4 .line{position:absolute;top:560px;right:80px;left:80px;height:830px}
+.s4 .strip{position:absolute;top:0;bottom:0;right:84px;left:0;background:var(--paper);box-shadow:0 26px 60px rgba(0,0,0,.4)}
+.s4 .seg{height:calc(100% / 6);display:flex;align-items:center;padding:0 70px 0 30px;font:400 32px/1.45 'Noto Naskh Arabic';border-bottom:3px dashed #BDB29C}
+.s4 .seg:last-child{border-bottom:0}
+.s4 .seg b{font-weight:700}
+.s4 .rollers{position:absolute;top:0;bottom:0;right:0;width:150px}
+.s4 .rl{position:absolute;right:16px;width:118px;height:118px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#7C7F93 0%,#3A3D50 45%,#1C1E2A 100%);box-shadow:0 10px 22px rgba(0,0,0,.45),inset 0 0 0 6px rgba(255,255,255,.06);display:grid;place-items:center;font:800 46px 'JetBrains Mono';color:var(--gold)}
+.s4 .rl:after{content:"";position:absolute;inset:16px;border-radius:50%;border:2px dashed rgba(242,178,76,.35)}
+
+/* ٥ برومبت تقرير الصبح: ورق طابعة متصل */
+.s5{background:linear-gradient(180deg,#3A3570 0%,#5E4675 55%,#8C5A72 100%)}
+.s5 h2{position:absolute;top:322px;right:80px;left:80px;font-size:96px;line-height:1.15;color:var(--cream)}
+.s5 .sub{position:absolute;top:448px;right:80px;font:400 34px 'Noto Naskh Arabic';color:rgba(244,231,195,.85)}
+.s5 .slot{position:absolute;top:530px;left:70px;right:70px;height:46px;border-radius:23px;background:#16132A;box-shadow:inset 0 6px 12px rgba(0,0,0,.6)}
+.s5 .slot i{position:absolute;left:30px;top:16px;width:14px;height:14px;border-radius:50%;background:#5CE08A;box-shadow:0 0 12px #5CE08A}
+.s5 .form{position:absolute;top:553px;left:110px;right:110px;height:560px;padding:44px 80px 0;background:repeating-linear-gradient(180deg,#EEF4E8 0 56px,#FBFCF8 56px 112px);box-shadow:0 24px 50px rgba(0,0,0,.35)}
+.s5 .holes{position:absolute;top:0;bottom:0;width:60px;background:radial-gradient(circle,#5E4675 9px,transparent 10px) 50% 18px/60px 46px repeat-y;border-color:#C9D3C0;border-style:dashed}
+.s5 .holes.r{right:0;border-width:0 0 0 2px}
+.s5 .holes.l{left:0;border-width:0 2px 0 0}
+.s5 .form .hd2{display:flex;align-items:center;justify-content:space-between;font:700 30px 'Noto Naskh Arabic';color:#2F6B45;padding-bottom:10px;border-bottom:2px solid #2F6B45}
+.s5 .form .hd2 span{display:flex;align-items:center;gap:10px}
+.s5 .form .hd2 svg{width:30px;height:30px}
+.s5 .form p{margin-top:18px;font:400 34px/1.62 'Noto Naskh Arabic';color:#1F2A1F;text-wrap:pretty}
+.s5 .form p b{font-weight:700}
+.s5 .pen{position:absolute;top:986px;left:200px;right:200px;transform:rotate(-3deg);font:700 40px/1.35 'Aref Ruqaa';color:var(--red);text-align:center}
+.s5 .cli{position:absolute;top:1160px;right:80px;left:80px;padding:22px 34px 26px;border-radius:24px;background:#120F24;color:var(--cream);box-shadow:0 20px 40px rgba(0,0,0,.35)}
+.s5 .cli small{font:400 30px 'Noto Naskh Arabic';color:rgba(244,231,195,.75)}
+.s5 .cli div{margin-top:8px;font:800 37px 'JetBrains Mono';color:var(--gold);direction:ltr;text-align:left}
+.s5 .cli div i{font-style:normal;color:#8E87B8}
+
+/* ٦ قبل لا تنام: الشروق والقهوة */
+.s6{background:radial-gradient(60% 26% at 85% 14%,#FFE3A8 0%,transparent 70%),linear-gradient(180deg,#EE9A68 0%,#F5C08E 45%,#F8E1BF 100%)}
+.s6 .pol{position:absolute;top:350px;left:84px;width:380px;padding:20px 20px 0;background:#FFFDF8;transform:rotate(-6deg);box-shadow:0 26px 50px rgba(110,50,10,.3)}
+.s6 .pol img{display:block;width:100%;height:290px;object-fit:cover;object-position:50% 60%;filter:saturate(1.05) contrast(1.05)}
+.s6 .pol p{padding:10px 0 14px;text-align:center;font:700 34px 'Aref Ruqaa';color:var(--ink)}
+.s6 .tape{position:absolute;top:-24px;left:140px;width:150px;height:48px;background:rgba(255,236,190,.75);transform:rotate(4deg)}
+.s6 h2{position:absolute;top:330px;right:80px;width:480px;font-size:124px;line-height:1.1;color:#3A1E0E}
+.s6 h2 em{display:block;font-style:normal;color:var(--red)}
+.s6 .lede{position:absolute;top:628px;right:80px;width:480px;font:400 34px/1.5 'Noto Naskh Arabic';color:#4A2A16}
+.s6 .box{position:absolute;top:760px;right:70px;left:70px;padding:0 0 18px}
+.s6 .box .bh{padding:6px 28px 12px;background:var(--red);color:#fff;font:700 40px 'Amiri'}
+.s6 .box ol{list-style:none;padding:8px 30px 0}
+.s6 .box li{display:flex;gap:18px;align-items:flex-start;padding:12px 0;border-bottom:2px solid #DCD2BE;font:400 32px/1.45 'Noto Naskh Arabic'}
+.s6 .box li b{font-weight:700}
+.s6 .box li i{flex:none;width:50px;height:50px;margin-top:4px;border-radius:50%;background:var(--ink);color:var(--gold);display:grid;place-items:center;font:800 28px 'JetBrains Mono';font-style:normal}
+.s6 .box .pl{padding:14px 30px 0;font:400 28px/1.5 'Noto Naskh Arabic';color:var(--mu)}
+.s6 .box .pl .en{color:var(--ink)}
+
+/* ٧ عمود الكاتب */
+.s7{background:radial-gradient(70% 30% at 50% 0%,#FFF6E2 0%,transparent 70%),radial-gradient(circle,rgba(90,70,40,.06) 1px,transparent 1.5px) 0 0/7px 7px,var(--paper)}
+.s7 .mast{position:absolute;top:250px;right:70px;left:70px;padding:10px 0 4px;border-top:7px double var(--ink);border-bottom:7px double var(--ink);display:flex;align-items:center;justify-content:space-between}
+.s7 .mast b{font:700 116px/1.05 'Aref Ruqaa'}
+.s7 .mast small{width:200px;font:700 28px/1.4 'Noto Naskh Arabic';color:var(--mu)}
+.s7 .mast small.l{text-align:left}
+.s7 .by{position:absolute;top:470px;right:70px;left:70px;display:flex;align-items:center;gap:34px;padding-bottom:26px;border-bottom:3px solid var(--ink)}
+.s7 .face{flex:none;width:250px;height:250px;border-radius:50%;overflow:hidden;border:7px solid var(--ink);background:#E8DFCB}
+.s7 .face img{width:100%;height:100%;object-fit:cover}
+.s7 .by small{display:block;font:700 28px 'Noto Naskh Arabic';color:var(--red)}
+.s7 .by h3{font-size:92px;line-height:1.3}
+.s7 .by p{margin-top:20px;font:400 32px/1.45 'Noto Naskh Arabic';color:var(--mu)}
+.s7 .q{position:absolute;top:810px;right:70px;left:70px;font-size:86px;line-height:1.22}
+.s7 .q em{font-style:normal;color:var(--red)}
+.s7 .body{position:absolute;top:1036px;right:70px;left:70px;font:400 36px/1.6 'Noto Naskh Arabic'}
+.s7 .body b{font-weight:700}
+.s7 .save{position:absolute;top:1160px;right:70px;display:flex;align-items:center;gap:14px;padding:10px 26px 14px;background:var(--ink);color:var(--gold);font:700 32px 'Noto Naskh Arabic'}
+.s7 .save svg{width:30px;height:30px}
+.s7 .soc{position:absolute;top:1262px;right:70px;left:70px;display:flex;align-items:center;justify-content:space-between;padding:16px 26px;border:4px solid var(--ink);background:#fff;font:700 30px 'Noto Naskh Arabic'}
+.s7 .soc>span{color:var(--mu)}
+.s7 .soc>div{display:flex;gap:30px;align-items:center}
+</style>
+</head>
+<body>
+
+<!-- ١ الغلاف -->
+<section class="slide s1" data-handles="off">
+  <div class="stars" data-n="70" data-y="1250"></div>
+  <div class="moon"></div>
+  <div class="tag"><img src="assets/claude-color.svg" alt=""><span><span class="en">Claude</span> · المهام المجدولة</span></div>
+  <div class="clock dk"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="#F2B24C"/></svg><span><span class="mono">3:07</span> الفجر</span></div>
+  <h1 class="hd">خلّه يشتغل<em>وأنت نايم</em></h1>
+  <div class="sub">لابتوبك مسكّر، <b>والمهمة شغّالة في السحابة</b></div>
+  <div class="np paper grain">
+    <div class="mh"><small>طبعة الفجر</small><b>صباحك</b><small>توصلك <span class="mono">6:07</span></small></div>
+    <div class="rule2"></div>
+    <div class="hl">تقريرك جاهز قبل قهوتك</div>
+    <div class="row">
+      <div class="ph"><div class="ht"><img src="assets/cat.jpg" alt="" style="object-position:42% 55%;transform:scale(1.35);transform-origin:42% 58%"></div><p>صاحب التقرير، الساعة 3 الفجر</p></div>
+      <div class="col"><b>نمت الساعة 11.</b> وبالليل قرأ Claude الجديد، ولخّصه، وأرسل لك الملخص قبل لا تصحى.<div class="ln"></div><div class="ln" style="width:80%"></div></div>
+    </div>
+  </div>
+  <div class="hbar">{{HANDLES}}</div>
+  <div class="swipe">اسحب ←</div>
+</section>
+
+<!-- ٢ وش هي؟ -->
+<section class="slide s2" data-handles="light">
+  <div class="ph"><img src="assets/press.jpg" alt=""></div>
+  <div class="stars" data-n="0"></div>
+  <div class="clock dk"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="#F2B24C"/></svg><span><span class="mono">3:30</span> الفجر</span></div>
+  <div class="pg">2/7</div>
+  <div class="cap"><small>المطبعة: سحابة <span class="en">Anthropic</span></small><p>تشتغل وأنت نايم… حتى لو لابتوبك مسكّر</p></div>
+  <div class="art paper">
+    <div class="sec"><span>شرح</span><i>المهام المجدولة في <span class="en">Claude Code</span></i></div>
+    <h2 class="hd">تجهّزها مرة… وتشتغل لحالها</h2>
+    <div class="lead">تحفظ الإعداد مرة وحدة، ويشغّله <span class="en">Claude</span> على موعدك <b>كجلسة كاملة في السحابة</b></div>
+    <div class="eq"><div>برومبت</div><span>+</span><div>مستودع</div><span>+</span><div>موصّلات</div><span>=</span><div class="on">مهمة</div></div>
+    <div class="note"><b>تنويه:</b> اسمها الجديد <span class="en">Scheduled tasks</span>، وكان اسمها <span class="en">Routines</span></div>
+  </div>
+</section>
+
+<!-- ٣ متى تشتغل؟ -->
+<section class="slide s3" data-handles="light">
+  <div class="stars" data-n="40" data-y="320"></div>
+  <div class="clock dk"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="#F2B24C"/></svg><span><span class="mono">4:00</span> الفجر</span></div>
+  <div class="pg" style="color:var(--cream)">3/7</div>
+  <div class="sh paper grain">
+    <div class="band"><b>إعلانات مبوّبة</b><small>مشغّلات المهمة</small></div>
+    <h2 class="hd">متى تشتغل؟ <em>أنت تحدد</em></h2>
+    <div class="ad a1">
+      <div class="hh"><span>بموعد</span><span class="en">Schedule</span></div>
+      <div class="bd">
+        <svg viewBox="0 0 64 64"><circle cx="32" cy="34" r="24" fill="#F2ECDF" stroke="#1B1B1B" stroke-width="4"/><path d="M32 20v14l9 6" stroke="#B8322A" stroke-width="4.5" stroke-linecap="round" fill="none"/><path d="M14 10l-6 6M50 10l6 6" stroke="#1B1B1B" stroke-width="4" stroke-linecap="round"/></svg>
+        <div><div class="big">كل ساعة · يومي · أسبوعي</div>أو <b>مرة وحدة</b> بوقت تحدده أنت</div>
+      </div>
+    </div>
+    <div class="two">
+      <div class="ad"><div class="hh"><span>بطلب</span><span class="en">API</span></div><div class="bd"><svg viewBox="0 0 64 64"><rect x="6" y="14" width="52" height="36" rx="6" fill="#F2ECDF" stroke="#1B1B1B" stroke-width="4"/><path d="M22 26l-7 6 7 6M42 26l7 6-7 6M35 23l-6 18" stroke="#B8322A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>نظامك يرسل طلب لرابط المهمة، <b>فتشتغل فوراً</b></div></div>
+      <div class="ad"><div class="hh"><span>بحدث</span><span class="en">GitHub</span></div><div class="bd"><svg viewBox="0 0 64 64"><circle cx="18" cy="14" r="7" fill="#F2ECDF" stroke="#1B1B1B" stroke-width="4"/><circle cx="18" cy="50" r="7" fill="#F2ECDF" stroke="#1B1B1B" stroke-width="4"/><circle cx="46" cy="22" r="7" fill="#F2ECDF" stroke="#B8322A" stroke-width="4"/><path d="M18 21v22M46 29c0 10-28 6-28 14" stroke="#1B1B1B" stroke-width="4" fill="none"/></svg>لما ينفتح <span class="en">PR</span> جديد، أو تنزل <span class="en">Release</span></div></div>
+    </div>
+    <div class="mix"><b>وتقدر تجمعها:</b> نفس المهمة تشتغل كل ليلة، ومع كل <span class="en">PR</span> جديد</div>
+  </div>
+</section>
+
+<!-- ٤ جهّزها من الويب -->
+<section class="slide s4" data-handles="light">
+  <div class="stars" data-n="22" data-y="560"></div>
+  <div class="clock dk"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="#F2B24C"/></svg><span><span class="mono">4:45</span> الفجر</span></div>
+  <div class="pg" style="color:var(--cream)">4/7</div>
+  <h2 class="hd">جهّزها في 6 خطوات</h2>
+  <div class="url">claude.ai/code/routines</div>
+  <div class="line">
+    <div class="strip">
+      <div class="seg"><span>افتح الرابط واضغط <span class="k">New task</span></span></div>
+      <div class="seg"><span>اختر <span class="k">Set up manually</span> أو <span class="k">Create with Claude</span></span></div>
+      <div class="seg"><span>سمّها، واكتب <b>البرومبت</b>، واختر النموذج</span></div>
+      <div class="seg"><span>في <span class="k">Trigger</span> اختر <span class="k">Schedule</span> وحدد الوقت</span></div>
+      <div class="seg"><span>من <span class="k">Advanced settings</span> اختر المستودع، وراجع <span class="k">Connectors</span></span></div>
+      <div class="seg"><span>اضغط <span class="k">Create</span>، وجرّبها فوراً بزر <span class="k">Run now</span></span></div>
+    </div>
+    <div class="rollers">
+      <div class="rl" style="top:10px">1</div>
+      <div class="rl" style="top:148px">2</div>
+      <div class="rl" style="top:286px">3</div>
+      <div class="rl" style="top:424px">4</div>
+      <div class="rl" style="top:562px">5</div>
+      <div class="rl" style="top:700px">6</div>
+    </div>
+  </div>
+</section>
+
+<!-- ٥ برومبت تقرير الصبح -->
+<section class="slide s5" data-handles="light">
+  <div class="stars" data-n="14" data-y="520"></div>
+  <div class="clock dk"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="#F2B24C"/></svg><span><span class="mono">5:30</span> الفجر</span></div>
+  <div class="pg" style="color:var(--cream)">5/7</div>
+  <h2 class="hd">برومبت تقرير الصبح</h2>
+  <div class="sub">انسخه، وعدّل اسم القناة على كيفك</div>
+  <div class="form">
+    <div class="holes r"></div><div class="holes l"></div>
+    <div class="hd2"><span><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8" fill="none" stroke="#2F6B45" stroke-width="2.4"/><path d="M12 9v4l3 2" stroke="#2F6B45" stroke-width="2.4" stroke-linecap="round" fill="none"/></svg>كل يوم · <span class="mono">6:07</span> الصبح</span><span>البرومبت</span></div>
+    <p>اقرأ <b>التذاكر وطلبات الدمج الجديدة</b> من آخر تشغيل.<br>لخّصها في 5 نقاط: الجديد، والمتأخر،<br><b>وأهم قرار ينتظرني اليوم.</b><br>وأرسل الملخص في قناة الفريق على <span class="en">Slack</span>.</p>
+  </div>
+  <div class="pen">ما يقدر يسألك وهو شغّال… فاكتب كل شي بوضوح</div>
+  <div class="cli"><small>أو من الطرفية بسطر واحد:</small><div><i>&gt;</i> /schedule daily PR review at 9am</div></div>
+</section>
+
+<!-- ٦ قبل لا تنام -->
+<section class="slide s6">
+  <div class="clock lt"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" fill="#F2B24C"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1" stroke="#F2B24C" stroke-width="2" stroke-linecap="round"/></svg><span><span class="mono">6:07</span> الصبح</span></div>
+  <div class="pg" style="color:#3A1E0E">6/7</div>
+  <div class="pol"><div class="tape"></div><img src="assets/coffee.jpg" alt=""><p>وصل التقرير مع القهوة</p></div>
+  <h2 class="hd">قبل<em>لا تنام</em></h2>
+  <div class="lede">4 نقاط تخلّي تقريرك يوصلك سليم</div>
+  <div class="box paper">
+    <div class="bh">تنبيهات</div>
+    <ol>
+      <li><i>1</i><span><b>أقل فاصل ساعة</b> بين كل تشغيل والثاني.</span></li>
+      <li><i>2</i><span>خلّ الموعد <b><span class="mono">9:07</span> بدل <span class="mono">9:00</span></b>، رأس الساعة ممكن يتأخر.</span></li>
+      <li><i>3</i><span><b>شيل الموصّلات الزايدة:</b> المهمة تستخدمها بدون ما تستأذنك.</span></li>
+      <li><i>4</i><span><b>الأخضر مو معناه نجاح:</b> افتح التشغيل واقرأ وش صار.</span></li>
+    </ol>
+    <div class="pl">متاحة في <span class="en">Pro · Max · Team · Enterprise</span> وهي ميزة تجريبية</div>
+  </div>
+</section>
+
+<!-- ٧ عمود الكاتب -->
+<section class="slide s7" data-handles="off">
+  <div class="mast"><small>عمود الكاتب</small><b>صباحك</b><small class="l">كل يوم ذكاء اصطناعي وأتمتة</small></div>
+  <div class="by">
+    <div class="face"><img src="{{AVATAR}}" alt=""></div>
+    <div><small>بقلم</small><h3 class="hd">علي التميمي</h3><p>أدوات ذكاء اصطناعي تشتغل عنك، بالعربي وخطوة بخطوة</p></div>
+  </div>
+  <div class="q hd">وش أول تقرير<br>تبيه <em>يوصلك الصبح؟</em></div>
+  <div class="body">اكتبه بالتعليقات، <b>وأرد عليك بالبرومبت كامل</b> جاهز تنسخه في مهمتك.</div>
+  <div class="save"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z" fill="#F2B24C"/></svg>احفظ المنشور لين تجهّز أول مهمة</div>
+  <div class="soc"><span>تابع العمود</span><div>{{HANDLES}}</div></div>
+</section>
+
+<script>
+document.querySelectorAll('.stars').forEach((el, k) => {
+  const n = +el.dataset.n || 0, ymax = +el.dataset.y || 1300;
+  let s = 17 + k * 31;
+  const r = () => (s = (s * 16807) % 2147483647) / 2147483647;
+  for (let i = 0; i < n; i++) {
+    const d = document.createElement('i');
+    const z = r() < 0.12 ? 5 : r() < 0.5 ? 3 : 2;
+    d.style.cssText = `left:${r() * 1080}px;top:${r() * ymax}px;width:${z}px;height:${z}px;opacity:${0.35 + r() * 0.6}`;
+    el.appendChild(d);
+  }
+});
+</script>
+</body>
+</html>

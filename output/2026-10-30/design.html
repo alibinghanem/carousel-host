@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<style>
+:root{--warn:#F5C518;--ink:#141414;--asph:#2A2C30;--lane:#F2C230;--red:#D7263D;--green:#0A7D4F;--orange:#F28C28;--paper:#F7F7F2;--mu:#5E6168}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;font-family:'IBM Plex Sans Arabic',sans-serif;-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1920px;position:relative;overflow:hidden;direction:rtl;color:var(--ink);background:var(--paper)}
+.hd{font-family:'Almarai';font-weight:800}
+.en{font-family:'Space Grotesk';font-weight:700;direction:ltr;unicode-bidi:isolate}
+.tag{position:absolute;top:250px;right:80px;padding:8px 26px 12px;border-radius:40px;background:var(--ink);color:#fff;font:700 30px 'IBM Plex Sans Arabic';z-index:3}
+.pg{position:absolute;top:262px;left:80px;font:700 28px 'Space Grotesk';color:var(--mu);direction:ltr;z-index:3}
+.num{display:inline-grid;place-items:center;width:86px;height:76px;margin-left:18px;vertical-align:middle;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 86 76'%3E%3Cpath d='M43 4 L82 72 H4 Z' fill='%23F5C518' stroke='%23D7263D' stroke-width='8' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;font:700 34px/1 'Space Grotesk';color:var(--ink);padding-top:22px}
+/* صندوق الغلط والمخرج */
+.bad{display:flex;gap:16px;align-items:flex-start;padding:20px 26px 24px;border-radius:20px;background:#fff;border-right:12px solid var(--red);box-shadow:0 10px 24px rgba(0,0,0,.12);font:700 34px/1.5 'IBM Plex Sans Arabic'}
+.bad b{flex:none;color:var(--red)}
+.exit{position:relative;padding:22px 30px 28px 70px;border-radius:18px;background:var(--green);color:#fff;border:6px solid #fff;outline:4px solid var(--green);font:700 36px/1.5 'IBM Plex Sans Arabic'}
+.exit b{display:block;font:800 30px 'Almarai';color:#BDF0D4;margin-bottom:4px}
+.exit:after{content:"";position:absolute;left:22px;top:50%;width:34px;height:34px;margin-top:-17px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 34'%3E%3Cpath d='M30 17H6M16 6 5 17l11 11' fill='none' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+.stripes{position:absolute;left:0;right:0;height:70px;background:repeating-linear-gradient(-45deg,var(--ink) 0 40px,var(--warn) 40px 80px)}
+
+/* ١ الغلاف */
+.s1{background:radial-gradient(70% 50% at 50% 55%,#FFD43B 0%,var(--warn) 70%,#E8B70E 100%)}
+.s1 .stripes.t{top:0}.s1 .stripes.b{bottom:0}
+.s1 .tag{top:250px}
+.s1 h1{position:absolute;top:318px;right:76px;left:50px;font-size:170px;line-height:1.25;white-space:nowrap}
+.s1 h1 em{font-style:normal;color:var(--red)}
+.s1 .sub{position:absolute;top:545px;right:80px;font:800 56px/1.35 'Almarai'}
+.s1 .sign{position:absolute;top:790px;left:50%;width:540px;height:540px;margin-left:-270px;transform:rotate(45deg);border-radius:46px;background:var(--warn);border:26px solid var(--ink);box-shadow:0 0 0 14px var(--warn),0 0 0 22px var(--ink),0 40px 60px rgba(0,0,0,.25)}
+.s1 .sign svg{position:absolute;inset:60px;transform:rotate(-45deg)}
+.s1 .hbar{position:absolute;top:1408px;right:80px;display:flex;gap:26px;align-items:center;padding:12px 28px;border-radius:14px;background:var(--ink);color:#fff;font:700 28px 'IBM Plex Sans Arabic'}
+.s1 .swipe{position:absolute;top:1405px;left:80px;font:800 52px/1 'Almarai';color:var(--ink)}
+
+/* ٢ الحفرة ١ */
+.s2 .ph{position:absolute;top:0;left:0;right:0;height:900px;overflow:hidden}
+.s2 .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 62%;filter:saturate(.85) contrast(1.05)}
+.s2 .ph:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.88) 0%,rgba(10,10,10,.55) 34%,rgba(10,10,10,.05) 60%,rgba(247,247,242,0) 85%,var(--paper) 100%)}
+.s2 .pg{color:#ccc}
+.s2 h2{position:absolute;top:322px;right:80px;left:50px;font-size:92px;line-height:1.3;color:#fff;z-index:2}
+.s2 .mark{position:absolute;top:610px;left:250px;padding:8px 22px 12px;border-radius:14px;background:var(--red);color:#fff;font:800 34px 'Almarai';transform:rotate(-4deg);box-shadow:0 10px 20px rgba(0,0,0,.35)}
+.s2 .mark:after{content:"";position:absolute;bottom:-18px;left:40px;border:12px solid transparent;border-top-color:var(--red)}
+.s2 .box{position:absolute;top:930px;right:70px;left:70px;display:flex;flex-direction:column;gap:22px}
+
+/* ٣ الحفرة ٢ */
+.s3{background:linear-gradient(180deg,#ECEDE6,#E2E3DB)}
+.s3 h2{position:absolute;top:322px;right:80px;left:400px;font-size:92px;line-height:1.3}
+.s3 .pg{left:400px}
+.s3 .road{position:absolute;top:0;bottom:0;left:60px;width:300px;background:var(--asph);box-shadow:inset 0 0 0 10px #3A3D42}
+.s3 .road:before{content:"";position:absolute;top:0;bottom:0;left:50%;width:12px;margin-left:-6px;background:repeating-linear-gradient(180deg,var(--lane) 0 70px,transparent 70px 130px)}
+.s3 .road .hole{position:absolute;top:880px;left:30px;width:240px;height:150px;border-radius:50%;background:radial-gradient(ellipse at 50% 60%,#0B0C0E 0%,#16181B 55%,#4A4D53 75%,transparent 77%);transform:rotate(-8deg)}
+.s3 .road .wsign{position:absolute;top:600px;left:90px;width:120px;height:106px}
+.s3 .txt{position:absolute;top:610px;right:80px;width:580px;display:flex;flex-direction:column;gap:24px}
+.s3 .hb{position:absolute;top:1408px;right:80px;display:flex;gap:26px;align-items:center;padding:10px 26px;border-radius:14px;background:var(--ink);color:#fff;font:700 26px 'IBM Plex Sans Arabic'}
+.s3 .lead{font:700 38px/1.5 'IBM Plex Sans Arabic';color:var(--mu)}
+
+/* ٤ الحفرة ٣ */
+.s4{background:var(--paper)}
+.s4 h2{position:absolute;top:326px;right:80px;left:40px;font-size:84px;line-height:1.3;white-space:nowrap}
+.s4 .no{position:absolute;top:500px;left:50%;width:300px;height:300px;margin-left:-150px;border-radius:50%;background:#fff;border:34px solid var(--red);box-shadow:0 20px 40px rgba(0,0,0,.15)}
+.s4 .no svg{position:absolute;inset:30px}
+.s4 .no:after{content:"";position:absolute;top:50%;left:-10px;right:-10px;height:34px;margin-top:-17px;background:var(--red);transform:rotate(-45deg)}
+.s4 .lead{position:absolute;top:840px;right:80px;left:80px;text-align:center;font:700 36px/1.5 'IBM Plex Sans Arabic';color:var(--mu)}
+.s4 .cols{position:absolute;top:960px;right:70px;left:70px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.s4 .col{border-radius:22px;padding:20px 24px 24px;background:#fff;box-shadow:0 10px 24px rgba(0,0,0,.1)}
+.s4 .col h3{font:800 38px 'Almarai';margin-bottom:10px}
+.s4 .col.n h3{color:var(--red)}.s4 .col.y h3{color:var(--green)}
+.s4 .col li{list-style:none;font:700 31px/1.6 'IBM Plex Sans Arabic'}
+.s4 .col.n li:before{content:"✗ ";color:var(--red)}.s4 .col.y li:before{content:"✓ ";color:var(--green)}
+.s4 .exit{position:absolute;top:1255px;right:70px;left:70px;font-size:32px;padding:16px 30px 20px 70px}
+
+/* ٥ الحفرة ٤ */
+.s5{background:#1D1F23;color:#fff}
+.s5 .pg{color:#9a9a9a}
+.s5 .tag{background:var(--warn);color:var(--ink)}
+.s5 h2{position:absolute;top:330px;right:80px;left:40px;font-size:74px;line-height:1.3;white-space:nowrap}
+.s5 .ph{position:absolute;top:520px;right:80px;width:520px;height:380px;border-radius:26px;overflow:hidden;border:8px solid #fff;transform:rotate(2deg)}
+.s5 .ph img{width:100%;height:100%;object-fit:cover;object-position:60% 50%}
+.s5 .barrier{position:absolute;top:930px;left:0;right:0;height:56px;background:repeating-linear-gradient(-45deg,#fff 0 36px,var(--red) 36px 72px)}
+.s5 .bad{position:absolute;top:540px;left:60px;width:400px;font-size:32px;background:#2C2F34;color:#fff;box-shadow:none}
+.s5 .detour{position:absolute;top:1030px;right:70px;left:70px;padding:24px 34px 30px;border-radius:20px;background:var(--orange);color:var(--ink);border:8px solid var(--ink);outline:6px solid var(--orange)}
+.s5 .detour b{display:block;font:800 40px 'Almarai';margin-bottom:8px}
+.s5 .detour .eq{display:flex;gap:14px;align-items:center;flex-wrap:wrap;font:800 40px 'Almarai'}
+.s5 .detour .eq span{padding:6px 18px 10px;border-radius:12px;background:var(--ink);color:#fff}
+.s5 .detour .eq i{font-style:normal;font:700 40px 'Space Grotesk'}
+.s5 .detour p{margin-top:12px;font:700 32px 'IBM Plex Sans Arabic'}
+
+/* ٦ الحفرة ٥ */
+.s6{background:radial-gradient(70% 45% at 50% 45%,#2B2F36 0%,#121418 100%);color:#fff}
+.s6 .pg{color:#9a9a9a}
+.s6 .tag{background:var(--warn);color:var(--ink)}
+.s6 h2{position:absolute;top:322px;right:80px;left:50px;font-size:92px;line-height:1.3}
+.s6 .gauge{position:absolute;top:470px;left:50%;width:600px;height:400px;margin-left:-300px}
+.s6 .odo{position:absolute;top:880px;left:50%;width:640px;margin-left:-320px;display:flex;gap:18px;justify-content:center}
+.s6 .odo div{flex:1;padding:12px 16px 16px;border-radius:16px;background:#0B0C0F;border:3px solid #3A3E46;text-align:center;font:700 28px 'IBM Plex Sans Arabic';color:#9AA0A8}
+.s6 .odo div b{display:block;font:700 54px 'Space Grotesk';color:var(--lane);direction:ltr}
+.s6 .odo div.after b{color:#3DDC97}
+.s6 .ex{position:absolute;top:1020px;right:0;left:0;text-align:center;font:600 26px 'IBM Plex Sans Arabic';color:#8C929B}
+.s6 .box{position:absolute;top:1080px;right:70px;left:70px;display:flex;flex-direction:column;gap:20px}
+.s6 .bad{background:#22252B;color:#fff;box-shadow:none}
+
+/* ٧ المتابعة */
+.s7{background:linear-gradient(180deg,#E9EBE4,#DADCD3)}
+.s7 h2{position:absolute;top:322px;right:80px;left:50px;font-size:84px;line-height:1.3}
+.s7 .map{position:absolute;top:470px;right:70px;left:70px;height:600px;border-radius:30px;background:#F4F5EF;box-shadow:0 16px 36px rgba(0,0,0,.14);overflow:hidden}
+.s7 .map svg{position:absolute;inset:0}
+.s7 .st{position:absolute;padding:6px 16px 10px;border-radius:12px;background:#fff;box-shadow:0 6px 14px rgba(0,0,0,.15);font:700 28px 'IBM Plex Sans Arabic';white-space:nowrap}
+.s7 .st i{font-style:normal;color:var(--green);font-family:'Space Grotesk';margin-left:8px}
+.s7 .pin{position:absolute;top:10px;left:20px;width:200px;height:240px}
+.s7 .pin .face{position:absolute;top:0;left:0;width:200px;height:200px;border-radius:50%;overflow:hidden;background:var(--warn);border:10px solid var(--green)}
+.s7 .pin .face img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.s7 .pin:after{content:"";position:absolute;bottom:0;left:76px;border:24px solid transparent;border-top:44px solid var(--green)}
+.s7 .nm{position:absolute;top:1100px;left:0;right:0;text-align:center;font:800 88px/1.25 'Almarai'}
+.s7 .ds{position:absolute;top:1212px;left:0;right:0;text-align:center;font:700 32px 'IBM Plex Sans Arabic';color:var(--mu)}
+.s7 .soc{position:absolute;top:1268px;left:0;right:0;display:flex;justify-content:center}
+.s7 .soc>div{display:flex;gap:26px;align-items:center;padding:12px 30px;border-radius:14px;background:var(--ink);color:#fff;font:700 30px 'IBM Plex Sans Arabic'}
+.s7 .ask{position:absolute;top:1350px;left:60px;right:60px;text-align:center;font:800 40px/1.4 'Almarai';color:var(--red)}
+</style>
+</head>
+<body>
+
+<!-- ١ الغلاف -->
+<section class="slide s1">
+  <div class="stripes t"></div><div class="stripes b"></div>
+  <div class="tag">أتمتة · تبنّي الذكاء الاصطناعي</div>
+  <h1 class="hd">انتبه: <em>5 حفر</em></h1>
+  <div class="sub">في طريق الذكاء الاصطناعي بشركتك</div>
+  <div class="sign"><svg viewBox="0 0 400 400">
+    <path d="M150 40 L110 360 M250 40 L290 360" stroke="#141414" stroke-width="18" stroke-linecap="round"/>
+    <path d="M200 60v40M200 150v40M200 240v40" stroke="#141414" stroke-width="12" stroke-linecap="round"/>
+    <ellipse cx="200" cy="300" rx="95" ry="40" fill="#141414"/>
+    <path d="M118 286 l-22 -16 M282 286 l22 -16 M150 268 l-6 -24 M250 268 l6 -24" stroke="#141414" stroke-width="10" stroke-linecap="round"/>
+  </svg></div>
+  <div class="swipe">اسحب ←</div>
+  <div class="hbar">{{HANDLES}}</div>
+</section>
+
+<!-- ٢ الحفرة ١ -->
+<section class="slide s2">
+  <div class="ph"><img src="assets/pothole.jpg" alt=""></div>
+  <div class="tag">أتمتة · تبنّي الذكاء الاصطناعي</div>
+  <div class="pg">2/7</div>
+  <h2 class="hd"><span class="num">1</span>تشتري الأداة<br>قبل المشكلة</h2>
+  <div class="mark">الحفرة الأولى</div>
+  <div class="box">
+    <div class="bad"><b>الغلط:</b><span>اشتراك للكل «لأن الكل يستخدمه»… وبعد شهر محد عارف وش المطلوب منه</span></div>
+    <div class="exit"><b>المخرج</b>اختر مشكلة وحدة تاكل وقتكم (مثل الرد على الاستفسارات المتكررة)… وبعدين دوّر لها أداة</div>
+  </div>
+</section>
+
+<!-- ٣ الحفرة ٢ -->
+<section class="slide s3">
+  <div class="road">
+    <svg class="wsign" viewBox="0 0 120 106"><path d="M60 6 L114 100 H6 Z" fill="#F5C518" stroke="#D7263D" stroke-width="10" stroke-linejoin="round"/><text x="60" y="88" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="46" fill="#141414">2</text></svg>
+    <div class="hole"></div>
+  </div>
+  <div class="tag">أتمتة · تبنّي الذكاء الاصطناعي</div>
+  <div class="pg">3/7</div>
+  <h2 class="hd"><span class="num">2</span>ورشة يوم… وخلاص</h2>
+  <div class="txt">
+    <div class="lead">التدريب مو حدث… التدريب عادة</div>
+    <div class="bad"><b>الغلط:</b><span>ورشة يوم وحد، وبعدها كل واحد يرجع لطريقته القديمة</span></div>
+    <div class="exit"><b>المخرج</b>تمرين يومي <span class="en">15</span> دقيقة على مهمة حقيقية، و«كابتن» لكل فريق يتابع ويجاوب أسئلتهم</div>
+  </div>
+  <div class="hb">{{HANDLES}}</div>
+</section>
+
+<!-- ٤ الحفرة ٣ -->
+<section class="slide s4">
+  <div class="tag">أتمتة · تبنّي الذكاء الاصطناعي</div>
+  <div class="pg">4/7</div>
+  <h2 class="hd"><span class="num">3</span>ما فيه سياسة بيانات</h2>
+  <div class="no"><svg viewBox="0 0 160 160"><rect x="44" y="22" width="72" height="96" rx="8" fill="#E9EAEE" stroke="#141414" stroke-width="6"/><path d="M58 50h44M58 70h44M58 90h28" stroke="#141414" stroke-width="6" stroke-linecap="round"/></svg></div>
+  <div class="lead">موظف يلصق بيانات عميل في أي أداة… وهو ما يدري إنه غلط</div>
+  <div class="cols">
+    <div class="col n"><h3>ممنوع</h3><ul><li>بيانات العملاء</li><li>العقود والأسعار</li><li>كلمات المرور</li></ul></div>
+    <div class="col y"><h3>مسموح</h3><ul><li>مسودات عامة</li><li>تلخيص محتوى منشور</li><li>أفكار وعصف ذهني</li></ul></div>
+  </div>
+  <div class="exit"><b>المخرج</b>ورقة وحدة واضحة للكل، ومراجعة بشرية لأي شي يطلع للعميل</div>
+</section>
+
+<!-- ٥ الحفرة ٤ -->
+<section class="slide s5">
+  <div class="tag">أتمتة · تبنّي الذكاء الاصطناعي</div>
+  <div class="pg">5/7</div>
+  <h2 class="hd"><span class="num">4</span>مشروع ضخم من أول يوم</h2>
+  <div class="ph"><img src="assets/cone.jpg" alt=""></div>
+  <div class="bad"><b>الغلط:</b><span>«نبي نأتمت الشركة كلها هالربع»… فيتعطّل كل شي وتضيع الثقة</span></div>
+  <div class="barrier"></div>
+  <div class="detour">
+    <b>تحويلة ← ابدأ صغير</b>
+    <div class="eq"><span>فريق واحد</span><i>×</i><span>مهمة وحدة</span><i>×</i><span><span class="en">30</span> يوم</span></div>
+    <p>نجحت؟ وسّع للفريق الثاني</p>
+  </div>
+</section>
+
+<!-- ٦ الحفرة ٥ -->
+<section class="slide s6">
+  <div class="tag">أتمتة · تبنّي الذكاء الاصطناعي</div>
+  <div class="pg">6/7</div>
+  <h2 class="hd"><span class="num">5</span>ما تقيس شي</h2>
+  <svg class="gauge" viewBox="0 0 600 400">
+    <path d="M70 330 A230 230 0 0 1 530 330" fill="none" stroke="#2E333B" stroke-width="44" stroke-linecap="round"/>
+    <path d="M70 330 A230 230 0 0 1 300 100" fill="none" stroke="#F2C230" stroke-width="44" stroke-linecap="round"/>
+    <path d="M300 100 A230 230 0 0 1 530 330" fill="none" stroke="#3DDC97" stroke-width="44" stroke-linecap="round" stroke-dasharray="6 18"/>
+    <g stroke="#8C929B" stroke-width="6" stroke-linecap="round">
+      <path d="M92 250l30 12M140 165l26 20M220 112l12 30M380 112l-12 30M460 165l-26 20M508 250l-30 12"/>
+    </g>
+    <path d="M300 330 L430 170" stroke="#D7263D" stroke-width="14" stroke-linecap="round"/>
+    <circle cx="300" cy="330" r="30" fill="#141414" stroke="#D7263D" stroke-width="8"/>
+    <text x="300" y="390" text-anchor="middle" font-family="IBM Plex Sans Arabic" font-weight="700" font-size="30" fill="#8C929B">الوقت لكل مهمة</text>
+  </svg>
+  <div class="odo">
+    <div>قبل · دقيقة<b>12</b></div>
+    <div class="after">بعد · دقيقة<b>4</b></div>
+  </div>
+  <div class="ex">مثال توضيحي: الرد على إيميل عميل</div>
+  <div class="box">
+    <div class="bad"><b>الغلط:</b><span>«حاسّين إنه فاد»… بدون ولا رقم</span></div>
+    <div class="exit"><b>المخرج</b>قِس الوقت قبل وبعد لكل مهمة، وراجعها كل شهر</div>
+  </div>
+</section>
+
+<!-- ٧ المتابعة -->
+<section class="slide s7" data-handles="off">
+  <div class="tag">أتمتة · تبنّي الذكاء الاصطناعي</div>
+  <div class="pg">7/7</div>
+  <h2 class="hd">الطريق الصح… بدون حفر</h2>
+  <div class="map">
+    <svg viewBox="0 0 940 600">
+      <path d="M0 120h940M0 300h940M0 480h940M180 0v600M470 0v600M760 0v600" stroke="#E2E4DC" stroke-width="22"/>
+      <path d="M860 540 C760 540 700 540 640 520 S560 440 560 380 S480 300 420 300 S300 230 300 170 S220 140 150 140" fill="none" stroke="#0A7D4F" stroke-width="16" stroke-linecap="round"/>
+      <g fill="#fff" stroke="#0A7D4F" stroke-width="8"><circle cx="860" cy="540" r="16"/><circle cx="640" cy="520" r="16"/><circle cx="560" cy="380" r="16"/><circle cx="420" cy="300" r="16"/><circle cx="300" cy="170" r="16"/></g>
+    </svg>
+    <div class="st" style="top:450px;right:12px"><i>1</i>مشكلة وحدة</div>
+    <div class="st" style="top:545px;left:470px"><i>2</i>تدريب يومي</div>
+    <div class="st" style="top:350px;left:590px"><i>3</i>سياسة بيانات</div>
+    <div class="st" style="top:322px;left:160px"><i>4</i>تجربة صغيرة</div>
+    <div class="st" style="top:118px;left:330px"><i>5</i>قياس</div>
+    <div class="pin"><div class="face"><img src="{{AVATAR}}" alt=""></div></div>
+  </div>
+  <div class="nm">علي التميمي</div>
+  <div class="ds">ذكاء اصطناعي وأتمتة… بالعربي وبالتطبيق</div>
+  <div class="soc"><div>{{HANDLES}}</div></div>
+  <div class="ask">أي حفرة طاحت فيها شركتكم؟ قل لي بالتعليقات</div>
+</section>
+
+</body>
+</html>

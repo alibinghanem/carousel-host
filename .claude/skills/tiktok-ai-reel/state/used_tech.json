@@ -1,0 +1,35 @@
+{
+ "cycle": 0,
+ "used": [
+  "k001",
+  "k002",
+  "k003"
+ ],
+ "log": [
+  {
+   "date": "2026-10-25",
+   "id": "k001",
+   "cycle": 0,
+   "format": "video",
+   "style": "—",
+   "accent": "—",
+   "note": "فيديو تجريبي 3D (طلب المستخدم) — Battery3D"
+  },
+  {
+   "date": "2026-10-28",
+   "id": "k002",
+   "cycle": 0,
+   "format": "carousel",
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-10-29",
+   "id": "k003",
+   "cycle": 0,
+   "format": "video",
+   "style": "—",
+   "accent": "—"
+  }
+ ]
+}

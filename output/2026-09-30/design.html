@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<style>
+:root{--mint:#E6F1EC;--coral:#E8553E;--coral2:#C8412D;--navy:#14213D;--y:#FFC53D;--sky:#3AA0FF;--ink:#14213D;--mute:#6C7A8C;--ok:#1FAF6B;--glass:#CFE8F7}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;font-family:'IBM Plex Sans Arabic','Cairo',sans-serif;-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1920px;position:relative;overflow:hidden;direction:rtl}
+.hd{font-family:'Rubik';font-weight:800;line-height:1.15}
+.en{font-family:'Space Grotesk';direction:ltr;unicode-bidi:isolate;font-weight:700}
+.lt{background:var(--mint);color:var(--ink)}
+.dk{background:var(--navy);color:#fff}
+.dots{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(20,33,61,.08) 1.4px,transparent 2px);background-size:22px 22px}
+.dk .dots{background-image:radial-gradient(rgba(255,255,255,.06) 1.4px,transparent 2px)}
+.kick{position:absolute;top:250px;right:90px;display:flex;align-items:center;gap:14px;font:700 30px 'Space Grotesk';direction:ltr}
+.kick img{width:40px;height:40px}
+.brand{position:absolute;top:596px;left:50%;transform:translateX(-50%);z-index:3;display:flex;align-items:center;gap:16px;background:#fff;border-radius:999px;padding:14px 34px 14px 30px;box-shadow:0 14px 30px rgba(20,33,61,.18);direction:ltr}
+.brand img.i{width:58px;height:58px}.brand img.t{height:40px}
+.shot{position:absolute;top:470px;left:80px;right:80px;height:360px;border-radius:30px;overflow:hidden;box-shadow:0 20px 40px rgba(20,33,61,.18)}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:50% 58%}
+.shot:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,33,61,.55),transparent 55%)}
+.shot span{position:absolute;bottom:22px;right:26px;z-index:2;color:#fff;font:800 40px 'Rubik'}
+.pg{position:absolute;top:256px;left:90px;font:700 28px 'Space Grotesk';opacity:.5;direction:ltr}
+.hbar{position:absolute;top:1392px;right:90px;display:flex;gap:26px;align-items:center;padding:14px 28px;border-radius:999px;background:var(--navy);color:#fff;font:700 28px 'IBM Plex Sans Arabic'}
+.swipe{position:absolute;top:1400px;left:90px;font:700 34px 'IBM Plex Sans Arabic';color:var(--coral)}
+
+/* آلة البيع */
+.vm{position:absolute;background:linear-gradient(180deg,var(--coral),var(--coral2));border-radius:40px;box-shadow:0 40px 70px rgba(20,33,61,.25),inset 0 0 0 10px rgba(255,255,255,.12)}
+.vm .win{position:absolute;background:linear-gradient(160deg,#E4F4FF,var(--glass));border-radius:24px;box-shadow:inset 0 0 0 6px rgba(20,33,61,.15);overflow:hidden}
+.vm .win:after{content:"";position:absolute;top:-40%;left:-30%;width:40%;height:180%;background:rgba(255,255,255,.35);transform:rotate(18deg)}
+.vm .grid{position:absolute;inset:26px;display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.prod{background:#fff;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;box-shadow:0 10px 0 rgba(20,33,61,.12);position:relative}
+.prod b{font:800 30px 'Rubik'}
+.prod .code{position:absolute;bottom:-18px;left:50%;transform:translateX(-50%);background:var(--navy);color:#fff;font:700 20px 'Space Grotesk';padding:2px 12px;border-radius:8px;direction:ltr}
+.vm .side{position:absolute;display:flex;flex-direction:column;align-items:center;gap:16px}
+.vm .screen{background:#0E1830;color:#7CF0B5;font:700 26px 'Space Grotesk';border-radius:12px;padding:10px 14px;direction:ltr;width:100%;text-align:center}
+.vm .keys{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;width:100%}
+.vm .keys i{height:36px;border-radius:9px;background:#fff;box-shadow:inset 0 -5px 0 rgba(0,0,0,.15)}
+.vm .coin{width:70%;height:70px;border-radius:14px;background:#0E1830;position:relative}
+.vm .coin:after{content:"";position:absolute;left:50%;top:14px;bottom:14px;width:8px;margin-left:-4px;border-radius:4px;background:var(--y)}
+.vm .tray{position:absolute;background:#0E1830;border-radius:18px;overflow:hidden}
+.vm .tray span{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;color:#fff;font:700 26px 'IBM Plex Sans Arabic';opacity:.8}
+
+/* ١ الغلاف */
+.s1 h1{position:absolute;top:320px;right:90px;left:60px;white-space:nowrap}
+.s1 h1 .a{display:block;font-size:104px}
+.s1 h1 .b{display:block;font-size:136px;color:var(--coral)}
+
+/* ٢ المشكلة */
+.s2 h2{position:absolute;top:320px;right:90px;left:60px;font-size:86px;white-space:nowrap}
+.s2 h2 em{font-style:normal;color:var(--coral)}
+.receipt{position:absolute;top:880px;right:90px;width:420px;height:460px;background:#fff;padding:92px 34px 36px;box-shadow:0 20px 40px rgba(20,33,61,.15);-webkit-mask:radial-gradient(14px 14px at 50% 100%,transparent 98%,#000) 0 0/28px 100% repeat-x}
+.receipt .ln{height:14px;border-radius:7px;background:#D9E0E8;margin-bottom:18px}
+.receipt .lb{position:absolute;top:18px;right:24px;background:var(--coral);color:#fff;font:700 30px 'IBM Plex Sans Arabic';padding:8px 18px;border-radius:12px}
+.want{position:absolute;top:880px;left:90px;width:430px}
+.want .lb{font:800 40px 'Rubik';color:var(--ok);margin-bottom:16px}
+.tbl{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 16px 30px rgba(20,33,61,.15);border:3px solid var(--navy)}
+.tbl .r{display:grid;grid-template-columns:1.3fr 1fr 1fr;border-top:2px solid #E3E8EE}
+.tbl .r:first-child{border-top:none;background:var(--navy);color:#fff}
+.tbl .r div{padding:11px 14px;font:700 28px 'IBM Plex Sans Arabic';text-align:center}
+.tbl .r div:first-child{text-align:right}
+.tbl .y{color:var(--ok)} .tbl .n{color:var(--coral)}
+.s2 .foot{position:absolute;top:1250px;left:90px;width:440px;font:700 32px/1.5 'IBM Plex Sans Arabic'}
+.s2 .foot b{color:var(--coral)}
+
+/* ٣ وش هي */
+.s3 h2{position:absolute;top:320px;right:90px;left:60px;font-size:92px;white-space:nowrap}
+.s3 h2 .en{color:var(--y);font-size:88px}
+.def{position:absolute;top:470px;right:90px;left:90px;font:600 36px/1.6 'IBM Plex Sans Arabic';color:#D5DCE8}
+.def b{color:#fff}
+.ui{position:absolute;top:720px;left:70px;right:70px;height:560px;background:#0E1830;border-radius:28px;border:3px solid #2A3A5E;overflow:hidden;display:flex;direction:rtl}
+.ui .bar{position:absolute;top:0;left:0;right:0;height:46px;background:#1B2848;display:flex;align-items:center;gap:10px;padding:0 20px;direction:ltr}
+.ui .bar i{width:14px;height:14px;border-radius:50%;background:#46587F}
+.ui .chat{width:38%;padding:70px 18px 18px;display:flex;flex-direction:column;gap:14px;border-left:3px solid #2A3A5E}
+.ui .chat div{border-radius:16px;padding:12px 14px;font:600 24px/1.4 'IBM Plex Sans Arabic'}
+.ui .chat .me{background:var(--coral);color:#fff;align-self:flex-start;margin-right:0}
+.ui .chat .ai{background:#1B2848;color:#C9D3E6}
+.ui .art{flex:1;padding:70px 22px 22px;background:linear-gradient(180deg,#F6F9FC,#E9F1F8);color:var(--ink)}
+.ui .art .t{font:800 28px 'Rubik';margin-bottom:12px}
+.bars{display:flex;align-items:flex-end;gap:14px;height:200px;padding:0 6px;border-bottom:3px solid #C9D3E0}
+.bars i{flex:1;border-radius:8px 8px 0 0}
+.kpis{display:flex;gap:12px;margin-top:16px}
+.kpis div{flex:1;background:#fff;border-radius:14px;padding:12px;font:700 22px 'IBM Plex Sans Arabic';color:var(--mute);box-shadow:0 4px 10px rgba(20,33,61,.08)}
+.kpis b{display:block;font:700 34px 'Space Grotesk';color:var(--ink);direction:ltr;text-align:right}
+.tag{position:absolute;padding:8px 16px;border-radius:10px;font:700 26px 'IBM Plex Sans Arabic';background:var(--y);color:var(--ink);white-space:nowrap}
+.s3 .types{position:absolute;top:1300px;left:70px;right:70px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.s3 .types span{padding:8px 18px;border-radius:999px;border:2px solid #3A4E7A;font:700 26px 'IBM Plex Sans Arabic';color:#D5DCE8}
+
+/* ٤ الخطوات */
+.s4 h2{position:absolute;top:320px;right:90px;left:60px;font-size:100px;white-space:nowrap}
+.s4 h2 em{font-style:normal;color:var(--coral)}
+.steps{position:absolute;top:500px;left:80px;right:80px;display:flex;flex-direction:column;gap:22px}
+.st{display:flex;gap:24px;align-items:center;background:#fff;border-radius:26px;padding:22px 26px;box-shadow:0 10px 0 rgba(20,33,61,.08)}
+.st .k{flex:none;width:110px;height:110px;border-radius:22px;background:var(--navy);color:var(--y);display:grid;place-items:center;font:700 44px 'Space Grotesk';box-shadow:inset 0 -10px 0 rgba(0,0,0,.35)}
+.st b{display:block;font:800 40px 'Rubik'}
+.st small{display:block;font:600 29px/1.45 'IBM Plex Sans Arabic';color:var(--mute);margin-top:4px}
+.st .path{display:inline-block;margin-top:8px;background:var(--mint);border-radius:10px;padding:4px 12px;font:700 25px 'Space Grotesk';direction:ltr;color:var(--ink)}
+
+/* ٥ المثال */
+.s5 h2{position:absolute;top:320px;right:90px;left:60px;font-size:100px;white-space:nowrap}
+.ask{position:absolute;top:480px;left:80px;right:80px;background:var(--navy);color:#fff;border-radius:30px 30px 8px 30px;padding:28px 32px;font:600 35px/1.55 'IBM Plex Sans Arabic'}
+.ask small{display:block;font:700 26px 'IBM Plex Sans Arabic';color:var(--y);margin-bottom:6px}
+.drop{position:absolute;top:790px;left:0;right:0;text-align:center;font:800 40px 'Rubik';color:var(--coral)}
+.calc{position:absolute;top:860px;left:150px;right:150px;background:#fff;border-radius:30px;padding:28px 30px;border:4px solid var(--navy);box-shadow:0 26px 50px rgba(20,33,61,.2)}
+.calc .ct{font:800 34px 'Rubik';margin-bottom:14px;display:flex;justify-content:space-between;align-items:center}
+.calc .ct span{font:700 22px 'Space Grotesk';background:var(--mint);color:var(--ok);padding:4px 12px;border-radius:8px;direction:ltr}
+.fld{display:flex;justify-content:space-between;align-items:center;background:#F2F5F9;border-radius:14px;padding:14px 18px;margin-bottom:12px;font:700 30px 'IBM Plex Sans Arabic'}
+.fld b{font:700 34px 'Space Grotesk';direction:ltr;background:#fff;border:2px solid #CBD5E1;border-radius:10px;padding:2px 16px}
+.res{display:flex;gap:12px;margin-top:6px}
+.res div{flex:1;border-radius:16px;padding:14px;text-align:center;font:700 26px 'IBM Plex Sans Arabic'}
+.res b{display:block;font:700 48px 'Space Grotesk';direction:ltr}
+.res .a{background:var(--mint);color:var(--ink)}
+.res .b{background:var(--navy);color:#fff}
+.res .b b{color:var(--y)}
+
+/* ٦ ميزة + باقات */
+.s6 h2{position:absolute;top:320px;right:90px;left:60px;font-size:84px;white-space:nowrap}
+.s6 h2 em{font-style:normal;color:var(--y)}
+.aiapp{position:absolute;top:460px;left:80px;right:80px;background:#fff;color:var(--ink);border-radius:28px;padding:26px 30px}
+.aiapp .ti{font:800 32px 'Rubik';display:flex;align-items:center;gap:12px}
+.aiapp .ti i{width:16px;height:16px;border-radius:50%;background:var(--ok)}
+.aiapp .q{margin-top:14px;display:flex;gap:10px}
+.aiapp .q div{flex:1;background:#F2F5F9;border-radius:14px;padding:12px 16px;font:600 28px 'IBM Plex Sans Arabic';color:var(--mute)}
+.aiapp .q span{background:var(--coral);color:#fff;border-radius:14px;padding:12px 20px;font:700 28px 'IBM Plex Sans Arabic'}
+.aiapp p{margin-top:14px;font:700 31px/1.55 'IBM Plex Sans Arabic'}
+.aiapp p b{color:var(--coral)}
+.plans{position:absolute;top:800px;left:80px;right:80px;display:flex;gap:20px}
+.pl{flex:1;border-radius:26px;padding:24px 24px;border:3px solid #2A3A5E;background:#1B2848}
+.pl.pro{border-color:var(--y)}
+.pl .h{font:800 34px 'Rubik';margin-bottom:10px}
+.pl.pro .h{color:var(--y)}
+.pl li{list-style:none;font:600 29px/1.6 'IBM Plex Sans Arabic';color:#D5DCE8}
+.pl li:before{content:"• ";color:var(--sky)}
+.mist{position:absolute;top:1170px;left:80px;right:80px;background:var(--coral);border-radius:24px;padding:22px 28px;display:flex;flex-direction:column;gap:8px}
+.mist b{font:800 34px 'Rubik'}
+.mist div{display:flex;gap:18px;font:700 32px 'IBM Plex Sans Arabic'}
+.mist s{opacity:.8;text-decoration-thickness:4px}
+
+/* ٧ المتابعة */
+.box{position:absolute;top:420px;left:190px;right:190px;height:640px;background:#fff;border-radius:34px;box-shadow:0 30px 60px rgba(20,33,61,.2);overflow:hidden;border:6px solid var(--navy)}
+.box .top{height:120px;background:var(--coral);display:flex;align-items:center;justify-content:space-between;padding:0 30px;color:#fff}
+.box .top b{font:800 38px 'Rubik'}
+.box .top span{font:700 26px 'Space Grotesk';background:var(--navy);padding:4px 14px;border-radius:10px;direction:ltr}
+.box .av{position:absolute;top:160px;left:50%;margin-left:-150px;width:300px;height:300px;border-radius:50%;overflow:hidden;background:linear-gradient(180deg,#FFE08A,var(--y));border:8px solid var(--mint)}
+.box .av img{width:100%;height:100%;object-fit:cover;object-position:50% 15%}
+.box .nm{position:absolute;top:490px;left:0;right:0;text-align:center;font:800 64px 'Rubik'}
+.box .ds{position:absolute;top:572px;left:0;right:0;text-align:center;font:600 28px 'IBM Plex Sans Arabic';color:var(--mute)}
+.s7 .soc{position:absolute;top:1110px;left:50%;transform:translateX(-50%);display:flex;gap:26px;align-items:center;padding:14px 30px;border-radius:999px;background:var(--navy);color:#fff;font:700 30px 'IBM Plex Sans Arabic';white-space:nowrap}
+.s7 .ask2{position:absolute;top:1220px;left:90px;right:90px;text-align:center;font:700 40px/1.45 'IBM Plex Sans Arabic'}
+.s7 .ask2 em{font-style:normal;color:var(--coral)}
+</style>
+</head>
+<body>
+
+<!-- ١ الغلاف -->
+<section class="slide lt s1">
+  <div class="dots"></div>
+  <div class="kick"><img src="assets/claude-color.svg">Claude · Artifacts</div>
+  <div class="pg">1/7</div>
+  <h1 class="hd"><span class="a">لا تطلب جواب…</span><span class="b">اطلب أداة</span></h1>
+  <div class="brand"><img class="i" src="assets/claude-color.svg"><img class="t" src="assets/claude-text.svg"></div>
+  <div class="vm" style="top:650px;left:170px;width:740px;height:700px">
+    <div class="win" style="top:30px;right:30px;width:500px;height:500px">
+      <div class="grid">
+        <div class="prod"><svg width="80" height="64" viewBox="0 0 80 64"><rect x="3" y="3" width="74" height="58" rx="8" fill="#E6F1EC" stroke="#14213D" stroke-width="5"/><path d="M3 18h74" stroke="#14213D" stroke-width="5"/><rect x="12" y="28" width="30" height="8" rx="4" fill="#E8553E"/><rect x="12" y="42" width="50" height="6" rx="3" fill="#C9D3E0"/></svg><b>صفحة</b><span class="code">A1</span></div>
+        <div class="prod"><svg width="64" height="74" viewBox="0 0 64 74"><rect x="3" y="3" width="58" height="68" rx="10" fill="#14213D"/><rect x="11" y="11" width="42" height="16" rx="4" fill="#7CF0B5"/><g fill="#fff"><rect x="11" y="34" width="11" height="10" rx="3"/><rect x="27" y="34" width="11" height="10" rx="3"/><rect x="43" y="34" width="11" height="10" rx="3"/><rect x="11" y="50" width="11" height="10" rx="3"/><rect x="27" y="50" width="11" height="10" rx="3"/></g><rect x="43" y="50" width="11" height="10" rx="3" fill="#FFC53D"/></svg><b>حاسبة</b><span class="code">A2</span></div>
+        <div class="prod"><svg width="80" height="64" viewBox="0 0 80 64"><path d="M6 58h70" stroke="#14213D" stroke-width="5" stroke-linecap="round"/><rect x="10" y="34" width="14" height="22" rx="3" fill="#3AA0FF"/><rect x="30" y="20" width="14" height="36" rx="3" fill="#E8553E"/><rect x="50" y="8" width="14" height="48" rx="3" fill="#1FAF6B"/></svg><b>لوحة بيانات</b><span class="code">B1</span></div>
+        <div class="prod"><svg width="80" height="64" viewBox="0 0 80 64"><rect x="3" y="6" width="74" height="46" rx="6" fill="#FFC53D" stroke="#14213D" stroke-width="5"/><path d="M40 52v10M26 62h28" stroke="#14213D" stroke-width="5" stroke-linecap="round"/><rect x="14" y="18" width="36" height="7" rx="3" fill="#14213D"/></svg><b>عرض تقديمي</b><span class="code">B2</span></div>
+      </div>
+    </div>
+    <div class="side" style="top:40px;left:30px;width:150px">
+      <div class="screen">B1 ✓</div>
+      <div class="keys"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="coin"></div>
+    </div>
+    <div class="tray" style="top:560px;right:30px;width:500px;height:100px"><span>منتجك جاهز ↓</span></div>
+  </div>
+  <div class="hbar">{{HANDLES}}</div>
+  <div class="swipe">اسحب ←</div>
+</section>
+
+<!-- ٢ المشكلة -->
+<section class="slide lt s2">
+  <div class="dots"></div>
+  <div class="kick"><img src="assets/claude-color.svg">Claude · Artifacts</div>
+  <div class="pg">2/7</div>
+  <h2 class="hd">طلبت جدول… <em>جاك كلام</em></h2>
+  <div class="shot"><img src="assets/notes.jpg"><span>وجلست تنسخ وترتّب بنفسك؟</span></div>
+  <div class="receipt">
+    <div class="lb">اللي وصلك</div>
+    <div class="ln"></div><div class="ln" style="width:88%"></div><div class="ln"></div><div class="ln" style="width:70%"></div><div class="ln"></div><div class="ln" style="width:92%"></div><div class="ln"></div><div class="ln" style="width:64%"></div><div class="ln"></div><div class="ln" style="width:84%"></div><div class="ln"></div><div class="ln" style="width:50%"></div>
+  </div>
+  <div class="want">
+    <div class="lb">واللي كنت تبيه ✓</div>
+    <div class="tbl">
+      <div class="r"><div>الميزة</div><div>أ</div><div>ب</div></div>
+      <div class="r"><div>السعر</div><div class="y">✓</div><div class="n">✕</div></div>
+      <div class="r"><div>الدعم</div><div class="n">✕</div><div class="y">✓</div></div>
+      <div class="r"><div>السرعة</div><div class="y">✓</div><div class="y">✓</div></div>
+    </div>
+  </div>
+  <div class="foot">طلبت <b>شرح</b>… وأنت تبي <b>شي تستخدمه</b></div>
+</section>
+
+<!-- ٣ وش هي -->
+<section class="slide dk s3" data-handles="light">
+  <div class="dots"></div>
+  <div class="kick"><img src="assets/claude-color.svg">Claude · Artifacts</div>
+  <div class="pg">3/7</div>
+  <h2 class="hd">وش هي <span class="en">Artifacts</span>؟</h2>
+  <div class="def">أي شي يصنعه Claude لك <b>وتقدر تحطه قدام أحد</b>… ويفتح جنب المحادثة، وتعدّله بالكلام.</div>
+  <div class="ui">
+    <div class="bar"><i></i><i></i><i></i><span style="margin-left:auto;display:flex;align-items:center;gap:10px;font:700 24px 'Space Grotesk';color:#fff"><img src="assets/claude-color.svg" style="width:28px;height:28px">Claude</span></div>
+    <div class="chat">
+      <div class="me">سوّ لي لوحة لمبيعات الشهر</div>
+      <div class="ai">جاهزة ← على اليسار</div>
+      <div class="me">خلّ الأعمدة ملونة</div>
+    </div>
+    <div class="art">
+      <div class="t">مبيعات الشهر</div>
+      <div class="bars"><i style="height:40%;background:#3AA0FF"></i><i style="height:65%;background:#3AA0FF"></i><i style="height:52%;background:#E8553E"></i><i style="height:88%;background:#1FAF6B"></i><i style="height:74%;background:#FFC53D"></i></div>
+      <div class="kpis"><div>العملاء<b>1,240</b></div><div>النمو<b>+18%</b></div></div>
+    </div>
+  </div>
+  <div class="tag" style="top:690px;left:120px;rotate:-3deg">المنتج يطلع هنا</div>
+  <div class="types"><span>مستند</span><span>عرض</span><span>تصميم</span><span>لوحة بيانات</span><span>أداة تفاعلية</span></div>
+</section>
+
+<!-- ٤ الخطوات -->
+<section class="slide lt s4">
+  <div class="dots"></div>
+  <div class="kick"><img src="assets/claude-color.svg">Claude · Artifacts</div>
+  <div class="pg">4/7</div>
+  <h2 class="hd">اطلبها في <em>4 أزرار</em></h2>
+  <div class="steps">
+    <div class="st"><div class="k">A1</div><div><b>شغّل الخيار مرة وحدة</b><small>Cloud code execution and file creation</small><span class="path">Settings › Capabilities</span></div></div>
+    <div class="st"><div class="k">A2</div><div><b>اطلب شي تستخدمه</b><small>ابدأ بـ «سوّ لي…» مو «اشرح لي…»</small></div></div>
+    <div class="st"><div class="k">B1</div><div><b>عدّل بالكلام</b><small>«كبّر الخط» · «أضف عمود» · «ألوان أهدأ»</small></div></div>
+    <div class="st"><div class="k">B2</div><div><b>شاركه برابط</b><small>يبدأ خاص… وأنت تقرر متى تشاركه</small></div></div>
+  </div>
+</section>
+
+<!-- ٥ مثال -->
+<section class="slide lt s5">
+  <div class="dots"></div>
+  <div class="kick"><img src="assets/claude-color.svg">Claude · Artifacts</div>
+  <div class="pg">5/7</div>
+  <h2 class="hd">مثال تنسخه</h2>
+  <div class="ask"><small>اكتب لـ Claude:</small>«سوّ لي حاسبة تسعير: أدخل التكلفة ونسبة الربح، ويطلع السعر قبل الضريبة وبعد ضريبة <span dir="ltr" style="unicode-bidi:isolate">15%</span>»</div>
+  <div class="drop">↓ وينزل لك هذا</div>
+  <div class="calc">
+    <div class="ct">حاسبة التسعير <span>LIVE</span></div>
+    <div class="fld">التكلفة<b>80</b></div>
+    <div class="fld">نسبة الربح<b>25%</b></div>
+    <div class="res"><div class="a">قبل الضريبة<b>100</b></div><div class="b">بعد الضريبة<b>115</b></div></div>
+  </div>
+</section>
+
+<!-- ٦ ميزة + الباقات + الخطأ -->
+<section class="slide dk s6" data-handles="light">
+  <div class="dots"></div>
+  <div class="kick"><img src="assets/claude-color.svg">Claude · Artifacts</div>
+  <div class="pg">6/7</div>
+  <h2 class="hd">ميزة <em>ما يعرفها كثير</em></h2>
+  <div class="aiapp">
+    <div class="ti"><img src="assets/claude-color.svg" style="width:40px;height:40px">أداة فيها Claude نفسه</div>
+    <div class="q"><div>اسأل عن أي منتج…</div><span>اسأل</span></div>
+    <p>الأداة تقدر تستخدم Claude من داخلها. <b>بدون مفتاح API</b>، والاستخدام يُحسب على باقة كل مستخدم.</p>
+  </div>
+  <div class="plans">
+    <div class="pl"><div class="h">كل الباقات</div><ul><li>حتى المجانية</li><li>تصنعها في المحادثة</li></ul></div>
+    <div class="pl pro"><div class="h">Pro وما فوق</div><ul><li>قوالب Docs · Slides · Design</li><li>ربط التطبيقات</li><li>حفظ البيانات</li></ul></div>
+  </div>
+  <div class="mist"><b>الخطأ الشائع</b><div><s>«اشرح لي كيف أسوي…»</s><span>←</span><span>«سوّ لي…» ✓</span></div></div>
+</section>
+
+<!-- ٧ المتابعة -->
+<section class="slide lt s7">
+  <div class="dots"></div>
+  <div class="kick"><img src="assets/claude-color.svg">Claude · Artifacts</div>
+  <div class="pg">7/7</div>
+  <div class="box">
+    <div class="top"><b>منتج جديد كل يوم</b><span>A1</span></div>
+    <div class="av"><img src="{{AVATAR}}"></div>
+    <div class="nm">علي التميمي</div>
+    <div class="ds">أدوات الذكاء الاصطناعي والأتمتة… بخطوات تطبّقها</div>
+  </div>
+  <div class="soc">{{HANDLES}}</div>
+  <div class="ask2">وش أول <em>أداة</em> بتطلبها من Claude؟ اكتبها بالتعليقات</div>
+</section>
+
+</body>
+</html>
