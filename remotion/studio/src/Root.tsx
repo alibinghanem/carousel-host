@@ -27,6 +27,7 @@ import { Battery3D, BATTERY3D_FRAMES } from "./videos/Battery3D";
 import { Camp30, CAMP30_FRAMES } from "./videos/Camp30";
 import { ScamKit, SCAMKIT_FRAMES } from "./videos/ScamKit";
 import { TwoLocks, TWOLOCKS_FRAMES } from "./videos/TwoLocks";
+import { GeminiMail, GEMINIMAIL_FRAMES } from "./videos/GeminiMail";
 import { AgentTeam, AGENT_TEAM_FRAMES } from "./videos/AgentTeam";
 import { Souq, SOUQ_FRAMES } from "./videos/Souq";
 import { AgentGauges, AGENT_GAUGES_FRAMES } from "./videos/AgentGauges";
@@ -71,6 +72,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="Camp30" component={Camp30} width={1080} height={1920} fps={30} durationInFrames={CAMP30_FRAMES} />
     <Composition id="ScamKit" component={ScamKit} width={1080} height={1080} fps={30} durationInFrames={SCAMKIT_FRAMES} />
     <Composition id="TwoLocks" component={TwoLocks} width={1080} height={1920} fps={30} durationInFrames={TWOLOCKS_FRAMES} />
+    <Composition id="GeminiMail" component={GeminiMail} width={1080} height={1920} fps={30} durationInFrames={GEMINIMAIL_FRAMES} />
     <Composition id="AliAd" component={AliAd} width={1080} height={1920} fps={30} durationInFrames={ALI_AD_FRAMES} />
     <Composition id="HumanLoop" component={HumanLoop} width={1080} height={1920} fps={30} durationInFrames={HUMAN_LOOP_FRAMES} />
     <Folder name="HumanLoop-Scenes">
