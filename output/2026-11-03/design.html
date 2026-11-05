@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<style>
+:root{--paper:#F4F8F3;--grid:#D3E3D7;--xl:#217346;--xld:#0F3D26;--xln:#0A2A1A;--xll:#C6E7D1;--ink:#12251B;--mu:#4E6A5B;--blue:#4F7DF3;--vio:#A66CFF;--pink:#F7746B;--warn:#FFF3C4;--red:#D93025}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;font-family:'IBM Plex Sans Arabic',sans-serif;-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1920px;position:relative;overflow:hidden;direction:rtl;color:var(--ink)}
+.hd{font-family:'Marhey','IBM Plex Sans Arabic';font-weight:700}
+.en{font-family:'Space Grotesk';font-weight:700;direction:ltr;unicode-bidi:isolate;white-space:nowrap}
+.tag{position:absolute;top:252px;right:80px;display:flex;gap:12px;align-items:center;padding:8px 24px 12px 18px;border-radius:40px;background:var(--xl);color:#fff;font:700 30px 'IBM Plex Sans Arabic';z-index:3}
+.tag img{width:40px;height:40px;background:#fff;border-radius:50%;padding:5px}
+.pg{position:absolute;top:264px;left:80px;font:700 28px 'Space Grotesk';color:var(--mu);direction:ltr;z-index:3}
+/* ورق الجدول: خلايا */
+.sheet{background-color:var(--paper);background-image:linear-gradient(var(--grid) 2px,transparent 2px),linear-gradient(90deg,var(--grid) 2px,transparent 2px);background-size:120px 64px,180px 64px;background-position:-10px 20px,-30px 20px}
+.dark{background:radial-gradient(80% 45% at 50% 40%,#14583A 0%,var(--xld) 52%,var(--xln) 100%);color:#fff}
+.dark .tag{background:#fff;color:var(--ink)}.dark .pg{color:#9BD3B0}
+.cols{position:absolute;top:0;left:0;right:0;height:84px;display:flex;background:#E4EFE7;border-bottom:3px solid #B9D3C0;direction:ltr}
+.cols span{flex:none;width:180px;text-align:center;font:700 30px/84px 'Space Grotesk';color:#5C7A68;border-right:2px solid #C3D8CA}
+.dark .cols{background:rgba(255,255,255,.08);border-bottom-color:rgba(255,255,255,.18)}.dark .cols span{color:#8BC3A2;border-right-color:rgba(255,255,255,.14)}
+.fx{display:flex;direction:ltr;align-items:center;gap:0;height:88px;border-radius:18px;background:#fff;border:3px solid #BBD4C3;box-shadow:0 14px 34px rgba(15,61,38,.18);overflow:hidden}
+.fx .nm{flex:none;width:116px;text-align:center;font:700 32px 'Space Grotesk';color:var(--xl);border-right:3px solid #DCE9E0;line-height:88px;background:#F1F7F3}
+.fx .f{flex:none;width:76px;text-align:center;font:italic 700 36px 'Space Grotesk';color:#6C8577;line-height:88px}
+.fx .q{flex:1;font:700 34px 'Space Grotesk';color:var(--ink);padding-left:6px;white-space:nowrap}
+.fx .cur{display:inline-block;width:3px;height:40px;background:var(--xl);vertical-align:middle;margin-left:4px}
+.spark{background:linear-gradient(135deg,var(--blue),var(--vio) 55%,var(--pink))}
+
+/* ١ الغلاف */
+.s1 h1{position:absolute;top:322px;right:76px;left:30px;font-size:122px;line-height:1.25;color:var(--ink);white-space:nowrap}
+.s1 h1 em{font-style:normal;color:var(--xl)}
+.s1 .sub{position:absolute;top:640px;right:80px;left:90px;font:700 40px/1.45 'IBM Plex Sans Arabic';color:var(--ink)}
+.s1 .sub b{background:linear-gradient(transparent 58%,rgba(79,125,243,.28) 58%)}
+.s1 .fx{position:absolute;top:790px;left:60px;right:60px}
+.s1 .card{position:absolute;top:910px;left:60px;right:60px;border-radius:26px;background:#fff;border:3px solid #BBD4C3;box-shadow:0 30px 60px rgba(15,61,38,.2);overflow:hidden;direction:ltr}
+.s1 table{width:100%;border-collapse:collapse;font:700 31px 'Space Grotesk'}
+.s1 th{background:var(--xl);color:#fff;text-align:left;padding:14px 22px;font-size:28px}
+.s1 td{padding:12px 22px;border-bottom:2px solid #E3EEE6;color:var(--ink)}
+.s1 tr.hl td{background:var(--xll)}
+.s1 .bar{display:inline-block;height:20px;border-radius:10px;background:var(--xl);vertical-align:middle}
+.s1 .ans{position:absolute;top:1275px;right:80px;left:260px;padding:18px 26px 22px;border-radius:30px 30px 8px 30px;background:#fff;border:3px solid transparent;background-clip:padding-box;box-shadow:0 18px 40px rgba(79,125,243,.28);font:700 33px/1.45 'IBM Plex Sans Arabic'}
+.s1 .ans:before{content:"";position:absolute;inset:-3px;border-radius:33px 33px 11px 33px;background:linear-gradient(135deg,var(--blue),var(--vio) 55%,var(--pink));z-index:-1}
+.s1 .ans img{height:44px;vertical-align:middle;margin-left:10px}
+.s1 .swipe{position:absolute;top:1404px;left:80px;font:700 46px/1 'Marhey';color:var(--xl)}
+.s1 .hbar{position:absolute;top:1404px;right:80px;display:flex;gap:26px;align-items:center;padding:12px 28px;border-radius:14px;background:var(--ink);color:#fff;font:700 28px 'IBM Plex Sans Arabic'}
+.s1 .lg{position:absolute;top:1270px;left:80px;display:flex;gap:14px;align-items:center}
+.s1 .lg img{width:92px;height:92px;padding:14px;border-radius:26px;background:#fff;box-shadow:0 12px 26px rgba(15,61,38,.2)}
+
+/* ٢ المشكلة */
+.s2 h2{position:absolute;top:322px;right:80px;left:40px;font-size:96px;line-height:1.3;white-space:nowrap}
+.s2 h2 em{font-style:normal;color:var(--red)}
+.s2 .pol{position:absolute;top:690px;right:80px;width:520px;height:540px;background:#fff;padding:16px 16px 74px;transform:rotate(2deg);box-shadow:0 30px 56px rgba(15,61,38,.28)}
+.s2 .pol img.ph{width:100%;height:100%;object-fit:cover;object-position:50% 45%}
+.s2 .pol span{position:absolute;bottom:16px;right:24px;font:700 28px 'IBM Plex Sans Arabic';color:var(--mu)}
+.s2 .pol .lgo{position:absolute;top:-32px;left:-26px;width:96px;height:96px;padding:16px;border-radius:28px;background:#fff;box-shadow:0 12px 26px rgba(15,61,38,.3)}
+.s2 .qs{position:absolute;top:740px;left:50px;width:350px;display:flex;flex-direction:column;gap:18px}
+.s2 .qq{padding:16px 22px;border-radius:22px 22px 22px 6px;background:#fff;font:700 31px/1.4 'IBM Plex Sans Arabic';box-shadow:0 10px 24px rgba(15,61,38,.14)}
+.s2 .qq i{display:block;font:600 24px 'IBM Plex Sans Arabic';font-style:normal;color:var(--red)}
+.s2 .t{position:absolute;top:1280px;right:80px;left:80px;font:700 36px/1.45 'IBM Plex Sans Arabic'}
+.s2 .t b{color:var(--xl)}
+
+/* ٣ الخطوات */
+.s3 h2{position:absolute;top:322px;right:80px;left:40px;font-size:100px;line-height:1.3;white-space:nowrap}
+.s3 h2 em{font-style:normal;color:#7FE3A8}
+.s3 .stp{position:absolute;top:500px;right:70px;left:70px;display:flex;flex-direction:column;gap:20px}
+.s3 .st{display:flex;gap:22px;align-items:flex-start;padding:22px 26px;border-radius:26px;background:rgba(255,255,255,.09);border:2px solid rgba(155,211,176,.35);font:700 37px/1.4 'IBM Plex Sans Arabic'}
+.s3 .st .n{flex:none;display:grid;place-items:center;width:68px;height:68px;border-radius:50%;background:#7FE3A8;color:var(--xln);font:700 38px 'Space Grotesk'}
+.s3 .st i{display:block;margin-top:6px;font:600 28px/1.45 'IBM Plex Sans Arabic';font-style:normal;color:#B6DDC4}
+.s3 .st.k{background:rgba(127,227,168,.16);border-color:#7FE3A8}
+.s3 .ico{position:absolute;top:1235px;right:70px;left:70px;display:flex;gap:18px;align-items:center;padding:18px 26px;border-radius:26px;background:#fff;color:var(--ink);font:700 32px/1.45 'IBM Plex Sans Arabic'}
+.s3 .ico img{flex:none;width:76px;height:76px}
+
+/* ٤ الأوضاع */
+.s4{background:var(--paper)}
+.s4 h2{position:absolute;top:322px;right:80px;left:40px;font-size:96px;line-height:1.3;white-space:nowrap}
+.s4 h2 em{font-style:normal;color:var(--xl)}
+.s4 .md{position:absolute;top:500px;right:70px;left:70px;display:flex;flex-direction:column;gap:30px}
+.s4 .m{display:flex;gap:26px;align-items:center;padding:36px 30px;border-radius:30px;background:#fff;border:3px solid #CFE2D5;box-shadow:0 14px 30px rgba(15,61,38,.12)}
+.s4 .m .ic{flex:none;width:130px;height:130px;border-radius:30px;display:grid;place-items:center;background:var(--xll)}
+.s4 .m.e{border-color:var(--xl);box-shadow:0 18px 40px rgba(33,115,70,.28)}
+.s4 .m.e .ic{background:var(--xl)}
+.s4 .m h3{font:700 52px/1.2 'Marhey';color:var(--ink)}
+.s4 .m h3 .en{font-size:30px;color:var(--mu);margin-right:10px}
+.s4 .m p{font:600 34px/1.5 'IBM Plex Sans Arabic';color:var(--mu);margin-top:6px}
+.s4 .m .def{display:inline-block;padding:2px 16px 6px;border-radius:20px;background:var(--xl);color:#fff;font:700 24px 'IBM Plex Sans Arabic';margin-right:10px;vertical-align:middle}
+.s4 .note{position:absolute;top:1262px;right:70px;left:70px;padding:18px 26px;border-radius:22px;background:var(--warn);font:700 31px/1.45 'IBM Plex Sans Arabic'}
+.s4 .note b{color:var(--xl)}
+
+/* ٥ وش تسأل */
+.s5 h2{position:absolute;top:322px;right:80px;left:40px;font-size:96px;line-height:1.3;white-space:nowrap}
+.s5 h2 em{font-style:normal;color:var(--xl)}
+.s5 .ex{position:absolute;top:490px;right:60px;left:60px;display:flex;flex-direction:column;gap:18px}
+.s5 .e{display:flex;direction:ltr;gap:0;align-items:stretch;border-radius:24px;background:#fff;border:3px solid #CFE2D5;overflow:hidden;box-shadow:0 10px 24px rgba(15,61,38,.12)}
+.s5 .e .p{flex:1;padding:14px 22px 16px;font:700 31px/1.35 'Space Grotesk';color:var(--ink);display:flex;align-items:center;gap:14px}
+.s5 .e .p:before{content:"";flex:none;width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--vio) 55%,var(--pink))}
+.s5 .e .a{flex:none;width:300px;padding:14px 22px 16px;background:var(--xll);direction:rtl;font:700 29px/1.35 'IBM Plex Sans Arabic';color:var(--xld);display:flex;align-items:center}
+.s5 .tip{position:absolute;top:1254px;right:60px;left:60px;padding:18px 26px;border-radius:22px;background:var(--warn);font:700 30px/1.45 'IBM Plex Sans Arabic'}
+.s5 .tip b{color:var(--xl)}
+
+/* ٦ تنبيهات */
+.s6 h2{position:absolute;top:322px;right:80px;left:40px;font-size:96px;line-height:1.3;white-space:nowrap}
+.s6 h2 em{font-style:normal;color:#FFD166}
+.s6 .wr{position:absolute;top:490px;right:70px;left:70px;display:flex;flex-direction:column;gap:26px}
+.s6 .w{display:flex;gap:22px;align-items:flex-start;padding:28px 28px;border-radius:26px;background:rgba(255,255,255,.09);border:2px solid rgba(255,255,255,.2);font:700 40px/1.4 'IBM Plex Sans Arabic'}
+.s6 .w .n{flex:none;display:grid;place-items:center;width:62px;height:62px;border-radius:50%;background:#FFD166;color:var(--xln);font:700 34px 'Space Grotesk'}
+.s6 .w i{display:block;margin-top:8px;font:600 31px/1.5 'IBM Plex Sans Arabic';font-style:normal;color:#C4E4D0}
+.s6 .w.r{border-color:#FF8A8A;background:rgba(255,90,90,.12)}.s6 .w.r .n{background:#FF8A8A}
+.s6 .w s{text-decoration-thickness:4px}
+.s6 .chk{position:absolute;top:1262px;right:70px;left:70px;padding:16px 26px;border-radius:22px;background:var(--warn);color:var(--ink);font:700 31px/1.45 'IBM Plex Sans Arabic'}
+.s6 .chk b{color:var(--red)}
+
+/* ٧ المتابعة */
+.s7{}
+.s7 h2{position:absolute;top:326px;right:60px;left:60px;text-align:center;font-size:88px;line-height:1.35}
+.s7 h2 em{font-style:normal;color:var(--xl)}
+.s7 .ring{position:absolute;top:640px;left:50%;width:440px;height:440px;margin-left:-220px;border-radius:50%;background:conic-gradient(var(--xl),#6FD39A,var(--blue),var(--vio),var(--xl));box-shadow:0 30px 60px rgba(15,61,38,.28)}
+.s7 .face{position:absolute;top:16px;left:16px;width:408px;height:408px;border-radius:50%;overflow:hidden;background:var(--paper)}
+.s7 .face img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.s7 .nm{position:absolute;top:1110px;left:0;right:0;text-align:center;font:700 88px/1.2 'Marhey'}
+.s7 .ds{position:absolute;top:1226px;left:0;right:0;text-align:center;font:700 34px 'IBM Plex Sans Arabic';color:var(--mu)}
+.s7 .soc{position:absolute;top:1286px;left:0;right:0;display:flex;justify-content:center}
+.s7 .soc>div{display:flex;gap:26px;align-items:center;padding:12px 30px;border-radius:14px;background:var(--ink);color:#fff;font:700 30px 'IBM Plex Sans Arabic'}
+.s7 .ask{position:absolute;top:1366px;left:60px;right:60px;text-align:center;font:700 38px/1.4 'IBM Plex Sans Arabic';color:var(--xl)}
+</style>
+</head>
+<body>
+
+<!-- ١ الغلاف -->
+<section class="slide s1 sheet">
+  <div class="cols" data-safe="ignore"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></div>
+  <div class="tag"><img src="assets/copilot-color.svg" alt="">Copilot · Excel</div>
+  <h1 class="hd">جدولك صار<br><em>يتكلم</em></h1>
+  <div class="sub">اسأله بجملة… وهو <b>يحلّل ويكتب المعادلة ويرسم</b></div>
+  <div class="fx"><div class="nm">B2</div><div class="f">fx</div><div class="q">Which region sells the most?<span class="cur"></span></div></div>
+  <div class="card">
+    <table>
+      <tr><th>Region</th><th>Sales</th><th></th></tr>
+      <tr class="hl"><td>Riyadh</td><td>412K</td><td><span class="bar" style="width:260px"></span></td></tr>
+      <tr><td>Jeddah</td><td>298K</td><td><span class="bar" style="width:188px;background:#6FB58C"></span></td></tr>
+      <tr><td>Dammam</td><td>176K</td><td><span class="bar" style="width:112px;background:#6FB58C"></span></td></tr>
+    </table>
+  </div>
+  <div class="ans"><img src="assets/copilot-color.svg" alt="">الرياض الأعلى مبيعاً <span class="en" style="font-size:28px">(مثال)</span></div>
+  <div class="lg"><img src="assets/excel-color.svg" alt=""></div>
+  <div class="swipe">اسحب ←</div>
+  <div class="hbar">{{HANDLES}}</div>
+</section>
+
+<!-- ٢ المشكلة -->
+<section class="slide s2 sheet">
+  <div class="cols" data-safe="ignore"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></div>
+  <div class="tag"><img src="assets/copilot-color.svg" alt="">Copilot · Excel</div>
+  <div class="pg">2/7</div>
+  <h2 class="hd">السؤال بسيط…<br><em>والمعادلة؟</em></h2>
+  <div class="pol"><img class="ph" src="assets/desk.jpg" alt=""><img class="lgo" src="assets/excel-color.svg" alt=""><span>ملف كبير… وأنت تدوّر</span></div>
+  <div class="qs">
+    <div class="qq">كم مبيعات كل منطقة؟<i>VLOOKUP؟ SUMIFS؟</i></div>
+    <div class="qq">أي شهر الأعلى؟<i>PivotTable؟</i></div>
+    <div class="qq">وين الأرقام الغريبة؟<i>فلترة يدوية؟</i></div>
+  </div>
+  <div class="t">بدل ما تحفظ المعادلات، <b>اسأل Copilot</b> بجملة عادية… وهو يجاوب أو يكتبها لك</div>
+</section>
+
+<!-- ٣ الخطوات -->
+<section class="slide s3 dark">
+  <div class="cols" data-safe="ignore"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></div>
+  <div class="tag"><img src="assets/copilot-color.svg" alt="">Copilot · Excel</div>
+  <div class="pg">3/7</div>
+  <h2 class="hd">جهّز… <em>واسأل</em></h2>
+  <div class="stp">
+    <div class="st"><span class="n">1</span><div>احفظ الملف في <span class="en">OneDrive</span><i>وشغّل الحفظ التلقائي <span class="en" style="font-size:26px;color:#B6DDC4">(AutoSave)</span>… بدونه ما يشتغل</i></div></div>
+    <div class="st"><span class="n">2</span><div>رتّب بياناتك بجدول واضح<i>عناوين أعمدة، بدون خلايا مدمجة</i></div></div>
+    <div class="st k"><span class="n">3</span><div>اضغط أيقونة Copilot<i>أسفل يمين نافذة <span class="en" style="font-size:26px;color:#B6DDC4">Excel</span></i></div></div>
+    <div class="st"><span class="n">4</span><div>اكتب سؤالك<i>وتجي الإجابة في لوحة جانبية</i></div></div>
+  </div>
+  <div class="ico"><img src="assets/copilot-color.svg" alt=""><div>الحساب لازم يشمل Copilot، وإلا ما تظهر الأيقونة (التفاصيل بالشريحة 6)</div></div>
+</section>
+
+<!-- ٤ الأوضاع -->
+<section class="slide s4 sheet">
+  <div class="cols" data-safe="ignore"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></div>
+  <div class="tag"><img src="assets/copilot-color.svg" alt="">Copilot · Excel</div>
+  <div class="pg">4/7</div>
+  <h2 class="hd">ثلاث <em>أوضاع</em></h2>
+  <div class="md">
+    <div class="m"><div class="ic"><svg width="62" height="62" viewBox="0 0 62 62"><path d="M8 12h46a4 4 0 014 4v26a4 4 0 01-4 4H28l-12 10V46h-8a4 4 0 01-4-4V16a4 4 0 014-4z" fill="#217346"/></svg></div><div><h3>محادثة<span class="en">Chat</span></h3><p>يجاوب ويحلّل بياناتك <b>بدون ما يغيّر ملفك</b></p></div></div>
+    <div class="m"><div class="ic"><svg width="62" height="62" viewBox="0 0 62 62"><g fill="none" stroke="#217346" stroke-width="6" stroke-linecap="round"><path d="M10 16h8M10 31h8M10 46h8"/><path d="M26 16h26M26 31h26M26 46h18"/></g></svg></div><div><h3>خطة<span class="en">Plan</span></h3><p>يعرض لك الخطوات، و<b>انت توافق</b> قبل التنفيذ</p></div></div>
+    <div class="m e"><div class="ic"><svg width="62" height="62" viewBox="0 0 62 62"><path d="M10 52l4-14L40 12a6 6 0 018 8L22 46z" fill="#fff"/></svg></div><div><h3>تعديل<span class="en">Edit</span><span class="def">الافتراضي</span></h3><p>يعدّل ملفك مباشرة: معادلات، رسوم، تنسيق</p></div></div>
+  </div>
+  <div class="note">على الجوال (آيفون وأندرويد) <b>وضع المحادثة بس</b>. التعديل المباشر للكمبيوتر والويب</div>
+</section>
+
+<!-- ٥ وش تسأل -->
+<section class="slide s5 sheet">
+  <div class="cols" data-safe="ignore"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></div>
+  <div class="tag"><img src="assets/copilot-color.svg" alt="">Copilot · Excel</div>
+  <div class="pg">5/7</div>
+  <h2 class="hd">وش <em>تسأله؟</em></h2>
+  <div class="ex">
+    <div class="e"><div class="p">Summarize trends and outliers</div><div class="a">ملخّص واتجاهات وقيم شاذة</div></div>
+    <div class="e"><div class="p">Explain this formula</div><div class="a">يشرح معادلة الخلية المحددة</div></div>
+    <div class="e"><div class="p">Add a profit margin column</div><div class="a">عمود بمعادلة جاهزة</div></div>
+    <div class="e"><div class="p">Create a PivotTable by region</div><div class="a">PivotTable بدون ما تبنيه</div></div>
+    <div class="e"><div class="p">Make a chart of sales by month</div><div class="a">رسم جاهز تعدّله</div></div>
+    <div class="e"><div class="p">Highlight values above 10,000</div><div class="a">تلوين، ترتيب، فلترة (زر <span class="en" style="font-size:26px">Apply</span>)</div></div>
+  </div>
+  <div class="tip">كتبت الأمثلة بالإنجليزي لأن <b>Microsoft تقول التدريب أغلبه إنجليزي</b>، وقد يضعف الأداء بلغات ثانية… جرّب عربي وإنجليزي وقارن</div>
+</section>
+
+<!-- ٦ تنبيهات -->
+<section class="slide s6 dark">
+  <div class="cols" data-safe="ignore"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></div>
+  <div class="tag"><img src="assets/copilot-color.svg" alt="">Copilot · Excel</div>
+  <div class="pg">6/7</div>
+  <h2 class="hd">قبل <em>تعتمد عليه</em></h2>
+  <div class="wr">
+    <div class="w r"><span class="n">!</span><div>دليل قديم يستخدم دالة <span class="en" style="font-size:36px">COPILOT</span><i>الدالة انحذفت من Excel بداية <span class="en" style="font-size:26px;color:#C4E4D0">14 Sep 2026</span>… استخدم لوحة Copilot بدلها</i></div></div>
+    <div class="w"><span class="n">1</span><div>الاشتراك<i>Personal أو Family مع رصيد AI، أو Premium، أو خطة Copilot للشركات. وفي الفردي الميزة لصاحب الاشتراك بس</i></div></div>
+    <div class="w"><span class="n">2</span><div>شروط التعديل<i>الحفظ التلقائي شغّال، والحساب على <span class="en" style="font-size:26px;color:#C4E4D0">Automatic</span>، وملف بصيغة حديثة</i></div></div>
+  </div>
+  <div class="chk"><b>راجع كل نتيجة:</b> Copilot ممكن يغلط في معادلة أو رقم. جرّبه على نسخة قبل ملفك المهم</div>
+</section>
+
+<!-- ٧ المتابعة -->
+<section class="slide s7 sheet" data-handles="off">
+  <div class="cols" data-safe="ignore"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></div>
+  <div class="tag"><img src="assets/copilot-color.svg" alt="">Copilot · Excel</div>
+  <div class="pg">7/7</div>
+  <h2 class="hd">ملفاتك تحلّل نفسها…<br><em>وانت تقرّر</em></h2>
+  <div class="ring"><div class="face"><img src="{{AVATAR}}" alt=""></div></div>
+  <div class="nm">علي التميمي</div>
+  <div class="ds">كل يوم أداة ذكاء اصطناعي تختصر شغلك</div>
+  <div class="soc"><div>{{HANDLES}}</div></div>
+  <div class="ask">وش أثقل معادلة عندك؟ اكتبها بالتعليقات</div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<style>
+:root{--green:#0E3B2E;--green2:#14503E;--brass:#D4A24C;--brass2:#F0C66E;--cream:#F3E9D2;--ink:#1A1712;--brick:#C8452D;--ok:#2E9E68;--amber:#E39A2B;--mute:#7C7262}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;font-family:'IBM Plex Sans Arabic','Cairo',sans-serif;-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1920px;position:relative;overflow:hidden;direction:rtl}
+.hd{font-family:'Readex Pro';font-weight:700;line-height:1.15}
+.mono{font-family:'JetBrains Mono',monospace;direction:ltr;unicode-bidi:isolate}
+.kick{position:absolute;top:250px;right:90px;font:700 30px 'IBM Plex Sans Arabic';display:flex;align-items:center;gap:14px}
+.kick svg{width:34px;height:34px}
+.pg{position:absolute;top:252px;left:90px;font:800 28px 'JetBrains Mono';opacity:.55}
+.dk{background:radial-gradient(1100px 900px at 50% 35%,var(--green2),var(--green) 70%);color:var(--cream)}
+.lt{background:var(--cream);color:var(--ink)}
+.grain{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1.5px);background-size:14px 14px;pointer-events:none}
+.lt .grain{background-image:radial-gradient(rgba(60,40,10,.06) 1px,transparent 1.5px)}
+
+/* ١ الغلاف */
+.s1 h1{position:absolute;top:320px;right:90px;left:90px;font-size:108px;text-align:center}
+.s1 h1 em{font-style:normal;color:var(--brass2);display:block;font-size:80px;margin-top:6px}
+.ring{position:absolute;top:640px;left:450px;width:180px;height:180px;border-radius:50%;border:18px solid var(--brass);
+  box-shadow:inset 0 0 0 3px rgba(255,255,255,.25),0 12px 30px rgba(0,0,0,.35)}
+.kg{position:absolute;top:790px;left:510px;width:60px;height:540px;transform-origin:30px 0}
+.kg svg.k{position:absolute;top:0;left:0;width:60px;height:420px;filter:drop-shadow(0 10px 14px rgba(0,0,0,.35))}
+.tag{position:absolute;left:30px;transform-origin:50% 0;background:var(--cream);color:var(--ink);border-radius:10px 26px 26px 10px;padding:10px 22px 10px 16px;font:700 32px 'IBM Plex Sans Arabic';white-space:nowrap;
+  box-shadow:0 10px 20px rgba(0,0,0,.3)}
+.tag:before{content:"";position:absolute;right:10px;top:50%;width:12px;height:12px;margin-top:-6px;border-radius:50%;background:var(--green)}
+.tag{padding-right:36px}
+.hbar{position:absolute;top:1392px;right:90px;display:flex;gap:26px;align-items:center;padding:14px 28px;border-radius:999px;background:rgba(0,0,0,.35);border:2px solid rgba(243,233,210,.25);color:var(--cream);font:700 28px 'IBM Plex Sans Arabic'}
+.swipe{position:absolute;top:1402px;left:90px;font:700 32px 'IBM Plex Sans Arabic';color:var(--brass2)}
+
+/* ٢ الموظف الجديد */
+.s2 h2{position:absolute;top:320px;right:90px;left:90px;font-size:92px}
+.s2 h2 em{font-style:normal;color:var(--brick)}
+.door{position:absolute;top:560px;left:80px;width:450px;height:590px;border-radius:225px 225px 0 0;border:14px solid var(--brass);border-bottom:none;overflow:hidden;background:#222}
+.door img{width:100%;height:100%;object-fit:cover;object-position:32% 50%;filter:grayscale(1) contrast(1.08) brightness(.95)}
+.door:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,59,46,0) 55%,rgba(14,59,46,.55))}
+.sill{position:absolute;top:1150px;left:60px;width:490px;height:16px;background:var(--brass);border-radius:4px}
+.lockplate{position:absolute;top:1040px;left:440px;width:92px;height:92px;border-radius:50%;background:var(--brick);display:grid;place-items:center;box-shadow:0 10px 20px rgba(0,0,0,.3);z-index:2}
+.chips{position:absolute;top:590px;right:90px;width:420px;display:flex;flex-direction:column;gap:24px}
+.chip{display:flex;align-items:center;justify-content:space-between;background:#fff;border:3px dashed #CDBF9E;border-radius:20px;padding:22px 24px;font:700 36px 'IBM Plex Sans Arabic';color:#9A8E76}
+.chip svg{flex:none}
+.chips .cap{font:700 30px/1.5 'IBM Plex Sans Arabic';color:var(--ink);margin-top:6px}
+.chat{position:absolute;top:1185px;right:90px;left:90px;display:flex;flex-direction:column;gap:14px}
+.bub{max-width:88%;padding:18px 26px;border-radius:26px;font:600 32px/1.45 'IBM Plex Sans Arabic'}
+.bub.me{align-self:flex-start;background:var(--green);color:var(--cream);border-bottom-right-radius:8px}
+.bub.ai{align-self:flex-end;background:#fff;color:var(--ink);border:2px solid #E1D6BD;border-bottom-left-radius:8px}
+
+/* ٣ لوحة المفاتيح */
+.s3 h2{position:absolute;top:320px;right:90px;left:90px;font-size:100px}
+.s3 h2 em{font-style:normal;color:var(--brass2)}
+.board{position:absolute;top:560px;left:70px;right:70px;height:800px;border-radius:26px;
+  background:linear-gradient(90deg,rgba(0,0,0,.08),transparent 30%,rgba(0,0,0,.06) 60%,transparent),repeating-linear-gradient(0deg,#8A5A33 0 22px,#93613A 22px 46px,#7F5230 46px 60px);
+  box-shadow:inset 0 0 0 10px #6B4426,0 30px 60px rgba(0,0,0,.45)}
+.screw{position:absolute;width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#F7DFA3,#A77A2E)}
+.hook{position:absolute;width:300px;text-align:center}
+.hook .h{width:46px;height:30px;margin:0 auto;border:8px solid var(--brass2);border-top:none;border-radius:0 0 30px 30px}
+.hook svg{display:block;margin:-6px auto 0;width:44px;height:170px;filter:drop-shadow(0 8px 10px rgba(0,0,0,.4))}
+.hook .card{margin:-8px auto 0;width:240px;background:var(--cream);color:var(--ink);border-radius:14px;padding:14px 12px;box-shadow:0 10px 20px rgba(0,0,0,.35)}
+.hook .card b{display:block;font:800 36px 'Readex Pro'}
+.hook .card span{font:600 26px 'IBM Plex Sans Arabic';color:#4B4436}
+
+/* ٤ مسار المهمة */
+.s4 h2{position:absolute;top:320px;right:90px;left:90px;font-size:88px;white-space:nowrap}
+.s4 h2 em{font-style:normal;color:var(--green)}
+.req{position:absolute;top:470px;right:90px;left:90px;background:var(--green);color:var(--cream);border-radius:28px;padding:26px 32px;font:700 38px 'IBM Plex Sans Arabic'}
+.req small{display:block;font:700 24px 'JetBrains Mono';color:var(--brass2);letter-spacing:2px;margin-bottom:6px;direction:ltr;text-align:right}
+.path{position:absolute;top:700px;right:90px;left:90px}
+.path:before{content:"";position:absolute;top:40px;bottom:60px;right:44px;border-right:5px dotted #B9A67E}
+.st{position:relative;display:flex;align-items:center;gap:26px;margin-bottom:34px}
+.st .dot{width:92px;height:92px;border-radius:50%;background:var(--brass);display:grid;place-items:center;flex:none;box-shadow:0 8px 16px rgba(120,80,20,.3);z-index:1}
+.st .dot.done{background:var(--ok)}
+.st .tt{font:800 26px 'JetBrains Mono';color:var(--mute);letter-spacing:1px}
+.st .a{font:700 38px/1.4 'IBM Plex Sans Arabic'}
+.st .a em{font-style:normal;color:var(--green);font-family:'JetBrains Mono'}
+
+/* ٥ بطاقات الدخول */
+.s5 h2{position:absolute;top:320px;right:90px;left:90px;font-size:80px;white-space:nowrap}
+.s5 h2 em{font-style:normal;color:var(--brass2)}
+.kc{position:absolute;width:780px;height:270px;border-radius:30px;background:linear-gradient(135deg,#FBF6EA,#E9DEC4);color:var(--ink);box-shadow:0 30px 60px rgba(0,0,0,.45);overflow:hidden;padding:34px 40px 30px 170px}
+.kc .stripe{position:absolute;right:0;top:0;bottom:0;width:26px}
+.kc .chipg{position:absolute;left:44px;top:50%;margin-top:-44px;width:100px;height:88px;border-radius:14px;background:linear-gradient(135deg,#F3D58B,#B98A2E);
+  box-shadow:inset 0 0 0 3px rgba(0,0,0,.15)}
+.kc .chipg:before{content:"";position:absolute;inset:26px 18px;border:3px solid rgba(0,0,0,.25);border-radius:6px}
+.kc .lv{font:800 26px 'JetBrains Mono';letter-spacing:2px;direction:ltr;text-align:right}
+.kc .n{font:800 52px 'Readex Pro';margin:6px 0 4px}
+.kc .d{font:600 30px 'IBM Plex Sans Arabic';color:#4B4436}
+
+/* ٦ المفتاح الرئيسي */
+.s6 h2{position:absolute;top:320px;right:90px;left:90px;font-size:76px;white-space:nowrap}
+.s6 h2 em{font-style:normal;color:var(--brick)}
+.master{position:absolute;top:470px;left:90px;right:90px;height:300px}
+.master svg.mk{position:absolute;top:30px;left:80px;width:740px;height:240px;filter:drop-shadow(0 16px 20px rgba(80,50,10,.35))}
+.nope{position:absolute;top:0;left:350px;width:300px;height:300px;border-radius:50%;border:22px solid var(--brick);opacity:.92}
+.nope:after{content:"";position:absolute;left:50%;top:-10px;bottom:-10px;width:22px;margin-left:-11px;background:var(--brick);transform:rotate(-45deg)}
+.mcap{position:absolute;top:800px;right:90px;left:90px;text-align:center;font:700 34px 'IBM Plex Sans Arabic';color:var(--brick)}
+.right{position:absolute;top:880px;right:90px;left:90px;background:#fff;border:4px solid var(--ok);border-radius:26px;padding:26px 32px}
+.right b{display:block;font:800 30px 'IBM Plex Sans Arabic';color:var(--ok);margin-bottom:6px}
+.right .fl{font:700 33px/1.5 'IBM Plex Sans Arabic'}
+.try{position:absolute;top:1110px;right:90px;left:90px;background:var(--green);color:var(--cream);border-radius:26px;padding:26px 32px}
+.try b{display:block;font:800 28px 'IBM Plex Sans Arabic';color:var(--brass2);margin-bottom:6px}
+.try span{font:600 34px/1.5 'IBM Plex Sans Arabic'}
+
+/* ٧ بطاقة المفتاح */
+.s7 .string{position:absolute;top:300px;left:535px;width:10px;height:150px;background:linear-gradient(#B98A2E,#E7C47A)}
+.s7 .ring7{position:absolute;top:230px;left:480px;width:120px;height:120px;border-radius:50%;border:14px solid var(--brass)}
+.bigtag{position:absolute;top:430px;left:150px;right:150px;height:850px;background:var(--cream);color:var(--ink);transform:rotate(-3deg);
+  clip-path:polygon(22% 0,78% 0,100% 11%,100% 100%,0 100%,0 11%);box-shadow:0 40px 80px rgba(0,0,0,.5);text-align:center;padding-top:140px}
+.bigtag .eye{position:absolute;top:36px;left:50%;margin-left:-40px;width:80px;height:80px;border-radius:50%;background:var(--green);border:12px solid var(--brass)}
+.bigtag .av{width:240px;height:240px;border-radius:50%;overflow:hidden;margin:0 auto;border:8px solid var(--green);background:var(--green)}
+.bigtag .av img{width:100%;height:100%;object-fit:cover;object-position:50% 15%}
+.bigtag .nm{font:700 76px 'Readex Pro';margin-top:24px}
+.bigtag .rl{font:600 30px 'IBM Plex Sans Arabic';color:var(--mute);margin-top:18px}
+.bigtag .ln{width:70%;margin:30px auto;border-top:4px dashed #CDBF9E}
+.bigtag .k3{font:800 30px 'JetBrains Mono';letter-spacing:3px;color:var(--brick);direction:ltr}
+.bigtag .soc{margin:24px 50px 0;background:var(--green);color:var(--cream);border-radius:18px;padding:20px;display:flex;justify-content:center;gap:30px;font:700 30px 'IBM Plex Sans Arabic'}
+.s7 .cta{position:absolute;top:1352px;right:90px;left:90px;text-align:center;font:800 42px 'IBM Plex Sans Arabic';color:var(--cream)}
+.s7 .cta em{font-style:normal;color:var(--brass2)}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <linearGradient id="br" x1="0" x2="1"><stop offset="0" stop-color="#F6D48A"/><stop offset=".5" stop-color="#D4A24C"/><stop offset="1" stop-color="#A9782C"/></linearGradient>
+    <symbol id="key" viewBox="0 0 60 420">
+      <circle cx="30" cy="40" r="30" fill="url(#br)"/><circle cx="30" cy="40" r="12" fill="#0E3B2E"/>
+      <rect x="22" y="66" width="16" height="330" rx="4" fill="url(#br)"/>
+      <path d="M38 300 h16 v22 h-10 v14 h10 v24 h-16 z" fill="url(#br)"/>
+      <path d="M38 372 h12 v20 h-12 z" fill="url(#br)"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ١ الغلاف: حلقة المفاتيح -->
+<section class="slide dk s1">
+  <div class="grain"></div>
+  <div class="kick" style="color:var(--brass2)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="8" cy="15" r="4.5"/><path d="M11.5 12 20 3.5M17 6.5l2.5 2.5M14.5 9l2 2"/></svg>وكلاء · اليوم ٣١</div>
+  <div class="pg" style="color:var(--cream)">DAY / 31</div>
+  <h1 class="hd">وكيل بدون أدوات<em>= موظف بدون مفاتيح</em></h1>
+  <div class="ring"></div>
+  <div class="kg" style="transform:rotate(45deg)"><svg class="k"><use href="#key"/></svg><div class="tag" style="top:405px;transform:translateX(-50%) rotate(-45deg)">✉ بريد</div></div>
+  <div class="kg" style="transform:rotate(15deg)"><svg class="k"><use href="#key"/></svg><div class="tag" style="top:405px;transform:translateX(-50%) rotate(-15deg)">📅 تقويم</div></div>
+  <div class="kg" style="transform:rotate(-15deg)"><svg class="k"><use href="#key"/></svg><div class="tag" style="top:405px;transform:translateX(-50%) rotate(15deg)">📁 ملفات</div></div>
+  <div class="kg" style="transform:rotate(-45deg)"><svg class="k"><use href="#key"/></svg><div class="tag" style="top:405px;transform:translateX(-50%) rotate(45deg)">🗄 بيانات</div></div>
+  <div class="swipe">اسحب ←</div>
+  <div class="hbar">{{HANDLES}}</div>
+</section>
+
+<!-- ٢ الموظف الجديد -->
+<section class="slide lt s2">
+  <div class="grain"></div>
+  <div class="kick" style="color:var(--brick)">● اليوم الأول</div>
+  <div class="pg">02</div>
+  <h2 class="hd">أذكى موظف… <em>بدون صلاحيات</em></h2>
+  <div class="door"><img src="assets/newemp.jpg"></div>
+  <div class="sill"></div>
+  <div class="lockplate"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg></div>
+  <div class="chips">
+    <div class="chip">✉ البريد <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#C8452D" stroke-width="2.6"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg></div>
+    <div class="chip">📅 التقويم <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#C8452D" stroke-width="2.6"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg></div>
+    <div class="chip">📁 الملفات <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#C8452D" stroke-width="2.6"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg></div>
+    <div class="cap">يقدر يقترح عليك…<br>بس ما يقدر <span style="color:var(--brick)">يسوي</span> شي.</div>
+  </div>
+  <div class="chat">
+    <div class="bub me">رتّب لي اجتماع مع أحمد الأسبوع الجاي</div>
+    <div class="bub ai">ما أقدر أشوف تقويمك 🤷 هذي رسالة تقدر ترسلها له…</div>
+  </div>
+</section>
+
+<!-- ٣ لوحة المفاتيح -->
+<section class="slide dk s3">
+  <div class="grain"></div>
+  <div class="kick" style="color:var(--brass2)">● الأدوات</div>
+  <div class="pg" style="color:var(--cream)">03</div>
+  <h2 class="hd">كل أداة = <em>قدرة جديدة</em></h2>
+  <div class="board">
+    <i class="screw" style="top:24px;right:24px"></i><i class="screw" style="top:24px;left:24px"></i><i class="screw" style="bottom:24px;right:24px"></i><i class="screw" style="bottom:24px;left:24px"></i>
+    <div class="hook" style="top:40px;right:20px"><div class="h"></div><svg><use href="#key"/></svg><div class="card"><b>✉ بريد</b><span>يقرأ ويرد ويرسل</span></div></div>
+    <div class="hook" style="top:40px;right:320px"><div class="h"></div><svg><use href="#key"/></svg><div class="card"><b>📅 تقويم</b><span>يشوف أوقاتك ويحجز</span></div></div>
+    <div class="hook" style="top:40px;right:620px"><div class="h"></div><svg><use href="#key"/></svg><div class="card"><b>📁 ملفات</b><span>يقرأ ويكتب تقارير</span></div></div>
+    <div class="hook" style="top:410px;right:170px"><div class="h"></div><svg><use href="#key"/></svg><div class="card"><b>🗄 بيانات</b><span>يلقى عميل أو فاتورة</span></div></div>
+    <div class="hook" style="top:410px;right:470px"><div class="h"></div><svg><use href="#key"/></svg><div class="card"><b>🌐 بحث</b><span>يجيب معلومة جديدة</span></div></div>
+  </div>
+</section>
+
+<!-- ٤ مسار المهمة -->
+<section class="slide lt s4">
+  <div class="grain"></div>
+  <div class="kick" style="color:var(--green)">● مثال حقيقي</div>
+  <div class="pg">04</div>
+  <h2 class="hd">مهمة وحدة… <em>مفتاحين</em></h2>
+  <div class="req"><small>REQUEST</small>«رتّب لي اجتماع مع أحمد الأسبوع الجاي»</div>
+  <div class="path">
+    <div class="st"><div class="dot"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#1A1712" stroke-width="2.2"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></div><div><div class="tt">CALENDAR · READ</div><div class="a">يلقى أول وقت فاضي: <em>الثلاثاء 10:00</em></div></div></div>
+    <div class="st"><div class="dot"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#1A1712" stroke-width="2.2"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg></div><div><div class="tt">EMAIL · SEND</div><div class="a">يرسل دعوة لأحمد</div></div></div>
+    <div class="st"><div class="dot"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#1A1712" stroke-width="2.2"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4M9 15l2 2 4-4"/></svg></div><div><div class="tt">CALENDAR · WRITE</div><div class="a">يحجز الموعد بعد ما يوافق أحمد</div></div></div>
+    <div class="st"><div class="dot done"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2"><path d="M4 12l5 5L20 6"/></svg></div><div><div class="tt">DONE</div><div class="a">وأنت ما فتحت ولا تطبيق</div></div></div>
+  </div>
+</section>
+
+<!-- ٥ بطاقات الدخول -->
+<section class="slide dk s5">
+  <div class="grain"></div>
+  <div class="kick" style="color:var(--brass2)">● الصلاحيات</div>
+  <div class="pg" style="color:var(--cream)">05</div>
+  <h2 class="hd">مو كل مفتاح <em>يفتح كل باب</em></h2>
+  <div class="kc" style="top:560px;right:80px;transform:rotate(2deg)"><i class="stripe" style="background:var(--ok)"></i><i class="chipg"></i>
+    <div class="lv" style="color:var(--ok)">LEVEL 1</div><div class="n">قراءة فقط</div><div class="d">يشوف ويبحث. آمن، ابدأ فيه دايماً</div></div>
+  <div class="kc" style="top:830px;left:80px;transform:rotate(-2deg)"><i class="stripe" style="background:var(--amber)"></i><i class="chipg"></i>
+    <div class="lv" style="color:var(--amber)">LEVEL 2</div><div class="n">كتابة وتعديل</div><div class="d">بحذر، بعد ما تجرّبه وتثق فيه</div></div>
+  <div class="kc" style="top:1100px;right:80px;transform:rotate(1.5deg)"><i class="stripe" style="background:var(--brick)"></i><i class="chipg"></i>
+    <div class="lv" style="color:var(--brick)">LEVEL 3</div><div class="n">إرسال · دفع · حذف</div><div class="d">بموافقتك أنت، كل مرة</div></div>
+</section>
+
+<!-- ٦ الخطأ الشائع -->
+<section class="slide lt s6">
+  <div class="grain"></div>
+  <div class="kick" style="color:var(--brick)">● الخطأ الشائع</div>
+  <div class="pg">06</div>
+  <h2 class="hd">المفتاح الرئيسي <em>من أول يوم</em></h2>
+  <div class="master">
+    <svg class="mk" viewBox="0 0 740 240"><defs><linearGradient id="br2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6D48A"/><stop offset=".5" stop-color="#D4A24C"/><stop offset="1" stop-color="#9C6E26"/></linearGradient></defs>
+      <circle cx="120" cy="120" r="108" fill="url(#br2)"/><circle cx="120" cy="120" r="46" fill="#F3E9D2"/>
+      <rect x="215" y="98" width="500" height="44" rx="8" fill="url(#br2)"/>
+      <path d="M560 142 h40 v44 h-20 v26 h20 v28 h-40z M640 142 h40 v70 h-40z" fill="url(#br2)"/>
+      <text x="120" y="135" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="40" fill="#1A1712">ALL</text></svg>
+    <div class="nope"></div>
+  </div>
+  <div class="mcap">صلاحية كاملة من البداية: يرسل ويحذف ويدفع… بدون ما يسألك</div>
+  <div class="right"><b>✓ الصح</b><div class="fl">ابدأ بقراءة فقط ← أضف الكتابة أداة أداة ← الحساس بموافقتك</div></div>
+  <div class="try"><b>🔑 جرّبها اليوم</b><span>من إعدادات Claude أو ChatGPT افتح Connectors، واربط تقويم Google بصلاحية القراءة. بعدها اسأل: «وش أول وقت فاضي عندي الأسبوع الجاي؟»</span></div>
+</section>
+
+<!-- ٧ بطاقة المفتاح -->
+<section class="slide dk s7">
+  <div class="grain"></div>
+  <div class="ring7"></div><div class="string"></div>
+  <div class="bigtag">
+    <div class="eye"></div>
+    <div class="av"><img src="{{AVATAR}}"></div>
+    <div class="nm">علي التميمي</div>
+    <div class="rl">الذكاء الاصطناعي والأتمتة ببساطة</div>
+    <div class="ln"></div>
+    <div class="k3">KEY 031 · DAILY</div>
+    <div class="soc">{{HANDLES}}</div>
+  </div>
+  <div class="cta">كل يوم <em>مفتاح جديد</em>، تابع 🔑</div>
+</section>
+
+</body>
+</html>

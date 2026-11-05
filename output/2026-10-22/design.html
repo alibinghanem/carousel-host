@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<style>
+:root{--m1:#D6DBE0;--m2:#B3B9C0;--in:#24272C;--brk:#1A1C20;--on:#22C55E;--yel:#FFC72C;--red:#E5352B;--tape:#F1E6C8;--ink:#15171A;--mu:#555B63;--wall:#ECE6DB}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;font-family:'IBM Plex Sans Arabic',sans-serif;-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1920px;position:relative;overflow:hidden;direction:rtl;color:var(--ink)}
+.hd{font-family:'Changa';font-weight:800}
+.metal{background:repeating-linear-gradient(90deg,rgba(255,255,255,.07) 0 2px,rgba(0,0,0,.035) 2px 5px),linear-gradient(160deg,var(--m1) 0%,#C4CAD0 55%,var(--m2) 100%)}
+.screw{position:absolute;width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#F4F6F8,#8D949C 70%);box-shadow:0 2px 3px rgba(0,0,0,.3)}
+.screw:after{content:"";position:absolute;left:5px;right:5px;top:13px;height:4px;background:#6A7078;border-radius:2px;transform:rotate(35deg)}
+.pg{position:absolute;top:266px;left:80px;font:800 28px 'JetBrains Mono';direction:ltr}
+.chip{position:absolute;top:252px;right:80px;display:flex;align-items:center;gap:12px;padding:6px 24px 10px;border-radius:999px;font:700 30px 'IBM Plex Sans Arabic'}
+.chip svg{width:28px;height:28px}
+.hz{background:repeating-linear-gradient(-45deg,var(--yel) 0 26px,#1A1A1A 26px 52px)}
+.en{font-family:'Space Grotesk';direction:ltr;unicode-bidi:isolate}
+
+/* المفتاح (breaker) */
+.br{position:relative;width:176px;display:flex;flex-direction:column;align-items:center}
+.br .body{position:relative;width:150px;height:196px;border-radius:12px;background:linear-gradient(180deg,#2A2D33,var(--brk));box-shadow:inset 0 2px 0 rgba(255,255,255,.08),0 8px 14px rgba(0,0,0,.35)}
+.br .body:before,.br .body:after{content:"";position:absolute;left:61px;width:28px;height:28px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#9AA1A9,#4A4F56)}
+.br .body:before{top:10px}.br .body:after{bottom:10px}
+.br .led{position:absolute;top:48px;right:18px;width:14px;height:14px;border-radius:50%;background:#3A3E44}
+.br .slot{position:absolute;top:50px;left:50px;width:50px;height:98px;border-radius:8px;background:#0B0C0E;box-shadow:inset 0 3px 6px rgba(0,0,0,.8)}
+.br .lev{position:absolute;left:5px;width:40px;height:44px;border-radius:6px;background:linear-gradient(180deg,#8E959D,#5E646B);bottom:5px}
+.br .lb{margin-top:12px;padding:2px 12px 6px;max-width:176px;background:#121315;color:#EDEDED;font:700 26px/1.3 'Changa';letter-spacing:.5px;border-radius:4px;box-shadow:0 2px 0 rgba(0,0,0,.4);white-space:nowrap}
+.br.on .lev{top:5px;bottom:auto;background:linear-gradient(180deg,#FFFFFF,#D9DDE1)}
+.br.on .led{background:var(--on);box-shadow:0 0 14px 4px rgba(34,197,94,.75)}
+.br.on .body{box-shadow:0 0 0 4px var(--on),0 0 40px rgba(34,197,94,.55),0 8px 14px rgba(0,0,0,.35)}
+.br.on .lb{background:var(--yel);color:var(--ink)}
+.br.trip .led{background:var(--red);box-shadow:0 0 16px 5px rgba(229,53,43,.8)}
+.br.trip .body{box-shadow:0 0 0 4px var(--red),0 0 40px rgba(229,53,43,.5)}
+.br.trip .lb{background:var(--red);color:#fff}
+
+/* ١ الغلاف: اللوحة */
+.s1 .tag{position:absolute;top:252px;right:80px;display:flex;align-items:center;gap:12px;padding:6px 24px 10px;border-radius:999px;background:var(--ink);color:var(--yel);font:700 30px 'IBM Plex Sans Arabic'}
+.s1 .tag svg{width:28px;height:28px}
+.s1 h1{position:absolute;top:322px;right:76px;left:60px;line-height:1.2}
+.s1 h1 b{display:block;font:800 138px/1.15 'Changa'}
+.s1 h1 span{display:block;font:800 92px/1.25 'Changa'}
+.s1 h1 em{font-style:normal;background:linear-gradient(transparent 58%,var(--yel) 58%,var(--yel) 92%,transparent 92%);padding:0 6px}
+.s1 .panel{position:absolute;top:690px;left:70px;right:70px;height:640px;border-radius:22px;background:linear-gradient(180deg,#2D3137,var(--in));box-shadow:inset 0 0 0 10px #9AA1A9,inset 0 0 0 12px #6E747B,0 30px 60px rgba(0,0,0,.35);padding:12px}
+.s1 .panel .hzb{height:46px;border-radius:12px 12px 0 0;display:flex;align-items:center;justify-content:center}
+.s1 .panel .hzb span{padding:0 22px 4px;background:var(--yel);font:800 28px 'Changa';color:var(--ink);border-radius:6px}
+.s1 .rows{display:grid;grid-template-columns:repeat(4,176px);justify-content:center;column-gap:16px;row-gap:26px;padding-top:30px}
+.s1 .hbar{position:absolute;top:1408px;right:80px;display:flex;gap:26px;align-items:center;padding:12px 28px;border-radius:999px;background:var(--ink);color:#fff;font:700 28px 'IBM Plex Sans Arabic'}
+.s1 .swipe{position:absolute;top:1398px;left:80px;font:800 44px/1 'Changa';color:var(--ink)}
+
+/* ٢ الغلط: كل الأقسام مرة وحدة */
+.s2{background:radial-gradient(80% 50% at 50% 55%,#2A1416 0%,#121417 70%)}
+.s2 .chip{background:var(--red);color:#fff}
+.s2 .pg{color:#9BA1A8}
+.s2 h2{position:absolute;top:322px;right:80px;left:60px;color:#fff;font-size:100px;line-height:1.18}
+.s2 h2 em{font-style:normal;color:var(--red)}
+.s2 .ph{position:absolute;top:600px;left:80px;right:80px;height:470px;border-radius:22px;overflow:hidden;box-shadow:0 0 0 6px #2C3036,0 30px 60px rgba(0,0,0,.5)}
+.s2 .ph img{width:100%;height:100%;object-fit:cover;filter:grayscale(.6) brightness(.42) contrast(1.15)}
+.s2 .ph:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(229,53,43,.18),rgba(18,20,23,.55))}
+.s2 .ph .out{position:absolute;top:26px;right:26px;z-index:2;padding:6px 20px 10px;border-radius:10px;background:rgba(0,0,0,.65);color:#fff;font:700 30px 'IBM Plex Sans Arabic'}
+.s2 .ph .out b{color:var(--red)}
+.s2 .main{position:absolute;top:900px;left:96px;transform:rotate(-4deg)}
+.s2 .main .lb{font-size:28px}
+.s2 ul{position:absolute;top:1118px;right:80px;left:80px;list-style:none}
+.s2 li{display:flex;align-items:center;gap:22px;padding:14px 0;border-bottom:2px solid rgba(255,255,255,.1);font:700 42px/1.35 'IBM Plex Sans Arabic';color:#fff}
+.s2 li:last-child{border-bottom:0}
+.s2 li i{flex:none;width:56px;height:56px;border-radius:50%;background:var(--red);display:grid;place-items:center}
+.s2 li i svg{width:26px;height:26px}
+
+/* ٣ قسم واحد: غرفة منوّرة في مكتب مطفي */
+.s3 .ph{position:absolute;top:0;left:0;right:0;height:980px;overflow:hidden}
+.s3 .ph img{width:100%;height:100%;object-fit:cover;object-position:12% 50%;filter:contrast(1.05) saturate(1.05)}
+.s3 .ph:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,12,15,.88) 0%,rgba(10,12,15,.55) 30%,rgba(10,12,15,.05) 52%,rgba(10,12,15,0) 80%,rgba(10,12,15,.35) 100%)}
+.s3 .chip{background:var(--yel);color:var(--ink);z-index:3}
+.s3 .pg{color:#DADDE1;z-index:3}
+.s3 h2{position:absolute;top:322px;right:80px;left:60px;color:#fff;font-size:104px;line-height:1.15;z-index:3}
+.s3 .sub{position:absolute;top:458px;right:80px;color:#E6E8EB;font:600 40px 'IBM Plex Sans Arabic';z-index:3}
+.s3 .ring{position:absolute;top:640px;left:20px;width:640px;height:300px;border-radius:50%;border:7px solid var(--on);box-shadow:0 0 30px rgba(34,197,94,.6);z-index:3}
+.s3 .tape{position:absolute;top:600px;left:560px;z-index:4;padding:8px 26px 12px;background:var(--tape);font:700 44px 'Aref Ruqaa';color:var(--ink);transform:rotate(-5deg);box-shadow:0 6px 14px rgba(0,0,0,.35)}
+.s3 .tag2{position:absolute;top:1010px;left:110px;right:110px;padding:30px 44px 26px 44px;background:linear-gradient(180deg,#EBD6A4,#E0C68C);border-radius:18px 18px 18px 18px;box-shadow:0 20px 40px rgba(0,0,0,.25);transform:rotate(-1.5deg)}
+.s3 .tag2:before{content:"";position:absolute;top:24px;left:28px;width:34px;height:34px;border-radius:50%;background:#C9CED4;box-shadow:inset 0 3px 5px rgba(0,0,0,.35),0 0 0 6px #F3E6C2}
+.s3 .tag2 .tk{display:block;font:700 28px 'IBM Plex Sans Arabic';color:#7A5A1E;padding-left:70px}
+.s3 .tag2 h3{font:800 50px/1.25 'Changa';padding-left:70px}
+.s3 .tag2 ul{list-style:none;margin-top:12px}
+.s3 .tag2 li{display:flex;align-items:center;gap:18px;padding:10px 0;border-top:2px dashed rgba(60,40,10,.25);font:700 38px/1.35 'IBM Plex Sans Arabic'}
+.s3 .tag2 li i{flex:none;width:48px;height:48px;border-radius:10px;background:var(--on);display:grid;place-items:center}
+.s3 .tag2 li i svg{width:28px;height:28px}
+
+/* ٤ مهمة وحدة: أفياش على جدار */
+.s4{background:radial-gradient(circle,rgba(120,100,70,.06) 1px,transparent 1.6px) 0 0/9px 9px,radial-gradient(70% 40% at 70% 50%,#F5F0E7 0%,var(--wall) 70%)}
+.s4 .chip{background:var(--yel);color:var(--ink)}
+.s4 .pg{color:var(--mu)}
+.s4 h2{position:absolute;top:322px;right:80px;left:60px;font-size:104px;line-height:1.15}
+.s4 .sub{position:absolute;top:458px;right:80px;font:700 40px 'IBM Plex Sans Arabic';color:var(--mu)}
+.s4 .sub b{color:var(--ink)}
+.s4 .dep{position:absolute;top:568px;right:80px;font:700 34px 'IBM Plex Sans Arabic';color:var(--mu)}
+.s4 .cable{position:absolute;top:0;left:0;width:1080px;height:1920px}
+.s4 .row{position:absolute;right:80px;left:80px;height:200px;display:flex;align-items:center;gap:40px}
+.s4 .plate{flex:none;width:200px;height:200px;border-radius:30px;background:linear-gradient(160deg,#FFFFFF,#E9E6E0);box-shadow:0 14px 26px rgba(80,60,30,.18),inset 0 0 0 2px rgba(0,0,0,.05);position:relative}
+.s4 .plate:before{content:"";position:absolute;inset:36px;border-radius:50%;background:linear-gradient(160deg,#F2F0EB,#DEDAD2);box-shadow:inset 0 3px 6px rgba(0,0,0,.12)}
+.s4 .plate i{position:absolute;top:88px;width:18px;height:24px;border-radius:9px;background:#3B3B3B}
+.s4 .plate i:first-child{left:66px}.s4 .plate i:nth-child(2){right:66px}
+.s4 .row .tx{font:700 44px/1.35 'IBM Plex Sans Arabic'}
+.s4 .row .tx small{display:block;font:700 30px 'IBM Plex Sans Arabic';color:var(--mu)}
+.s4 .row.off{opacity:.42}
+.s4 .row.go .tx small{color:#14853D}
+.s4 .plug{position:absolute;top:40px;left:40px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#3C4047,#15171A);box-shadow:0 0 0 6px var(--on),0 0 36px rgba(34,197,94,.7);z-index:2}
+.s4 .foot{position:absolute;top:1300px;right:80px;left:80px;padding-top:18px;border-top:3px dashed rgba(0,0,0,.18);font:600 32px/1.5 'IBM Plex Sans Arabic';color:var(--mu)}
+.s4 .foot b{color:var(--ink)}
+
+/* ٥ مؤشر واحد: عدّادين */
+.s5{background:linear-gradient(180deg,#1C1F24,#121418)}
+.s5 .chip{background:var(--yel);color:var(--ink)}
+.s5 .pg{color:#8E949B}
+.s5 h2{position:absolute;top:322px;right:80px;left:60px;color:#fff;font-size:104px;line-height:1.15}
+.s5 .sub{position:absolute;top:458px;right:80px;color:#C9CDD2;font:600 40px 'IBM Plex Sans Arabic'}
+.s5 .meters{position:absolute;top:580px;right:70px;left:70px;display:flex;justify-content:space-between;align-items:center}
+.s5 .mt{width:410px;display:flex;flex-direction:column;align-items:center}
+.s5 .mt .lbl{padding:4px 26px 8px;border-radius:999px;font:800 36px 'Changa';color:#fff;margin-bottom:16px}
+.s5 .dome{position:relative;width:390px;height:390px;border-radius:50%;background:radial-gradient(circle at 35% 28%,#FFFFFF 0%,#E7EAEE 40%,#BFC5CC 100%);box-shadow:0 0 0 14px #2E3238,0 0 0 18px #575D65,0 30px 50px rgba(0,0,0,.5)}
+.s5 .dome svg{position:absolute;inset:0}
+.s5 .win{position:absolute;top:212px;left:75px;width:240px;height:84px;border-radius:12px;background:#0F1113;display:flex;align-items:center;justify-content:center;gap:12px;direction:rtl}
+.s5 .win b{font:800 60px 'JetBrains Mono';direction:ltr}
+.s5 .win span{font:700 28px 'IBM Plex Sans Arabic';color:#C9CDD2}
+.s5 .arrow{width:80px;height:80px}
+.s5 .ex{position:absolute;top:1080px;right:0;left:0;text-align:center;font:600 32px 'IBM Plex Sans Arabic';color:#A9AEB4}
+.s5 .ex b{color:var(--yel)}
+.s5 .pick{position:absolute;top:1150px;right:80px;left:80px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.s5 .pick small{font:700 34px 'IBM Plex Sans Arabic';color:#C9CDD2;margin-left:6px}
+.s5 .pick span{padding:6px 26px 10px;border-radius:12px;border:3px solid #4A5058;color:#C9CDD2;font:700 36px 'IBM Plex Sans Arabic'}
+.s5 .pick span.on{border-color:var(--yel);background:var(--yel);color:var(--ink)}
+.s5 .tip{position:absolute;top:1262px;right:80px;left:80px;padding:18px 26px 22px;border-radius:16px;background:#262A30;color:#fff;font:700 36px/1.45 'IBM Plex Sans Arabic'}
+.s5 .tip b{color:var(--on)}
+
+/* ٦ بعدها وسّع: أبراج */
+.s6 .bg{position:absolute;inset:0}
+.s6 .bg img{width:100%;height:100%;object-fit:cover;object-position:40% 50%;filter:saturate(.7) brightness(.8)}
+.s6 .bg:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,15,19,.9) 0%,rgba(13,15,19,.72) 35%,rgba(13,15,19,.8) 65%,rgba(13,15,19,.92) 100%)}
+.s6 .chip{background:var(--yel);color:var(--ink);z-index:2}
+.s6 .pg{color:#C9CDD2;z-index:2}
+.s6 h2{position:absolute;top:322px;right:80px;left:60px;color:#fff;font-size:104px;line-height:1.15;z-index:2}
+.s6 .sub{position:absolute;top:458px;right:80px;color:#DADDE1;font:600 40px 'IBM Plex Sans Arabic';z-index:2}
+.s6 .tl{position:absolute;top:580px;right:80px;left:80px;z-index:2}
+.s6 .tl:before{content:"";position:absolute;top:60px;bottom:60px;right:43px;width:6px;background:linear-gradient(180deg,var(--on),var(--yel));border-radius:3px}
+.s6 .st{position:relative;display:flex;gap:30px;align-items:flex-start;padding:16px 0 30px}
+.s6 .st .n{flex:none;width:92px;height:92px;border-radius:50%;display:grid;place-items:center;font:800 40px 'Changa';color:var(--ink);background:var(--yel);box-shadow:0 0 0 8px rgba(255,199,44,.25)}
+.s6 .st.on .n{background:var(--on);color:#fff;box-shadow:0 0 0 8px rgba(34,197,94,.25),0 0 30px rgba(34,197,94,.6)}
+.s6 .st small{display:block;font:800 34px 'Changa';color:var(--yel)}
+.s6 .st.on small{color:var(--on)}
+.s6 .st p{font:700 40px/1.4 'IBM Plex Sans Arabic';color:#fff}
+.s6 .warn{position:absolute;top:1218px;right:70px;left:70px;padding:12px;border-radius:16px;z-index:2}
+.s6 .warn div{padding:16px 26px 20px;border-radius:10px;background:var(--yel);text-align:center;font:800 40px/1.35 'Changa';color:var(--ink)}
+
+/* ٧ بطاقة الفني */
+.s7 .card{position:absolute;top:270px;left:90px;right:90px;height:1060px;border-radius:24px;background:#FBFBF8;box-shadow:0 30px 60px rgba(0,0,0,.28);overflow:hidden;transform:rotate(-1deg)}
+.s7 .card .hzh{height:84px;display:flex;align-items:center;justify-content:center}
+.s7 .card .hzh span{padding:2px 26px 8px;background:var(--yel);font:800 38px 'Changa';border-radius:8px}
+.s7 .who{display:flex;align-items:center;gap:36px;padding:40px 54px 34px;border-bottom:3px solid #E3E1DA}
+.s7 .face{flex:none;width:230px;height:230px;border-radius:50%;overflow:hidden;box-shadow:0 0 0 8px var(--on),0 0 34px rgba(34,197,94,.45);background:#E8E4DA}
+.s7 .face img{width:100%;height:100%;object-fit:cover}
+.s7 .who small{display:block;font:700 30px 'IBM Plex Sans Arabic';color:var(--mu)}
+.s7 .who h3{font:800 86px/1.2 'Changa'}
+.s7 .who p{margin-top:14px;font:600 32px/1.4 'IBM Plex Sans Arabic';color:var(--mu)}
+.s7 .q{padding:44px 54px 0;font:800 72px/1.25 'Changa'}
+.s7 .q em{font-style:normal;background:linear-gradient(transparent 58%,var(--yel) 58%,var(--yel) 92%,transparent 92%)}
+.s7 .a{padding:16px 54px 0;font:600 36px/1.5 'IBM Plex Sans Arabic';color:#33373D}
+.s7 .send{margin:30px 54px 0;display:inline-flex;align-items:center;gap:14px;padding:12px 28px 16px;border-radius:14px;background:var(--ink);color:var(--yel);font:700 34px 'IBM Plex Sans Arabic'}
+.s7 .send svg{width:32px;height:32px}
+.s7 .soc{position:absolute;left:54px;right:54px;bottom:44px;display:flex;align-items:center;justify-content:space-between;padding:18px 28px;border-radius:16px;background:#EEF0F2;font:700 30px 'IBM Plex Sans Arabic'}
+.s7 .soc>span{color:var(--mu)}
+.s7 .soc>div{display:flex;gap:30px;align-items:center}
+</style>
+</head>
+<body>
+
+<!-- ١ الغلاف -->
+<section class="slide s1 metal" data-handles="off">
+  <i class="screw" style="top:40px;right:40px"></i><i class="screw" style="top:40px;left:40px"></i>
+  <div class="tag"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z" fill="#FFC72C"/></svg>مؤسسات · التحوّل الذكي</div>
+  <h1><b>التحوّل الذكي</b><span>يبدأ <em>بمفتاح واحد</em></span></h1>
+  <div class="panel">
+    <div class="hzb hz"><span>لوحة الشركة</span></div>
+    <div class="rows">
+      <div class="br on"><div class="body"><i class="led"></i><div class="slot"><b class="lev"></b></div></div><span class="lb">خدمة العملاء</span></div>
+      <div class="br"><div class="body"><i class="led"></i><div class="slot"><b class="lev"></b></div></div><span class="lb">المالية</span></div>
+      <div class="br"><div class="body"><i class="led"></i><div class="slot"><b class="lev"></b></div></div><span class="lb">المبيعات</span></div>
+      <div class="br"><div class="body"><i class="led"></i><div class="slot"><b class="lev"></b></div></div><span class="lb">التسويق</span></div>
+      <div class="br"><div class="body"><i class="led"></i><div class="slot"><b class="lev"></b></div></div><span class="lb">الموارد البشرية</span></div>
+      <div class="br"><div class="body"><i class="led"></i><div class="slot"><b class="lev"></b></div></div><span class="lb">المشتريات</span></div>
+      <div class="br"><div class="body"><i class="led"></i><div class="slot"><b class="lev"></b></div></div><span class="lb">القانونية</span></div>
+      <div class="br"><div class="body"><i class="led"></i><div class="slot"><b class="lev"></b></div></div><span class="lb">تقنية المعلومات</span></div>
+    </div>
+  </div>
+  <div class="hbar">{{HANDLES}}</div>
+  <div class="swipe">اسحب ←</div>
+</section>
+
+<!-- ٢ الغلط -->
+<section class="slide s2" data-handles="light">
+  <div class="chip">الغلط الشائع</div>
+  <div class="pg">2/7</div>
+  <h2 class="hd">تشغّل كل الأقسام<br><em>مرة وحدة؟</em></h2>
+  <div class="ph"><img src="assets/office.jpg" alt=""><div class="out">الحمل زاد… <b>واللوحة فصلت</b></div></div>
+  <div class="main"><div class="br trip"><div class="body"><i class="led"></i><div class="slot"><b class="lev"></b></div></div><span class="lb">الرئيسي: فصل</span></div></div>
+  <ul>
+    <li><i><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/></svg></i>أدوات محد يستخدمها</li>
+    <li><i><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/></svg></i>نتايج ما تنقاس</li>
+    <li><i><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/></svg></i>فريق يفقد الثقة بالفكرة كلها</li>
+  </ul>
+</section>
+
+<!-- ٣ قسم واحد -->
+<section class="slide s3 metal">
+  <div class="ph"><img src="assets/room.jpg" alt=""></div>
+  <div class="chip">الخطوة 1</div>
+  <div class="pg">3/7</div>
+  <h2 class="hd">قسم واحد</h2>
+  <div class="sub">نوّر غرفة وحدة… قبل المبنى كله</div>
+  <div class="ring"></div>
+  <div class="tape">قسمك الأول</div>
+  <div class="tag2">
+    <small class="tk">بطاقة فحص</small><h3>وش القسم المناسب؟</h3>
+    <ul>
+      <li><i><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i>شغل متكرر كثير</li>
+      <li><i><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i>بيانات ومستندات جاهزة</li>
+      <li><i><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i>مدير متحمّس يتابع بنفسه</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ٤ مهمة وحدة -->
+<section class="slide s4">
+  
+  <div class="chip">الخطوة 2</div>
+  <div class="pg">4/7</div>
+  <h2 class="hd">مهمة وحدة بس</h2>
+  <div class="sub"><b>متكررة</b> · <b>واضحة</b> · <b>نتيجتها تنقاس</b></div>
+  <div class="dep">مثال من خدمة العملاء:</div>
+  <div class="row go" style="top:640px"><div class="plate"><i></i><i></i><div class="plug"></div><svg style="position:absolute;left:120px;top:110px;overflow:visible;z-index:1" width="10" height="10"><path d="M30 20 C 60 60, 100 90, 140 96" stroke="#1A1C20" stroke-width="20" fill="none" stroke-linecap="round"/></svg></div><div class="tx">مسودات الرد على<br>الأسئلة المتكررة<small>ابدأ بهذي</small></div></div>
+  <div class="row off" style="top:870px"><div class="plate"><i></i><i></i></div><div class="tx">تصنيف الشكاوى<small>بعدين</small></div></div>
+  <div class="row off" style="top:1080px"><div class="plate"><i></i><i></i></div><div class="tx">تقارير رضا العملاء<small>بعدين</small></div></div>
+  <div class="foot">وفي المالية: <b>مطابقة الفواتير</b> · وفي الموارد البشرية: <b>فرز السير الذاتية</b></div>
+</section>
+
+<!-- ٥ مؤشر واحد -->
+<section class="slide s5" data-handles="light">
+  <div class="chip">الخطوة 3</div>
+  <div class="pg">5/7</div>
+  <h2 class="hd">مؤشر واحد</h2>
+  <div class="sub">حدده قبل ما تبدأ، وقِسه قبل وبعد</div>
+  <div class="meters">
+    <div class="mt">
+      <div class="lbl" style="background:var(--red)">قبل</div>
+      <div class="dome">
+        <svg viewBox="0 0 390 390"><path d="M85 255 A 125 125 0 1 1 305 255" fill="none" stroke="#9AA1A9" stroke-width="10" stroke-linecap="round"/><path d="M85 255 A 125 125 0 0 1 120 105" fill="none" stroke="#22C55E" stroke-width="10" stroke-linecap="round"/><path d="M270 105 A 125 125 0 0 1 305 255" fill="none" stroke="#E5352B" stroke-width="10" stroke-linecap="round"/><line x1="195" y1="190" x2="282" y2="140" stroke="#15171A" stroke-width="8" stroke-linecap="round"/><circle cx="195" cy="190" r="16" fill="#15171A"/></svg>
+        <div class="win"><b style="color:#FF7A70">12</b><span>دقيقة</span></div>
+      </div>
+    </div>
+    <svg class="arrow" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6" stroke="#FFC72C" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="mt">
+      <div class="lbl" style="background:#16A34A">بعد</div>
+      <div class="dome">
+        <svg viewBox="0 0 390 390"><path d="M85 255 A 125 125 0 1 1 305 255" fill="none" stroke="#9AA1A9" stroke-width="10" stroke-linecap="round"/><path d="M85 255 A 125 125 0 0 1 120 105" fill="none" stroke="#22C55E" stroke-width="10" stroke-linecap="round"/><path d="M270 105 A 125 125 0 0 1 305 255" fill="none" stroke="#E5352B" stroke-width="10" stroke-linecap="round"/><line x1="195" y1="190" x2="112" y2="132" stroke="#15171A" stroke-width="8" stroke-linecap="round"/><circle cx="195" cy="190" r="16" fill="#15171A"/></svg>
+        <div class="win"><b style="color:#4ADE80">4</b><span>دقايق</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="ex"><b>مثال:</b> متوسط وقت الرد على استفسار العميل</div>
+  <div class="pick"><small>اختر واحد بس:</small><span class="on">الوقت</span><span>الأخطاء</span><span>التكلفة</span></div>
+  <div class="tip">قِسه <b>أسبوعين قبل</b> التجربة، و<b>أسبوعين بعدها</b>، بنفس الطريقة</div>
+</section>
+
+<!-- ٦ بعدها وسّع -->
+<section class="slide s6" data-handles="light">
+  <div class="bg"><img src="assets/towers.jpg" alt=""></div>
+  <div class="chip">الخطوة 4</div>
+  <div class="pg">6/7</div>
+  <h2 class="hd">بعدها وسّع</h2>
+  <div class="sub">90 يوم: من مفتاح واحد للشركة كلها</div>
+  <div class="tl">
+    <div class="st on"><div class="n">1</div><div><small>الشهر الأول</small><p>جرّب مع فريق صغير، والموظف يراجع كل مخرج</p></div></div>
+    <div class="st"><div class="n">2</div><div><small>الشهر الثاني</small><p>قِس المؤشر، وعدّل الطريقة</p></div></div>
+    <div class="st"><div class="n">3</div><div><small>الشهر الثالث</small><p>وثّق النتيجة، وانقلها للقسم الثاني</p></div></div>
+  </div>
+  <div class="warn hz"><div>لا ترفع المفتاح الثاني قبل ما يثبت المؤشر</div></div>
+</section>
+
+<!-- ٧ بطاقة الفني -->
+<section class="slide s7 metal" data-handles="off">
+  <i class="screw" style="top:40px;right:40px"></i><i class="screw" style="top:40px;left:40px"></i>
+  <div class="card">
+    <div class="hzh hz"><span>المسؤول عن اللوحة</span></div>
+    <div class="who">
+      <div class="face"><img src="{{AVATAR}}" alt=""></div>
+      <div><small>الفني</small><h3>علي التميمي</h3><p>ذكاء اصطناعي وأتمتة للشركات</p></div>
+    </div>
+    <div class="q">وش القسم اللي<br><em>بتبدأ فيه؟</em></div>
+    <div class="a">اكتبه بالتعليقات، وأقترح لك أول مهمة ومؤشرها.</div>
+    <div class="send"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z" fill="#FFC72C"/></svg>أرسل المنشور لمديرك</div>
+    <div class="soc"><span>تابعني</span><div>{{HANDLES}}</div></div>
+  </div>
+</section>
+
+</body>
+</html>

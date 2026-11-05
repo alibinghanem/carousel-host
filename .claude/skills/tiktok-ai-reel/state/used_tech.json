@@ -1,0 +1,62 @@
+{
+ "cycle": 0,
+ "used": [
+  "k001",
+  "k002",
+  "k003",
+  "k004",
+  "k006",
+  "k009"
+ ],
+ "log": [
+  {
+   "date": "2026-10-25",
+   "id": "k001",
+   "cycle": 0,
+   "format": "video",
+   "style": "—",
+   "accent": "—",
+   "note": "فيديو تجريبي 3D (طلب المستخدم) — Battery3D"
+  },
+  {
+   "date": "2026-10-28",
+   "id": "k002",
+   "cycle": 0,
+   "format": "carousel",
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-10-29",
+   "id": "k003",
+   "cycle": 0,
+   "format": "video",
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-11-01",
+   "id": "k004",
+   "cycle": 0,
+   "format": "carousel",
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-11-02",
+   "id": "k006",
+   "cycle": 0,
+   "format": "video",
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-11-05",
+   "id": "k009",
+   "cycle": 0,
+   "format": "carousel",
+   "style": "—",
+   "accent": "—"
+  }
+ ]
+}
