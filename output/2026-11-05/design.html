@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<style>
+:root{--n0:#050A18;--n1:#0B1530;--n2:#13224A;--cy:#5CF2FF;--mint:#7FF0C8;--vio:#C58BFF;--amb:#FFC857;--red:#FF6B6B;--ink:#0B1530;--mu:#9DB0D3}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;font-family:'IBM Plex Sans Arabic',sans-serif;-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1920px;position:relative;overflow:hidden;direction:rtl;color:#fff;background:radial-gradient(90% 55% at 50% 38%,var(--n2) 0%,var(--n1) 48%,var(--n0) 100%)}
+.stars{position:absolute;inset:0;background-image:radial-gradient(2px 2px at 8% 6%,#fff,transparent),radial-gradient(1.5px 1.5px at 22% 14%,#cfe,transparent),radial-gradient(2px 2px at 41% 4%,#fff,transparent),radial-gradient(1.5px 1.5px at 63% 11%,#fff,transparent),radial-gradient(2.5px 2.5px at 86% 7%,#cfe,transparent),radial-gradient(1.5px 1.5px at 94% 19%,#fff,transparent),radial-gradient(2px 2px at 5% 27%,#fff,transparent),radial-gradient(1.5px 1.5px at 33% 31%,#fff,transparent),radial-gradient(2px 2px at 75% 29%,#fff,transparent),radial-gradient(1.5px 1.5px at 12% 52%,#fff,transparent),radial-gradient(2px 2px at 91% 48%,#cfe,transparent),radial-gradient(1.5px 1.5px at 55% 63%,#fff,transparent),radial-gradient(2px 2px at 27% 74%,#fff,transparent),radial-gradient(1.5px 1.5px at 82% 78%,#fff,transparent);opacity:.8}
+.hd{font-family:'Vazirmatn';font-weight:900}
+.en{font-family:'Space Grotesk';font-weight:700;direction:ltr;unicode-bidi:isolate;white-space:nowrap}
+.tag{position:absolute;top:252px;right:80px;display:flex;gap:12px;align-items:center;padding:8px 26px 12px;border-radius:40px;background:var(--cy);color:var(--ink);font:700 30px 'IBM Plex Sans Arabic';z-index:3;box-shadow:0 0 30px rgba(92,242,255,.4)}
+.pg{position:absolute;top:264px;left:80px;font:700 28px 'Space Grotesk';color:var(--mu);direction:ltr;z-index:3}
+h2{position:absolute;top:322px;right:80px;left:40px;line-height:1.3;white-space:nowrap}
+h2 em{font-style:normal;color:var(--cy)}
+.pill{position:absolute;padding:14px 26px 18px;border-radius:24px;background:rgba(255,255,255,.08);border:2px solid rgba(92,242,255,.35);font:700 33px/1.45 'IBM Plex Sans Arabic'}
+.pill b{color:var(--cy)}
+
+/* ١ الغلاف */
+.s1 h1{position:absolute;top:322px;right:76px;left:30px;font-size:94px;line-height:1.3;white-space:nowrap;text-shadow:0 8px 40px rgba(0,0,0,.6)}
+.s1 h1 em{display:block;font-style:normal;color:var(--cy)}
+.s1 .sub{position:absolute;top:610px;right:80px;font:700 40px/1.4 'IBM Plex Sans Arabic';color:#E6F2FF}
+.s1 .sub b{color:var(--mint)}
+.s1 .hero{position:absolute;top:650px;left:30px;width:1020px}
+.s1 .swipe{position:absolute;top:1398px;left:80px;padding:6px 22px 10px;border-radius:30px;background:rgba(5,10,24,.78);font:700 44px/1 'Vazirmatn';color:var(--cy)}
+.s1 .hbar{position:absolute;top:1404px;right:80px;display:flex;gap:26px;align-items:center;padding:12px 28px;border-radius:14px;background:rgba(5,10,24,.85);border:2px solid rgba(255,255,255,.2);color:#fff;font:700 28px 'IBM Plex Sans Arabic'}
+
+/* ٢ المشكلة */
+.s2 h2{font-size:100px}
+.s2 .pol{position:absolute;top:540px;right:70px;width:600px;height:650px;background:#fff;padding:16px 16px 74px;transform:rotate(-2deg);box-shadow:0 30px 60px rgba(0,0,0,.55)}
+.s2 .pol img{width:100%;height:100%;object-fit:cover;object-position:40% 50%}
+.s2 .pol span{position:absolute;bottom:16px;right:24px;font:700 28px 'IBM Plex Sans Arabic';color:#51607F}
+.s2 .ph{position:absolute;top:690px;left:30px;width:280px;filter:drop-shadow(0 30px 40px rgba(0,0,0,.6))}
+.s2 .t{position:absolute;top:1280px;right:80px;left:80px;font:700 36px/1.45 'IBM Plex Sans Arabic'}
+.s2 .t b{color:var(--cy)}
+
+/* ٣ الأقمار */
+.s3 h2{font-size:100px}
+.s3 .img{position:absolute;top:540px;left:20px;width:540px;filter:drop-shadow(0 20px 40px rgba(0,0,0,.5))}
+.s3 .cards{position:absolute;top:540px;right:70px;width:440px;display:flex;flex-direction:column;gap:18px}
+.s3 .c{padding:16px 22px 20px;border-radius:24px;background:rgba(255,255,255,.08);border:2px solid rgba(92,242,255,.35);font:700 31px/1.4 'IBM Plex Sans Arabic'}
+.s3 .c b{display:block;font:900 52px/1.2 'Vazirmatn';color:var(--cy)}
+.s3 .c i{display:block;margin-top:4px;font:600 25px/1.4 'IBM Plex Sans Arabic';font-style:normal;color:var(--mu)}
+.s3 .note{position:absolute;top:1190px;right:70px;left:70px}
+
+/* ٤ المسافة */
+.s4 h2{font-size:100px}
+.s4 .fm{position:absolute;top:490px;right:50px;left:50px;display:flex;align-items:center;gap:0;direction:rtl}
+.s4 .fm .b{flex:1;height:130px;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 10px;border-radius:24px;background:rgba(255,255,255,.08);border:2px solid rgba(92,242,255,.4);font:700 29px/1.3 'IBM Plex Sans Arabic'}
+.s4 .fm .b.r{background:var(--cy);color:var(--ink);border-color:var(--cy);box-shadow:0 0 34px rgba(92,242,255,.5)}
+.s4 .fm .o{flex:none;width:46px;text-align:center;font:700 44px 'Space Grotesk';color:var(--mu)}
+.s4 .img{position:absolute;top:640px;left:140px;width:800px;-webkit-mask-image:radial-gradient(circle at 50% 50%,#000 48%,transparent 70%);mask-image:radial-gradient(circle at 50% 50%,#000 48%,transparent 70%)}
+.s4 .cap{position:absolute;top:1370px;right:70px;left:70px;text-align:center;font:700 32px/1.4 'IBM Plex Sans Arabic';color:#E6F2FF;display:none}
+.s4 .p1{top:1150px;right:60px;width:400px;font-size:30px;background:rgba(5,10,24,.8)}
+.s4 .p2{top:690px;right:60px;width:300px;font-size:28px;background:rgba(5,10,24,.8)}
+
+/* ٥ النتيجة */
+.s5 h2{font-size:100px}
+.s5 .img{position:absolute;top:520px;left:20px;width:560px;filter:drop-shadow(0 24px 40px rgba(0,0,0,.55))}
+.s5 .big{position:absolute;top:560px;right:70px;width:410px;text-align:center}
+.s5 .big .n{font:700 190px/1 'Space Grotesk';color:var(--cy);direction:ltr;text-shadow:0 0 50px rgba(92,242,255,.5)}
+.s5 .big .u{font:900 56px/1.2 'Vazirmatn'}
+.s5 .big .d{margin-top:10px;font:700 31px/1.45 'IBM Plex Sans Arabic';color:#E6F2FF}
+.s5 .pill.w{top:1170px;right:70px;left:70px;border-color:rgba(255,200,87,.6)}
+.s5 .pill.w b{color:var(--amb)}
+
+/* ٦ وين يضعف */
+.s6 h2{font-size:100px}
+.s6 .img{position:absolute;top:520px;left:20px;width:520px;filter:drop-shadow(0 24px 40px rgba(0,0,0,.55))}
+.s6 .lst{position:absolute;top:520px;right:70px;width:470px;display:flex;flex-direction:column;gap:16px}
+.s6 .it{display:flex;gap:14px;align-items:flex-start;padding:16px 20px 18px;border-radius:24px;background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.18);font:700 29px/1.4 'IBM Plex Sans Arabic'}
+.s6 .it>span{flex:none;display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--amb);color:var(--ink);font:700 26px 'Space Grotesk'}
+.s6 .it i{display:block;margin-top:4px;font:600 24px/1.4 'IBM Plex Sans Arabic';font-style:normal;color:var(--mu)}
+
+/* ٧ المتابعة */
+.s7 h2{font-size:84px;text-align:center;right:60px;left:60px;line-height:1.35}
+.s7 .ring{position:absolute;top:620px;left:50%;width:440px;height:440px;margin-left:-220px;border-radius:50%;background:conic-gradient(var(--cy),var(--vio),var(--mint),var(--cy));box-shadow:0 0 80px rgba(92,242,255,.35)}
+.s7 .face{position:absolute;top:16px;left:16px;width:408px;height:408px;border-radius:50%;overflow:hidden;background:var(--n1)}
+.s7 .face img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.s7 .nm{position:absolute;top:1100px;left:0;right:0;text-align:center;font:900 90px/1.2 'Vazirmatn'}
+.s7 .ds{position:absolute;top:1226px;left:0;right:0;text-align:center;font:700 34px 'IBM Plex Sans Arabic';color:var(--mu)}
+.s7 .soc{position:absolute;top:1286px;left:0;right:0;display:flex;justify-content:center}
+.s7 .soc>div{display:flex;gap:26px;align-items:center;padding:12px 30px;border-radius:14px;background:#fff;color:var(--ink);font:700 30px 'IBM Plex Sans Arabic'}
+.s7 .ask{position:absolute;top:1366px;left:50px;right:50px;text-align:center;font:700 36px/1.4 'IBM Plex Sans Arabic';color:var(--cy)}
+</style>
+</head>
+<body>
+
+<!-- ١ الغلاف -->
+<section class="slide s1">
+  <div class="stars" data-safe="ignore"></div>
+  <div class="tag">تقنية · الـ GPS</div>
+  <h1 class="hd">الإنترنت مقطوع…<em>والخريطة تعرف مكانك؟</em></h1>
+  <div class="sub">السر مو بالإنترنت… <b>السر بالفضاء</b></div>
+  <img class="hero" src="assets/k0.png" alt="">
+  <div class="swipe">اسحب ←</div>
+  <div class="hbar">{{HANDLES}}</div>
+</section>
+
+<!-- ٢ المشكلة -->
+<section class="slide s2">
+  <div class="stars" data-safe="ignore"></div>
+  <div class="tag">تقنية · الـ GPS</div>
+  <div class="pg">2/7</div>
+  <h2 class="hd">موقعك <em>مو من النت</em></h2>
+  <div class="pol"><img src="assets/hand.jpg" alt=""><span>خريطة… بدون إنترنت</span></div>
+  <img class="ph" src="assets/k5.png" alt="">
+  <div class="t">الإنترنت يحمّل <b>صور الخريطة</b>، أما <b>نقطتك الزرقاء</b> فتجي من أقمار فوقك</div>
+</section>
+
+<!-- ٣ الأقمار -->
+<section class="slide s3">
+  <div class="stars" data-safe="ignore"></div>
+  <div class="tag">تقنية · الـ GPS</div>
+  <div class="pg">3/7</div>
+  <h2 class="hd">أقمار <em>تبثّ الوقت</em></h2>
+  <img class="img" src="assets/k1.png" alt="">
+  <div class="cards">
+    <div class="c"><b><span class="en">20,200</span> كم</b>ارتفاعها تقريباً فوق الأرض<i>مدار متوسط</i></div>
+    <div class="c"><b>+30 قمر</b>شغّالة الحين<i>(31 حسب gps.gov يوليو 2023)</i></div>
+    <div class="c"><b>ساعة دقيقة</b>كل قمر يبث وقته وموقعه باستمرار</div>
+  </div>
+  <div class="pill note">تشغّلها <b>قوة الفضاء الأمريكية</b>، والخدمة المدنية <b>متاحة للجميع مجاناً</b> حول العالم</div>
+</section>
+
+<!-- ٤ المسافة -->
+<section class="slide s4">
+  <div class="stars" data-safe="ignore"></div>
+  <div class="tag">تقنية · الـ GPS</div>
+  <div class="pg">4/7</div>
+  <h2 class="hd">الوقت ← <em>المسافة</em></h2>
+  <div class="fm">
+    <div class="b">زمن وصول الإشارة</div><div class="o">×</div>
+    <div class="b">سرعة الضوء</div><div class="o">=</div>
+    <div class="b r">المسافة للقمر</div>
+  </div>
+  <img class="img" src="assets/k2.png" alt="">
+  <div class="pill p2">كل قمر = <b>كرة مسافة</b>، وأنت عند <b>التقائها</b></div>
+  <div class="pill p1"><b>٣ أقمار</b> للمكان على الخريطة، و<b>٤</b> مع الارتفاع، والساعات تتزامن بدقة عالية جداً</div>
+</section>
+
+<!-- ٥ النتيجة -->
+<section class="slide s5">
+  <div class="stars" data-safe="ignore"></div>
+  <div class="tag">تقنية · الـ GPS</div>
+  <div class="pg">5/7</div>
+  <h2 class="hd">والنتيجة: <em>نقطتك</em></h2>
+  <img class="img" src="assets/k3.png" alt="">
+  <div class="big"><div class="n">4.9</div><div class="u">متر</div><div class="d">دقة جوالك تقريباً تحت سماء مفتوحة <span class="en" style="font-size:26px;color:#9DB0D3">(gps.gov)</span></div></div>
+  <div class="pill w">الدقة <b>تضعف</b> قرب المباني والجسور والأشجار</div>
+</section>
+
+<!-- ٦ وين يضعف -->
+<section class="slide s6">
+  <div class="stars" data-safe="ignore"></div>
+  <div class="tag">تقنية · الـ GPS</div>
+  <div class="pg">6/7</div>
+  <h2 class="hd">وين <em>يضعف؟</em></h2>
+  <img class="img" src="assets/k4.png" alt="">
+  <div class="lst">
+    <div class="it"><span>1</span><div>بين المباني العالية<i>الإشارة تنحجب فتضعف الدقة</i></div></div>
+    <div class="it"><span>2</span><div>أول تحديد بدون اتصال<i>أبطأ، والاتصال يسرّعه <span class="en" style="font-size:22px">(A-GPS)</span></i></div></div>
+    <div class="it"><span>3</span><div>الخريطة نفسها<i>نزّل منطقتها قبل السفر (حسب تطبيقك)</i></div></div>
+  </div>
+</section>
+
+<!-- ٧ المتابعة -->
+<section class="slide s7" data-handles="off">
+  <div class="stars" data-safe="ignore"></div>
+  <div class="tag">تقنية · الـ GPS</div>
+  <div class="pg">7/7</div>
+  <h2 class="hd">جوالك يسمع الفضاء…<br><em>وانت ما تدري</em></h2>
+  <div class="ring"><div class="face"><img src="{{AVATAR}}" alt=""></div></div>
+  <div class="nm">علي التميمي</div>
+  <div class="ds">كل يوم معلومة تقنية تهمّك</div>
+  <div class="soc"><div>{{HANDLES}}</div></div>
+  <div class="ask">وين آخر مرة اعتمدت على الـ GPS بدون نت؟</div>
+</section>
+
+</body>
+</html>

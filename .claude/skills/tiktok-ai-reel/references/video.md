@@ -305,6 +305,7 @@ npx remotion still <Name> ../../output/$(date +%F)-video/cover.jpg --frame=<أق
 | `Mail.tsx` | `Envelope({flap, seal})` ظرف بخطوط طيّ وغطاء ينفتح على مفصله وختم · `Sparkle({glow, halo})` نجمة رباعية مبثوقة بتدرّج (شرارة الذكاء الاصطناعي) وهالة · `Panel({draw, w, h})` كرت بوجه canvas · `Laptop({draw, open})` لابتوب بقاعدة ولوحة مفاتيح وغطاء على مفصل (0 مقفول، 1 مفتوح ~105°) وشاشة canvas 1280×800 |
 | `Net.tsx` | `Tube({pts, r, rings})` أنبوب زجاجي (بريد هوائي/شبكة) على مسار ناعم بحلقات معدنية · `Capsule({glow, open})` كبسولة بريد هوائي مقفولة (زجاج، رسالة ملفوفة، طرفين معدنيين، حزام وقفل) · `Cloud` سحابة منفوخة |
 | `Ocean.tsx` | `Globe({tex, rx, ry})` كرة أرضية بخريطة NASA Blue Marble (`public/videos/subsea/earth.jpg`) وهالة · `faceRot(lat, lon)` يدوّر الكرة لين تواجه نقطة · `Route({pts, draw, pulse})` كابل مضيء على دائرة عظمى (من `LL[]`) ينرسم ويمشي عليه نبض · `Node` محطة بحلقة نبض · `CableSection({ghost, reveal, pulse})` مقطع كابل بحري بطبقاته مع نبضات ضوء · `Anchor` مرساة · `Satellite` · `SeaFloor` · `useTex(src)` |
+| `Sky.tsx` | `Beam({from, to, progress, dash})` شعاع مضيء بين نقطتين · `SignalRings({t})` موجات إشارة · `DistSphere({r})` كرة مسافة بشبكة وتوهج (تتقاطع بجمال) · `Building({h, seed})` مبنى بنوافذ مضيئة · `Pin` دبوس خريطة · `ClockDial({t})` ساعة |
 
 **أضف عناصر جديدة للمكتبة** (راوتر، قفل، أقمار، كرة أرضية، شريحة…) بدل ما تكتبها داخل الفيديو، عشان تتراكم.
 المعرض: تكوين `Test3D` يعرض العناصر، رندر فريم منه لما تضيف عنصر.
@@ -410,4 +411,10 @@ npx remotion render <Comp> ../../output/<D>/video_raw.mp4 --gl=angle --crf=20 --
 - **`Img src="avatar.png"` يفشل في الستل:** استخدم `staticFile("avatar.png")` دائماً.
 - **نطاق تنزيل موسيقى ElevenLabs قد يتغير:** مرّة طلع الرابط على `elevenlabsusercontent.com` (محجوب بالسياسة، 403) بدل `storage.googleapis.com`. لا تعيد المحاولة؛ استخدم `music_bed.py` (بـ `/usr/bin/python3` لأن فيه numpy) واذكر السبب بالتسليم. وإعادة التوليد تكلّف رصيد جديد، فلا تكرره.
 - **مشغول مؤقتاً:** `creative_run_flow_nodes` قد يرجّع «Free generations are busy» بدون خصم؛ أعد المحاولة بعد دقائق (نجحت بالمرة الخامسة تقريباً).
+
+### كاروسيل «الـ GPS» (SkyKit، 2026-11-05)
+- **قصّ اللقطات داخل الشريحة:** لقطة مثل كرات المسافة تطلع **مقصوصة بحدود الإطار** (مستطيل واضح الحافة). حلّه: `mask-image: radial-gradient(circle at 50% 50%, #000 48%, transparent 70%)` على الـ `<img>` بدل ما تضغط الكاميرا.
+- **لقطة مقطوعة من فوق/تحت:** افحص `getbbox()` بعد القص؛ لو لمس 0 أو آخر الإطار (1620) ابعد الكاميرا (زيادة z) بدل ما تصغّر العنصر.
+- **تضارب CSS:** قاعدة `.it span{…دائرة…}` أثّرت على `<span class="en">` داخل النص (دائرة صفراء فوق «A-GPS»). استخدم `.it>span` للشارة فقط.
+- **كرة أرضية في كاروسيل:** `useTex` برا الـ Canvas (نفس درس الأمس)، وكرة بنصف قطر ضخم تحت الإطار (scale 2.9 وy -9) تعطي أفق منحني بدون ما تاخذ مساحة.
 
