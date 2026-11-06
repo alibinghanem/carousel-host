@@ -98,10 +98,10 @@ export const Phone: React.FC<{
   return (
     <group {...rest}>
       <mesh geometry={body}>
-        <meshPhysicalMaterial color={frame} metalness={0.9} roughness={0.26} clearcoat={0.6} transparent={tr} opacity={op} depthWrite={!tr} />
+        <meshPhysicalMaterial key={tr ? "t" : "o"} color={frame} metalness={0.9} roughness={0.26} clearcoat={0.6} transparent={tr} opacity={op} depthWrite={!tr} />
       </mesh>
       <mesh geometry={glass} position={[0, 0, 0.171]}>
-        <meshPhysicalMaterial color="#05060A" metalness={0.2} roughness={0.08} clearcoat={1} transparent={tr} opacity={op} depthWrite={!tr} />
+        <meshPhysicalMaterial key={tr ? "t" : "o"} color="#05060A" metalness={0.2} roughness={0.08} clearcoat={1} transparent={tr} opacity={op} depthWrite={!tr} />
       </mesh>
       <mesh geometry={screenGeo} position={[0, 0, 0.183]}>
         <meshBasicMaterial map={tex} toneMapped={false} transparent opacity={(1 - xray) * glow} />
@@ -109,12 +109,12 @@ export const Phone: React.FC<{
       {/* الجزيرة */}
       <mesh position={[0, 2.72, 0.186]} rotation={[0, 0, Math.PI / 2]}>
         <capsuleGeometry args={[0.13, 0.5, 4, 12]} />
-        <meshBasicMaterial color="#000" transparent={tr} opacity={op} />
+        <meshBasicMaterial key={tr ? "t" : "o"} color="#000" transparent={tr} opacity={op} />
       </mesh>
       {/* الكاميرات الخلفية */}
       <group position={[-0.62, 2.2, -0.2]}>
         <mesh geometry={camGeo}>
-          <meshPhysicalMaterial color={frame} metalness={0.85} roughness={0.2} transparent={tr} opacity={op} />
+          <meshPhysicalMaterial key={tr ? "t" : "o"} color={frame} metalness={0.85} roughness={0.2} transparent={tr} opacity={op} />
         </mesh>
         {[
           [-0.3, 0.3],
@@ -124,11 +124,11 @@ export const Phone: React.FC<{
           <group key={i} position={[x, y, -0.08]} rotation={[Math.PI / 2, 0, 0]}>
             <mesh>
               <cylinderGeometry args={[0.24, 0.24, 0.1, 32]} />
-              <meshPhysicalMaterial color="#1A1C22" metalness={0.9} roughness={0.2} transparent={tr} opacity={op} />
+              <meshPhysicalMaterial key={tr ? "t" : "o"} color="#1A1C22" metalness={0.9} roughness={0.2} transparent={tr} opacity={op} />
             </mesh>
             <mesh position={[0, -0.051, 0]}>
               <cylinderGeometry args={[0.16, 0.16, 0.01, 32]} />
-              <meshPhysicalMaterial color="#0A0F2A" metalness={0.3} roughness={0.05} clearcoat={1} transparent={tr} opacity={op} />
+              <meshPhysicalMaterial key={tr ? "t" : "o"} color="#0A0F2A" metalness={0.3} roughness={0.05} clearcoat={1} transparent={tr} opacity={op} />
             </mesh>
           </group>
         ))}

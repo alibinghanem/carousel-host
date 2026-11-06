@@ -45,14 +45,14 @@ export const BankCard: React.FC<{ draw: Draw; w?: number; color?: string; glow?:
   return (
     <group {...rest}>
       <mesh geometry={body}>
-        <meshPhysicalMaterial color={color} roughness={0.35} clearcoat={1} clearcoatRoughness={0.1} transparent={tr} opacity={opacity} />
+        <meshPhysicalMaterial key={tr ? "t" : "o"} color={color} roughness={0.35} clearcoat={1} clearcoatRoughness={0.1} transparent={tr} opacity={opacity} />
       </mesh>
       <mesh geometry={face} position={[0, 0, d / 2 + 0.002]}>
         <meshBasicMaterial map={tex} toneMapped={false} transparent opacity={opacity * (0.92 + glow * 0.08)} />
       </mesh>
       {chip ? (
         <mesh geometry={chipGeo} position={[-w * 0.3, h * 0.06, d / 2 + 0.012]}>
-          <meshStandardMaterial color="#E9C46A" metalness={1} roughness={0.22} transparent={tr} opacity={opacity} />
+          <meshStandardMaterial key={tr ? "t" : "o"} color="#E9C46A" metalness={1} roughness={0.22} transparent={tr} opacity={opacity} />
         </mesh>
       ) : null}
       {glow > 0 ? (
