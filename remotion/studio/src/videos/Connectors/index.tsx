@@ -172,8 +172,9 @@ const How: React.FC<{ f: number }> = ({ f }) => {
     [230, 300],
     [700, 330],
   ];
-  const ci = Math.min(2, Math.floor(l / 90));
-  const ct = ease(l % 90, 10, 30, IN_OUT);
+  const lc = Math.max(0, l);
+  const ci = Math.min(2, Math.floor(lc / 90));
+  const ct = ease(lc % 90, 10, 30, IN_OUT);
   const from = cur[Math.max(0, ci - 1)];
   const to = cur[ci];
   const mx = ci === 0 ? to[0] : from[0] + (to[0] - from[0]) * ct;
