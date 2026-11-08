@@ -877,5 +877,25 @@
   ],
   "format": "carousel",
   "bank": "classic"
+ },
+ {
+  "date": "2026-11-08",
+  "topic": "x017",
+  "concept": "لوحة المقابس: Claude مقبس مركزي، وشعارات التطبيقات الحقيقية تنسحب بكابلات وتنشبك فيه على الضربات، ونبض ضوء في الكابلات المفعّلة؛ واجهة توضيحية للتفعيل، وشبكة ملفات مفتوحة/مقفولة للصلاحيات",
+  "cover_bg": "#14100D (بني-أسود دافئ فوق صورة تقويم ورقي معتمة)",
+  "display_font": "Baloo Bhaijaan 2 800",
+  "cover_layout": "وسم طين «Claude · Connectors»، عنوان بسطرين «Claude ذكي… / بس ما يشوف إيميلك»، ودائرة Claude بست مقابس منقّطة في الوسط",
+  "photos": [
+   "unsplash: تقويم ومخطط شهري مع قهوة (photos.json)",
+   "avatar.png"
+  ],
+  "real_assets": [
+   "شعار Claude",
+   "شعارات Gmail وMicrosoft وGoogle Drive وGoogle Calendar وSlack وGitHub",
+   "صورة تقويم حقيقية",
+   "صورة علي"
+  ],
+  "format": "video",
+  "bank": "tools"
  }
 ]

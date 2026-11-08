@@ -31,6 +31,7 @@ import { GeminiMail, GEMINIMAIL_FRAMES } from "./videos/GeminiMail";
 import { SealKit, SEALKIT_FRAMES } from "./videos/SealKit";
 import { SubseaCables, SUBSEA_FRAMES } from "./videos/SubseaCables";
 import { TapPay, TAPPAY_FRAMES } from "./videos/TapPay";
+import { Connectors, CONNECTORS_FRAMES } from "./videos/Connectors";
 import { ToolPicker, TOOLPICKER_FRAMES } from "./videos/ToolPicker";
 import { SkyKit, SKYKIT_FRAMES } from "./videos/SkyKit";
 import { AgentTeam, AGENT_TEAM_FRAMES } from "./videos/AgentTeam";
@@ -81,6 +82,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="SealKit" component={SealKit} width={1080} height={1080} fps={30} durationInFrames={SEALKIT_FRAMES} />
     <Composition id="SubseaCables" component={SubseaCables} width={1080} height={1920} fps={30} durationInFrames={SUBSEA_FRAMES} />
     <Composition id="TapPay" component={TapPay} width={1080} height={1920} fps={30} durationInFrames={TAPPAY_FRAMES} />
+    <Composition id="Connectors" component={Connectors} width={1080} height={1920} fps={30} durationInFrames={CONNECTORS_FRAMES} />
     <Composition id="ToolPicker" component={ToolPicker} width={1080} height={1920} fps={30} durationInFrames={TOOLPICKER_FRAMES} />
     <Composition id="SkyKit" component={SkyKit} width={1080} height={1080} fps={30} durationInFrames={SKYKIT_FRAMES} />
     <Composition id="AliAd" component={AliAd} width={1080} height={1920} fps={30} durationInFrames={ALI_AD_FRAMES} />
