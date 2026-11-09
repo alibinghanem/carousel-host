@@ -34,6 +34,7 @@ import { TapPay, TAPPAY_FRAMES } from "./videos/TapPay";
 import { Connectors, CONNECTORS_FRAMES } from "./videos/Connectors";
 import { ToolPicker, TOOLPICKER_FRAMES } from "./videos/ToolPicker";
 import { SkyKit, SKYKIT_FRAMES } from "./videos/SkyKit";
+import { PrivKit, PRIVKIT_FRAMES } from "./videos/PrivKit";
 import { AgentTeam, AGENT_TEAM_FRAMES } from "./videos/AgentTeam";
 import { Souq, SOUQ_FRAMES } from "./videos/Souq";
 import { AgentGauges, AGENT_GAUGES_FRAMES } from "./videos/AgentGauges";
@@ -85,6 +86,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="Connectors" component={Connectors} width={1080} height={1920} fps={30} durationInFrames={CONNECTORS_FRAMES} />
     <Composition id="ToolPicker" component={ToolPicker} width={1080} height={1920} fps={30} durationInFrames={TOOLPICKER_FRAMES} />
     <Composition id="SkyKit" component={SkyKit} width={1080} height={1080} fps={30} durationInFrames={SKYKIT_FRAMES} />
+    <Composition id="PrivKit" component={PrivKit} width={1080} height={1080} fps={30} durationInFrames={PRIVKIT_FRAMES} />
     <Composition id="AliAd" component={AliAd} width={1080} height={1920} fps={30} durationInFrames={ALI_AD_FRAMES} />
     <Composition id="HumanLoop" component={HumanLoop} width={1080} height={1920} fps={30} durationInFrames={HUMAN_LOOP_FRAMES} />
     <Folder name="HumanLoop-Scenes">

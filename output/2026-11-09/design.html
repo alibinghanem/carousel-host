@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<style>
+:root{--g0:#0A2E2A;--g1:#0E3B36;--g2:#165049;--br:#E1B653;--cr:#F3EDE0;--ink:#10221F;--mu:#A9C7BF;--red:#E5484D}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;font-family:'IBM Plex Sans Arabic',sans-serif;-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1920px;position:relative;overflow:hidden;direction:rtl;color:#fff;background:radial-gradient(90% 60% at 50% 42%,var(--g2) 0%,var(--g1) 55%,var(--g0) 100%)}
+.tex{position:absolute;inset:0;opacity:.07;background-image:repeating-linear-gradient(135deg,#fff 0 2px,transparent 2px 22px)}
+.hd{font-family:'Mada';font-weight:900}
+.en{font-family:'Space Grotesk';font-weight:700;direction:ltr;unicode-bidi:isolate;white-space:nowrap}
+.tag{position:absolute;top:252px;right:80px;padding:8px 26px 12px;border-radius:40px;background:var(--br);color:var(--ink);font:700 30px 'IBM Plex Sans Arabic';z-index:3}
+.pg{position:absolute;top:264px;left:80px;font:700 28px 'Space Grotesk';color:var(--mu);direction:ltr;z-index:3}
+.num{position:absolute;top:318px;right:80px;width:96px;height:96px;border-radius:50%;display:grid;place-items:center;background:var(--br);color:var(--ink);font:900 54px 'Mada'}
+h2{position:absolute;top:322px;right:200px;left:40px;font-size:84px;line-height:1.3;white-space:nowrap}
+h2 em,h1 em{font-style:normal;color:var(--br)}
+.path{position:absolute;right:70px;left:70px;padding:16px 24px 20px;border-radius:24px;background:var(--cr);color:var(--ink)}
+.path .os{display:flex;align-items:center;gap:12px;font:700 26px 'IBM Plex Sans Arabic';color:#5B6B66;margin-bottom:6px}
+.path .os b{padding:2px 14px 6px;border-radius:12px;background:var(--ink);color:var(--br);font:700 24px 'Space Grotesk'}
+.path .st{font:700 30px/1.5 'IBM Plex Sans Arabic'}
+.path .st i{font-style:normal;color:#B7791F}
+.path .st u{white-space:nowrap;text-decoration:none;padding:0 10px 2px;border-radius:8px;background:#DDF2E7;color:#0F6B47}
+.note{position:absolute;right:70px;left:70px;font:600 25px/1.45 'IBM Plex Sans Arabic';color:var(--mu);text-align:center}
+.tip{position:absolute;right:70px;left:70px;padding:14px 24px 18px;border-radius:22px;border:2px solid rgba(225,182,83,.6);background:rgba(10,46,42,.75);font:700 30px/1.45 'IBM Plex Sans Arabic'}
+.tip b{color:var(--br)}
+
+/* ١ */
+.s1 h1{position:absolute;top:330px;right:76px;left:30px;font-size:96px;line-height:1.32;white-space:nowrap}
+.s1 h1 em{display:block}
+.s1 .hero{position:absolute;top:620px;left:50%;width:820px;margin-left:-410px}
+.s1 .sub{position:absolute;top:1300px;right:80px;left:80px;text-align:center;font:700 40px 'IBM Plex Sans Arabic'}
+.s1 .sub b{color:var(--br)}
+.s1 .swipe{position:absolute;top:1398px;left:80px;padding:6px 22px 12px;border-radius:30px;background:rgba(10,46,42,.85);font:900 40px/1 'Mada';color:var(--br)}
+.s1 .hbar{position:absolute;top:1404px;right:80px;display:flex;gap:26px;align-items:center;padding:12px 28px;border-radius:14px;background:rgba(10,46,42,.85);border:2px solid rgba(255,255,255,.2);font:700 28px 'IBM Plex Sans Arabic'}
+
+/* ٢ */
+.s2 h2{right:80px;font-size:88px}
+.s2 .pol{position:absolute;top:500px;right:70px;width:560px;height:520px;background:#fff;padding:14px 14px 60px;transform:rotate(-2.5deg);box-shadow:0 30px 60px rgba(0,0,0,.5)}
+.s2 .pol img{width:100%;height:100%;object-fit:cover;object-position:30% 40%}
+.s2 .pol span{position:absolute;bottom:14px;right:22px;font:700 26px 'IBM Plex Sans Arabic';color:#5B6B66}
+.s2 .keys{position:absolute;top:540px;left:60px;width:330px;padding:22px 22px 26px;border-radius:26px;background:var(--cr);color:var(--ink);transform:rotate(3deg);box-shadow:0 20px 40px rgba(0,0,0,.4)}
+.s2 .keys .h{font:900 34px/1.3 'Mada';color:#8A5A0B;margin-bottom:10px}
+.s2 .keys div.k{display:flex;align-items:center;gap:10px;font:700 27px/1.6 'IBM Plex Sans Arabic'}
+.s2 .keys div.k span{width:30px;height:30px;border-radius:50%;background:var(--br);display:grid;place-items:center;font:700 18px 'Space Grotesk'}
+.s2 .t{position:absolute;top:1090px;right:70px;left:70px;font:700 36px/1.5 'IBM Plex Sans Arabic'}
+.s2 .t b{color:var(--br)}
+
+/* ٣–٦ */
+.s3 .img{position:absolute;top:470px;left:50%;width:480px;margin-left:-240px}
+.s3 .p1{top:930px}.s3 .p2{top:1100px}
+.s3 .note{top:1290px}
+.s4 .img{position:absolute;top:470px;left:50%;width:520px;margin-left:-260px}
+.s4 .p1{top:930px}.s4 .p2{top:1090px}
+.s4 .tip{top:1250px}
+.s5 .img{position:absolute;top:470px;left:50%;width:420px;margin-left:-210px}
+.s5 .p1{top:900px}.s5 .p2{top:1080px}
+.s5 .note{top:1290px}
+.s6 .img{position:absolute;top:470px;right:60px;width:290px}
+.s6 .p1{top:480px;right:390px;left:60px}
+.s6 .p2{top:720px;right:390px;left:60px}
+.s6 .chk{position:absolute;top:1040px;right:70px;left:70px;padding:18px 26px 22px;border-radius:26px;background:rgba(10,46,42,.8);border:2px solid rgba(225,182,83,.6)}
+.s6 .chk .h{font:900 36px 'Mada';color:var(--br);margin-bottom:8px}
+.s6 .chk .row{display:flex;flex-wrap:wrap;gap:10px}
+.s6 .chk .row span{padding:6px 18px 10px;border-radius:30px;background:var(--cr);color:var(--ink);font:700 26px 'IBM Plex Sans Arabic'}
+
+/* ٧ */
+.s7 h2{right:60px;left:60px;text-align:center;font-size:80px}
+.s7 .ring{position:absolute;top:640px;left:50%;width:440px;height:440px;margin-left:-220px;border-radius:50%;background:conic-gradient(var(--br),var(--cr),var(--br));box-shadow:0 0 70px rgba(225,182,83,.35)}
+.s7 .face{position:absolute;top:16px;left:16px;width:408px;height:408px;border-radius:50%;overflow:hidden;background:var(--g1)}
+.s7 .face img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.s7 .nm{position:absolute;top:1110px;left:0;right:0;text-align:center;font:900 86px/1.2 'Mada'}
+.s7 .ds{position:absolute;top:1228px;left:0;right:0;text-align:center;font:700 34px 'IBM Plex Sans Arabic';color:var(--mu)}
+.s7 .soc{position:absolute;top:1288px;left:0;right:0;display:flex;justify-content:center}
+.s7 .soc>div{display:flex;gap:26px;align-items:center;padding:12px 30px;border-radius:14px;background:#fff;color:var(--ink);font:700 30px 'IBM Plex Sans Arabic'}
+.s7 .ask{position:absolute;top:1366px;left:50px;right:50px;text-align:center;font:700 34px/1.4 'IBM Plex Sans Arabic';color:var(--br)}
+</style>
+</head>
+<body>
+
+<section class="slide s1">
+  <div class="tex" data-safe="ignore"></div>
+  <div class="tag">تقنية · خصوصية الجوال</div>
+  <h1 class="hd">تطبيق المصباح<em>ليش يبي موقعك؟</em></h1>
+  <img class="hero" src="assets/p0.png" alt="">
+  <div class="sub"><b>5 إعدادات</b> راجعها اليوم</div>
+  <div class="swipe">اسحب ←</div>
+  <div class="hbar">{{HANDLES}}</div>
+</section>
+
+<section class="slide s2">
+  <div class="tex" data-safe="ignore"></div>
+  <div class="tag">تقنية · خصوصية الجوال</div>
+  <div class="pg">2/7</div>
+  <h2 class="hd">عطيتهم <em>المفاتيح</em></h2>
+  <div class="pol"><img src="assets/home.jpg" alt=""><span>كل تطبيق… سأل مرة</span></div>
+  <div class="keys"><div class="h">مفاتيح عند التطبيقات</div>
+    <div class="k"><span>1</span>موقعك</div><div class="k"><span>2</span>الميكروفون</div><div class="k"><span>3</span>الكاميرا</div><div class="k"><span>4</span>تتبّعك بين التطبيقات</div><div class="k"><span>5</span>تطبيقات نسيتها</div></div>
+  <div class="t">كل تطبيق سأل أول مرة، وضغطنا <b>«سماح»</b> بدون ما نقرأ… والإذن يبقى. <b>اليوم نسترجع المفاتيح</b> اللي ما لها داعي</div>
+</section>
+
+<section class="slide s3">
+  <div class="tex" data-safe="ignore"></div>
+  <div class="tag">تقنية · خصوصية الجوال</div>
+  <div class="pg">3/7</div>
+  <div class="num">1</div>
+  <h2 class="hd">الموقع</h2>
+  <img class="img" src="assets/p1.png" alt="">
+  <div class="path p1"><div class="os"><b>iPhone</b></div><div class="st">الإعدادات ← الخصوصية والأمن ← خدمات الموقع ← اختر التطبيق ← <u>أثناء الاستخدام</u> أو <i>أبداً</i></div></div>
+  <div class="path p2"><div class="os"><b>Android</b></div><div class="st">الإعدادات ← الأمان والخصوصية ← مدير الأذونات ← الموقع ← <u>السماح أثناء الاستخدام فقط</u></div></div>
+  <div class="note">مصباح أو آلة حاسبة؟ ما تحتاج موقعك أبداً · المسميات تختلف حسب الإصدار والشركة</div>
+</section>
+
+<section class="slide s4">
+  <div class="tex" data-safe="ignore"></div>
+  <div class="tag">تقنية · خصوصية الجوال</div>
+  <div class="pg">4/7</div>
+  <div class="num">2</div>
+  <h2 class="hd" style="font-size:70px;top:334px">الميكروفون و<em>الكاميرا</em></h2>
+  <img class="img" src="assets/p2.png" alt="">
+  <div class="path p1"><div class="os"><b>iPhone</b></div><div class="st">الإعدادات ← الخصوصية والأمن ← <u>الميكروفون</u> ثم <u>الكاميرا</u> ← أطفِ اللي ما يحتاجها</div></div>
+  <div class="path p2"><div class="os"><b>Android</b></div><div class="st">مدير الأذونات ← <u>الميكروفون</u> ثم <u>الكاميرا</u> ← اختر التطبيق ← غيّر الإذن</div></div>
+  <div class="tip">القاعدة: تطبيق مكالمات أو اجتماعات <b>يحتاجها</b>… لعبة أو مصباح <b>لا</b></div>
+</section>
+
+<section class="slide s5">
+  <div class="tex" data-safe="ignore"></div>
+  <div class="tag">تقنية · خصوصية الجوال</div>
+  <div class="pg">5/7</div>
+  <div class="num">3</div>
+  <h2 class="hd">التتبّع بين <em>التطبيقات</em></h2>
+  <img class="img" src="assets/p3.png" alt="">
+  <div class="path p1"><div class="os"><b>iPhone</b></div><div class="st">الإعدادات ← الخصوصية والأمن ← التتبع ← أطفِ <u>السماح للتطبيقات بطلب التتبع</u></div></div>
+  <div class="path p2"><div class="os"><b>Android 12+</b></div><div class="st">الإعدادات ← الأمان والخصوصية ← الإعلانات ← <u>حذف معرّف الإعلانات</u></div></div>
+  <div class="note">هذا اللي يخلّي إعلان شفته بتطبيق يلاحقك في تطبيق ثاني</div>
+</section>
+
+<section class="slide s6">
+  <div class="tex" data-safe="ignore"></div>
+  <div class="tag">تقنية · خصوصية الجوال</div>
+  <div class="pg">6/7</div>
+  <div class="num">4</div>
+  <h2 class="hd">التطبيقات <em>المنسية</em></h2>
+  <img class="img" src="assets/p4.png" alt="">
+  <div class="path p1"><div class="os"><b>Android</b></div><div class="st">معلومات التطبيق ← فعّل <u>إزالة الأذونات إذا ما انستخدم</u> (يسحبها تلقائياً بعد شهور)</div></div>
+  <div class="path p2"><div class="os"><b>iPhone</b></div><div class="st">مر على الشاشة الرئيسية: أي تطبيق ما فتحته من شهور؟ <u>احذفه</u> ويروح معه إذنه</div></div>
+  <div class="chk"><div class="h">الخلاصة: 5 دقائق تكفي</div><div class="row"><span>✓ الموقع</span><span>✓ الميكروفون</span><span>✓ الكاميرا</span><span>✓ التتبّع</span><span>✓ المنسية</span></div></div>
+</section>
+
+<section class="slide s7" data-handles="off">
+  <div class="tex" data-safe="ignore"></div>
+  <div class="tag">تقنية · خصوصية الجوال</div>
+  <div class="pg">7/7</div>
+  <h2 class="hd">جوالك بيتك…<br><em>رجّع المفاتيح</em></h2>
+  <div class="ring"><div class="face"><img src="{{AVATAR}}" alt=""></div></div>
+  <div class="nm">علي التميمي</div>
+  <div class="ds">كل يوم معلومة تقنية تهمّك</div>
+  <div class="soc"><div>{{HANDLES}}</div></div>
+  <div class="ask">وش أغرب تطبيق لقيت عنده إذن ما يحتاجه؟</div>
+</section>
+
+</body>
+</html>
