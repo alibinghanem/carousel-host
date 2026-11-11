@@ -19,7 +19,8 @@
   "x014",
   "x015",
   "x016",
-  "x017"
+  "x017",
+  "x018"
  ],
  "log": [
   {
@@ -168,6 +169,14 @@
    "id": "x017",
    "cycle": 0,
    "format": "video",
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-11-11",
+   "id": "x018",
+   "cycle": 0,
+   "format": "carousel",
    "style": "—",
    "accent": "—"
   }
