@@ -974,5 +974,26 @@
   "format": "video",
   "bank": "classic",
   "motion": "موشن قرافيك 2D (Remotion)"
+ },
+ {
+  "date": "2026-11-13",
+  "topic": "k039 حسابك انسرق؟ أول 10 دقايق",
+  "metaphor": "إسعاف رقمي: باب بقفل مكسور ومسطرة دقائق 0–10 تتظلّل فيها المرحلة الحالية",
+  "cover_bg": "#0B1220 إلى #14233F (كحلي داكن مع صورة قفل حقيقية خلفية)",
+  "display_font": "Changa 800",
+  "cover_layout": "وسم أصفر، عنوان «حسابك انخترق؟ / هذا اللي تسويه الحين»، باب 3D مكسور القفل مع غلتش وستوب ووتش، وسطر «أول 10 دقايق تفرق»",
+  "photos": [
+   "unsplash: قفل على لوحة مفاتيح (lockkb.jpg)",
+   "avatar.png"
+  ],
+  "real_assets": [
+   "صورة قفل حقيقية",
+   "شعار Google",
+   "شعار Facebook",
+   "صورة علي"
+  ],
+  "format": "carousel",
+  "bank": "tech",
+  "motion": "3D stills (Remotion + three.js)"
  }
 ]

@@ -10,7 +10,8 @@
   "k015",
   "k031",
   "k019",
-  "k024"
+  "k024",
+  "k039"
  ],
  "log": [
   {
@@ -93,6 +94,14 @@
    "id": "k024",
    "cycle": 0,
    "format": "video",
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-11-13",
+   "id": "k039",
+   "cycle": 0,
+   "format": "carousel",
    "style": "—",
    "accent": "—"
   }
