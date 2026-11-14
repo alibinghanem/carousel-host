@@ -1,0 +1,118 @@
+{
+ "cycle": 0,
+ "used": [
+  "k001",
+  "k002",
+  "k003",
+  "k004",
+  "k006",
+  "k009",
+  "k015",
+  "k031",
+  "k019",
+  "k024",
+  "k039",
+  "k005"
+ ],
+ "log": [
+  {
+   "date": "2026-10-25",
+   "id": "k001",
+   "cycle": 0,
+   "format": "video",
+   "style": "—",
+   "accent": "—",
+   "note": "فيديو تجريبي 3D (طلب المستخدم) — Battery3D"
+  },
+  {
+   "date": "2026-10-28",
+   "id": "k002",
+   "cycle": 0,
+   "format": "carousel",
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-10-29",
+   "id": "k003",
+   "cycle": 0,
+   "format": "video",
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-11-01",
+   "id": "k004",
+   "cycle": 0,
+   "format": "carousel",
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-11-02",
+   "id": "k006",
+   "cycle": 0,
+   "format": "video",
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-11-05",
+   "id": "k009",
+   "cycle": 0,
+   "format": "carousel",
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-11-06",
+   "id": "k015",
+   "cycle": 0,
+   "format": "video",
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-11-09",
+   "id": "k031",
+   "cycle": 0,
+   "format": "carousel",
+   "style": "—",
+   "accent": "—",
+   "note": "استبدل k019 بطلب المستخدم (موضوع أهم)"
+  },
+  {
+   "date": "2026-11-09",
+   "id": "k019",
+   "cycle": 0,
+   "format": "carousel",
+   "style": "—",
+   "accent": "—",
+   "note": "رفضه المستخدم، أُلغي ولا يُعاد"
+  },
+  {
+   "date": "2026-11-10",
+   "id": "k024",
+   "cycle": 0,
+   "format": "video",
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-11-13",
+   "id": "k039",
+   "cycle": 0,
+   "format": "carousel",
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-11-14",
+   "id": "k005",
+   "cycle": 0,
+   "format": "video",
+   "style": "—",
+   "accent": "—"
+  }
+ ]
+}

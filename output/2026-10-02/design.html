@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<style>
+:root{--or:#FF5A1F;--or2:#E8470F;--ink:#141B2D;--cream:#FFF4E6;--box:#C98B4F;--box2:#E2A86A;--tape:#F2D28B;--ok:#18A865;--no:#E23D3D;--mute:#7A7468}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;font-family:'IBM Plex Sans Arabic',sans-serif;-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1920px;position:relative;overflow:hidden;direction:rtl}
+.hd{font-family:'Vazirmatn';font-weight:900;line-height:1.18}
+.en{font-family:'Space Grotesk';direction:ltr;unicode-bidi:isolate;font-weight:700}
+.or{background:var(--or);color:var(--ink)}
+.cr{background:var(--cream);color:var(--ink)}
+.dk{background:var(--ink);color:#fff}
+/* خطوط أرضية خشبية / ممر */
+.floor{position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(90deg,rgba(20,27,45,.04) 0 2px,transparent 2px 120px)}
+.dk .floor{background:repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 2px,transparent 2px 120px)}
+/* الوسم: الأداة · الميزة */
+.kick{position:absolute;top:250px;right:90px;display:flex;align-items:center;gap:14px;padding:10px 24px 10px 20px;border-radius:999px;background:var(--ink);color:#fff;font:700 30px 'Space Grotesk';direction:ltr}
+.kick img{width:36px;height:36px;filter:invert(1)}
+.cr .kick,.dk .kick{background:var(--or);color:var(--ink)}
+.cr .kick img,.dk .kick img{filter:none}
+.pg{position:absolute;top:262px;left:90px;font:700 28px 'Space Grotesk';opacity:.5;direction:ltr}
+.tape{position:absolute;width:200px;height:54px;background:var(--tape);opacity:.92;box-shadow:0 4px 8px rgba(0,0,0,.12)}
+.tape:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 8px,rgba(255,255,255,.18) 8px 10px)}
+
+/* كرتونة */
+.box{position:absolute;background:linear-gradient(180deg,var(--box2),var(--box));border-radius:10px;box-shadow:inset 0 -10px 0 rgba(0,0,0,.08),0 18px 30px rgba(20,27,45,.22);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px 20px 24px}
+.box:before{content:"";position:absolute;top:0;bottom:0;left:50%;width:56px;margin-left:-28px;background:rgba(242,210,139,.75)}
+.box .lb{position:relative;color:var(--ink);background:#fff;border:3px solid var(--ink);border-radius:10px;padding:10px 16px 14px;width:100%}
+.box .lb b{display:block;font:900 40px 'Vazirmatn';line-height:1.25}
+.box .lb i{display:block;font-style:normal;font:700 28px 'IBM Plex Sans Arabic';color:var(--mute);margin-top:4px}
+.box .arrow{position:relative;margin-top:14px;display:flex;align-items:center;gap:10px;background:var(--ok);color:#fff;font:700 28px 'IBM Plex Sans Arabic';padding:6px 18px 10px;border-radius:999px}
+.box .arrow .en{font-size:28px}
+
+/* ١ الغلاف: إشعار إخلاء */
+.s1 .notice{position:absolute;top:400px;left:80px;right:80px;height:930px;background:#fff;transform:rotate(-2.5deg);box-shadow:0 40px 80px rgba(20,27,45,.35);padding:64px 66px 0}
+.s1 .notice .t1{display:flex;justify-content:space-between;align-items:center;border-bottom:4px solid var(--ink);padding-bottom:22px}
+.s1 .notice .t1 span{font:900 46px 'Vazirmatn';letter-spacing:1px}
+.s1 .notice .t1 .brand{display:flex;align-items:center;gap:14px;direction:ltr}
+.s1 .notice .t1 .brand img.i{width:56px;height:56px}
+.s1 .notice .t1 .brand img.t{height:36px}
+.s1 h1{margin-top:40px;font-size:118px;line-height:1.12}
+.s1 h1 em{font-style:normal;color:var(--or)}
+.s1 .sub{margin-top:26px;font:700 42px 'IBM Plex Sans Arabic';line-height:1.45;color:#3B3F4C}
+.s1 .stamp{position:absolute;bottom:46px;left:56px;transform:rotate(-9deg);border:8px solid var(--no);outline:3px solid var(--no);outline-offset:6px;border-radius:18px;padding:8px 32px 18px;color:var(--no);text-align:center}
+.s1 .stamp b{display:block;font:900 40px 'Vazirmatn'}
+.s1 .stamp .en{display:block;font-size:64px;line-height:1}
+.s1 .hbar{position:absolute;top:1392px;right:90px;display:flex;gap:26px;align-items:center;padding:14px 28px;border-radius:999px;background:var(--ink);color:#fff;font:700 28px 'IBM Plex Sans Arabic'}
+.s1 .swipe{position:absolute;top:1398px;left:90px;font:900 38px 'Vazirmatn';color:var(--ink)}
+.s1 .t-a{top:378px;right:180px;transform:rotate(4deg)}
+.s1 .t-b{top:1290px;left:150px;transform:rotate(-6deg)}
+
+/* ٢ المشكلة */
+.s2 h2{position:absolute;top:340px;right:90px;left:80px;font-size:96px}
+.s2 h2 em{font-style:normal;color:var(--or)}
+.s2 .door{position:absolute;top:640px;left:150px;right:150px;height:720px;border-radius:24px 24px 0 0;background:linear-gradient(180deg,#2A3350,#1B2238);box-shadow:inset 0 0 0 14px #11172A}
+.s2 .door .num{position:absolute;top:40px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:12px;background:#C9A55C;color:var(--ink);border-radius:12px;padding:8px 22px;direction:ltr;font:700 34px 'Space Grotesk'}
+.s2 .door .num img{width:34px;height:34px}
+.s2 .door .knob{position:absolute;top:400px;right:44px;width:34px;height:34px;border-radius:50%;background:#C9A55C}
+.s2 .pol{position:absolute;top:780px;left:220px;width:640px;padding:18px 18px 74px;background:#fff;transform:rotate(3deg);box-shadow:0 30px 50px rgba(0,0,0,.4)}
+.s2 .pol img{display:block;width:100%;height:380px;object-fit:cover;object-position:50% 40%}
+.s2 .pol span{position:absolute;bottom:16px;left:0;right:0;text-align:center;font:700 34px 'IBM Plex Sans Arabic';color:var(--ink)}
+.s2 .pol .tape{top:-26px;left:220px;transform:rotate(-4deg)}
+.s2 .warn{position:absolute;top:1230px;right:110px;left:110px;background:var(--or);color:var(--ink);border-radius:20px;padding:22px 30px 28px;text-align:center;font:900 46px 'Vazirmatn';line-height:1.3;box-shadow:0 18px 30px rgba(0,0,0,.25)}
+
+/* ٣ وش تغيّر: جدول العزال */
+.s3 h2{position:absolute;top:340px;right:90px;left:80px;font-size:100px}
+.s3 h2 em{font-style:normal;color:var(--or)}
+.s3 .road{position:absolute;top:620px;right:150px;width:8px;height:740px;background:repeating-linear-gradient(180deg,var(--ink) 0 26px,transparent 26px 44px)}
+.s3 .st{position:absolute;right:110px;left:90px;display:flex;gap:34px;align-items:flex-start}
+.s3 .st .pin{flex:none;width:90px;height:90px;border-radius:50%;display:grid;place-items:center;font:900 40px 'Vazirmatn';color:#fff;border:8px solid var(--cream);box-shadow:0 0 0 4px var(--ink)}
+.s3 .st .card{flex:1;background:#fff;border-radius:24px;padding:24px 32px 30px;box-shadow:0 14px 26px rgba(20,27,45,.12);border:3px solid var(--ink)}
+.s3 .st .card b{display:block;font:900 50px 'Vazirmatn';line-height:1.25}
+.s3 .st .card p{font:700 36px 'IBM Plex Sans Arabic';color:#4A4E5A;margin-top:8px;line-height:1.45}
+.s3 .st .card .date{display:inline-block;margin-top:12px;background:var(--no);color:#fff;font:700 34px 'Space Grotesk';padding:4px 18px 6px;border-radius:10px;direction:ltr}
+
+/* ٤ ينتقل: شاحنة */
+.s4 h2{position:absolute;top:340px;right:90px;left:80px;font-size:104px}
+.s4 h2 em{font-style:normal;color:var(--ok)}
+.s4 .sub{position:absolute;top:600px;right:90px;left:80px;font:700 40px 'IBM Plex Sans Arabic';color:rgba(255,255,255,.75)}
+.truck{position:absolute;top:720px;left:50px;width:980px;height:640px}
+.truck .cargo{position:absolute;top:-40px;right:0;width:760px;height:560px;background:#F7F2EA;border-radius:22px 22px 0 0;border:6px solid #fff;overflow:hidden}
+.truck .cargo:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(20,27,45,.05) 0 3px,transparent 3px 60px)}
+.truck .cab{position:absolute;top:150px;left:0;width:230px;height:370px;background:var(--or);border-radius:60px 14px 0 0;border:6px solid #fff}
+.truck .cab:before{content:"";position:absolute;top:40px;left:30px;width:110px;height:110px;border-radius:40px 8px 8px 8px;background:#BFE3F5;border:5px solid #fff}
+.truck .cab .lg{position:absolute;bottom:60px;left:50%;transform:translateX(-50%);width:84px;height:84px;background:#fff;border-radius:50%;display:grid;place-items:center}
+.truck .cab .lg img{width:56px;height:56px}
+.truck .wheel{position:absolute;top:470px;width:130px;height:130px;border-radius:50%;background:#2A2F40;border:14px solid #0B0F1A;box-shadow:inset 0 0 0 16px #8A90A0}
+.truck .chassis{position:absolute;top:510px;left:0;right:0;height:26px;background:#0B0F1A;border-radius:8px}
+
+/* ٥ ما ينتقل: الرصيف */
+.s5 h2{position:absolute;top:340px;right:90px;left:80px;font-size:104px}
+.s5 h2 em{font-style:normal;color:var(--no)}
+.s5 .sub{position:absolute;top:600px;right:90px;left:80px;font:700 40px 'IBM Plex Sans Arabic';color:#4A4E5A}
+.curb{position:absolute;top:1300px;left:0;right:0;height:60px;background:#D9CFC0;border-top:10px solid #BFB3A1}
+.s5 .x{position:absolute;top:-30px;left:-24px;width:84px;height:84px;border-radius:50%;background:var(--no);color:#fff;display:grid;place-items:center;font:900 48px 'Vazirmatn';border:6px solid var(--cream);transform:rotate(-8deg)}
+.s5 .box .lb i{color:var(--no)}
+
+/* ٦ قائمة العزال */
+.s6 h2{position:absolute;top:340px;right:90px;left:80px;font-size:100px}
+.s6 h2 em{font-style:normal;color:var(--or)}
+.clip{position:absolute;top:640px;left:80px;right:80px;height:740px;background:#fff;border-radius:26px;box-shadow:0 30px 60px rgba(0,0,0,.4);padding:96px 50px 0}
+.clip .cl{position:absolute;top:-34px;left:50%;transform:translateX(-50%);width:280px;height:84px;background:#9AA1B2;border-radius:18px;border:6px solid #6B7287}
+.clip .row{display:flex;gap:24px;align-items:flex-start;padding:12px 0 14px;border-bottom:3px dashed #E2DACD}
+.clip .row:last-of-type{border-bottom:none}
+.clip .ck{flex:none;width:56px;height:56px;border-radius:14px;border:5px solid var(--ink);display:grid;place-items:center;margin-top:4px}
+.clip .ck svg{width:34px;height:34px}
+.clip .row b{display:block;font:900 40px 'Vazirmatn';color:var(--ink);line-height:1.3}
+.clip .row i{display:block;font-style:normal;font:700 30px 'IBM Plex Sans Arabic';color:#6A6E7A;line-height:1.4;margin-top:2px}
+.s6 .mist{position:absolute;top:1262px;left:110px;right:110px;background:var(--no);color:#fff;border-radius:18px;padding:16px 26px 22px;text-align:center;font:900 38px 'Vazirmatn';transform:rotate(-1.5deg);box-shadow:0 16px 30px rgba(0,0,0,.3)}
+
+/* ٧ المتابعة: بطاقة شركة النقل */
+.s7 .card{position:absolute;top:330px;left:90px;right:90px;height:1030px;background:#fff;border-radius:34px;box-shadow:0 40px 80px rgba(20,27,45,.35);overflow:hidden}
+.s7 .card .top{height:230px;background:var(--ink);position:relative}
+.s7 .card .top:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:30px;background:repeating-linear-gradient(-45deg,var(--or) 0 22px,var(--ink) 22px 44px)}
+.s7 .card .top b{position:absolute;top:56px;right:56px;color:#fff;font:900 56px 'Vazirmatn'}
+.s7 .card .top i{position:absolute;top:140px;right:56px;color:var(--tape);font-style:normal;font:700 32px 'IBM Plex Sans Arabic'}
+.s7 .av{position:absolute;top:150px;left:60px;width:240px;height:240px;border-radius:50%;overflow:hidden;border:10px solid #fff;background:var(--or);box-shadow:0 14px 30px rgba(0,0,0,.25)}
+.s7 .av img{width:100%;height:100%;object-fit:cover;object-position:50% 15%}
+.s7 .name{position:absolute;top:290px;right:56px;font:900 80px 'Vazirmatn';color:var(--ink)}
+.s7 .role{position:absolute;top:400px;right:56px;left:56px;font:700 38px 'IBM Plex Sans Arabic';color:#4A4E5A;line-height:1.45}
+.s7 .q{position:absolute;top:560px;right:56px;left:56px;background:var(--cream);border:4px dashed var(--or);border-radius:24px;padding:28px 34px 34px}
+.s7 .q b{display:block;font:900 52px 'Vazirmatn';line-height:1.3;color:var(--ink)}
+.s7 .q i{display:block;font-style:normal;font:700 34px 'IBM Plex Sans Arabic';color:#6A6E7A;margin-top:10px}
+.s7 .soc{position:absolute;top:880px;left:0;right:0;display:flex;justify-content:center}
+.s7 .soc>*{display:flex;gap:28px;align-items:center;background:var(--ink);color:#fff;border-radius:999px;padding:14px 30px;font:700 30px 'IBM Plex Sans Arabic'}
+</style>
+</head>
+<body>
+
+<!-- ١ الغلاف: إشعار إخلاء -->
+<section class="slide or s1">
+  <div class="floor"></div>
+  <div class="kick"><img src="assets/openai.svg"> ChatGPT · GPTs</div>
+  <div class="notice">
+    <div class="t1">
+      <span>إشعار إخلاء</span>
+      <div class="brand"><img class="i" src="assets/openai.svg"><img class="t" src="assets/openai-text.svg"></div>
+    </div>
+    <h1 class="hd">الـ GPT حقك<br><em>بيطلع من البيت</em></h1>
+    <div class="sub">OpenAI بتقاعد الـ GPTs المخصصة.<br>وش ينتقل… وش يضيع… ووش تسوي الحين؟</div>
+    <div class="stamp"><b>آخر يوم</b><span class="en">11 DEC 2026</span></div>
+  </div>
+  <div class="tape t-a"></div>
+  <div class="tape t-b"></div>
+  <div class="hbar">{{HANDLES}}</div>
+  <div class="swipe">اسحب ←</div>
+</section>
+
+<!-- ٢ المشكلة -->
+<section class="slide dk s2" data-handles="light">
+  <div class="floor"></div>
+  <div class="kick"><img src="assets/openai.svg"> ChatGPT · GPTs</div>
+  <div class="pg">2/7</div>
+  <h2 class="hd">بنيت GPT لشغلك…<br><em>وفريقك يعتمد عليه</em></h2>
+  <div class="door">
+    <div class="num"><img src="assets/openai.svg"> GPT</div>
+    <div class="knob"></div>
+  </div>
+  <div class="pol">
+    <div class="tape"></div>
+    <img src="assets/team.jpg">
+    <span>يستخدمونه كل يوم</span>
+  </div>
+  <div class="warn">يوم 11 ديسمبر يوقف عن العمل</div>
+</section>
+
+<!-- ٣ وش تغيّر -->
+<section class="slide cr s3">
+  <div class="floor"></div>
+  <div class="kick"><img src="assets/openai.svg"> ChatGPT · GPTs</div>
+  <div class="pg">3/7</div>
+  <h2 class="hd">وش اللي تغيّر؟<br><em>جدول العزال</em></h2>
+  <div class="road"></div>
+  <div class="st" style="top:640px">
+    <div class="pin" style="background:var(--ink)">1</div>
+    <div class="card"><b>ما تقدر تسوي GPT جديد</b><p>في الحسابات الشخصية:<br><span class="en">Free · Go · Plus · Pro</span></p></div>
+  </div>
+  <div class="st" style="top:880px">
+    <div class="pin" style="background:var(--no)">2</div>
+    <div class="card"><b>الـ GPTs الحالية توقف</b><p>تشتغل عادي… لين يوم:</p><span class="date">11 DEC 2026</span></div>
+  </div>
+  <div class="st" style="top:1150px">
+    <div class="pin" style="background:var(--ok)">3</div>
+    <div class="card"><b>البيت الجديد: <span class="en">Plugins</span></b><p>إضافات تجمع التعليمات والملفات والتطبيقات</p></div>
+  </div>
+</section>
+
+<!-- ٤ ينتقل -->
+<section class="slide dk s4" data-handles="light">
+  <div class="floor"></div>
+  <div class="kick"><img src="assets/openai.svg"> ChatGPT · GPTs</div>
+  <div class="pg">4/7</div>
+  <h2 class="hd">اللي <em>يركب الشاحنة</em></h2>
+  <div class="sub">لما تنقل الـ GPT لإضافة <span class="en">Plugin</span>:</div>
+  <div class="truck">
+    <div class="cargo">
+      <div class="box" style="top:40px;right:36px;width:336px;height:236px"><div class="lb"><b>التعليمات</b></div><div class="arrow">تصير <span class="en">Skill</span></div></div>
+      <div class="box" style="top:40px;left:36px;width:336px;height:236px"><div class="lb"><b>ملفات المعرفة</b></div><div class="arrow">ملفات مرجعية</div></div>
+      <div class="box" style="top:296px;right:180px;width:400px;height:236px"><div class="lb"><b>التطبيقات المتصلة</b></div><div class="arrow">تنضاف كتطبيقات</div></div>
+    </div>
+    <div class="cab"><div class="lg"><img src="assets/openai.svg"></div></div>
+    <div class="chassis"></div>
+    <div class="wheel" style="left:60px"></div>
+    <div class="wheel" style="left:560px"></div>
+    <div class="wheel" style="left:780px"></div>
+  </div>
+</section>
+
+<!-- ٥ ما ينتقل -->
+<section class="slide cr s5">
+  <div class="floor"></div>
+  <div class="kick"><img src="assets/openai.svg"> ChatGPT · GPTs</div>
+  <div class="pg">5/7</div>
+  <h2 class="hd">اللي <em>يبقى على الرصيف</em></h2>
+  <div class="sub">هذي ما تنتقل… جهّز لها من الحين</div>
+  <div class="box" style="top:720px;right:90px;width:420px;height:250px;transform:rotate(-3deg)"><div class="x">✗</div><div class="lb"><b>المحادثات القديمة</b><i>تبقى مع الـ GPT الأصلي</i></div></div>
+  <div class="box" style="top:720px;left:90px;width:420px;height:250px;transform:rotate(2deg)"><div class="x">✗</div><div class="lb"><b>النموذج اللي اخترته</b><i>ما ينحفظ</i></div></div>
+  <div class="box" style="top:1020px;right:90px;width:420px;height:260px;transform:rotate(2deg)"><div class="x">✗</div><div class="lb"><b><span class="en">Actions</span> المخصصة</b><i>الربط مع أنظمتك الخارجية</i></div></div>
+  <div class="box" style="top:1020px;left:90px;width:420px;height:260px;transform:rotate(-2deg)"><div class="x">✗</div><div class="lb"><b>المشاركة مع فريقك</b><i>الإضافة تبدأ خاصة فيك</i></div></div>
+  <div class="curb"></div>
+</section>
+
+<!-- ٦ قائمة العزال -->
+<section class="slide or s6">
+  <div class="floor"></div>
+  <div class="kick"><img src="assets/openai.svg"> ChatGPT · GPTs</div>
+  <div class="pg">6/7</div>
+  <h2 class="hd">قائمة العزال<br><span style="color:#fff">سوّها اليوم</span></h2>
+  <div class="clip">
+    <div class="cl"></div>
+    <div class="row"><div class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="#18A865" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg></div><div><b>انسخ التعليمات ونزّل الملفات</b><i>نسخة احتياط لكل GPT… قبل أي شي</i></div></div>
+    <div class="row"><div class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="#18A865" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg></div><div><b>حساب شركة؟ انقله لإضافة</b><i>وجرّبه بنفس أسئلة فريقك + سؤال صعب</i></div></div>
+    <div class="row"><div class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="#18A865" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg></div><div><b>حساب شخصي؟ استخدم <span class="en">Projects</span></b><i>الصق التعليمات وارفع الملفات فيه</i></div></div>
+    <div class="row"><div class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="#18A865" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg></div><div><b>جهّز بديل الـ <span class="en">Actions</span> وشارك من جديد</b><i>لأنها ما تنتقل تلقائياً</i></div></div>
+  </div>
+  <div class="mist">الخطأ الشائع: تنتظر لين ديسمبر</div>
+</section>
+
+<!-- ٧ المتابعة -->
+<section class="slide or s7" data-handles="off">
+  <div class="floor"></div>
+  <div class="card">
+    <div class="top"><b>شركة علي للنقل</b><i>ننقل شغلك للذكاء الاصطناعي… بأمان</i></div>
+    <div class="av"><img src="{{AVATAR}}"></div>
+    <div class="name">علي التميمي</div>
+    <div class="role">حلول الذكاء الاصطناعي والتقنيات المتقدمة</div>
+    <div class="q"><b>عندك GPT تعتمد عليه؟</b><i>قل لي وش يسوي بالتعليقات… وأقول لك وين تنقله</i></div>
+    <div class="soc"><div>{{HANDLES}}</div></div>
+  </div>
+</section>
+
+</body>
+</html>

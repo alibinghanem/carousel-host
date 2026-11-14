@@ -1,0 +1,576 @@
+{
+ "note": "بنك المواضيع التقنية العامة (طلب المستخدم 2026-10-25): مواضيع تقنية تهم عامة الناس، بموشن 3D احترافي (@remotion/three) في الفيديو، وعناصر 3D مرندرة في الكاروسيل. الوسم: «تقنية · موضوع مختصر». تحقق من كل رقم من sources (أو WebSearch على نفس الصفحات الرسمية لو محجوبة).",
+ "topics": [
+  {
+   "id": "k001",
+   "cat": "جوال",
+   "title": "4 عادات تخرّب بطارية جوالك",
+   "angle": "الحرارة، والشحن بالكفر وهو حار، والتفريغ للصفر، و100% كل ليلة… وكيف تحميها",
+   "hook": "جوالك بالسيارة بالصيف؟ تراك تخرّب بطاريته",
+   "sources": [
+    "https://www.apple.com/batteries/maximizing-performance/",
+    "https://www.apple.com/batteries/why-lithium-ion/",
+    "https://www.samsung.com/uk/support/mobile-devices/galaxy-battery-protection-feature-in-one-ui-6-1/"
+   ],
+   "visual3d": "جوال 3D بأشعة X تبين خلية البطارية، ميزان حرارة، كفر، درع 80%",
+   "priority": 4,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k002",
+   "cat": "أمان",
+   "title": "رسالة «طردك متوقف»: كيف تكشف الاحتيال",
+   "angle": "علامات رسائل الاحتيال (SMS/واتساب) وش تسوي لو ضغطت الرابط",
+   "hook": "وصلتك رسالة «طردك متوقف… ادفع رسوم»؟ لا تضغط",
+   "sources": [
+    "https://support.apple.com/en-us/102568",
+    "https://consumer.ftc.gov/articles/how-recognize-and-report-spam-text-messages"
+   ],
+   "visual3d": "جوال 3D وفقاعة رسالة عليها خطّاف صيد، ختم «احتيال»",
+   "priority": 4,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k003",
+   "cat": "أمان",
+   "title": "التحقق بخطوتين: القفل الثاني لحساباتك",
+   "angle": "حتى لو انسرقت كلمة المرور، ما يقدرون يدخلون… وكيف تفعّله في واتساب وقوقل",
+   "hook": "كلمة مرورك انسرقت… وحسابك بأمان؟ هذا السبب",
+   "sources": [
+    "https://faq.whatsapp.com/1920866721452534",
+    "https://support.google.com/accounts/answer/185839"
+   ],
+   "visual3d": "قفلين 3D متتاليين، مفتاح، رمز تحقق يطير للجوال",
+   "priority": 4,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k004",
+   "cat": "خصوصية",
+   "title": "هل يقدر أحد يقرأ رسائل الواتساب؟",
+   "angle": "التشفير من طرف لطرف ببساطة: القفل والمفتاح عندك وعند صاحبك بس",
+   "hook": "حتى واتساب نفسه ما يقدر يقرأ رسالتك… كيف؟",
+   "sources": [
+    "https://faq.whatsapp.com/820124435853543"
+   ],
+   "visual3d": "ظرف 3D مقفول يطير بين جوالين، مفتاحين",
+   "priority": 4,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k005",
+   "cat": "جوال",
+   "title": "ليش جوالك صار بطيء؟",
+   "angle": "أسباب البطء الحقيقية (المساحة، التحديثات، التطبيقات بالخلفية) وحلولها",
+   "hook": "جوالك يعلّق؟ مو لازم تغيّره",
+   "sources": [
+    "https://support.apple.com/en-us/118266",
+    "https://www.samsung.com/uk/support/mobile-devices/what-can-i-do-if-my-galaxy-phone-is-running-slowly/"
+   ],
+   "visual3d": "جوال 3D وأسطوانة تخزين ممتلئة تنضف",
+   "priority": 3,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k006",
+   "cat": "إنترنت",
+   "title": "الإنترنت يمشي تحت البحر",
+   "angle": "الكابلات البحرية تشيل أغلب بيانات العالم بين القارات… مو الأقمار الصناعية",
+   "hook": "رسالتك لأوروبا ما تطير… تغوص",
+   "sources": [
+    "https://www2.telegeography.com/submarine-cable-faqs-frequently-asked-questions"
+   ],
+   "visual3d": "كرة أرضية 3D بكابلات مضيئة، ومقطع عرضي لكابل",
+   "priority": 4,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k007",
+   "cat": "إنترنت",
+   "title": "ليش الواي فاي ضعيف في غرفتك؟",
+   "angle": "مكان الراوتر، الجدران، والفرق بين 2.4 و5 جيجاهرتز",
+   "hook": "غيّر مكان الراوتر… وشوف الفرق",
+   "sources": [
+    "https://support.google.com/googlenest/answer/7182746"
+   ],
+   "visual3d": "بيت 3D بمقطع عرضي وموجات إشارة تصطدم بالجدران",
+   "priority": 3,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k008",
+   "cat": "إنترنت",
+   "title": "5G وش يفرق فعلاً عن 4G؟",
+   "angle": "السرعة، زمن الاستجابة، وليش مو كل مكان فيه 5G قوي",
+   "hook": "فيه 5G عندك… بس هل تحس بالفرق؟",
+   "sources": [
+    "https://www.qualcomm.com/5g/what-is-5g"
+   ],
+   "visual3d": "أبراج 3D وموجات بأطوال مختلفة",
+   "priority": 3,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k009",
+   "cat": "جوال",
+   "title": "كيف يعرف جوالك مكانك بدون إنترنت؟",
+   "angle": "GPS: أقمار صناعية ترسل وقت دقيق، وجوالك يحسب المسافة",
+   "hook": "الإنترنت مقطوع… والخريطة تعرف مكانك؟",
+   "sources": [
+    "https://www.gps.gov/systems/gps/"
+   ],
+   "visual3d": "كرة أرضية وأقمار 3D، وكرات مسافة تتقاطع عند الجوال",
+   "priority": 4,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k010",
+   "cat": "جوال",
+   "title": "ليش صور الجوال حلوة بالليل؟",
+   "angle": "التصوير الحاسوبي: الجوال يلتقط صور كثيرة ويدمجها",
+   "hook": "كاميرا صغيرة… وصورة ليل واضحة؟ السر مو العدسة",
+   "sources": [
+    "https://support.apple.com/en-us/102605"
+   ],
+   "visual3d": "وحدة كاميرا 3D وطبقات صور تندمج",
+   "priority": 3,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k011",
+   "cat": "جوال",
+   "title": "الشحن السريع يضر البطارية؟",
+   "angle": "يشحن بسرعة لين 80% وبعدها يبطّأ… والحرارة هي الخطر الحقيقي",
+   "hook": "الشاحن السريع يخرّب البطارية؟ مو بالضبط",
+   "sources": [
+    "https://www.apple.com/batteries/why-lithium-ion/"
+   ],
+   "visual3d": "شاحن 3D وخلية بطارية تتعبى بسرعتين",
+   "priority": 3,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k012",
+   "cat": "جوال",
+   "title": "eSIM: شريحة بدون شريحة",
+   "angle": "وش هي، مميزاتها، وكيف تنقلها بين الجوالات",
+   "hook": "جوالك الجديد بدون مكان شريحة؟",
+   "sources": [
+    "https://support.apple.com/en-us/118227"
+   ],
+   "visual3d": "شريحة 3D تذوب داخل الجوال",
+   "priority": 3,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k013",
+   "cat": "أمان",
+   "title": "Passkeys: وداعاً لكلمات المرور",
+   "angle": "الدخول ببصمتك أو وجهك بدل كلمة مرور ممكن تنسرق",
+   "hook": "تخيّل تدخل حساباتك بدون ولا كلمة مرور",
+   "sources": [
+    "https://fidoalliance.org/passkeys/",
+    "https://support.google.com/accounts/answer/13548313"
+   ],
+   "visual3d": "مفتاح 3D يتحول لبصمة",
+   "priority": 3,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k014",
+   "cat": "جوال",
+   "title": "كيف يعرفك جوالك من وجهك؟",
+   "angle": "Face ID يرسم آلاف النقاط على وجهك… وليش ما تخدعه صورة",
+   "hook": "صورتك ما تفتح جوالك… ليش؟",
+   "sources": [
+    "https://support.apple.com/en-us/102381"
+   ],
+   "visual3d": "وجه شبكي 3D ونقاط ضوء تنعكس",
+   "priority": 3,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k015",
+   "cat": "أمان",
+   "title": "الدفع باللمس: آمن أكثر من البطاقة؟",
+   "angle": "رقم بطاقتك الحقيقي ما ينتقل، ينتقل رمز بديل لكل عملية",
+   "hook": "تدفع بجوالك كل يوم… وتعرف ليش آمن؟",
+   "sources": [
+    "https://support.apple.com/en-us/101554"
+   ],
+   "visual3d": "بطاقة 3D تتحول لرمز مشفّر ينتقل لجهاز الدفع",
+   "priority": 4,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k016",
+   "cat": "إنترنت",
+   "title": "وين تروح صورك لما تحفظها بالسحابة؟",
+   "angle": "مراكز بيانات حقيقية فيها آلاف السيرفرات ونسخ احتياطية",
+   "hook": "السحابة مو سحابة… هي مبنى",
+   "sources": [
+    "https://www.google.com/about/datacenters/"
+   ],
+   "visual3d": "سحابة 3D تنفتح وتطلع منها رفوف سيرفرات",
+   "priority": 3,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k017",
+   "cat": "جوال",
+   "title": "الشاحن المقلّد: ليش خطير؟",
+   "angle": "الحرارة والكهرباء غير المستقرة… وكيف تعرف الأصلي",
+   "hook": "شاحن بـ 10 ريال… وش ممكن يكلفك؟",
+   "sources": [
+    "https://support.apple.com/en-us/105023"
+   ],
+   "visual3d": "شاحنين 3D مقطعين يبين الفرق داخلهم",
+   "priority": 3,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k018",
+   "cat": "جوال",
+   "title": "وضع الطيران: ليش يطلبونه في الطيارة؟",
+   "angle": "التداخل مع أجهزة الاتصال، ووش يصير لو نسيته",
+   "hook": "لو نسيت وضع الطيران… وش يصير فعلاً؟",
+   "sources": [
+    "https://www.faa.gov/about/initiatives/ped"
+   ],
+   "visual3d": "طيارة 3D وموجات جوال تتداخل",
+   "priority": 3,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k019",
+   "cat": "خصوصية",
+   "title": "5 إعدادات خصوصية لازم تراجعها اليوم",
+   "angle": "الموقع، الميكروفون، الكاميرا، التتبع، والتطبيقات القديمة",
+   "hook": "تطبيق المصباح ليش يبي موقعك؟",
+   "sources": [
+    "https://support.apple.com/guide/iphone/control-access-to-information-in-apps-iph251e92810/ios",
+    "https://support.google.com/android/answer/9431959"
+   ],
+   "visual3d": "جوال 3D وأيقونات أذونات تتقفل وحدة وحدة",
+   "priority": 4,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k020",
+   "cat": "أمان",
+   "title": "VPN: متى تحتاجه فعلاً؟",
+   "angle": "وش يخفي ووش ما يخفي، ومتى يفيدك",
+   "hook": "الـ VPN ما يخليك مخفي تماماً… هذي الحقيقة",
+   "sources": [
+    "https://consumer.ftc.gov/articles/what-know-about-vpn-apps"
+   ],
+   "visual3d": "نفق 3D تمر فيه البيانات",
+   "priority": 2,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k021",
+   "cat": "أجهزة",
+   "title": "وش يعني معالج 3 نانومتر؟",
+   "angle": "المليارات من الترانزستورات… وليش الأصغر أسرع وأوفر للبطارية",
+   "hook": "شريحة بحجم ظفرك… فيها مليارات القطع",
+   "sources": [
+    "https://www.tsmc.com/english/dedicatedFoundry/technology/logic/l_3nm"
+   ],
+   "visual3d": "شريحة 3D تتكبّر لين تبان الترانزستورات",
+   "priority": 3,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k022",
+   "cat": "جوال",
+   "title": "جوالك يسخن: متى تقلق؟",
+   "angle": "الحرارة الطبيعية وقت الشحن والألعاب، ومتى يكون فيه خطر",
+   "hook": "جوالك حار؟ مو كل حرارة خطر",
+   "sources": [
+    "https://support.apple.com/en-us/118431"
+   ],
+   "visual3d": "جوال 3D بخريطة حرارة",
+   "priority": 3,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k023",
+   "cat": "إنترنت",
+   "title": "إنترنت من الفضاء: كيف يشتغل ستارلينك؟",
+   "angle": "آلاف الأقمار القريبة من الأرض وطبق يلاحقها",
+   "hook": "إنترنت في نص الصحراء… من الفضاء",
+   "sources": [
+    "https://www.starlink.com/technology"
+   ],
+   "visual3d": "كرة أرضية 3D وسرب أقمار وطبق",
+   "priority": 3,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k024",
+   "cat": "أمان",
+   "title": "QR كود مزيّف: خطر ما تشوفه",
+   "angle": "ملصق فوق كود المطعم أو الموقف يوديك لموقع احتيال",
+   "hook": "صوّرت الكود… ودفعت لمحتال",
+   "sources": [
+    "https://consumer.ftc.gov/consumer-alerts/2023/12/scammers-hide-harmful-links-qr-codes-steal-your-information"
+   ],
+   "visual3d": "كود 3D عليه ملصق مزيّف يتقشّر",
+   "priority": 4,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k025",
+   "cat": "أجهزة",
+   "title": "ليش السماعات البلوتوث تقطع؟",
+   "angle": "التداخل والجدران والمسافة… وحلول سريعة",
+   "hook": "السماعة تقطع وأنت جنب الجوال؟",
+   "sources": [
+    "https://support.apple.com/en-us/102551"
+   ],
+   "visual3d": "سماعات 3D وموجات تتقطع",
+   "priority": 2,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k026",
+   "cat": "أجهزة",
+   "title": "OLED وLCD: وش الفرق اللي تشوفه عينك؟",
+   "angle": "الأسود الحقيقي، استهلاك البطارية، والسطوع",
+   "hook": "ليش الأسود في جوالك أسود فعلاً؟",
+   "sources": [
+    "https://www.samsung.com/uk/tvs/oled-tv/oled-vs-qled/"
+   ],
+   "visual3d": "بكسلات 3D تنطفي وتشتغل",
+   "priority": 2,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k027",
+   "cat": "جوال",
+   "title": "«المساحة ممتلئة»: وش ياكل جوالك؟",
+   "angle": "الصور، الفيديوهات، ملفات الواتساب، والتطبيقات… ووين تنظف",
+   "hook": "المساحة ممتلئة؟ الصور مو السبب الوحيد",
+   "sources": [
+    "https://support.apple.com/en-us/108429",
+    "https://support.google.com/android/answer/7431795"
+   ],
+   "visual3d": "أسطوانة تخزين 3D بطبقات ملونة",
+   "priority": 3,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k028",
+   "cat": "عادات",
+   "title": "كم ساعة تقضي على جوالك؟",
+   "angle": "وقت الشاشة والرفاهية الرقمية: أرقامك الحقيقية وكيف تتحكم",
+   "hook": "افتح هالإعداد… وانصدم من الرقم",
+   "sources": [
+    "https://support.apple.com/en-us/108806",
+    "https://support.google.com/android/answer/9346420"
+   ],
+   "visual3d": "ساعة رملية 3D داخل جوال",
+   "priority": 3,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k029",
+   "cat": "أجهزة",
+   "title": "بطارية السيارة الكهربائية: كيف تشتغل؟",
+   "angle": "آلاف الخلايا الصغيرة، والشحن السريع، والعمر الافتراضي",
+   "hook": "سيارتك الكهربائية فيها آلاف البطاريات الصغيرة",
+   "sources": [
+    "https://www.energy.gov/eere/vehicles/batteries-charging-and-electric-vehicles"
+   ],
+   "visual3d": "حزمة خلايا 3D تحت سيارة",
+   "priority": 2,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k030",
+   "cat": "أجهزة",
+   "title": "كيف تقيس الساعة الذكية نبضك؟",
+   "angle": "ضوء أخضر يقيس تدفق الدم تحت جلدك",
+   "hook": "الضوء الأخضر تحت ساعتك… وش يسوي؟",
+   "sources": [
+    "https://support.apple.com/en-us/120277"
+   ],
+   "visual3d": "ساعة 3D وضوء أخضر ونبض",
+   "priority": 3,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k031",
+   "cat": "أمان",
+   "title": "فيديو مزيّف بالذكاء الاصطناعي: كيف تكشفه؟",
+   "angle": "علامات في الوجه والصوت والإضاءة، وقاعدة التحقق من المصدر",
+   "hook": "هذا الفيديو مو حقيقي… وأغلب الناس صدّقوه",
+   "sources": [
+    "https://www.ftc.gov/business-guidance/blog/2023/03/chatbots-deepfakes-voice-clones-ai-deception-sale"
+   ],
+   "visual3d": "وجه 3D يتشقق لطبقات",
+   "priority": 4,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k032",
+   "cat": "أمان",
+   "title": "ليش لازم تحدّث جوالك؟",
+   "angle": "التحديثات تسكّر ثغرات أمنية يستغلها المخترقين",
+   "hook": "آخر مرة حدّثت جوالك متى؟",
+   "sources": [
+    "https://support.apple.com/en-us/100100",
+    "https://source.android.com/docs/security/bulletin"
+   ],
+   "visual3d": "درع 3D يرقّع ثغرات",
+   "priority": 3,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k033",
+   "cat": "أمان",
+   "title": "واي فاي المقهى: وش الخطر؟",
+   "angle": "الشبكات العامة المفتوحة ومتى تكون بياناتك مكشوفة",
+   "hook": "اتصلت بواي فاي المقهى… مين يشوفك؟",
+   "sources": [
+    "https://consumer.ftc.gov/articles/are-public-wi-fi-networks-safe-what-you-need-know"
+   ],
+   "visual3d": "كوب قهوة 3D وموجات واي فاي ومتطفل",
+   "priority": 3,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k034",
+   "cat": "جوال",
+   "title": "مسح الكاش: يفيد ولا خرافة؟",
+   "angle": "وش هو الكاش، ومتى مسحه يفيد ومتى يضيّع وقتك",
+   "hook": "تمسح الكاش كل يوم؟ يمكن تضر نفسك",
+   "sources": [
+    "https://support.google.com/chrome/answer/2392709"
+   ],
+   "visual3d": "صناديق 3D صغيرة تتكدّس وتنمسح",
+   "priority": 2,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k035",
+   "cat": "مستقبل",
+   "title": "الكمبيوتر الكمومي بكلام بسيط",
+   "angle": "ليش يقولون بيغير التشفير والأدوية… ووين وصل اليوم",
+   "hook": "كمبيوتر يحل بدقايق شي ياخذ آلاف السنين؟",
+   "sources": [
+    "https://www.ibm.com/think/topics/quantum-computing"
+   ],
+   "visual3d": "عملة 3D تدور بين الوجهين (تراكب)",
+   "priority": 2,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k036",
+   "cat": "فضاء",
+   "title": "كم قمر صناعي فوق راسك الحين؟",
+   "angle": "آلاف الأقمار للاتصالات والملاحة والطقس… والمخلفات الفضائية",
+   "hook": "فوق راسك آلاف الأقمار… وتشوف بعضها بعينك",
+   "sources": [
+    "https://www.esa.int/Space_Safety/Space_Debris/Space_debris_by_the_numbers"
+   ],
+   "visual3d": "كرة أرضية 3D ومدارات أقمار",
+   "priority": 2,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k037",
+   "cat": "تطبيقات",
+   "title": "ليش الصور تخرب لما ترسلها واتساب؟",
+   "angle": "الضغط عشان الحجم، وكيف ترسل بجودة عالية HD أو كملف",
+   "hook": "صورتك الحلوة وصلت مبكسلة؟",
+   "sources": [
+    "https://faq.whatsapp.com/1135225080578474"
+   ],
+   "visual3d": "صورة 3D تنضغط لمكعبات",
+   "priority": 3,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k038",
+   "cat": "أجهزة",
+   "title": "الشحن اللاسلكي: كيف تنتقل الكهرباء بالهواء؟",
+   "angle": "ملفات نحاس ومجال مغناطيسي… وليش يسخن أكثر",
+   "hook": "ما فيه سلك… والجوال يشحن؟",
+   "sources": [
+    "https://www.wirelesspowerconsortium.com/qi/"
+   ],
+   "visual3d": "ملفين نحاس 3D وخطوط مجال مغناطيسي",
+   "priority": 3,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k039",
+   "cat": "أمان",
+   "title": "حسابك انسرق؟ أول 10 دقايق",
+   "angle": "تغيير كلمة المرور، طرد الأجهزة، والتحقق بخطوتين… بالترتيب",
+   "hook": "حسابك انخترق؟ هذا اللي تسويه الحين",
+   "sources": [
+    "https://support.google.com/accounts/answer/6294825",
+    "https://www.facebook.com/help/203305893040179"
+   ],
+   "visual3d": "حساب 3D بباب مكسور يتقفل",
+   "priority": 4,
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "id": "k040",
+   "cat": "إنترنت",
+   "title": "وش يصير لما تكتب رابط وتضغط Enter؟",
+   "angle": "DNS: دليل الهاتف حق الإنترنت، والرحلة بأجزاء من الثانية",
+   "hook": "كتبت google.com… وش صار بنص ثانية؟",
+   "sources": [
+    "https://www.cloudflare.com/learning/dns/what-is-dns/"
+   ],
+   "visual3d": "دليل 3D يتقلب وطلب يطير بين سيرفرات",
+   "priority": 3,
+   "style": "—",
+   "accent": "—"
+  }
+ ]
+}

@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<style>
+:root{--ink:#0E1016;--ink2:#171B26;--red:#FF3B57;--yel:#FFD23F;--pap:#F0ECE4;--mu:#9AA3B5;--grn:#2BD47D}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;font-family:'IBM Plex Sans Arabic',sans-serif;-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1920px;position:relative;overflow:hidden;direction:rtl;color:#fff;background:radial-gradient(90% 55% at 50% 40%,#1B2030 0%,var(--ink) 70%)}
+.scan{position:absolute;inset:0;opacity:.06;background-image:repeating-linear-gradient(0deg,#fff 0 1px,transparent 1px 5px)}
+.hd{font-family:'Cairo';font-weight:900}
+.en{font-family:'Space Grotesk';font-weight:700;direction:ltr;unicode-bidi:isolate;white-space:nowrap}
+.tag{position:absolute;top:252px;right:80px;padding:8px 26px 12px;border-radius:40px;background:var(--red);color:#fff;font:700 30px 'IBM Plex Sans Arabic';z-index:3}
+.pg{position:absolute;top:264px;left:80px;font:700 28px 'Space Grotesk';color:var(--mu);direction:ltr;z-index:3}
+h2{position:absolute;top:322px;right:80px;left:40px;font-size:96px;line-height:1.3;white-space:nowrap}
+h2 em,h1 em{font-style:normal;color:var(--yel)}
+
+/* شريط الفحوصات */
+.bar{position:absolute;top:470px;right:80px;left:80px;display:flex;gap:10px}
+.bar>div{flex:1;height:14px;border-radius:7px;background:rgba(255,255,255,.14);position:relative}
+.bar>div.on{background:var(--red);box-shadow:0 0 22px rgba(255,59,87,.7)}
+.bar>div.ok{background:var(--yel)}
+.bar>div span{position:absolute;top:22px;right:0;font:700 22px 'IBM Plex Sans Arabic';color:var(--mu);white-space:nowrap}
+.bar>div.on span{color:#fff}
+
+.card{position:absolute;right:70px;left:70px;padding:16px 26px 20px;border-radius:24px;background:var(--pap);color:var(--ink);font:700 31px/1.45 'IBM Plex Sans Arabic'}
+.card b{color:#C21F38}
+.card i{display:block;margin-top:2px;font:600 24px/1.4 'IBM Plex Sans Arabic';font-style:normal;color:#5C6272}
+.dark{background:rgba(255,255,255,.07);border:2px solid rgba(255,255,255,.18);color:#fff}
+.dark b{color:var(--yel)}
+.warn{background:rgba(255,59,87,.14);border:2px solid var(--red);color:#fff}
+.warn b{color:var(--yel)}
+.n{display:inline-grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--red);color:#fff;font:700 26px 'Space Grotesk';vertical-align:middle;margin-left:12px}
+
+/* ١ الغلاف */
+.s1{background:radial-gradient(90% 60% at 50% 45%,#C41E3A 0%,#7A0F26 55%,#3A0612 100%)}
+.s1 .scan{opacity:.09}
+.s1 .tag{background:var(--yel);color:var(--ink)}
+.s1 h1{position:absolute;top:322px;right:76px;left:30px;font-size:84px;line-height:1.3;white-space:nowrap;text-shadow:0 8px 40px rgba(0,0,0,.45)}
+.s1 h1 em{display:block;color:var(--yel)}
+.s1 .hero{position:absolute;top:610px;left:50%;width:690px;margin-left:-345px}
+.s1 .rec{position:absolute;top:660px;left:70px;display:flex;align-items:center;gap:12px;padding:8px 22px 12px;border-radius:14px;background:rgba(0,0,0,.45);font:700 30px 'Space Grotesk';direction:ltr}
+.s1 .rec i{width:20px;height:20px;border-radius:50%;background:var(--red);box-shadow:0 0 16px var(--red)}
+.s1 .sub{position:absolute;top:1318px;right:70px;left:70px;text-align:center;font:700 40px/1.4 'IBM Plex Sans Arabic'}
+.s1 .sub b{color:var(--yel)}
+.s1 .swipe{position:absolute;top:1398px;left:80px;padding:6px 22px 12px;border-radius:30px;background:rgba(14,16,22,.8);font:900 40px/1 'Cairo';color:var(--yel)}
+.s1 .hbar{position:absolute;top:1404px;right:80px;display:flex;gap:26px;align-items:center;padding:12px 28px;border-radius:14px;background:rgba(14,16,22,.82);border:2px solid rgba(255,255,255,.2);font:700 28px 'IBM Plex Sans Arabic'}
+
+/* ٢ */
+.s2 h2{font-size:92px}
+.s2 .pol{position:absolute;top:490px;right:70px;width:580px;height:560px;background:#fff;padding:14px 14px 70px;transform:rotate(-2.5deg);box-shadow:0 30px 60px rgba(0,0,0,.55)}
+.s2 .pol img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.s2 .pol span{position:absolute;bottom:18px;right:24px;font:700 28px 'IBM Plex Sans Arabic';color:#444}
+.s2 .stamp{position:absolute;top:540px;left:48px;width:330px;padding:12px 10px 18px;border:6px solid var(--red);border-radius:12px;color:var(--red);text-align:center;font:900 54px/1.1 'Cairo';transform:rotate(8deg);background:rgba(14,16,22,.5)}
+.s2 .stamp small{display:block;font:700 26px 'IBM Plex Sans Arabic';color:#fff;margin-top:6px}
+.s2 .c1{top:1090px;font-size:29px}.s2 .c2{top:1240px;font-size:29px}
+
+/* ٣ */
+.s3 .img{position:absolute;top:555px;right:70px;width:380px}
+.s3 .lst{position:absolute;top:555px;left:60px;width:520px;display:flex;flex-direction:column;gap:14px}
+.s3 .lst .it{padding:14px 20px 18px;border-radius:20px;background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.18);font:700 28px/1.4 'IBM Plex Sans Arabic'}
+.s3 .lst .it b{color:var(--yel)}
+.s3 .lst .it .n{width:40px;height:40px;font-size:22px;margin-left:10px}
+.s3 .warn{top:1190px}
+
+/* ٤ */
+.s4 .img{position:absolute;top:540px;left:50px;width:520px}
+.s4 .flags{position:absolute;top:560px;right:60px;width:440px;display:flex;flex-direction:column;gap:14px}
+.s4 .flags .f{padding:14px 20px 18px;border-radius:20px;background:rgba(255,59,87,.14);border:2px solid var(--red);font:700 29px/1.4 'IBM Plex Sans Arabic'}
+.s4 .flags .f b{color:var(--yel)}
+.s4 .flags .h{font:900 36px 'Cairo';color:var(--red)}
+.s4 .card{top:1150px}
+.s4 .note{position:absolute;top:1330px;right:70px;left:70px;font:600 25px/1.45 'IBM Plex Sans Arabic';color:var(--mu);text-align:center}
+
+/* ٥ */
+.s5 .img{position:absolute;top:520px;left:50%;width:500px;margin-left:-250px}
+.s5 .steps{position:absolute;top:1010px;right:70px;left:70px;display:flex;flex-direction:column;gap:12px}
+.s5 .steps .st{display:flex;align-items:center;gap:16px;padding:12px 22px 16px;border-radius:20px;background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.18);font:700 28px/1.4 'IBM Plex Sans Arabic'}
+.s5 .steps .st .n{flex:none;margin-left:0}
+.s5 .steps .st b{color:var(--yel)}
+.s5 .warn{top:1288px;font-size:26px;padding:12px 24px 16px}
+
+/* ٦ */
+.s6 .img{position:absolute;top:530px;left:50%;width:560px;margin-left:-280px}
+.s6 .flow{position:absolute;top:960px;right:60px;left:60px;display:flex;align-items:center;gap:8px}
+.s6 .flow .b{flex:1;padding:14px 6px 18px;border-radius:20px;background:var(--pap);color:var(--ink);text-align:center;font:900 36px/1.2 'Cairo'}
+.s6 .flow .b small{display:block;font:700 22px 'IBM Plex Sans Arabic';color:#5C6272;margin-top:2px}
+.s6 .flow .b.g{background:var(--grn)}
+.s6 .flow .a{flex:none;font:700 38px 'Space Grotesk';color:var(--yel)}
+.s6 .c1{top:1130px}.s6 .c2{top:1270px}
+
+/* ٧ */
+.s7 h2{right:60px;left:60px;text-align:center;font-size:88px}
+.s7 .ring{position:absolute;top:640px;left:50%;width:440px;height:440px;margin-left:-220px;border-radius:50%;background:conic-gradient(var(--red),var(--yel),var(--red));box-shadow:0 0 70px rgba(255,59,87,.4)}
+.s7 .face{position:absolute;top:16px;left:16px;width:408px;height:408px;border-radius:50%;overflow:hidden;background:var(--ink2)}
+.s7 .face img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.s7 .nm{position:absolute;top:1110px;left:0;right:0;text-align:center;font:900 86px/1.2 'Cairo'}
+.s7 .ds{position:absolute;top:1228px;left:0;right:0;text-align:center;font:700 34px 'IBM Plex Sans Arabic';color:var(--mu)}
+.s7 .soc{position:absolute;top:1288px;left:0;right:0;display:flex;justify-content:center}
+.s7 .soc>div{display:flex;gap:26px;align-items:center;padding:12px 30px;border-radius:14px;background:#fff;color:var(--ink);font:700 30px 'IBM Plex Sans Arabic'}
+.s7 .ask{position:absolute;top:1366px;left:50px;right:50px;text-align:center;font:700 34px/1.4 'IBM Plex Sans Arabic';color:var(--yel)}
+</style>
+</head>
+<body>
+
+<section class="slide s1">
+  <div class="scan" data-safe="ignore"></div>
+  <div class="tag">تقنية · فيديو مزيّف</div>
+  <h1 class="hd">هذا الفيديو مو حقيقي<em>وأغلب الناس صدّقوه</em></h1>
+  <img class="hero" src="assets/f0.png" alt="">
+  <div class="rec"><i></i>REC</div>
+  <div class="sub">كيف تكشفه بـ <b>3 فحوصات</b> قبل ما تصدّق أو تنشر؟</div>
+  <div class="swipe">اسحب ←</div>
+  <div class="hbar">{{HANDLES}}</div>
+</section>
+
+<section class="slide s2">
+  <div class="scan" data-safe="ignore"></div>
+  <div class="tag">تقنية · فيديو مزيّف</div>
+  <div class="pg">2/7</div>
+  <h2 class="hd">شفته… <em>يعني صح؟</em></h2>
+  <div class="pol"><img src="assets/phone_hand.jpg" alt=""><span>كل شي يبان حقيقي</span></div>
+  <div class="stamp">مقلَّد<small>وجه · صوت</small></div>
+  <div class="card dark c1">الذكاء الاصطناعي صار يقلّد <b>الوجه والصوت</b>. وحسب تغطيات تحذير FTC، <b>مقاطع قصيرة</b> منشورة بالإنترنت تكفي لاستنساخ صوت</div>
+  <div class="card warn c2">ومشروع Detect Fakes من MIT يقول: <b>ما فيه علامة وحدة</b> تكشف كل التزييف. فنحتاج ثلاث فحوصات مع بعض</div>
+</section>
+
+<section class="slide s3">
+  <div class="scan" data-safe="ignore"></div>
+  <div class="tag">تقنية · فيديو مزيّف</div>
+  <div class="pg">3/7</div>
+  <h2 class="hd">فحص 1: <em>الوجه</em></h2>
+  <div class="bar"><div class="on"><span>الوجه</span></div><div><span>الصوت</span></div><div><span>المصدر</span></div><div><span>القاعدة</span></div></div>
+  <img class="img" src="assets/f1.png" alt="">
+  <div class="lst">
+    <div class="it"><span class="n">1</span><b>الرمش:</b> قليل أو كثير بشكل غريب؟</div>
+    <div class="it"><span class="n">2</span><b>الشفاه:</b> حركتها تطابق الكلام فعلاً؟</div>
+    <div class="it"><span class="n">3</span><b>العينين والنظارة:</b> الانعكاسات من نفس مصدر الضوء؟</div>
+    <div class="it"><span class="n">4</span><b>البشرة:</b> تناسب عمر العين والشعر؟</div>
+  </div>
+  <div class="card warn s3w" style="top:1215px;font-size:29px">علامات تساعدك، <b>مو دليل قاطع</b>: الفيديو المتقن ممكن يعدّي منها كلها</div>
+</section>
+
+<section class="slide s4">
+  <div class="scan" data-safe="ignore"></div>
+  <div class="tag">تقنية · فيديو مزيّف</div>
+  <div class="pg">4/7</div>
+  <h2 class="hd">فحص 2: <em>الصوت</em></h2>
+  <div class="bar"><div class="ok"><span>الوجه</span></div><div class="on"><span>الصوت</span></div><div><span>المصدر</span></div><div><span>القاعدة</span></div></div>
+  <img class="img" src="assets/f2.png" alt="">
+  <div class="flags">
+    <div class="h">3 علامات خطر في المكالمة</div>
+    <div class="f"><b>استعجال:</b> «حوّل الحين!»</div>
+    <div class="f"><b>سرّية:</b> «لا تقول لأحد»</div>
+    <div class="f"><b>دفع غريب:</b> طريقة تحويل ما تعرفها</div>
+  </div>
+  <div class="card c1"><b>اقفل… واتصل أنت</b> على رقمه المحفوظ عندك، مو الرقم اللي اتصل
+    <i>صوت قريبك ممكن يكون مستنسخ، فالصوت لحاله ما يكفي</i></div>
+  <div class="note">مثال توضيحي · نصيحة الاتصال العكسي من تغطيات تحذير FTC</div>
+</section>
+
+<section class="slide s5">
+  <div class="scan" data-safe="ignore"></div>
+  <div class="tag">تقنية · فيديو مزيّف</div>
+  <div class="pg">5/7</div>
+  <h2 class="hd">فحص 3: <em>المصدر</em></h2>
+  <div class="bar"><div class="ok"><span>الوجه</span></div><div class="ok"><span>الصوت</span></div><div class="on"><span>المصدر</span></div><div><span>القاعدة</span></div></div>
+  <img class="img" src="assets/f3.png" alt="">
+  <div class="steps">
+    <div class="st"><span class="n">1</span><span><b>مين نشره أول؟</b> حساب معروف ولا جديد ومجهول؟</span></div>
+    <div class="st"><span class="n">2</span><span><b>ابحث عن الخبر</b> بكلماته: هل تغطيه جهة موثوقة؟</span></div>
+    <div class="st"><span class="n">3</span><span><b>شوف علامة</b> «محتوى ذكاء اصطناعي» لو موجودة</span></div>
+  </div>
+  <div class="card warn">TikTok يعلّم محتوى الذكاء الاصطناعي تلقائياً (من مايو 2024)، بس <b>غياب العلامة</b> ما يثبت إن الفيديو حقيقي</div>
+</section>
+
+<section class="slide s6">
+  <div class="scan" data-safe="ignore"></div>
+  <div class="tag">تقنية · فيديو مزيّف</div>
+  <div class="pg">6/7</div>
+  <h2 class="hd" style="font-size:80px;top:330px">القاعدة: <em>وقّف قبل تصدّق</em></h2>
+  <div class="bar"><div class="ok"><span>الوجه</span></div><div class="ok"><span>الصوت</span></div><div class="ok"><span>المصدر</span></div><div class="on"><span>القاعدة</span></div></div>
+  <img class="img" src="assets/f4.png" alt="">
+  <div class="flow"><div class="b">وقّف<small>لا تعيد النشر</small></div><div class="a">←</div><div class="b">افحص<small>3 فحوصات</small></div><div class="a">←</div><div class="b g">أكّد<small>من مصدر ثاني</small></div></div>
+  <div class="card dark c1">الفيديو اللي <b>يخوّفك أو يستعجلك أو يطلب فلوس</b>… هو بالضبط اللي يحتاج وقفة</div>
+  <div class="card warn c2">اتفقوا في العيلة: <b>أي طلب فلوس</b> نتأكد منه بمكالمة ثانية على رقم نعرفه</div>
+</section>
+
+<section class="slide s7" data-handles="off">
+  <div class="scan" data-safe="ignore"></div>
+  <div class="tag">تقنية · فيديو مزيّف</div>
+  <div class="pg">7/7</div>
+  <h2 class="hd">لا تصدّق عينك<br><em>صدّق التحقق</em></h2>
+  <div class="ring"><div class="face"><img src="{{AVATAR}}" alt=""></div></div>
+  <div class="nm">علي التميمي</div>
+  <div class="ds">كل يوم معلومة تقنية تهمّك</div>
+  <div class="soc"><div>{{HANDLES}}</div></div>
+  <div class="ask">أرسلها لأحد يصدّق كل فيديو يشوفه 👇</div>
+</section>
+
+</body>
+</html>
