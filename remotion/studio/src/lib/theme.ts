@@ -23,6 +23,8 @@ export const F = {
 };
 
 export const fontsReady = Promise.all([
+  loadFont({ family: "Mada", url: staticFile("mada-arabic-900-normal.woff2"), weight: "900" }),
+  loadFont({ family: "Mada", url: staticFile("mada-latin-900-normal.woff2"), weight: "900" }),
   loadFont({ family: "Changa", url: staticFile("changa-arabic-800-normal.woff2"), weight: "800" }),
   loadFont({ family: "Changa", url: staticFile("changa-latin-800-normal.woff2"), weight: "800" }),
   loadFont({ family: "IBM Plex Sans Arabic", url: staticFile("ibm-plex-sans-arabic-arabic-700-normal.woff2"), weight: "700" }),
