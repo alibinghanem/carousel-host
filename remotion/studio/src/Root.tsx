@@ -41,6 +41,7 @@ import { GammaDeck, GAMMADECK_FRAMES } from "./videos/GammaDeck";
 import { SlowPhone, SLOWPHONE_FRAMES } from "./videos/SlowPhone";
 import { SheetFlow, SHEETFLOW_FRAMES } from "./videos/SheetFlow";
 import { SecKit, SECKIT_FRAMES } from "./videos/SecKit";
+import { WifiKit, WIFIKIT_FRAMES } from "./videos/WifiKit";
 import { AgentTeam, AGENT_TEAM_FRAMES } from "./videos/AgentTeam";
 import { Souq, SOUQ_FRAMES } from "./videos/Souq";
 import { AgentGauges, AGENT_GAUGES_FRAMES } from "./videos/AgentGauges";
@@ -98,6 +99,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="GammaDeck" component={GammaDeck} width={1080} height={1920} fps={30} durationInFrames={GAMMADECK_FRAMES} />
     <Composition id="QrScam" component={QrScam} width={1080} height={1920} fps={30} durationInFrames={QRSCAM_FRAMES} />
     <Composition id="SheetFlow" component={SheetFlow} width={1080} height={1920} fps={30} durationInFrames={SHEETFLOW_FRAMES} />
+    <Composition id="WifiKit" component={WifiKit} width={1080} height={1080} fps={30} durationInFrames={WIFIKIT_FRAMES} />
     <Composition id="SecKit" component={SecKit} width={1080} height={1080} fps={30} durationInFrames={SECKIT_FRAMES} />
     <Composition id="AliAd" component={AliAd} width={1080} height={1920} fps={30} durationInFrames={ALI_AD_FRAMES} />
     <Composition id="HumanLoop" component={HumanLoop} width={1080} height={1920} fps={30} durationInFrames={HUMAN_LOOP_FRAMES} />
