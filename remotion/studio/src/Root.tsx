@@ -37,6 +37,7 @@ import { SkyKit, SKYKIT_FRAMES } from "./videos/SkyKit";
 import { PrivKit, PRIVKIT_FRAMES } from "./videos/PrivKit";
 import { FakeKit, FAKEKIT_FRAMES } from "./videos/FakeKit";
 import { QrScam, QRSCAM_FRAMES } from "./videos/QrScam";
+import { FiveG, FIVEG_FRAMES } from "./videos/FiveG";
 import { GammaDeck, GAMMADECK_FRAMES } from "./videos/GammaDeck";
 import { SlowPhone, SLOWPHONE_FRAMES } from "./videos/SlowPhone";
 import { SheetFlow, SHEETFLOW_FRAMES } from "./videos/SheetFlow";
@@ -97,6 +98,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="FakeKit" component={FakeKit} width={1080} height={1080} fps={30} durationInFrames={FAKEKIT_FRAMES} />
     <Composition id="SlowPhone" component={SlowPhone} width={1080} height={1920} fps={30} durationInFrames={SLOWPHONE_FRAMES} />
     <Composition id="GammaDeck" component={GammaDeck} width={1080} height={1920} fps={30} durationInFrames={GAMMADECK_FRAMES} />
+    <Composition id="FiveG" component={FiveG} width={1080} height={1920} fps={30} durationInFrames={FIVEG_FRAMES} />
     <Composition id="QrScam" component={QrScam} width={1080} height={1920} fps={30} durationInFrames={QRSCAM_FRAMES} />
     <Composition id="SheetFlow" component={SheetFlow} width={1080} height={1920} fps={30} durationInFrames={SHEETFLOW_FRAMES} />
     <Composition id="WifiKit" component={WifiKit} width={1080} height={1080} fps={30} durationInFrames={WIFIKIT_FRAMES} />
