@@ -1,0 +1,169 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><style>:root{--ink:#1B1612;--dk:#241C16;--kr:#E2C391;--kr2:#B98C55;--cr:#F2E6CF;--red:#D6382B;--blue:#2F6BFF;--hl:#FFE066;--mu:#B8A68A}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;font-family:'IBM Plex Sans Arabic',sans-serif;-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1920px;position:relative;overflow:hidden;direction:rtl;color:#fff;background:radial-gradient(90% 55% at 50% 38%,#33271D 0%,var(--dk) 60%,#16100C 100%)}
+.slide::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 46px,rgba(226,195,145,.05) 46px 48px);pointer-events:none}
+.lz{font-family:'Lalezar',sans-serif;font-weight:400}
+.en{font-family:'Space Grotesk';font-weight:700;direction:ltr;unicode-bidi:isolate;white-space:nowrap}
+.tag{position:absolute;top:252px;right:80px;display:flex;align-items:center;gap:12px;padding:8px 26px 12px 20px;border-radius:40px;background:var(--kr);color:var(--ink);font:700 28px 'IBM Plex Sans Arabic';z-index:3}
+.tag img{width:32px;height:32px}
+.pg{position:absolute;top:264px;left:80px;font:700 28px 'Space Grotesk';color:var(--mu);direction:ltr;z-index:3}
+h2{position:absolute;top:322px;right:80px;left:50px;font:400 104px/1.18 'Lalezar',sans-serif;white-space:nowrap;z-index:2}
+h2 em{font-style:normal;color:var(--hl)}
+.note{position:absolute;right:70px;left:70px;font:600 24px/1.4 'IBM Plex Sans Arabic';color:var(--mu);text-align:center}
+.card{background:var(--cr);color:var(--ink);border-radius:26px;box-shadow:0 12px 26px rgba(0,0,0,.35)}
+img{display:block}
+
+/* 1 */
+.s1{background:linear-gradient(180deg,#E8CB9A 0%,#D2AB72 55%,#A97A45 100%);color:var(--ink)}
+.s1::before{background:repeating-linear-gradient(0deg,transparent 0 46px,rgba(27,22,18,.05) 46px 48px)}
+.s1 .tag{background:var(--ink);color:var(--kr)}
+.s1 h1{position:absolute;top:310px;right:70px;left:30px;font:400 138px/1.05 'Lalezar',sans-serif;white-space:nowrap}
+.s1 h1 small{display:block;font:400 82px/1.2 'Lalezar',sans-serif;color:var(--red)}
+.fold{position:absolute;top:760px;left:50%;width:860px;margin-left:-430px;height:520px}
+.fold .back{position:absolute;inset:60px 0 0 0;background:#C79B5E;border-radius:0 26px 26px 26px;box-shadow:0 30px 50px rgba(60,35,10,.45)}
+.fold .tabf{position:absolute;top:10px;right:0;width:300px;height:70px;background:#C79B5E;border-radius:26px 26px 0 0;display:flex;align-items:center;justify-content:center;font:700 30px 'IBM Plex Sans Arabic';color:var(--ink)}
+.fold .sh{position:absolute;width:500px;height:380px;background:#FBF6EA;border-radius:14px;box-shadow:0 10px 20px rgba(60,35,10,.3);padding:24px 28px;color:var(--ink)}
+.fold .sh i{display:block;height:13px;border-radius:7px;background:#CFC4AC;margin-bottom:15px}
+.fold .sh i.hl{background:var(--hl)}
+.fold .sh b{display:block;font:700 26px 'IBM Plex Sans Arabic';margin-bottom:14px;color:var(--mu)}
+.fold .front{position:absolute;inset:300px 0 0 0;background:#D8AE70;border-radius:10px 10px 26px 26px;box-shadow:0 -6px 14px rgba(60,35,10,.2)}
+.thread{position:absolute;z-index:4}
+.bub{position:absolute;z-index:5;left:0;width:430px;padding:16px 22px 20px;background:#fff;border-radius:24px;box-shadow:0 18px 34px rgba(60,35,10,.4);font:700 30px/1.5 'IBM Plex Sans Arabic';color:var(--ink)}
+.bub sup{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--blue);color:#fff;font:700 21px 'Space Grotesk';vertical-align:middle;margin:0 4px}
+.s1 .sub{position:absolute;top:1318px;right:70px;left:70px;display:flex;justify-content:center;gap:18px;align-items:center;font:700 30px 'IBM Plex Sans Arabic'}
+.s1 .sub span{display:flex;align-items:center;gap:10px;padding:8px 20px 12px;border-radius:30px;background:rgba(27,22,18,.88);color:var(--kr)}
+.s1 .sub img{width:36px;height:36px}
+.s1 .swipe{position:absolute;top:1398px;left:80px;padding:6px 22px 12px;border-radius:30px;background:var(--ink);font:400 40px/1 'Lalezar',sans-serif;color:var(--hl)}
+.s1 .hbar{position:absolute;top:1404px;right:80px;display:flex;gap:26px;align-items:center;padding:12px 28px;border-radius:14px;background:var(--ink);color:#fff;font:700 28px 'IBM Plex Sans Arabic'}
+
+/* 2 */
+.s2 .ph{position:absolute;top:640px;left:70px;width:400px;height:420px;transform:rotate(-3deg);border:12px solid var(--cr);border-radius:8px;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,.5)}
+.s2 .ph img{width:100%;height:100%;object-fit:cover}
+.s2 .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(214,56,43,.18),rgba(27,22,18,.25))}
+.s2 .pain{position:absolute;top:640px;right:70px;width:500px;display:flex;flex-direction:column;gap:16px}
+.s2 .pc{padding:16px 22px 20px;font:700 31px/1.4 'IBM Plex Sans Arabic'}
+.s2 .pc b{color:var(--red)}
+.s2 .q{position:absolute;top:1120px;right:70px;left:70px;padding:22px 30px 26px;border-radius:26px;background:var(--red);color:#fff;font:400 58px/1.3 'Lalezar',sans-serif;text-align:center;transform:rotate(-1deg)}
+.s2 .note{top:1330px}
+
+/* 3 */
+.s3 .stp{position:absolute;top:640px;right:70px;left:70px;display:flex;flex-direction:column;gap:24px}
+.s3 .st{padding:24px 28px 28px;display:flex;gap:20px;align-items:flex-start;font:700 31px/1.45 'IBM Plex Sans Arabic'}
+.s3 .st .n{flex:none;display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:var(--ink);color:var(--hl);font:400 40px 'Lalezar'}
+.s3 .st b{color:var(--red)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.chips span{padding:6px 18px 10px;border-radius:14px;background:var(--ink);color:var(--kr);font:700 25px 'IBM Plex Sans Arabic'}
+.s3 .note{top:1330px}
+
+/* 4 */
+.s4 .chat{position:absolute;top:630px;right:70px;left:70px;display:flex;flex-direction:column;gap:16px}
+.s4 .qb{align-self:flex-start;max-width:700px;padding:14px 24px 18px;border-radius:24px 24px 24px 6px;background:var(--blue);color:#fff;font:700 31px/1.45 'IBM Plex Sans Arabic'}
+.s4 .ab{padding:20px 26px 24px;border-radius:26px 26px 6px 26px;background:var(--cr);color:var(--ink);font:600 31px/1.6 'IBM Plex Sans Arabic'}
+.s4 .ab sup{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--blue);color:#fff;font:700 22px 'Space Grotesk';vertical-align:middle;margin:0 4px}
+.s4 .src{position:relative;margin-top:10px;padding:18px 24px 22px;border-radius:22px;background:#FBF6EA;color:var(--ink);border:3px dashed var(--kr2);font:600 28px/1.55 'IBM Plex Sans Arabic'}
+.s4 .src b{display:block;font:700 24px 'IBM Plex Sans Arabic';color:var(--mu);margin-bottom:6px}
+.s4 .src mark{background:var(--hl);padding:2px 6px;border-radius:6px}
+.s4 .how{position:absolute;top:1140px;right:70px;left:70px;display:flex;gap:14px}
+.s4 .how div{flex:1;padding:14px 18px 18px;border-radius:20px;background:var(--ink);border:2px solid var(--kr2);font:700 26px/1.45 'IBM Plex Sans Arabic';color:#fff}
+.s4 .how b{color:var(--hl)}
+.s4 .note{top:1290px}
+
+/* 5 */
+.s5 .lst{position:absolute;top:630px;right:70px;left:70px;display:flex;flex-direction:column;gap:16px}
+.s5 .pr{padding:18px 26px 22px;font:600 31px/1.5 'IBM Plex Sans Arabic';position:relative;padding-right:92px}
+.s5 .pr::before{content:"❝";position:absolute;right:24px;top:8px;font:400 70px 'Lalezar';color:var(--red)}
+.s5 .pr b{color:var(--red)}
+.s5 .tip{position:absolute;top:1190px;right:70px;left:70px;padding:16px 26px 20px;border-radius:22px;background:var(--red);color:#fff;font:700 30px/1.5 'IBM Plex Sans Arabic'}
+
+/* 6 */
+.s6 .tb{position:absolute;top:620px;right:70px;left:70px;padding:8px 26px 14px}
+.s6 .tr{display:flex;justify-content:space-between;align-items:center;padding:12px 0 14px;border-bottom:3px dashed var(--kr2);font:700 31px 'IBM Plex Sans Arabic'}
+.s6 .tr:last-child{border:0}
+.s6 .tr span:last-child{font:400 44px 'Lalezar';color:var(--red)}
+.s6 .tr small{display:block;font:600 23px 'IBM Plex Sans Arabic';color:#7A6A52}
+.s6 .wr{position:absolute;right:70px;left:70px;padding:16px 26px 20px;border-radius:24px;font:700 30px/1.5 'IBM Plex Sans Arabic'}
+.s6 .w1{top:890px;background:var(--red);color:#fff}
+.s6 .w2{top:1045px;background:var(--ink);border:3px solid var(--kr2);color:#fff}
+.s6 .w2 b{color:var(--hl)}
+.s6 .w3{top:1210px;background:var(--cr);color:var(--ink)}
+.s6 .w3 b{color:var(--red)}
+.s6 .note{top:1360px}
+
+/* 7 */
+.s7{background:linear-gradient(180deg,#E8CB9A 0%,#D2AB72 55%,#A97A45 100%);color:var(--ink)}
+.s7::before{background:repeating-linear-gradient(0deg,transparent 0 46px,rgba(27,22,18,.05) 46px 48px)}
+.s7 .tag{background:var(--ink);color:var(--kr)}
+.s7 h2{text-align:center;right:60px;left:60px;font-size:100px;color:var(--ink)}
+.s7 h2 em{color:var(--red)}
+.idc{position:absolute;top:610px;left:50%;width:640px;margin-left:-320px;height:640px;background:#FBF6EA;border-radius:30px;box-shadow:0 30px 60px rgba(60,35,10,.5);transform:rotate(-2deg);padding:30px}
+.idc::before{content:"";position:absolute;top:-26px;left:50%;width:120px;height:44px;margin-left:-60px;border-radius:14px;background:#5A4630}
+.idc .bar{height:46px;border-radius:12px;background:var(--ink);color:var(--kr);display:flex;align-items:center;justify-content:center;font:700 26px 'IBM Plex Sans Arabic';margin-top:12px}
+.idc .face{width:330px;height:330px;border-radius:50%;overflow:hidden;margin:26px auto 14px;border:10px solid var(--red)}
+.idc .face img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.idc .nm{text-align:center;font:400 84px/1.1 'Lalezar',sans-serif}
+.s7 .ds{position:absolute;top:1262px;left:0;right:0;text-align:center;font:700 32px 'IBM Plex Sans Arabic';color:#4A3A28}
+.s7 .ask{position:absolute;top:1308px;left:60px;right:60px;text-align:center;font:400 52px/1.25 'Lalezar',sans-serif;color:var(--red)}
+.s7 .soc{position:absolute;top:1372px;left:0;right:0;display:flex;justify-content:center}
+.s7 .soc>div{display:flex;gap:26px;align-items:center;padding:12px 30px;border-radius:14px;background:var(--ink);color:#fff;font:700 30px 'IBM Plex Sans Arabic'}
+</style></head><body><section class="slide s1"><div class="tag"><img src="assets/gemini-color.svg" alt="">Gemini Notebook · اسأل مستنداتك</div>
+<h1>اسأل مستنداتك<small>والجواب من ملفاتك بس</small></h1>
+<div class="fold" data-safe="ignore">
+ <div class="back"></div><div class="tabf">ملفاتي</div>
+ <div class="sh" style="right:40px;top:70px;transform:rotate(3deg)"><b>عقد الخدمة.pdf</b><i style="width:90%"></i><i style="width:75%"></i><i class="hl" style="width:88%"></i><i style="width:60%"></i><i style="width:82%"></i></div>
+ <div class="sh" style="right:230px;top:40px;transform:rotate(-4deg);width:480px"><b>ملاحظات الاجتماع</b><i style="width:80%"></i><i style="width:92%"></i><i style="width:55%"></i><i style="width:70%"></i></div>
+ <div class="front"></div>
+ <div class="bub" style="top:-20px;left:-10px;transform:rotate(-2deg)">وين ذكر الملف مدة الإلغاء؟ <br>الجواب: «…» <sup>1</sup></div>
+ <svg class="thread" style="left:150px;top:150px" width="560" height="260" viewBox="0 0 560 260" fill="none"><path d="M10 40 C120 150 330 40 430 150" stroke="#D6382B" stroke-width="6" stroke-linecap="round" stroke-dasharray="1 14"/><circle cx="10" cy="40" r="10" fill="#D6382B"/><circle cx="430" cy="150" r="10" fill="#D6382B"/></svg>
+</div>
+<div class="sub"><span><img src="assets/gemini-color.svg" alt=""><b class="en">Gemini Notebook</b></span><span><img src="assets/notebooklm-light.svg" alt="">سابقاً <b class="en">NotebookLM</b></span></div>
+<div class="swipe">اسحب ←</div><div class="hbar">{{HANDLES}}</div></section><section class="slide s2"><div class="tag"><img src="assets/gemini-color.svg" alt="">Gemini Notebook · اسأل مستنداتك</div><div class="pg">2/7</div>
+<h2>تدوّر في ملفاتك<br><em>عشان معلومة وحدة؟</em></h2>
+<div class="ph"><img src="assets/docs_crop.jpg" alt=""></div>
+<div class="pain">
+ <div class="card pc"><b>تفتح</b> الملف تلو الملف</div>
+ <div class="card pc"><span class="en">Ctrl+F</span> <b>ما يفهم</b> سؤالك</div>
+ <div class="card pc">وبعدها تشك: <b>هذا الرقم صح؟</b></div>
+</div>
+<div class="q">اسأل الملفات… بدل ما تقلّبها</div>
+<div class="note">الأداة تشتغل على اللي ترفعه أنت من مصادر، مو على الإنترنت</div></section><section class="slide s3"><div class="tag"><img src="assets/gemini-color.svg" alt="">Gemini Notebook · اسأل مستنداتك</div><div class="pg">3/7</div>
+<h2>3 خطوات:<br><em>أضف · اسأل · راجع</em></h2>
+<div class="stp">
+ <div class="card st"><span class="n">1</span><div><b>أنشئ دفتراً</b> (<span class="en">Notebook</span>) وأضف مصادرك<div class="chips"><span class="en">PDF</span><span>Google Docs</span><span>مواقع</span><span class="en">YouTube</span><span>ملفات صوت</span></div></div></div>
+ <div class="card st"><span class="n">2</span><div><b>اكتب سؤالك</b> في المحادثة، مثل ما تسأل زميل قرأ كل الملفات</div></div>
+ <div class="card st"><span class="n">3</span><div>الجواب يجي <b>مع أرقام مراجع</b>: اضغط الرقم وشوف مكانه في ملفك</div></div>
+</div>
+<div class="note">أنواع المصادر المذكورة في المساعدة والأدلة، وقد تزيد مع التحديثات</div></section><section class="slide s4"><div class="tag"><img src="assets/gemini-color.svg" alt="">Gemini Notebook · اسأل مستنداتك</div><div class="pg">4/7</div>
+<h2>كل جواب<br><em>له مرجع</em></h2>
+<div class="chat">
+ <div class="qb">وش مدة الإشعار قبل إلغاء الخدمة؟</div>
+ <div class="ab">حسب العقد، لازم تُشعر الطرف الثاني كتابياً قبل الإلغاء بمدة محددة <sup>1</sup> وتختلف المدة لو كانت الخدمة بباقة سنوية <sup>2</sup></div>
+ <div class="src"><b>المصدر 1 · عقد الخدمة.pdf</b>«…يجب <mark>إشعار الطرف الآخر كتابياً قبل الإلغاء</mark> بالمدة المحددة في الملحق…»</div>
+</div>
+<div class="how">
+ <div><b>مرّر</b> على الرقم: يظهر النص المقتبس</div>
+ <div><b>اضغط</b> الرقم: يقفز لنفس الفقرة في ملفك</div>
+</div>
+<div class="note">مثال توضيحي بنصوص من عندي، مو لقطة رسمية من الأداة</div></section><section class="slide s5"><div class="tag"><img src="assets/gemini-color.svg" alt="">Gemini Notebook · اسأل مستنداتك</div><div class="pg">5/7</div>
+<h2>أسئلة جاهزة<br><em>جرّبها اليوم</em></h2>
+<div class="lst">
+ <div class="card pr"><b>لخّص</b> لي النقاط الرئيسية في هذا الملف</div>
+ <div class="card pr">وين ذكر الملف <b>موعد التسليم</b>؟</div>
+ <div class="card pr"><b>قارن</b> بين الملفين في الشروط والتكلفة</div>
+ <div class="card pr">وش <b>الأسئلة</b> اللي ما جاوب عنها المستند؟</div>
+</div>
+<div class="tip">اطلب منه «<b>مع المرجع</b>» وحدد الملف لو عندك أكثر من مصدر</div></section><section class="slide s6"><div class="tag"><img src="assets/gemini-color.svg" alt="">Gemini Notebook · اسأل مستنداتك</div><div class="pg">6/7</div>
+<h2>الحدود<br><em>وانتبه</em></h2>
+<div class="card tb">
+ <div class="tr"><div>مصادر لكل دفتر<small>الباقة المجانية</small></div><span class="en" style="font:700 44px 'Space Grotesk';color:var(--red)">50</span></div>
+ <div class="tr"><div>كلمات لكل مصدر<small>الحد الأقصى</small></div><span class="en" style="font:700 44px 'Space Grotesk';color:var(--red)">500,000</span></div>
+</div>
+<div class="wr w1">راجع المرجع قبل ما تعتمد على الجواب: الذكاء الاصطناعي <b>قد يخطئ</b></div>
+<div class="wr w2">الاسم تغيّر في <b>16 يوليو 2026</b> من <span class="en">NotebookLM</span> إلى <span class="en">Gemini Notebook</span>، والدفاتر القديمة تشتغل</div>
+<div class="wr w3">الأداة تجاوب من <b>اللي ترفعه</b> بس، فلو المعلومة مو في ملفاتك ما راح تلقاها</div>
+<div class="note">الحدود من الأسئلة الشائعة الرسمية وقد تتغيّر، وباقات Google المدفوعة لها حدود أعلى</div></section><section class="slide s7" data-handles="off"><div class="tag"><img src="assets/gemini-color.svg" alt="">Gemini Notebook · اسأل مستنداتك</div><div class="pg">7/7</div>
+<h2>ملفاتك عندك<br><em>والجواب بمرجعه</em></h2>
+<div class="idc" data-safe="ignore"><div class="bar">بطاقة وصول · أرشيف علي</div><div class="face"><img src="{{AVATAR}}" alt=""></div><div class="nm">علي التميمي</div></div>
+<div class="ds">كل يوم أداة أو معلومة تقنية تهمّك</div>
+<div class="ask">وش أول ملف بتسأله؟ 👇</div>
+<div class="soc"><div>{{HANDLES}}</div></div></section></body></html>
