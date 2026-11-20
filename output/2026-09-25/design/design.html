@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<style>
+:root{
+  --night:#0A0F2C; --night2:#131A45; --paper:#F3ECDD; --paper2:#E8DEC8;
+  --ink:#16140F; --yellow:#FFC93C; --coral:#FF6B4A; --mint:#2FD18B;
+  --blue:#1C3A94; --mute:#8A8472;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;font-family:'IBM Plex Sans Arabic','Cairo',sans-serif;-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1920px;position:relative;overflow:hidden;direction:rtl}
+.disp{font-family:'Lalezar','Cairo',sans-serif;font-weight:400;line-height:1.08}
+.mono{font-family:'JetBrains Mono',monospace;direction:ltr;unicode-bidi:isolate}
+.kick{position:absolute;top:250px;right:90px;font:700 30px 'IBM Plex Sans Arabic';letter-spacing:.5px;
+  display:flex;align-items:center;gap:14px}
+.kick i{width:44px;height:3px;background:currentColor;display:block}
+.pg{position:absolute;top:250px;left:90px;font:500 28px 'JetBrains Mono';opacity:.55}
+
+/* ————— تذكرة ————— */
+.ticket{position:absolute;display:flex;background:var(--paper);color:var(--ink);border-radius:34px;
+  box-shadow:0 50px 90px rgba(0,0,0,.45)}
+.ticket .main{padding:44px 50px;flex:1;position:relative}
+.ticket .stub{width:220px;border-right:4px dashed #CFC4AA;padding:40px 30px;display:flex;flex-direction:column;
+  align-items:center;justify-content:space-between;position:relative}
+.ticket .stub:before,.ticket .stub:after{content:"";position:absolute;right:-24px;width:44px;height:44px;border-radius:50%;background:var(--night)}
+.ticket .stub:before{top:-22px}.ticket .stub:after{bottom:-22px}
+.lbl{font:600 24px 'IBM Plex Sans Arabic';color:var(--mute)}
+.val{font:700 44px 'IBM Plex Sans Arabic';color:var(--ink)}
+.bar{width:150px;height:300px;background:repeating-linear-gradient(0deg,var(--ink) 0 6px,transparent 6px 10px,var(--ink) 10px 12px,transparent 12px 19px,var(--ink) 19px 27px,transparent 27px 31px)}
+.route{display:flex;align-items:center;gap:26px;margin:18px 0 30px}
+.route .city{font-family:'Lalezar';font-size:92px;line-height:1}
+.route .line{flex:1;height:0;border-top:5px dotted #BDB196;position:relative}
+.route .line svg{position:absolute;left:50%;top:-30px;transform:translateX(-50%) rotate(-90deg)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;border-top:3px solid #DCD1B8;padding-top:26px}
+
+/* ————— ١ الغلاف ————— */
+.s1{background:radial-gradient(1200px 900px at 80% 10%,#1E2A6E 0,var(--night) 60%)}
+.s1 .stars{position:absolute;inset:0;background-image:radial-gradient(#fff 1.5px,transparent 2px);background-size:90px 90px;opacity:.12}
+.s1 h1{position:absolute;top:340px;right:90px;left:90px;color:#fff;font-size:150px;text-shadow:0 6px 40px rgba(10,15,44,.7)}
+.s1 h1 em{font-style:normal;color:var(--yellow);display:block}
+.s1 .arc{position:absolute;top:800px;left:0;width:1080px}
+.swipe{position:absolute;top:1400px;left:90px;font:700 32px 'IBM Plex Sans Arabic';color:var(--yellow);display:flex;gap:12px;align-items:center}
+
+/* ————— ٢ جوالين ————— */
+.s2{background:var(--paper)}
+.s2 h2{position:absolute;top:320px;right:90px;left:90px;font-size:112px;color:var(--ink)}
+.s2 h2 em{font-style:normal;color:var(--coral)}
+.phones{position:absolute;top:580px;right:70px;left:70px;display:flex;gap:40px;justify-content:center}
+.phone{width:450px;height:750px;border-radius:64px;background:#111;padding:18px;box-shadow:0 40px 80px rgba(40,30,10,.25)}
+.phone .scr{width:100%;height:100%;border-radius:48px;overflow:hidden;display:flex;flex-direction:column}
+.phone .top{padding:34px 28px 20px;display:flex;align-items:center;gap:14px;border-bottom:1px solid rgba(0,0,0,.08)}
+.phone .av{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font:700 26px 'IBM Plex Sans Arabic';color:#fff}
+.phone .nm{font:700 28px 'IBM Plex Sans Arabic'}
+.phone .body{padding:24px;display:flex;flex-direction:column;gap:18px;flex:1}
+.bub{padding:18px 22px;border-radius:26px;font:600 25px/1.55 'IBM Plex Sans Arabic';max-width:92%}
+.bub.me{align-self:flex-start;background:#2B6BFF;color:#fff;border-bottom-right-radius:8px}
+.bub.ai{align-self:flex-end;background:#fff;color:#222;border-bottom-left-radius:8px}
+.steps{list-style:none;counter-reset:s;display:flex;flex-direction:column;gap:10px;margin-top:6px}
+.steps li{counter-increment:s;display:flex;gap:10px;align-items:center;font:600 24px 'IBM Plex Sans Arabic'}
+.steps li:before{content:counter(s);width:34px;height:34px;border-radius:50%;background:#EFE9DB;display:grid;place-items:center;font:700 20px 'JetBrains Mono';flex:none}
+.mini{background:var(--night);color:#fff;border-radius:24px;padding:22px;display:flex;flex-direction:column;gap:8px}
+.mini .ok{display:flex;align-items:center;gap:10px;font:700 28px 'IBM Plex Sans Arabic';color:var(--mint)}
+.mini .t{font:800 50px 'JetBrains Mono';direction:ltr;text-align:right}
+.mini .s{font:600 22px 'IBM Plex Sans Arabic';opacity:.7}
+.verdict{position:absolute;top:1348px;width:450px;text-align:center;font:700 34px 'IBM Plex Sans Arabic'}
+
+/* ————— ٣ مخطط هندسي ————— */
+.s3{background:var(--blue);color:#fff}
+.s3 .gridbg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.08) 2px,transparent 2px),linear-gradient(90deg,rgba(255,255,255,.08) 2px,transparent 2px),linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:120px 120px,120px 120px,30px 30px,30px 30px}
+.s3 h2{position:absolute;top:320px;right:90px;font-size:118px}
+.s3 h2 em{font-style:normal;color:var(--yellow)}
+.core{position:absolute;top:750px;left:390px;width:300px;height:300px;border-radius:50%;border:4px solid #fff;display:grid;place-items:center;
+  background:radial-gradient(circle,#3558C8,#1C3A94 70%)}
+.core:before{content:"";position:absolute;inset:-34px;border:3px dashed rgba(255,255,255,.5);border-radius:50%}
+.core span{font-family:'Lalezar';font-size:64px}
+.part{position:absolute;width:390px}
+.part .no{font:800 30px 'JetBrains Mono';color:var(--yellow);direction:ltr;text-align:right}
+.part .ttl{font-family:'Lalezar';font-size:62px;line-height:1.1;margin:4px 0}
+.part .d{font:600 27px/1.5 'IBM Plex Sans Arabic';opacity:.85}
+.s3 .foot{position:absolute;top:1395px;right:90px;left:90px;border:3px solid rgba(255,255,255,.55);border-radius:20px;padding:22px 30px;
+  font:700 32px 'IBM Plex Sans Arabic';text-align:center}
+.s3 .foot em{font-style:normal;color:var(--yellow)}
+
+/* ————— ٤ سجل المهمة ————— */
+.s4{background:#07090F;color:#E6EDF3}
+.s4 h2{position:absolute;top:320px;right:90px;font-size:112px;color:#fff}
+.s4 h2 em{font-style:normal;color:var(--mint)}
+.term{position:absolute;top:560px;right:70px;left:70px;background:#0E141D;border:2px solid #1F2A38;border-radius:30px;overflow:hidden}
+.term .bar2{height:70px;background:#131B27;display:flex;align-items:center;gap:12px;padding:0 30px;direction:ltr}
+.term .bar2 i{width:18px;height:18px;border-radius:50%;display:block}
+.term .bar2 b{font:500 22px 'JetBrains Mono';color:#6B7B8F;margin-left:18px}
+.log{padding:26px 34px;display:flex;flex-direction:column;gap:6px}
+.row{display:flex;align-items:center;gap:22px;padding:16px 18px;border-radius:16px;font:600 31px 'IBM Plex Sans Arabic'}
+.row .tm{font:500 24px 'JetBrains Mono';color:#5C6B7E;direction:ltr;flex:none}
+.row .ic{font:800 30px 'JetBrains Mono';width:40px;text-align:center;flex:none}
+.row.bad{color:#FF8A73}.row.bad .ic{color:#FF6B4A}
+.row.hl{background:rgba(255,201,60,.12);outline:2px solid rgba(255,201,60,.55);color:var(--yellow)}
+.row.good{color:var(--mint)}
+.note{position:absolute;top:1255px;right:110px;width:640px;background:var(--yellow);color:var(--ink);padding:26px 32px;border-radius:8px;
+  transform:rotate(-2deg);font:700 32px/1.5 'IBM Plex Sans Arabic';box-shadow:0 20px 40px rgba(0,0,0,.4)}
+
+/* ————— ٥ الدرج ————— */
+.s5{background:var(--paper)}
+.s5 h2{position:absolute;top:320px;right:90px;left:90px;font-size:116px;color:var(--ink)}
+.s5 h2 em{font-style:normal;color:var(--blue)}
+.stair{position:absolute;bottom:520px;left:70px;right:70px;height:780px;display:flex;align-items:flex-end;gap:22px}
+.step{flex:1;border-radius:26px 26px 0 0;padding:34px 30px;display:flex;flex-direction:column;justify-content:flex-start;position:relative}
+.step .lv{font:800 26px 'JetBrains Mono';opacity:.6;direction:ltr;text-align:right}
+.step .n{font-family:'Lalezar';font-size:58px;line-height:1.1;margin-top:8px}
+.step .d{font:600 27px/1.45 'IBM Plex Sans Arabic';margin-top:10px;opacity:.85}
+.st1{height:300px;background:#DCD3BF;color:#4A4536}
+.st2{height:520px;background:#B8C5E8;color:#1C2A5A}
+.st3{height:760px;background:var(--night);color:#fff}
+.st3 .n{color:var(--yellow)}
+.flag{position:absolute;top:-120px;right:50px}
+
+/* ————— ٦ الخطأ ————— */
+.s6{background:var(--night);color:#fff}
+.s6 h2{position:absolute;top:320px;right:90px;left:90px;font-size:112px;text-shadow:0 6px 40px rgba(10,15,44,.8)}
+.s6 h2 em{font-style:normal;color:var(--coral)}
+.card{position:absolute;right:110px;left:110px;border-radius:28px;padding:40px 44px}
+.card .tag{font:700 26px 'IBM Plex Sans Arabic';opacity:.7;margin-bottom:10px}
+.card .q{font:700 44px/1.5 'IBM Plex Sans Arabic'}
+.c1{top:640px;background:#262D55;color:#9AA2C8;transform:rotate(2deg)}
+.c1 .q{text-decoration:line-through;text-decoration-color:var(--coral);text-decoration-thickness:5px}
+.c2{top:900px;background:var(--yellow);color:var(--ink);transform:rotate(-1.5deg);box-shadow:0 30px 60px rgba(0,0,0,.4)}
+.stamp{position:absolute;left:40px;top:-30px;font-family:'Lalezar';font-size:52px;padding:4px 26px;border:6px solid;border-radius:14px;transform:rotate(-8deg);background:inherit}
+.c1 .stamp{color:var(--coral);border-color:var(--coral);background:#262D55}
+.c2 .stamp{color:#0E7A4E;border-color:#0E7A4E;background:var(--yellow)}
+.formula{position:absolute;top:1330px;text-shadow:0 2px 12px rgba(0,0,0,.6);right:90px;left:90px;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;
+  font:700 34px 'IBM Plex Sans Arabic'}
+.formula b{background:rgba(10,15,44,.85);border:2px solid rgba(255,255,255,.25);padding:10px 22px;border-radius:999px;font-weight:700}
+.formula .eq{color:var(--yellow);font-family:'JetBrains Mono';font-weight:800}
+.formula .res{background:var(--mint);color:var(--ink);border-color:var(--mint)}
+
+/* ————— ٧ التذكرة الأخيرة ————— */
+.s7{background:radial-gradient(1100px 900px at 20% 90%,#1E2A6E 0,var(--night) 60%)}
+.s7 .stars{position:absolute;inset:0;background-image:radial-gradient(#fff 1.5px,transparent 2px);background-size:90px 90px;opacity:.1}
+.s7 h2{position:absolute;top:300px;right:90px;left:90px;color:#fff;font-size:104px;text-align:center}
+.s7 h2 em{font-style:normal;color:var(--yellow)}
+.pass{position:absolute;top:560px;left:130px;right:130px;background:var(--paper);border-radius:40px;color:var(--ink);overflow:hidden;
+  box-shadow:0 50px 90px rgba(0,0,0,.5)}
+.pass .hd{background:var(--yellow);padding:26px 40px;display:flex;justify-content:space-between;align-items:center}
+.pass .hd b{font-family:'Lalezar';font-size:44px}
+.pass .hd span{font:800 26px 'JetBrains Mono'}
+.pass .who{display:flex;align-items:center;gap:30px;padding:36px 40px 24px}
+.pass .ph{width:170px;height:170px;border-radius:50%;overflow:hidden;background:var(--night);border:6px solid var(--night);flex:none}
+.pass .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 15%}
+.pass .nm{font-family:'Lalezar';font-size:70px;line-height:1}
+.pass .rl{font:600 28px 'IBM Plex Sans Arabic';color:var(--mute);margin-top:8px}
+.pass .cut{height:0;border-top:4px dashed #CFC4AA;margin:14px 0;position:relative}
+.pass .cut:before,.pass .cut:after{content:"";position:absolute;top:-24px;width:44px;height:44px;border-radius:50%;background:var(--night)}
+.pass .cut:before{right:-22px}.pass .cut:after{left:-22px}
+.pass .soc{padding:10px 40px 30px;display:flex;flex-direction:column;gap:16px}
+.so{display:flex;align-items:center;gap:16px;font:800 34px 'JetBrains Mono';direction:ltr;justify-content:flex-end}
+.so svg{width:38px;height:38px}
+.pass .bc{height:90px;margin:0 40px 36px;background:repeating-linear-gradient(90deg,var(--ink) 0 5px,transparent 5px 9px,var(--ink) 9px 11px,transparent 11px 17px,var(--ink) 17px 24px,transparent 24px 28px)}
+.s7 .cta{position:absolute;top:1395px;right:90px;left:90px;text-align:center;color:#fff;font:700 36px 'IBM Plex Sans Arabic'}
+.s7 .cta em{font-style:normal;color:var(--yellow)}
+
+/* ————— صور حقيقية ————— */
+.bgph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.s1 .bgph{object-position:62% 50%;filter:saturate(.85) brightness(.95) contrast(1.05)}
+.s1 .tint{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,15,44,.9) 0%,rgba(10,15,44,.62) 24%,rgba(10,15,44,.28) 44%,rgba(10,15,44,.08) 58%,rgba(10,15,44,.25) 74%,rgba(10,15,44,.92) 90%)}
+.s1 .tone{position:absolute;inset:0;background:#1E2A6E;mix-blend-mode:color;opacity:.3}
+.hbar{position:absolute;top:1392px;right:90px;display:flex;gap:26px;align-items:center;padding:14px 28px;border-radius:999px;
+  background:rgba(10,15,44,.75);border:2px solid rgba(255,255,255,.22);color:#fff;font:700 28px 'IBM Plex Sans Arabic'}
+.s6 .bgph{object-position:50% 50%;filter:saturate(.95) brightness(.8)}
+.s6 .tint{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,15,44,.92) 0%,rgba(10,15,44,.62) 30%,rgba(10,15,44,.5) 55%,rgba(10,15,44,.7) 75%,rgba(10,15,44,.95) 92%)}
+
+.polaroid{position:absolute;top:610px;left:80px;width:330px;background:#F7F3EA;padding:18px 18px 0;border-radius:6px;transform:rotate(-7deg);
+  box-shadow:0 30px 60px rgba(0,0,0,.55);z-index:3}
+.polaroid .phw{height:280px;overflow:hidden}
+.polaroid img{display:block;width:100%;height:100%;object-fit:cover;object-position:42% 45%;transform:scale(1.45);transform-origin:40% 22%;filter:saturate(1.05) contrast(1.05)}
+.polaroid span{display:block;text-align:center;padding:14px 0 18px;font:400 38px 'Lalezar';color:#2A2A33}
+.polaroid .pin{position:absolute;top:-18px;left:50%;transform:translateX(-50%);width:40px;height:40px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#FF9A85,var(--coral) 55%,#B23A22);box-shadow:0 6px 10px rgba(0,0,0,.45)}
+.s6 .c1{left:450px;right:90px}
+.s6 .c2{top:1050px}
+.s6 .formula{top:1318px}
+</style>
+</head>
+<body>
+
+<!-- ١ الغلاف: التذكرة -->
+<section class="slide s1">
+  <img class="bgph" src="assets/sky.jpg"><div class="tone"></div><div class="tint"></div>
+  <div class="stars" style="opacity:.06"></div>
+  <div class="kick" style="color:var(--yellow)"><i></i>وكلاء الذكاء الاصطناعي</div>
+  <div class="pg" style="color:#fff">30 / DAY</div>
+  <h1 class="disp">الشات يعطيك الخريطة<em>الوكيل يوصّلك</em></h1>
+  <svg class="arc" height="200" viewBox="0 0 1080 200"><path d="M60 170 Q540 -40 1020 150" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="4" stroke-dasharray="4 16" stroke-linecap="round"/></svg>
+  <div class="ticket" style="top:960px;right:70px;left:70px;transform:rotate(-3deg)">
+    <div class="main">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <span class="lbl">بطاقة صعود</span><span class="mono" style="font:800 26px 'JetBrains Mono';color:var(--mute)">AI-030</span>
+      </div>
+      <div class="route">
+        <span class="city">طلبك</span>
+        <span class="line"><svg width="60" height="60" viewBox="0 0 24 24" fill="var(--coral)"><path d="M21 16v-2l-8-5V3.5A1.5 1.5 0 0 0 11.5 2 1.5 1.5 0 0 0 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg></span>
+        <span class="city" style="color:#0E9A5E">تمّ ✓</span>
+      </div>
+      <div class="grid3">
+        <div><div class="lbl">الراكب</div><div class="val">أنت</div></div>
+        <div><div class="lbl">البوابة</div><div class="val mono" style="font-size:40px">AGENT</div></div>
+        <div><div class="lbl">مجهودك</div><div class="val">صفر</div></div>
+      </div>
+    </div>
+    <div class="stub"><span class="lbl">المقعد</span><div class="val mono" style="font-size:54px">1A</div><div class="bar" style="width:120px;height:170px"></div></div>
+  </div>
+  <div class="swipe">اسحب <span style="font-size:40px">←</span></div>
+  <div class="hbar">{{HANDLES}}</div>
+</section>
+
+<!-- ٢ نفس الطلب: جوالين -->
+<section class="slide s2">
+  <div class="kick" style="color:var(--coral)"><i></i>نفس الطلب</div>
+  <div class="pg" style="color:var(--ink)">02</div>
+  <h2 class="disp">ردّين… <em>ونتيجتين</em></h2>
+  <div class="phones">
+    <div class="phone"><div class="scr" style="background:#F2F2F5">
+      <div class="top" style="background:#fff"><div class="av" style="background:#9AA0AE">ش</div><div class="nm">شات عادي</div></div>
+      <div class="body">
+        <div class="bub me">احجز لي أرخص رحلة للرياض الخميس</div>
+        <div class="bub ai">أكيد! سوّ الآتي:
+          <ul class="steps"><li>افتح موقع الطيران</li><li>قارن الأسعار</li><li>اختر الرحلة</li><li>ادفع بنفسك</li></ul>
+        </div>
+      </div></div></div>
+    <div class="phone"><div class="scr" style="background:#F2F2F5">
+      <div class="top" style="background:#fff"><div class="av" style="background:var(--night)">و</div><div class="nm">وكيل ذكي</div></div>
+      <div class="body">
+        <div class="bub me">احجز لي أرخص رحلة للرياض الخميس</div>
+        <div class="mini">
+          <div class="ok"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>تمّ الحجز</div>
+          <div class="t">07:40</div>
+          <div class="s">الخميس · الرياض · 289 ريال</div>
+        </div>
+        <div class="bub ai">التذكرة في إيميلك ✉️</div>
+      </div></div></div>
+  </div>
+  <div class="verdict" style="right:70px;color:var(--coral)">تعليمات… وتسويها أنت</div>
+  <div class="verdict" style="left:70px;color:#0E9A5E">مهمة منجزة ✓</div>
+</section>
+
+<!-- ٣ تشريح الوكيل -->
+<section class="slide s3">
+  <div class="gridbg"></div>
+  <div class="kick" style="color:var(--yellow)"><i></i>مخطط هندسي</div>
+  <div class="pg">FIG. 03</div>
+  <h2 class="disp">تشريح <em>الوكيل</em></h2>
+  <svg style="position:absolute;inset:0" width="1080" height="1920">
+    <g stroke="rgba(255,255,255,.7)" stroke-width="3" fill="none" stroke-dasharray="10 8">
+      <path d="M470 800 L360 690"/><path d="M610 800 L720 690"/><path d="M470 1000 L360 1110"/><path d="M610 1000 L720 1110"/>
+    </g>
+    <g fill="#FFC93C"><circle cx="360" cy="690" r="9"/><circle cx="720" cy="690" r="9"/><circle cx="360" cy="1110" r="9"/><circle cx="720" cy="1110" r="9"/></g>
+  </svg>
+  <div class="core"><span>الوكيل</span></div>
+  <div class="part" style="top:470px;right:90px"><div class="no">01</div><div class="ttl">العقل</div><div class="d">نموذج يفكّر ويخطط الخطوات</div></div>
+  <div class="part" style="top:470px;left:60px;text-align:left"><div class="no" style="text-align:left">02</div><div class="ttl">اليدين</div><div class="d">أدوات: بحث، إيميل، تقويم</div></div>
+  <div class="part" style="top:1120px;right:90px"><div class="no">03</div><div class="ttl">البوصلة</div><div class="d">هدف واضح ومتى يوقف</div></div>
+  <div class="part" style="top:1120px;left:60px;text-align:left"><div class="no" style="text-align:left">04</div><div class="ttl">المحرّك</div><div class="d">يجرّب ويصحح لين يخلص</div></div>
+  <div class="foot" style="top:1296px">شل أي جزء… ويرجع <em>مجرد شات</em></div>
+</section>
+
+<!-- ٤ سجل المهمة -->
+<section class="slide s4">
+  <div class="kick" style="color:var(--mint)"><i></i>سجل المهمة</div>
+  <div class="pg" style="color:#fff">LIVE</div>
+  <h2 class="disp">شوفه <em>وهو يشتغل</em></h2>
+  <div class="term">
+    <div class="bar2"><i style="background:#FF5F57"></i><i style="background:#FEBC2E"></i><i style="background:#28C840"></i><b>agent.log</b></div>
+    <div class="log">
+      <div class="row"><span class="tm">09:00:01</span><span class="ic">◆</span>الهدف: أرخص رحلة للرياض الخميس</div>
+      <div class="row"><span class="tm">09:00:04</span><span class="ic">→</span>يبحث في 3 مواقع طيران…</div>
+      <div class="row bad"><span class="tm">09:00:09</span><span class="ic">✗</span>رحلة 6:15 امتلأت</div>
+      <div class="row hl"><span class="tm">09:00:10</span><span class="ic">↻</span>يعيد البحث بنفسه</div>
+      <div class="row good"><span class="tm">09:00:14</span><span class="ic">✓</span>حجز رحلة 7:40 · 289 ريال</div>
+      <div class="row good"><span class="tm">09:00:15</span><span class="ic">✉</span>أرسل التذكرة لإيميلك</div>
+    </div>
+  </div>
+  <div class="note">الشات يوقف عند الخطأ ويسألك.<br>الوكيل <u>يكمل</u> لين يوصل للهدف.</div>
+</section>
+
+<!-- ٥ الدرج -->
+<section class="slide s5">
+  <div class="kick" style="color:var(--blue)"><i></i>مستويات</div>
+  <div class="pg" style="color:var(--ink)">05</div>
+  <h2 class="disp">مو كل «ذكاء» <em>وكيل</em></h2>
+  <div class="stair">
+    <div class="step st1"><div class="lv">LV.1</div><div class="n">شات عادي</div><div class="d">يجاوب… وبس</div></div>
+    <div class="step st2"><div class="lv">LV.2</div><div class="n">مساعد بأدوات</div><div class="d">ينفّذ خطوة وحدة لما تطلب</div></div>
+    <div class="step st3">
+      <svg class="flag" width="90" height="130" viewBox="0 0 90 130"><path d="M10 0 V130" stroke="#16140F" stroke-width="7"/><path d="M14 6 H84 L66 32 L84 58 H14 Z" fill="#FFC93C"/></svg>
+      <div class="lv">LV.3</div><div class="n">وكيل ذكي</div><div class="d">يخطط، ينفّذ عدة خطوات، ويكمل لين يخلص</div></div>
+  </div>
+</section>
+
+<!-- ٦ الخطأ الشائع -->
+<section class="slide s6">
+  <div class="kick" style="color:var(--coral)"><i></i>الخطأ الشائع</div>
+  <div class="pg" style="color:#fff">06</div>
+  <h2 class="disp">الهدف الغامض <em>يخرّب الوكيل</em></h2>
+  <div class="polaroid"><i class="pin"></i><div class="phw"><img src="assets/mail.jpg"></div><span>إيميلك الحين!</span></div>
+  <div class="card c1"><div class="stamp">غامض</div><div class="tag">اللي يكتبه أغلب الناس</div><div class="q">«رتّب إيميلي»</div></div>
+  <div class="card c2"><div class="stamp">واضح</div><div class="tag">اللي يخلّيه يخلص الشغل</div>
+    <div class="q">«انقل كل الفواتير لمجلد (فواتير)، وأرسل لي قائمتها مع المبالغ»</div></div>
+  <div class="formula"><b>هدف</b><span class="eq">+</span><b>أدوات</b><span class="eq">+</span><b>متى يوقف</b><span class="eq">=</span><b class="res">شغل منجز</b></div>
+</section>
+
+<!-- ٧ المتابعة: تذكرتك -->
+<section class="slide s7" data-handles="off">
+  <div class="stars"></div>
+  <h2 class="disp">خذ <em>مقعدك</em> في الرحلة</h2>
+  <div class="pass">
+    <div class="hd"><b>درس عملي كل يوم</b><span class="mono">DAILY ✈</span></div>
+    <div class="who">
+      <div class="ph"><img src="{{AVATAR}}"></div>
+      <div><div class="nm">علي التميمي</div><div class="rl">الذكاء الاصطناعي والأتمتة ببساطة</div></div>
+    </div>
+    <div class="cut"></div>
+    <div class="soc">
+      <div class="so">@ali_altamimy_tech<svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.2 2.5c.35 2.3 1.75 3.8 4.05 4.05v3.1a7.4 7.4 0 0 1-4-1.25v6.1a5.95 5.95 0 1 1-5.95-5.95c.3 0 .6.02.9.07v3.2a2.8 2.8 0 1 0 1.95 2.68V2.5z"/></svg></div>
+      <div class="so">@al_t506<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="3" y="3" width="18" height="18" rx="5.2"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></div>
+    </div>
+    <div class="bc"></div>
+  </div>
+  <div class="cta">تابع وخلّ <em>الوكيل</em> يشتغل عنك 👇</div>
+</section>
+
+</body>
+</html>

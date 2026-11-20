@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<style>
+:root{--bg:#07090D;--ink:#F2F4F7;--mute:#A7AFBD;--red:#FF3B3B;--green:#22E07A;--amber:#FFB020}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);font-family:'IBM Plex Sans Arabic','Cairo',sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+.scene{direction:rtl;background:var(--bg)}
+.ph{position:absolute;inset:-60px;width:1200px;height:2040px;object-fit:cover;filter:grayscale(.35) brightness(.55) contrast(1.1)}
+.shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,9,13,.85) 0%,rgba(7,9,13,.35) 35%,rgba(7,9,13,.55) 62%,rgba(7,9,13,.96) 100%)}
+.scan{position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 2px,transparent 2px 6px);pointer-events:none}
+.hud{position:absolute;top:250px;right:80px;left:80px;display:flex;justify-content:space-between;align-items:center;
+  font:800 26px 'JetBrains Mono';letter-spacing:2px;direction:ltr}
+.hud .dot{display:inline-block;width:14px;height:14px;border-radius:50%;background:var(--red);margin-right:12px;box-shadow:0 0 18px var(--red)}
+.h{font-family:'Readex Pro';font-weight:700;line-height:1.15;position:absolute;right:80px;left:80px}
+.lbl{font:800 30px 'JetBrains Mono';letter-spacing:3px;direction:ltr;text-align:right}
+.corner{position:absolute;width:70px;height:70px;border:5px solid rgba(255,255,255,.7)}
+
+/* ١ */
+.s1 .h1{top:540px;font-size:112px;white-space:nowrap}
+.s1 .h2{top:690px;font-size:104px;color:var(--mute);white-space:nowrap}
+.s1 .stamp{position:absolute;top:920px;right:130px;font-family:'Readex Pro';font-weight:700;font-size:150px;color:var(--red);
+  border:12px solid var(--red);border-radius:26px;padding:0 50px 16px;background:rgba(40,0,0,.35);text-shadow:0 0 30px rgba(255,59,59,.5)}
+.s1 .sub{top:1230px;font-size:52px;font-weight:600}
+.s1 .sub em{font-style:normal;color:var(--red)}
+
+/* ٢ */
+.s2 .h{top:330px;font-size:84px;white-space:nowrap}
+.s2 .h em{font-style:normal;color:var(--amber)}
+.chat{position:absolute;top:620px;right:80px;left:80px;background:rgba(18,22,30,.92);border:2px solid rgba(255,255,255,.12);border-radius:40px;
+  padding:34px;backdrop-filter:blur(8px);box-shadow:0 40px 80px rgba(0,0,0,.6)}
+.chat .top{display:flex;align-items:center;gap:18px;padding-bottom:24px;border-bottom:2px solid rgba(255,255,255,.08)}
+.chat .av{width:64px;height:64px;border-radius:18px;background:linear-gradient(135deg,#7C5CFF,#22C1EE);display:grid;place-items:center;font:800 30px 'JetBrains Mono';color:#fff}
+.chat .nm{font:700 36px 'IBM Plex Sans Arabic'}
+.bub{margin-top:30px;margin-left:auto;margin-right:0;width:fit-content;max-width:100%;background:#2B6BFF;color:#fff;padding:24px 30px;border-radius:30px;border-bottom-right-radius:8px;font:600 40px 'IBM Plex Sans Arabic';min-height:92px}
+.file{margin-top:22px;display:flex;align-items:center;gap:22px;background:#0F3D22;border:3px solid var(--green);border-radius:26px;padding:22px 26px}
+.file .ic{width:78px;height:92px;border-radius:12px;background:#1D8A4E;display:grid;place-items:center;font:800 24px 'JetBrains Mono';color:#fff}
+.file b{display:block;font:700 38px 'IBM Plex Sans Arabic'}
+.file span{font:600 30px 'IBM Plex Sans Arabic';color:#9BE7BC}
+.warn{position:absolute;top:1250px;right:80px;left:80px;background:var(--red);color:#fff;border-radius:22px;padding:26px 30px;font:700 38px/1.45 'IBM Plex Sans Arabic';
+  box-shadow:0 0 50px rgba(255,59,59,.45)}
+
+/* ٣ */
+.s3 .big{position:absolute;top:470px;left:0;right:0;text-align:center;font-family:'Readex Pro';font-weight:700;font-size:560px;line-height:1;color:#fff;
+  text-shadow:0 0 60px rgba(34,224,122,.55)}
+.s3 .h{top:1130px;text-align:center;font-size:92px}
+.s3 .h em{font-style:normal;color:var(--green)}
+
+/* ٤–٦ */
+.lay .lbl{position:absolute;top:340px;right:80px;color:var(--green)}
+.lay .h{top:400px;font-size:110px}
+.tabs{position:absolute;top:720px;right:80px;left:80px;display:flex;flex-direction:column;gap:30px}
+.tab{display:flex;align-items:center;gap:26px;padding:30px 34px;border-radius:26px;background:rgba(12,15,21,.9);border-right:16px solid}
+.tab .k{font-family:'Readex Pro';font-weight:700;font-size:64px;min-width:230px}
+.tab .v{font:600 38px 'IBM Plex Sans Arabic';color:var(--mute)}
+.chk{position:absolute;top:720px;right:80px;left:80px;display:flex;flex-direction:column;gap:30px}
+.row{display:flex;align-items:center;gap:28px;background:rgba(12,15,21,.9);border:2px solid rgba(255,255,255,.1);border-radius:26px;padding:32px 34px;font:700 44px 'IBM Plex Sans Arabic'}
+.tick{width:74px;height:74px;border-radius:50%;background:var(--green);display:grid;place-items:center;flex:none;box-shadow:0 0 24px rgba(34,224,122,.5)}
+.redact{position:absolute;top:700px;right:80px;left:80px;background:rgba(12,15,21,.94);border:2px solid rgba(255,255,255,.12);border-radius:34px;padding:40px}
+.redact .t{font:700 30px 'IBM Plex Sans Arabic';color:var(--mute);margin-bottom:14px}
+.before{font:700 46px/1.5 'IBM Plex Sans Arabic';color:#FF8A8A;text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:5px}
+.arrow{font:800 60px 'JetBrains Mono';color:var(--amber);text-align:center;margin:18px 0}
+.after{font:700 46px/1.5 'IBM Plex Sans Arabic';color:var(--green);min-height:70px}
+.s6 .foot{position:absolute;top:1330px;right:80px;left:80px;text-align:center;font:700 48px 'IBM Plex Sans Arabic'}
+.s6 .foot em{font-style:normal;color:var(--green)}
+
+/* ٧ */
+.badge{position:absolute;top:470px;left:150px;right:150px;background:#F4F5F7;color:#0B0D12;border-radius:44px;overflow:hidden;box-shadow:0 60px 120px rgba(0,0,0,.7)}
+.badge .clip{position:absolute;top:-2px;left:50%;transform:translateX(-50%);width:170px;height:34px;background:#0B0D12;border-radius:0 0 20px 20px}
+.badge .top{background:var(--green);padding:56px 40px 26px;text-align:center;font:800 34px 'JetBrains Mono';letter-spacing:4px;direction:ltr}
+.badge .ph2{width:260px;height:260px;border-radius:50%;margin:40px auto 20px;overflow:hidden;border:8px solid #0B0D12;background:#1a1f2b}
+.badge .ph2 img{width:100%;height:100%;object-fit:cover;object-position:50% 15%}
+.badge .nm{text-align:center;font-family:'Readex Pro';font-weight:700;font-size:72px}
+.badge .rl{text-align:center;font:600 32px 'IBM Plex Sans Arabic';color:#5A6272;margin-top:6px}
+.badge .soc{margin:30px 40px 40px;padding:22px;border-radius:22px;background:#0B0D12;color:#fff;display:flex;justify-content:center;gap:30px;font:800 30px 'JetBrains Mono'}
+.s7 .tag{position:absolute;top:1330px;right:80px;left:80px;text-align:center;font:700 46px 'IBM Plex Sans Arabic'}
+.s7 .tag em{font-style:normal;color:var(--green)}
+</style>
+</head>
+<body>
+
+<!-- ١ الهوك -->
+<section class="scene s1" data-dur="4.3">
+  <img class="ph kb" data-kb="in" src="assets/office.jpg">
+  <div class="shade"></div><div class="scan"></div>
+  <div class="hud" data-a="fade" data-at="0.1"><span>SECURITY BRIEF</span><span><i class="dot"></i>REC</span></div>
+  <div class="h h1" data-a="rise" data-at="0.25" data-sfx="pop">موظف واحد…</div>
+  <div class="h h2" data-a="rise" data-at="0.9" data-sfx="pop">نسخة ولصق وحدة</div>
+  <div class="stamp" data-a="stamp" data-at="1.9" data-du="0.45" data-sfx="thud" data-gain="1">تسريب</div>
+  <div class="h sub" data-a="rise" data-at="2.6">وبيانات عملائك <em>صارت برّا الشركة</em></div>
+</section>
+
+<!-- ٢ المشهد -->
+<section class="scene s2" data-dur="5.2">
+  <img class="ph kb" data-kb="left" src="assets/phone.jpg">
+  <div class="shade"></div>
+  <div class="h" data-a="rise" data-at="0.2">يصير كل يوم… <em>بدون قصد</em></div>
+  <div class="chat" data-a="rise" data-at="0.5" data-du="0.6">
+    <div class="top"><div class="av">AI</div><div class="nm">مساعد ذكي</div></div>
+    <div class="bub"><span data-a="type" data-at="0.9" data-du="1.0">لخّص لي هذا الملف بسرعة</span></div>
+    <div class="file" data-a="pop" data-at="2.0" data-sfx="blip_hi">
+      <div class="ic">XLS</div>
+      <div><b>قائمة_العملاء.xlsx</b><span><span data-a="count" data-to="4812" data-at="2.1" data-du="1">0</span> عميل · أسماء وجوالات</span></div>
+    </div>
+  </div>
+  <div class="warn" data-a="wipe" data-at="3.2" data-du="0.5" data-sfx="blip_lo" data-gain="0.9">⚠ الأسماء والجوالات والمبالغ… كلها طلعت لأداة خارجية</div>
+</section>
+
+<!-- ٣ الوعد -->
+<section class="scene s3" data-dur="3.4">
+  <img class="ph kb" data-kb="out" src="assets/redlock.jpg">
+  <div class="shade"></div>
+  <div class="big" data-a="pop" data-at="0.3" data-du="0.6" data-sfx="thud">3</div>
+  <div class="h" data-a="rise" data-at="0.9">طبقات <em>تحمي بياناتك</em></div>
+</section>
+
+<!-- ٤ الطبقة ١ -->
+<section class="scene lay s4" data-dur="5.0">
+  <img class="ph kb" data-kb="left" src="assets/servers.jpg">
+  <div class="shade"></div>
+  <div class="lbl" data-a="fade" data-at="0.2">LAYER 01</div>
+  <div class="h" data-a="rise" data-at="0.3">صنّف بياناتك</div>
+  <div class="tabs">
+    <div class="tab" style="border-color:var(--green)" data-a="left" data-at="1.0" data-sfx="tick"><div class="k" style="color:var(--green)">عامة</div><div class="v">استخدمها بأي أداة</div></div>
+    <div class="tab" style="border-color:var(--amber)" data-a="left" data-at="1.6" data-sfx="tick"><div class="k" style="color:var(--amber)">داخلية</div><div class="v">أداة الشركة المعتمدة فقط</div></div>
+    <div class="tab" style="border-color:var(--red)" data-a="left" data-at="2.2" data-sfx="tick"><div class="k" style="color:var(--red)">سرّية</div><div class="v">ممنوع تدخل أي أداة</div></div>
+  </div>
+</section>
+
+<!-- ٥ الطبقة ٢ -->
+<section class="scene lay s5" data-dur="5.0">
+  <img class="ph kb" data-kb="in" src="assets/serverroom.jpg">
+  <div class="shade"></div>
+  <div class="lbl" data-a="fade" data-at="0.2">LAYER 02</div>
+  <div class="h" data-a="rise" data-at="0.3">أداة معتمدة للشركة</div>
+  <div class="chk">
+    <div class="row" data-a="rise" data-at="1.0" data-sfx="tick"><div class="tick"><svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#07090D" stroke-width="3.4"><path d="M4 12l5 5L20 6"/></svg></div>حساب شركة، مو حساب شخصي</div>
+    <div class="row" data-a="rise" data-at="1.6" data-sfx="tick"><div class="tick"><svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#07090D" stroke-width="3.4"><path d="M4 12l5 5L20 6"/></svg></div>التدريب على بياناتك مقفّل</div>
+    <div class="row" data-a="rise" data-at="2.2" data-sfx="tick"><div class="tick"><svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#07090D" stroke-width="3.4"><path d="M4 12l5 5L20 6"/></svg></div>سجل: مين استخدم وش ومتى</div>
+  </div>
+</section>
+
+<!-- ٦ الطبقة ٣ -->
+<section class="scene lay s6" data-dur="5.8">
+  <img class="ph kb" data-kb="right" src="assets/code.jpg">
+  <div class="shade"></div>
+  <div class="lbl" data-a="fade" data-at="0.2">LAYER 03</div>
+  <div class="h" data-a="rise" data-at="0.3">قاعدة الـ 10 ثواني</div>
+  <div class="redact" data-a="rise" data-at="0.8" data-du="0.6">
+    <div class="t">قبل ما تلصق، استبدل الحسّاس:</div>
+    <div class="before" data-a="fade" data-at="1.2">أحمد العتيبي · جوال 0551234567</div>
+    <div class="arrow" data-a="drop" data-at="2.0" data-sfx="pop">↓</div>
+    <div class="after"><span data-a="type" data-at="2.3" data-du="1.3" data-sfx="blip_hi">العميل (أ) · جوال ••••••</span></div>
+  </div>
+  <div class="foot" data-a="rise" data-at="3.9" data-sfx="ding" data-gain="0.5">نفس الجواب… <em>وصفر تسريب</em></div>
+</section>
+
+<!-- ٧ المتابعة: بطاقة دخول -->
+<section class="scene s7" data-dur="4.6">
+  <img class="ph kb" data-kb="out" src="assets/goldlock.jpg">
+  <div class="shade" style="background:rgba(7,9,13,.78)"></div>
+  <div class="badge" data-a="pop" data-at="0.25" data-du="0.6" data-sfx="ding" data-gain="0.6">
+    <div class="clip"></div>
+    <div class="top">ACCESS GRANTED ✓</div>
+    <div class="ph2"><img src="{{AVATAR}}"></div>
+    <div class="nm">علي التميمي</div>
+    <div class="rl">الذكاء الاصطناعي والأتمتة ببساطة</div>
+    <div class="soc">{{HANDLES}}</div>
+  </div>
+  <div class="tag" data-a="rise" data-at="1.1">تابع… <em>كل يوم فكرة تقنية جديدة</em></div>
+</section>
+
+</body>
+</html>

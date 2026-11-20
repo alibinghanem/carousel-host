@@ -1,0 +1,54 @@
+{
+  "style": "terminal",
+  "accent": "cyan",
+  "handle": "@ali_altamimy_tech",
+  "fps": 30,
+  "scenes": [
+    {"type":"hook","kicker":"أساسيات · اليوم ١٠","big":"6",
+     "title":"مصطلحات تغطي *٩٠٪* مما تسمعه",
+     "sub":"كل واحد بجملة وحدة بس","dur":3.6},
+
+    {"type":"icons","title":"ثلاثة أساسية",
+     "items":[
+       {"icon":"message","label":"Prompt","note":"النص اللي تكتبه"},
+       {"icon":"code","label":"Token","note":"أصغر وحدة نص"},
+       {"icon":"database","label":"Context","note":"معلومات هذي الجلسة"}],
+     "dur":5.4},
+
+    {"type":"icons","title":"ثلاثة متقدمة",
+     "items":[
+       {"icon":"bot","label":"Agent","note":"ينفّذ مهمة كاملة"},
+       {"icon":"link","label":"API","note":"باب التواصل البرمجي"},
+       {"icon":"refresh","label":"Workflow","note":"خطوات ثابتة تتكرر"}],
+     "dur":5.4},
+
+    {"type":"point","icon":"eye","n":"01","title":"ليش *هالستة* بالذات؟",
+     "body":"لأنها مبنية فوق بعض. Prompt يُقاس بـ Tokens، وكل ما زاد Context صار أدق — والباقي يبني عليها.","dur":5.0},
+
+    {"type":"layers","title":"كل مصطلح يبني على اللي قبله",
+     "items":[
+       {"label":"Prompt","note":"المُدخل الأساسي"},
+       {"label":"Token + Context","note":"وحدة القياس والمعرفة"},
+       {"label":"Agent","note":"ينفّذ لا يجاوب بس"},
+       {"label":"API + Workflow","note":"يتصل ويتكرر تلقائياً"}],
+     "dur":6.0},
+
+    {"type":"flow","title":"مثال يربط الكل",
+     "nodes":[
+       {"icon":"link","label":"طلب عبر API","note":"يوصل التطبيق"},
+       {"icon":"bot","label":"الوكيل يقرأ","note":"الطلب كـ Prompt"},
+       {"icon":"database","label":"يستخدم Context","note":"من قاعدة بياناتك"},
+       {"icon":"refresh","label":"ضمن Workflow","note":"يوجّه للمسؤول الصح"}],
+     "dur":6.4},
+
+    {"type":"tip","icon":"warn","title":"الخطأ الشائع",
+     "body":"استخدام «وكيل» و«أتمتة» و«شات بوت» كمترادفات. كل واحد بنية *مختلفة* — والخلط يخليك تطلب شي مو موجود.","dur":5.0},
+
+    {"type":"tip","icon":"target","title":"تمرين يثبّت الفهم",
+     "body":"المرة الجاية لما تسمع مصطلح، اسأل: وين يقع في *السلسلة*؟ هذا أسرع من أي شرح نظري.","dur":5.0},
+
+    {"type":"cta","kicker":"تابع للمزيد","title":"كل يوم درس *عملي* واحد",
+     "body":"أي مصطلح من الستة كان غامض عليك قبل اليوم؟ قول لي بالتعليقات.",
+     "name":"علي التميمي","handle":"@ali_altamimy_tech","dur":4.8}
+  ]
+}

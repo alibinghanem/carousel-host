@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<style>
+:root{--wine:#170709;--wine2:#2A0C10;--org:#FF6A2B;--yel:#FFC93C;--cream:#FFF3E6;--paper:#FFFBF5;--ink:#1E0A0D;--mu:#7A5F60;--grn:#2FBF71;--red:#E5484D}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;font-family:'IBM Plex Sans Arabic',sans-serif;-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1920px;position:relative;overflow:hidden;direction:rtl;color:var(--ink);background:var(--cream)}
+.dark{background:radial-gradient(90% 60% at 50% 40%,#3A0F16 0%,var(--wine2) 45%,var(--wine) 100%);color:var(--cream)}
+.hd{font-family:'Rubik';font-weight:800;line-height:1.15}
+.en{font-family:'Space Grotesk';font-weight:700;direction:ltr;unicode-bidi:isolate;display:inline}
+.mono{font-family:'JetBrains Mono';font-weight:800;direction:ltr;unicode-bidi:isolate;display:inline}
+.kick{position:absolute;top:250px;right:90px;padding:10px 26px 12px;border-radius:999px;font:700 30px 'IBM Plex Sans Arabic'}
+.dark .kick{background:var(--org);color:var(--wine)}
+.lite .kick{background:var(--ink);color:var(--cream)}
+.pg{position:absolute;top:262px;left:90px;font:700 28px 'Space Grotesk';opacity:.6;direction:ltr}
+.scan{position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(180deg,rgba(255,255,255,.025) 0 2px,transparent 2px 6px)}
+.hbar{position:absolute;top:1392px;right:90px;display:flex;gap:26px;align-items:center;padding:14px 28px;border-radius:999px;background:var(--cream);color:var(--ink);font:700 28px 'IBM Plex Sans Arabic'}
+
+/* ١ الغلاف: مكالمة فيديو مزيفة */
+.s1 h1{position:absolute;top:330px;right:80px;left:80px;text-align:center;font-size:132px}
+.s1 h1 em{font-style:normal;color:var(--org);display:block}
+.s1 .phone{position:absolute;top:690px;left:250px;width:580px;height:700px;border-radius:70px 70px 0 0;background:#0B0405;padding:18px 18px 0;transform:rotate(-4deg);transform-origin:50% 100%;box-shadow:0 30px 60px rgba(0,0,0,.5),0 0 0 3px #3A1B1E}
+.s1 .scr{position:relative;width:100%;height:100%;border-radius:54px 54px 0 0;overflow:hidden;background:linear-gradient(180deg,#2B2F3A,#14161C)}
+.s1 .who{position:absolute;top:34px;left:0;right:0;text-align:center;color:#fff}
+.s1 .who b{display:block;font:800 40px 'Rubik'}
+.s1 .who span{font:600 26px 'IBM Plex Sans Arabic';opacity:.75}
+.s1 .face{position:absolute;top:150px;left:50%;transform:translateX(-50%);width:330px;height:380px}
+.s1 .bub{position:absolute;bottom:40px;right:26px;left:26px;padding:16px 22px 18px;border-radius:24px;background:rgba(255,255,255,.95);color:var(--ink);font:700 30px/1.45 'IBM Plex Sans Arabic'}
+.s1 .stamp{position:absolute;top:960px;right:60px;transform:rotate(10deg);padding:14px 30px 18px;border:8px solid var(--org);border-radius:20px;color:var(--org);font:800 58px 'Rubik';background:rgba(23,7,9,.85);box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.s1 .hbar{top:1396px}
+.s1 .swipe{position:absolute;top:1400px;left:90px;font:800 40px/1 'Rubik';color:var(--cream)}
+
+/* ٢ القصة الحقيقية */
+.s2 h2{position:absolute;top:340px;right:90px;left:90px;font-size:100px}
+.s2 h2 em{font-style:normal;color:var(--org)}
+.s2 .clip{position:absolute;top:560px;right:80px;width:560px;padding:30px 32px 34px;background:var(--paper);box-shadow:0 18px 36px rgba(30,10,13,.18);transform:rotate(1.5deg);clip-path:polygon(0 2%,6% 0,14% 1.5%,24% 0,36% 1.2%,48% 0,60% 1.5%,72% 0,84% 1.2%,94% 0,100% 1.5%,100% 98%,92% 100%,80% 98.5%,68% 100%,54% 98.6%,40% 100%,28% 98.4%,16% 100%,6% 98.6%,0 100%)}
+.s2 .clip .src{font:700 24px 'Space Grotesk';color:var(--mu);direction:ltr;text-align:right;letter-spacing:1px}
+.s2 .clip .big{font:800 96px/1.05 'Rubik';color:var(--red);margin:10px 0 8px;direction:ltr;text-align:right}
+.s2 .clip .big small{font-size:44px}
+.s2 .clip p{font:600 32px/1.55 'IBM Plex Sans Arabic'}
+.s2 .clip p b{background:#FFE08A;padding:0 6px}
+.s2 .pola{position:absolute;top:640px;left:70px;width:330px;padding:14px 14px 90px;background:#fff;box-shadow:0 20px 36px rgba(30,10,13,.22);transform:rotate(-6deg)}
+.s2 .pola img{width:100%;height:300px;object-fit:cover;display:block}
+.s2 .pola p{position:absolute;bottom:14px;right:16px;left:16px;text-align:center;font:700 25px/1.35 'IBM Plex Sans Arabic';color:var(--ink)}
+.s2 .pola:before{content:"";position:absolute;top:-18px;left:50%;width:120px;height:38px;background:rgba(255,106,43,.75);transform:translateX(-50%) rotate(-3deg)}
+.s2 .wave{position:absolute;top:1135px;left:70px;width:330px;height:80px;display:flex;align-items:center;justify-content:space-between}
+.s2 .wave i{display:block;width:10px;border-radius:5px;background:var(--org)}
+.s2 .note{position:absolute;top:1250px;right:90px;left:90px;font:700 36px/1.5 'IBM Plex Sans Arabic'}
+.s2 .note em{font-style:normal;color:var(--red)}
+
+/* ٣ علامات الخطر */
+.s3 h2{position:absolute;top:340px;right:90px;left:90px;font-size:100px}
+.s3 h2 em{font-style:normal;color:var(--yel)}
+.s3 .grid{position:absolute;top:580px;right:80px;left:80px;display:grid;grid-template-columns:1fr 1fr;gap:34px 30px}
+.s3 .sign{display:flex;flex-direction:column;align-items:center;text-align:center}
+.s3 .tri{position:relative;width:230px;height:200px}
+.s3 .tri svg{position:absolute;inset:0}
+.s3 .tri b{position:absolute;left:0;right:0;top:92px;font:800 64px 'Rubik';color:var(--wine)}
+.s3 .sign h4{font:800 46px 'Rubik';color:var(--cream);margin-top:6px}
+.s3 .sign p{font:600 30px/1.4 'IBM Plex Sans Arabic';color:#F2C9B8;margin-top:4px}
+
+/* ٤ القناة الثانية */
+.s4 h2{position:absolute;top:340px;right:90px;left:90px;font-size:96px}
+.s4 h2 em{font-style:normal;color:var(--org)}
+.s4 .ph{position:absolute;top:600px;width:390px;height:560px;border-radius:50px;background:#16080A;padding:14px;box-shadow:0 22px 40px rgba(30,10,13,.3)}
+.s4 .ph .in{width:100%;height:100%;border-radius:38px;overflow:hidden;position:relative}
+.s4 .p1{right:80px;transform:rotate(3deg)}
+.s4 .p1 .in{background:linear-gradient(180deg,#3A1215,#1C0809);color:#fff;text-align:center;padding-top:40px}
+.s4 .p1 .in b{display:block;font:800 36px 'Rubik'}
+.s4 .p1 .in .num{font:700 30px 'JetBrains Mono';direction:ltr;opacity:.8;margin-top:8px}
+.s4 .p1 .x{position:absolute;bottom:60px;left:50%;transform:translateX(-50%);width:120px;height:120px;border-radius:60px;background:var(--red);display:grid;place-items:center}
+.s4 .p1 .lab{position:absolute;bottom:200px;left:0;right:0;font:800 34px 'Rubik';color:#FFB4A0}
+.s4 .p2{left:80px;transform:rotate(-3deg)}
+.s4 .p2 .in{background:#fff;padding:36px 28px}
+.s4 .p2 .in .t{font:700 26px 'IBM Plex Sans Arabic';color:var(--mu)}
+.s4 .p2 .in .av{width:110px;height:110px;border-radius:55px;background:#F3E3D8;margin:22px auto 14px;display:grid;place-items:center;font:800 50px 'Rubik';color:var(--org)}
+.s4 .p2 .in b{display:block;text-align:center;font:800 36px 'Rubik'}
+.s4 .p2 .in .num{text-align:center;font:700 28px 'JetBrains Mono';direction:ltr;color:var(--mu);margin-top:6px}
+.s4 .p2 .call{position:absolute;bottom:60px;left:50%;transform:translateX(-50%);width:120px;height:120px;border-radius:60px;background:var(--grn);display:grid;place-items:center;box-shadow:0 0 0 14px rgba(47,191,113,.2)}
+.s4 .arrow{position:absolute;top:840px;left:470px;width:140px;text-align:center;font:800 90px 'Rubik';color:var(--org)}
+.s4 .steps{position:absolute;top:1205px;right:80px;left:80px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.s4 .steps span{padding:10px 22px 14px;border-radius:16px;background:var(--ink);color:var(--cream);font:700 30px 'IBM Plex Sans Arabic'}
+.s4 .steps span.ok{background:var(--grn)}
+.s4 .steps i{font:800 32px 'Rubik';color:var(--org);font-style:normal;align-self:center}
+
+/* ٥ القفل بمفتاحين */
+.s5 h2{position:absolute;top:340px;right:90px;left:90px;font-size:96px}
+.s5 h2 em{font-style:normal;color:var(--yel)}
+.s5 .vault{position:absolute;top:580px;left:70px;width:400px;height:400px}
+.s5 .list{position:absolute;top:590px;right:80px;width:520px}
+.s5 .it{display:flex;gap:18px;align-items:flex-start;margin-bottom:34px}
+.s5 .it .k{flex:none;width:78px;height:78px;border-radius:22px;background:var(--yel);display:grid;place-items:center}
+.s5 .it b{display:block;font:800 40px/1.25 'Rubik';color:var(--cream)}
+.s5 .it span{font:600 28px/1.45 'IBM Plex Sans Arabic';color:#F2C9B8}
+.s5 .src{position:absolute;top:1300px;right:90px;left:90px;font:600 26px 'IBM Plex Sans Arabic';color:#C9A39A}
+
+/* ٦ الخطأ */
+.s6 h2{position:absolute;top:340px;right:90px;left:90px;font-size:100px}
+.s6 h2 em{font-style:normal;color:var(--red)}
+.s6 .card{position:absolute;right:80px;left:80px;border-radius:30px;padding:28px 32px}
+.s6 .bad{top:600px;background:#FFE1DC;border:5px solid var(--red)}
+.s6 .good{top:930px;background:#DFF6E8;border:5px solid var(--grn)}
+.s6 .card .lab{display:inline-block;padding:4px 20px 8px;border-radius:999px;color:#fff;font:800 30px 'IBM Plex Sans Arabic';margin-bottom:12px}
+.s6 .bad .lab{background:var(--red)}
+.s6 .good .lab{background:var(--grn)}
+.s6 .card p{font:700 36px/1.5 'IBM Plex Sans Arabic'}
+.s6 .card small{display:block;font:600 28px/1.5 'IBM Plex Sans Arabic';color:var(--mu);margin-top:6px}
+.s6 .foot{position:absolute;top:1250px;right:90px;left:90px;font:800 44px/1.4 'Rubik';text-align:center}
+.s6 .foot em{font-style:normal;color:var(--org)}
+
+/* ٧ المتابعة */
+.s7 .shield{position:absolute;top:300px;left:50%;transform:translateX(-50%);width:460px;height:520px}
+.s7 .shield .face{position:absolute;top:70px;left:65px;width:330px;height:330px;border-radius:50%;overflow:hidden;border:8px solid var(--cream)}
+.s7 .shield .face img{width:100%;height:100%;object-fit:cover}
+.s7 .nm{position:absolute;top:860px;left:0;right:0;text-align:center;font:800 96px 'Rubik';color:var(--cream)}
+.s7 .q{position:absolute;top:1010px;left:70px;right:70px;text-align:center}
+.s7 .q b{display:block;font:800 56px/1.35 'Rubik';color:var(--org)}
+.s7 .q span{display:block;font:600 36px/1.5 'IBM Plex Sans Arabic';color:#F2C9B8;margin-top:10px}
+.s7 .soc{position:absolute;top:1290px;left:0;right:0;display:flex;justify-content:center}
+.s7 .soc div{display:flex;gap:26px;align-items:center;padding:16px 32px;border-radius:999px;background:var(--cream);color:var(--ink);font:700 30px 'IBM Plex Sans Arabic'}
+</style>
+</head>
+<body>
+
+<section class="slide s1 dark" data-handles="off">
+  <div class="scan"></div>
+  <div class="kick">أمان · التزييف العميق</div>
+  <h1 class="hd">صوته وصورته…<em>ومو هو!</em></h1>
+  <div class="phone"><div class="scr">
+    <div class="who"><b>المدير المالي</b><span>مكالمة فيديو…</span></div>
+    <svg class="face" viewBox="0 0 330 380">
+      <defs><clipPath id="fc"><rect width="330" height="380" rx="30"/></clipPath></defs>
+      <g clip-path="url(#fc)">
+        <rect width="330" height="380" fill="#3A3F4D"/>
+        <circle cx="165" cy="150" r="78" fill="#8B92A3"/>
+        <path d="M30 380 C40 270 100 240 165 240 C230 240 290 270 300 380 Z" fill="#8B92A3"/>
+        <g opacity=".9">
+          <rect x="0" y="118" width="330" height="16" fill="#FF6A2B" opacity=".55" transform="translate(18 0)"/>
+          <rect x="0" y="190" width="330" height="10" fill="#3EE0FF" opacity=".45" transform="translate(-22 0)"/>
+          <rect x="0" y="300" width="330" height="14" fill="#FF6A2B" opacity=".4" transform="translate(26 0)"/>
+        </g>
+        <circle cx="152" cy="150" r="78" fill="none" stroke="#3EE0FF" stroke-width="4" opacity=".5"/>
+        <circle cx="178" cy="150" r="78" fill="none" stroke="#FF6A2B" stroke-width="4" opacity=".5"/>
+      </g>
+    </svg>
+    <div class="bub">حوّل المبلغ الحين… وخلّها سرّية بيننا</div>
+  </div></div>
+  <div class="stamp">قف ✋</div>
+  <div class="hbar">{{HANDLES}}</div>
+  <div class="swipe">اسحب ←</div>
+</section>
+
+<section class="slide s2 lite">
+  <div class="kick">أمان · التزييف العميق</div>
+  <div class="pg">2/7</div>
+  <h2 class="hd">قصة <em>حقيقية</em></h2>
+  <div class="clip">
+    <div class="src">HONG KONG · 2024</div>
+    <div class="big">HK$200<small>M</small></div>
+    <p>موظف مالية دخل <b>اجتماع فيديو</b> مع «المدير المالي» وزملاءه… وكلهم <b>مزيّفين</b> بالذكاء الاصطناعي.</p>
+    <p style="margin-top:10px">سوّى <span class="en" style="font-family:'Rubik'">15</span> تحويل، وما انكشف إلا لما راجع المقر.</p>
+    <p style="margin-top:12px;font-size:24px;color:#7A5F60">أكدتها شركة Arup في <span class="en" style="font-size:24px">2024</span></p>
+  </div>
+  <div class="pola"><img src="assets/mic.jpg" alt=""><p>مقطع قصير من صوتك المنشور يكفي لتقليده</p></div>
+  <div class="wave">
+    <i style="height:20px"></i><i style="height:44px"></i><i style="height:70px"></i><i style="height:36px"></i><i style="height:60px"></i><i style="height:80px"></i><i style="height:48px"></i><i style="height:26px"></i><i style="height:62px"></i><i style="height:40px"></i><i style="height:22px"></i><i style="height:54px"></i><i style="height:30px"></i><i style="height:16px"></i>
+  </div>
+  <div class="note">الصوت والصورة <em>ما عادوا دليل</em>. التحقق صار خطوة لازمة، مو شك زايد.</div>
+</section>
+
+<section class="slide s3 dark" data-handles="light">
+  <div class="scan"></div>
+  <div class="kick">أمان · التزييف العميق</div>
+  <div class="pg">3/7</div>
+  <h2 class="hd">أربع <em>علامات خطر</em></h2>
+  <div class="grid">
+    <div class="sign"><div class="tri"><svg viewBox="0 0 230 200"><path d="M115 10 L222 192 H8 Z" fill="#FFC93C" stroke="#170709" stroke-width="8" stroke-linejoin="round"/></svg><b>!</b></div><h4>العجلة</h4><p>«الحين الحين، ما فيه وقت»</p></div>
+    <div class="sign"><div class="tri"><svg viewBox="0 0 230 200"><path d="M115 10 L222 192 H8 Z" fill="#FFC93C" stroke="#170709" stroke-width="8" stroke-linejoin="round"/></svg><b>🤫</b></div><h4>السرّية</h4><p>«لا تقول لأحد»</p></div>
+    <div class="sign"><div class="tri"><svg viewBox="0 0 230 200"><path d="M115 10 L222 192 H8 Z" fill="#FFC93C" stroke="#170709" stroke-width="8" stroke-linejoin="round"/></svg><b>$</b></div><h4>فلوس أو رموز</h4><p>تحويل، بطاقات، كود تحقق</p></div>
+    <div class="sign"><div class="tri"><svg viewBox="0 0 230 200"><path d="M115 10 L222 192 H8 Z" fill="#FFC93C" stroke="#170709" stroke-width="8" stroke-linejoin="round"/></svg><b>?</b></div><h4>قناة غريبة</h4><p>رقم جديد أو حساب جديد</p></div>
+  </div>
+</section>
+
+<section class="slide s4 lite">
+  <div class="kick">أمان · التزييف العميق</div>
+  <div class="pg">4/7</div>
+  <h2 class="hd">سكّر… <em>واتصل أنت</em></h2>
+  <div class="ph p1"><div class="in">
+    <b>المدير المالي</b><div class="num">+852 •••• 4471</div>
+    <div class="lab">رقم أرسله هو</div>
+    <div class="x"><svg width="60" height="60" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg></div>
+  </div></div>
+  <div class="arrow">←</div>
+  <div class="ph p2"><div class="in">
+    <div class="t">جهات الاتصال</div>
+    <div class="av">م</div>
+    <b>المدير المالي</b><div class="num" style="direction:rtl;font-family:'IBM Plex Sans Arabic'">رقمه المحفوظ عندك</div>
+    <div class="call"><svg width="56" height="56" viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.6a1 1 0 01-.25 1z" fill="#fff"/></svg></div>
+  </div></div>
+  <div class="steps"><span>سكّر</span><i>←</i><span>اتصل من جهاتك</span><i>←</i><span class="ok">تأكد قبل أي تحويل</span></div>
+</section>
+
+<section class="slide s5 dark" data-handles="light">
+  <div class="scan"></div>
+  <div class="kick">أمان · التزييف العميق</div>
+  <div class="pg">5/7</div>
+  <h2 class="hd">جهّز <em>قفلك</em> من الحين</h2>
+  <svg class="vault" viewBox="0 0 400 400">
+    <circle cx="200" cy="200" r="186" fill="#3A1B1E" stroke="#FFC93C" stroke-width="10"/>
+    <circle cx="200" cy="200" r="150" fill="#2A0C10" stroke="#5A2A2E" stroke-width="6"/>
+    <g stroke="#FFC93C" stroke-width="10" stroke-linecap="round"><path d="M200 70v40M200 290v40M70 200h40M290 200h40"/></g>
+    <circle cx="200" cy="200" r="58" fill="#FFC93C"/>
+    <circle cx="200" cy="200" r="24" fill="#2A0C10"/>
+    <g transform="translate(110 300) rotate(-30)"><circle r="22" fill="#FFF3E6"/><rect x="18" y="-6" width="70" height="12" rx="4" fill="#FFF3E6"/><rect x="66" y="6" width="10" height="16" fill="#FFF3E6"/></g>
+    <g transform="translate(290 300) rotate(210)"><circle r="22" fill="#FF6A2B"/><rect x="18" y="-6" width="70" height="12" rx="4" fill="#FF6A2B"/><rect x="66" y="6" width="10" height="16" fill="#FF6A2B"/></g>
+  </svg>
+  <div class="list">
+    <div class="it"><div class="k"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#170709" stroke-width="2.4"><path d="M3 11l9-7 9 7v9a1 1 0 01-1 1H4a1 1 0 01-1-1z"/></svg></div><div><b>كلمة سر للعائلة</b><span>تتفقون عليها وجهاً لوجه، وتسألون عنها في أي طلب غريب</span></div></div>
+    <div class="it"><div class="k"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#170709" stroke-width="2.4"><circle cx="8" cy="9" r="3"/><circle cx="16" cy="9" r="3"/><path d="M3 20c0-3 2.5-5 5-5s5 2 5 5M11 20c0-3 2.5-5 5-5s5 2 5 5"/></svg></div><div><b>في الشركة: مفتاحين</b><span>أي تحويل يحتاج موافقة شخص ثاني عبر قناة ثانية</span></div></div>
+    <div class="it"><div class="k"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#170709" stroke-width="2.4"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3M4 4l16 16"/></svg></div><div><b>قلّل صوتك وصورك العامة</b><span>كل مقطع منشور مادة خام للتقليد</span></div></div>
+  </div>
+  <div class="src">نصائح من تنبيه FBI (ديسمبر 2024) ومن تحذير FTC عن استنساخ الأصوات</div>
+</section>
+
+<section class="slide s6 lite">
+  <div class="kick">أمان · التزييف العميق</div>
+  <div class="pg">6/7</div>
+  <h2 class="hd">الخطأ: <em>أعرف صوته زين</em></h2>
+  <div class="card bad"><span class="lab">✗ تحقّق غلط</span><p>«أرسل لي صورتك» أو «قول اسم أمك» في نفس المكالمة</p><small>المزوّر يقدر يجاوب، والصورة بعد تنزيّف</small></div>
+  <div class="card good"><span class="lab">✓ تحقّق صح</span><p>تسكّر، وتتواصل معه أنت من قناة ثانية: رقمه المحفوظ، أو زميل، أو وجهاً لوجه</p><small>وأي طلب فلوس ينتظر لين تتأكد</small></div>
+  <div class="foot">الاستعجال هو <em>سلاح المحتال</em>. خذ دقيقتين.</div>
+</section>
+
+<section class="slide s7 dark" data-handles="off">
+  <div class="scan"></div>
+  <div class="shield">
+    <svg viewBox="0 0 460 520" style="position:absolute;inset:0"><path d="M230 10 L440 80 V250 C440 390 340 470 230 510 C120 470 20 390 20 250 V80 Z" fill="#2A0C10" stroke="#FFC93C" stroke-width="10"/></svg>
+    <div class="face"><img src="{{AVATAR}}" alt=""></div>
+    <svg viewBox="0 0 80 80" style="position:absolute;bottom:40px;left:190px;width:80px;height:80px"><circle cx="40" cy="40" r="38" fill="#2FBF71"/><path d="M24 41l11 11 21-23" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+  <div class="nm">علي التميمي</div>
+  <div class="q"><b>صار لك موقف مشابه؟</b><span>اكتبه بالتعليقات، وشارك المنشور مع أهلك</span></div>
+  <div class="soc"><div>{{HANDLES}}</div></div>
+</section>
+
+</body>
+</html>

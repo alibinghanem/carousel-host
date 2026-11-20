@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<style>
+:root{--blue:#1B3A8C;--blue2:#14306F;--navy:#0D1B45;--cream:#FFF4E0;--paper:#FFFBF2;--gold:#F6B93B;--gold2:#C98A0F;--gold3:#8F6008;--ink:#0D1B45;--mu:#5A6383;--red:#E5484D;--mint:#3DD6A0}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;font-family:'IBM Plex Sans Arabic',sans-serif;-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1920px;position:relative;overflow:hidden;direction:rtl;color:var(--ink);background:var(--cream)}
+.hd{font-family:'Changa';font-weight:800;line-height:1.15}
+.en{font-family:'Space Grotesk';font-weight:700;direction:ltr;unicode-bidi:isolate;display:inline}
+.mono{font-family:'JetBrains Mono';font-weight:800;direction:ltr;unicode-bidi:isolate;display:inline}
+.kick{position:absolute;top:250px;right:90px;display:flex;align-items:center;gap:12px;padding:10px 26px 12px;border-radius:999px;font:700 30px 'IBM Plex Sans Arabic'}
+.pg{position:absolute;top:262px;left:90px;font:700 28px 'Space Grotesk';opacity:.6;direction:ltr}
+.dark{background:var(--navy);color:var(--cream)}
+.dark .kick{background:var(--gold);color:var(--navy)}
+.lite .kick{background:var(--navy);color:var(--cream)}
+.hbar{position:absolute;top:1392px;right:90px;display:flex;gap:26px;align-items:center;padding:14px 28px;border-radius:999px;background:var(--cream);color:var(--navy);font:700 28px 'IBM Plex Sans Arabic'}
+/* عملة ساعة ذهبية */
+.coin{position:relative;border-radius:50%;background:radial-gradient(circle at 34% 28%,#FFF0B8 0%,#F9C953 30%,#F0A925 62%,#C98A0F 100%);box-shadow:inset 0 0 0 7px rgba(255,255,255,.28),inset 0 -8px 0 rgba(0,0,0,.14),0 10px 0 var(--gold3),0 22px 30px rgba(0,0,0,.32);display:grid;place-items:center;color:var(--gold3)}
+.coin:before{content:"";position:absolute;inset:12%;border-radius:50%;border:4px dashed rgba(143,96,8,.45)}
+.coin b{position:relative;font-family:'Changa';font-weight:800;line-height:1;direction:ltr;color:#7A5206;text-shadow:0 2px 0 rgba(255,255,255,.45)}
+.coin small{position:absolute;bottom:20%;font:800 26px 'IBM Plex Sans Arabic';color:#7A5206}
+.tool{display:inline-flex;align-items:center;gap:10px;padding:8px 18px 10px;border-radius:16px;background:#fff;color:var(--ink);font:700 26px 'Space Grotesk';box-shadow:0 4px 0 rgba(0,0,0,.08)}
+.tool img{height:30px}
+.step{display:inline-block;padding:8px 18px 12px;border-radius:14px;font:700 28px/1.35 'IBM Plex Sans Arabic'}
+.arrow{font:800 30px 'IBM Plex Sans Arabic';margin:0 6px;opacity:.8}
+
+/* ١ الغلاف */
+.s1{background:radial-gradient(90% 60% at 50% 72%,#2A52B8 0%,var(--blue) 45%,var(--blue2) 100%);color:var(--cream)}
+.s1 .kick{background:var(--gold);color:var(--navy)}
+.s1 h1{position:absolute;top:356px;right:60px;left:60px;text-align:center;font-size:146px}
+.s1 h1 em{font-style:normal;color:var(--gold)}
+.s1 h1 .l2{display:block;font-size:112px;color:var(--cream)}
+.s1 .sub{position:absolute;top:690px;left:0;right:0;text-align:center;font:600 42px 'IBM Plex Sans Arabic';color:#C9D6FF}
+.s1 .jar{position:absolute;top:800px;left:50%;transform:translateX(-50%);width:500px;height:540px}
+.s1 .fall{position:absolute}
+.s1 .trail{position:absolute;width:6px;border-radius:3px;background:linear-gradient(180deg,transparent,rgba(255,236,170,.7))}
+.s1 .hbar{top:1396px}
+.s1 .swipe{position:absolute;top:1402px;left:90px;font:800 40px/1 'Changa';color:var(--cream)}
+
+/* ٢ المشكلة */
+.s2 h2{position:absolute;top:340px;right:80px;left:60px;font-size:100px;white-space:nowrap}
+.s2 h2 em{font-style:normal;color:var(--gold2)}
+.s2 .pola{position:absolute;top:520px;left:90px;width:470px;padding:18px 18px 70px;background:#fff;box-shadow:0 22px 40px rgba(13,27,69,.25);transform:rotate(-4deg)}
+.s2 .pola img{width:100%;height:330px;object-fit:cover;display:block;filter:saturate(.85)}
+.s2 .pola p{position:absolute;bottom:16px;right:0;left:0;text-align:center;font:700 30px 'IBM Plex Sans Arabic';color:var(--mu)}
+.s2 .pola:before{content:"";position:absolute;top:-20px;left:50%;width:140px;height:42px;background:rgba(246,185,59,.8);transform:translateX(-50%) rotate(3deg)}
+.s2 .side{position:absolute;top:560px;right:90px;width:400px}
+.s2 .side .big{font:800 150px/1 'Changa';color:var(--gold2);direction:ltr;text-align:right}
+.s2 .side .big small{font-size:56px;margin-right:8px}
+.s2 .side p{font:600 36px/1.45 'IBM Plex Sans Arabic';color:var(--ink);margin-top:10px}
+.s2 .week{position:absolute;top:1050px;right:90px;left:90px}
+.s2 .week .lab{display:flex;justify-content:space-between;font:700 28px 'IBM Plex Sans Arabic';color:var(--mu);margin-bottom:12px}
+.s2 .bar{display:flex;height:76px;border-radius:20px;overflow:hidden;background:#E8DFCB}
+.s2 .bar i{display:block;height:100%;border-left:3px solid var(--cream)}
+.s2 .bar i.w{flex:30;background:#D9CFB8}
+.s2 .legend{display:flex;flex-wrap:wrap;gap:12px 22px;margin-top:22px;font:600 27px 'IBM Plex Sans Arabic'}
+.s2 .legend span{display:inline-flex;align-items:center;gap:10px}
+.s2 .legend b{display:inline-block;width:24px;height:24px;border-radius:6px}
+.s2 .note{position:absolute;top:1330px;right:90px;left:90px;font:600 28px 'IBM Plex Sans Arabic';color:var(--mu)}
+
+/* ٣ الإيميل والاجتماعات */
+.s3 h2{position:absolute;top:340px;right:90px;left:90px;font-size:100px}
+.s3 h2 em{font-style:normal;color:var(--gold)}
+.s3 .row{position:absolute;right:80px;left:80px;display:flex;gap:34px;align-items:flex-start}
+.s3 .row .coin{flex:none;width:200px;height:200px}
+.s3 .row .coin b{font-size:80px}
+.s3 .row .tx{flex:1}
+.s3 .row .tx h3{font:800 58px/1.2 'Changa';color:var(--cream)}
+.s3 .row .tx .was{font:600 28px 'IBM Plex Sans Arabic';color:#9FB0E0;margin:6px 0 16px}
+.s3 .row .step{background:#1C2E66;color:var(--cream);margin-bottom:10px}
+.s3 .row .step.ok{background:var(--gold);color:var(--navy)}
+.s3 .sep{position:absolute;top:910px;right:90px;left:90px;height:3px;background:repeating-linear-gradient(90deg,#2E4380 0 18px,transparent 18px 30px)}
+.s3 .tools{position:absolute;top:1300px;right:90px;left:90px;display:flex;gap:16px;align-items:center;font:600 28px 'IBM Plex Sans Arabic';color:#9FB0E0}
+
+/* ٤ التقرير والعملاء */
+.s4 h2{position:absolute;top:340px;right:90px;left:90px;font-size:100px}
+.s4 h2 em{font-style:normal;color:var(--gold2)}
+.s4 .cal{position:absolute;top:540px;right:90px;width:600px;background:#fff;border-radius:28px;box-shadow:0 18px 36px rgba(13,27,69,.14);padding:24px 26px 26px}
+.s4 .cal .t{font:800 40px 'Changa';margin-bottom:14px}
+.s4 .days{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.s4 .days div{height:110px;border-radius:16px;background:#F3EEE2;font:700 26px 'IBM Plex Sans Arabic';color:var(--mu);padding:10px 12px}
+.s4 .days div.on{background:var(--navy);color:var(--cream);position:relative}
+.s4 .days div.on .mono{display:block;font-size:30px;color:var(--gold);margin-top:8px}
+.s4 .cal p{font:600 28px/1.45 'IBM Plex Sans Arabic';margin-top:16px;color:var(--ink)}
+.s4 .c1{position:absolute;top:590px;left:90px;width:200px;height:200px}
+.s4 .c1 b,.s4 .c2 b{font-size:80px}
+.s4 .chat{position:absolute;top:960px;left:90px;width:600px}
+.s4 .bb{max-width:520px;padding:16px 24px 18px;border-radius:26px;font:600 32px/1.45 'IBM Plex Sans Arabic';margin-bottom:14px;box-shadow:0 6px 14px rgba(13,27,69,.08)}
+.s4 .bb.q{background:#fff;border-top-right-radius:8px;margin-left:auto}
+.s4 .bb.a{background:var(--navy);color:var(--cream);border-top-left-radius:8px;margin-right:auto}
+.s4 .bb.h{background:#FFE3A1;color:var(--ink);border-top-left-radius:8px;margin-right:auto}
+.s4 .c2{position:absolute;top:990px;right:90px;width:200px;height:200px}
+.s4 .lab2{position:absolute;top:1215px;right:70px;width:240px;text-align:center;font:800 36px/1.25 'Changa'}
+
+/* ٥ الفواتير */
+.s5{background:radial-gradient(90% 60% at 50% 40%,#2A52B8 0%,var(--blue) 50%,var(--blue2) 100%);color:var(--cream)}
+.s5 .kick{background:var(--gold);color:var(--navy)}
+.s5 .pg{color:#fff}
+.s5 h2{position:absolute;top:340px;right:90px;left:90px;font-size:100px}
+.s5 h2 em{font-style:normal;color:var(--gold)}
+.s5 .pile{position:absolute;top:600px;right:110px;width:300px;height:360px}
+.s5 .inv{position:absolute;width:250px;height:320px;background:#fff;border-radius:10px;box-shadow:0 12px 24px rgba(0,0,0,.3);padding:22px}
+.s5 .inv i{display:block;height:10px;border-radius:5px;background:#D9DEEA;margin-bottom:14px}
+.s5 .inv i.s{width:55%}
+.s5 .inv .tot{position:absolute;bottom:22px;left:22px;font:800 26px 'JetBrains Mono';color:var(--ink);direction:ltr}
+.s5 .inv .pdf{position:absolute;top:18px;left:18px;padding:2px 10px;border-radius:6px;background:var(--red);color:#fff;font:800 20px 'Space Grotesk'}
+.s5 .to{position:absolute;top:740px;left:470px;font:800 70px 'Changa';color:var(--gold)}
+.s5 .table{position:absolute;top:600px;left:70px;width:400px;background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 16px 30px rgba(0,0,0,.3);color:var(--ink)}
+.s5 .table .r{display:grid;grid-template-columns:1.3fr 1fr 1fr;font:600 25px 'IBM Plex Sans Arabic';border-bottom:2px solid #EEF0F6}
+.s5 .table .r div{padding:16px 12px}
+.s5 .table .r.h{background:var(--navy);color:var(--cream);font-weight:700}
+.s5 .table .xl{display:flex;align-items:center;gap:10px;padding:14px 16px;font:800 24px 'Space Grotesk';color:#1D6F42}
+.s5 .coin{position:absolute;top:1010px;right:90px;width:200px;height:200px}
+.s5 .coin b{font-size:80px}
+.s5 .how{position:absolute;top:1010px;left:90px;width:620px}
+.s5 .how h3{font:800 54px/1.2 'Changa'}
+.s5 .how p{font:600 32px/1.5 'IBM Plex Sans Arabic';color:#D6E0FF;margin-top:10px}
+
+/* ٦ الخطأ والخطة */
+.s6 h2{position:absolute;top:340px;right:90px;left:90px;font-size:96px}
+.s6 h2 em{font-style:normal;color:var(--red)}
+.s6 .jar{position:absolute;top:560px;left:70px;width:380px;height:420px}
+.s6 .sum{position:absolute;top:990px;left:60px;width:400px;text-align:center}
+.s6 .sum b{display:block;font:800 64px/1.1 'Changa';color:var(--gold2)}
+.s6 .sum span{font:600 30px 'IBM Plex Sans Arabic';color:var(--mu)}
+.s6 .ladder{position:absolute;top:580px;right:90px;width:500px}
+.s6 .rung{display:flex;gap:20px;align-items:flex-start;margin-bottom:34px}
+.s6 .rung i{flex:none;width:76px;height:76px;border-radius:50%;background:var(--navy);color:var(--gold);display:grid;place-items:center;font:800 40px 'Changa';font-style:normal}
+.s6 .rung div b{display:block;font:800 40px/1.25 'Changa'}
+.s6 .rung div span{font:600 28px/1.45 'IBM Plex Sans Arabic';color:var(--mu)}
+.s6 .warn{position:absolute;top:1200px;right:90px;left:90px;padding:22px 30px;border-radius:24px;background:#FFE1DE;border:4px solid var(--red);font:700 32px/1.45 'IBM Plex Sans Arabic'}
+.s6 .warn b{color:var(--red)}
+
+/* ٧ المتابعة */
+.s7 .ring{position:absolute;top:330px;left:50%;transform:translateX(-50%);width:470px;height:470px}
+.s7 .ring .face{position:absolute;inset:34px;border-radius:50%;overflow:hidden;border:6px solid #F9D777}
+.s7 .ring .face img{width:100%;height:100%;object-fit:cover}
+.s7 .nm{position:absolute;top:850px;left:0;right:0;text-align:center;font:800 96px 'Changa';color:var(--cream)}
+.s7 .q{position:absolute;top:1000px;left:70px;right:70px;text-align:center}
+.s7 .q b{display:block;font:800 60px/1.3 'Changa';color:var(--gold)}
+.s7 .q span{display:block;font:600 36px/1.5 'IBM Plex Sans Arabic';color:#C9D6FF;margin-top:10px}
+.s7 .soc{position:absolute;top:1290px;left:0;right:0;display:flex;justify-content:center}
+.s7 .soc div{display:flex;gap:26px;align-items:center;padding:16px 32px;border-radius:999px;background:var(--cream);color:var(--navy);font:700 30px 'IBM Plex Sans Arabic'}
+</style>
+</head>
+<body>
+
+<!-- حصّالة زجاجية مشتركة (SVG) تُعاد في الغلاف والخلاصة -->
+<section class="slide s1" data-handles="off">
+  <div class="kick">أتمتة · الإنتاجية</div>
+  <h1 class="hd">وفّر <em>10 ساعات</em><span class="l2">كل أسبوع</span></h1>
+  <div class="sub">خمس مهام تسلّمها للذكاء الاصطناعي اليوم</div>
+  <svg class="jar" viewBox="0 0 520 560">
+    <defs>
+      <radialGradient id="cg" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#FFF0B8"/><stop offset=".35" stop-color="#F9C953"/><stop offset=".7" stop-color="#F0A925"/><stop offset="1" stop-color="#C98A0F"/></radialGradient>
+      <linearGradient id="gl" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".28"/><stop offset=".25" stop-color="#fff" stop-opacity=".05"/><stop offset=".8" stop-color="#fff" stop-opacity=".02"/><stop offset="1" stop-color="#fff" stop-opacity=".22"/></linearGradient>
+      <clipPath id="jc"><path d="M110 130 C70 150 60 200 60 260 L60 480 C60 520 90 545 130 545 L390 545 C430 545 460 520 460 480 L460 260 C460 200 450 150 410 130 Z"/></clipPath>
+      <g id="cn"><ellipse rx="62" ry="22" fill="#8F6008"/><ellipse cy="-9" rx="62" ry="22" fill="url(#cg)"/><ellipse cy="-9" rx="44" ry="14" fill="none" stroke="#B07A0C" stroke-width="3" stroke-dasharray="6 5"/></g>
+    </defs>
+    <g clip-path="url(#jc)">
+      <rect x="60" y="130" width="400" height="420" fill="rgba(255,255,255,.06)"/>
+      <use href="#cn" x="130" y="530"/><use href="#cn" x="250" y="535"/><use href="#cn" x="380" y="528"/>
+      <use href="#cn" x="185" y="500"/><use href="#cn" x="315" y="497"/><use href="#cn" x="110" y="478"/><use href="#cn" x="410" y="475"/>
+      <use href="#cn" x="245" y="468"/><use href="#cn" x="160" y="446"/><use href="#cn" x="350" y="444"/>
+      <use href="#cn" x="270" y="420"/><use href="#cn" x="130" y="418"/><use href="#cn" x="400" y="414"/><use href="#cn" x="210" y="392"/><use href="#cn" x="330" y="388"/>
+    </g>
+    <path d="M110 130 C70 150 60 200 60 260 L60 480 C60 520 90 545 130 545 L390 545 C430 545 460 520 460 480 L460 260 C460 200 450 150 410 130 Z" fill="url(#gl)" stroke="rgba(255,255,255,.75)" stroke-width="6"/>
+    <path d="M92 250 C92 210 100 180 118 166" stroke="rgba(255,255,255,.7)" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <rect x="120" y="92" width="280" height="46" rx="12" fill="#0D1B45" stroke="#F6B93B" stroke-width="5"/>
+    <rect x="215" y="104" width="90" height="12" rx="6" fill="#F6B93B"/>
+    <g transform="translate(260 300) rotate(-4)">
+      <rect x="-110" y="-56" width="220" height="112" rx="16" fill="#FFF4E0"/>
+      <text x="0" y="22" text-anchor="middle" font-family="Changa" font-weight="800" font-size="64" fill="#0D1B45">+10 س</text>
+    </g>
+  </svg>
+  <div class="trail" style="top:740px;left:672px;height:90px;opacity:.7"></div>
+  <div class="coin fall" style="top:800px;left:620px;width:110px;height:110px;transform:rotate(18deg)"><b style="font-size:46px">2</b></div>
+  <div class="trail" style="top:750px;left:390px;height:60px;opacity:.5"></div>
+  <div class="coin fall" style="top:780px;left:350px;width:86px;height:86px;transform:rotate(-14deg)"><b style="font-size:34px">2.5</b></div>
+  <div class="hbar">{{HANDLES}}</div>
+  <div class="swipe">اسحب ←</div>
+</section>
+
+<section class="slide s2 lite">
+  <div class="kick">أتمتة · الإنتاجية</div>
+  <div class="pg">2/7</div>
+  <h2 class="hd">وين يروح <em>أسبوعك؟</em></h2>
+  <div class="pola"><img src="assets/tasks.jpg" alt=""><p>نفس القائمة… كل أسبوع</p></div>
+  <div class="side">
+    <div class="big"><span class="en" style="font-family:Changa">10</span><small>ساعات</small></div>
+    <p>تروح على خمس مهام <b>تتكرر</b> بنفس الخطوات، وتقدر تتأتمت</p>
+  </div>
+  <div class="week">
+    <div class="lab"><span>أسبوع دوام: <span class="en">40</span> ساعة</span><span>والباقي لشغلك الحقيقي</span></div>
+    <div class="bar">
+      <i style="flex:2.5;background:#F6B93B"></i><i style="flex:1.5;background:#E89B1A"></i><i style="flex:2;background:#C98A0F"></i><i style="flex:2;background:#1B3A8C"></i><i style="flex:2;background:#0D1B45"></i><i class="w"></i>
+    </div>
+    <div class="legend">
+      <span><b style="background:#F6B93B"></b>الإيميلات <span class="mono">2.5</span></span>
+      <span><b style="background:#E89B1A"></b>محاضر الاجتماعات <span class="mono">1.5</span></span>
+      <span><b style="background:#C98A0F"></b>التقرير الأسبوعي <span class="mono">2</span></span>
+      <span><b style="background:#1B3A8C"></b>أسئلة العملاء <span class="mono">2</span></span>
+      <span><b style="background:#0D1B45"></b>إدخال الفواتير <span class="mono">2</span></span>
+    </div>
+  </div>
+  <div class="note">* تقدير لموظف مكتبي. احسب دقايقك أنت أسبوع واحد وبتنصدم.</div>
+</section>
+
+<section class="slide s3 dark" data-handles="light">
+  <div class="kick">أتمتة · الإنتاجية</div>
+  <div class="pg">3/7</div>
+  <h2 class="hd">الإيميل <em>والاجتماعات</em></h2>
+  <div class="row" style="top:560px">
+    <div class="coin"><b>+2.5</b><small>ساعة</small></div>
+    <div class="tx">
+      <h3>فرز الإيميلات والرد</h3>
+      <div class="was">قبل: <span class="mono">30</span> دقيقة كل يوم</div>
+      <span class="step">إيميل جديد</span><span class="arrow">←</span><span class="step">ملخص وتصنيف: عاجل · متابعة</span><span class="arrow">←</span><span class="step ok">مسودة رد تراجعها</span>
+    </div>
+  </div>
+  <div class="sep"></div>
+  <div class="row" style="top:950px">
+    <div class="coin"><b>+1.5</b><small>ساعة</small></div>
+    <div class="tx">
+      <h3>محاضر الاجتماعات</h3>
+      <div class="was">قبل: <span class="mono">3</span> اجتماعات × <span class="mono">30</span> دقيقة كتابة</div>
+      <span class="step">التفريغ النصي</span><span class="arrow">←</span><span class="step">القرارات والمهام ومسؤول كل مهمة</span><span class="arrow">←</span><span class="step ok">يوصل للفريق</span>
+    </div>
+  </div>
+  <div class="tools">بأدوات مثل <span class="tool"><img src="assets/zapier-text.svg" alt=""></span><span class="tool"><img src="assets/make-color.svg" alt=""><span>Make</span></span><span class="tool"><img src="assets/claude-color.svg" alt=""><span>Claude</span></span></div>
+</section>
+
+<section class="slide s4 lite">
+  <div class="kick">أتمتة · الإنتاجية</div>
+  <div class="pg">4/7</div>
+  <h2 class="hd">التقرير <em>والعملاء</em></h2>
+  <div class="cal">
+    <div class="t">التقرير الأسبوعي</div>
+    <div class="days"><div class="on">الأحد<span class="mono">8:00</span></div><div>الاثنين</div><div>الثلاثاء</div><div>الأربعاء</div><div>الخميس</div></div>
+    <p>مهمة مجدولة كل أحد: تقرأ شيت المبيعات وتطلع <b>3 نقاط ورسم</b> قبل ما توصل المكتب</p>
+  </div>
+  <div class="coin c1"><b>+2</b><small>ساعة</small></div>
+  <div class="coin c2"><b>+2</b><small>ساعة</small></div>
+  <div class="lab2">أسئلة العملاء المتكررة</div>
+  <div class="chat">
+    <div class="bb q">متى دوامكم يوم الجمعة؟</div>
+    <div class="bb a">من 4 العصر لين 11 بالليل ✓✓</div>
+    <div class="bb q">أبي أسترجع طلبي</div>
+    <div class="bb h">بحوّلك لزميلي الحين، لحظات ✓✓</div>
+  </div>
+</section>
+
+<section class="slide s5" data-handles="light">
+  <div class="kick">أتمتة · الإنتاجية</div>
+  <div class="pg">5/7</div>
+  <h2 class="hd">الفواتير: <em>من كومة لجدول</em></h2>
+  <div class="pile">
+    <div class="inv" style="top:30px;right:40px;transform:rotate(9deg)"><span class="pdf">PDF</span><i></i><i class="s"></i><i></i></div>
+    <div class="inv" style="top:14px;right:20px;transform:rotate(-5deg)"><span class="pdf">PDF</span><i></i><i class="s"></i><i></i></div>
+    <div class="inv" style="top:0;right:0;transform:rotate(2deg)"><span class="pdf">JPG</span><i style="margin-top:40px"></i><i class="s"></i><i></i><i class="s"></i><div class="tot">1,250 SAR</div></div>
+  </div>
+  <div class="to">←</div>
+  <div class="table">
+    <div class="r h"><div>المورد</div><div>المبلغ</div><div>التاريخ</div></div>
+    <div class="r"><div>مطبعة النور</div><div class="mono" style="font-size:24px">1,250</div><div class="mono" style="font-size:24px">10/03</div></div>
+    <div class="r"><div>مؤسسة الريم</div><div class="mono" style="font-size:24px">860</div><div class="mono" style="font-size:24px">10/05</div></div>
+    <div class="r"><div>شركة الوفرة</div><div class="mono" style="font-size:24px">2,400</div><div class="mono" style="font-size:24px">10/07</div></div>
+    <div class="xl"><svg width="30" height="30" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="18" rx="3" fill="#1D6F42"/><path d="M7 8l4 4-4 4M17 8l-4 4 4 4" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round"/></svg><span style="direction:ltr;unicode-bidi:isolate">invoices-oct.xlsx</span></div>
+  </div>
+  <div class="coin"><b>+2</b><small>ساعة</small></div>
+  <div class="how">
+    <h3>ارفعها واطلب جدول</h3>
+    <p>Claude يقرأ PDF والصور، ويطلع المورد والمبلغ والتاريخ. ملف Excel الجاهز يحتاج تفعيل «إنشاء الملفات».</p>
+  </div>
+</section>
+
+<section class="slide s6 lite">
+  <div class="kick">أتمتة · الإنتاجية</div>
+  <div class="pg">6/7</div>
+  <h2 class="hd">الخطأ: <em>تأتمت الخمس</em> مرة وحدة</h2>
+  <svg class="jar" viewBox="0 0 520 560">
+    <defs>
+      <clipPath id="jc2"><path d="M110 130 C70 150 60 200 60 260 L60 480 C60 520 90 545 130 545 L390 545 C430 545 460 520 460 480 L460 260 C460 200 450 150 410 130 Z"/></clipPath>
+      <radialGradient id="cg2" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#FFF0B8"/><stop offset=".35" stop-color="#F9C953"/><stop offset=".7" stop-color="#F0A925"/><stop offset="1" stop-color="#C98A0F"/></radialGradient>
+      <g id="cn2"><ellipse rx="62" ry="22" fill="#8F6008"/><ellipse cy="-9" rx="62" ry="22" fill="url(#cg2)"/><ellipse cy="-9" rx="44" ry="14" fill="none" stroke="#B07A0C" stroke-width="3" stroke-dasharray="6 5"/></g>
+    </defs>
+    <g clip-path="url(#jc2)">
+      <rect x="60" y="130" width="400" height="420" fill="#E9F0FF"/>
+      <use href="#cn2" x="130" y="530"/><use href="#cn2" x="250" y="535"/><use href="#cn2" x="380" y="528"/>
+      <use href="#cn2" x="185" y="500"/><use href="#cn2" x="315" y="497"/><use href="#cn2" x="110" y="478"/><use href="#cn2" x="410" y="475"/>
+      <use href="#cn2" x="245" y="468"/><use href="#cn2" x="160" y="446"/><use href="#cn2" x="350" y="444"/>
+      <use href="#cn2" x="270" y="420"/><use href="#cn2" x="130" y="418"/><use href="#cn2" x="400" y="414"/><use href="#cn2" x="210" y="392"/><use href="#cn2" x="330" y="388"/>
+      <use href="#cn2" x="160" y="366"/><use href="#cn2" x="290" y="362"/><use href="#cn2" x="390" y="350"/><use href="#cn2" x="225" y="338"/><use href="#cn2" x="120" y="342"/>
+      <use href="#cn2" x="330" y="318"/><use href="#cn2" x="180" y="310"/><use href="#cn2" x="270" y="292"/>
+    </g>
+    <path d="M110 130 C70 150 60 200 60 260 L60 480 C60 520 90 545 130 545 L390 545 C430 545 460 520 460 480 L460 260 C460 200 450 150 410 130 Z" fill="none" stroke="#0D1B45" stroke-width="7"/>
+    <path d="M92 250 C92 210 100 180 118 166" stroke="#fff" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <rect x="120" y="92" width="280" height="46" rx="12" fill="#0D1B45"/>
+    <rect x="215" y="104" width="90" height="12" rx="6" fill="#F6B93B"/>
+  </svg>
+  <div class="sum"><b>10 ساعات</b><span>= يوم دوام كامل وزيادة</span></div>
+  <div class="ladder">
+    <div class="rung"><i>١</i><div><b>اختر مهمة وحدة</b><span>أكثر وحدة تاكل وقتك هالأسبوع</span></div></div>
+    <div class="rung"><i>٢</i><div><b>قِس دقايقها</b><span>كم تاخذ منك قبل الأتمتة؟</span></div></div>
+    <div class="rung"><i>٣</i><div><b>أتمتها وقارن</b><span>وبعدها انتقل للي بعدها</span></div></div>
+  </div>
+  <div class="warn"><b>تذكّر:</b> الأتمتة تسوّي المسودة، وأنت تراجع. لا تخلّيها ترسل باسمك بدون مراجعة.</div>
+</section>
+
+<section class="slide s7 dark" data-handles="off">
+  <div class="ring">
+    <div class="coin" style="position:absolute;inset:0"></div>
+    <div class="face"><img src="{{AVATAR}}" alt=""></div>
+  </div>
+  <div class="nm">علي التميمي</div>
+  <div class="q"><b>أي مهمة تاكل وقتك أكثر؟</b><span>اكتبها بالتعليقات، وأقولك كيف تتأتمت</span></div>
+  <div class="soc"><div>{{HANDLES}}</div></div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<style>
+:root{--surf:#D5F1F6;--aqua:#8FD3E3;--deep:#06364A;--abyss:#04212E;--ink:#082A36;--bait:#FF8A1F;--red:#E5383B;--safe:#12B886;--foam:#F4FBFD;--mu:#4A6772}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;font-family:'IBM Plex Sans Arabic',sans-serif;-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1920px;position:relative;overflow:hidden;direction:rtl;color:var(--ink)}
+.hd{font-family:'Cairo';font-weight:900}
+.en{font-family:'Space Grotesk';font-weight:700;direction:ltr;unicode-bidi:isolate}
+.tag{position:absolute;top:250px;right:80px;padding:8px 26px 12px;border-radius:40px;background:var(--ink);color:#fff;font:700 30px 'IBM Plex Sans Arabic';z-index:3}
+.pg{position:absolute;top:262px;left:80px;font:700 28px 'Space Grotesk';color:var(--mu);direction:ltr;z-index:3}
+/* ماء: انعكاسات ضوء وفقاعات */
+.water:before{content:"";position:absolute;inset:0;background:
+  radial-gradient(40% 6% at 30% 12%,rgba(255,255,255,.35),transparent 70%),
+  radial-gradient(30% 5% at 75% 22%,rgba(255,255,255,.25),transparent 70%),
+  radial-gradient(35% 5% at 55% 34%,rgba(255,255,255,.18),transparent 70%);pointer-events:none}
+.bub{position:absolute;border-radius:50%;border:3px solid rgba(255,255,255,.55);background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.55),rgba(255,255,255,.05) 60%)}
+
+/* ١ الغلاف */
+.s1{background:linear-gradient(180deg,#E6F8FB 0%,var(--surf) 30%,var(--aqua) 70%,#5FBCD0 100%)}
+.s1 h1{position:absolute;top:322px;right:76px;left:40px;font-size:112px;line-height:1.3;color:var(--ink);white-space:nowrap}
+.s1 h1 small{display:block;font-size:92px;line-height:1.3;color:var(--red)}
+.s1 .sub{position:absolute;top:640px;right:80px;width:500px;font:700 40px/1.5 'IBM Plex Sans Arabic';color:var(--ink)}
+.s1 .sub b{color:var(--deep);background:linear-gradient(transparent 60%,rgba(255,138,31,.55) 60%)}
+.s1 .hero{position:absolute;top:575px;left:60px;height:1010px;filter:drop-shadow(0 40px 50px rgba(6,54,74,.35))}
+.s1 .hbar{position:absolute;top:1408px;right:80px;display:flex;gap:26px;align-items:center;padding:12px 28px;border-radius:14px;background:var(--ink);color:#fff;font:700 28px 'IBM Plex Sans Arabic'}
+.s1 .swipe{position:absolute;top:1300px;right:80px;font:900 52px/1 'Cairo';color:var(--deep)}
+
+/* ٢ المشكلة */
+.s2{background:linear-gradient(180deg,var(--aqua) 0%,#4FB3C8 100%)}
+.s2 h2{position:absolute;top:318px;right:80px;left:60px;font-size:112px;line-height:1.25}
+.s2 .pol{position:absolute;top:560px;right:90px;width:500px;height:640px;background:#fff;padding:18px 18px 70px;transform:rotate(3deg);box-shadow:0 30px 50px rgba(6,54,74,.35)}
+.s2 .pol img{width:100%;height:100%;object-fit:cover;object-position:40% 45%}
+.s2 .pol .blur{position:absolute;left:150px;top:300px;width:90px;height:56px;border-radius:12px;backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px)}
+.s2 .pol span{position:absolute;bottom:14px;right:24px;font:700 30px 'IBM Plex Sans Arabic';color:var(--mu)}
+.s2 .par{position:absolute;top:640px;left:40px;height:600px;filter:drop-shadow(0 30px 40px rgba(6,54,74,.35))}
+.s2 .q{position:absolute;top:1238px;right:80px;left:80px;font:700 44px/1.5 'IBM Plex Sans Arabic';color:var(--ink)}
+.s2 .q b{color:var(--red)}
+
+/* ٣ التشريح */
+.s3{background:var(--foam)}
+.s3 h2{position:absolute;top:318px;right:80px;left:60px;font-size:112px;line-height:1.25}
+.s3 .hook{position:absolute;top:330px;left:-20px;height:400px;opacity:.95;transform:rotate(-8deg)}
+.s3 .sms{position:absolute;top:560px;right:80px;left:160px;padding:30px 40px 36px;border-radius:44px 44px 44px 12px;background:#E9EAEE;font:600 42px/1.65 'IBM Plex Sans Arabic';color:#16181C}
+.s3 .sms .mk{position:relative;padding:0 4px;border-radius:8px}
+.s3 .sms .m1{background:rgba(255,138,31,.32)}
+.s3 .sms .m2{background:rgba(229,56,59,.22)}
+.s3 .sms .m3{background:rgba(255,138,31,.32)}
+.s3 .sms .lnk{display:block;margin-top:8px;color:#1A73E8;text-decoration:underline;font:700 36px 'Space Grotesk';direction:ltr;text-align:left;background:rgba(229,56,59,.18);border-radius:8px;padding:0 8px}
+.s3 .n{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--red);color:#fff;font:700 26px/1 'Space Grotesk';vertical-align:middle;margin:0 6px}
+.s3 .sms .snd{position:absolute;top:-46px;right:20px;font:700 28px 'IBM Plex Sans Arabic';color:var(--mu)}
+.s3 .sigs{position:absolute;top:1040px;right:80px;left:80px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.s3 .sig{display:flex;gap:16px;align-items:flex-start;padding:20px 22px;border-radius:22px;background:#fff;box-shadow:0 10px 24px rgba(6,54,74,.12);font:700 32px/1.4 'IBM Plex Sans Arabic'}
+.s3 .sig .n{flex:none;margin:2px 0 0}
+.s3 .sig i{display:block;font:600 26px/1.4 'IBM Plex Sans Arabic';font-style:normal;color:var(--mu)}
+
+/* ٤ القاعدة */
+.s4{background:linear-gradient(180deg,#0B5A73 0%,var(--deep) 60%,var(--abyss) 100%);color:#fff}
+.s4 .tag{background:#fff;color:var(--ink)}.s4 .pg{color:#8FC3D2}
+.s4 h2{position:absolute;top:326px;right:80px;left:40px;font-size:92px;line-height:1.3;white-space:nowrap}
+.s4 h2 em{font-style:normal;color:var(--safe)}
+.s4 .img{position:absolute;top:470px;left:40px;width:640px;filter:drop-shadow(0 30px 50px rgba(0,0,0,.45))}
+.s4 .pts{position:absolute;top:510px;right:80px;width:360px;display:flex;flex-direction:column;gap:22px}
+.s4 .pt{font:700 36px/1.45 'IBM Plex Sans Arabic'}
+.s4 .pt b{display:block;font:900 40px/1.3 'Cairo';color:var(--safe);margin-bottom:6px}
+.s4 .note{position:absolute;top:1230px;right:80px;left:80px;display:flex;gap:18px;align-items:center;padding:20px 28px;border-radius:22px;background:rgba(255,255,255,.1);border:2px solid rgba(18,184,134,.6);font:700 34px/1.45 'IBM Plex Sans Arabic'}
+.s4 .note svg{flex:none;width:58px;height:58px}
+
+/* ٥ البلاغ */
+.s5{background:linear-gradient(180deg,var(--deep) 0%,var(--abyss) 100%);color:#fff}
+.s5 .tag{background:#fff;color:var(--ink)}.s5 .pg{color:#8FC3D2}
+.s5 h2{position:absolute;top:318px;right:80px;left:60px;font-size:104px;line-height:1.25}
+.s5 .num{position:absolute;top:470px;right:80px;font:700 150px/1 'Space Grotesk';color:var(--bait);direction:ltr;letter-spacing:4px;text-shadow:0 0 50px rgba(255,138,31,.45)}
+.s5 .free{position:absolute;top:660px;right:80px;width:470px;font:700 36px/1.5 'IBM Plex Sans Arabic';color:#D5ECF2}
+.s5 .free b{color:#fff}
+.s5 .img{position:absolute;top:500px;left:60px;height:760px;filter:drop-shadow(0 30px 50px rgba(0,0,0,.5))}
+.s5 .steps{position:absolute;top:960px;right:80px;width:470px;display:flex;flex-direction:column;gap:16px}
+.s5 .st{display:flex;gap:16px;align-items:center;padding:14px 20px;border-radius:18px;background:rgba(255,255,255,.08);font:700 32px/1.35 'IBM Plex Sans Arabic'}
+.s5 .st .c{flex:none;display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--bait);color:var(--ink);font:700 26px 'Space Grotesk'}
+.s5 .src{position:absolute;top:1318px;right:80px;left:80px;font:600 26px 'IBM Plex Sans Arabic';color:#8FC3D2}
+
+/* ٦ ضغطت؟ */
+.s6{background:linear-gradient(180deg,var(--surf) 0%,#BDE9F1 100%)}
+.s6 h2{position:absolute;top:326px;right:80px;left:40px;font-size:88px;line-height:1.3;white-space:nowrap}
+.s6 h2 em{font-style:normal;color:var(--red)}
+.s6 .buoy{position:absolute;top:440px;left:-60px;width:560px;transform:rotate(-8deg);filter:drop-shadow(0 26px 40px rgba(6,54,74,.3))}
+.s6 .list{position:absolute;top:510px;right:80px;width:560px;display:flex;flex-direction:column;gap:20px}
+.s6 .it{display:flex;gap:18px;align-items:flex-start;padding:22px 24px;border-radius:24px;background:#fff;box-shadow:0 12px 28px rgba(6,54,74,.14);font:700 36px/1.4 'IBM Plex Sans Arabic'}
+.s6 .it span{flex:none;display:grid;place-items:center;width:54px;height:54px;border-radius:50%;background:var(--red);color:#fff;font:700 30px 'Space Grotesk'}
+.s6 .it i{display:block;font:600 28px/1.4 'IBM Plex Sans Arabic';font-style:normal;color:var(--mu)}
+.s6 .myth{position:absolute;top:1100px;right:80px;left:80px;padding:22px 30px;border-radius:24px;background:var(--ink);color:#fff;font:700 36px/1.45 'IBM Plex Sans Arabic'}
+.s6 .myth b{color:var(--bait)}
+
+/* ٧ المتابعة */
+.s7{background:radial-gradient(70% 40% at 50% 40%,#0B5A73 0%,var(--deep) 55%,var(--abyss) 100%);color:#fff}
+.s7 .tag{background:#fff;color:var(--ink)}.s7 .pg{color:#8FC3D2}
+.s7 h2{position:absolute;top:318px;right:80px;left:60px;text-align:center;font-size:96px;line-height:1.3}
+.s7 .ring{position:absolute;top:600px;left:50%;width:480px;height:480px;margin-left:-240px;border-radius:50%;background:conic-gradient(var(--red) 0 45deg,#F5F7FA 45deg 90deg,var(--red) 90deg 135deg,#F5F7FA 135deg 180deg,var(--red) 180deg 225deg,#F5F7FA 225deg 270deg,var(--red) 270deg 315deg,#F5F7FA 315deg 360deg);box-shadow:0 30px 60px rgba(0,0,0,.45)}
+.s7 .face{position:absolute;top:66px;left:66px;width:348px;height:348px;border-radius:50%;overflow:hidden;background:var(--bait)}
+.s7 .face img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.s7 .nm{position:absolute;top:1098px;left:0;right:0;text-align:center;font:900 92px/1.2 'Cairo'}
+.s7 .ds{position:absolute;top:1216px;left:0;right:0;text-align:center;font:700 34px 'IBM Plex Sans Arabic';color:#BFE3EC}
+.s7 .soc{position:absolute;top:1280px;left:0;right:0;display:flex;justify-content:center}
+.s7 .soc>div{display:flex;gap:26px;align-items:center;padding:12px 30px;border-radius:14px;background:#fff;color:var(--ink);font:700 30px 'IBM Plex Sans Arabic'}
+.s7 .ask{position:absolute;top:1362px;left:60px;right:60px;text-align:center;font:700 40px/1.4 'IBM Plex Sans Arabic';color:var(--bait)}
+</style>
+</head>
+<body>
+
+<!-- ١ الغلاف -->
+<section class="slide s1 water">
+  <div class="bub" style="top:300px;left:120px;width:46px;height:46px"></div>
+  <div class="bub" style="top:390px;left:200px;width:26px;height:26px"></div>
+  <div class="bub" style="top:1180px;right:120px;width:60px;height:60px"></div>
+  <div class="bub" style="top:1090px;right:240px;width:30px;height:30px"></div>
+  <div class="tag">تقنية · رسائل الاحتيال</div>
+  <h1 class="hd">«طردك متوقف»؟<small>هذا طُعم… لا تعضّه</small></h1>
+  <img class="hero" src="assets/hero.png" alt="">
+  <div class="sub">رسالة توصلك لك ولآلاف غيرك… والرابط فيها <b>خطّاف</b></div>
+  <div class="swipe">اسحب ←</div>
+  <div class="hbar">{{HANDLES}}</div>
+</section>
+
+<!-- ٢ المشكلة -->
+<section class="slide s2 water">
+  <div class="tag">تقنية · رسائل الاحتيال</div>
+  <div class="pg">2/7</div>
+  <h2 class="hd">كلنا ننتظر طرد…</h2>
+  <div class="pol"><img src="assets/courier.jpg" alt=""><i class="blur"></i><span>والمحتال يعرف هذا</span></div>
+  <img class="par" src="assets/parcel.png" alt="">
+  <div class="q">يرسل نفس الرسالة لآلاف الأرقام، ويكفيه <b>واحد يضغط</b>. وأول علامة: رسالة عن طرد <b>ما طلبته</b>.</div>
+</section>
+
+<!-- ٣ التشريح -->
+<section class="slide s3">
+  <img class="hook" src="assets/hook.png" alt="">
+  <div class="tag">تقنية · رسائل الاحتيال</div>
+  <div class="pg">3/7</div>
+  <h2 class="hd">شرّح الطُعم</h2>
+  <div class="sms">
+    <div class="snd">رسالة نصية · مثال</div>
+    عميلنا العزيز، <span class="mk m1">طردك متوقف</span><span class="n">1</span> في المستودع بسبب عنوان غير مكتمل. ادفع رسوم <span class="mk m3">9.50 ريال</span><span class="n">3</span> <span class="mk m2">خلال 24 ساعة</span><span class="n">2</span> عبر الرابط:
+    <span class="lnk">parcel-fee.example/sa <span class="n">4</span></span>
+  </div>
+  <div class="sigs">
+    <div class="sig"><span class="n">1</span><div>طرد ما طلبته<i>أو ما كنت تتوقعه</i></div></div>
+    <div class="sig"><span class="n">2</span><div>استعجال<i>عشان ما تلحق تفكّر</i></div></div>
+    <div class="sig"><span class="n">3</span><div>مبلغ صغير يطمّنك<i>والهدف بيانات بطاقتك</i></div></div>
+    <div class="sig"><span class="n">4</span><div>رابط غريب<i>مو الموقع الرسمي</i></div></div>
+  </div>
+</section>
+
+<!-- ٤ القاعدة -->
+<section class="slide s4">
+  <div class="tag">تقنية · رسائل الاحتيال</div>
+  <div class="pg">4/7</div>
+  <h2 class="hd">لا تضغط… <em>روح للمصدر</em></h2>
+  <img class="img" src="assets/safe.png" alt="">
+  <div class="pts">
+    <div class="pt"><b>افتحه بنفسك</b>التطبيق أو الموقع الرسمي، وتتبّع شحنتك من هناك</div>
+    <div class="pt"><b>مثال: سبل</b>الدفع بس من تطبيق سبل أونلاين أو موقعهم الرسمي</div>
+  </div>
+  <div class="note"><svg viewBox="0 0 58 58"><rect x="9" y="25" width="40" height="27" rx="7" fill="#12B886"/><path d="M17 25v-6a12 12 0 0124 0v6" fill="none" stroke="#12B886" stroke-width="6"/></svg><span>رمز التحقق <span class="en">(OTP)</span> لك أنت بس… لا تعطيه أحد</span></div>
+</section>
+
+<!-- ٥ البلاغ -->
+<section class="slide s5">
+  <div class="tag">تقنية · رسائل الاحتيال</div>
+  <div class="pg">5/7</div>
+  <h2 class="hd">بلّغ بثانية</h2>
+  <div class="num">330330</div>
+  <div class="free">أعد توجيه الرسالة لهالرقم. <b>خدمة مجانية</b> من هيئة الاتصالات والفضاء والتقنية، من أي مشغّل</div>
+  <img class="img" src="assets/report.png" alt="">
+  <div class="steps">
+    <div class="st"><span class="c">1</span>اضغط مطوّل على الرسالة ← إعادة توجيه</div>
+    <div class="st"><span class="c">2</span>أرسلها إلى <span class="en" style="color:#FF8A1F;font-size:34px">330330</span></div>
+    <div class="st"><span class="c">3</span>احظر الرقم واحذف الرسالة</div>
+  </div>
+</section>
+
+<!-- ٦ ضغطت؟ -->
+<section class="slide s6 water">
+  <div class="tag">تقنية · رسائل الاحتيال</div>
+  <div class="pg">6/7</div>
+  <h2 class="hd">ضغطت ودفعت؟ <em>بسرعة</em></h2>
+  <img class="buoy" src="assets/buoy.png" alt="">
+  <div class="list">
+    <div class="it"><span>1</span><div>كلّم بنكك فوراً<i>وأوقف البطاقة</i></div></div>
+    <div class="it"><span>2</span><div>غيّر كلمات المرور<i>اللي دخلتها، وفعّل التحقق بخطوتين</i></div></div>
+    <div class="it"><span>3</span><div>راقب كشف حسابك<i>الأيام الجاية</i></div></div>
+  </div>
+  <div class="myth"><b>«المبلغ صغير، عادي»؟</b> المبلغ مو الهدف… الهدف رقم بطاقتك ورمز التحقق.</div>
+</section>
+
+<!-- ٧ المتابعة -->
+<section class="slide s7" data-handles="off">
+  <div class="bub" style="top:620px;left:110px;width:50px;height:50px"></div>
+  <div class="bub" style="top:760px;left:170px;width:26px;height:26px"></div>
+  <div class="bub" style="top:900px;right:120px;width:40px;height:40px"></div>
+  <div class="tag">تقنية · رسائل الاحتيال</div>
+  <div class="pg">7/7</div>
+  <h2 class="hd">أرسلها لأهلك…<br>قبل لا يعضّون الطُعم</h2>
+  <div class="ring"><div class="face"><img src="{{AVATAR}}" alt=""></div></div>
+  <div class="nm">علي التميمي</div>
+  <div class="ds">كل يوم معلومة تقنية تحميك</div>
+  <div class="soc"><div>{{HANDLES}}</div></div>
+  <div class="ask">وصلتك رسالة مثلها؟ وش كان مكتوب فيها؟</div>
+</section>
+
+</body>
+</html>
