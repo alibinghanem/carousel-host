@@ -28,10 +28,18 @@ HERE = pathlib.Path(__file__).parent
 # للإجبار: --tools / --classic / --tech · --video / --carousel · --date=YYYY-MM-DD (للتجربة)
 _START = datetime.date(2026, 10, 1)
 _TECH_START = datetime.date(2026, 10, 26)
+#  • من 2026-11-21 (طلب المستخدم 2026-11-20): «الغ الفيديوهات، أبي الكاروسيل بس، بمواضيع أكثر تأثير وتصميم أوضح».
+#    كل الأيام كاروسيل، والبنك يدور بنمط من 4 أيام: تقنية · أدوات · تقنية · أتمتة
+#    (التقنية تاخذ نص الأيام لأنها الأقرب لعامة الناس: احتيال، أمان، جوال، فلوس).
+_CAROUSEL_ONLY = datetime.date(2026, 11, 21)
+_CYCLE = ["tech", "tools", "tech", "classic"]
 
 
 def schedule(day):
     """(bank, format) لتاريخ معيّن."""
+    c = (day - _CAROUSEL_ONLY).days
+    if c >= 0:
+        return _CYCLE[c % len(_CYCLE)], "carousel"
     d = (day - _START).days
     if d < 0:  # قبل الجدول الجديد: تناوب البنك اليومي القديم، والكل كاروسيل
         bank = "tools" if day.toordinal() % 2 == datetime.date(2026, 9, 26).toordinal() % 2 else "classic"
@@ -131,7 +139,7 @@ def main():
 
     used = set(st["used"])
     remaining = [(i, t) for i, t in enumerate(topics) if t["id"] not in used]
-    # الأهم أولاً (طلب المستخدم: مواضيع تجذب الاهتمام): الأولوية 4 ثم 3 ثم 2 ثم 1، وداخل كل أولوية بترتيب البنك
+    # الأهم أولاً (طلب المستخدم: مواضيع تجذب الاهتمام وتأثيرها أكبر): الأولوية 5 ثم 4 ثم 3…، وداخل كل أولوية بترتيب البنك
     remaining.sort(key=lambda it: (-it[1].get("priority", 2), it[0]))
     if not remaining:                      # انتهى البنك — دورة جديدة بتصاميم جديدة
         st["cycle"] += 1
