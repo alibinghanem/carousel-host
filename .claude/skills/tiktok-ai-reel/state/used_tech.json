@@ -14,7 +14,8 @@
   "k039",
   "k005",
   "k007",
-  "k008"
+  "k008",
+  "k041"
  ],
  "log": [
   {
@@ -129,6 +130,14 @@
    "id": "k008",
    "cycle": 0,
    "format": "video",
+   "style": "—",
+   "accent": "—"
+  },
+  {
+   "date": "2026-11-21",
+   "id": "k041",
+   "cycle": 0,
+   "format": "carousel",
    "style": "—",
    "accent": "—"
   }
