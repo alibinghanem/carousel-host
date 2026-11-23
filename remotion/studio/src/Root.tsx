@@ -45,6 +45,7 @@ import { SheetFlow, SHEETFLOW_FRAMES } from "./videos/SheetFlow";
 import { SecKit, SECKIT_FRAMES } from "./videos/SecKit";
 import { WifiKit, WIFIKIT_FRAMES } from "./videos/WifiKit";
 import { WaKit, WAKIT_FRAMES } from "./videos/WaKit";
+import { BankKit, BANKKIT_FRAMES } from "./videos/BankKit";
 import { AgentTeam, AGENT_TEAM_FRAMES } from "./videos/AgentTeam";
 import { Souq, SOUQ_FRAMES } from "./videos/Souq";
 import { AgentGauges, AGENT_GAUGES_FRAMES } from "./videos/AgentGauges";
@@ -105,6 +106,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="QrScam" component={QrScam} width={1080} height={1920} fps={30} durationInFrames={QRSCAM_FRAMES} />
     <Composition id="SheetFlow" component={SheetFlow} width={1080} height={1920} fps={30} durationInFrames={SHEETFLOW_FRAMES} />
     <Composition id="WaKit" component={WaKit} width={1080} height={1080} fps={30} durationInFrames={WAKIT_FRAMES} />
+    <Composition id="BankKit" component={BankKit} width={1080} height={1080} fps={30} durationInFrames={BANKKIT_FRAMES} />
     <Composition id="WifiKit" component={WifiKit} width={1080} height={1080} fps={30} durationInFrames={WIFIKIT_FRAMES} />
     <Composition id="SecKit" component={SecKit} width={1080} height={1080} fps={30} durationInFrames={SECKIT_FRAMES} />
     <Composition id="AliAd" component={AliAd} width={1080} height={1920} fps={30} durationInFrames={ALI_AD_FRAMES} />
