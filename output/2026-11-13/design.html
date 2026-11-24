@@ -1,0 +1,130 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><style>:root{--nav:#0B1220;--nav2:#14233F;--red:#E5352B;--grn:#1FBF73;--yel:#FFC933;--st:#E9EEF4;--mu:#5A6578;--bl:#0866FF}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;font-family:'IBM Plex Sans Arabic',sans-serif;-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1920px;position:relative;overflow:hidden;direction:rtl;color:var(--nav);background:radial-gradient(90% 55% at 50% 38%,#F7F9FC 0%,var(--st) 70%,#D9E1EA 100%)}
+.hd{font-family:'Changa';font-weight:800}
+.en{font-family:'Space Grotesk';font-weight:700;direction:ltr;unicode-bidi:isolate;white-space:nowrap}
+.tag{position:absolute;top:252px;right:80px;padding:8px 26px 12px;border-radius:40px;background:var(--red);color:#fff;font:700 30px 'IBM Plex Sans Arabic';z-index:3}
+.pg{position:absolute;top:264px;left:80px;font:700 28px 'Space Grotesk';color:var(--mu);direction:ltr;z-index:3}
+h2{position:absolute;top:322px;right:80px;left:40px;font-size:100px;line-height:1.3;white-space:nowrap}
+h2 em,h1 em{font-style:normal;color:var(--red)}
+.ruler{position:absolute;top:478px;right:80px;left:80px;height:70px}
+.ruler .ticks{position:absolute;inset:34px 0 0 0;display:flex;justify-content:space-between;direction:rtl;border-top:4px solid var(--nav);font:700 24px 'Space Grotesk';color:var(--mu);padding-top:6px}
+.ruler .seg{position:absolute;top:0;height:34px;background:var(--red);border-radius:10px;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(229,53,43,.4)}
+.ruler .seg b{font:700 24px 'IBM Plex Sans Arabic'}
+.note{position:absolute;right:70px;left:70px;font:600 25px/1.4 'IBM Plex Sans Arabic';color:var(--mu);text-align:center}
+.tip{position:absolute;right:70px;left:70px;padding:16px 26px 20px;border-radius:24px;background:var(--nav);color:#fff;font:700 30px/1.5 'IBM Plex Sans Arabic'}
+.steps{position:absolute;top:985px;left:60px;right:60px;display:flex;flex-direction:column;gap:14px}
+.st{display:flex;gap:16px;align-items:flex-start;padding:12px 20px 16px;border-radius:22px;background:#fff;box-shadow:0 10px 24px rgba(11,18,32,.12);font:700 28px/1.42 'IBM Plex Sans Arabic'}
+.st b{color:var(--red)}
+.st small{font:600 20px 'IBM Plex Sans Arabic';color:var(--mu)}
+.st .n{flex:none;display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--nav);color:#fff;font:700 24px 'Space Grotesk'}
+.st.w{background:#FFF1F0;border:2px solid var(--red)}
+.st.w .n{background:var(--red)}
+.ph{position:absolute;top:570px;left:50%;height:390px;width:auto;transform:translateX(-50%)}
+
+/* ١ */
+.s1{background:radial-gradient(80% 55% at 50% 50%,#1D3560 0%,var(--nav2) 50%,var(--nav) 100%);color:#fff}
+.s1 .bgph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.22;mix-blend-mode:screen}
+.s1 .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,18,32,.8) 0%,rgba(11,18,32,.1) 45%,rgba(11,18,32,.75) 100%)}
+.s1 .tag{background:var(--yel);color:var(--nav)}
+.s1 h1{position:absolute;top:322px;right:76px;left:30px;font-size:100px;line-height:1.28;white-space:nowrap;text-shadow:0 8px 40px rgba(0,0,0,.5)}
+.s1 h1 em{display:block;color:var(--yel);font-size:90px}
+.s1 .hero{position:absolute;top:640px;left:50%;width:640px;margin-left:-320px}
+.s1 .sub{position:absolute;top:1290px;right:70px;left:70px;text-align:center;font:700 40px 'IBM Plex Sans Arabic'}
+.s1 .sub b{color:var(--yel)}
+.s1 .swipe{position:absolute;top:1398px;left:80px;padding:6px 22px 12px;border-radius:30px;background:rgba(11,18,32,.85);font:800 40px/1 'Changa';color:var(--yel)}
+.s1 .hbar{position:absolute;top:1404px;right:80px;display:flex;gap:26px;align-items:center;padding:12px 28px;border-radius:14px;background:rgba(11,18,32,.85);border:2px solid rgba(255,255,255,.22);color:#fff;font:700 28px 'IBM Plex Sans Arabic'}
+
+/* ٢ */
+.s2 .ph{top:560px;left:auto;right:auto;transform:none;left:40px;height:auto;width:360px}
+.s2 .pol{position:absolute;top:580px;right:70px;width:560px;height:400px;background:#fff;padding:14px 14px 58px;transform:rotate(2deg);box-shadow:0 24px 50px rgba(11,18,32,.3)}
+.s2 .pol img{width:100%;height:100%;object-fit:cover}
+.s2 .pol span{position:absolute;bottom:12px;right:22px;font:700 26px 'IBM Plex Sans Arabic';color:#333}
+.s2 .signs{position:absolute;top:1030px;right:70px;left:70px;display:flex;flex-direction:column;gap:12px}
+.s2 .sg{padding:12px 22px 16px;border-radius:20px;background:#fff;box-shadow:0 8px 20px rgba(11,18,32,.1);font:700 27px/1.45 'IBM Plex Sans Arabic';display:flex;gap:14px;align-items:flex-start}
+.s2 .sg i{flex:none;margin-top:10px;width:16px;height:16px;border-radius:50%;background:var(--red)}
+.s2 .sg b{color:var(--red)}
+.s2 .note{top:1370px;font-size:23px}
+
+/* ٣ */
+.s3 .tip{top:1318px;font-size:28px}
+/* ٤ */
+.s4 .cards{position:absolute;top:975px;left:60px;right:60px;display:flex;flex-direction:column;gap:14px}
+.s4 .cd{display:flex;gap:16px;align-items:flex-start;padding:16px 20px 20px;border-radius:22px;background:#fff;box-shadow:0 10px 24px rgba(11,18,32,.12);font:600 27px/1.5 'IBM Plex Sans Arabic'}
+.s4 .cd img{flex:none;width:54px;height:54px}
+.s4 .cd b{display:block;font-size:30px;color:var(--nav)}
+.s4 .cd .en{font-size:25px;color:var(--bl)}
+.s4 .tip{top:1255px;font-size:28px}
+.s4 .note{top:1352px}
+.s4 .ph{height:370px}
+/* ٥ */
+.s5 .tip,.s6 .tip{top:1325px;font-size:27px}
+
+/* ٧ */
+.s7{background:radial-gradient(80% 55% at 50% 40%,#1D3560 0%,var(--nav2) 50%,var(--nav) 100%);color:#fff}
+.s7 .tag{background:var(--yel);color:var(--nav)}
+.s7 h2{right:60px;left:60px;text-align:center;font-size:90px}
+.s7 h2 em{color:var(--yel)}
+.s7 .ring{position:absolute;top:640px;left:50%;width:440px;height:440px;margin-left:-220px;border-radius:50%;background:conic-gradient(var(--red),var(--yel),var(--grn),var(--red));box-shadow:0 0 70px rgba(255,201,51,.3)}
+.s7 .face{position:absolute;top:16px;left:16px;width:408px;height:408px;border-radius:50%;overflow:hidden;background:var(--nav)}
+.s7 .face img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.s7 .nm{position:absolute;top:1110px;left:0;right:0;text-align:center;font:800 90px/1.2 'Changa'}
+.s7 .ds{position:absolute;top:1235px;left:0;right:0;text-align:center;font:700 34px 'IBM Plex Sans Arabic';color:#B7C2D6}
+.s7 .soc{position:absolute;top:1292px;left:0;right:0;display:flex;justify-content:center}
+.s7 .soc>div{display:flex;gap:26px;align-items:center;padding:12px 30px;border-radius:14px;background:#fff;color:var(--nav);font:700 30px 'IBM Plex Sans Arabic'}
+.s7 .ask{position:absolute;top:1368px;left:50px;right:50px;text-align:center;font:700 34px/1.4 'IBM Plex Sans Arabic';color:var(--yel)}
+.st small{display:block}
+</style></head><body><section class="slide s1"><div class="tag">تقنية · حساب مسروق</div>
+<img class="bgph" src="assets/lockkb.jpg" alt="" data-safe="ignore"><div class="veil" data-safe="ignore"></div>
+<h1 class="hd">حسابك انخترق؟<em>هذا اللي تسويه الحين</em></h1>
+<img class="hero" src="assets/s0.png" alt="">
+<div class="sub">أول <b>10 دقايق</b> تفرق… بالترتيب</div>
+<div class="swipe">اسحب ←</div><div class="hbar">{{HANDLES}}</div></section><section class="slide s2"><div class="tag">تقنية · حساب مسروق</div><div class="pg">2/7</div>
+<h2 class="hd">وش <em>العلامات؟</em></h2>
+<img class="ph" src="assets/s1.png" alt="">
+<div class="pol"><img src="assets/lockkb.jpg" alt=""><span>لا تتجاهل التنبيه</span></div>
+<div class="signs">
+ <div class="sg"><i></i>كلمة المرور أو رقم الاسترداد <b>تغيّر</b> وإنت ما غيّرته <span class="en">(Google)</span></div>
+ <div class="sg"><i></i>تنبيه <b>تسجيل دخول جديد</b> من جهاز أو مدينة ما تعرفها</div>
+ <div class="sg"><i></i>رسائل أو منشورات <b>ما كتبتها</b> طلعت باسمك</div>
+ <div class="sg"><i></i>ما عاد <b>تقدر تدخل</b> لحسابك</div>
+</div>
+<div class="note">الترتيب والتوقيت (10 دقايق) مقترح للتنظيم، مو من الشركات</div></section><section class="slide s3"><div class="tag">تقنية · حساب مسروق</div><div class="pg">3/7</div>
+<h2 class="hd">غيّر <em>كلمة المرور</em></h2><div class="ruler"><div class="seg" style="right:0%;width:30%"><b>0–3 د</b></div><div class="ticks"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div></div>
+<img class="ph" src="assets/s2.png" alt="">
+<div class="steps">
+ <div class="st"><span class="n">1</span><div>ادخل الحساب (لو ما انقفل عنك) وغيّر كلمة المرور لكلمة <b>جديدة قوية وفريدة</b></div></div>
+ <div class="st"><span class="n">2</span><div>ابدأ بـ<b>الإيميل</b> أول: هو اللي يفتح استرداد باقي حساباتك <small>(نصيحة عامة)</small></div></div>
+ <div class="st"><span class="n">3</span><div>لا تعيد <b>نفس الكلمة</b> في أي حساب ثاني</div></div>
+</div>
+<div class="tip">لو دخلت مكان ثاني بنفس الكلمة القديمة، غيّرها هناك الحين</div></section><section class="slide s4"><div class="tag">تقنية · حساب مسروق</div><div class="pg">4/7</div>
+<h2 class="hd">اطرد <em>الغريب</em></h2><div class="ruler"><div class="seg" style="right:30%;width:30%"><b>3–6 د</b></div><div class="ticks"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div></div>
+<img class="ph" src="assets/s3.png" alt="">
+<div class="cards">
+ <div class="cd"><img src="assets/google.svg" alt=""><div><b class="en">Google</b>افتح <span class="en">Your devices</span>، ولو لقيت جهاز ما تعرفه اختر <span class="en">Don't recognize a device?</span></div></div>
+ <div class="cd"><img src="assets/facebook.svg" alt=""><div><b class="en">Facebook</b>ابدأ من <span class="en">facebook.com/hacked</span> واتبع الخطوات، وراجع تسجيلات الدخول</div></div>
+</div>
+<div class="tip">راجع أيضاً النشاط الأخير: كل جهاز أو مكان ما تعرفه… يطلع</div>
+<div class="note">المسميات تختلف حسب الإصدار واللغة</div></section><section class="slide s5"><div class="tag">تقنية · حساب مسروق</div><div class="pg">5/7</div>
+<h2 class="hd">قفّل الباب <em>بخطوتين</em></h2><div class="ruler"><div class="seg" style="right:60%;width:20%"><b>6–8 د</b></div><div class="ticks"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div></div>
+<img class="ph" src="assets/s4.png" alt="">
+<div class="steps">
+ <div class="st"><span class="n">1</span><div>فعّل <b>التحقق بخطوتين</b> <span class="en">(2-Step Verification)</span>: Google توصي فيه بعد ما ترجع حسابك</div></div>
+ <div class="st"><span class="n">2</span><div>للحماية الأعلى: <b>برنامج الحماية المتقدمة</b> من Google، ويحتاج <b>مفتاح أمان</b></div></div>
+ <div class="st"><span class="n">3</span><div>راجع <b>رقم الاسترداد</b> والإيميل البديل والتطبيقات المتصلة: هل غيّرها المخترق؟</div></div>
+</div>
+<div class="tip">مو كل الخيارات متاحة بكل حساب، شوف إعدادات الأمان عندك</div></section><section class="slide s6"><div class="tag">تقنية · حساب مسروق</div><div class="pg">6/7</div>
+<h2 class="hd">لو <em>انقفل عنك؟</em></h2><div class="ruler"><div class="seg" style="right:80%;width:20%"><b>8–10 د</b></div><div class="ticks"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div></div>
+<img class="ph" src="assets/s5.png" alt="">
+<div class="steps">
+ <div class="st"><span class="n">1</span><div><b class="en">Google</b>: صفحة الاسترداد تسألك أسئلة تثبت إنه حسابك، وبعدها تعيّن كلمة جديدة</div></div>
+ <div class="st"><span class="n">2</span><div><b class="en">Facebook</b>: من <span class="en">facebook.com/hacked</span>، وجهّز هويتك لو طلبوها <small>(حسب أدلة ثانوية)</small></div></div>
+ <div class="st w"><span class="n">!</span><div>لا تدفع لأحد يوعدك <b>«يسترجع» حسابك</b>، ونبّه أصدقاءك إن حسابك مخترق</div></div>
+</div>
+<div class="tip">وإذا كان في الحساب بطاقة أو دفع: كلّم بنكك فوراً</div></section><section class="slide s7" data-handles="off"><div class="tag">تقنية · حساب مسروق</div><div class="pg">7/7</div>
+<h2 class="hd">أسرع تصرّف<br><em>يوقف الخسارة</em></h2>
+<div class="ring"><div class="face"><img src="{{AVATAR}}" alt=""></div></div>
+<div class="nm">علي التميمي</div><div class="ds">كل يوم معلومة تقنية تهمّك</div>
+<div class="soc"><div>{{HANDLES}}</div></div>
+<div class="ask">أرسلها لأحد حسابه ما عليه تحقق بخطوتين 👇</div></section></body></html>

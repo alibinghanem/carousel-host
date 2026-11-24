@@ -1,0 +1,141 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><style>:root{--wine:#5B1230;--deep:#240814;--ink:#2A1020;--cream:#FBF4E8;--mus:#F4C430;--gr:#1F8A52;--red:#D1344B;--mu:#6B5560;--rose:#E7B6C2}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;font-family:'IBM Plex Sans Arabic',sans-serif;-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1920px;position:relative;overflow:hidden;direction:rtl;color:var(--ink);background:radial-gradient(90% 50% at 50% 40%,#FFFFFF 0%,var(--cream) 60%,#F2E4D2 100%)}
+.tag{position:absolute;top:252px;right:80px;display:flex;align-items:center;gap:12px;padding:8px 26px 12px 20px;border-radius:40px;background:var(--wine);color:#fff;font:700 30px 'IBM Plex Sans Arabic';z-index:3}
+.tag img{width:36px;height:36px}
+.pg{position:absolute;top:262px;left:80px;font:700 30px 'Space Grotesk';color:var(--mu);direction:ltr;z-index:3}
+h2{position:absolute;top:330px;right:80px;left:80px;font:700 110px/1.18 'El Messiri',sans-serif;z-index:2}
+h2 em{font-style:normal;color:var(--red)}
+.vis{position:absolute;top:600px;left:80px;right:80px;height:470px;display:flex;align-items:center;justify-content:center}
+.txt{position:absolute;top:1100px;left:80px;right:80px;height:290px;display:flex;flex-direction:column;justify-content:center;gap:14px}
+.big{font:800 44px/1.4 'IBM Plex Sans Arabic';text-align:center}
+.big b{color:var(--red)}
+.sm{font:600 30px/1.45 'IBM Plex Sans Arabic';text-align:center;color:var(--mu)}
+.row{display:flex;align-items:center;gap:20px;background:#fff;border-radius:24px;padding:12px 24px 16px;box-shadow:0 10px 24px rgba(42,16,32,.1);font:700 34px/1.35 'IBM Plex Sans Arabic'}
+.row .n{flex:none;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:var(--wine);color:#fff;font:800 32px 'Space Grotesk'}
+.row b{color:var(--red)}
+.row.g .n{background:var(--gr)}
+.lbl{font:600 26px 'IBM Plex Sans Arabic';color:var(--mu);text-align:center;margin-top:8px}
+/* drawn CV */
+.cv{background:#fff;border-radius:14px;padding:0;box-shadow:0 26px 46px rgba(42,16,32,.28);width:380px;overflow:hidden;direction:rtl}
+.cv .top{background:var(--wine);color:#fff;padding:16px 20px 20px;display:flex;gap:14px;align-items:center}
+.cv .top i{width:52px;height:52px;border-radius:50%;background:var(--rose);display:block;flex:none}
+.cv .top b{font:800 30px 'IBM Plex Sans Arabic';display:block;line-height:1.2}
+.cv .top span{font:600 24px 'IBM Plex Sans Arabic';color:var(--rose)}
+.cv .bd{padding:16px 20px 20px;display:flex;flex-direction:column;gap:12px}
+.cv .ln{height:14px;border-radius:7px;background:#E7DED6}
+.cv .ln.s{width:70%}.cv .ln.m{width:86%}
+.cv .hl{height:22px;border-radius:6px;background:var(--mus);width:62%}
+.cv h6{font:800 26px 'IBM Plex Sans Arabic';color:var(--wine)}
+.ad{background:var(--deep);color:#fff;border-radius:14px;width:340px;padding:18px 20px 22px;box-shadow:0 26px 46px rgba(42,16,32,.3);direction:rtl}
+.ad h6{font:800 28px 'IBM Plex Sans Arabic';color:var(--mus);margin-bottom:10px}
+.ad p{font:600 26px/1.5 'IBM Plex Sans Arabic';color:#E8DCE0}
+.ad mark{background:var(--mus);color:var(--deep);padding:0 8px 4px;border-radius:6px;font-weight:800}
+.tape{height:70px;background:var(--mus);border-radius:10px;position:relative;box-shadow:0 10px 22px rgba(0,0,0,.25);background-image:repeating-linear-gradient(90deg,transparent 0 17px,rgba(42,16,32,.7) 17px 19px);background-size:100% 26px;background-repeat:no-repeat}
+/* 1 */
+.s1{background:radial-gradient(90% 55% at 50% 45%,#8A2150 0%,var(--wine) 48%,var(--deep) 100%);color:#fff}
+.s1 .tag{background:var(--cream);color:var(--wine)}
+.s1 h1{position:absolute;top:330px;right:80px;left:50px;font:700 100px/1.2 'El Messiri',sans-serif}
+.s1 h1 em{font-style:normal;color:var(--mus)}
+.s1 .stage{position:absolute;top:700px;left:0;right:0;height:560px}
+.s1 .cv{position:absolute;right:200px;top:30px;width:540px;transform:rotate(-5deg)}
+.s1 .ad{position:absolute;left:40px;top:260px;transform:rotate(5deg);width:410px}
+.s1 .tape{position:absolute;left:60px;right:60px;top:560px;transform:rotate(-2deg)}
+.s1 .ok{position:absolute;right:120px;top:0;width:150px;height:150px;border-radius:50%;background:var(--gr);display:grid;place-items:center;font:900 96px/1 'Space Grotesk';color:#fff;border:10px solid var(--cream);box-shadow:0 14px 30px rgba(0,0,0,.35);z-index:4;padding-bottom:8px}
+.s1 .swipe{position:absolute;top:1404px;left:80px;padding:8px 24px 12px;border-radius:30px;background:var(--mus);font:800 34px/1 'IBM Plex Sans Arabic';color:var(--deep)}
+.s1 .hbar{position:absolute;top:1404px;right:80px;display:flex;gap:26px;align-items:center;padding:12px 28px;border-radius:14px;background:var(--cream);color:var(--ink);font:700 28px 'IBM Plex Sans Arabic'}
+/* 2 */
+.s2 .vis{gap:30px;justify-content:space-between}
+.s2 .ph{width:470px;height:470px;border-radius:32px;overflow:hidden;box-shadow:0 20px 40px rgba(42,16,32,.25)}
+.s2 .ph img{width:100%;height:100%;object-fit:cover;object-position:80% 60%;transform:scale(1.25);transform-origin:70% 60%}
+.s2 .ques{flex:1;display:flex;flex-direction:column;gap:14px;align-items:center;text-align:center}
+.s2 .ques .x{font:700 190px/0.9 'El Messiri';color:var(--red)}
+.s2 .ques .w{font:800 42px/1.3 'IBM Plex Sans Arabic'}
+/* 3 */
+.s3 .vis{gap:22px}
+.s3 .plus{flex:none;width:90px;height:90px;border-radius:50%;background:var(--wine);color:#fff;display:grid;place-items:center;font:900 64px/1 'Space Grotesk';padding-bottom:8px}
+.s3 .cv{width:330px}.s3 .ad{width:330px}
+/* 4 */
+.pc{width:100%;background:var(--deep);color:#fff;border-radius:34px;padding:34px 40px 40px;box-shadow:0 22px 40px rgba(42,16,32,.3)}
+.pc .lab{display:inline-flex;align-items:center;gap:10px;background:var(--mus);color:var(--deep);padding:4px 26px 10px 20px;border-radius:24px;font:800 34px 'IBM Plex Sans Arabic';margin-bottom:16px}
+.pc .lab img{width:34px;height:34px}
+.pc p{font:700 44px/1.6 'IBM Plex Sans Arabic'}
+.pc p mark{background:none;color:var(--mus)}
+.pc p u{text-decoration:none;color:#FF8FA3}
+/* 5 */
+.s5 .vis{gap:26px;align-items:center;padding:14px 0}
+.s5 .card{flex:1;min-height:340px;background:#fff;border-radius:26px;padding:20px 22px 24px;box-shadow:0 14px 28px rgba(42,16,32,.14);display:flex;flex-direction:column;gap:14px;position:relative}
+.s5 .card .h{font:800 40px 'IBM Plex Sans Arabic'}
+.s5 .card .l{font:600 36px/1.5 'IBM Plex Sans Arabic'}
+.s5 .card.no{border:6px solid var(--red)}
+.s5 .card.ok{border:6px solid var(--gr)}
+.s5 .card .st{align-self:flex-start;color:#fff;font:800 30px 'IBM Plex Sans Arabic';padding:2px 20px 8px;border-radius:20px}
+.s5 .no .st{background:var(--red)}.s5 .ok .st{background:var(--gr)}
+.s5 .card mark{background:var(--mus);padding:0 6px 3px;border-radius:6px}
+/* 6 */
+.s6 .list{position:absolute;top:610px;left:80px;right:80px;display:flex;flex-direction:column;gap:22px}
+.s6 .ck{display:flex;align-items:center;gap:26px;background:#fff;border-radius:28px;padding:24px 30px 28px;box-shadow:0 12px 26px rgba(42,16,32,.1);font:800 42px/1.3 'IBM Plex Sans Arabic'}
+.s6 .ck i{flex:none;width:76px;height:76px;border-radius:20px;background:var(--gr);display:grid;place-items:center;font:900 48px 'Space Grotesk';color:#fff;font-style:normal}
+.s6 .save{position:absolute;top:1300px;left:80px;right:80px;text-align:center;font:800 36px 'IBM Plex Sans Arabic';color:var(--red)}
+/* 7 */
+.s7{background:radial-gradient(90% 55% at 50% 40%,#8A2150 0%,var(--wine) 50%,var(--deep) 100%);color:#fff}
+.s7 .tag{background:var(--cream);color:var(--wine)}
+.s7 .pg{color:#E7B6C2}
+.s7 h2{text-align:center;color:#fff}
+.s7 h2 em{color:var(--mus)}
+.s7 .ring{position:absolute;top:640px;left:50%;width:400px;height:400px;margin-left:-200px;border-radius:50%;background:var(--mus);box-shadow:0 0 0 16px rgba(244,196,48,.25),0 0 80px rgba(244,196,48,.3)}
+.s7 .face{position:absolute;top:14px;left:14px;width:372px;height:372px;border-radius:50%;overflow:hidden;background:var(--deep)}
+.s7 .face img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.s7 .nm{position:absolute;top:1080px;left:0;right:0;text-align:center;font:700 96px/1.15 'El Messiri',sans-serif}
+.s7 .ds{position:absolute;top:1200px;left:0;right:0;text-align:center;font:700 34px 'IBM Plex Sans Arabic';color:#F0D9E0}
+.s7 .ask{position:absolute;top:1262px;left:60px;right:60px;text-align:center;font:800 40px/1.4 'IBM Plex Sans Arabic';color:var(--mus)}
+.s7 .soc{position:absolute;top:1340px;left:0;right:0;display:flex;justify-content:center}
+.s7 .soc>div{display:flex;gap:26px;align-items:center;padding:12px 30px;border-radius:14px;background:var(--cream);color:var(--ink);font:700 30px 'IBM Plex Sans Arabic'}
+</style></head><body><section class="slide s1"><div class="tag"><img src="assets/claude-color.svg" alt="">أدوات · Claude سيرة ذاتية</div>
+<h1>سيرتك تنقبل؟<br><em>فصّلها على الإعلان</em></h1>
+<div class="stage"><div class="ok">✓</div><div class="cv"><div class="top"><i></i><div><b>اسمك هنا</b><span>مسمّاك الوظيفي</span></div></div>
+<div class="bd"><h6>الخبرات</h6><div class="ln m"></div><div class="hl"></div><div class="ln s"></div><h6>المهارات</h6><div class="hl" style="width:48%"></div><div class="ln m"></div></div></div><div class="ad"><h6>إعلان الوظيفة</h6><p>مطلوب <mark>مسؤول مبيعات</mark> بخبرة في <mark>خدمة العملاء</mark> و<mark>التفاوض</mark>.</p></div><div class="tape"></div></div>
+<div class="swipe">اسحب ←</div><div class="hbar">{{HANDLES}}</div></section><section class="slide s2"><div class="tag"><img src="assets/claude-color.svg" alt="">أدوات · Claude سيرة ذاتية</div><div class="pg">2/7</div>
+<h2>سيرة وحدة<br><em>لكل الوظائف؟</em></h2>
+<div class="vis"><div class="ph"><img src="assets/desk.jpg" alt=""></div>
+ <div class="ques"><div class="x">؟</div><div class="w">كل إعلان<br>له كلماته</div></div></div>
+<div class="txt">
+ <div class="row"><span class="n">1</span><span>ترسل <b>نفس السيرة</b> لكل إعلان</span></div>
+ <div class="row"><span class="n">2</span><span>كلمات الإعلان <b>ما تلقاها</b> فيها</span></div>
+ <div class="row g"><span class="n">3</span><span>Claude <b style="color:#1F8A52">يفصّلها</b> لك في دقيقة</span></div>
+</div></section><section class="slide s3"><div class="tag"><img src="assets/claude-color.svg" alt="">أدوات · Claude سيرة ذاتية</div><div class="pg">3/7</div>
+<h2>الصق الإعلان<br><em>وسيرتك</em></h2>
+<div class="vis"><div class="cv"><div class="top"><i></i><div><b>اسمك هنا</b><span>مسمّاك الوظيفي</span></div></div>
+<div class="bd"><h6>الخبرات</h6><div class="ln m"></div><div class="hl"></div><div class="ln s"></div><h6>المهارات</h6><div class="hl" style="width:48%"></div><div class="ln m"></div></div></div><div class="plus">+</div><div class="ad"><h6>إعلان الوظيفة</h6><p>مطلوب <mark>مسؤول مبيعات</mark> بخبرة في <mark>خدمة العملاء</mark> و<mark>التفاوض</mark>.</p></div></div>
+<div class="txt">
+ <div class="big">انسخ النص أو <b>ارفع الملف</b> (PDF أو Word)</div>
+ <div class="sm">احذف رقم الهوية وبياناتك الحساسة قبل الإرسال</div>
+</div></section><section class="slide s4"><div class="tag"><img src="assets/claude-color.svg" alt="">أدوات · Claude سيرة ذاتية</div><div class="pg">4/7</div>
+<h2>قلها كذا<br><em>بدون اختلاق</em></h2>
+<div class="vis"><div class="pc"><span class="lab"><img src="assets/claude-color.svg" alt="">انسخ الطلب</span>
+<p>عدّل سيرتي لتناسب هذا الإعلان. استخدم <mark>كلمات الإعلان المهمة</mark> ورتّب الخبرات الأقرب أولاً. <u>لا تضف أي خبرة أو رقم غير موجود في سيرتي.</u></p></div></div>
+<div class="txt">
+ <div class="big">الجملة الأخيرة <b>أهم جملة</b></div>
+ <div class="sm">بدونها قد يضيف لك شي ما سويته</div>
+</div></section><section class="slide s5"><div class="tag"><img src="assets/claude-color.svg" alt="">أدوات · Claude سيرة ذاتية</div><div class="pg">5/7</div>
+<h2>راجع قبل<br><em>ما ترسلها</em></h2>
+<div class="vis"><div class="card no"><span class="st">✗ احذفها</span><div class="h">خبرة ما سويتها</div><div class="l">«أدرت فريقاً من 20 موظفاً»</div></div>
+<div class="card ok"><span class="st">✓ خلّها</span><div class="h">كلمة من الإعلان</div><div class="l">«خدمة العملاء» بدل <mark>«التعامل مع الناس»</mark></div></div></div>
+<div class="txt">
+ <div class="big">قارن كل سطر <b>بسيرتك الأصلية</b></div>
+ <div class="sm">واطلب منه: «اذكر لي كل تغيير سويته». مثال توضيحي.</div>
+</div></section><section class="slide s6"><div class="tag"><img src="assets/claude-color.svg" alt="">أدوات · Claude سيرة ذاتية</div><div class="pg">6/7</div>
+<h2>احفظ<br><em>قائمة التقديم</em></h2>
+<div class="list">
+ <div class="ck"><i>✓</i>الصق الإعلان كاملاً</div>
+ <div class="ck"><i>✓</i>اكتب «لا تضف خبرة جديدة»</div>
+ <div class="ck"><i>✓</i>راجع كل تغيير بنفسك</div>
+ <div class="ck"><i>✓</i>سيرة مفصّلة لكل وظيفة</div>
+</div>
+<div class="save">اضغط حفظ 🔖 قبل تقديمك القادم</div></section><section class="slide s7" data-handles="off"><div class="tag"><img src="assets/claude-color.svg" alt="">أدوات · Claude سيرة ذاتية</div><div class="pg">7/7</div>
+<h2>وظيفتك<br><em>تبدأ بسيرة تناسبها</em></h2>
+<div class="ring"><div class="face"><img src="{{AVATAR}}" alt=""></div></div>
+<div class="nm">علي التميمي</div><div class="ds">كل يوم أداة أو فكرة تختصر وقتك</div>
+<div class="ask">وش الوظيفة اللي تتقدم لها؟ 👇</div>
+<div class="soc"><div>{{HANDLES}}</div></div></section></body></html>

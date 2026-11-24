@@ -1,0 +1,137 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><style>:root{--ink:#0B1B3F;--sky:#6FD3FF;--blue:#1E6BFF;--grn:#14C97E;--org:#FF9A1F;--red:#F2493A;--cyan:#1FB6E8;--bg:#EAF4FF;--mu:#53668C}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;font-family:'IBM Plex Sans Arabic',sans-serif;-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1920px;position:relative;overflow:hidden;direction:rtl;color:var(--ink);background:radial-gradient(90% 55% at 50% 38%,#F7FBFF 0%,var(--bg) 70%,#D8E8FA 100%)}
+.slide::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(30,107,255,.10) 3px,transparent 3.5px);background-size:48px 48px;pointer-events:none}
+.rb{font-family:'Rubik',sans-serif;font-weight:800}
+.en{font-family:'Space Grotesk';font-weight:700;direction:ltr;unicode-bidi:isolate;white-space:nowrap}
+.tag{position:absolute;top:252px;right:80px;padding:8px 26px 12px;border-radius:40px;background:var(--blue);color:#fff;font:700 30px 'IBM Plex Sans Arabic';z-index:3}
+.pg{position:absolute;top:264px;left:80px;font:700 28px 'Space Grotesk';color:var(--mu);direction:ltr;z-index:3}
+h2{position:absolute;top:318px;right:80px;left:50px;font:800 94px/1.28 'Rubik',sans-serif;white-space:nowrap;z-index:2}
+h2 em{font-style:normal;color:var(--blue)}
+.note{position:absolute;right:70px;left:70px;font:600 24px/1.4 'IBM Plex Sans Arabic';color:var(--mu);text-align:center}
+img{display:block}
+
+/* 1 */
+.s1{background:linear-gradient(180deg,#8FE0FF 0%,#3E9BFF 45%,#1E5BFF 100%);color:#fff}
+.s1::before{background-image:radial-gradient(rgba(255,255,255,.18) 3px,transparent 3.5px)}
+.s1 .tag{background:#fff;color:var(--blue)}
+.s1 h1{position:absolute;top:312px;right:70px;left:30px;font:800 118px/1.2 'Rubik',sans-serif;color:#fff;white-space:nowrap;text-shadow:0 8px 30px rgba(11,27,63,.35)}
+.s1 h1 em{font-style:normal;color:#0B1B3F;background:#FFE27A;padding:0 20px 8px;border-radius:18px;display:inline-block;transform:rotate(-1.5deg);text-shadow:none}
+.s1 .hero{position:absolute;top:740px;left:50%;width:960px;margin-left:-480px;filter:drop-shadow(0 30px 40px rgba(11,27,63,.4))}
+.s1 .sub{position:absolute;top:1330px;right:70px;left:70px;text-align:center;font:700 40px 'IBM Plex Sans Arabic'}
+.s1 .sub b{color:#FFE27A}
+.s1 .swipe{position:absolute;top:1398px;left:80px;padding:6px 22px 12px;border-radius:30px;background:rgba(11,27,63,.85);font:800 38px/1 'Rubik',sans-serif;color:#FFE27A}
+.s1 .hbar{position:absolute;top:1404px;right:80px;display:flex;gap:26px;align-items:center;padding:12px 28px;border-radius:14px;background:rgba(255,255,255,.96);color:var(--ink);font:700 28px 'IBM Plex Sans Arabic'}
+
+/* 2 */
+.s2 .ph{position:absolute;top:630px;right:80px;left:80px;height:380px;border-radius:30px;overflow:hidden;border:6px solid #fff;box-shadow:0 22px 44px rgba(11,27,63,.25)}
+.s2 .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 55%}
+.s2 .ph .cap{position:absolute;bottom:18px;right:20px;padding:8px 22px 12px;border-radius:16px;background:rgba(11,27,63,.88);color:#fff;font:700 30px 'IBM Plex Sans Arabic'}
+.s2 .row{position:absolute;top:1040px;right:80px;left:80px;display:flex;flex-direction:column;gap:12px}
+.s2 .ch{display:flex;gap:20px;align-items:center;padding:12px 22px 16px;border-radius:22px;background:#fff;box-shadow:0 8px 20px rgba(11,27,63,.1);font:700 31px/1.35 'IBM Plex Sans Arabic'}
+.s2 .ch i{flex:none;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;color:#fff;font:800 30px 'Rubik';font-style:normal}
+.s2 .ch small{display:block;font:600 24px 'IBM Plex Sans Arabic';color:var(--mu)}
+
+/* 3 */
+.pn{position:absolute;right:80px;left:80px;height:320px;border-radius:30px;background:#fff;box-shadow:0 14px 30px rgba(11,27,63,.14);display:flex;align-items:center;gap:22px;padding:18px 26px;border:4px solid transparent}
+.pn.bad{border-color:var(--red)}
+.pn.ok{border-color:var(--grn)}
+.pn img{flex:none;height:250px;width:auto;max-width:480px}
+.pn .tx{flex:1;font:700 31px/1.5 'IBM Plex Sans Arabic'}
+.pn .tx b.r{color:var(--red)}
+.pn .tx b.g{color:var(--grn)}
+.pn .st{display:inline-block;padding:2px 18px 6px;border-radius:12px;color:#fff;font:800 32px 'Rubik';margin-bottom:8px}
+.s3 .p1{top:630px}
+.s3 .p2{top:985px}
+.s3 .note{top:1330px}
+
+/* 4 */
+.s4 .big{position:absolute;top:630px;right:80px;left:80px;height:480px;border-radius:30px;background:linear-gradient(180deg,#fff,#E6F1FF);box-shadow:0 14px 30px rgba(11,27,63,.14);display:flex;align-items:center;justify-content:center}
+.s4 .big img{width:900px}
+.s4 .cs{position:absolute;top:1130px;right:80px;left:80px;display:flex;gap:16px}
+.s4 .c{flex:1;padding:14px 16px 18px;border-radius:22px;background:#fff;box-shadow:0 8px 20px rgba(11,27,63,.12);font:600 25px/1.45 'IBM Plex Sans Arabic'}
+.s4 .c b{display:block;font:800 34px 'Rubik';margin-bottom:6px}
+.s4 .note{top:1370px}
+
+/* 5 */
+.s5 .l{position:absolute;top:640px;right:80px;width:420px;height:520px;border-radius:30px;background:#fff;box-shadow:0 14px 30px rgba(11,27,63,.14);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;padding:20px}
+.s5 .l img{width:380px}
+.s5 .l span{font:700 26px 'IBM Plex Sans Arabic';color:var(--mu);text-align:center}
+.s5 .bd{position:absolute;left:80px;width:440px;border-radius:26px;background:#fff;padding:18px 22px 22px;box-shadow:0 12px 26px rgba(11,27,63,.14);font:600 27px/1.45 'IBM Plex Sans Arabic'}
+.s5 .bd h5{font:800 46px 'Space Grotesk';direction:ltr;margin-bottom:6px}
+.s5 .b1{top:640px;border-top:10px solid var(--org)}
+.s5 .b1 h5{color:#D97800}
+.s5 .b2{top:900px;border-top:10px solid var(--cyan)}
+.s5 .b2 h5{color:#0A8FBF}
+.s5 .tip{position:absolute;top:1215px;right:80px;left:80px;padding:18px 28px 22px;border-radius:22px;background:var(--ink);color:#fff;font:700 31px/1.5 'IBM Plex Sans Arabic'}
+.s5 .tip b{color:#FFE27A}
+.s5 .note{top:1370px}
+
+/* 6 */
+.s6 .lst{position:absolute;top:630px;right:80px;left:80px;display:flex;flex-direction:column;gap:12px}
+.s6 .it{display:flex;gap:18px;align-items:flex-start;padding:14px 20px 18px;border-radius:22px;background:#fff;box-shadow:0 8px 20px rgba(11,27,63,.1);font:700 30px/1.42 'IBM Plex Sans Arabic'}
+.s6 .it .n{flex:none;display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--blue);color:#fff;font:800 26px 'Rubik';margin-top:2px}
+.s6 .it b{color:var(--blue)}
+.s6 .mesh{position:absolute;top:1180px;right:80px;left:80px;height:215px;border-radius:26px;background:#fff;box-shadow:0 12px 26px rgba(11,27,63,.14);display:flex;align-items:center;gap:20px;padding:12px 22px}
+.s6 .mesh img{flex:none;height:170px;width:auto}
+.s6 .mesh div{font:700 29px/1.5 'IBM Plex Sans Arabic'}
+.s6 .mesh b{color:var(--grn)}
+
+/* 7 */
+.s7{background:linear-gradient(180deg,#1E5BFF 0%,#3E9BFF 55%,#8FE0FF 100%);color:#fff}
+.s7::before{background-image:radial-gradient(rgba(255,255,255,.18) 3px,transparent 3.5px)}
+.s7 .tag{background:#fff;color:var(--blue)}
+.s7 h2{text-align:center;right:60px;left:60px;font-size:92px;color:#fff}
+.s7 h2 em{color:#FFE27A}
+.s7 .ring{position:absolute;top:640px;left:50%;width:380px;height:380px;margin-left:-190px;border-radius:50%;box-shadow:0 0 0 14px rgba(255,255,255,.35),0 0 0 34px rgba(255,255,255,.2),0 0 0 56px rgba(255,255,255,.1);background:#fff}
+.s7 .face{position:absolute;top:12px;left:12px;width:356px;height:356px;border-radius:50%;overflow:hidden}
+.s7 .face img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.s7 .nm{position:absolute;top:1090px;left:0;right:0;text-align:center;font:800 92px/1.2 'Rubik',sans-serif}
+.s7 .ds{position:absolute;top:1210px;left:0;right:0;text-align:center;font:700 34px 'IBM Plex Sans Arabic';color:#E4F4FF}
+.s7 .ask{position:absolute;top:1268px;left:60px;right:60px;text-align:center;font:700 38px/1.45 'IBM Plex Sans Arabic';color:#FFE27A}
+.s7 .soc{position:absolute;top:1352px;left:0;right:0;display:flex;justify-content:center}
+.s7 .soc>div{display:flex;gap:26px;align-items:center;padding:12px 30px;border-radius:14px;background:#fff;color:var(--ink);font:700 30px 'IBM Plex Sans Arabic'}
+</style></head><body><section class="slide s1"><div class="tag">تقنية · الواي فاي</div>
+<h1>الواي فاي ضعيف<br><em>في غرفتك؟</em></h1>
+<img class="hero" src="assets/w0.png" alt="">
+<div class="sub">غيّر <b>مكان الراوتر</b>… وشوف الفرق</div>
+<div class="swipe">اسحب ←</div><div class="hbar">{{HANDLES}}</div></section><section class="slide s2"><div class="tag">تقنية · الواي فاي</div><div class="pg">2/7</div>
+<h2>3 أشياء <em>تضعّف</em><br>إشارة غرفتك</h2>
+<div class="ph"><img src="assets/router.jpg" alt=""><div class="cap">راوترك وين ساكن؟</div></div>
+<div class="row">
+ <div class="ch"><i style="background:#1E6BFF">1</i><div>مكان الراوتر<small>خزانة؟ زاوية؟ ورا التلفزيون؟</small></div></div>
+ <div class="ch"><i style="background:#F2493A">2</i><div>الجدران والأجهزة اللي بينه وبينك<small>خرسانة، معدن، ماء</small></div></div>
+ <div class="ch"><i style="background:#FF9A1F">3</i><div>النطاق: <span class="en">2.4</span> أو <span class="en">5</span> جيجاهرتز<small>هذا يحدد المدى والسرعة</small></div></div>
+</div></section><section class="slide s3"><div class="tag">تقنية · الواي فاي</div><div class="pg">3/7</div>
+<h2>وسط البيت<br><em>مرتفع ومكشوف</em></h2>
+<div class="pn bad p1"><img src="assets/w1.png" alt=""><div class="tx"><span class="st" style="background:#F2493A">✗ لا</span><br>داخل خزانة أو ورا التلفزيون: <b class="r">الإشارة تتحبس</b></div></div>
+<div class="pn ok p2"><img src="assets/w2.png" alt=""><div class="tx"><span class="st" style="background:#14C97E">✓ أفضل</span><br>وسط البيت، فوق رف، <b class="g">وبدون ما يغطيه شي</b></div></div>
+<div class="note">إرشادات عامة من أدلة الراوترات ومقدّمي الإنترنت، وبيتك قد يختلف</div></section><section class="slide s4"><div class="tag">تقنية · الواي فاي</div><div class="pg">4/7</div>
+<h2>الجدران والأجهزة<br><em>تمتص الإشارة</em></h2>
+<div class="big"><img src="assets/w3.png" alt=""></div>
+<div class="cs">
+ <div class="c"><b style="color:#8A8A84">خرسانة</b>الجدران الكثيفة تقلّل الإشارة بشكل واضح</div>
+ <div class="c"><b style="color:#5A6B7C">معدن</b>خزانات وأجهزة ومعدن الجدران: يضعّفها بقوة</div>
+ <div class="c"><b style="color:#1FB6E8">ماء</b>حوض سمك أو سخان ماء: يمتص <span class="en">2.4</span> أكثر</div>
+</div>
+<div class="note">الأرقام تختلف من بيت لبيت، والمهم: شيل العوائق اللي بينك وبين الراوتر</div></section><section class="slide s5"><div class="tag">تقنية · الواي فاي</div><div class="pg">5/7</div>
+<h2><span class="en" style="font-size:88px">2.4</span> أو <span class="en" style="font-size:88px">5</span><br><em>أي نطاق تختار؟</em></h2>
+<div class="l"><img src="assets/w4.png" alt=""><span>برتقالي: <span class="en">2.4</span> · سماوي: <span class="en">5</span><br>رسم توضيحي للمدى</span></div>
+<div class="bd b1"><h5>2.4 GHz</h5>يوصل <b>أبعد</b> ويمرّ من الجدران أحسن، بس <b>أبطأ</b> وأزحم: مايكروويف وبلوتوث وراوترات الجيران</div>
+<div class="bd b2"><h5>5 GHz</h5><b>أسرع</b> وأقل زحمة، بس مداه <b>أقصر</b> ويضعف أكثر مع الجدران</div>
+<div class="tip">جهازك <b>قريب</b> من الراوتر؟ جرّب <span class="en">5</span>. <b>بعيد</b>؟ جرّب <span class="en">2.4</span></div>
+<div class="note">قواعد عامة من أدلة الشركات، والأداء الفعلي يختلف حسب الراوتر</div></section><section class="slide s6"><div class="tag">تقنية · الواي فاي</div><div class="pg">6/7</div>
+<h2>جرّب بالترتيب<br><em>قبل لا تغيّر الباقة</em></h2>
+<div class="lst">
+ <div class="it"><span class="n">1</span><div><b>حرّك الراوتر</b> لوسط البيت، ومرتفع وبدون غطاء</div></div>
+ <div class="it"><span class="n">2</span><div><b>شيل العوائق</b> القريبة منه: معدن، ماء، خزانة مغلقة</div></div>
+ <div class="it"><span class="n">3</span><div><b>اختر النطاق</b> المناسب: قريب <span class="en">5</span>، بعيد <span class="en">2.4</span></div></div>
+ <div class="it"><span class="n">4</span><div>لسا ضعيف؟ البيت كبير؟ <b>أضف نقطة ثانية</b> (<span class="en">Mesh</span>)</div></div>
+</div>
+<div class="mesh"><img src="assets/w5.png" alt=""><div><b>النقطة الثانية</b> تنحط بعد غرفة أو غرفتين من الأولى، مو بعيد عنها (توصية من مجتمع <span class="en">Google Nest</span>)</div></div></section><section class="slide s7" data-handles="off"><div class="tag">تقنية · الواي فاي</div><div class="pg">7/7</div>
+<h2>راوتر في مكانه…<br><em>إشارة بكل غرفة</em></h2>
+<div class="ring"><div class="face"><img src="{{AVATAR}}" alt=""></div></div>
+<div class="nm">علي التميمي</div><div class="ds">كل يوم معلومة تقنية تهمّك</div>
+<div class="ask">وين راوترك الحين؟ اكتب تحت 👇</div>
+<div class="soc"><div>{{HANDLES}}</div></div></section></body></html>

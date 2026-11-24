@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<style>
+:root{--bg:#10161C;--bg2:#18212A;--paper:#F1EFE9;--ink:#10161C;--y:#FFD23F;--r:#EF3E36;--b:#2E86DE;--mute:#8A94A0;--ok:#2BB673}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;font-family:'IBM Plex Sans Arabic','Cairo',sans-serif;-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1920px;position:relative;overflow:hidden;direction:rtl}
+.hd{font-family:'Changa';font-weight:800;line-height:1.12}
+.en{font-family:'Space Grotesk';direction:ltr;unicode-bidi:isolate;font-weight:700}
+.dk{background:var(--bg);color:#fff}
+.lt{background:var(--paper);color:var(--ink)}
+.lines{position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 2px,transparent 2px 90px)}
+.lt .lines{background:repeating-linear-gradient(90deg,rgba(16,22,28,.035) 0 2px,transparent 2px 90px)}
+.kick{position:absolute;top:250px;right:90px;display:flex;align-items:center;gap:14px;font:700 30px 'IBM Plex Sans Arabic'}
+.kick i{width:36px;height:36px;border-radius:50%;background:radial-gradient(circle,var(--y) 0 22%,var(--r) 23% 45%,var(--b) 46% 68%,#fff 69%)}
+.pg{position:absolute;top:256px;left:90px;font:700 28px 'Space Grotesk';opacity:.5;direction:ltr}
+.hbar{position:absolute;top:1392px;right:90px;display:flex;gap:26px;align-items:center;padding:14px 28px;border-radius:999px;background:#fff;color:var(--ink);font:700 28px 'IBM Plex Sans Arabic'}
+.swipe{position:absolute;top:1400px;left:90px;font:700 34px 'IBM Plex Sans Arabic';color:var(--y)}
+.rh{position:absolute;top:320px;right:90px;display:flex;align-items:center;gap:22px}
+.rh .n{width:96px;height:96px;border-radius:50%;display:grid;place-items:center;font:800 56px 'Changa';color:var(--ink);background:var(--y)}
+.rh .t{font-size:100px}
+.s4 .rh{top:300px}.s4 .rh .t{font-size:84px}.s4 .rh .n{width:80px;height:80px;font-size:46px}
+.abs{position:absolute}
+
+/* ١ الغلاف */
+.s1 h1{position:absolute;top:320px;right:90px;left:90px;text-align:center}
+.s1 h1 .a{display:block;font-size:130px}
+.s1 h1 .b{display:block;font-size:200px;color:var(--y);margin-top:-20px}
+.tag{position:absolute;display:flex;align-items:center;gap:12px;background:#fff;color:var(--ink);padding:10px 20px 10px 16px;border-radius:14px;font:700 30px 'IBM Plex Sans Arabic';white-space:nowrap;box-shadow:0 10px 24px rgba(0,0,0,.35)}
+.tag b{width:44px;height:44px;border-radius:50%;background:var(--r);color:#fff;display:grid;place-items:center;font:800 28px 'Changa'}
+
+/* ٢ المشكلة */
+.s2 h2{position:absolute;top:320px;right:90px;left:60px;font-size:96px}
+.s2 h2 em{font-style:normal;color:var(--r)}
+.task{position:absolute;top:590px;right:90px;left:90px;background:var(--ink);color:#fff;border-radius:26px;padding:26px 32px;font:700 40px 'IBM Plex Sans Arabic';display:flex;align-items:center;gap:18px}
+.task small{font:600 26px 'IBM Plex Sans Arabic';color:var(--mute);display:block}
+.cal{position:absolute;top:800px;left:90px;right:90px;height:430px;background:#fff;border:4px solid var(--ink);border-radius:24px;padding:22px;display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.cal .d{border-radius:12px;background:#F4F3F0;position:relative;padding-top:44px}
+.cal .d span{position:absolute;top:8px;left:0;right:0;text-align:center;font:700 22px 'IBM Plex Sans Arabic';color:var(--mute)}
+.ev{position:absolute;left:6px;right:6px;height:62px;border-radius:8px;background:rgba(239,62,54,.85);border:2px solid #fff}
+.ev.b{background:rgba(46,134,222,.85)}
+.bad{position:absolute;display:flex;align-items:center;gap:10px;background:var(--r);color:#fff;border-radius:12px;padding:8px 16px;font:700 28px 'IBM Plex Sans Arabic';white-space:nowrap;box-shadow:0 8px 18px rgba(0,0,0,.2)}
+.s2 .foot{position:absolute;top:1270px;right:90px;left:90px;text-align:center;font:700 38px/1.5 'IBM Plex Sans Arabic'}
+.s2 .foot mark{background:var(--y);padding:0 10px;border-radius:8px}
+
+/* ٣ هدف غامض */
+.pair{position:absolute;top:520px;left:70px;right:70px;display:flex;gap:30px}
+.col{flex:1;display:flex;flex-direction:column;align-items:center}
+.col .cap{margin-top:18px;font:700 34px 'Changa'}
+.card{margin-top:18px;width:100%;border-radius:22px;padding:22px 24px;font:600 31px/1.5 'IBM Plex Sans Arabic';min-height:250px}
+.card.x{background:var(--bg2);border:3px solid #34404C;color:#C8CFD6}
+.card.v{background:#fff;color:var(--ink);border:3px solid var(--y)}
+.card .m{font:800 30px 'Changa';margin-bottom:6px;display:block}
+.chips{position:absolute;top:1255px;left:70px;right:70px;display:flex;justify-content:center;gap:14px}
+.chips span{padding:12px 24px;border-radius:999px;background:var(--y);color:var(--ink);font:700 32px 'IBM Plex Sans Arabic';white-space:nowrap}
+
+/* ٤ أدوات ناقصة */
+.rack{position:absolute;top:760px;right:90px;left:90px;background:#fff;border:4px solid var(--ink);border-radius:24px;padding:18px 26px 10px}
+.rk-t{font:800 32px 'Changa';margin-bottom:4px}
+.rk{display:flex;align-items:center;gap:18px;padding:10px 0;border-top:3px dashed #E6E3DB}
+.rk svg{flex:none;width:210px;height:36px;direction:ltr}
+.rk.on svg{filter:drop-shadow(0 0 0 #000)}
+.rk span{flex:1;font:700 32px 'IBM Plex Sans Arabic'}
+.rk b{font:700 28px 'IBM Plex Sans Arabic';padding:4px 14px;border-radius:10px}
+.rk b.ok{background:var(--ok);color:#fff}.rk b.no{background:#FDE3E1;color:var(--r)}
+.quiver{position:absolute;top:560px;left:110px;width:300px;height:700px}
+.qbody{position:absolute;bottom:0;left:30px;width:240px;height:470px;border-radius:30px 30px 60px 60px;background:linear-gradient(90deg,#8B4A2B,#B8683E 45%,#8B4A2B);box-shadow:0 20px 40px rgba(0,0,0,.25)}
+.qbody:before{content:"";position:absolute;top:60px;left:0;right:0;height:22px;background:#6E3920}
+.qbody:after{content:"";position:absolute;bottom:90px;left:0;right:0;height:22px;background:#6E3920}
+.qa{position:absolute;bottom:380px;width:20px}
+.qa .sh{width:10px;margin:0 auto;height:260px;background:#6B5B4B;border-radius:5px}
+.qa .fl{width:44px;height:60px;margin:-6px 0 0 -12px;clip-path:polygon(50% 0,100% 30%,100% 100%,50% 75%,0 100%,0 30%)}
+.qa.miss .sh{background:none;border:4px dashed #B7B2A8}
+.qa.miss .fl{background:none!important;border:4px dashed #B7B2A8;clip-path:none;border-radius:8px;width:36px;height:40px;margin-left:-8px}
+.qlab{position:absolute;font:700 28px 'IBM Plex Sans Arabic';white-space:nowrap;padding:6px 14px;border-radius:10px}
+.s4 .right{position:absolute;top:480px;right:90px;left:90px}
+.s4 .q{font:700 40px/1.45 'IBM Plex Sans Arabic'}
+.s4 .res{margin-top:18px;display:flex;gap:12px}
+.s4 .res div{flex:1;background:#fff;border:3px solid var(--ink);border-radius:16px;padding:14px 16px;font:700 29px/1.4 'IBM Plex Sans Arabic';text-align:center}
+.s4 .res div b{color:var(--r)}
+.rule{position:absolute;top:1110px;right:90px;left:90px;background:var(--ink);color:#fff;border-radius:22px;padding:24px 26px;font:600 30px/1.55 'IBM Plex Sans Arabic';border-right:12px solid var(--y)}
+.rule b{color:var(--y);font:800 32px 'Changa';display:block;margin-bottom:4px}
+
+/* ٥ معيار النجاح */
+.s5 .tg{position:absolute;top:500px;left:50%;margin-left:-220px;width:440px;height:440px}
+.s5 .num{position:absolute;font:800 30px/1 'Changa';color:var(--ink)}
+.crit{position:absolute;top:980px;left:70px;right:70px;background:#fff;color:var(--ink);border-radius:26px;padding:28px 34px 30px}
+.crit .l{font:700 26px 'IBM Plex Sans Arabic';color:#6B7480;margin-bottom:8px}
+.crit p{font:700 33px/1.55 'IBM Plex Sans Arabic'}
+.crit ul{list-style:none;margin:8px 0}
+.crit li{font:700 33px/1.6 'IBM Plex Sans Arabic';display:flex;gap:12px;align-items:center}
+.crit li i{width:30px;height:30px;border-radius:50%;background:var(--ok);flex:none;display:grid;place-items:center;color:#fff;font-style:normal;font-size:20px}
+.crit .stop{color:var(--r)}
+
+/* ٦ الخلاصة */
+.s6 h2{position:absolute;top:320px;right:90px;left:60px;font-size:92px}
+.score{position:absolute;top:500px;left:80px;right:80px;background:#fff;border:5px solid var(--ink);border-radius:26px;overflow:hidden}
+.score .hdr{display:flex;justify-content:space-between;align-items:center;background:var(--ink);color:#fff;padding:18px 30px;font:800 34px 'Changa'}
+.score .hdr span{font:700 26px 'Space Grotesk';color:var(--y);direction:ltr}
+.srow{display:flex;align-items:center;gap:24px;padding:26px 30px;border-top:3px solid #E6E3DB}
+.srow:first-of-type{border-top:none}
+.srow .i{flex:none;width:80px;height:80px;border-radius:50%;background:radial-gradient(circle,var(--y) 0 22%,var(--r) 23% 45%,var(--b) 46% 68%,#E6E3DB 69%)}
+.srow b{flex:1;font:700 40px 'IBM Plex Sans Arabic'}
+.srow .box{flex:none;width:64px;height:64px;border-radius:14px;border:5px solid var(--ink)}
+.mist{position:absolute;top:1100px;left:80px;right:80px;background:var(--r);color:#fff;border-radius:24px;padding:26px 32px}
+.mist b{display:block;font:800 40px 'Changa'}
+.mist span{display:block;font:600 32px/1.5 'IBM Plex Sans Arabic';margin-top:6px}
+
+/* ٧ المتابعة */
+.big{position:absolute;top:370px;left:50%;margin-left:-330px;width:660px;height:660px}
+.big .av{position:absolute;top:175px;left:175px;width:310px;height:310px;border-radius:50%;overflow:hidden;border:10px solid #fff;background:linear-gradient(180deg,#FFE58A,var(--y))}
+.big .av img{width:100%;height:100%;object-fit:cover;object-position:50% 15%}
+.s7 .nm{position:absolute;top:1060px;left:0;right:0;text-align:center;font-size:86px}
+.s7 .ds{position:absolute;top:1170px;left:90px;right:90px;text-align:center;font:600 32px 'IBM Plex Sans Arabic';color:#C8CFD6}
+.s7 .soc{position:absolute;top:1235px;left:50%;transform:translateX(-50%);display:flex;gap:26px;align-items:center;padding:14px 28px;border-radius:999px;background:#fff;color:var(--ink);font:700 30px 'IBM Plex Sans Arabic';white-space:nowrap}
+.s7 .ask{position:absolute;top:1320px;left:90px;right:90px;text-align:center;font:700 36px/1.4 'IBM Plex Sans Arabic'}
+.s7 .ask em{font-style:normal;color:var(--y)}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="tgt" viewBox="0 0 200 200"><circle cx="100" cy="100" r="98" fill="#fff"/><circle cx="100" cy="100" r="80" fill="#1B232B"/><circle cx="100" cy="100" r="62" fill="#2E86DE"/><circle cx="100" cy="100" r="44" fill="#EF3E36"/><circle cx="100" cy="100" r="24" fill="#FFD23F"/><circle cx="100" cy="100" r="5" fill="#10161C"/></symbol>
+    <symbol id="arr" viewBox="0 0 360 60"><path d="M40 30 H300" stroke="#E8E2D6" stroke-width="9" stroke-linecap="round"/><path d="M300 30 L270 12 M300 30 L270 48" stroke="#E8E2D6" stroke-width="9" stroke-linecap="round"/><path d="M8 8 L60 30 L8 52 L28 30 Z" fill="#EF3E36"/></symbol>
+  </defs>
+</svg>
+
+<!-- ١ الغلاف -->
+<section class="slide dk s1">
+  <div class="lines"></div>
+  <div class="kick"><i></i>أتمتة · الوكلاء</div>
+  <div class="pg">1/7</div>
+  <h1 class="hd"><span class="a">ليش وكيلك</span><span class="b">يطيش؟</span></h1>
+  <svg class="abs" style="top:790px;left:280px;width:520px;height:520px"><use href="#tgt"/></svg>
+  <svg class="abs" style="top:760px;left:40px;width:300px;height:50px;transform:rotate(28deg)"><use href="#arr"/></svg>
+  <svg class="abs" style="top:960px;left:770px;width:300px;height:50px;transform:rotate(160deg)"><use href="#arr"/></svg>
+  <svg class="abs" style="top:1290px;left:120px;width:300px;height:50px;transform:rotate(-22deg)"><use href="#arr"/></svg>
+  <div class="tag" style="top:700px;left:70px"><b>1</b>هدف غامض</div>
+  <div class="tag" style="top:1050px;right:60px"><b>2</b>أدوات ناقصة</div>
+  <div class="tag" style="top:1230px;left:40px"><b>3</b>بلا معيار نجاح</div>
+  <div class="hbar">{{HANDLES}}</div>
+  <div class="swipe">اسحب ←</div>
+</section>
+
+<!-- ٢ المشكلة -->
+<section class="slide lt s2">
+  <div class="lines"></div>
+  <div class="kick"><i></i>أتمتة · الوكلاء</div>
+  <div class="pg">2/7</div>
+  <h2 class="hd">طلبت شي…<br><em>ورجع لك شي ثاني</em></h2>
+  <div class="task"><div><small>المهمة اللي أعطيته</small>«رتّب لي اجتماعات الأسبوع»</div></div>
+  <div class="cal">
+    <div class="d"><span>الأحد</span><div class="ev" style="top:60px"></div><div class="ev b" style="top:88px"></div><div class="ev" style="top:116px"></div><div class="ev b" style="top:144px"></div></div>
+    <div class="d"><span>الاثنين</span><div class="ev" style="top:70px"></div><div class="ev" style="top:96px"></div><div class="ev b" style="top:122px"></div></div>
+    <div class="d"><span>الثلاثاء</span></div>
+    <div class="d"><span>الأربعاء</span><div class="ev b" style="top:210px"></div><div class="ev" style="top:236px"></div></div>
+    <div class="d"><span>الخميس</span></div>
+  </div>
+  <div class="bad" style="top:880px;right:60px;transform:rotate(-3deg)">✕ 9 اجتماعات فوق بعض</div>
+  <div class="bad" style="top:1040px;left:120px;transform:rotate(2deg)">✕ دعوة لعميل غلط</div>
+  <div class="bad" style="top:1160px;right:220px;transform:rotate(-2deg)">✕ ألغى اجتماع المدير</div>
+  <div class="foot">المشكلة غالباً <mark>مو في النموذج</mark>… في تجهيز المهمة</div>
+</section>
+
+<!-- ٣ السبب ١: هدف غامض -->
+<section class="slide dk s3" data-handles="light">
+  <div class="lines"></div>
+  <div class="kick"><i></i>أتمتة · الوكلاء</div>
+  <div class="pg">3/7</div>
+  <div class="rh"><span class="n">1</span><span class="hd t">هدف غامض</span></div>
+  <div class="pair">
+    <div class="col">
+      <svg width="280" height="280" viewBox="0 0 200 200"><circle cx="100" cy="100" r="96" fill="#F1EFE9" stroke="#34404C" stroke-width="6" stroke-dasharray="14 10"/><text x="100" y="128" text-anchor="middle" font-family="Changa" font-weight="800" font-size="90" fill="#8A94A0">؟</text></svg>
+      <div class="cap" style="color:#C8CFD6">وين يرمي؟</div>
+      <div class="card x"><span class="m" style="color:#EF3E36">✕ غامض</span>«حسّن لي الإيميلات»</div>
+    </div>
+    <div class="col">
+      <svg width="280" height="280"><use href="#tgt"/></svg>
+      <div class="cap" style="color:var(--y)">هنا بالضبط</div>
+      <div class="card v"><span class="m" style="color:#2BB673">✓ واضح</span>«رد على إيميلات العملاء اللي فيها "استرجاع" خلال ساعة، بقالب الرد المعتمد»</div>
+    </div>
+  </div>
+  <div class="chips"><span>وش يسوي</span><span>على أي شي</span><span>بأي شكل</span></div>
+</section>
+
+<!-- ٤ السبب ٢: أدوات ناقصة -->
+<section class="slide lt s4">
+  <div class="lines"></div>
+  <div class="kick"><i></i>أتمتة · الوكلاء</div>
+  <div class="pg">4/7</div>
+  <div class="rh"><span class="n" style="background:var(--r);color:#fff">2</span><span class="hd t">أدوات ناقصة</span></div>
+  <div class="rack">
+    <div class="rk-t">رف أدوات الوكيل</div>
+    <div class="rk on"><svg viewBox="0 0 360 60"><path d="M40 30 H300" stroke="#10161C" stroke-width="9" stroke-linecap="round"/><path d="M300 30 L270 12 M300 30 L270 48" stroke="#10161C" stroke-width="9" stroke-linecap="round"/><path d="M8 8 L60 30 L8 52 L28 30 Z" fill="#EF3E36"/></svg><span>التقويم</span><b class="ok">مربوط ✓</b></div>
+    <div class="rk"><svg viewBox="0 0 360 60"><path d="M40 30 H300 M300 30 L270 12 M300 30 L270 48 M8 8 L60 30 L8 52 L28 30 Z" stroke="#B7B2A8" stroke-width="7" stroke-dasharray="14 10" fill="none" stroke-linecap="round"/></svg><span>الإيميل</span><b class="no">ناقص ✕</b></div>
+    <div class="rk"><svg viewBox="0 0 360 60"><path d="M40 30 H300 M300 30 L270 12 M300 30 L270 48 M8 8 L60 30 L8 52 L28 30 Z" stroke="#B7B2A8" stroke-width="7" stroke-dasharray="14 10" fill="none" stroke-linecap="round"/></svg><span>ملف العملاء</span><b class="no">ناقص ✕</b></div>
+  </div>
+  <div class="right">
+    <div class="q">طلبت منه يرسل تأكيد الموعد…<br>وهو ما عنده وصول للإيميل؟ النتيجة:</div>
+    <div class="res"><div>يخترع حل من عنده</div><div>أو يوقف في النص</div><div>أو يقول <b>«تم»</b> وهو ما سوى شي</div></div>
+  </div>
+  <div class="rule"><b>قبل التشغيل</b>اكتب الأدوات اللي تحتاجها المهمة، وتأكد إن كل وحدة مربوطة وفيها صلاحية.</div>
+</section>
+
+<!-- ٥ السبب ٣: معيار النجاح -->
+<section class="slide dk s5" data-handles="light">
+  <div class="lines"></div>
+  <div class="kick"><i></i>أتمتة · الوكلاء</div>
+  <div class="pg">5/7</div>
+  <div class="rh"><span class="n" style="background:var(--b);color:#fff">3</span><span class="hd t">بلا معيار نجاح</span></div>
+  <svg class="tg" viewBox="0 0 200 200"><use href="#tgt"/></svg>
+  <div class="num" style="top:666px;left:524px;color:var(--ink)">10</div>
+  <div class="num" style="top:622px;left:532px;color:#fff">8</div>
+  <div class="num" style="top:582px;left:532px;color:#fff">6</div>
+  <div class="hd" style="position:absolute;top:560px;right:70px;width:230px;font-size:42px;line-height:1.35;color:#C8CFD6;white-space:nowrap">متى يوقف؟<br>ومتى<br>يقول <span style="color:var(--y)">«تم»؟</span></div>
+  <div class="crit">
+    <div class="l">انسخها في تعليمات الوكيل:</div>
+    <p>«تعتبر المهمة منتهية لما:</p>
+    <ul><li><i>✓</i>كل إيميل له رد</li><li><i>✓</i>الرد أقل من 120 كلمة</li><li><i>✓</i>ما فيه أي وعد بمبلغ</li></ul>
+    <p class="stop">وإذا ما قدرت، وقّف واسألني»</p>
+  </div>
+</section>
+
+<!-- ٦ الخلاصة -->
+<section class="slide lt s6">
+  <div class="lines"></div>
+  <div class="kick"><i></i>أتمتة · الوكلاء</div>
+  <div class="pg">6/7</div>
+  <h2 class="hd">قبل ما تطلق أي وكيل</h2>
+  <div class="score">
+    <div class="hdr">بطاقة الرمي<span>3 / 3 = GO</span></div>
+    <div class="srow"><div class="i"></div><b>الهدف مكتوب بوضوح؟</b><div class="box"></div></div>
+    <div class="srow"><div class="i"></div><b>الأدوات مربوطة وفيها صلاحية؟</b><div class="box"></div></div>
+    <div class="srow"><div class="i"></div><b>معيار النجاح مكتوب؟</b><div class="box"></div></div>
+  </div>
+  <div class="mist"><b>الخطأ الشائع</b><span>تلوم النموذج وتغيّره… والمشكلة كانت في المهمة نفسها.</span></div>
+</section>
+
+<!-- ٧ المتابعة -->
+<section class="slide dk s7">
+  <div class="lines"></div>
+  <div class="kick"><i></i>أتمتة · الوكلاء</div>
+  <div class="pg">7/7</div>
+  <div class="big"><svg width="660" height="660"><use href="#tgt"/></svg><div class="av"><img src="{{AVATAR}}"></div></div>
+  <div class="hd nm">علي التميمي</div>
+  <div class="ds">الذكاء الاصطناعي والأتمتة… في الهدف مباشرة</div>
+  <div class="soc">{{HANDLES}}</div>
+  <div class="ask">وش أغرب شي سواه لك <em>وكيل ذكاء اصطناعي</em>؟ اكتبه بالتعليقات</div>
+</section>
+
+</body>
+</html>

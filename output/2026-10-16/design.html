@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<style>
+:root{--wood:#3A2418;--wood2:#24160E;--linen:#F4ECDF;--canvas:#FBF8F2;--ink:#1E1611;--blue:#2B4BD8;--red:#E0402F;--ochre:#E9A93A;--green:#1E8A66;--plum:#7A3E9D;--mu:#7A6656;--gold:#C9A04A}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;font-family:'IBM Plex Sans Arabic',sans-serif;-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1920px;position:relative;overflow:hidden;direction:rtl;color:var(--ink);background:var(--canvas)}
+.wood{color:var(--linen);background:
+  radial-gradient(60% 38% at 50% 30%,rgba(255,214,150,.22) 0%,transparent 70%),
+  repeating-linear-gradient(90deg,rgba(0,0,0,.18) 0 3px,transparent 3px 180px),
+  repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 1px,transparent 1px 13px),
+  linear-gradient(180deg,#4A2E1E,var(--wood) 45%,var(--wood2))}
+.linen{background:
+  repeating-linear-gradient(0deg,rgba(120,90,60,.05) 0 1px,transparent 1px 5px),
+  repeating-linear-gradient(90deg,rgba(120,90,60,.05) 0 1px,transparent 1px 5px),var(--linen)}
+.cnv{background:radial-gradient(80% 50% at 50% 30%,#FFFFFF 0%,var(--canvas) 60%,#F1EADC 100%)}
+.hd{font-family:'Marhey';font-weight:700;line-height:1.3}
+.hand{font-family:'Aref Ruqaa';font-weight:700}
+.en{font-family:'Space Grotesk';font-weight:700;direction:ltr;unicode-bidi:isolate;display:inline}
+.kick{position:absolute;top:258px;right:90px;display:flex;align-items:center;gap:12px;padding:8px 24px 10px 18px;border-radius:999px;font:700 30px 'IBM Plex Sans Arabic'}
+.kick i{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:#fff}
+.kick img{width:30px;height:30px}
+.wood .kick{background:var(--linen);color:var(--ink)}
+.linen .kick,.cnv .kick{background:var(--ink);color:var(--linen)}
+.pg{position:absolute;top:272px;left:90px;font:700 28px 'Space Grotesk';opacity:.6;direction:ltr}
+.tape{position:absolute;width:150px;height:44px;background:rgba(236,222,190,.85);box-shadow:0 2px 4px rgba(0,0,0,.12)}
+.sub{position:absolute;right:90px;left:90px;font:700 38px/1.5 'IBM Plex Sans Arabic'}
+
+/* ١ الغلاف: حامل الرسم */
+.s1 h1{position:absolute;top:330px;right:60px;left:60px;text-align:center;font-size:124px;color:var(--linen);text-shadow:0 8px 30px rgba(0,0,0,.4)}
+.s1 h1 em{font-style:normal;color:var(--ochre);display:block;font-size:132px}
+.s1 .legs{position:absolute;top:700px;left:240px}
+.s1 .board{position:absolute;top:740px;left:190px;width:700px;height:560px;background:var(--canvas);border:14px solid #F3EDE2;box-shadow:0 30px 60px rgba(0,0,0,.5),inset 0 0 0 2px rgba(0,0,0,.06);overflow:hidden}
+.s1 .board .say{position:absolute;top:30px;right:36px;left:36px}
+.s1 .board .say small{display:block;font:700 28px 'IBM Plex Sans Arabic';color:var(--mu)}
+.s1 .board .say p{font:700 46px/1.45 'Aref Ruqaa';color:var(--ink)}
+.s1 .board img{position:absolute;left:0;right:0;bottom:0;width:100%;height:250px;object-fit:cover;object-position:70% 70%}
+.s1 .board .fade{position:absolute;left:0;right:0;bottom:200px;height:80px;background:linear-gradient(180deg,var(--canvas),transparent)}
+.s1 .badge{position:absolute;top:700px;left:140px;width:130px;height:130px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 12px 26px rgba(0,0,0,.4);transform:rotate(-8deg)}
+.s1 .badge img{width:84px;height:84px}
+.s1 .badge .tape{top:-14px;left:-10px;width:110px;height:34px;transform:rotate(-30deg)}
+.s1 .hbar{position:absolute;top:1400px;right:90px;display:flex;gap:26px;align-items:center;padding:14px 28px;border-radius:999px;background:var(--linen);color:var(--ink);font:700 28px 'IBM Plex Sans Arabic'}
+.s1 .swipe{position:absolute;top:1408px;left:90px;font:700 44px/1 'Marhey';color:var(--ochre)}
+
+/* ٢ المشكلة */
+.s2 h2{position:absolute;top:350px;right:90px;left:90px;font-size:108px}
+.s2 h2 em{font-style:normal;color:var(--red)}
+.s2 .sub{top:520px;color:#5A4A3D}
+.s2 .ph{position:absolute;top:630px;left:70px;width:420px;padding:16px;background:#fff;box-shadow:0 20px 40px rgba(60,40,20,.25);transform:rotate(-3deg)}
+.s2 .ph img{width:100%;height:540px;object-fit:cover;object-position:60% 60%;display:block}
+.s2 .ph .tape{top:-22px;left:135px;transform:rotate(-4deg)}
+.s2 .ph p{margin-top:12px;text-align:center;font:700 34px 'Aref Ruqaa';color:var(--ink)}
+.s2 .notes{position:absolute;top:650px;right:80px;width:470px;display:flex;flex-direction:column;gap:26px}
+.s2 .nt{position:relative;padding:22px 28px 26px;background:#FFF6C9;box-shadow:0 10px 20px rgba(60,40,20,.15);font:700 34px/1.4 'IBM Plex Sans Arabic'}
+.s2 .nt:nth-child(2){background:#FFE3D6;transform:rotate(1.5deg)}
+.s2 .nt:nth-child(3){background:#DDEBFF;transform:rotate(-1.2deg)}
+.s2 .nt b{display:block;font:700 40px 'Marhey'}
+.s2 .nt span{color:#5A4A3D;font-weight:600}
+.s2 .nt:after{content:"";position:absolute;right:16px;left:16px;top:50%;height:6px;background:var(--red);transform:rotate(-4deg);border-radius:3px;opacity:.85}
+.s2 .fix{position:absolute;top:1250px;right:80px;left:80px;padding:22px 30px 26px;border-radius:24px;background:var(--wood);color:var(--linen);text-align:center;font:700 36px/1.5 'IBM Plex Sans Arabic'}
+.s2 .fix em{font-style:normal;color:var(--ochre)}
+
+/* ٣ اطلب بالكلام: لوح الألوان */
+.s3 h2{position:absolute;top:350px;right:90px;left:90px;font-size:112px}
+.s3 h2 em{font-style:normal;color:var(--blue)}
+.s3 .sub{top:520px;color:#5A4A3D}
+.s3 .pal{position:absolute;top:610px;left:350px;width:380px;height:380px;border-radius:50%;overflow:hidden;box-shadow:0 22px 44px rgba(60,40,20,.3),0 0 0 12px #fff}
+.s3 .pal img{width:100%;height:100%;object-fit:cover;object-position:32% 50%}
+.s3 .blob{position:absolute;padding:12px 26px 16px;color:#fff;font:700 38px 'Marhey';border-radius:58% 42% 55% 45%/50% 58% 42% 50%;box-shadow:0 10px 20px rgba(60,40,20,.2);white-space:nowrap}
+.s3 .b1{top:610px;right:90px;background:var(--blue)}
+.s3 .b2{top:790px;right:60px;background:var(--red);transform:rotate(3deg)}
+.s3 .b3{top:930px;right:170px;background:var(--green)}
+.s3 .b4{top:640px;left:80px;background:var(--ochre);color:var(--ink)}
+.s3 .b5{top:860px;left:70px;background:var(--plum);transform:rotate(-3deg)}
+.s3 .card{position:absolute;top:1040px;right:80px;left:80px;padding:24px 32px 28px;border-radius:24px;background:var(--ink);color:#fff;font:700 36px/1.65 'IBM Plex Sans Arabic'}
+.s3 .card small{display:block;font:700 26px 'IBM Plex Sans Arabic';color:#CBB9A6;margin-bottom:4px}
+.s3 .card u{text-decoration:none;border-bottom:6px solid;padding-bottom:1px}
+.s3 .ways{position:absolute;top:1300px;right:80px;left:80px;display:flex;gap:16px;justify-content:center;align-items:center;font:700 30px 'IBM Plex Sans Arabic'}
+.s3 .ways span{padding:8px 20px 10px;border-radius:999px;background:#fff;border:3px solid var(--ink)}
+
+/* ٤ عدّل بالفرشاة */
+.s4 h2{position:absolute;top:350px;right:90px;left:90px;font-size:108px;color:var(--linen)}
+.s4 h2 em{font-style:normal;color:var(--ochre)}
+.s4 .sub{top:520px;color:#E6D5C1}
+.s4 .frame{position:absolute;top:620px;left:150px;width:780px;height:540px;padding:18px;background:linear-gradient(135deg,#E7C77D,var(--gold) 45%,#8C6A26);box-shadow:0 30px 60px rgba(0,0,0,.5)}
+.s4 .frame .in{position:relative;width:100%;height:100%;overflow:hidden}
+.s4 .frame img{width:100%;height:100%;object-fit:cover;object-position:50% 78%;display:block}
+.s4 .frame svg{position:absolute;inset:0}
+.s4 .say{position:absolute;top:1060px;right:110px;padding:14px 26px 18px;border-radius:24px 24px 6px 24px;background:var(--linen);color:var(--ink);font:700 36px 'IBM Plex Sans Arabic';box-shadow:0 12px 24px rgba(0,0,0,.35)}
+.s4 .tools{position:absolute;top:1200px;right:0;left:0;display:flex;justify-content:center;gap:12px;direction:ltr}
+.s4 .tools span{padding:8px 20px 10px;border-radius:14px;background:rgba(244,236,223,.12);border:2px solid rgba(244,236,223,.35);font:700 30px 'Space Grotesk';color:var(--linen);display:flex;align-items:center;gap:10px}
+.s4 .tools .on{background:var(--ochre);border-color:var(--ochre);color:var(--ink)}
+.s4 .warn{position:absolute;top:1290px;right:90px;left:90px;text-align:center;font:700 31px/1.5 'IBM Plex Sans Arabic';color:#E6D5C1}
+.s4 .warn b{color:var(--ochre)}
+
+/* ٥ عدّل بالكلام + المقاسات */
+.s5 h2{position:absolute;top:350px;right:90px;left:90px;font-size:112px}
+.s5 h2 em{font-style:normal;color:var(--green)}
+.s5 .sub{top:520px;color:#5A4A3D}
+.s5 .steps{position:absolute;top:620px;right:60px;left:60px;display:flex;gap:18px;align-items:flex-start}
+.s5 .st{flex:1;display:flex;flex-direction:column;align-items:center;gap:14px}
+.s5 .mini{width:280px;height:300px;background:#fff;border:10px solid #F3EDE2;box-shadow:0 16px 30px rgba(60,40,20,.22);position:relative;overflow:hidden}
+.s5 .st:nth-child(2) .mini{transform:rotate(1.5deg)}
+.s5 .st:nth-child(3) .mini{width:280px;height:280px;transform:rotate(-1.5deg)}
+.s5 .bub{position:relative;padding:12px 18px 16px;border-radius:18px;background:var(--ink);color:#fff;font:700 30px/1.35 'IBM Plex Sans Arabic';text-align:center;width:290px}
+.s5 .bub small{display:block;font:700 22px 'Space Grotesk';color:var(--ochre);direction:ltr}
+.s5 .ratio{position:absolute;top:1110px;right:80px;left:80px;padding:22px 30px 24px;border-radius:24px;background:#fff;border:3px solid var(--ink);display:flex;align-items:flex-end;justify-content:space-around}
+.s5 .rt{display:flex;flex-direction:column;align-items:center;gap:8px;font:700 28px 'IBM Plex Sans Arabic'}
+.s5 .rt i{display:block;border:6px solid var(--ink);border-radius:8px;background:repeating-linear-gradient(45deg,#F4ECDF 0 10px,#FBF8F2 10px 20px)}
+.s5 .rt b{font:700 30px 'Space Grotesk';direction:ltr}
+.s5 .ratio p{position:absolute;top:-24px;right:30px;padding:2px 18px 6px;background:var(--green);color:#fff;border-radius:999px;font:700 28px 'IBM Plex Sans Arabic'}
+
+/* ٦ الخطأ الشائع + الباقات */
+.s6 h2{position:absolute;top:350px;right:90px;left:90px;font-size:104px}
+.s6 h2 em{font-style:normal;color:var(--red)}
+.s6 .row{position:absolute;right:80px;left:80px;display:flex;gap:18px;align-items:stretch}
+.s6 .r1{top:560px}.s6 .r2{top:930px}
+.s6 .bad,.s6 .good{flex:1;padding:22px 26px 26px;border-radius:22px;font:700 33px/1.5 'IBM Plex Sans Arabic'}
+.s6 .bad{background:#F3E4E0;border:4px solid var(--red);color:#5C2018}
+.s6 .good{flex:1.35;background:#E3F1EA;border:4px solid var(--green)}
+.s6 small{display:block;font:700 30px 'Marhey';margin-bottom:6px}
+.s6 .bad small{color:var(--red)}.s6 .good small{color:var(--green)}
+.s6 .bad q{text-decoration:line-through;text-decoration-thickness:4px;text-decoration-color:var(--red)}
+.s6 q{quotes:"«" "»"}
+.s6 .bad p{margin-top:10px;font-size:28px;color:#8A4A40}
+.s6 .plan{position:absolute;top:1190px;right:80px;left:80px;padding:22px 30px 24px;border-radius:24px;background:var(--wood);color:var(--linen);text-align:center}
+.s6 .plan b{display:block;font:700 40px 'Marhey';color:var(--ochre)}
+.s6 .plan span{font:700 31px/1.5 'IBM Plex Sans Arabic'}
+
+/* ٧ بطاقة المتحف */
+.s7 .spot{position:absolute;top:0;left:290px;width:500px;height:900px;background:radial-gradient(50% 60% at 50% 0%,rgba(255,226,170,.28),transparent 70%)}
+.s7 .gf{position:absolute;top:300px;left:300px;width:480px;height:560px;padding:30px;background:linear-gradient(135deg,#F1D58E,var(--gold) 40%,#7C5A1E 100%);box-shadow:0 30px 60px rgba(0,0,0,.55),inset 0 0 0 6px rgba(255,255,255,.18)}
+.s7 .gf .mat{width:100%;height:100%;padding:22px;background:var(--canvas)}
+.s7 .gf img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block}
+.s7 .lbl{position:absolute;top:920px;left:170px;right:170px;padding:26px 34px 30px;background:var(--canvas);color:var(--ink);box-shadow:0 18px 36px rgba(0,0,0,.4)}
+.s7 .lbl .nm{font:700 70px/1.25 'Marhey'}
+.s7 .lbl .ln{font:600 28px/1.6 'IBM Plex Sans Arabic';color:var(--mu)}
+.s7 .lbl hr{border:0;border-top:3px solid var(--ink);margin:14px 0}
+.s7 .lbl .q{font:700 40px/1.35 'Marhey';color:var(--red)}
+.s7 .lbl .q small{display:block;font:700 30px/1.5 'IBM Plex Sans Arabic';color:var(--ink);margin-top:6px}
+.s7 .soc{position:absolute;top:1360px;left:0;right:0;display:flex;justify-content:center}
+.s7 .soc div{display:flex;gap:26px;align-items:center;padding:16px 32px;border-radius:999px;background:var(--linen);color:var(--ink);font:700 30px 'IBM Plex Sans Arabic'}
+</style>
+</head>
+<body>
+
+<!-- ١ الغلاف -->
+<section class="slide s1 wood" data-handles="off">
+  <div class="kick"><i><img src="assets/openai.svg" alt=""></i>ChatGPT · توليد الصور</div>
+  <h1 class="hd">اكتبها بجملة<em>وتطلع لك صورة</em></h1>
+  <svg class="legs" width="600" height="1220" viewBox="0 0 600 1220"><path d="M300 0 L120 1220 M300 0 L480 1220 M300 0 V 1220" stroke="#A8743F" stroke-width="26" stroke-linecap="round"/><rect x="60" y="600" width="480" height="30" rx="6" fill="#8C5B30"/></svg>
+  <div class="board">
+    <div class="say"><small>تكتب:</small><p>كوب قهوة عربية على طاولة رخام،<br>إضاءة صباحية، مقاس 9:16</p></div>
+    <div class="fade"></div>
+    <img src="assets/brushes.jpg" alt="">
+  </div>
+  <div class="badge"><div class="tape"></div><img src="assets/openai.svg" alt=""></div>
+  <div class="hbar">{{HANDLES}}</div>
+  <div class="swipe">اسحب ←</div>
+</section>
+
+<!-- ٢ المشكلة -->
+<section class="slide s2 linen">
+  <div class="kick"><i><img src="assets/openai.svg" alt=""></i>ChatGPT · توليد الصور</div><div class="pg">2/7</div>
+  <h2 class="hd">تبي صورة <em>لمنتجك؟</em></h2>
+  <div class="sub">إعلان، بوستر، أو خلفية لعرض… وبسرعة.</div>
+  <div class="ph"><div class="tape"></div><img src="assets/coffee.jpg" alt=""><p>صورة منتجك</p></div>
+  <div class="notes">
+    <div class="nt"><b>مصمم</b><span>تنتظره أيام</span></div>
+    <div class="nt"><b>برنامج تصميم</b><span>تتعلمه من الصفر</span></div>
+    <div class="nt"><b>صور مجانية</b><span>نفس صور الكل</span></div>
+  </div>
+  <div class="fix">الحل: تكتب وش تبي في <span class="en">ChatGPT</span><br><em>وتعدّل الصورة بالكلام أو بالفرشاة</em></div>
+</section>
+
+<!-- ٣ اطلب بالكلام -->
+<section class="slide s3 cnv">
+  <div class="kick"><i><img src="assets/openai.svg" alt=""></i>ChatGPT · توليد الصور</div><div class="pg">3/7</div>
+  <h2 class="hd">اطلبها <em>بالكلام</em></h2>
+  <div class="sub">حط في طلبك 5 «ألوان»:</div>
+  <div class="pal"><img src="assets/palette.jpg" alt=""></div>
+  <div class="blob b1">الموضوع</div>
+  <div class="blob b2">المكان</div>
+  <div class="blob b3">الإضاءة</div>
+  <div class="blob b4">الأسلوب</div>
+  <div class="blob b5">المقاس</div>
+  <div class="card"><small>مثال تنسخه:</small>صورة إعلان لـ<u style="border-color:#2B4BD8">كوب قهوة عربية</u> <u style="border-color:#E0402F">على طاولة رخام</u>، <u style="border-color:#1E8A66">إضاءة صباحية ناعمة</u>، <u style="border-color:#E9A93A">أسلوب تصوير منتجات</u>، <u style="border-color:#B57BD6">مقاس عمودي 9:16</u></div>
+  <div class="ways"><span>في المحادثة</span>أو<span>القائمة الجانبية ← <b class="en">Images</b></span></div>
+</section>
+
+<!-- ٤ عدّل بالفرشاة -->
+<section class="slide s4 wood" data-handles="light">
+  <div class="kick"><i><img src="assets/openai.svg" alt=""></i>ChatGPT · توليد الصور</div><div class="pg">4/7</div>
+  <h2 class="hd">عدّل جزء <em>بالفرشاة</em></h2>
+  <div class="sub">ارفع صورتك، أو اختر صورة طلّعها لك</div>
+  <div class="frame"><div class="in"><img src="assets/coffee.jpg" alt="">
+    <svg viewBox="0 0 744 504" preserveAspectRatio="none"><path d="M315 250 C 370 222, 470 222, 520 252 C 470 282, 370 286, 318 298 C 372 326, 476 326, 524 306 C 470 348, 384 356, 336 346" fill="none" stroke="rgba(120,170,255,.55)" stroke-width="58" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div></div>
+  <div class="say">«خلّ الكوب أخضر فاتح»</div>
+  <div class="tools"><span class="on"><svg width="28" height="28" viewBox="0 0 24 24"><path d="M14 3l7 7-9 9H5v-7z" fill="none" stroke="#1E1611" stroke-width="2.6" stroke-linejoin="round"/><path d="M3 21c2 0 3-1 3-3" stroke="#1E1611" stroke-width="2.6" fill="none" stroke-linecap="round"/></svg>Select</span><span>Undo</span><span>Redo</span><span>Cancel</span><span>Save</span></div>
+  <div class="warn"><b>تنبيه من OpenAI:</b> التظليل مو دقيق تماماً،<br>وممكن التعديل يطلع شوي برا المنطقة</div>
+</section>
+
+<!-- ٥ عدّل بالكلام -->
+<section class="slide s5 linen">
+  <div class="kick"><i><img src="assets/openai.svg" alt=""></i>ChatGPT · توليد الصور</div><div class="pg">5/7</div>
+  <h2 class="hd">أو عدّل <em>بالكلام</em></h2>
+  <div class="sub">بدون تحديد: تعديل واحد في كل رسالة</div>
+  <div class="steps">
+    <div class="st">
+      <div class="mini"><svg width="260" height="280" viewBox="0 0 260 280"><path d="M85 120h90v60a30 30 0 0 1-30 30h-30a30 30 0 0 1-30-30z" fill="#fff" stroke="#1E1611" stroke-width="5"/><path d="M175 135c25 0 25 35 0 35" fill="none" stroke="#1E1611" stroke-width="5"/><ellipse cx="130" cy="214" rx="70" ry="10" fill="rgba(0,0,0,.1)"/></svg></div>
+      <div class="bub"><small>1</small>خلّ الخلفية بيضاء</div>
+    </div>
+    <div class="st">
+      <div class="mini"><svg width="260" height="280" viewBox="0 0 260 280"><path d="M60 90h130v85a45 45 0 0 1-45 45h-40a45 45 0 0 1-45-45z" fill="#fff" stroke="#1E1611" stroke-width="6"/><path d="M190 110c36 0 36 50 0 50" fill="none" stroke="#1E1611" stroke-width="6"/><ellipse cx="125" cy="228" rx="95" ry="12" fill="rgba(0,0,0,.1)"/></svg></div>
+      <div class="bub"><small>2</small>كبّر الكوب شوي</div>
+    </div>
+    <div class="st">
+      <div class="mini"><svg width="260" height="260" viewBox="0 0 260 260"><path d="M60 80h130v85a45 45 0 0 1-45 45h-40a45 45 0 0 1-45-45z" fill="#fff" stroke="#1E1611" stroke-width="6"/><path d="M190 100c36 0 36 50 0 50" fill="none" stroke="#1E1611" stroke-width="6"/><ellipse cx="125" cy="218" rx="95" ry="12" fill="rgba(0,0,0,.1)"/></svg></div>
+      <div class="bub"><small>3</small>حوّلها مربع <span class="en">1:1</span></div>
+    </div>
+  </div>
+  <div class="ratio"><p>يطلّعها بأي مقاس تبيه</p>
+    <div class="rt"><i style="width:72px;height:128px"></i><b>9:16</b>ستوري</div>
+    <div class="rt"><i style="width:110px;height:110px"></i><b>1:1</b>منشور</div>
+    <div class="rt"><i style="width:160px;height:90px"></i><b>16:9</b>عرض</div>
+  </div>
+</section>
+
+<!-- ٦ الخطأ الشائع + الباقات -->
+<section class="slide s6 cnv">
+  <div class="kick"><i><img src="assets/openai.svg" alt=""></i>ChatGPT · توليد الصور</div><div class="pg">6/7</div>
+  <h2 class="hd">لا تقول: <em>سوّها حلوة</em></h2>
+  <div class="row r1">
+    <div class="bad"><small>✗ الخطأ الشائع</small><q>سوّ لي صورة حلوة لمطعمي</q><p>تطلع صورة تصلح لأي مطعم</p></div>
+    <div class="good"><small>✓ حدّد الخمس ألوان</small><q>صحن كبسة على سفرة خشب، من فوق، إضاءة دافئة، مقاس 1:1</q></div>
+  </div>
+  <div class="row r2">
+    <div class="bad"><small>✗ كل شي مرة وحدة</small><q>غيّر الخلفية واللون والزاوية والنص</q></div>
+    <div class="good"><small>✓ تعديل واحد كل مرة</small>تشوف النتيجة، وبعدها التعديل اللي بعده</div>
+  </div>
+  <div class="plan"><b>متاح لكل الباقات</b><span>والمجانية بحدود استخدام أقل. والصور مع التفكير في:</span><span style="display:block;direction:ltr;font:700 32px 'Space Grotesk';color:#E9A93A;margin-top:4px">Plus · Pro · Business</span></div>
+</section>
+
+<!-- ٧ بطاقة المتحف -->
+<section class="slide s7 wood" data-handles="off">
+  <div class="spot"></div>
+  <div class="gf"><div class="mat"><img src="{{AVATAR}}" alt=""></div></div>
+  <div class="lbl">
+    <div class="nm">علي التميمي</div>
+    <div class="ln">العمل: أول صورة بتطلبها · الأداة: <span class="en">ChatGPT</span></div>
+    <hr>
+    <div class="q">وش أول صورة بتطلبها؟<small>اكتب فكرتك بالتعليقات، وأكتب لك البرومبت</small></div>
+  </div>
+  <div class="soc"><div>{{HANDLES}}</div></div>
+</section>
+
+</body>
+</html>

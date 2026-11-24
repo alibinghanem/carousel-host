@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<style>
+:root{--bg:#14123F;--bg2:#1E1B5E;--belt:#0C0B26;--or:#FF8A3D;--bl:#4DA3FF;--gr:#43E0A0;--rd:#FF4D5E;--tx:#F2F0FF;--mu:#A9A6D8;--paper:#F6F1E3;--ink:#16143A}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;font-family:'IBM Plex Sans Arabic',sans-serif;-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1920px;position:relative;overflow:hidden;direction:rtl;color:var(--tx);background:linear-gradient(180deg,#1B1858 0%,#14123F 50%,#0E0C2E 100%)}
+.hd{font-family:'Tajawal';font-weight:900;line-height:1.18}
+.en{font-family:'Space Grotesk';direction:ltr;unicode-bidi:isolate;font-weight:700}
+.mono{font-family:'JetBrains Mono';direction:ltr;unicode-bidi:isolate;font-weight:800}
+.grid{position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(90deg,rgba(255,255,255,.03) 0 2px,transparent 2px 90px),repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 2px,transparent 2px 90px)}
+.kick{position:absolute;top:250px;right:90px;display:flex;align-items:center;gap:14px;padding:10px 26px 10px 20px;border-radius:999px;background:var(--paper);color:var(--ink);font:700 30px 'Space Grotesk';direction:ltr}
+.kick img{width:36px;height:36px}
+.kick i{font-style:normal;font:700 30px 'IBM Plex Sans Arabic';direction:rtl}
+.pg{position:absolute;top:262px;left:90px;font:700 28px 'Space Grotesk';opacity:.6;direction:ltr}
+.hbar{position:absolute;top:1392px;right:90px;display:flex;gap:26px;align-items:center;padding:14px 28px;border-radius:999px;background:var(--paper);color:var(--ink);font:700 28px 'IBM Plex Sans Arabic'}
+.chip{display:inline-block;border-radius:999px;padding:4px 22px 8px;font:800 32px 'IBM Plex Sans Arabic'}
+
+/* ١ الغلاف: ماسح الأشعة */
+.s1 h1{position:absolute;top:340px;right:80px;left:60px;font-size:116px;line-height:1.1}
+.s1 h1 em{font-style:normal;color:var(--or);display:block}
+.s1 .scan{position:absolute;top:840px;left:60px;width:960px;height:540px;transform:scale(.9);transform-origin:50% 0}
+.s1 .mon{position:absolute;left:560px;top:0;width:380px;height:230px;border-radius:26px;background:#0A0924;border:10px solid #3B3790;box-shadow:0 20px 40px rgba(0,0,0,.5);overflow:hidden}
+.s1 .mon .ln{position:absolute;right:26px;height:12px;border-radius:6px;background:rgba(255,255,255,.28)}
+.s1 .mon .hl{position:absolute;right:20px;left:90px;top:104px;height:38px;border:5px solid var(--rd);border-radius:10px;box-shadow:0 0 24px var(--rd)}
+.s1 .mon .tg{position:absolute;left:14px;top:12px;font:700 22px 'Space Grotesk';color:var(--gr);direction:ltr}
+.s1 .tun{position:absolute;left:150px;top:150px;width:720px;height:300px;border-radius:44px;background:linear-gradient(180deg,#25226F,#0C0B26);border:12px solid #3B3790;box-shadow:inset 0 0 70px rgba(77,163,255,.35),0 24px 50px rgba(0,0,0,.5)}
+.s1 .tun .fl{position:absolute;top:60px;bottom:40px;width:16px;background:repeating-linear-gradient(180deg,#0A0924 0 20px,#1b1a55 20px 28px);border-radius:6px}
+.s1 .belt{position:absolute;left:0;top:430px;width:960px;height:56px;border-radius:28px;background:repeating-linear-gradient(90deg,#17155A 0 40px,#0F0E3D 40px 46px);box-shadow:0 14px 24px rgba(0,0,0,.45)}
+.s1 .pg1{position:absolute;width:250px;height:330px;background:var(--paper);border-radius:6px;box-shadow:0 8px 16px rgba(0,0,0,.4)}
+.s1 .pg1 i{position:absolute;right:24px;left:24px;height:10px;border-radius:5px;background:#CFC8B3}
+.s1 .xr{position:absolute;width:210px;height:280px;border-radius:10px;border:5px solid;opacity:.9}
+.s1 .tag{position:absolute;left:110px;top:500px;font:900 40px 'Tajawal'}
+.s1 .hbar{top:1396px}
+.s1 .swipe{position:absolute;top:1405px;left:90px;font:900 40px 'Tajawal';color:var(--tx)}
+
+/* ٢ المشكلة: صورة نصف الشاشة */
+.s2 .ph{position:absolute;top:0;left:0;right:0;height:900px;overflow:hidden}
+.s2 .ph img{position:absolute;inset:-40px;width:calc(100% + 80px);height:calc(100% + 80px);object-fit:cover;object-position:35% 50%;filter:grayscale(.2) contrast(1.05)}
+.s2 .ph:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,18,63,.7) 0%,rgba(20,18,63,.25) 38%,rgba(20,18,63,.55) 68%,#14123F 100%)}
+.s2 h2{position:absolute;top:640px;right:80px;left:70px;font-size:104px;z-index:2}
+.s2 h2 em{font-style:normal;color:var(--or)}
+.s2 .note{position:absolute;width:300px;padding:22px 22px 26px;background:#FFE36B;color:var(--ink);box-shadow:0 16px 28px rgba(0,0,0,.45);font:900 38px/1.3 'Tajawal';text-align:center}
+.s2 .note small{display:block;margin-top:6px;font:700 28px 'Space Grotesk';direction:ltr;opacity:.7}
+.s2 .sub{position:absolute;top:1296px;right:90px;left:90px;text-align:center;font:700 44px/1.5 'IBM Plex Sans Arabic';color:var(--mu)}
+.s2 .sub b{color:var(--tx)}
+
+/* ٣ كيف: سير بثلاث محطات */
+.s3 h2{position:absolute;top:340px;right:90px;left:90px;font-size:104px}
+.s3 h2 em{font-style:normal;color:var(--gr)}
+.s3 .path{position:absolute;top:600px;left:80px;right:80px;height:760px}
+.s3 .st{position:absolute;display:flex;gap:26px;align-items:center;width:880px}
+.s3 .st .ic{flex:none;width:170px;height:170px;border-radius:40px;display:grid;place-items:center;border:6px solid;box-shadow:0 14px 28px rgba(0,0,0,.4)}
+.s3 .st .tx b{display:block;font:900 60px 'Tajawal';line-height:1.2}
+.s3 .st .tx>span{display:block;font:700 34px/1.45 'IBM Plex Sans Arabic';color:var(--mu);margin-top:4px}
+.s3 .st .tx .en{font-size:32px;color:var(--tx);display:inline}
+.s3 .conv{position:absolute;top:60px;right:84px;width:20px;height:620px;border-radius:10px;background:repeating-linear-gradient(180deg,#3B3790 0 22px,transparent 22px 40px)}
+.s3 .nm{position:absolute;width:62px;height:62px;border-radius:50%;background:var(--paper);color:var(--ink);display:grid;place-items:center;font:900 38px 'Tajawal';border:6px solid var(--bg)}
+
+/* ٤ ماذا تسأل: صفحة ممسوحة */
+.s4 h2{position:absolute;top:340px;right:90px;left:90px;font-size:104px}
+.s4 h2 em{font-style:normal;color:var(--or)}
+.s4 .page{position:absolute;top:600px;right:90px;width:520px;height:780px;background:var(--paper);border-radius:10px;box-shadow:0 30px 60px rgba(0,0,0,.5);padding:46px 36px;transform:rotate(-1.5deg)}
+.s4 .page i{display:block;height:13px;border-radius:7px;background:#CFC8B3;margin-bottom:22px}
+.s4 .page .h{height:20px;width:60%;background:#8A84B8;margin-bottom:34px}
+.s4 .page .hl{position:relative;height:30px;border-radius:8px;margin:12px -12px 30px;border:5px solid}
+.s4 .q{position:absolute;left:70px;width:430px;border-radius:26px;padding:18px 24px 24px;border:5px solid;background:#1E1B5E;box-shadow:0 16px 30px rgba(0,0,0,.4)}
+.s4 .q b{display:block;font:900 36px 'Tajawal';margin-bottom:4px}
+.s4 .q span{font:700 31px/1.45 'IBM Plex Sans Arabic';color:var(--tx)}
+.s4 .link{position:absolute;height:6px;border-radius:3px}
+
+/* ٥ الحدود: مقياس */
+.s5 h2{position:absolute;top:340px;right:90px;left:90px;font-size:112px}
+.s5 h2 em{font-style:normal;color:var(--bl)}
+.s5 .row{position:absolute;right:90px;left:90px;border-radius:30px;padding:24px 34px 28px;display:flex;align-items:center;gap:30px;border:5px solid;background:#1E1B5E;box-shadow:0 18px 34px rgba(0,0,0,.4)}
+.s5 .row .n{flex:none;min-width:200px;text-align:center;font:800 100px/1 'JetBrains Mono';direction:ltr}
+.s5 .row .t b{display:block;font:900 46px 'Tajawal';line-height:1.2}
+.s5 .row .t>span{display:block;font:700 33px/1.4 'IBM Plex Sans Arabic';color:var(--mu);margin-top:4px}
+.s5 .types{position:absolute;top:1265px;right:90px;left:90px;display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.s5 .types span{font:800 30px 'Space Grotesk';background:var(--paper);color:var(--ink);padding:6px 22px 10px;border-radius:14px;direction:ltr}
+.s5 .src{position:absolute;top:1345px;right:90px;left:90px;text-align:center;font:600 28px/1.5 'IBM Plex Sans Arabic';color:var(--mu)}
+
+/* ٦ الخطأ الشائع: ختم */
+.s6 h2{position:absolute;top:340px;right:90px;left:90px;font-size:112px}
+.s6 h2 em{font-style:normal;color:var(--rd)}
+.s6 .clause{position:absolute;top:660px;right:90px;left:90px;height:360px;background:var(--paper);color:var(--ink);border-radius:14px;padding:34px 40px;box-shadow:0 26px 50px rgba(0,0,0,.5);transform:rotate(1.2deg)}
+.s6 .clause p{font:700 38px/1.6 'IBM Plex Sans Arabic'}
+.s6 .clause .tagp{position:absolute;top:-24px;left:40px;background:var(--rd);color:#fff;font:800 32px 'Space Grotesk';padding:4px 20px 8px;border-radius:12px;direction:ltr}
+.s6 .lens{position:absolute;top:720px;left:70px;width:290px;height:290px;border-radius:50%;border:16px solid #F2F0FF;background:rgba(77,163,255,.18);box-shadow:0 20px 40px rgba(0,0,0,.5)}
+.s6 .lens:after{content:"";position:absolute;right:-70px;bottom:-60px;width:26px;height:120px;background:#F2F0FF;border-radius:13px;transform:rotate(-40deg)}
+.s6 .stamp{position:absolute;top:1010px;right:110px;transform:rotate(-8deg);border:8px solid var(--gr);outline:3px solid var(--gr);outline-offset:6px;border-radius:18px;padding:6px 36px 14px;color:var(--gr);font:900 56px 'Tajawal'}
+.s6 ul{position:absolute;top:1150px;right:90px;left:90px;list-style:none}
+.s6 li{display:flex;gap:16px;align-items:flex-start;font:700 38px/1.45 'IBM Plex Sans Arabic';margin-top:14px}
+.s6 li:before{content:"✓";flex:none;width:46px;height:46px;border-radius:50%;background:var(--gr);color:var(--ink);display:grid;place-items:center;font:900 30px 'IBM Plex Sans Arabic';margin-top:2px}
+
+/* ٧ المتابعة */
+.s7 .scr{position:absolute;top:300px;left:50%;margin-left:-350px;width:700px;height:640px;border-radius:44px;background:#0A0924;border:14px solid #3B3790;box-shadow:0 30px 70px rgba(0,0,0,.55),inset 0 0 80px rgba(67,224,160,.25);overflow:hidden}
+.s7 .scr img{position:absolute;left:50%;top:26px;margin-left:-225px;width:450px;height:450px;border-radius:50%;object-fit:cover;object-position:50% 14%;border:8px solid var(--gr);box-shadow:0 0 50px rgba(67,224,160,.6)}
+.s7 .scr .ok{position:absolute;left:0;right:0;bottom:22px;text-align:center;font:900 52px 'Tajawal';color:var(--gr)}
+.s7 .scan{position:absolute;left:0;right:0;height:6px;top:300px;background:linear-gradient(90deg,transparent,var(--gr),transparent);box-shadow:0 0 30px var(--gr)}
+.s7 .nm{position:absolute;top:960px;left:0;right:0;text-align:center;font:700 150px/1.5 'Aref Ruqaa';font-feature-settings:'calt' 0;color:#fff;text-shadow:0 8px 30px rgba(0,0,0,.45)}
+.s7 .q{position:absolute;top:1190px;right:80px;left:80px;text-align:center;font:900 72px/1.3 'Tajawal'}
+.s7 .q em{font-style:normal;color:var(--or)}
+.s7 .soc{position:absolute;top:1396px;left:0;right:0;display:flex;justify-content:center}
+.s7 .soc>div{display:flex;gap:26px;align-items:center;padding:14px 30px;border-radius:999px;background:var(--paper);color:var(--ink);font:700 28px 'IBM Plex Sans Arabic'}
+</style>
+</head>
+<body>
+
+<!-- ١ الغلاف -->
+<section class="slide s1" data-handles="off">
+  <div class="grid"></div>
+  <div class="kick"><img src="assets/claude-color.svg" alt=""><span class="en">Claude</span> · <i>تحليل الملفات</i></div>
+  <div class="pg">1/7</div>
+  <h1 class="hd">عقد من 60 صفحة؟<em>اسأله… لا تقرأه</em></h1>
+  <div class="scan">
+    <div class="mon">
+      <div class="tg">p.37 ✓</div>
+      <div class="ln" style="top:62px;width:240px"></div>
+      <div class="ln" style="top:84px;width:300px"></div>
+      <div class="hl"></div>
+      <div class="ln" style="top:160px;width:260px"></div>
+      <div class="ln" style="top:182px;width:200px"></div>
+    </div>
+    <div class="tun">
+      <div class="fl" style="left:18px"></div><div class="fl" style="right:18px"></div>
+      <div class="xr" style="left:150px;top:60px;border-color:var(--or);transform:rotate(-4deg)"></div>
+      <div class="xr" style="left:240px;top:44px;border-color:var(--bl);transform:rotate(3deg)"></div>
+      <div class="xr" style="left:330px;top:66px;border-color:var(--gr);transform:rotate(-2deg)"></div>
+      <div class="xr" style="left:420px;top:50px;border-color:var(--rd);transform:rotate(5deg)"></div>
+    </div>
+    <div class="belt"></div>
+    <div class="pg1" style="left:10px;top:130px;transform:rotate(-3deg)"><i style="top:40px"></i><i style="top:70px;left:70px"></i><i style="top:100px"></i><i style="top:130px;left:90px"></i><i style="top:160px"></i></div>
+    <div class="pg1" style="left:34px;top:120px;transform:rotate(2deg)"><i style="top:40px"></i><i style="top:70px;left:50px"></i><i style="top:100px"></i><i style="top:130px"></i><i style="top:160px;left:100px"></i></div>
+    <div class="pg1" style="left:20px;top:108px;transform:rotate(-1deg)"><i style="top:40px;background:#8A84B8;left:90px"></i><i style="top:76px"></i><i style="top:104px"></i><i style="top:132px;left:60px"></i><i style="top:160px"></i></div>
+  </div>
+  <div class="hbar">{{HANDLES}}</div>
+  <div class="swipe">اسحب ←</div>
+</section>
+
+<!-- ٢ المشكلة -->
+<section class="slide s2">
+  <div class="ph"><img src="assets/docs.jpg" alt=""></div>
+  <div class="kick"><img src="assets/claude-color.svg" alt=""><span class="en">Claude</span> · <i>تحليل الملفات</i></div>
+  <div class="pg">2/7</div>
+  <h2 class="hd">تقرأ <em>60 صفحة</em><br>عشان سطر واحد</h2>
+  <div class="note" style="top:1010px;right:100px;transform:rotate(-4deg)">غرامة التأخير؟<small>p.12</small></div>
+  <div class="note" style="top:1070px;right:400px;background:#7FD7FF;transform:rotate(3deg)">مدة الإلغاء؟<small>p.37</small></div>
+  <div class="note" style="top:1000px;left:70px;background:#FFB3C1;transform:rotate(-2deg)">مين يتحمّل الرسوم؟<small>p.54</small></div>
+  <div class="sub">وتنسى وين شفته. <b>الحل: ارفعه واسأل.</b></div>
+</section>
+
+<!-- ٣ كيف تبدأ -->
+<section class="slide s3">
+  <div class="grid"></div>
+  <div class="kick"><img src="assets/claude-color.svg" alt=""><span class="en">Claude</span> · <i>تحليل الملفات</i></div>
+  <div class="pg">3/7</div>
+  <h2 class="hd">ثلاث خطوات <em>وانتهى</em></h2>
+  <div class="path">
+    <div class="conv"></div>
+    <div class="st" style="top:0"><div class="ic" style="border-color:var(--bl);background:rgba(77,163,255,.12)"><svg width="90" height="90" viewBox="0 0 24 24" fill="none" stroke="#4DA3FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"/></svg></div><div class="tx"><b style="color:var(--bl)">ارفع الملف</b><span>اضغط <span class="en">+</span> ثم <span class="en">Add files or photos</span> أو اسحبه للمحادثة</span></div></div>
+    <div class="st" style="top:270px"><div class="ic" style="border-color:var(--or);background:rgba(255,138,61,.12)"><svg width="90" height="90" viewBox="0 0 24 24" fill="none" stroke="#FF8A3D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16a1 1 0 011 1v9a1 1 0 01-1 1h-9l-5 4v-4H4a1 1 0 01-1-1V6a1 1 0 011-1z"/><path d="M8 10h8M8 13h5"/></svg></div><div class="tx"><b style="color:var(--or)">اسأل بالتحديد</b><span>«وش غرامة التأخير؟» أحسن من «لخّص العقد»</span></div></div>
+    <div class="st" style="top:540px"><div class="ic" style="border-color:var(--gr);background:rgba(67,224,160,.12)"><svg width="90" height="90" viewBox="0 0 24 24" fill="none" stroke="#43E0A0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21M8 10.5l2 2 3.5-4"/></svg></div><div class="tx"><b style="color:var(--gr)">تحقّق من السطر</b><span>اطلب رقم الصفحة والنص الحرفي، وافتحه بنفسك</span></div></div>
+    <div class="nm" style="top:-10px;right:54px;left:auto;display:none"></div>
+  </div>
+</section>
+
+<!-- ٤ ماذا تسأل -->
+<section class="slide s4">
+  <div class="grid"></div>
+  <div class="kick"><img src="assets/claude-color.svg" alt=""><span class="en">Claude</span> · <i>تحليل الملفات</i></div>
+  <div class="pg">4/7</div>
+  <h2 class="hd">ثلاثة أنواع أسئلة <em>تلقط كل شي</em></h2>
+  <div class="page">
+    <i class="h"></i><i></i><i style="width:84%"></i>
+    <div class="hl" style="border-color:var(--or);background:rgba(255,138,61,.18)"></div>
+    <i style="width:70%"></i><i></i>
+    <div class="hl" style="border-color:var(--bl);background:rgba(77,163,255,.18)"></div>
+    <i style="width:90%"></i><i style="width:60%"></i>
+    <div class="hl" style="border-color:var(--gr);background:rgba(67,224,160,.18)"></div>
+    <i></i><i style="width:76%"></i>
+  </div>
+  <div class="q" style="top:640px;border-color:var(--or)"><b style="color:var(--or)">الالتزامات</b><span>«لخّص التزامات الطرف الثاني»</span></div>
+  <div class="q" style="top:930px;border-color:var(--bl)"><b style="color:var(--bl)">الأرقام</b><span>«وش غرامة التأخير وبعد كم يوم تبدأ؟»</span></div>
+  <div class="q" style="top:1220px;border-color:var(--gr)"><b style="color:var(--gr)">التواريخ</b><span>«متى ينتهي العقد وكيف أجدده؟»</span></div>
+</section>
+
+<!-- ٥ الحدود -->
+<section class="slide s5">
+  <div class="grid"></div>
+  <div class="kick"><img src="assets/claude-color.svg" alt=""><span class="en">Claude</span> · <i>تحليل الملفات</i></div>
+  <div class="pg">5/7</div>
+  <h2 class="hd">وش <em>الحدود</em> اللي تعرفها؟</h2>
+  <div class="row" style="top:590px;border-color:var(--gr)"><div class="n" style="color:var(--gr)">100</div><div class="t"><b>صفحة بالنص والرسوم</b><span>يقرأ الجداول والرسوم داخل الـ <span class="en" style="font-size:31px">PDF</span></span></div></div>
+  <div class="row" style="top:815px;border-color:var(--or)"><div class="n" style="color:var(--or)">1000</div><div class="t"><b>أقصى عدد صفحات</b><span>بعد الـ 100: يقرأ النص فقط</span></div></div>
+  <div class="row" style="top:1040px;border-color:var(--bl)"><div class="n" style="color:var(--bl)">20</div><div class="t"><b>ملف في المحادثة الواحدة</b><span>وكل صورة حتى 8000×8000 بكسل</span></div></div>
+  <div class="types"><span>PDF</span><span>DOCX</span><span>XLSX*</span><span>CSV</span><span>TXT</span><span>HTML</span><span>JSON</span></div>
+  <div class="src">* <span class="en" style="font-size:26px">XLSX</span> يحتاج تفعيل تنفيذ الكود · المصدر: support.claude.com</div>
+</section>
+
+<!-- ٦ الخطأ الشائع -->
+<section class="slide s6">
+  <div class="grid"></div>
+  <div class="kick"><img src="assets/claude-color.svg" alt=""><span class="en">Claude</span> · <i>تحليل الملفات</i></div>
+  <div class="pg">6/7</div>
+  <h2 class="hd">لا توقّع <em>قبل ما تشوف السطر</em></h2>
+  <div class="clause"><span class="tagp">p.37</span><p>«في حال التأخير، يُحتسب على الطرف الثاني غرامة عن كل يوم تأخير بعد المدة المتفق عليها…»</p></div>
+  <div class="lens"></div>
+  <div class="stamp">راجعها بنفسك</div>
+  <ul>
+    <li>اطلب «النص الحرفي ورقم الصفحة» مع كل جواب</li>
+    <li>افتح الصفحة وقارن بعينك</li>
+    <li>القرار القانوني؟ استشر مختص</li>
+  </ul>
+</section>
+
+<!-- ٧ المتابعة -->
+<section class="slide s7" data-handles="off">
+  <div class="grid"></div>
+  <div class="scr"><img src="{{AVATAR}}" alt=""><div class="scan"></div><div class="ok">✓ تم الفحص</div></div>
+  <div class="nm">علي التميمي</div>
+  <div class="q">أي ملف تبغاني <em>أحلله</em> لك؟<br>اكتب نوعه بالتعليقات</div>
+  <div class="soc"><div>{{HANDLES}}</div></div>
+</section>
+
+</body>
+</html>

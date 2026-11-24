@@ -1,0 +1,101 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><style>:root{--navy:#0F1B3D;--red:#E5303A;--redd:#B3122B;--yel:#FFC933;--bg:#F3F6FB;--mu:#5A6485;--gr:#16A06A;--blue:#2457F5}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;font-family:'IBM Plex Sans Arabic',sans-serif;-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1920px;position:relative;overflow:hidden;direction:rtl;color:var(--navy);background:radial-gradient(90% 50% at 50% 40%,#FFFFFF 0%,var(--bg) 62%,#DDE5F2 100%)}
+.tag{position:absolute;top:252px;right:80px;display:flex;align-items:center;gap:12px;padding:8px 26px 12px 20px;border-radius:40px;background:var(--navy);color:#fff;font:700 30px 'IBM Plex Sans Arabic';z-index:3}
+.tag i{width:14px;height:14px;border-radius:50%;background:var(--red);display:block;margin-top:4px}
+.pg{position:absolute;top:262px;left:80px;font:700 30px 'Space Grotesk';color:var(--mu);direction:ltr;z-index:3}
+h2{position:absolute;top:330px;right:80px;left:80px;font:800 108px/1.2 'Changa',sans-serif;z-index:2}
+h2 em{font-style:normal;color:var(--red)}
+.vis{position:absolute;top:600px;left:80px;right:80px;height:480px;display:flex;align-items:center;justify-content:center}
+.vis img.k{max-height:480px;max-width:920px;filter:drop-shadow(0 24px 28px rgba(15,27,61,.25))}
+.txt{position:absolute;top:1105px;left:80px;right:80px;height:290px;display:flex;flex-direction:column;justify-content:center;gap:14px}
+.big{font:800 44px/1.4 'IBM Plex Sans Arabic';text-align:center}
+.big b{color:var(--red)}
+.sm{font:600 30px/1.45 'IBM Plex Sans Arabic';text-align:center;color:var(--mu)}
+.row{display:flex;align-items:center;gap:20px;background:#fff;border-radius:24px;padding:12px 24px 16px;box-shadow:0 10px 24px rgba(15,27,61,.1);font:700 34px/1.35 'IBM Plex Sans Arabic'}
+.row .n{flex:none;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:var(--navy);color:#fff;font:800 32px 'Space Grotesk'}
+.row b{color:var(--red)}
+.row.g .n{background:var(--gr)}.row.g b{color:var(--gr)}
+.row.r .n{background:var(--red)}
+/* 1 */
+.s1{background:radial-gradient(90% 60% at 50% 45%,#FF5A4A 0%,#D12535 50%,#7C0E22 100%);color:#fff}
+.s1 .bgp{position:absolute;left:0;right:0;bottom:0;height:900px;background:url(assets/phone.jpg) center 60%/cover;opacity:.5;mix-blend-mode:luminosity;-webkit-mask-image:linear-gradient(0deg,#000 40%,transparent);mask-image:linear-gradient(0deg,#000 40%,transparent)}
+.s1 .tag{background:#fff;color:var(--redd)}
+.s1 .tag i{background:var(--redd)}
+.s1 .pg{color:#FFD7D2}
+.s1 h1{position:absolute;top:330px;right:80px;left:60px;font:800 112px/1.15 'Changa',sans-serif}
+.s1 h1 em{font-style:normal;color:var(--yel)}
+.s1 .vis{top:690px;height:590px}
+.s1 .vis img.k{max-height:590px;filter:drop-shadow(0 30px 34px rgba(0,0,0,.4))}
+.s1 .chip{position:absolute;top:1296px;left:0;right:0;text-align:center}
+.s1 .chip span{display:inline-block;padding:6px 36px 14px;border-radius:30px;background:#fff;color:var(--redd);font:800 42px 'IBM Plex Sans Arabic'}
+.s1 .swipe{position:absolute;top:1404px;left:80px;padding:8px 24px 12px;border-radius:30px;background:var(--yel);font:800 34px/1 'IBM Plex Sans Arabic';color:var(--navy)}
+.s1 .hbar{position:absolute;top:1404px;right:80px;display:flex;gap:26px;align-items:center;padding:12px 28px;border-radius:14px;background:#fff;color:var(--navy);font:700 28px 'IBM Plex Sans Arabic'}
+/* 4 note */
+.pc{width:100%;background:var(--navy);color:#fff;border-radius:34px;padding:30px 36px 36px}
+/* 6 */
+.s6 .list{position:absolute;top:610px;left:80px;right:80px;display:flex;flex-direction:column;gap:22px}
+.s6 .ck{display:flex;align-items:center;gap:26px;background:#fff;border-radius:28px;padding:24px 30px 28px;box-shadow:0 12px 26px rgba(15,27,61,.1);font:800 42px/1.3 'IBM Plex Sans Arabic'}
+.s6 .ck i{flex:none;width:76px;height:76px;border-radius:20px;background:var(--gr);display:grid;place-items:center;font:900 48px 'Space Grotesk';color:#fff;font-style:normal}
+.s6 .ck.x i{background:var(--red)}
+.s6 .save{position:absolute;top:1300px;left:80px;right:80px;text-align:center;font:800 36px 'IBM Plex Sans Arabic';color:var(--red)}
+/* 7 */
+.s7{background:linear-gradient(180deg,#0F1B3D 0%,#1B2C63 58%,#B3122B 100%);color:#fff}
+.s7 .tag{background:#fff;color:var(--navy)}
+.s7 .pg{color:#C5CCE6}
+.s7 h2{text-align:center;color:#fff}
+.s7 h2 em{color:var(--yel)}
+.s7 .ring{position:absolute;top:640px;left:50%;width:400px;height:400px;margin-left:-200px;border-radius:50%;background:var(--yel);box-shadow:0 0 0 16px rgba(255,201,51,.25),0 0 80px rgba(255,201,51,.3)}
+.s7 .face{position:absolute;top:14px;left:14px;width:372px;height:372px;border-radius:50%;overflow:hidden;background:var(--navy)}
+.s7 .face img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.s7 .nm{position:absolute;top:1080px;left:0;right:0;text-align:center;font:800 96px/1.15 'Changa',sans-serif}
+.s7 .ds{position:absolute;top:1200px;left:0;right:0;text-align:center;font:700 34px 'IBM Plex Sans Arabic';color:#DCE1F2}
+.s7 .ask{position:absolute;top:1262px;left:60px;right:60px;text-align:center;font:800 40px/1.4 'IBM Plex Sans Arabic';color:var(--yel)}
+.s7 .soc{position:absolute;top:1340px;left:0;right:0;display:flex;justify-content:center}
+.s7 .soc>div{display:flex;gap:26px;align-items:center;padding:12px 30px;border-radius:14px;background:#fff;color:var(--navy);font:700 30px 'IBM Plex Sans Arabic'}
+</style></head><body><section class="slide s1"><div class="tag"><i></i>احتيال · مكالمة «البنك» المزيفة</div>
+<div class="bgp"></div>
+<h1>البنك يتصل؟<br><em>سكّر الخط فوراً</em></h1>
+<div class="vis"><img class="k" src="assets/b0.png" alt=""></div>
+<div class="chip"><span>البنك ما يطلب رمزك أبداً</span></div>
+<div class="swipe">اسحب ←</div><div class="hbar">{{HANDLES}}</div></section><section class="slide s2"><div class="tag"><i></i>احتيال · مكالمة «البنك» المزيفة</div><div class="pg">2/7</div>
+<h2>كذا يضغطون<br><em>عليك</em></h2>
+<div class="vis"><img class="k" src="assets/b1.png" alt=""></div>
+<div class="txt">
+ <div class="row"><span class="n">1</span><span>رقم <b>يشبه رقم البنك</b></span></div>
+ <div class="row"><span class="n">2</span><span>خوف واستعجال: <b>«حسابك مهدد»</b></span></div>
+ <div class="row r"><span class="n">3</span><span>يطلب الرمز <b>لـ«إيقاف العملية»</b></span></div>
+</div></section><section class="slide s3"><div class="tag"><i></i>احتيال · مكالمة «البنك» المزيفة</div><div class="pg">3/7</div>
+<h2>الرمز لك<br><em>أنت بس</em></h2>
+<div class="vis"><img class="k" src="assets/b2.png" alt=""></div>
+<div class="txt">
+ <div class="big">موظف البنك <b>ما يطلب</b> رمز التحقق</div>
+ <div class="sm">ولا الرقم السري ولا كلمة المرور، حسب وزارة الداخلية</div>
+</div></section><section class="slide s4"><div class="tag"><i></i>احتيال · مكالمة «البنك» المزيفة</div><div class="pg">4/7</div>
+<h2>سكّر واتصل<br><em>أنت بالبنك</em></h2>
+<div class="vis"><img class="k" src="assets/b3.png" alt=""></div>
+<div class="txt">
+ <div class="row"><span class="n">1</span><span>أنهِ المكالمة <b>بدون نقاش</b></span></div>
+ <div class="row g"><span class="n">2</span><span>اتصل من <b>الرقم الرسمي</b> خلف بطاقتك</span></div>
+</div></section><section class="slide s5"><div class="tag"><i></i>احتيال · مكالمة «البنك» المزيفة</div><div class="pg">5/7</div>
+<h2>عطيتهم الرمز؟<br><em>تحرّك الحين</em></h2>
+<div class="vis"><img class="k" src="assets/b4.png" alt=""></div>
+<div class="txt">
+ <div class="row r"><span class="n">1</span><span>اتصل بالبنك <b>فوراً</b></span></div>
+ <div class="row"><span class="n">2</span><span><b>جمّد البطاقة</b> إن وفّر بنكك الخدمة</span></div>
+ <div class="row"><span class="n">3</span><span>غيّر <b>كلمة المرور</b></span></div>
+</div></section><section class="slide s6"><div class="tag"><i></i>احتيال · مكالمة «البنك» المزيفة</div><div class="pg">6/7</div>
+<h2>احفظ<br><em>قاعدة الأمان</em></h2>
+<div class="list">
+ <div class="ck x"><i>✗</i>لا رمز لأي متصل</div>
+ <div class="ck"><i>✓</i>سكّر الخط واتصل أنت</div>
+ <div class="ck"><i>✓</i>الرقم من خلف بطاقتك</div>
+ <div class="ck"><i>✓</i>نبّه أهلك وكبار السن</div>
+</div>
+<div class="save">اضغط حفظ 🔖 وأرسلها لأهلك</div></section><section class="slide s7" data-handles="off"><div class="tag"><i></i>احتيال · مكالمة «البنك» المزيفة</div><div class="pg">7/7</div>
+<h2>فلوسك<br><em>أمانة عندك</em></h2>
+<div class="ring"><div class="face"><img src="{{AVATAR}}" alt=""></div></div>
+<div class="nm">علي التميمي</div><div class="ds">كل يوم معلومة تقنية تحميك</div>
+<div class="ask">مين أول شخص بترسلها له؟ 👇</div>
+<div class="soc"><div>{{HANDLES}}</div></div></section></body></html>

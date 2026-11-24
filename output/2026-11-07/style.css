@@ -1,0 +1,92 @@
+:root{--st:#1F4E6E;--st2:#163A54;--st3:#0E2638;--or:#FF7A2F;--cc:#E8E4DC;--ink:#1B2B38;--mu:#A9C1D3}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;font-family:'IBM Plex Sans Arabic',sans-serif;-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1920px;position:relative;overflow:hidden;direction:rtl;color:#fff;background:radial-gradient(90% 60% at 50% 40%,var(--st) 0%,var(--st2) 60%,var(--st3) 100%)}
+.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.06) 2px,transparent 2px),linear-gradient(90deg,rgba(255,255,255,.06) 2px,transparent 2px);background-size:54px 54px}
+.hd{font-family:'Lalezar';font-weight:400}
+.en{font-family:'Space Grotesk';font-weight:700;direction:ltr;unicode-bidi:isolate;white-space:nowrap}
+.tag{position:absolute;top:252px;right:80px;padding:8px 26px 12px;border-radius:40px;background:var(--or);color:var(--ink);font:700 30px 'IBM Plex Sans Arabic';z-index:3}
+.pg{position:absolute;top:264px;left:80px;font:700 28px 'Space Grotesk';color:var(--mu);direction:ltr;z-index:3}
+h2{position:absolute;top:330px;right:80px;left:40px;font-size:100px;line-height:1.25;white-space:nowrap}
+h2 em,h1 em{font-style:normal;color:var(--or)}
+.pill{position:absolute;padding:16px 28px 20px;border-radius:22px;background:rgba(14,38,56,.75);border:2px solid rgba(232,228,220,.3);font:700 31px/1.45 'IBM Plex Sans Arabic'}
+.pill b{color:var(--or)}
+
+/* ١ الغلاف */
+.s1 h1{position:absolute;top:330px;right:76px;left:30px;font-size:116px;line-height:1.22;white-space:nowrap}
+.s1 h1 em{display:block}
+.s1 .br{position:absolute;top:660px;left:40px;width:1000px}
+.s1 .stat{position:absolute;top:1105px;right:70px;left:70px;display:flex;align-items:center;gap:28px;padding:18px 30px 22px;border-radius:26px;background:var(--cc);color:var(--ink)}
+.s1 .stat .n{font-size:118px;line-height:1;color:var(--or)}
+.s1 .stat .t{font:700 31px/1.4 'IBM Plex Sans Arabic'}
+.s1 .stat .t b{color:#C24F12}
+.s1 .stat .t i{display:block;margin-top:4px;font:600 24px 'IBM Plex Sans Arabic';font-style:normal;color:#5B6B78}
+.s1 .swipe{position:absolute;top:1398px;left:80px;padding:6px 22px 12px;border-radius:30px;background:rgba(14,38,56,.85);font:400 46px/1 'Lalezar';color:var(--or)}
+.s1 .hbar{position:absolute;top:1404px;right:80px;display:flex;gap:26px;align-items:center;padding:12px 28px;border-radius:14px;background:rgba(14,38,56,.85);border:2px solid rgba(255,255,255,.2);font:700 28px 'IBM Plex Sans Arabic'}
+
+/* ٢ المشكلة */
+.s2 .pol{position:absolute;top:520px;right:70px;width:640px;height:470px;background:#fff;padding:14px;transform:rotate(-2deg);box-shadow:0 30px 60px rgba(0,0,0,.5)}
+.s2 .pol img{width:100%;height:100%;object-fit:cover}
+.s2 .sticky{position:absolute;top:560px;left:60px;width:300px;padding:26px 24px 30px;background:#FFE27A;color:var(--ink);font:400 46px/1.25 'Lalezar';transform:rotate(4deg);box-shadow:0 20px 40px rgba(0,0,0,.45);text-align:center}
+.s2 .p1{top:1030px;right:70px;left:70px}
+.s2 .why{position:absolute;top:1200px;right:70px;left:70px;display:flex;gap:12px;flex-wrap:wrap}
+.s2 .why span{padding:8px 20px 12px;border-radius:30px;background:rgba(255,122,47,.15);border:2px solid rgba(255,122,47,.6);font:700 27px 'IBM Plex Sans Arabic';color:#FFD2B8}
+.s2 .key{position:absolute;top:1290px;right:70px;left:70px;font:700 34px/1.45 'IBM Plex Sans Arabic'}
+.s2 .key b{color:var(--or)}
+
+/* الجسر الصغير */
+.mini{position:absolute;top:520px;left:140px;width:800px}
+/* ٣ */
+.s3 .row{position:absolute;right:70px;left:70px;display:flex;gap:20px;align-items:stretch}
+.s3 .r1{top:760px}.s3 .r2{top:960px}
+.s3 .lb{flex:none;width:130px;display:grid;place-items:center;border-radius:20px;background:rgba(232,228,220,.15);font:400 40px 'Lalezar';color:var(--mu)}
+.s3 .lb.on{background:var(--or);color:var(--ink)}
+.s3 .bx{flex:1;padding:18px 26px 22px;border-radius:20px;border:2px dashed rgba(232,228,220,.45);font:700 30px/1.45 'IBM Plex Sans Arabic';color:#D6E2EA}
+.s3 .flow{flex:1;display:flex;align-items:center;gap:6px;padding:16px 14px;border-radius:20px;background:var(--cc);color:var(--ink)}
+.s3 .nd{flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;font:700 24px/1.3 'IBM Plex Sans Arabic'}
+.s3 .nd img{height:64px}
+.s3 .nd.ai b{display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:var(--or);color:#fff;font:700 36px 'Space Grotesk'}
+.s3 .ar{flex:none;font:700 34px 'Space Grotesk';color:#C24F12}
+.s3 .p3{top:1210px;right:70px;left:70px}
+
+/* ٤ */
+.s4 .own{position:absolute;top:760px;right:70px;left:70px;display:flex;gap:24px;align-items:center;padding:20px 28px 24px;border-radius:24px;background:var(--cc);color:var(--ink);font:700 30px/1.4 'IBM Plex Sans Arabic'}
+.s4 .own b{display:block;font:400 46px/1.2 'Lalezar';color:#C24F12}
+.s4 .own i{display:block;font:600 24px 'IBM Plex Sans Arabic';font-style:normal;color:#5B6B78}
+.s4 .av{flex:none;width:110px;height:110px;border-radius:50%;display:grid;place-items:center;background:var(--or);font-size:58px}
+.s4 .kpi{position:absolute;top:990px;right:70px;left:70px;padding:20px 28px 24px;border-radius:24px;background:rgba(14,38,56,.75);border:2px solid rgba(232,228,220,.3)}
+.s4 .kh{font:400 40px 'Lalezar';color:#fff}
+.s4 .kh i{font:600 24px 'IBM Plex Sans Arabic';font-style:normal;color:var(--mu)}
+.s4 .kl{font:700 27px 'IBM Plex Sans Arabic';color:var(--mu);margin:2px 0 10px}
+.s4 .b{display:flex;align-items:center;gap:16px;margin-top:10px;font:700 27px 'IBM Plex Sans Arabic'}
+.s4 .b span{width:60px}
+.s4 .bar{height:34px;border-radius:10px;background:rgba(232,228,220,.4)}
+.s4 .bar.on{background:var(--or)}
+.s4 .b em{font-style:normal;font-size:30px}
+.s4 .p4{top:1250px;right:70px;left:70px;font-size:29px}
+
+/* ٥ */
+.s5 .lst{position:absolute;top:760px;right:70px;left:70px;display:flex;flex-direction:column;gap:16px}
+.s5 .it{display:flex;gap:18px;align-items:center;padding:16px 24px 20px;border-radius:22px;background:var(--cc);color:var(--ink);font:700 32px/1.35 'IBM Plex Sans Arabic'}
+.s5 .it>span{flex:none;display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:var(--or);color:var(--ink);font:700 30px 'Space Grotesk'}
+.s5 .it i{display:block;margin-top:2px;font:600 25px/1.4 'IBM Plex Sans Arabic';font-style:normal;color:#5B6B78}
+.s5 .p5{top:1250px;right:70px;left:70px;font-size:29px}
+
+/* ٦ */
+.s6 .full{position:absolute;top:500px;left:40px;width:1000px}
+.s6 .q{position:absolute;top:960px;right:70px;left:70px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.s6 .qi{display:flex;gap:14px;align-items:center;padding:16px 20px 20px;border-radius:20px;background:var(--cc);color:var(--ink);font:700 29px/1.35 'IBM Plex Sans Arabic'}
+.s6 .qi span{flex:none;display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:var(--or);font:700 26px 'Space Grotesk'}
+.s6 .err{position:absolute;top:1250px;right:70px;left:70px;padding:16px 28px 20px;border-radius:22px;background:rgba(255,122,47,.16);border:2px solid var(--or);font:700 32px/1.45 'IBM Plex Sans Arabic'}
+.s6 .err b{color:var(--or)}
+
+/* ٧ */
+.s7 h2{font-size:92px;text-align:center;right:60px;left:60px;line-height:1.3}
+.s7 .ring{position:absolute;top:640px;left:50%;width:440px;height:440px;margin-left:-220px;border-radius:50%;background:conic-gradient(var(--or),var(--cc),var(--or));box-shadow:0 0 70px rgba(255,122,47,.35)}
+.s7 .face{position:absolute;top:16px;left:16px;width:408px;height:408px;border-radius:50%;overflow:hidden;background:var(--st2)}
+.s7 .face img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.s7 .nm{position:absolute;top:1110px;left:0;right:0;text-align:center;font:400 96px/1.2 'Lalezar'}
+.s7 .ds{position:absolute;top:1232px;left:0;right:0;text-align:center;font:700 34px 'IBM Plex Sans Arabic';color:var(--mu)}
+.s7 .soc{position:absolute;top:1290px;left:0;right:0;display:flex;justify-content:center}
+.s7 .soc>div{display:flex;gap:26px;align-items:center;padding:12px 30px;border-radius:14px;background:#fff;color:var(--ink);font:700 30px 'IBM Plex Sans Arabic'}
+.s7 .ask{position:absolute;top:1368px;left:50px;right:50px;text-align:center;font:700 36px/1.4 'IBM Plex Sans Arabic';color:var(--or)}

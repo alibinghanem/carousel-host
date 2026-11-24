@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<style>
+:root{--chat:#ECE5DD;--chat2:#E2D8CC;--wa:#25D366;--dg:#0B6E4F;--deep:#073B2C;--night:#04231A;--ink:#111B21;--mu:#54656F;--notice:#FFF3C4;--out:#D9FDD3;--red:#D93025}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;font-family:'IBM Plex Sans Arabic',sans-serif;-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1920px;position:relative;overflow:hidden;direction:rtl;color:var(--ink)}
+.hd{font-family:'Reem Kufi','IBM Plex Sans Arabic';font-weight:700}
+.en{font-family:'Space Grotesk';font-weight:700;direction:ltr;unicode-bidi:isolate;white-space:nowrap}
+.tag{position:absolute;top:252px;right:80px;display:flex;gap:12px;align-items:center;padding:8px 24px 12px 18px;border-radius:40px;background:var(--dg);color:#fff;font:700 30px 'IBM Plex Sans Arabic';z-index:3}
+.tag img{width:38px;height:38px;background:#fff;border-radius:50%;padding:3px}
+.pg{position:absolute;top:264px;left:80px;font:700 28px 'Space Grotesk';color:var(--mu);direction:ltr;z-index:3}
+/* خلفية دردشة واتساب بنقش رسومات خفيف */
+.doodle{background-color:var(--chat);background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180' fill='none' stroke='%23B9AC9C' stroke-width='3' opacity='.38'><rect x='20' y='34' width='34' height='26' rx='6'/><path d='M27 34v-7a10 10 0 0 1 20 0v7'/><path d='M104 22h44a10 10 0 0 1 10 10v20a10 10 0 0 1-10 10h-30l-12 10v-10h-2a10 10 0 0 1-10-10V32a10 10 0 0 1 10-10z'/><circle cx='52' cy='130' r='16'/><path d='M64 142l14 14'/><path d='M120 120l8 16 18 2-13 12 4 18-17-9-16 9 4-18-13-12 18-2z'/></svg>")}
+
+/* ١ الغلاف */
+.s1 h1{position:absolute;top:322px;right:76px;left:30px;font-size:92px;line-height:1.32;color:var(--ink);white-space:nowrap}
+.s1 h1 em{display:block;font-style:normal;font-size:106px;color:var(--dg)}
+.s1 .sub{position:absolute;top:600px;right:80px;font:700 42px/1.4 'IBM Plex Sans Arabic';color:var(--ink)}
+.s1 .sub b{background:linear-gradient(transparent 58%,rgba(37,211,102,.45) 58%)}
+.s1 .hero{position:absolute;top:688px;left:50%;width:760px;margin-left:-380px;filter:drop-shadow(0 36px 46px rgba(7,59,44,.28))}
+.s1 .swipe{position:absolute;top:1404px;left:80px;font:700 46px/1 'Reem Kufi';color:var(--dg)}
+.s1 .hbar{position:absolute;top:1404px;right:80px;display:flex;gap:26px;align-items:center;padding:12px 28px;border-radius:14px;background:var(--ink);color:#fff;font:700 28px 'IBM Plex Sans Arabic'}
+
+/* ٢ المشكلة */
+.s2{background-color:var(--chat2)}
+.s2 h2{position:absolute;top:330px;right:80px;left:40px;font-size:96px;line-height:1.3;white-space:nowrap}
+.s2 h2 em{font-style:normal;color:var(--dg)}
+.s2 .pol{position:absolute;top:610px;right:86px;width:520px;height:600px;background:#fff;padding:16px 16px 70px;transform:rotate(2.5deg);box-shadow:0 30px 50px rgba(7,59,44,.28)}
+.s2 .pol img{width:100%;height:100%;object-fit:cover;object-position:48% 40%}
+.s2 .pol span{position:absolute;bottom:16px;right:24px;font:700 28px 'IBM Plex Sans Arabic';color:var(--mu)}
+.s2 .flow{position:absolute;top:640px;left:70px;width:330px;display:flex;flex-direction:column;align-items:stretch;gap:0}
+.s2 .node{display:flex;gap:14px;align-items:center;padding:18px 20px;border-radius:22px;background:#fff;font:700 31px/1.3 'IBM Plex Sans Arabic';box-shadow:0 10px 24px rgba(7,59,44,.12)}
+.s2 .node.srv{background:var(--ink);color:#fff}
+.s2 .node svg,.s2 .node img{flex:none;width:46px;height:46px}
+.s2 .ar{text-align:center;font:700 40px/56px 'Space Grotesk';color:var(--dg)}
+.s2 .q{position:absolute;top:1252px;right:80px;left:80px;font:700 40px/1.5 'IBM Plex Sans Arabic'}
+.s2 .q b{color:var(--dg)}
+
+/* ٣ القفل والمفتاح */
+.s3{background:radial-gradient(80% 45% at 50% 48%,#0E6B4E 0%,var(--deep) 55%,var(--night) 100%);color:#fff}
+.s3 .tag{background:#fff;color:var(--ink)}.s3 .pg{color:#8FD9B6}
+.s3 h2{position:absolute;top:326px;right:80px;left:40px;font-size:90px;line-height:1.32;white-space:nowrap}
+.s3 h2 em{display:block;font-style:normal;color:var(--wa)}
+.s3 .img{position:absolute;top:610px;left:50%;width:900px;margin-left:-450px;filter:drop-shadow(0 30px 50px rgba(0,0,0,.45))}
+.s3 .name{position:absolute;top:1112px;right:80px;left:80px;text-align:center;font:700 36px/1.4 'IBM Plex Sans Arabic';color:#CFF5E2}
+.s3 .name b{color:#fff}
+.s3 .pts{position:absolute;top:1180px;right:80px;left:80px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.s3 .pt{padding:18px 18px 20px;border-radius:22px;background:rgba(255,255,255,.08);border:2px solid rgba(37,211,102,.35);font:700 29px/1.4 'IBM Plex Sans Arabic';text-align:center}
+.s3 .pt b{display:block;font:700 34px/1.3 'Reem Kufi';color:var(--wa);margin-bottom:6px}
+
+/* ٤ السيرفر */
+.s4{background:linear-gradient(180deg,#F4EFE8 0%,var(--chat) 100%)}
+.s4 h2{position:absolute;top:330px;right:80px;left:40px;font-size:90px;line-height:1.32;white-space:nowrap}
+.s4 h2 em{font-style:normal;color:var(--dg)}
+.s4 .img{position:absolute;top:470px;left:0;width:1080px;filter:drop-shadow(0 30px 40px rgba(7,59,44,.25))}
+.s4 .says{position:absolute;top:520px;right:80px;width:330px;padding:20px 24px;border-radius:24px 24px 6px 24px;background:#fff;font:700 31px/1.45 'IBM Plex Sans Arabic';box-shadow:0 12px 26px rgba(7,59,44,.14)}
+.s4 .says b{color:var(--red)}
+.s4 .ver{position:absolute;top:1190px;right:80px;left:80px;display:flex;gap:22px;align-items:center;padding:22px 26px;border-radius:24px;background:var(--notice);font:700 31px/1.45 'IBM Plex Sans Arabic';box-shadow:0 12px 26px rgba(7,59,44,.12)}
+.s4 .ver img{flex:none;height:186px;margin:-60px 0 -20px}
+.s4 .ver b{color:var(--dg)}
+
+/* ٥ مين يقدر يقراها؟ */
+.s5{background:linear-gradient(180deg,var(--deep) 0%,var(--night) 100%);color:#fff}
+.s5 .tag{background:#fff;color:var(--ink)}.s5 .pg{color:#8FD9B6}
+.s5 h2{position:absolute;top:326px;right:80px;left:40px;font-size:96px;line-height:1.3;white-space:nowrap}
+.s5 h2 em{font-style:normal;color:var(--wa)}
+.s5 .img{position:absolute;top:470px;left:30px;width:640px;filter:drop-shadow(0 30px 50px rgba(0,0,0,.5))}
+.s5 .lead{position:absolute;top:520px;right:80px;width:330px;font:700 34px/1.5 'IBM Plex Sans Arabic';color:#CFF5E2}
+.s5 .lead b{color:#fff}
+.s5 .grid{position:absolute;top:960px;right:70px;left:70px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.s5 .it{display:flex;gap:14px;align-items:flex-start;padding:18px 20px;border-radius:22px;background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.14);font:700 31px/1.35 'IBM Plex Sans Arabic'}
+.s5 .it span{flex:none;display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:var(--wa);color:var(--ink);font:700 26px 'Space Grotesk'}
+.s5 .it i{display:block;margin-top:6px;font:600 25px/1.4 'IBM Plex Sans Arabic';font-style:normal;color:#B5D9C7}
+.s5 .it.hot{border-color:var(--wa);background:rgba(37,211,102,.12)}
+
+/* ٦ الخطأ الشائع: النسخة الاحتياطية */
+.s6 h2{position:absolute;top:322px;right:80px;left:40px;font-size:84px;line-height:1.35;white-space:nowrap}
+.s6 h2 em{display:block;font-style:normal;color:var(--red)}
+.s6 .img{position:absolute;top:560px;left:30px;width:470px;filter:drop-shadow(0 26px 40px rgba(7,59,44,.3))}
+.s6 .why{position:absolute;top:580px;right:80px;width:500px;padding:22px 26px;border-radius:24px;background:#fff;font:700 33px/1.5 'IBM Plex Sans Arabic';box-shadow:0 12px 26px rgba(7,59,44,.14)}
+.s6 .why b{color:var(--red)}
+.s6 .steps{position:absolute;top:930px;right:80px;left:80px;display:flex;flex-direction:column;gap:14px}
+.s6 .st{display:flex;gap:16px;align-items:center;padding:16px 22px;border-radius:20px;background:var(--dg);color:#fff;font:700 30px/1.4 'IBM Plex Sans Arabic'}
+.s6 .st .c{flex:none;display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:var(--wa);color:var(--ink);font:700 26px 'Space Grotesk'}
+.s6 .st .en{font-size:26px;color:#A7F3C9}
+.s6 .warn{position:absolute;top:1290px;right:80px;left:80px;padding:16px 24px;border-radius:20px;background:var(--notice);font:700 29px/1.45 'IBM Plex Sans Arabic'}
+.s6 .warn b{color:var(--red)}
+
+/* ٧ المتابعة */
+.s7{background:radial-gradient(70% 40% at 50% 42%,#0E6B4E 0%,var(--deep) 55%,var(--night) 100%);color:#fff}
+.s7 .tag{background:#fff;color:var(--ink)}.s7 .pg{color:#8FD9B6}
+.s7 h2{position:absolute;top:326px;right:60px;left:60px;text-align:center;font-size:84px;line-height:1.35}
+.s7 h2 em{font-style:normal;color:var(--wa)}
+.s7 .ring{position:absolute;top:600px;left:50%;width:460px;height:460px;margin-left:-230px;border-radius:50%;background:conic-gradient(var(--wa),#7FF0B0,var(--wa));box-shadow:0 0 80px rgba(37,211,102,.35)}
+.s7 .face{position:absolute;top:18px;left:18px;width:424px;height:424px;border-radius:50%;overflow:hidden;background:var(--chat)}
+.s7 .face img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.s7 .lk{position:absolute;top:960px;left:50%;margin-left:120px;width:96px;height:96px;border-radius:50%;background:var(--notice);display:grid;place-items:center;box-shadow:0 10px 26px rgba(0,0,0,.35)}
+.s7 .nm{position:absolute;top:1092px;left:0;right:0;text-align:center;font:700 88px/1.2 'Reem Kufi'}
+.s7 .ds{position:absolute;top:1208px;left:0;right:0;text-align:center;font:700 34px 'IBM Plex Sans Arabic';color:#CFF5E2}
+.s7 .soc{position:absolute;top:1268px;left:0;right:0;display:flex;justify-content:center}
+.s7 .soc>div{display:flex;gap:26px;align-items:center;padding:12px 30px;border-radius:14px;background:#fff;color:var(--ink);font:700 30px 'IBM Plex Sans Arabic'}
+.s7 .ask{position:absolute;top:1346px;left:60px;right:60px;text-align:center;font:700 38px/1.4 'IBM Plex Sans Arabic';color:var(--notice)}
+</style>
+</head>
+<body>
+
+<!-- ١ الغلاف -->
+<section class="slide s1 doodle">
+  <div class="tag"><img src="assets/whatsapp-color.svg" alt="">تقنية · تشفير واتساب</div>
+  <h1 class="hd">حتى واتساب<em>ما يقدر يقرأ رسالتك</em></h1>
+  <div class="sub">كيف؟ <b>ومين يقدر يقراها فعلاً؟</b></div>
+  <img class="hero" src="assets/k0.png" alt="">
+  <div class="swipe">اسحب ←</div>
+  <div class="hbar">{{HANDLES}}</div>
+</section>
+
+<!-- ٢ المشكلة -->
+<section class="slide s2">
+  <div class="tag"><img src="assets/whatsapp-color.svg" alt="">تقنية · تشفير واتساب</div>
+  <div class="pg">2/7</div>
+  <h2 class="hd">رسالتك تمرّ <em>عليهم</em>…</h2>
+  <div class="pol"><img src="assets/texting.jpg" alt=""><span>ترسل… وتنسى</span></div>
+  <div class="flow">
+    <div class="node"><svg viewBox="0 0 46 46"><rect x="12" y="3" width="22" height="40" rx="5" fill="none" stroke="#0B6E4F" stroke-width="4"/><circle cx="23" cy="36" r="2.5" fill="#0B6E4F"/></svg>جوالك</div>
+    <div class="ar">↓</div>
+    <div class="node srv"><img src="assets/whatsapp-color.svg" alt="" style="background:#fff;border-radius:50%;padding:4px">سيرفرات واتساب</div>
+    <div class="ar">↓</div>
+    <div class="node"><svg viewBox="0 0 46 46"><rect x="12" y="3" width="22" height="40" rx="5" fill="none" stroke="#0B6E4F" stroke-width="4"/><circle cx="23" cy="36" r="2.5" fill="#0B6E4F"/></svg>جوال صاحبك</div>
+  </div>
+  <div class="q">الرسالة لازم تمرّ على سيرفرات واتساب عشان توصل… <b>فليش ما يقدرون يقرونها؟</b></div>
+</section>
+
+<!-- ٣ القفل والمفتاح -->
+<section class="slide s3" data-handles="light">
+  <div class="tag"><img src="assets/whatsapp-color.svg" alt="">تقنية · تشفير واتساب</div>
+  <div class="pg">3/7</div>
+  <h2 class="hd">تنقفل في جوالك…<em>وتنفتح عند صاحبك بس</em></h2>
+  <img class="img" src="assets/k1.png" alt="">
+  <div class="name">هذا اسمه <b>التشفير من طرف لطرف</b> <span class="en">(End-to-end)</span></div>
+  <div class="pts">
+    <div class="pt"><b>المفتاحين</b>على جوالك وجوال صاحبك بس</div>
+    <div class="pt"><b>القفل والفتح</b>يصير داخل الجوال نفسه</div>
+    <div class="pt"><b>يشمل</b>رسايلك ومكالماتك الشخصية</div>
+  </div>
+</section>
+
+<!-- ٤ السيرفر -->
+<section class="slide s4">
+  <div class="tag"><img src="assets/whatsapp-color.svg" alt="">تقنية · تشفير واتساب</div>
+  <div class="pg">4/7</div>
+  <h2 class="hd">والسيرفر؟ <em>يوصّلها مقفولة</em></h2>
+  <img class="img" src="assets/k2.png" alt="">
+  <div class="says">واتساب يوصّل الكبسولة… <b>لا يقراها ولا يسمع مكالمتك</b>، ولا أحد برا المحادثة</div>
+  <div class="ver"><img src="assets/k3.png" alt=""><div>تبي تتأكد بنفسك؟ اضغط اسم الشخص ← <b>التشفير</b> <span class="en" style="font-size:26px">(Encryption)</span>، وقارنوا رمز <span class="en" style="font-size:28px">QR</span> أو الـ<span class="en" style="font-size:28px">60</span> رقم وجهاً لوجه</div></div>
+</section>
+
+<!-- ٥ مين يقدر يقراها؟ -->
+<section class="slide s5" data-handles="light">
+  <div class="tag"><img src="assets/whatsapp-color.svg" alt="">تقنية · تشفير واتساب</div>
+  <div class="pg">5/7</div>
+  <h2 class="hd">طيب… <em>مين يقدر؟</em></h2>
+  <img class="img" src="assets/k4.png" alt="">
+  <div class="lead">التشفير يحمي الطريق… <b>بس الطرفين مفتوحين</b></div>
+  <div class="grid">
+    <div class="it"><span>1</span><div>صاحبك نفسه<i>يقدر يصوّر الشاشة أو يعيد توجيهها</i></div></div>
+    <div class="it"><span>2</span><div>أي أحد بيده جوالك<i>وهو مفتوح… قفل الشاشة مهم</i></div></div>
+    <div class="it hot"><span>3</span><div>جهاز مرتبط نسيته<i>الأجهزة المرتبطة ← سجّل خروج من اللي ما تعرفه</i></div></div>
+    <div class="it"><span>4</span><div>لو بلّغت عن أحد<i>آخر 5 رسايل منه توصل لواتساب للمراجعة</i></div></div>
+  </div>
+</section>
+
+<!-- ٦ الخطأ الشائع -->
+<section class="slide s6 doodle">
+  <div class="tag"><img src="assets/whatsapp-color.svg" alt="">تقنية · تشفير واتساب</div>
+  <div class="pg">6/7</div>
+  <h2 class="hd">الثغرة اللي ينساها الكل<em>النسخة الاحتياطية</em></h2>
+  <img class="img" src="assets/k5.png" alt="">
+  <div class="why">نسخة دردشاتك على <span class="en">Google Drive</span> أو <span class="en">iCloud</span> <b>ما تكون مشفّرة من طرف لطرف</b>… إلا إذا فعّلتها بنفسك</div>
+  <div class="steps">
+    <div class="st"><span class="c">1</span><div>الإعدادات ← الدردشات ← النسخ الاحتياطي <span class="en">(Chat backup)</span></div></div>
+    <div class="st"><span class="c">2</span><div>النسخ الاحتياطي المشفّر <span class="en">(End-to-end encrypted backup)</span> ← تشغيل</div></div>
+    <div class="st"><span class="c">3</span><div>احمها بمفتاح مرور، أو كلمة مرور، أو مفتاح من <span class="en" style="color:#fff;font-size:30px">64</span> رقم</div></div>
+  </div>
+  <div class="warn"><b>انتبه:</b> لو نسيت كلمة المرور أو المفتاح، واتساب ما يقدر يرجّع نسختك</div>
+</section>
+
+<!-- ٧ المتابعة -->
+<section class="slide s7" data-handles="off">
+  <div class="tag"><img src="assets/whatsapp-color.svg" alt="">تقنية · تشفير واتساب</div>
+  <div class="pg">7/7</div>
+  <h2 class="hd">رسايلك مقفولة…<br><em>خلّ نسختها مقفولة بعد</em></h2>
+  <div class="ring"><div class="face"><img src="{{AVATAR}}" alt=""></div></div>
+  <div class="lk"><svg width="54" height="54" viewBox="0 0 58 58"><rect x="9" y="25" width="40" height="27" rx="7" fill="#0B6E4F"/><path d="M17 25v-6a12 12 0 0124 0v6" fill="none" stroke="#0B6E4F" stroke-width="6"/></svg></div>
+  <div class="nm">علي التميمي</div>
+  <div class="ds">كل يوم معلومة تقنية تحميك</div>
+  <div class="soc"><div>{{HANDLES}}</div></div>
+  <div class="ask">فعّلت تشفير النسخة؟ اكتب «تم» بالتعليقات</div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><style>:root{--ink:#0B2E22;--em:#12805C;--emd:#0B3D2E;--amb:#FFB938;--cr:#F6F1E4;--mu:#587064;--red:#D8443A}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;font-family:'IBM Plex Sans Arabic',sans-serif;-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1920px;position:relative;overflow:hidden;direction:rtl;color:var(--ink);background:radial-gradient(90% 50% at 50% 40%,#FFFFFF 0%,var(--cr) 62%,#E9E1CC 100%)}
+.tag{position:absolute;top:252px;right:80px;display:flex;align-items:center;gap:12px;padding:8px 26px 12px 20px;border-radius:40px;background:var(--ink);color:#fff;font:700 30px 'IBM Plex Sans Arabic';z-index:3}
+.tag img{width:34px;height:34px}
+.pg{position:absolute;top:262px;left:80px;font:700 30px 'Space Grotesk';color:var(--mu);direction:ltr;z-index:3}
+h2{position:absolute;top:330px;right:80px;left:80px;font:800 108px/1.2 'IBM Plex Sans Arabic',sans-serif;z-index:2;letter-spacing:-1px}
+h2 em{font-style:normal;color:var(--em)}
+.en{font-family:'Space Grotesk';direction:ltr;unicode-bidi:isolate;font-weight:700}
+.vis{position:absolute;top:600px;left:80px;right:80px;height:480px;display:flex;align-items:center;justify-content:center}
+.txt{position:absolute;top:1105px;left:80px;right:80px;height:290px;display:flex;flex-direction:column;justify-content:center;gap:14px}
+.big{font:800 44px/1.4 'IBM Plex Sans Arabic';text-align:center}
+.big b{color:var(--em)}
+.sm{font:600 30px/1.45 'IBM Plex Sans Arabic';text-align:center;color:var(--mu)}
+.row{display:flex;align-items:center;gap:20px;background:#fff;border-radius:24px;padding:12px 24px 16px;box-shadow:0 10px 24px rgba(11,46,34,.1);font:700 34px/1.35 'IBM Plex Sans Arabic'}
+.row .n{flex:none;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:#fff;font:800 32px 'Space Grotesk'}
+.row b{color:var(--em)}
+.lbl{font:600 26px 'IBM Plex Sans Arabic';color:var(--mu);text-align:center;margin-top:8px}
+/* 1 */
+.s1{background:radial-gradient(90% 60% at 50% 45%,#1E8A62 0%,var(--emd) 52%,#06231A 100%);color:#fff}
+.s1 .tag{background:var(--cr);color:var(--ink)}
+.s1 .tag img{filter:none}
+.s1 .pg{color:#BFE3D2}
+.s1 h1{position:absolute;top:330px;right:80px;left:50px;font:800 116px/1.15 'IBM Plex Sans Arabic',sans-serif;letter-spacing:-1px}
+.s1 h1 em{font-style:normal;color:var(--amb)}
+.s1 .stage{position:absolute;top:720px;left:0;right:0;height:560px}
+.s1 .photo{position:absolute;left:50%;margin-left:-250px;top:20px;width:500px;height:500px;border-radius:50%;overflow:hidden;border:12px solid var(--cr);box-shadow:0 0 0 14px rgba(255,185,56,.35),0 30px 60px rgba(0,0,0,.45)}
+.s1 .photo img{width:100%;height:100%;object-fit:cover;object-position:52% 40%;transform:scale(1.1)}
+.s1 .dots{position:absolute;right:120px;top:0;display:flex;gap:14px}
+.s1 .dots i{width:56px;height:56px;border-radius:50%;background:var(--amb);display:block;box-shadow:0 8px 20px rgba(0,0,0,.35)}
+.s1 .dots i:nth-child(2){background:var(--cr)}.s1 .dots i:nth-child(3){background:#52D6A2}
+.s1 .app{position:absolute;width:150px;height:150px;border-radius:34px;background:#fff;display:grid;place-items:center;box-shadow:0 18px 34px rgba(0,0,0,.4)}
+.s1 .app img{width:92px;height:92px}
+.s1 .app.a{left:80px;top:60px;transform:rotate(-8deg)}
+.s1 .app.b{left:100px;top:340px;transform:rotate(6deg)}
+.s1 .app.c{right:60px;top:330px;transform:rotate(-5deg);font:800 30px 'IBM Plex Sans Arabic';text-align:center;line-height:1.2;color:var(--ink)}
+.s1 .chip{position:absolute;top:1318px;left:0;right:0;text-align:center}
+.s1 .chip span{display:inline-block;padding:6px 36px 14px;border-radius:30px;background:var(--amb);color:var(--ink);font:800 42px 'IBM Plex Sans Arabic'}
+.s1 .swipe{position:absolute;top:1404px;left:80px;padding:8px 24px 12px;border-radius:30px;background:var(--cr);font:800 34px/1 'IBM Plex Sans Arabic';color:var(--ink)}
+.s1 .hbar{position:absolute;top:1404px;right:80px;display:flex;gap:26px;align-items:center;padding:12px 28px;border-radius:14px;background:#fff;color:var(--ink);font:700 28px 'IBM Plex Sans Arabic'}
+/* 2 */
+.s2 .vis{gap:30px;justify-content:space-between}
+.s2 .ph{width:500px;height:440px;border-radius:32px;overflow:hidden;box-shadow:0 20px 40px rgba(11,46,34,.28)}
+.s2 .ph img{width:100%;height:100%;object-fit:cover;object-position:54% 40%}
+.s2 .ques{flex:1;text-align:center;display:flex;flex-direction:column;gap:12px;align-items:center}
+.s2 .ques .x{font:800 150px/1 'IBM Plex Sans Arabic';color:var(--amb)}
+.s2 .ques .w{font:800 42px/1.3 'IBM Plex Sans Arabic'}
+/* 3 */
+.s3 .vis{flex-direction:column;gap:16px;align-items:stretch;padding:0}
+.plan{display:flex;align-items:center;gap:22px;background:#fff;border-radius:26px;padding:16px 26px 20px;box-shadow:0 12px 26px rgba(11,46,34,.12);font:800 40px/1.3 'IBM Plex Sans Arabic'}
+.plan i{flex:none;width:68px;height:68px;border-radius:20px;display:grid;place-items:center;font:900 44px 'Space Grotesk';color:#fff;font-style:normal;background:var(--em)}
+.plan small{display:block;font:600 28px 'IBM Plex Sans Arabic';color:var(--mu)}
+.plan.x i{background:var(--red)}
+.plan.m i{background:var(--amb);color:var(--ink)}
+/* 4 */
+.pl{width:100%;background:#fff;border-radius:30px;padding:10px 30px;box-shadow:0 22px 40px rgba(11,46,34,.2)}
+.pl .it{display:flex;align-items:center;gap:20px;padding:16px 0;border-bottom:2px solid #E8E2D2;font:800 38px 'IBM Plex Sans Arabic'}
+.pl .it:last-child{border:none}
+.pl .it img{width:56px;height:56px}
+.pl .it .tg{margin-right:auto;width:96px;height:52px;border-radius:30px;background:#D6D0BD;position:relative}
+.pl .it .tg::after{content:"";position:absolute;top:6px;right:6px;width:40px;height:40px;border-radius:50%;background:#fff}
+.pl .it .tg.on{background:var(--em)}
+.pl .it .tg.on::after{right:auto;left:6px}
+.pl .cal{flex:none;width:56px;height:56px;border-radius:12px;background:#fff;border:3px solid var(--ink);display:grid;place-items:center;font:800 28px 'Space Grotesk'}
+/* 5 */
+.pc{width:100%;background:var(--ink);color:#fff;border-radius:34px;padding:30px 36px 36px;box-shadow:0 22px 40px rgba(11,46,34,.3)}
+.pc .lab{display:inline-block;background:var(--amb);color:var(--ink);padding:4px 26px 10px;border-radius:24px;font:800 34px 'IBM Plex Sans Arabic';margin-bottom:14px}
+.pc .path{font:700 40px/1.5 'Space Grotesk';direction:ltr;text-align:left;color:#fff}
+.pc .path span{color:var(--amb)}
+.pc .opts{display:flex;gap:14px;margin-top:20px}
+.pc .opts b{flex:1;text-align:center;padding:8px 0 14px;border-radius:20px;font:800 34px 'IBM Plex Sans Arabic'}
+.pc .opts b:nth-child(1){background:#52D6A2;color:var(--ink)}
+.pc .opts b:nth-child(2){background:var(--amb);color:var(--ink)}
+.pc .opts b:nth-child(3){background:var(--red);color:#fff}
+/* 6 */
+.s6 .list{position:absolute;top:610px;left:80px;right:80px;display:flex;flex-direction:column;gap:22px}
+.s6 .ck{display:flex;align-items:center;gap:26px;background:#fff;border-radius:28px;padding:24px 30px 28px;box-shadow:0 12px 26px rgba(11,46,34,.1);font:800 42px/1.3 'IBM Plex Sans Arabic'}
+.s6 .ck i{flex:none;width:76px;height:76px;border-radius:20px;background:var(--em);display:grid;place-items:center;font:900 48px 'Space Grotesk';color:#fff;font-style:normal}
+.s6 .save{position:absolute;top:1300px;left:80px;right:80px;text-align:center;font:800 36px 'IBM Plex Sans Arabic';color:var(--em)}
+/* 7 */
+.s7{background:linear-gradient(180deg,#06231A 0%,#0B3D2E 55%,#1E8A62 100%);color:#fff}
+.s7 .tag{background:var(--cr);color:var(--ink)}
+.s7 .pg{color:#BFE3D2}
+.s7 h2{text-align:center;color:#fff}
+.s7 h2 em{color:var(--amb)}
+.s7 .ring{position:absolute;top:640px;left:50%;width:400px;height:400px;margin-left:-200px;border-radius:50%;background:var(--amb);box-shadow:0 0 0 16px rgba(255,185,56,.25),0 0 80px rgba(255,185,56,.3)}
+.s7 .face{position:absolute;top:14px;left:14px;width:372px;height:372px;border-radius:50%;overflow:hidden;background:var(--ink)}
+.s7 .face img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.s7 .nm{position:absolute;top:1080px;left:0;right:0;text-align:center;font:800 96px/1.15 'IBM Plex Sans Arabic',sans-serif}
+.s7 .ds{position:absolute;top:1200px;left:0;right:0;text-align:center;font:700 34px 'IBM Plex Sans Arabic';color:#D3EBDF}
+.s7 .ask{position:absolute;top:1262px;left:60px;right:60px;text-align:center;font:800 40px/1.4 'IBM Plex Sans Arabic';color:var(--amb)}
+.s7 .soc{position:absolute;top:1340px;left:0;right:0;display:flex;justify-content:center}
+.s7 .soc>div{display:flex;gap:26px;align-items:center;padding:12px 30px;border-radius:14px;background:#fff;color:var(--ink);font:700 30px 'IBM Plex Sans Arabic'}
+
+.s3 .vis{padding:0}
+.chat{width:100%;display:flex;flex-direction:column;gap:18px}
+.bub{border-radius:30px;padding:26px 34px 32px;font:700 46px/1.5 'IBM Plex Sans Arabic';max-width:92%}
+.bub.d{background:#fff;box-shadow:0 14px 30px rgba(11,46,34,.16);align-self:flex-start;border-top-right-radius:8px;margin-left:auto;margin-right:0;align-self:stretch}
+.bub.u{background:var(--ink);color:#fff;align-self:flex-start;border-top-left-radius:8px}
+.bub .who{display:flex;align-items:center;gap:12px;margin-bottom:6px;font:800 30px 'Space Grotesk';color:var(--em)}
+.bub .who i{width:26px;height:26px;border-radius:50%;background:var(--amb);display:block}
+</style></head><body><section class="slide s1"><div class="tag"><img src="assets/openai-black.svg" alt="" style="filter:invert(0)">ChatGPT · <span class="en">dots</span></div>
+<h1><span class="en">ChatGPT</span> صار<br><em>يشتغل لحاله</em></h1>
+<div class="stage"><div class="dots"><i></i><i></i><i></i></div>
+<div class="photo"><img src="assets/robot.jpg" alt=""></div>
+<div class="app a"><img src="assets/gmail-color.svg" alt=""></div>
+<div class="app b"><img src="assets/notion.svg" alt=""></div>
+<div class="app c">تقويمك<br>وملفاتك</div></div>
+<div class="chip"><span>مساعد يبادر بدون ما تطلب</span></div>
+<div class="swipe">اسحب ←</div><div class="hbar">{{HANDLES}}</div></section><section class="slide s2"><div class="tag"><img src="assets/openai-white.svg" alt="">ChatGPT · <span class="en">dots</span></div><div class="pg">2/7</div>
+<h2>وش هو<br><em class="en" style="color:#12805C">dots</em>؟</h2>
+<div class="vis"><div class="ph"><img src="assets/robot.jpg" alt=""></div>
+ <div class="ques"><div class="x">؟</div><div class="w">مساعد<br>ما ينام</div></div></div>
+<div class="txt">
+ <div class="row"><span class="n">1</span><span>يشتغل <b>24 ساعة</b> على أهدافك</span></div>
+ <div class="row"><span class="n">2</span><span>يدخل <b>تطبيقاتك المربوطة</b></span></div>
+ <div class="row"><span class="n">3</span><span>يبدأ <b>بنفسه</b> ويقترح عليك</span></div>
+</div></section><section class="slide s3"><div class="tag"><img src="assets/openai-white.svg" alt="">ChatGPT · <span class="en">dots</span></div><div class="pg">3/7</div>
+<h2>مثال: فاتورة<br><em>نسيتها</em></h2>
+<div class="vis"><div class="chat">
+ <div class="bub d"><div class="who"><i></i><span class="en">dots</span></div>لاحظت أن فاتورة العميل ما انرسلت. جهّزتها لك، أرسلها؟</div>
+ <div class="bub u">أرسلها</div>
+ <div class="lbl">مثال توضيحي</div></div></div>
+<div class="txt">
+ <div class="row"><span class="n">1</span><span>يلاحظ <b>بنفسه</b> ما فاتك</span></div>
+ <div class="row"><span class="n">2</span><span>يجهّز الشغل <b>ويسألك</b></span></div>
+ <div class="row"><span class="n">3</span><span>ما يرسل <b>قبل موافقتك</b></span></div>
+</div></section><section class="slide s3"><div class="tag"><img src="assets/openai-white.svg" alt="">ChatGPT · <span class="en">dots</span></div><div class="pg">4/7</div>
+<h2>مين ياخذ<br><em class="en" style="color:#12805C">dots</em> الحين؟</h2>
+<div class="vis"><div class="plan"><i>✓</i><div>مشتركو Pro<small>متاح لعمر 18 وأكثر</small></div></div>
+<div class="plan m"><i>…</i><div>بعض مشتركي Plus<small>يوصل تدريجياً</small></div></div>
+<div class="plan x"><i>✗</i><div>أوروبا وبريطانيا وسويسرا<small>مستثناة حالياً</small></div></div></div>
+<div class="txt">
+ <div class="big">لو ما ظهر لك: <b>الإطلاق تدريجي</b></div>
+ <div class="sm">حسب صفحة مساعدة OpenAI، والتوفر يتغيّر</div>
+</div></section><section class="slide s5"><div class="tag"><img src="assets/openai-white.svg" alt="">ChatGPT · <span class="en">dots</span></div><div class="pg">5/7</div>
+<h2>قيّده<br><em>بقواعدك</em></h2>
+<div class="vis"><div class="pc"><span class="lab">قلها كذا</span>
+<div class="path">Settings <span>→</span> Personalization <span>→</span> Custom rules</div>
+<div class="opts"><b>اسمح</b><b>اسألني أولاً</b><b>امنع</b></div></div></div>
+<div class="txt">
+ <div class="big">لكل إجراء: <b>اسمح أو اسألني أو امنع</b></div>
+ <div class="sm">على الجوال: القائمة الجانبية ← Customize ← Custom rules<br>واربط بس اللي تحتاجه من تبويب Plugins</div>
+</div></section><section class="slide s6"><div class="tag"><img src="assets/openai-white.svg" alt="">ChatGPT · <span class="en">dots</span></div><div class="pg">6/7</div>
+<h2>احفظ<br><em>قبل ما تجرّب</em></h2>
+<div class="list">
+ <div class="ck"><i>✓</i>اربط الضروري فقط</div>
+ <div class="ck"><i>✓</i>اكتب قواعد مخصصة</div>
+ <div class="ck"><i>✓</i>وصول جهازك يبقى مقفلاً</div>
+ <div class="ck"><i>✓</i>إيقاف الذاكرة لا يمسح ما وصله</div>
+</div>
+<div class="save">اضغط حفظ 🔖 قبل ما تفعّله</div></section><section class="slide s7" data-handles="off"><div class="tag"><img src="assets/openai-black.svg" alt="" style="filter:invert(0)">ChatGPT · <span class="en">dots</span></div><div class="pg">7/7</div>
+<h2>مساعد يشتغل<br><em>وأنت نايم؟</em></h2>
+<div class="ring"><div class="face"><img src="{{AVATAR}}" alt=""></div></div>
+<div class="nm">علي التميمي</div><div class="ds">كل يوم جديد التقنية يوصلك</div>
+<div class="ask">تجرّبه ولا تخاف على بياناتك؟ 👇</div>
+<div class="soc"><div>{{HANDLES}}</div></div></section></body></html>

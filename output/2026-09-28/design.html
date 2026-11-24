@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<style>
+:root{--latte:#F3E6D3;--esp:#3B2418;--crema:#C8894B;--chalk:#1E2723;--cream:#FFF8EE;--green:#2F6B4F;--red:#C2412D;--mute:#8A7563}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;font-family:'IBM Plex Sans Arabic','Cairo',sans-serif;-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1920px;position:relative;overflow:hidden;direction:rtl}
+.hd{font-family:'El Messiri';font-weight:700;line-height:1.25}
+.en{font-family:'Space Grotesk';direction:ltr;unicode-bidi:isolate;font-weight:700}
+.mono{font-family:'JetBrains Mono';direction:ltr;unicode-bidi:isolate}
+.lt{background:var(--latte);color:var(--esp)}
+.cb{background:var(--chalk);color:#F1EDE4}
+.dots{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(59,36,24,.07) 1.2px,transparent 1.8px);background-size:16px 16px}
+.cb .dots{background-image:radial-gradient(rgba(255,255,255,.05) 1.2px,transparent 1.8px)}
+.kick{position:absolute;top:250px;right:90px;display:flex;align-items:center;gap:26px;font:700 32px 'Space Grotesk';direction:ltr;unicode-bidi:isolate}
+.kick i{width:34px;height:34px;border-radius:50% 50% 45% 45%;background:var(--crema);position:relative}
+.kick i:after{content:"";position:absolute;right:-10px;top:8px;width:10px;height:14px;border:4px solid var(--crema);border-left:none;border-radius:0 10px 10px 0}
+.pg{position:absolute;top:256px;left:90px;font:700 28px 'Space Grotesk';opacity:.5;direction:ltr}
+.hbar{position:absolute;top:1392px;right:90px;display:flex;gap:26px;align-items:center;padding:14px 28px;border-radius:999px;background:var(--esp);color:var(--cream);font:700 28px 'IBM Plex Sans Arabic'}
+.swipe{position:absolute;top:1400px;left:90px;font:700 34px 'IBM Plex Sans Arabic';color:var(--red)}
+
+/* ١ الغلاف */
+.s1 h1{position:absolute;top:320px;right:90px;left:60px;font-size:100px;white-space:nowrap}
+.s1 h1 .en{font-size:92px}
+.s1 h1 em{display:block;font-style:normal;color:var(--red);font-size:104px}
+.cup{position:absolute;top:640px;left:290px;width:500px;height:700px}
+.cup .lid{position:absolute;top:0;left:-20px;right:-20px;height:70px;border-radius:24px 24px 10px 10px;background:linear-gradient(180deg,#FFFFFF,#E9E0D3);box-shadow:0 8px 0 #D8CCBB}
+.cup .lid:before{content:"";position:absolute;top:-26px;left:120px;right:120px;height:34px;border-radius:18px 18px 0 0;background:#fff}
+.cup .body{position:absolute;top:78px;left:0;right:0;bottom:0;background:linear-gradient(90deg,#EFE7DC,#FFFFFF 40%,#F4ECE1);clip-path:polygon(0 0,100% 0,88% 100%,12% 100%);box-shadow:0 30px 60px rgba(59,36,24,.25)}
+.sleeve{position:absolute;top:250px;left:12px;right:12px;height:300px;background:var(--crema);clip-path:polygon(0 0,100% 0,95% 100%,5% 100%);padding:34px 70px;color:var(--esp)}
+.sleeve p{font:400 40px/1.5 'El Messiri';transform:rotate(-2deg)}
+.sleeve p b{font-weight:700}
+.steam{position:absolute;top:560px;left:420px;width:240px;height:90px}
+.shadow{position:absolute;top:1330px;left:300px;width:480px;height:40px;border-radius:50%;background:radial-gradient(rgba(59,36,24,.25),transparent 70%)}
+
+/* ٢ المشكلة */
+.wave{position:absolute;top:0;left:0;right:0;height:1000px;overflow:hidden;
+  -webkit-mask:radial-gradient(60px 44px at 60px 100%,transparent 98%,#000) 0 0/120px 100% repeat-x;}
+.wave img{width:100%;height:100%;object-fit:cover;object-position:62% 45%;filter:saturate(.9) contrast(1.04)}
+.wave:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,20,14,.85) 0%,rgba(30,20,14,.7) 30%,rgba(30,20,14,.1) 52%,rgba(30,20,14,0) 70%)}
+.s2 .kick,.s2 .pg{color:#fff;z-index:3}
+.s2 .kick{background:rgba(30,20,14,.5);padding:8px 18px;border-radius:999px}
+.s2 .t1{position:absolute;top:360px;right:90px;left:90px;font-size:84px;color:#fff;z-index:3;text-shadow:0 4px 20px rgba(0,0,0,.4)}
+.s2 .t2{position:absolute;top:1030px;right:90px;left:60px;font-size:68px;white-space:nowrap}
+.s2 .t2 em{font-style:normal;color:var(--red)}
+.s2 .rep{position:absolute;top:1180px;right:90px;left:90px;display:flex;gap:14px;align-items:center}
+.s2 .rep .b{background:#fff;border:3px solid var(--esp);border-radius:24px 24px 6px 24px;padding:14px 22px;font:600 30px 'IBM Plex Sans Arabic';white-space:nowrap}
+.s2 .rep .x{flex:none;font:700 34px 'Space Grotesk';color:var(--red);direction:ltr}
+
+/* ٣ السبورة */
+.board{position:absolute;top:340px;left:70px;right:70px;height:1020px;border-radius:26px;border:22px solid #7A5234;background:radial-gradient(900px 700px at 50% 40%,#2A3530,#1B2420);box-shadow:inset 0 0 60px rgba(0,0,0,.5),0 20px 40px rgba(0,0,0,.4);padding:50px 56px}
+.board h2{font-size:80px;text-align:center;color:#fff}
+.board .sub{font:400 34px 'El Messiri';text-align:center;color:#C9D3CC;margin-top:4px}
+.item{margin-top:50px;padding-top:40px;border-top:4px dashed rgba(255,255,255,.28)}
+.item .t{display:flex;align-items:center;gap:20px;font:700 54px 'El Messiri'}
+.item .t i{flex:none;width:70px;height:70px;border-radius:50%;display:grid;place-items:center;font:700 38px 'Space Grotesk';font-style:normal;color:var(--chalk)}
+.item .en{display:block;font-size:30px;color:#A9B6AE;margin:6px 90px 0 0;text-align:right}
+.item p{font:600 36px/1.55 'IBM Plex Sans Arabic';color:#EDE8DF;margin:14px 90px 0 0}
+
+/* ٤ الإيصال */
+.s4 h2{position:absolute;top:320px;right:90px;left:60px;font-size:96px;white-space:nowrap}
+.s4 h2 em{font-style:normal;color:var(--green)}
+.rcpt{position:absolute;top:490px;left:150px;right:150px;background:#fff;padding:44px 50px 56px;box-shadow:0 24px 50px rgba(59,36,24,.2);transform:rotate(1.2deg);
+  -webkit-mask:radial-gradient(16px 16px at 50% 100%,transparent 98%,#000) 0 0/32px 100% repeat-x}
+.rcpt .top{text-align:center;font:700 30px 'JetBrains Mono';letter-spacing:4px;color:var(--mute);direction:ltr}
+.rcpt .ttl{text-align:center;font:700 48px 'El Messiri';margin:8px 0 18px}
+.rl{border-top:3px dashed #D9CBB8;padding:24px 0;display:flex;gap:20px;align-items:flex-start}
+.rl .n{flex:none;width:58px;height:58px;border-radius:12px;background:var(--esp);color:#fff;display:grid;place-items:center;font:700 32px 'Space Grotesk'}
+.rl b{display:block;font:700 36px/1.4 'IBM Plex Sans Arabic'}
+.rl small{display:block;font:600 27px/1.45 'IBM Plex Sans Arabic';color:var(--mute);margin-top:4px}
+.path{display:inline-flex;align-items:center;gap:8px;margin-top:8px;background:var(--latte);border-radius:10px;padding:6px 14px;font:700 28px 'Space Grotesk'}
+.path span{font-family:'IBM Plex Sans Arabic'}
+
+/* ٥ المثال */
+.s5 h2{position:absolute;top:320px;right:90px;left:60px;font-size:96px;white-space:nowrap}
+.chatw{position:absolute;top:490px;left:70px;right:70px;background:#fff;border-radius:34px;padding:34px 34px 30px;box-shadow:0 20px 44px rgba(59,36,24,.16)}
+.cw .me{margin-left:auto;margin-right:0;max-width:86%;background:var(--esp);color:#fff;border-radius:28px 28px 8px 28px;padding:20px 26px;font:600 34px/1.5 'IBM Plex Sans Arabic'}
+.memo{display:flex;align-items:center;gap:12px;margin:16px 0 8px;font:700 28px 'IBM Plex Sans Arabic';color:var(--green)}
+.memo i{width:34px;height:34px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-style:normal;font-size:22px}
+.sep{text-align:center;font:600 26px 'IBM Plex Sans Arabic';color:var(--mute);margin:22px 0 16px;display:flex;align-items:center;gap:16px}
+.sep:before,.sep:after{content:"";flex:1;border-top:3px dashed #E1D4C2}
+.ai{margin-right:auto;margin-left:0;max-width:90%;background:var(--latte);border-radius:28px 28px 28px 8px;padding:20px 26px;font:600 31px/1.55 'IBM Plex Sans Arabic';margin-top:14px}
+.ai ul{margin:6px 30px 0 0}
+.forget{position:absolute;top:1245px;right:90px;left:90px;text-align:center;font:700 34px/1.5 'IBM Plex Sans Arabic'}
+.forget b{background:#fff;border:3px dashed var(--esp);border-radius:14px;padding:4px 14px}
+
+/* ٦ الخطأ + المؤقتة */
+.s6 h2{position:absolute;top:320px;right:90px;left:60px;font-size:100px;white-space:nowrap}
+.s6 h2 em{font-style:normal;color:#F2A97F}
+.wr{position:absolute;top:480px;left:70px;right:70px;background:#2A3530;border:3px solid #3C4A43;border-radius:28px;padding:34px 36px}
+.wr .q{font:700 40px/1.45 'IBM Plex Sans Arabic'}
+.wr .q s{color:#F2A97F;text-decoration-thickness:4px}
+.wr p{font:600 33px/1.55 'IBM Plex Sans Arabic';color:#D9E0DB;margin-top:14px}
+.wr p b{color:#fff}
+.tmp{position:absolute;top:910px;left:70px;right:70px;height:430px;background:var(--cream);color:var(--esp);border-radius:28px;padding:34px 36px;display:flex;gap:34px;align-items:center}
+.tmp .c2{flex:none;width:200px;height:280px;position:relative}
+.tmp .c2 .b{position:absolute;inset:40px 0 0;background:#fff;border:5px dashed var(--esp);clip-path:polygon(0 0,100% 0,88% 100%,12% 100%)}
+.tmp .c2 .l{position:absolute;top:0;left:-12px;right:-12px;height:44px;border-radius:14px;border:5px dashed var(--esp);background:#fff}
+.tmp .c2 span{position:absolute;top:130px;left:0;right:0;text-align:center;font:700 34px 'El Messiri'}
+.tmp h3{font:700 54px 'El Messiri';line-height:1.2}
+.tmp h3 .en{font-size:44px;display:block;color:var(--green)}
+.tmp p{font:600 32px/1.5 'IBM Plex Sans Arabic';margin-top:12px}
+
+/* ٧ بطاقة الولاء */
+.card{position:absolute;top:360px;left:80px;right:80px;height:920px;background:var(--esp);color:var(--cream);border-radius:36px;padding:50px 56px;box-shadow:0 30px 60px rgba(59,36,24,.35);overflow:hidden}
+.card:before{content:"";position:absolute;top:-120px;left:-120px;width:420px;height:420px;border-radius:50%;border:40px solid rgba(200,137,75,.18)}
+.card .lbl{font:700 30px 'El Messiri';color:var(--crema);letter-spacing:1px}
+.card .av{position:absolute;top:50px;left:56px;width:230px;height:230px;border-radius:50%;overflow:hidden;border:8px solid var(--crema);background:linear-gradient(180deg,#E7C9A5,var(--crema))}
+.card .av img{width:100%;height:100%;object-fit:cover;object-position:50% 15%}
+.card .nm{font:700 84px 'El Messiri';line-height:1.25;margin-top:10px}
+.card .ds{font:600 32px/1.5 'IBM Plex Sans Arabic';color:#E8D9C4;margin-top:6px;max-width:560px}
+.stamps{position:absolute;top:420px;left:56px;right:56px;display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.st{height:150px;border-radius:50%;aspect-ratio:1;justify-self:center;border:4px dashed rgba(255,248,238,.35);display:grid;place-items:center;font:700 22px 'Space Grotesk';text-align:center;line-height:1.2}
+.st.on{border:none;background:var(--crema);color:var(--esp);transform:rotate(-8deg)}
+.st.nx{border:4px solid var(--red);color:#F2A97F;font:700 26px 'IBM Plex Sans Arabic'}
+.card .soc{position:absolute;bottom:50px;left:50%;transform:translateX(-50%);display:flex;gap:26px;align-items:center;padding:14px 28px;border-radius:999px;background:var(--cream);color:var(--esp);font:700 30px 'IBM Plex Sans Arabic';white-space:nowrap}
+.s7 .ask{position:absolute;top:1310px;right:90px;left:90px;text-align:center;font:700 38px/1.45 'IBM Plex Sans Arabic'}
+.s7 .ask em{font-style:normal;color:var(--red)}
+</style>
+</head>
+<body>
+
+<!-- ١ الغلاف -->
+<section class="slide lt s1">
+  <div class="dots"></div>
+  <div class="kick"><i></i>ChatGPT · Memory</div>
+  <div class="pg">1/7</div>
+  <h1 class="hd"><span class="en">ChatGPT</span> يعرف طلبك<em>قبل ما تقوله</em></h1>
+  <svg class="steam" viewBox="0 0 240 90" fill="none" stroke="#C8894B" stroke-width="7" stroke-linecap="round" opacity=".7"><path d="M60 85 C40 60 80 45 60 15"/><path d="M120 85 C100 60 140 45 120 10"/><path d="M180 85 C160 60 200 45 180 15"/></svg>
+  <div class="shadow"></div>
+  <div class="cup">
+    <div class="lid"></div>
+    <div class="body"></div>
+    <div class="sleeve"><p><b>علي</b> · مسوّق<br>ردود مختصرة<br>بدون مقدّمات ✓</p></div>
+  </div>
+  <div class="hbar">{{HANDLES}}</div>
+  <div class="swipe">اسحب ←</div>
+</section>
+
+<!-- ٢ المشكلة -->
+<section class="slide lt s2">
+  <div class="wave"><img src="assets/barista.jpg"></div>
+  <div class="kick"><i></i>ChatGPT · Memory</div>
+  <div class="pg">2/7</div>
+  <div class="hd t1">الكافيه اللي تحبه<br>يعرف طلبك…</div>
+  <div class="hd t2">وChatGPT؟ <em>زبون جديد كل مرة</em></div>
+  <div class="rep"><div class="b">«أنا مسوّق… أبي ردود مختصرة…»</div><div class="x">×10</div></div>
+  <div class="hd" style="position:absolute;top:1280px;right:90px;left:90px;font-size:44px;color:var(--mute);font-weight:400">تعيد نفس التعريف في كل محادثة</div>
+</section>
+
+<!-- ٣ السبورة: نوعين الذاكرة -->
+<section class="slide cb s3" data-handles="light">
+  <div class="dots"></div>
+  <div class="kick"><i></i>ChatGPT · Memory</div>
+  <div class="pg">3/7</div>
+  <div class="board">
+    <h2 class="hd">الذاكرة… نوعين</h2>
+    <div class="sub">وتقدر تشغّل أو تطفي كل واحد</div>
+    <div class="item">
+      <div class="t"><i style="background:#F2A97F">1</i>الذكريات المحفوظة</div>
+      <span class="en">Saved memories</span>
+      <p>أشياء تطلب منه يتذكرها صراحة… أو يحفظها لأنها مفيدة لك.</p>
+    </div>
+    <div class="item">
+      <div class="t"><i style="background:#9FD3B4">2</i>سجل المحادثات</div>
+      <span class="en">Chat history</span>
+      <p>يستفيد من محادثاتك السابقة عشان يحسّن ردوده الجاية.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ٤ الإيصال: التحكم -->
+<section class="slide lt s4">
+  <div class="dots"></div>
+  <div class="kick"><i></i>ChatGPT · Memory</div>
+  <div class="pg">4/7</div>
+  <h2 class="hd">أنت <em>اللي تتحكم</em></h2>
+  <div class="rcpt">
+    <div class="top">ORDER · MEMORY</div>
+    <div class="ttl">طلبك من الإعدادات</div>
+    <div class="rl"><div class="n">1</div><div><b>افتح الإعدادات</b><div class="path" style="direction:ltr">Settings › Personalization › Memory</div></div></div>
+    <div class="rl"><div class="n">2</div><div><b>شغّل أو أطفئ كل نوع</b><small>لو أطفأت «الذكريات المحفوظة» ينطفي معها «سجل المحادثات»</small></div></div>
+    <div class="rl"><div class="n">3</div><div><b>راجع وامسح</b><small>شف وش حافظ عنك… وامسح اللي ما تبيه</small></div></div>
+  </div>
+</section>
+
+<!-- ٥ المثال -->
+<section class="slide lt s5">
+  <div class="dots"></div>
+  <div class="kick"><i></i>ChatGPT · Memory</div>
+  <div class="pg">5/7</div>
+  <h2 class="hd">قلها مرة… وخلاص</h2>
+  <div class="chatw cw">
+    <div class="me">«تذكّر إني أشتغل في التسويق، وأفضّل الردود المختصرة بنقاط»</div>
+    <div class="memo"><i>✓</i>انحفظت في الذاكرة</div>
+    <div class="sep">بعد أسبوع · محادثة جديدة</div>
+    <div class="me">«اكتب لي بوست لإطلاق منتج»</div>
+    <div class="ai">جاهز، بأسلوبك:<ul><li>هوك من سطر</li><li>3 نقاط فوائد</li><li>دعوة واضحة للشراء</li></ul></div>
+  </div>
+  <div class="forget">وتبي يمسحها؟ قل: <b>«انسَ إني أشتغل في التسويق»</b></div>
+</section>
+
+<!-- ٦ الخطأ الشائع + المحادثة المؤقتة -->
+<section class="slide cb s6" data-handles="light">
+  <div class="dots"></div>
+  <div class="kick"><i></i>ChatGPT · Memory</div>
+  <div class="pg">6/7</div>
+  <h2 class="hd">الخطأ <em>الشائع</em></h2>
+  <div class="wr">
+    <div class="q">«مسحت الذكرى… <s>يعني انمسحت من كل مكان</s>»</div>
+    <p>لا. المسح يمنع استخدامها في الردود الجاية، <b>لكن المحادثات القديمة تبقى</b>. احذفها لحالها لو تبي.</p>
+  </div>
+  <div class="tmp">
+    <div class="c2"><div class="l"></div><div class="b"></div><span>زبون<br>جديد</span></div>
+    <div><h3>للمواضيع الخاصة<span class="en">Temporary Chat</span></h3><p>محادثة ما تستخدم الذاكرة… ولا تحفظ فيها شي.</p></div>
+  </div>
+</section>
+
+<!-- ٧ بطاقة الولاء -->
+<section class="slide lt s7">
+  <div class="dots"></div>
+  <div class="kick"><i></i>ChatGPT · Memory</div>
+  <div class="pg">7/7</div>
+  <div class="card">
+    <div class="lbl">بطاقة ولاء</div>
+    <div class="nm">علي التميمي</div>
+    <div class="ds">كل منشور = ميزة جديدة في أدوات الذكاء الاصطناعي</div>
+    <div class="av"><img src="{{AVATAR}}"></div>
+    <div class="stamps">
+      <div class="st on">Claude<br>Projects</div><div class="st on">Gemini<br>Notebook</div><div class="st on">ChatGPT<br>Memory</div><div class="st nx">الجاي</div>
+      <div class="st"></div><div class="st"></div><div class="st"></div><div class="st"></div>
+    </div>
+    <div class="soc">{{HANDLES}}</div>
+  </div>
+  <div class="ask">وش أول شي تبي <em>ChatGPT</em> يتذكره عنك؟ اكتبه بالتعليقات</div>
+</section>
+
+</body>
+</html>

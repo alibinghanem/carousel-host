@@ -1,0 +1,164 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><style>:root{--ink:#1A1A2E;--co:#F0482A;--cod:#C93315;--gr:#1F8A52;--grl:#DDF3E6;--pap:#FFF5EE;--mu:#5B5670;--yel:#FFD84A}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;font-family:'IBM Plex Sans Arabic',sans-serif;-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1920px;position:relative;overflow:hidden;direction:rtl;color:var(--ink);background:radial-gradient(90% 50% at 50% 40%,#FFFFFF 0%,var(--pap) 62%,#FFE3D5 100%)}
+.tag{position:absolute;top:252px;right:80px;display:flex;align-items:center;gap:12px;padding:8px 26px 12px 20px;border-radius:40px;background:var(--ink);color:#fff;font:700 30px 'IBM Plex Sans Arabic';z-index:3}
+.tag img{width:34px;height:34px}
+.pg{position:absolute;top:262px;left:80px;font:700 30px 'Space Grotesk';color:var(--mu);direction:ltr;z-index:3}
+h2{position:absolute;top:330px;right:80px;left:80px;font:800 106px/1.18 'Almarai',sans-serif;z-index:2}
+h2 em{font-style:normal;color:var(--co)}
+.vis{position:absolute;top:600px;left:80px;right:80px;height:470px;display:flex;align-items:center;justify-content:center}
+.txt{position:absolute;top:1100px;left:80px;right:80px;height:290px;display:flex;flex-direction:column;justify-content:center;gap:14px}
+.big{font:800 44px/1.4 'IBM Plex Sans Arabic';text-align:center}
+.big b{color:var(--co)}
+.sm{font:600 30px/1.45 'IBM Plex Sans Arabic';text-align:center;color:var(--mu)}
+.note{font:600 26px/1.3 'IBM Plex Sans Arabic';color:var(--mu)}
+.row{display:flex;align-items:center;gap:20px;background:#fff;border-radius:24px;padding:12px 24px 16px;box-shadow:0 10px 24px rgba(26,26,46,.1);font:700 34px/1.35 'IBM Plex Sans Arabic'}
+.row .n{flex:none;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:#fff;font:800 32px 'Space Grotesk'}
+.row b{color:var(--co)}
+.row.g .n{background:var(--gr)}
+/* drawn receipt */
+.rc{background:#fff;width:340px;padding:26px 24px 44px;box-shadow:0 24px 44px rgba(26,26,46,.22);clip-path:polygon(0 0,100% 0,100% 96%,95% 100%,90% 96%,85% 100%,80% 96%,75% 100%,70% 96%,65% 100%,60% 96%,55% 100%,50% 96%,45% 100%,40% 96%,35% 100%,30% 96%,25% 100%,20% 96%,15% 100%,10% 96%,5% 100%,0 96%);font:700 28px 'IBM Plex Sans Arabic';direction:rtl}
+.rc h4{font:800 32px 'IBM Plex Sans Arabic';text-align:center;margin-bottom:12px}
+.rc .l{display:flex;justify-content:space-between;padding:8px 0;border-bottom:3px dashed #D8D2CC;font:700 28px 'Space Grotesk';direction:ltr}
+.rc .l span:first-child{font-family:'IBM Plex Sans Arabic'}
+.rc .t{display:flex;justify-content:space-between;padding-top:12px;font:800 34px 'Space Grotesk';direction:ltr}
+.rc .t span:first-child{font-family:'IBM Plex Sans Arabic'}
+/* drawn sheet */
+.sh{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 24px 44px rgba(26,26,46,.22);width:400px;direction:rtl;border:3px solid var(--gr)}
+.sh .hd{background:var(--gr);color:#fff;display:grid;grid-template-columns:1.5fr 1fr 1fr;font:800 28px 'IBM Plex Sans Arabic';padding:10px 14px 14px}
+.sh .r{display:grid;grid-template-columns:1.5fr 1fr 1fr;padding:8px 14px 10px;border-bottom:2px solid #E3EDE7;font:700 28px 'Space Grotesk'}
+.sh .r span:first-child{font-family:'IBM Plex Sans Arabic'}
+.sh .r span:not(:first-child){direction:ltr;text-align:right}
+.sh .r.tt{background:var(--grl);font-weight:800}
+.lbl{font:600 26px 'IBM Plex Sans Arabic';color:var(--mu);text-align:center;margin-top:10px}
+/* 1 */
+.s1{background:radial-gradient(90% 55% at 50% 38%,#FFFFFF 0%,#FFEBDF 55%,#FFC3A8 100%)}
+.s1 .vis{top:340px;height:640px;gap:20px}
+.s1 .vis .rc{transform:rotate(-4deg)}
+.s1 .vis .sh{transform:rotate(3deg);width:380px}
+.s1 .arr{flex:none;width:130px;height:130px;border-radius:50%;background:var(--co);display:grid;place-items:center;color:#fff;font:900 80px/1 'Space Grotesk';box-shadow:0 14px 28px rgba(240,72,42,.4);padding-bottom:12px}
+.s1 h1{position:absolute;top:1030px;right:60px;left:60px;font:800 112px/1.15 'Almarai',sans-serif;text-align:center}
+.s1 h1 em{font-style:normal;color:var(--co)}
+.s1 .chip{position:absolute;top:1320px;left:0;right:0;text-align:center}
+.s1 .chip span{display:inline-block;padding:6px 36px 14px;border-radius:30px;background:var(--ink);color:#fff;font:800 40px 'IBM Plex Sans Arabic'}
+.s1 .swipe{position:absolute;top:1404px;left:80px;padding:8px 24px 12px;border-radius:30px;background:var(--ink);font:800 34px/1 'IBM Plex Sans Arabic';color:var(--yel)}
+.s1 .hbar{position:absolute;top:1404px;right:80px;display:flex;gap:26px;align-items:center;padding:12px 28px;border-radius:14px;background:#fff;color:var(--ink);font:700 28px 'IBM Plex Sans Arabic';box-shadow:0 8px 20px rgba(26,26,46,.12)}
+/* 2 */
+.s2 .vis{gap:30px;justify-content:space-between}
+.s2 .ph{width:470px;height:470px;border-radius:32px;overflow:hidden;box-shadow:0 20px 40px rgba(26,26,46,.25)}
+.s2 .ph img{width:100%;height:100%;object-fit:cover;object-position:78% 62%;transform:scale(1.5);transform-origin:78% 62%}
+.s2 .ques{flex:1;display:flex;flex-direction:column;gap:18px;align-items:center;text-align:center}
+.s2 .ques .x{font:900 200px/0.9 'Almarai';color:var(--co)}
+.s2 .ques .w{font:800 44px/1.3 'IBM Plex Sans Arabic'}
+/* 3 */
+.fr{position:relative;width:420px;height:450px;display:grid;place-items:center}
+.fr .rc{width:320px;transform:scale(.85)}
+.fr i{position:absolute;width:70px;height:70px;border:12px solid var(--co);border-radius:10px}
+.fr i.a{top:0;right:0;border-left:0;border-bottom:0}
+.fr i.b{top:0;left:0;border-right:0;border-bottom:0}
+.fr i.c{bottom:0;right:0;border-left:0;border-top:0}
+.fr i.d{bottom:0;left:0;border-right:0;border-top:0}
+.s3 .vis{gap:60px}
+.s3 .shut{width:170px;height:170px;border-radius:50%;border:14px solid var(--ink);display:grid;place-items:center}
+.s3 .shut b{width:110px;height:110px;border-radius:50%;background:var(--co);display:block}
+.s3 .fmt{display:flex;flex-direction:column;gap:10px;align-items:center}
+/* 4 */
+.pc{width:100%;background:var(--ink);color:#fff;border-radius:34px;padding:34px 40px 44px;box-shadow:0 22px 40px rgba(26,26,46,.3);position:relative}
+.pc .lab{display:inline-block;background:var(--yel);color:var(--ink);padding:4px 26px 10px;border-radius:24px;font:800 34px 'IBM Plex Sans Arabic';margin-bottom:16px}
+.pc p{font:700 44px/1.6 'IBM Plex Sans Arabic'}
+.pc p mark{background:none;color:var(--yel)}
+.s4 .big img{width:46px;height:46px;vertical-align:-10px;margin-left:8px}
+/* 5 */
+.s5 .vis{gap:36px}
+.s5 .cmp{display:flex;flex-direction:column;gap:20px;flex:1}
+.s5 .tot{background:#fff;border-radius:26px;padding:16px 26px 22px;box-shadow:0 12px 26px rgba(26,26,46,.12);text-align:center}
+.s5 .tot .k{font:700 30px 'IBM Plex Sans Arabic';color:var(--mu)}
+.s5 .tot .v{font:800 76px/1.1 'Space Grotesk';direction:ltr}
+.s5 .eq{font:900 90px/1 'Space Grotesk';text-align:center;color:var(--gr)}
+/* 6 */
+.s6 .list{position:absolute;top:610px;left:80px;right:80px;display:flex;flex-direction:column;gap:22px}
+.s6 .ck{display:flex;align-items:center;gap:26px;background:#fff;border-radius:28px;padding:24px 30px 28px;box-shadow:0 12px 26px rgba(26,26,46,.1);font:800 42px/1.3 'IBM Plex Sans Arabic'}
+.s6 .ck i{flex:none;width:76px;height:76px;border-radius:20px;background:var(--gr);display:grid;place-items:center;font:900 48px 'Space Grotesk';color:#fff;font-style:normal}
+.s6 .save{position:absolute;top:1300px;left:80px;right:80px;text-align:center;font:800 36px 'IBM Plex Sans Arabic';color:var(--cod)}
+/* 7 */
+.s7{background:linear-gradient(180deg,#1A1A2E 0%,#2B1E3F 55%,#C93315 100%);color:#fff}
+.s7 .tag{background:#fff;color:var(--ink)}
+.s7 .tag img{filter:invert(1)}
+.s7 .pg{color:#C9C3DC}
+.s7 h2{text-align:center;color:#fff}
+.s7 h2 em{color:var(--yel)}
+.s7 .ring{position:absolute;top:640px;left:50%;width:400px;height:400px;margin-left:-200px;border-radius:50%;background:var(--yel);box-shadow:0 0 0 16px rgba(255,216,74,.25),0 0 80px rgba(255,216,74,.3)}
+.s7 .face{position:absolute;top:14px;left:14px;width:372px;height:372px;border-radius:50%;overflow:hidden;background:#1A1A2E}
+.s7 .face img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.s7 .nm{position:absolute;top:1080px;left:0;right:0;text-align:center;font:800 92px/1.15 'Almarai',sans-serif}
+.s7 .ds{position:absolute;top:1200px;left:0;right:0;text-align:center;font:700 34px 'IBM Plex Sans Arabic';color:#E3DDF0}
+.s7 .ask{position:absolute;top:1262px;left:60px;right:60px;text-align:center;font:800 40px/1.4 'IBM Plex Sans Arabic';color:var(--yel)}
+.s7 .soc{position:absolute;top:1340px;left:0;right:0;display:flex;justify-content:center}
+.s7 .soc>div{display:flex;gap:26px;align-items:center;padding:12px 30px;border-radius:14px;background:#fff;color:var(--ink);font:700 30px 'IBM Plex Sans Arabic'}
+</style></head><body><section class="slide s1"><div class="tag"><img src="assets/openai-white.svg" alt="">أدوات · ChatGPT قراءة الصور</div>
+<div class="vis"><div class="rc"><h4>مطعم الأصيل</h4>
+<div class="l"><span>قهوة</span><span>2 × 12</span><span>24</span></div>
+<div class="l"><span>عصير</span><span>1 × 18</span><span>18</span></div>
+<div class="l"><span>سلطة</span><span>3 × 15</span><span>45</span></div>
+<div class="l"><span>خبز</span><span>2 × 8</span><span>16</span></div>
+<div class="t"><span>الإجمالي</span><span>103</span></div></div><div class="arr">←</div><div class="sh"><div class="hd"><span>البند</span><span>الكمية</span><span>الإجمالي</span></div>
+<div class="r"><span>قهوة</span><span>2</span><span>24</span></div>
+<div class="r"><span>عصير</span><span>1</span><span>18</span></div>
+<div class="r"><span>سلطة</span><span>3</span><span>45</span></div>
+<div class="r"><span>خبز</span><span>2</span><span>16</span></div>
+<div class="r tt"><span>المجموع</span><span></span><span>103</span></div></div></div>
+<div class="lbl" style="position:absolute;top:960px;left:0;right:0">مثال توضيحي</div><h1>صوّر الفاتورة<br><em>تصير جدول إكسل</em></h1>
+<div class="chip"><span>بدون ما تكتب رقم واحد بيدك</span></div>
+<div class="swipe">اسحب ←</div><div class="hbar">{{HANDLES}}</div></section><section class="slide s2"><div class="tag"><img src="assets/openai-white.svg" alt="">أدوات · ChatGPT قراءة الصور</div><div class="pg">2/7</div>
+<h2>تنقل الأرقام<br><em>بيدك؟</em></h2>
+<div class="vis"><div class="ph"><img src="assets/hands.jpg" alt=""></div>
+ <div class="ques"><div class="x">؟</div><div class="w">جوالك يقدر<br>يقراها عنك</div></div></div>
+<div class="txt">
+ <div class="row"><span class="n">1</span><span>تكتب كل رقم <b>سطر سطر</b></span></div>
+ <div class="row"><span class="n">2</span><span>غلطة وحدة <b>تخرب الحسبة</b></span></div>
+ <div class="row g"><span class="n">3</span><span>ChatGPT <b style="color:#1F8A52">يقرأ الصورة</b> ويرتّبها</span></div>
+</div></section><section class="slide s3"><div class="tag"><img src="assets/openai-white.svg" alt="">أدوات · ChatGPT قراءة الصور</div><div class="pg">3/7</div>
+<h2>الخطوة 1:<br><em>صوّر بوضوح</em></h2>
+<div class="vis"><div class="fr"><i class="a"></i><i class="b"></i><i class="c"></i><i class="d"></i><div class="rc"><h4>مطعم الأصيل</h4>
+<div class="l"><span>قهوة</span><span>2 × 12</span><span>24</span></div>
+<div class="l"><span>عصير</span><span>1 × 18</span><span>18</span></div>
+<div class="l"><span>سلطة</span><span>3 × 15</span><span>45</span></div>
+<div class="l"><span>خبز</span><span>2 × 8</span><span>16</span></div>
+<div class="t"><span>الإجمالي</span><span>103</span></div></div></div>
+ <div class="shut"><b></b></div></div>
+<div class="txt">
+ <div class="row"><span class="n">✓</span><span>الجدول <b>كامل</b> داخل الإطار</span></div>
+ <div class="row"><span class="n">✓</span><span>نور كافي والورقة <b>مستقيمة</b></span></div>
+ <div class="sm">الصيغ المدعومة: PNG · JPEG · GIF ثابت</div>
+</div></section><section class="slide s4"><div class="tag"><img src="assets/openai-white.svg" alt="">أدوات · ChatGPT قراءة الصور</div><div class="pg">4/7</div>
+<h2>الخطوة 2:<br><em>قلها كذا</em></h2>
+<div class="vis"><div class="pc"><span class="lab">انسخ الطلب</span>
+<p>حوّل هذه الصورة إلى جدول بالأعمدة: <mark>البند، الكمية، السعر، الإجمالي</mark>. اعرضه جدولاً واحداً أنسخه إلى إكسل.</p></div></div>
+<div class="txt">
+ <div class="big"><img src="assets/excel-color.svg" alt="">انسخ الجدول <b>والصقه في إكسل</b></div>
+ <div class="sm">ارفع الصورة أولاً ثم الصق الطلب في نفس الرسالة</div>
+</div></section><section class="slide s5"><div class="tag"><img src="assets/openai-white.svg" alt="">أدوات · ChatGPT قراءة الصور</div><div class="pg">5/7</div>
+<h2>الخطوة 3:<br><em>راجع الأرقام</em></h2>
+<div class="vis"><div class="cmp">
+ <div class="tot"><div class="k">المجموع في الورقة</div><div class="v">103</div></div>
+ <div class="eq">=</div>
+ <div class="tot"><div class="k">المجموع في الجدول</div><div class="v">103 ✓</div></div></div>
+ <div><div class="sh" style="width:330px"><div class="hd"><span>البند</span><span>كمية</span><span>إجمالي</span></div><div class="r"><span>قهوة</span><span>2</span><span>24</span></div><div class="r"><span>سلطة</span><span>3</span><span>45</span></div><div class="r tt"><span>المجموع</span><span></span><span>103</span></div></div><div class="lbl">مثال توضيحي</div></div></div>
+<div class="txt">
+ <div class="big"><b>لا تعتمد</b> الأرقام أعمى</div>
+ <div class="sm">OpenAI تنبّه: القراءة من الصور قد تغلط، والدقة أقل مع الخطوط غير اللاتينية. طابق المجموع.</div>
+</div></section><section class="slide s6"><div class="tag"><img src="assets/openai-white.svg" alt="">أدوات · ChatGPT قراءة الصور</div><div class="pg">6/7</div>
+<h2>احفظ<br><em>الخطوات الأربع</em></h2>
+<div class="list">
+ <div class="ck"><i>✓</i>صوّر الورقة مستقيمة وواضحة</div>
+ <div class="ck"><i>✓</i>اطلب الأعمدة بأسمائها</div>
+ <div class="ck"><i>✓</i>انسخ الجدول والصقه في إكسل</div>
+ <div class="ck"><i>✓</i>طابق المجموع مع الورقة</div>
+</div>
+<div class="save">اضغط حفظ 🔖 عشان ترجع لها</div></section><section class="slide s7" data-handles="off"><div class="tag"><img src="assets/openai-white.svg" alt="">أدوات · ChatGPT قراءة الصور</div><div class="pg">7/7</div>
+<h2>وقتك<br><em>أغلى من الكتابة</em></h2>
+<div class="ring"><div class="face"><img src="{{AVATAR}}" alt=""></div></div>
+<div class="nm">علي التميمي</div><div class="ds">كل يوم أداة أو فكرة تختصر وقتك</div>
+<div class="ask">وش أول ورقة بتحوّلها لجدول؟ 👇</div>
+<div class="soc"><div>{{HANDLES}}</div></div></section></body></html>

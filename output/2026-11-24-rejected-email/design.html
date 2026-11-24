@@ -1,0 +1,151 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><style>:root{--ink:#1E1650;--vio:#5B3FE0;--org:#FF7A1A;--bg:#F1EDFF;--mu:#625C88;--gr:#18A36B;--red:#E5484D;--yel:#FFD24A}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;font-family:'IBM Plex Sans Arabic',sans-serif;-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1920px;position:relative;overflow:hidden;direction:rtl;color:var(--ink);background:radial-gradient(90% 50% at 50% 40%,#FFFFFF 0%,#F7F4FF 60%,#E6DFFF 100%)}
+.tag{position:absolute;top:252px;right:80px;padding:8px 28px 12px;border-radius:40px;background:var(--ink);color:#fff;font:700 30px 'IBM Plex Sans Arabic';z-index:3}
+.pg{position:absolute;top:262px;left:80px;font:700 30px 'Space Grotesk';color:var(--mu);direction:ltr;z-index:3}
+h2{position:absolute;top:330px;right:80px;left:80px;font:800 110px/1.2 'Mada',sans-serif;z-index:2}
+h2 em{font-style:normal;color:var(--vio)}
+.vis{position:absolute;top:600px;left:80px;right:80px;height:480px;display:flex;align-items:center;justify-content:center}
+.txt{position:absolute;top:1105px;left:80px;right:80px;height:290px;display:flex;flex-direction:column;justify-content:center;gap:14px}
+.big{font:800 44px/1.4 'IBM Plex Sans Arabic';text-align:center}
+.big b{color:var(--vio)}
+.sm{font:600 30px/1.45 'IBM Plex Sans Arabic';text-align:center;color:var(--mu)}
+.row{display:flex;align-items:center;gap:20px;background:#fff;border-radius:24px;padding:12px 24px 16px;box-shadow:0 10px 24px rgba(30,22,80,.1);font:700 34px/1.35 'IBM Plex Sans Arabic'}
+.row .n{flex:none;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:#fff;font:800 32px 'Space Grotesk'}
+.row b{color:var(--vio)}
+.row.o .n{background:var(--org)}
+.lbl{font:600 26px 'IBM Plex Sans Arabic';color:var(--mu);text-align:center;margin-top:8px}
+/* email window */
+.mail{background:#fff;border-radius:26px;box-shadow:0 26px 50px rgba(30,22,80,.25);overflow:hidden;direction:rtl}
+.mail .bar{background:var(--ink);padding:14px 22px;display:flex;gap:10px;align-items:center}
+.mail .bar i{width:16px;height:16px;border-radius:50%;background:#7A72B8;display:block}
+.mail .bar span{margin-right:auto;margin-left:0;color:#fff;font:700 26px 'IBM Plex Sans Arabic'}
+.mail .sub{padding:18px 26px 6px;font:800 34px/1.3 'IBM Plex Sans Arabic'}
+.mail .sub small{display:block;font:600 26px 'IBM Plex Sans Arabic';color:var(--mu);margin-bottom:6px}
+.mail .bd{padding:8px 26px 26px;display:flex;flex-direction:column;gap:12px}
+.mail .ln{height:15px;border-radius:8px;background:#E3DEF7}
+.mail .ln.s{width:62%}.mail .ln.m{width:84%}
+.mail p{font:600 30px/1.5 'IBM Plex Sans Arabic'}
+/* dial */
+.dial{position:relative;width:360px;height:230px}
+.dial svg{width:100%;height:100%;overflow:visible}
+/* 1 */
+.s1{background:radial-gradient(90% 55% at 50% 42%,#FFFFFF 0%,#EDE7FF 50%,#BBA8FF 100%)}
+.s1 h1{position:absolute;top:330px;right:80px;left:50px;font:800 118px/1.15 'Mada',sans-serif}
+.s1 h1 em{font-style:normal;color:var(--vio)}
+.s1 .stage{position:absolute;top:690px;left:60px;right:60px;height:560px}
+.s1 .mail{position:absolute;right:0;top:0;width:700px;transform:rotate(-2deg)}
+.s1 .dial{position:absolute;left:-10px;top:270px;background:#fff;border-radius:28px;padding:16px 16px 0;width:400px;height:290px;box-shadow:0 22px 40px rgba(30,22,80,.28);transform:rotate(3deg)}
+.s1 .chips{position:absolute;top:1318px;left:80px;right:80px;display:flex;gap:16px;justify-content:center}
+.s1 .chips span{padding:6px 30px 12px;border-radius:30px;background:var(--ink);color:#fff;font:800 38px 'IBM Plex Sans Arabic'}
+.s1 .chips span:nth-child(2){background:var(--vio)}.s1 .chips span:nth-child(3){background:var(--org)}
+.s1 .swipe{position:absolute;top:1404px;left:80px;padding:8px 24px 12px;border-radius:30px;background:var(--org);font:800 34px/1 'IBM Plex Sans Arabic';color:#fff}
+.s1 .hbar{position:absolute;top:1404px;right:80px;display:flex;gap:26px;align-items:center;padding:12px 28px;border-radius:14px;background:#fff;color:var(--ink);font:700 28px 'IBM Plex Sans Arabic';box-shadow:0 8px 20px rgba(30,22,80,.12)}
+/* 2 */
+.s2 .vis{gap:30px;justify-content:space-between}
+.s2 .ph{width:520px;height:430px;border-radius:32px;overflow:hidden;box-shadow:0 20px 40px rgba(30,22,80,.28)}
+.s2 .ph img{width:100%;height:100%;object-fit:cover}
+.s2 .ques{flex:1;text-align:center;display:flex;flex-direction:column;gap:12px;align-items:center}
+.s2 .ques .x{font:800 170px/0.9 'Mada';color:var(--org)}
+.s2 .ques .w{font:800 42px/1.3 'IBM Plex Sans Arabic'}
+/* 3 notes */
+.s3 .vis{gap:26px;align-items:stretch;padding:12px 0}
+.note{flex:1;border-radius:26px;padding:22px 24px 26px;box-shadow:0 16px 30px rgba(30,22,80,.18);display:flex;flex-direction:column;gap:12px}
+.note h5{font:800 38px 'IBM Plex Sans Arabic'}
+.note p{font:700 38px/1.5 'IBM Plex Sans Arabic'}
+.note.a{background:#FFE9A8;transform:rotate(-2deg)}
+.note.b{background:#D6CCFF;transform:rotate(2deg)}
+/* 4 */
+.pc{width:100%;background:var(--ink);color:#fff;border-radius:34px;padding:32px 40px 38px;box-shadow:0 22px 40px rgba(30,22,80,.3)}
+.pc .lab{display:inline-block;background:var(--yel);color:var(--ink);padding:4px 26px 10px;border-radius:24px;font:800 34px 'IBM Plex Sans Arabic';margin-bottom:14px}
+.pc p{font:700 40px/1.65 'IBM Plex Sans Arabic'}
+.pc p mark{background:none;color:var(--yel)}
+.pc p u{text-decoration:none;color:#B9A8FF}
+/* 6 */
+.s6 .list{position:absolute;top:610px;left:80px;right:80px;display:flex;flex-direction:column;gap:22px}
+.s6 .ck{display:flex;align-items:center;gap:26px;background:#fff;border-radius:28px;padding:24px 30px 28px;box-shadow:0 12px 26px rgba(30,22,80,.1);font:800 42px/1.3 'IBM Plex Sans Arabic'}
+.s6 .ck i{flex:none;width:76px;height:76px;border-radius:20px;background:var(--vio);display:grid;place-items:center;font:900 48px 'Space Grotesk';color:#fff;font-style:normal}
+.s6 .save{position:absolute;top:1300px;left:80px;right:80px;text-align:center;font:800 36px 'IBM Plex Sans Arabic';color:var(--vio)}
+/* 7 */
+.s7{background:linear-gradient(180deg,#1E1650 0%,#3A2A9C 58%,#FF7A1A 100%);color:#fff}
+.s7 .tag{background:#fff;color:var(--ink)}
+.s7 .pg{color:#CFC7F5}
+.s7 h2{text-align:center;color:#fff}
+.s7 h2 em{color:var(--yel)}
+.s7 .ring{position:absolute;top:640px;left:50%;width:400px;height:400px;margin-left:-200px;border-radius:50%;background:var(--yel);box-shadow:0 0 0 16px rgba(255,210,74,.25),0 0 80px rgba(255,210,74,.3)}
+.s7 .face{position:absolute;top:14px;left:14px;width:372px;height:372px;border-radius:50%;overflow:hidden;background:var(--ink)}
+.s7 .face img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.s7 .nm{position:absolute;top:1080px;left:0;right:0;text-align:center;font:800 96px/1.15 'Mada',sans-serif}
+.s7 .ds{position:absolute;top:1200px;left:0;right:0;text-align:center;font:700 34px 'IBM Plex Sans Arabic';color:#E3DEFA}
+.s7 .ask{position:absolute;top:1262px;left:60px;right:60px;text-align:center;font:800 40px/1.4 'IBM Plex Sans Arabic';color:var(--yel)}
+.s7 .soc{position:absolute;top:1340px;left:0;right:0;display:flex;justify-content:center}
+.s7 .soc>div{display:flex;gap:26px;align-items:center;padding:12px 30px;border-radius:14px;background:#fff;color:var(--ink);font:700 30px 'IBM Plex Sans Arabic'}
+
+.s5 .dial{width:100%;height:100%}
+</style></head><body><section class="slide s1"><div class="tag">تواصل · إيميل صعب</div>
+<h1>إيميل صعب؟<br><em>اكتبه في دقيقة</em></h1>
+<div class="stage"><div class="mail"><div class="bar"><i></i><i></i><i></i><span>رسالة جديدة</span></div>
+<div class="sub"><small>الموضوع</small>اعتذار عن تأخير التقرير</div>
+<div class="bd"><p>مرحباً أستاذ خالد، أعتذر عن تأخّر التقرير يومين، وسأرسله لك يوم الخميس.</p><div class="ln m"></div><div class="ln s"></div></div></div><div class="dial" style=""><svg viewBox="0 0 360 230">
+<path d="M30 200 A150 150 0 0 1 120 62" stroke="#18A36B" stroke-width="34" fill="none" stroke-linecap="butt"/>
+<path d="M126 60 A150 150 0 0 1 234 60" stroke="#5B3FE0" stroke-width="34" fill="none"/>
+<path d="M240 62 A150 150 0 0 1 330 200" stroke="#FF7A1A" stroke-width="34" fill="none"/>
+<g transform="translate(180 200) rotate(0)"><rect x="-7" y="-128" width="14" height="128" rx="7" fill="#1E1650"/></g>
+<circle cx="180" cy="200" r="22" fill="#1E1650"/>
+<text x="62" y="228" font-size="26" font-weight="700" fill="#1E1650" text-anchor="middle" font-family="IBM Plex Sans Arabic">ودّية</text>
+<text x="180" y="40" font-size="26" font-weight="700" fill="#1E1650" text-anchor="middle" font-family="IBM Plex Sans Arabic">رسمية</text>
+<text x="298" y="228" font-size="26" font-weight="700" fill="#1E1650" text-anchor="middle" font-family="IBM Plex Sans Arabic">حازمة</text>
+</svg></div></div>
+<div class="chips"><span>اعتذار</span><span>رفض</span><span>مطالبة</span></div>
+<div class="swipe">اسحب ←</div><div class="hbar">{{HANDLES}}</div></section><section class="slide s2"><div class="tag">تواصل · إيميل صعب</div><div class="pg">2/7</div>
+<h2>تعيد الصياغة<br><em>وما ترسل؟</em></h2>
+<div class="vis"><div class="ph"><img src="assets/mail_crop.jpg" alt=""></div>
+ <div class="ques"><div class="x">؟</div><div class="w">تخاف تجرح<br>أو تطلع حاد</div></div></div>
+<div class="txt">
+ <div class="row"><span class="n">1</span><span>الموقف <b>محرج</b> والكلمات تهرب</span></div>
+ <div class="row"><span class="n">2</span><span>تكتب وتمسح <b>وتكتب من جديد</b></span></div>
+ <div class="row o"><span class="n">3</span><span>الذكاء الاصطناعي <b style="color:#FF7A1A">يسوّدها</b> لك</span></div>
+</div></section><section class="slide s3"><div class="tag">تواصل · إيميل صعب</div><div class="pg">3/7</div>
+<h2>الموقف<br><em>بجملتين</em></h2>
+<div class="vis"><div class="note a"><h5>وش صار؟</h5><p>تأخرت يومين على تسليم التقرير.</p></div>
+<div class="note b"><h5>وش تبغى؟</h5><p>أعتذر وأعطيه موعد جديد.</p></div></div>
+<div class="txt">
+ <div class="big">جملة <b>للموقف</b> وجملة <b>للهدف</b></div>
+ <div class="sm">مثال توضيحي. لا تكتب أسماء أو أرقام سرية</div>
+</div></section><section class="slide s4"><div class="tag">تواصل · إيميل صعب</div><div class="pg">4/7</div>
+<h2>قلها كذا<br><em>وانسخ القالب</em></h2>
+<div class="vis"><div class="pc"><span class="lab">قالب الطلب</span>
+<p>اكتب لي إيميل <mark>[اعتذار / رفض / مطالبة]</mark> لـ<mark>[مديري]</mark>. الموقف: <mark>[...]</mark>. أبغاه محترماً وواضحاً في <mark>5 أسطر</mark>، <u>بدون مبالغة.</u></p></div></div>
+<div class="txt">
+ <div class="big">غيّر <b>الأقواس</b> فقط</div>
+ <div class="sm">الصقه في أي مساعد ذكاء اصطناعي تستخدمه</div>
+</div></section><section class="slide s5"><div class="tag">تواصل · إيميل صعب</div><div class="pg">5/7</div>
+<h2>اضبط النبرة<br><em>وراجع</em></h2>
+<div class="vis"><div style="background:#fff;border-radius:34px;padding:34px 40px 12px;box-shadow:0 22px 40px rgba(30,22,80,.2);width:700px;height:440px"><div style="width:100%;height:100%"><div class="dial"><svg viewBox="0 0 360 230">
+<path d="M30 200 A150 150 0 0 1 120 62" stroke="#18A36B" stroke-width="34" fill="none" stroke-linecap="butt"/>
+<path d="M126 60 A150 150 0 0 1 234 60" stroke="#5B3FE0" stroke-width="34" fill="none"/>
+<path d="M240 62 A150 150 0 0 1 330 200" stroke="#FF7A1A" stroke-width="34" fill="none"/>
+<g transform="translate(180 200) rotate(0)"><rect x="-7" y="-128" width="14" height="128" rx="7" fill="#1E1650"/></g>
+<circle cx="180" cy="200" r="22" fill="#1E1650"/>
+<text x="62" y="228" font-size="26" font-weight="700" fill="#1E1650" text-anchor="middle" font-family="IBM Plex Sans Arabic">ودّية</text>
+<text x="180" y="40" font-size="26" font-weight="700" fill="#1E1650" text-anchor="middle" font-family="IBM Plex Sans Arabic">رسمية</text>
+<text x="298" y="228" font-size="26" font-weight="700" fill="#1E1650" text-anchor="middle" font-family="IBM Plex Sans Arabic">حازمة</text>
+</svg></div></div></div></div>
+<div class="txt">
+ <div class="big">قل له: «<b>خلّه أكثر رسمية</b>»</div>
+ <div class="sm">وراجع الأسماء والتواريخ قبل الإرسال</div>
+</div></section><section class="slide s6"><div class="tag">تواصل · إيميل صعب</div><div class="pg">6/7</div>
+<h2>احفظ<br><em>قالب الإيميل</em></h2>
+<div class="list">
+ <div class="ck"><i>✓</i>الموقف بجملتين</div>
+ <div class="ck"><i>✓</i>النوع: اعتذار أو رفض أو مطالبة</div>
+ <div class="ck"><i>✓</i>الطول والنبرة المطلوبة</div>
+ <div class="ck"><i>✓</i>راجع قبل ما ترسل</div>
+</div>
+<div class="save">اضغط حفظ 🔖 لأول إيميل صعب</div></section><section class="slide s7" data-handles="off"><div class="tag">تواصل · إيميل صعب</div><div class="pg">7/7</div>
+<h2>إيميلك<br><em>جاهز في دقيقة</em></h2>
+<div class="ring"><div class="face"><img src="{{AVATAR}}" alt=""></div></div>
+<div class="nm">علي التميمي</div><div class="ds">كل يوم فكرة تختصر وقتك</div>
+<div class="ask">أي إيميل مأجّله اليوم؟ 👇</div>
+<div class="soc"><div>{{HANDLES}}</div></div></section></body></html>
