@@ -92,6 +92,14 @@ h2 em{font-style:normal;color:var(--em)}
 .s7 .ask{position:absolute;top:1262px;left:60px;right:60px;text-align:center;font:800 40px/1.4 'IBM Plex Sans Arabic';color:var(--amb)}
 .s7 .soc{position:absolute;top:1340px;left:0;right:0;display:flex;justify-content:center}
 .s7 .soc>div{display:flex;gap:26px;align-items:center;padding:12px 30px;border-radius:14px;background:#fff;color:var(--ink);font:700 30px 'IBM Plex Sans Arabic'}
+
+.s3 .vis{padding:0}
+.chat{width:100%;display:flex;flex-direction:column;gap:18px}
+.bub{border-radius:30px;padding:26px 34px 32px;font:700 46px/1.5 'IBM Plex Sans Arabic';max-width:92%}
+.bub.d{background:#fff;box-shadow:0 14px 30px rgba(11,46,34,.16);align-self:flex-start;border-top-right-radius:8px;margin-left:auto;margin-right:0;align-self:stretch}
+.bub.u{background:var(--ink);color:#fff;align-self:flex-start;border-top-left-radius:8px}
+.bub .who{display:flex;align-items:center;gap:12px;margin-bottom:6px;font:800 30px 'Space Grotesk';color:var(--em)}
+.bub .who i{width:26px;height:26px;border-radius:50%;background:var(--amb);display:block}
 </style></head><body><section class="slide s1"><div class="tag"><img src="assets/openai-black.svg" alt="" style="filter:invert(0)">ChatGPT · <span class="en">dots</span></div>
 <h1><span class="en">ChatGPT</span> صار<br><em>يشتغل لحاله</em></h1>
 <div class="stage"><div class="dots"><i></i><i></i><i></i></div>
@@ -109,6 +117,16 @@ h2 em{font-style:normal;color:var(--em)}
  <div class="row"><span class="n">2</span><span>يدخل <b>تطبيقاتك المربوطة</b></span></div>
  <div class="row"><span class="n">3</span><span>يبدأ <b>بنفسه</b> ويقترح عليك</span></div>
 </div></section><section class="slide s3"><div class="tag"><img src="assets/openai-white.svg" alt="">ChatGPT · <span class="en">dots</span></div><div class="pg">3/7</div>
+<h2>مثال: فاتورة<br><em>نسيتها</em></h2>
+<div class="vis"><div class="chat">
+ <div class="bub d"><div class="who"><i></i><span class="en">dots</span></div>لاحظت أن فاتورة العميل ما انرسلت. جهّزتها لك، أرسلها؟</div>
+ <div class="bub u">أرسلها</div>
+ <div class="lbl">مثال توضيحي</div></div></div>
+<div class="txt">
+ <div class="row"><span class="n">1</span><span>يلاحظ <b>بنفسه</b> ما فاتك</span></div>
+ <div class="row"><span class="n">2</span><span>يجهّز الشغل <b>ويسألك</b></span></div>
+ <div class="row"><span class="n">3</span><span>ما يرسل <b>قبل موافقتك</b></span></div>
+</div></section><section class="slide s3"><div class="tag"><img src="assets/openai-white.svg" alt="">ChatGPT · <span class="en">dots</span></div><div class="pg">4/7</div>
 <h2>مين ياخذ<br><em class="en" style="color:#12805C">dots</em> الحين؟</h2>
 <div class="vis"><div class="plan"><i>✓</i><div>مشتركو Pro<small>متاح لعمر 18 وأكثر</small></div></div>
 <div class="plan m"><i>…</i><div>بعض مشتركي Plus<small>يوصل تدريجياً</small></div></div>
@@ -116,16 +134,6 @@ h2 em{font-style:normal;color:var(--em)}
 <div class="txt">
  <div class="big">لو ما ظهر لك: <b>الإطلاق تدريجي</b></div>
  <div class="sm">حسب صفحة مساعدة OpenAI، والتوفر يتغيّر</div>
-</div></section><section class="slide s4"><div class="tag"><img src="assets/openai-white.svg" alt="">ChatGPT · <span class="en">dots</span></div><div class="pg">4/7</div>
-<h2>اربط بس<br><em>اللي تحتاجه</em></h2>
-<div class="vis"><div class="pl">
-<div class="it"><img src="assets/gmail-color.svg" alt="">Gmail<span class="tg on"></span></div>
-<div class="it"><span class="cal">24</span>التقويم<span class="tg on"></span></div>
-<div class="it"><img src="assets/notion.svg" alt="">Notion<span class="tg"></span></div>
-</div></div>
-<div class="txt">
- <div class="big">كل تطبيق تربطه <b>يقدر dots يدخله</b></div>
- <div class="sm">الربط من تبويب Plugins · واجهة توضيحية</div>
 </div></section><section class="slide s5"><div class="tag"><img src="assets/openai-white.svg" alt="">ChatGPT · <span class="en">dots</span></div><div class="pg">5/7</div>
 <h2>قيّده<br><em>بقواعدك</em></h2>
 <div class="vis"><div class="pc"><span class="lab">قلها كذا</span>
@@ -133,7 +141,7 @@ h2 em{font-style:normal;color:var(--em)}
 <div class="opts"><b>اسمح</b><b>اسألني أولاً</b><b>امنع</b></div></div></div>
 <div class="txt">
  <div class="big">لكل إجراء: <b>اسمح أو اسألني أو امنع</b></div>
- <div class="sm">على الجوال: القائمة الجانبية ← Customize ← Custom rules</div>
+ <div class="sm">على الجوال: القائمة الجانبية ← Customize ← Custom rules<br>واربط بس اللي تحتاجه من تبويب Plugins</div>
 </div></section><section class="slide s6"><div class="tag"><img src="assets/openai-white.svg" alt="">ChatGPT · <span class="en">dots</span></div><div class="pg">6/7</div>
 <h2>احفظ<br><em>قبل ما تجرّب</em></h2>
 <div class="list">
