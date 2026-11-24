@@ -54,7 +54,8 @@
   "t046",
   "t047",
   "t048",
-  "t050"
+  "t050",
+  "t067"
  ],
  "log": [
   {
@@ -455,6 +456,14 @@
    "format": "video",
    "style": "mesh",
    "accent": "cyan"
+  },
+  {
+   "date": "2026-11-24",
+   "id": "t067",
+   "cycle": 0,
+   "format": "carousel",
+   "style": "—",
+   "accent": "—"
   }
  ]
 }
