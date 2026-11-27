@@ -1,0 +1,135 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><style>:root{--ink:#1B1F4B;--org:#FF8A00;--yel:#FFD43B;--bg:#FFFBF0;--mu:#5E6288;--gr:#1FA855;--red:#E5484D}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;font-family:'IBM Plex Sans Arabic',sans-serif;-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1920px;position:relative;overflow:hidden;direction:rtl;color:var(--ink);background:radial-gradient(90% 50% at 50% 40%,#FFFFFF 0%,var(--bg) 62%,#FFEFC2 100%)}
+.en{font-family:'Space Grotesk';direction:ltr;unicode-bidi:isolate;font-weight:700}
+.tag{position:absolute;top:252px;right:80px;display:flex;align-items:center;gap:12px;padding:8px 26px 12px 20px;border-radius:40px;background:var(--ink);color:#fff;font:700 30px 'IBM Plex Sans Arabic';z-index:3}
+.tag img{width:36px;height:36px}
+.pg{position:absolute;top:262px;left:80px;font:700 30px 'Space Grotesk';color:var(--mu);direction:ltr;z-index:3}
+h2{position:absolute;top:330px;right:80px;left:80px;font:800 108px/1.2 'Rubik',sans-serif;z-index:2}
+h2 em{font-style:normal;color:var(--org)}
+.vis{position:absolute;top:600px;left:80px;right:80px;height:480px;display:flex;align-items:center;justify-content:center}
+.txt{position:absolute;top:1105px;left:80px;right:80px;height:290px;display:flex;flex-direction:column;justify-content:center;gap:14px}
+.big{font:800 44px/1.4 'IBM Plex Sans Arabic';text-align:center}
+.big b{color:var(--org)}
+.sm{font:600 30px/1.45 'IBM Plex Sans Arabic';text-align:center;color:var(--mu)}
+.row{display:flex;align-items:center;gap:20px;background:#fff;border-radius:24px;padding:12px 24px 16px;box-shadow:0 10px 24px rgba(27,31,75,.1);font:700 34px/1.35 'IBM Plex Sans Arabic'}
+.row .n{flex:none;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:#fff;font:800 32px 'Space Grotesk'}
+.row b{color:var(--org)}
+.lbl{font:600 26px 'IBM Plex Sans Arabic';color:var(--mu);text-align:center;margin-top:8px}
+/* chat mock */
+.chat{width:100%;border-radius:30px;overflow:hidden;box-shadow:0 24px 46px rgba(27,31,75,.28);background:#EFE6D8;direction:rtl}
+.chat .hd{background:#1D6F5C;color:#fff;padding:16px 24px 20px;display:flex;align-items:center;gap:16px;font:800 34px 'IBM Plex Sans Arabic'}
+.chat .hd i{width:54px;height:54px;border-radius:50%;background:#A9D8C9;display:block}
+.chat .pin{background:#fff;margin:14px 16px 0;border-radius:18px;padding:12px 18px 16px;font:700 34px/1.3 'IBM Plex Sans Arabic';display:flex;gap:14px;align-items:center;border-right:8px solid var(--org)}
+.chat .pin small{display:block;font:600 26px 'IBM Plex Sans Arabic';color:var(--mu)}
+.chat .bd{padding:14px 16px 20px;display:flex;flex-direction:column;gap:12px}
+.chat .m{max-width:78%;background:#fff;border-radius:18px;padding:10px 18px 14px;font:600 32px/1.35 'IBM Plex Sans Arabic'}
+.chat .m.me{align-self:flex-start;background:#D8F5C9}
+.chat .m b{color:#1D6F5C;display:block;font:800 26px 'IBM Plex Sans Arabic'}
+/* 1 */
+.s1{background:radial-gradient(90% 60% at 50% 45%,#FFE066 0%,#FFB300 52%,#FF7A00 100%)}
+.s1 h1{position:absolute;top:330px;right:80px;left:40px;font:800 104px/1.18 'Rubik',sans-serif}
+.s1 h1 em{font-style:normal;color:#fff;text-shadow:0 4px 0 rgba(27,31,75,.25)}
+.s1 .stage{position:absolute;top:700px;left:100px;right:100px}
+.s1 .chat{transform:rotate(-2deg)}
+.s1 .chip{position:absolute;top:1322px;left:0;right:0;text-align:center}
+.s1 .chip span{display:inline-block;padding:6px 36px 14px;border-radius:30px;background:var(--ink);color:#fff;font:800 42px 'IBM Plex Sans Arabic'}
+.s1 .swipe{position:absolute;top:1404px;left:80px;padding:8px 24px 12px;border-radius:30px;background:#fff;font:800 34px/1 'IBM Plex Sans Arabic';color:var(--ink)}
+.s1 .hbar{position:absolute;top:1404px;right:80px;display:flex;gap:26px;align-items:center;padding:12px 28px;border-radius:14px;background:#fff;color:var(--ink);font:700 28px 'IBM Plex Sans Arabic'}
+/* 2 */
+.s2 .vis{gap:30px;justify-content:space-between}
+.s2 .ph{width:560px;height:430px;border-radius:32px;overflow:hidden;box-shadow:0 20px 40px rgba(27,31,75,.25)}
+.s2 .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.s2 .ques{flex:1;text-align:center;display:flex;flex-direction:column;gap:12px;align-items:center}
+.s2 .ques .x{font:800 180px/0.9 'Rubik';color:var(--org)}
+.s2 .ques .w{font:800 40px/1.3 'IBM Plex Sans Arabic'}
+/* 3 tiles */
+.s3 .vis{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:20px;padding:0}
+.tile{background:#fff;border-radius:28px;padding:18px 20px 22px;box-shadow:0 14px 28px rgba(27,31,75,.14);display:flex;flex-direction:column;gap:8px;justify-content:center;text-align:center}
+.tile .ic{font-size:60px;line-height:1}
+.tile h5{font:800 36px/1.25 'IBM Plex Sans Arabic'}
+.tile:nth-child(1){border-top:10px solid var(--org)}.tile:nth-child(2){border-top:10px solid var(--gr)}.tile:nth-child(3){border-top:10px solid var(--ink)}.tile:nth-child(4){border-top:10px solid var(--red)}
+/* 5 */
+.s5 .vis{gap:24px;align-items:stretch;padding:8px 0}
+.card{flex:1;background:#fff;border-radius:28px;padding:22px 20px 24px;box-shadow:0 16px 30px rgba(27,31,75,.16);display:flex;flex-direction:column;gap:14px;align-items:center;text-align:center}
+.card h5{font:800 36px/1.25 'IBM Plex Sans Arabic'}
+.card .st{display:flex;align-items:center;gap:14px;background:#F2F4F7;border-radius:20px;padding:14px 18px;font:700 30px/1.3 'IBM Plex Sans Arabic';width:100%}
+.card .st i{width:64px;height:64px;border-radius:50%;border:5px solid var(--gr);display:block;flex:none;background:#CFE9D9}
+.card .men{display:flex;align-items:center;gap:12px;background:#F2F4F7;border-radius:20px;padding:12px 16px;font:700 30px/1.3 'IBM Plex Sans Arabic';width:100%;text-align:right}
+.card .men b{margin-right:auto;margin-left:0;min-width:44px;height:44px;border-radius:22px;background:var(--gr);color:#fff;display:grid;place-items:center;font:800 28px 'Space Grotesk'}
+/* 6 */
+.s6 .list{position:absolute;top:610px;left:80px;right:80px;display:flex;flex-direction:column;gap:22px}
+.s6 .ck{display:flex;align-items:center;gap:26px;background:#fff;border-radius:28px;padding:24px 30px 28px;box-shadow:0 12px 26px rgba(27,31,75,.1);font:800 42px/1.3 'IBM Plex Sans Arabic'}
+.s6 .ck i{flex:none;width:76px;height:76px;border-radius:20px;background:var(--org);display:grid;place-items:center;font:900 48px 'Space Grotesk';color:#fff;font-style:normal}
+.s6 .save{position:absolute;top:1300px;left:80px;right:80px;text-align:center;font:800 36px 'IBM Plex Sans Arabic';color:var(--org)}
+/* 7 */
+.s7{background:linear-gradient(180deg,#1B1F4B 0%,#2E3380 58%,#FF8A00 100%);color:#fff}
+.s7 .tag{background:#fff;color:var(--ink)}
+.s7 .pg{color:#CDD0F0}
+.s7 h2{text-align:center;color:#fff}
+.s7 h2 em{color:var(--yel)}
+.s7 .ring{position:absolute;top:640px;left:50%;width:400px;height:400px;margin-left:-200px;border-radius:50%;background:var(--yel);box-shadow:0 0 0 16px rgba(255,212,59,.25),0 0 80px rgba(255,212,59,.3)}
+.s7 .face{position:absolute;top:14px;left:14px;width:372px;height:372px;border-radius:50%;overflow:hidden;background:var(--ink)}
+.s7 .face img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.s7 .nm{position:absolute;top:1080px;left:0;right:0;text-align:center;font:800 96px/1.15 'Rubik',sans-serif}
+.s7 .ds{position:absolute;top:1200px;left:0;right:0;text-align:center;font:700 34px 'IBM Plex Sans Arabic';color:#E3E5FA}
+.s7 .ask{position:absolute;top:1262px;left:60px;right:60px;text-align:center;font:800 40px/1.4 'IBM Plex Sans Arabic';color:var(--yel)}
+.s7 .soc{position:absolute;top:1340px;left:0;right:0;display:flex;justify-content:center}
+.s7 .soc>div{display:flex;gap:26px;align-items:center;padding:12px 30px;border-radius:14px;background:#fff;color:var(--ink);font:700 30px 'IBM Plex Sans Arabic'}
+.s5 .vis{align-items:center}
+.s5 .card{flex:1;min-height:380px;justify-content:center;gap:22px;padding:30px 22px}
+.s5 .card h5{font-size:42px}
+.s5 .card .st,.s5 .card .men{font-size:34px;padding:18px 20px}
+.s5 .card .st i{width:76px;height:76px}
+.s5 .card .men b{min-width:56px;height:56px;font-size:34px;border-radius:28px}
+</style></head><body><section class="slide s1"><div class="tag"><img src="assets/whatsapp-color.svg" alt="">واتساب · القروبات</div>
+<h1>قروب واتساب مليان؟<br><em>ثبّت المهم للأبد</em></h1>
+<div class="stage"><div class="chat"><div class="hd"><i></i>قروب العائلة</div><div class="pin"><span>📌</span><div>العزيمة الخميس 8 مساءً<small>مثبّتة بدون انتهاء</small></div></div>
+<div class="bd"><div class="m"><b>أبو خالد</b>وش نجيب معنا؟</div><div class="m me">أنا عليّ الحلا</div></div></div></div>
+<div class="chip"><span>4 ميزات جديدة للقروبات</span></div>
+<div class="swipe">اسحب ←</div><div class="hbar">{{HANDLES}}</div></section><section class="slide s2"><div class="tag"><img src="assets/whatsapp-color.svg" alt="">واتساب · القروبات</div><div class="pg">2/7</div>
+<h2>رسالة مهمة<br><em>ضاعت؟</em></h2>
+<div class="vis"><div class="ph"><img src="assets/team.jpg" alt=""></div>
+ <div class="ques"><div class="x">؟</div><div class="w">قروب العمل<br>والعائلة</div></div></div>
+<div class="txt">
+ <div class="row"><span class="n">1</span><span>الموعد <b>يضيع</b> بين مئات الرسائل</span></div>
+ <div class="row"><span class="n">2</span><span>التثبيت قبل: <b>24 ساعة أو 7 أيام أو 30 يوم</b></span></div>
+ <div class="row"><span class="n">3</span><span>والعضو الجديد <b>ما يعرف وش صار</b></span></div>
+</div></section><section class="slide s3"><div class="tag"><img src="assets/whatsapp-color.svg" alt="">واتساب · القروبات</div><div class="pg">3/7</div>
+<h2>4 ميزات<br><em>جديدة</em></h2>
+<div class="vis"><div class="tile"><div class="ic">📌</div><h5>تثبيت<br>بدون انتهاء</h5></div>
+<div class="tile"><div class="ic">🟢</div><h5>حالة للقروب<br>فقط</h5></div>
+<div class="tile"><div class="ic">💬</div><h5>الرسائل الأخيرة<br>للعضو الجديد</h5></div>
+<div class="tile"><div class="ic">@</div><h5>فلتر المنشن<br>والردود</h5></div></div>
+<div class="txt">
+ <div class="big">أعلنها واتساب <b>مطلع نوفمبر</b></div>
+ <div class="sm">الإطلاق تدريجي حول العالم، فحدّث التطبيق</div>
+</div></section><section class="slide s4"><div class="tag"><img src="assets/whatsapp-color.svg" alt="">واتساب · القروبات</div><div class="pg">4/7</div>
+<h2>مثال: العزيمة<br><em>تبقى فوق</em></h2>
+<div class="vis"><div class="chat"><div class="hd"><i></i>قروب العائلة</div><div class="pin"><span>📌</span><div>العزيمة الخميس 8 مساءً<small>مثبّتة بدون انتهاء</small></div></div>
+<div class="bd"><div class="m"><b>أبو خالد</b>وش نجيب معنا؟</div><div class="m me">أنا عليّ الحلا</div></div></div></div>
+<div class="txt">
+ <div class="big">ثبّت الموعد مرة <b>وما يختفي</b></div>
+ <div class="sm">مثال توضيحي · اضغط مطولاً على الرسالة ← تثبيت</div>
+</div></section><section class="slide s5"><div class="tag"><img src="assets/whatsapp-color.svg" alt="">واتساب · القروبات</div><div class="pg">5/7</div>
+<h2>شارك بس<br><em>مع اللي تبغاهم</em></h2>
+<div class="vis"><div class="card"><h5>حالة للقروب</h5><div class="st"><i></i><span>صور الرحلة<br>للعائلة فقط</span></div></div>
+<div class="card"><h5>فلتر المنشن</h5><div class="men"><span>قروب العمل<br>«@أنت الاجتماع»</span><b>@</b></div></div></div>
+<div class="txt">
+ <div class="big">ما يوصل <b>كل جهات اتصالك</b></div>
+ <div class="sm">واجهة توضيحية</div>
+</div></section><section class="slide s6"><div class="tag"><img src="assets/whatsapp-color.svg" alt="">واتساب · القروبات</div><div class="pg">6/7</div>
+<h2>احفظ<br><em>قبل ما تجرّب</em></h2>
+<div class="list">
+ <div class="ck"><i>✓</i>ثبّت المواعيد والعزايم</div>
+ <div class="ck"><i>✓</i>شارك الحالة مع القروب فقط</div>
+ <div class="ck"><i>✓</i>فعّل فلتر المنشن</div>
+ <div class="ck"><i>✓</i>حدّث واتساب أولاً</div>
+</div>
+<div class="save">اضغط حفظ 🔖 وأرسلها لأدمن قروبك</div></section><section class="slide s7" data-handles="off"><div class="tag"><img src="assets/whatsapp-color.svg" alt="">واتساب · القروبات</div><div class="pg">7/7</div>
+<h2>قروبك<br><em>صار أرتب</em></h2>
+<div class="ring"><div class="face"><img src="{{AVATAR}}" alt=""></div></div>
+<div class="nm">علي التميمي</div><div class="ds">كل يوم جديد التقنية يوصلك</div>
+<div class="ask">أي قروب بتثبّت فيه أول رسالة؟ 👇</div>
+<div class="soc"><div>{{HANDLES}}</div></div></section></body></html>
