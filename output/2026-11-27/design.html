@@ -1,0 +1,120 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><style>:root{--bk:#101014;--cd:#1D1D27;--gold:#FFC23D;--red:#FF3B3B;--wh:#FFFFFF;--mu:#A9A9BD;--gr:#2ED17A}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;font-family:'IBM Plex Sans Arabic',sans-serif;-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1920px;position:relative;overflow:hidden;direction:rtl;color:var(--wh);background:radial-gradient(90% 50% at 50% 40%,#23232F 0%,var(--bk) 70%,#09090C 100%)}
+.en{font-family:'Space Grotesk';direction:ltr;unicode-bidi:isolate;font-weight:700}
+.tag{position:absolute;top:252px;right:80px;padding:8px 28px 12px;border-radius:40px;background:var(--gold);color:var(--bk);font:800 30px 'IBM Plex Sans Arabic';z-index:3}
+.pg{position:absolute;top:262px;left:80px;font:700 30px 'Space Grotesk';color:var(--mu);direction:ltr;z-index:3}
+h2{position:absolute;top:330px;right:80px;left:80px;font:400 120px/1.15 'Lalezar',sans-serif;z-index:2}
+h2 em{font-style:normal;color:var(--gold)}
+.vis{position:absolute;top:600px;left:80px;right:80px;height:480px;display:flex;align-items:center;justify-content:center}
+.txt{position:absolute;top:1105px;left:80px;right:80px;height:290px;display:flex;flex-direction:column;justify-content:center;gap:14px}
+.big{font:800 44px/1.4 'IBM Plex Sans Arabic';text-align:center}
+.big b{color:var(--gold)}
+.sm{font:600 30px/1.45 'IBM Plex Sans Arabic';text-align:center;color:var(--mu)}
+.row{display:flex;align-items:center;gap:20px;background:var(--cd);border-radius:24px;padding:12px 24px 16px;font:700 34px/1.35 'IBM Plex Sans Arabic'}
+.row .n{flex:none;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:var(--gold);color:var(--bk);font:800 32px 'Space Grotesk'}
+.row b{color:var(--gold)}
+.lbl{font:600 26px 'IBM Plex Sans Arabic';color:var(--mu);text-align:center;margin-top:8px}
+/* 1 */
+.s1 .bgp{position:absolute;inset:0;background:url(assets/sale.jpg) center/cover;opacity:.55}
+.s1 .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,16,20,.9) 0%,rgba(16,16,20,.35) 45%,rgba(16,16,20,.85) 100%)}
+.s1 h1{position:absolute;top:330px;right:80px;left:40px;font:400 126px/1.12 'Lalezar',sans-serif}
+.s1 h1 em{font-style:normal;color:var(--gold)}
+.s1 .stamp{position:absolute;top:900px;left:50%;margin-left:-300px;width:600px;text-align:center;transform:rotate(-4deg)}
+.s1 .stamp span{display:inline-block;padding:10px 40px 26px;border:10px solid var(--red);border-radius:26px;color:var(--red);font:400 150px/1 'Lalezar';background:rgba(16,16,20,.6)}
+.s1 .chip{position:absolute;top:1318px;left:0;right:0;text-align:center}
+.s1 .chip span{display:inline-block;padding:6px 36px 14px;border-radius:30px;background:var(--gold);color:var(--bk);font:800 42px 'IBM Plex Sans Arabic'}
+.s1 .swipe{position:absolute;top:1404px;left:80px;padding:8px 24px 12px;border-radius:30px;background:var(--wh);font:800 34px/1 'IBM Plex Sans Arabic';color:var(--bk)}
+.s1 .hbar{position:absolute;top:1404px;right:80px;display:flex;gap:26px;align-items:center;padding:12px 28px;border-radius:14px;background:#fff;color:var(--bk);font:700 28px 'IBM Plex Sans Arabic'}
+/* 2 stat */
+.stat{width:100%;background:var(--cd);border-radius:34px;padding:30px 36px 34px;text-align:center;border:4px solid var(--red)}
+.stat .num{font:400 220px/1 'Lalezar';color:var(--red);direction:rtl}.stat .num small{font:400 70px 'Lalezar';color:var(--gold);margin-right:18px;direction:rtl;unicode-bidi:isolate}
+.stat .cap{font:700 38px/1.45 'IBM Plex Sans Arabic'}
+.stat .src{font:600 26px 'IBM Plex Sans Arabic';color:var(--mu);margin-top:10px}
+/* 3 chat */
+.chat{width:100%;display:flex;flex-direction:column;gap:18px}
+.bub{border-radius:30px;padding:22px 30px 26px;font:700 40px/1.5 'IBM Plex Sans Arabic';max-width:90%}
+.bub.u{background:#2B2B3A;align-self:flex-start;border-top-left-radius:8px}
+.bub.a{background:#fff;color:var(--bk);align-self:stretch;max-width:100%;border-top-right-radius:8px}
+.bub.a .url{display:inline-block;direction:ltr;background:#FFE3E3;color:var(--red);border-radius:12px;padding:2px 16px 6px;font:700 34px 'Space Grotesk'}
+.bub.a .flag{display:block;margin-top:8px;color:var(--red);font:800 32px 'IBM Plex Sans Arabic'}
+/* 4 url */
+.urls{width:100%;display:flex;flex-direction:column;gap:20px}
+.url{display:flex;align-items:center;gap:20px;border-radius:26px;padding:22px 28px;font:700 40px 'Space Grotesk';direction:ltr;background:var(--cd)}
+.url i{flex:none;width:68px;height:68px;border-radius:50%;display:grid;place-items:center;font:900 44px 'Space Grotesk';font-style:normal}
+.url.bad{border:5px solid var(--red)}.url.bad i{background:var(--red)}
+.url.ok{border:5px solid var(--gr)}.url.ok i{background:var(--gr);color:var(--bk)}
+.url small{margin-left:auto;font:600 28px 'IBM Plex Sans Arabic';direction:rtl;color:var(--mu)}
+/* 5 */
+.s5 .vis{gap:30px}
+.pic{width:520px;height:430px;border-radius:32px;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,.5)}
+.pic img{width:100%;height:100%;object-fit:cover;object-position:30% 50%}
+.split{flex:1;display:flex;flex-direction:column;gap:18px}
+.split div{border-radius:24px;padding:18px 22px 22px;text-align:center;font:800 38px/1.3 'IBM Plex Sans Arabic'}
+.split .a{background:rgba(46,209,122,.18);border:4px solid var(--gr)}
+.split .b{background:rgba(255,59,59,.18);border:4px solid var(--red)}
+.split small{display:block;font:600 28px 'IBM Plex Sans Arabic';color:var(--mu)}
+/* 6 */
+.s6 .list{position:absolute;top:610px;left:80px;right:80px;display:flex;flex-direction:column;gap:22px}
+.s6 .ck{display:flex;align-items:center;gap:26px;background:var(--cd);border-radius:28px;padding:24px 30px 28px;font:800 40px/1.3 'IBM Plex Sans Arabic'}
+.s6 .ck i{flex:none;width:76px;height:76px;border-radius:20px;background:var(--gold);display:grid;place-items:center;font:900 48px 'Space Grotesk';color:var(--bk);font-style:normal}
+.s6 .ck.x i{background:var(--red);color:#fff}
+.s6 .save{position:absolute;top:1300px;left:80px;right:80px;text-align:center;font:800 36px 'IBM Plex Sans Arabic';color:var(--gold)}
+/* 7 */
+.s7{background:linear-gradient(180deg,#101014 0%,#2A0D0D 60%,#8E1B1B 100%)}
+.s7 h2{text-align:center}
+.s7 .ring{position:absolute;top:640px;left:50%;width:400px;height:400px;margin-left:-200px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 16px rgba(255,194,61,.25),0 0 80px rgba(255,194,61,.3)}
+.s7 .face{position:absolute;top:14px;left:14px;width:372px;height:372px;border-radius:50%;overflow:hidden;background:var(--bk)}
+.s7 .face img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.s7 .nm{position:absolute;top:1070px;left:0;right:0;text-align:center;font:400 104px/1.1 'Lalezar',sans-serif}
+.s7 .ds{position:absolute;top:1200px;left:0;right:0;text-align:center;font:700 34px 'IBM Plex Sans Arabic';color:#E7D9D9}
+.s7 .ask{position:absolute;top:1262px;left:60px;right:60px;text-align:center;font:800 40px/1.4 'IBM Plex Sans Arabic';color:var(--gold)}
+.s7 .soc{position:absolute;top:1340px;left:0;right:0;display:flex;justify-content:center}
+.s7 .soc>div{display:flex;gap:26px;align-items:center;padding:12px 30px;border-radius:14px;background:#fff;color:var(--bk);font:700 30px 'IBM Plex Sans Arabic'}
+</style></head><body><section class="slide s1"><div class="tag">تقنية · تسوّق الذكاء الاصطناعي</div>
+<div class="bgp"></div><div class="shade"></div>
+<h1>مساعد التسوق<br><em>يوديك لمتجر وهمي؟</em></h1>
+<div class="stamp"><span>تحذير</span></div>
+<div class="chip"><span>الجمعة البيضاء والذكاء الاصطناعي</span></div>
+<div class="swipe">اسحب ←</div><div class="hbar">{{HANDLES}}</div></section><section class="slide s2"><div class="tag">تقنية · تسوّق الذكاء الاصطناعي</div><div class="pg">2/7</div>
+<h2>وش قال<br><em>الاختبار؟</em></h2>
+<div class="vis"><div class="stat"><div class="num"><small>أكثر من</small><span style="direction:ltr;unicode-bidi:isolate;display:inline-block">18%</span></div><div class="cap">من ردود <span class="en">ChatGPT</span> و<span class="en">Gemini</span> و<span class="en">Perplexity</span> وجّهت لمواقع وهمية أو غير صالحة</div><div class="src">اختبار Podqi بحسب تقارير</div></div></div>
+<div class="txt">
+ <div class="big"><b>فيزا</b> تحذّر: المساعد قد يُخدع</div>
+ <div class="sm">بمتاجر مزيفة ومواقع تشبه المتاجر الحقيقية</div>
+</div></section><section class="slide s3"><div class="tag">تقنية · تسوّق الذكاء الاصطناعي</div><div class="pg">3/7</div>
+<h2>مثال: أرخص<br><em>سعر لجوال</em></h2>
+<div class="vis"><div class="chat"><div class="bub u">وين أشتري الجوال بأرخص سعر؟</div>
+<div class="bub a">لقيته أرخص بكثير في <span class="url">phone-deals.shop</span><span class="flag">✗ سعر خيالي + موقع ما تعرفه</span></div></div></div>
+<div class="txt">
+ <div class="big">الأرخص مو دايماً <b>الأصدق</b></div>
+ <div class="sm">مثال توضيحي</div>
+</div></section><section class="slide s4"><div class="tag">تقنية · تسوّق الذكاء الاصطناعي</div><div class="pg">4/7</div>
+<h2>افتح المتجر<br><em>بنفسك</em></h2>
+<div class="vis"><div class="urls"><div class="url bad"><i>✗</i>store-offers.shop<small>رابط من المساعد</small></div>
+<div class="url ok"><i>✓</i>store.com<small>تكتبه أنت</small></div></div></div>
+<div class="txt">
+ <div class="big">اكتب اسم المتجر <b>بيدك في المتصفح</b></div>
+ <div class="sm">لا تضغط روابط الإعلانات والرسائل · مثال توضيحي</div>
+</div></section><section class="slide s5"><div class="tag">تقنية · تسوّق الذكاء الاصطناعي</div><div class="pg">5/7</div>
+<h2>هو يبحث<br><em>وأنت تدفع</em></h2>
+<div class="vis"><div class="pic"><img src="assets/card.jpg" alt=""></div>
+<div class="split"><div class="a">قارن الأسعار<small>للمساعد</small></div><div class="b">بيانات البطاقة<small>لك أنت</small></div></div></div>
+<div class="txt">
+ <div class="big">لا تعطه <b>بطاقتك</b> ولا صلاحية الدفع</div>
+ <div class="sm">تحذير كاسبرسكي: قد يدخل بياناتك في موقع مزيّف</div>
+</div></section><section class="slide s6"><div class="tag">تقنية · تسوّق الذكاء الاصطناعي</div><div class="pg">6/7</div>
+<h2>احفظ<br><em>قبل ما تشتري</em></h2>
+<div class="list">
+ <div class="ck"><i>✓</i>افتح المتجر بنفسك</div>
+ <div class="ck"><i>✓</i>المساعد يقارن وأنت تدفع</div>
+ <div class="ck x"><i>✗</i>لا بطاقات هدايا ولا تحويل</div>
+ <div class="ck x"><i>✗</i>لا تثق بالسعر الخيالي</div>
+</div>
+<div class="save">اضغط حفظ 🔖 وأرسلها لمن يتسوق معك</div></section><section class="slide s7" data-handles="off"><div class="tag">تقنية · تسوّق الذكاء الاصطناعي</div><div class="pg">7/7</div>
+<h2>تسوّق<br><em>وعينك مفتوحة</em></h2>
+<div class="ring"><div class="face"><img src="{{AVATAR}}" alt=""></div></div>
+<div class="nm">علي التميمي</div><div class="ds">كل يوم جديد التقنية يوصلك</div>
+<div class="ask">وش أول شي بتشتريه اليوم؟ 👇</div>
+<div class="soc"><div>{{HANDLES}}</div></div></section></body></html>
