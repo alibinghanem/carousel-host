@@ -5,6 +5,8 @@ Usage: python3 assemble.py <clips_dir> <imgs_dir> <fonts_dir> <out.mp4> [preview
 import sys, os, math, subprocess
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import endcard
 
 CLIPS, IMGS, FONTS, OUT = sys.argv[1:5]
 PREVIEW = len(sys.argv) > 5 and sys.argv[5] == "preview"
@@ -68,6 +70,12 @@ def src_image(seg, local):
     return still.crop(tuple(int(v) for v in box)).resize((1280, 720), Image.LANCZOS)
 
 def compose(seg, local):
+    if seg["kind"] == "still":
+        u = min(max(local / seg["dur"], 0), 1)
+        fr = endcard.bg_frame(still, u)
+        if DS > 1:
+            fr = fr.resize((OW, OH), Image.BILINEAR)
+        return np.asarray(fr, np.float32)
     im = src_image(seg, local)
     # background: fill, blurred, darkened
     bg = im.resize((160, 90), Image.BILINEAR)
@@ -79,6 +87,9 @@ def compose(seg, local):
     fg = im.crop((160, 0, 1120, 720)).resize((FW // DS, FH // DS), Image.LANCZOS)
     fy = FY // DS
     frame[fy:fy + FH // DS, :] = np.asarray(fg, np.float32)
+    lw = max(1, 3 // DS)
+    for y in (fy - lw, fy + FH // DS):
+        frame[y:y + lw, :] = np.array(GOLD, np.float32) * 0.9
     return frame
 
 def shift(img, ox):
@@ -128,12 +139,12 @@ def text_layer(lines, y, gap=22):
         layer = layer.resize((OW, OH), Image.LANCZOS)
     return np.asarray(layer, np.float32), boxes
 
-F_BIG = font("cairo900.ttf", 84)
-F_MED = font("taj500.ttf", 42)
-F_SM = font("taj500.ttf", 32)
-F_TAG = font("taj800.ttf", 30)
+F_BIG = font("ibm-plex-sans-arabic-700.ttf", 84)
+F_MED = font("ibm-plex-sans-arabic-300.ttf", 42)
+F_SM = font("ibm-plex-sans-arabic-300.ttf", 32)
+F_TAG = font("ibm-plex-sans-arabic-500.ttf", 30)
 
-HEADER, HB = text_layer([("مشروع الندى", font("cairo900.ttf", 72), WHITE),
+HEADER, HB = text_layer([("مشروع الندى", font("ibm-plex-sans-arabic-700.ttf", 72), WHITE),
                          ("للإيجار  ·  حي العليا، الرياض", F_TAG, GOLD)], 250)
 
 CAPS = [
@@ -145,13 +156,12 @@ CAPS = [
 ]
 CAP_L = [text_layer([(a, F_BIG, WHITE), (b, F_MED, (235, 228, 214))], 1420) for a, b in CAPS]
 
-END1, EB1 = text_layer([("للإيجار السنوي", F_MED, (235, 228, 214)),
-                        ("110,000 ريال", font("cairo900.ttf", 120), GOLD),
-                        ("خصم 5,000 ريال عند السداد دفعة واحدة", F_SM, WHITE)], 640)
-END2, EB2 = text_layer([("للحجز والمعاينة", F_TAG, GOLD),
-                        ("920033876  ·  0558297700", font("cairo700.ttf", 56), WHITE),
-                        ("شارع عبدالله بن سليمان الحمدان، حي العليا", F_SM, (225, 220, 210)),
-                        ("رقم رخصة الإعلان 7201005761", font("taj500.ttf", 24), (190, 185, 175))], 1150)
+_EC = endcard.build("B", FONTS)
+END_L = {}
+for _k, _v in _EC.items():
+    if DS > 1:
+        _v = _v.resize((OW, OH), Image.LANCZOS)
+    END_L[_k] = np.asarray(_v, np.float32)
 
 def comp(frame, layer, al, dy=0):
     if al <= 0.003:
@@ -174,15 +184,11 @@ def eo(x):
     x = min(max(x, 0), 1)
     return 1 - (1 - x) ** 3
 
-END_T = SEGS[-1]["start"] + 0.5
+END_T = SEGS[-1]["start"] + 0.35
 
 def overlays(fr, t):
-    # thin gold frame lines around the band
-    fy, fh = FY // DS, FH // DS
-    for y in (fy - max(1, 3 // DS), fy + fh):
-        fr[y:y + max(1, 3 // DS), :] = np.array(GOLD, np.float32) * 0.9
     # header (persistent until end card)
-    hal = min(1, t / 0.6) * (1 - eo((t - END_T + 0.3) / 0.5))
+    hal = min(1, t / 0.6) * (1 - eo((t - END_T + 0.5) / 0.4))
     fr = comp(fr, HEADER, hal)
     # captions
     for i, s in enumerate(SEGS[:5]):
@@ -196,15 +202,11 @@ def overlays(fr, t):
             lay, boxes = CAP_L[i]
             fr = comp(fr, lay, al, dy)
             fr = rule(fr, 1392 + dy * DS, 140, eo((t - a0 - 0.1) / 0.6), al)
-    # end card
-    if t >= END_T - 0.3:
-        k = eo((t - END_T + 0.3) / 0.8)
-        fr = fr * (1 - 0.55 * k)
-        f1 = eo((t - END_T) / 0.6)
-        fr = comp(fr, END1, f1, (1 - f1) * 50 / DS)
-        fr = rule(fr, 600, 220, eo((t - END_T - 0.2) / 0.7), f1)
-        f2 = eo((t - END_T - 0.6) / 0.6)
-        fr = comp(fr, END2, f2, (1 - f2) * 50 / DS)
+    # end card: staggered reveal
+    if t >= END_T - 0.2:
+        for j, k in enumerate(("top", "card", "contact")):
+            f = eo((t - END_T - 0.35 * j) / 0.6)
+            fr = comp(fr, END_L[k], f, (1 - f) * 50 / DS)
     if t < 0.4:
         fr = fr * (t / 0.4)
     if t > TOTAL - 0.5:
