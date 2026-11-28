@@ -1,0 +1,35 @@
+حزمة Google Flow - مشروع الندى
+=================================
+الخطوات لكل مقطع:
+1) افتح labs.google/flow  ثم  Image to Video  (أو Frames to Video واستخدم صورة البداية فقط)
+2) ارفع الصورة بنفس الرقم
+3) انسخ النص الإنجليزي تحت رقمها والصقه كما هو
+4) اختر الاتجاه 9:16 (عمودي) إن وُجد، وإلا اتركه أفقي
+5) ولّد ثم حمّل المقطع وسمّه بنفس الرقم (مثلاً 1.mp4)
+
+ملاحظة: اختر مودل Veo 3.1 Fast إن وُجد، لأنه يستهلك كريدت أقل.
+
+---------------------------------
+1  (1-exterior.jpg)  الواجهة
+---------------------------------
+Smooth cinematic drone shot at golden hour: the camera glides slowly forward and drifts to the right along the modern residential building facade, gently rising. Real parallax and depth, warm sunset sky with moving clouds. Steady, elegant real-estate tour motion. No people, no text, the building stays exactly as it is.
+
+---------------------------------
+2  (2-living.jpg)  الصالة
+---------------------------------
+Smooth cinematic gimbal shot: the camera glides slowly forward through the empty luxury living room and drifts to the right toward the carved wooden lattice partition. Real parallax and depth, warm cove lighting, glossy marble floor reflections. Steady, elegant real-estate tour motion. No people, no text, no new furniture, the room stays exactly as it is.
+
+---------------------------------
+3  (3-kitchen.jpg)  المطبخ
+---------------------------------
+Smooth cinematic gimbal shot: the camera glides slowly forward into the modern kitchen and drifts to the right along the marble counter and wooden cabinets. Real parallax and depth, soft pendant lights, polished floor reflections. Steady, elegant real-estate tour motion. No people, no text, the kitchen stays exactly as it is.
+
+---------------------------------
+4  (4-pool.jpg)  المسبح
+---------------------------------
+Smooth cinematic gimbal shot in an indoor courtyard at dusk: the camera glides slowly forward past the palm trees and drifts to the right along the glowing blue swimming pool, with a gentle upward tilt toward the balconies. The water ripples softly and shimmers. Steady, elegant real-estate tour motion. No people, no text, the architecture stays exactly as it is.
+
+---------------------------------
+5  (5-gym.jpg)  النادي الرياضي
+---------------------------------
+Smooth cinematic gimbal shot: the camera glides slowly forward through the bright residential gym and drifts to the right past the treadmills and weight machines. Real parallax and depth, clean cove lighting. Steady, elegant real-estate tour motion. No people, no text, the equipment stays exactly as it is.
